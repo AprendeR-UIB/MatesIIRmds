@@ -1,0 +1,2440 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Tema 1 Contrastos d’hipòtesis d’un i dos paràmetres | Matemàtiques II</title>
+  <meta name="description" content="Apunts Matemàtiques II bookdown::gitbook.">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+
+  <meta property="og:title" content="Tema 1 Contrastos d’hipòtesis d’un i dos paràmetres | Matemàtiques II" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Apunts Matemàtiques II bookdown::gitbook." />
+  <meta name="github-repo" content="cescrossello/MatesII" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Tema 1 Contrastos d’hipòtesis d’un i dos paràmetres | Matemàtiques II" />
+  
+  <meta name="twitter:description" content="Apunts Matemàtiques II bookdown::gitbook." />
+  
+
+<meta name="author" content="The Matemàtiques II team">
+
+
+<meta name="date" content="2020-01-17">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="index.html">
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Bioestadística II</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Presentació</a></li>
+<li class="chapter" data-level="1" data-path="contrastos-dhipotesis-dun-i-dos-parametres.html"><a href="contrastos-dhipotesis-dun-i-dos-parametres.html"><i class="fa fa-check"></i><b>1</b> Contrastos d’hipòtesis d’un i dos paràmetres</a><ul>
+<li class="chapter" data-level="1.1" data-path="contrastos-dhipotesis-dun-i-dos-parametres.html"><a href="contrastos-dhipotesis-dun-i-dos-parametres.html#test-t-per-a-una-mitjana"><i class="fa fa-check"></i><b>1.1</b> Test t per a una mitjana</a></li>
+<li class="chapter" data-level="1.2" data-path="contrastos-dhipotesis-dun-i-dos-parametres.html"><a href="contrastos-dhipotesis-dun-i-dos-parametres.html#test-t-per-a-dues-mitjanes"><i class="fa fa-check"></i><b>1.2</b> Test t per a dues mitjanes</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/cescrossello/Mates-II" target="blank">Publicat amb  bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Matemàtiques II</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="contrastos-dhipotesis-dun-i-dos-parametres" class="section level1">
+<h1><span class="header-section-number">Tema 1</span> Contrastos d’hipòtesis d’un i dos paràmetres</h1>
+<div id="test-t-per-a-una-mitjana" class="section level2">
+<h2><span class="header-section-number">1.1</span> Test t per a una mitjana</h2>
+<p>Si estam en una de les dues situacions següents:</p>
+<ul>
+<li><p><span class="math inline">\(X\)</span> una variable aleatòria normal de mitjana <span class="math inline">\(\mu\)</span> i prenem una mostra aleatòria simple de mida <span class="math inline">\(n\)</span> qualsevol</p></li>
+<li><p><span class="math inline">\(X\)</span> una variable aleatòria qualsevol de mitjana <span class="math inline">\(\mu\)</span> i prenem una mostra aleatòria simple de mida <span class="math inline">\(n\)</span> gran (diguem de com a mínim 30, o millor 40, subjectes)</p></li>
+</ul>
+<p>i volem realitzar un contrast
+<span class="math display">\[
+\left\{\begin{array}{l}
+H_{0}:\mu=\mu_0\\ 
+H_{1}:\mu \neq\mu_0\text{ o }\mu &gt;\mu_0\text{ o }\mu&lt;\mu_0
+\end{array}
+\right.
+\]</span>
+podem emprar el <strong>test t</strong> que ja hem explicat a la Secció <a href="#sec:exttest"><strong>??</strong></a>, basat en l’estadístic de contrast
+<span class="math display">\[
+T= \frac{\overline{X}-\mu_{0}}{{\widetilde{S}_X}/{\sqrt{n}}}
+\]</span>
+que, en les condicions donades i si <span class="math inline">\(\mu=\mu_0\)</span>, té una distribució (aproximadament, quan <span class="math inline">\(X\)</span> no és normal però <span class="math inline">\(n\)</span> és gran) <span class="math inline">\(t_{n-1}\)</span>.</p>
+
+<div class="example">
+<p><span id="exm:ttest1" class="example"><strong>Exemple 1.1  </strong></span>Una organització ecologista afirma que el pes mitjà dels individus adults d’una espècie ha disminuït dràsticament.
+Se sap per les dades històriques que el pes mitjà poblacional era de 460 g.</p>
+</div>
+
+<p>Una mostra aleatòria de 50 individus d’aquesta espècie ha donat una mitjana mostral de 428 g i una desviació típica mostral de 119 g. Amb aquestes dades, podem afirmar amb un nivell de significació del 5% que el pes mitjà és inferior a 460 g?</p>
+<ul>
+<li><p><em>Variable aleatòria d’interès</em>: <span class="math inline">\(X\)</span>: “Prenem un animaló d’aquests i mesuram el seu pes, en grams”, de mitjana <span class="math inline">\(\mu\)</span></p></li>
+<li><p><em>Contrast</em>:
+<span class="math display">\[
+\left\{\begin{array}{l}
+H_{0}:\mu=460\\
+H_{1}:\mu&lt;460
+\end{array}
+\right.
+\]</span></p></li>
+<li><p><em>Nivell de significació</em>: <span class="math inline">\(\alpha=0.05\)</span></p></li>
+<li><p><em>Estadístic</em>: Com que <span class="math inline">\(n=50\)</span> és gran, podem usar
+<span class="math display">\[
+T=\frac{\overline{X}-\mu_0}{{\widetilde{S}_X}/{\sqrt{n}}}
+\]</span>
+que sí <span class="math inline">\(H_0\)</span> és vertadera serà (aproximadament) t de Student amb <span class="math inline">\(n-1=49\)</span> graus de llibertat</p></li>
+<li><p><em>Valor de l’estadístic</em>:
+<span class="math display">\[
+\dfrac{428-460}{{119}/{\sqrt{50}}}=-1.9
+\]</span></p></li>
+<li><p><em>p-valor</em>:
+<span class="math display">\[
+P(T\leqslant-1.9)=\texttt{pt(-1.9,49)}=0.032
+\]</span></p></li>
+<li><p><em>Interval de confiança del 95%</em>:
+<span class="math display">\[
+\left(-\infty, \overline{X}-t_{n-1,\alpha}\cdot \frac{\widetilde{S}_X}{\sqrt{n}}\right]=(-\infty, 456.2]
+\]</span></p></li>
+<li><p><em>Decisió</em>: Com que el p-valor és més petit que 0.05, concloem (amb <span class="math inline">\(\alpha=0.05\)</span>) que el pes mitjà actual és més petit que 460 g. Amb un 95% de confiança podem afirmar que el pes mitjà actual és inferior a 456.2 g.</p></li>
+</ul>
+<p>Ho resumiríem dient:</p>
+<blockquote>
+<p>Hi ha evidència estadísticament significativa que el pes mitjà actual és menor que 460 g (p=0.03, IC 95% <span class="math inline">\(-\infty\)</span> a 456.2) i que per tant ha minvat en els darrers anys</p>
+</blockquote>
+</div>
+<div id="test-t-per-a-dues-mitjanes" class="section level2">
+<h2><span class="header-section-number">1.2</span> Test t per a dues mitjanes</h2>
+<p>Si estam en una de les situacions següents:</p>
+<ul>
+<li><p><span class="math inline">\(X_1,X_2\)</span> dues variables aleatòries normals de mitjanes <span class="math inline">\(\mu_1\)</span>, <span class="math inline">\(\mu_2\)</span> i en prenem mostres aleatòries simples de mides <span class="math inline">\(n_1\)</span>, <span class="math inline">\(n_2\)</span> qualssevol</p></li>
+<li><p><span class="math inline">\(X_1,X_2\)</span> dues variables aleatòries qualssevol de mitjanes <span class="math inline">\(\mu_1\)</span>, <span class="math inline">\(\mu_2\)</span> i i en prenem mostres aleatòries simples de mides <span class="math inline">\(n_1\)</span>, <span class="math inline">\(n_2\)</span> grans (diguem de com a mínim 30, o millor 40, subjectes cadascuna)</p></li>
+</ul>
+<p>i volem realitzar un contrast
+<span class="math display">\[
+\left\{\begin{array}{l}
+H_{0}:\mu_1=\mu_2\\ 
+H_{1}:\mu_1 \neq\mu_2\text{ o }\mu_1 &gt;\mu_2\text{ o }\mu_1&lt;\mu_2
+\end{array}
+\right.
+\]</span>
+podem usar un <strong>test t</strong>, basat en un estadístic de contrast <span class="math inline">\(T\)</span> adequat que segueix una llei t de Student.</p>
+<p>L’estadístic de contrast concret i els graus de llibertat de la seva distribució t de Student depenen:</p>
+<ul>
+<li><p>De si les dues mostres són <strong>independents</strong> (hem mesurat <span class="math inline">\(X_1\)</span> i <span class="math inline">\(X_2\)</span> sobre dues mostres obtingudes de manera independent una de l’altra) o <strong>aparellades</strong> (hem mesurat <span class="math inline">\(X_1\)</span> i <span class="math inline">\(X_2\)</span> sobre els subjectes d’una mateixa mostra o hi ha un aparellament natural entre els subjectes de les dues mostres)</p></li>
+<li><p>Quan les mostres són independents, també depenen de si <span class="math inline">\(X_1\)</span> i <span class="math inline">\(X_2\)</span> tenen la <em>mateixa variància</em> o no (que s’ha de decidir amb un altre contrast); per a mostres de la mateixa mida de variables normals, la conclusió sol ser la mateixa</p></li>
+</ul>
+<p>Quan les mostres són aparellades, podem entendre que tenim una sola mostra, formada per les parelles. En aquest cas, traduïm
+<span class="math display">\[
+\left\{\begin{array}{l}
+H_{0}:\mu_1=\mu_2\\ 
+H_{1}:\mu_1 \neq\mu_2\text{ o }\mu_1 &gt;\mu_2\text{ o }\mu_1&lt;\mu_2
+\end{array}
+\right.
+\]</span>
+en
+<span class="math display">\[
+\left\{\begin{array}{l}
+H_{0}:\mu_1=\mu_2\\ 
+H_{1}:\mu_1-\mu_2 \neq0\text{ o }\mu_1-\mu_2 &gt;0\text{ o }\mu_1-\mu_2&lt;0
+\end{array}
+\right.
+\]</span>
+on <span class="math inline">\(\mu_1-\mu_2\)</span> és la mitjana de <span class="math inline">\(X_1-X_2\)</span>, i el consideram un contrast d’una sola mitjana, emprant com a mostra les diferències <span class="math inline">\(X_1-X_2\)</span> a les parelles.</p>
+<p>Per tant, quan les mostres són aparellades, si diem <span class="math inline">\(\overline{D}\)</span> a la mitjana mostral de <span class="math inline">\(X_1-X_2\)</span> i <span class="math inline">\(\widetilde{S}_D\)</span> a la desviació típica mostral de <span class="math inline">\(X_1-X_2\)</span> sobre la mostra de parelles i diem <span class="math inline">\(n\)</span> a la mida de la mostra de parelles, l’estadístic de contrast és
+<span class="math display">\[
+T=\frac{\overline{D}}{\widetilde{S}_D/\sqrt{n}}
+\]</span>
+que quan <span class="math inline">\(\mu_1-\mu_2=0\)</span> té (aproximadament, en el cas que <span class="math inline">\(X_1,X_2\)</span> no siguin normals però la <span class="math inline">\(n\)</span> sigui gran) distribució <span class="math inline">\(t_{n-1}\)</span>.</p>
+<p>Quan les mostres són independents, siguin <span class="math inline">\(\overline{X}_1\)</span> i <span class="math inline">\(\widetilde{S}^2_1\)</span> la mitjana mostral i la variància mostral de la mostra de <span class="math inline">\(X_1\)</span> i <span class="math inline">\(\overline{X}_2\)</span> i <span class="math inline">\(\widetilde{S}^2_2\)</span> la mitjana mostral i la variància mostral de la mostra de <span class="math inline">\(X_2\)</span>. Diguem, a més, <span class="math inline">\(\sigma_1^2\)</span> i <span class="math inline">\(\sigma_2^2\)</span> a les variàncies (poblacionals) de <span class="math inline">\(X_1\)</span> i <span class="math inline">\(X_2\)</span>. Aleshores:</p>
+<ul>
+<li><p>Si <span class="math inline">\(\sigma_1^2=\sigma_2^2\)</span>, l’estadístic de contrast és
+<span class="math display">\[
+T=\frac{\overline{X}_1-\overline{X}_2}{\sqrt{(\frac{1}{n_1}+\frac{1}{n_2})\cdot 
+\frac{(n_1-1)\widetilde{S}_1^2+(n_2-1)\widetilde{S}_2^2}{n_1+n_2-2}}}
+\]</span>
+que, quan <span class="math inline">\(\mu_1=\mu_2\)</span>, té distribució (aproximadament, en el cas que <span class="math inline">\(X_1,X_2\)</span> no siguin normals però <span class="math inline">\(n_1\)</span> i <span class="math inline">\(n_2\)</span> siguin grans) <span class="math inline">\(t_{n_1+n_2-2}\)</span></p></li>
+<li><p>Si <span class="math inline">\(\sigma_1^2\neq \sigma_2^2\)</span>, l’estadístic de contrast és
+<span class="math display">\[
+T=\frac{\overline{X}_1-\overline{X}_2}{\sqrt{\frac{\widetilde{S}_1^2}{n_1}+\frac{\widetilde{S}_2^2}{n_2}}}
+\]</span>
+que, quan <span class="math inline">\(\mu_1=\mu_2\)</span>, té distribució (aproximadament, en el cas que <span class="math inline">\(X_1,X_2\)</span> no siguin normals però <span class="math inline">\(n_1\)</span> i <span class="math inline">\(n_2\)</span> siguin grans) <span class="math inline">\(t_{\nu}\)</span> amb
+<span class="math display">\[
+\nu=\frac{\displaystyle \left( \frac{\widetilde{S}_1^2}{n_1}+\frac{\widetilde{S}_2^2}{n_2}\right)^2}
+{\displaystyle \frac{1}{n_1-1}\left(\frac{\widetilde{S}_1^2}{n_1}\right)^2+\frac{1}{n_2-1}\left(\frac{\widetilde{S}_2^2}{n_2}\right)^2}
+\]</span></p></li>
+</ul>
+
+<div class="rmdnote">
+No cal que sapigueu aquestes fórmules per a mostres independents, només que l’estadístic de contrast i la seva distribució depenen de si les variàncies poblacionals són iguals o diferents.
+</div>
+
+<p>El nombre de graus de llibertat de la distribució t de Student usada en un contrast sobre dues mostres de mida <span class="math inline">\(n\)</span>:</p>
+<ul>
+<li><p>Si les mostres són aparellades, és <span class="math inline">\(n-1\)</span></p></li>
+<li><p>Si les mostres són independents, és aproximadament <span class="math inline">\(2(n-1)\)</span></p></li>
+</ul>
+<p>Això fa que la probabilitat d’error de Tipus I del contrast amb mostres aparellades (a igualtat de la resta de valors) sigui més petita. Per exemple, suposem que volem realitzar el contrast
+<span class="math display">\[
+\left\{
+\begin{array}{l}
+H_0: \mu_1=\mu_2\\
+H_1: \mu_1&gt;\mu_2
+\end{array}
+\right.
+\]</span>
+i que l’estadístic de contrast <span class="math inline">\(T\)</span> sobre dues mostres de mides <span class="math inline">\(n_1=n_2=20\)</span> dóna 1.7. Aleshores</p>
+<ul>
+<li><p>Si les mostres són independents,
+<span class="math display">\[
+\text{p-valor}=P(T&gt;1.7)\approx \texttt{1-pt(1.7,38)}=0.0487
+\]</span></p></li>
+<li><p>Si les mostres són aparellades,
+<span class="math display">\[
+\text{p-valor}=P(T&gt;1.7)=\texttt{1-pt(1.7,19)}=0.0527
+\]</span></p></li>
+</ul>
+<p>Per tant, amb nivell de significació <span class="math inline">\(\alpha=0.05\)</span>, rebutjaríem la hipòtesi nul·la amb les mostres independents i l’acceptaríem amb les mostres aparellades.</p>
+<p>Tots aquests tests t estan implementats en la funció de R</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">t.test</span>(x, y, <span class="dt">mu=</span>..., <span class="dt">alternative=</span>..., <span class="dt">conf.level=</span>..., <span class="dt">paired=</span>..., <span class="dt">var.equal=</span>...)</code></pre>
+<p>on:</p>
+<ul>
+<li><p>Entram com a <code>x</code> una mostra i a <code>mu</code> el valor amb el qual volem contrastar <span class="math inline">\(\mu\)</span>, o entram com a <code>x</code> i <code>y</code> les
+mostres de <span class="math inline">\(X_1\)</span> i de <span class="math inline">\(X_2\)</span></p></li>
+<li><p>A <code>alternative</code> hi hem d’indicar el tipus de contrast segons la hipòtesi alternativa:</p>
+<ul>
+<li><code>alternative=&quot;two.sided&quot;</code> (<span class="math inline">\(\neq\)</span>, el valor per defecte)</li>
+<li><code>alternative=&quot;less&quot;</code> (<span class="math inline">\(&lt;\)</span>)</li>
+<li><code>alternative=&quot;greater&quot;</code> (<span class="math inline">\(&gt;\)</span>)</li>
+</ul></li>
+<li><p>En el cas d’un contrast de dues mitjanes, a <code>paired</code> hi hem d’indicar si les mostres són independents, amb <code>paired=FALSE</code> (el valor per defecte), o aparellades, amb <code>paired=TRUE</code></p></li>
+<li><p>En el cas d’un contrast de dues mitjanes amb mostres independents, a <code>var.equal</code> hi hem d’indicar si les variàncies són iguals, amb <code>var.equal=TRUE</code>, o diferents, amb <code>var.equal=FALSE</code> (el valor per defecte)</p></li>
+<li><p>A <code>conf.level</code> hi hem d’especificar el nivell de confiança <span class="math inline">\(1-\alpha\)</span>: el seu valor per defecte és 0.95, que correspon al nivell de significació <span class="math inline">\(\alpha=0.05\)</span> usual</p></li>
+</ul>
+
+<div class="example">
+<p><span id="exm:temphomes1" class="example"><strong>Exemple 1.2  </strong></span>La temperatura mitjana del cos humà, és el valor usualment acceptat de 98.6<sup>o</sup> F (37<sup>o</sup> C)?</p>
+</div>
+
+<p>Per contrastar-ho, emprarem la taula de dades <strong>Body_Temperature.txt</strong>, construïda per P.A. Mackowiak, S. S. Wasserman i M.M. Levine en 1992 precisament per realitzar aquest contrast i que trobareu a l’Aula Digital.</p>
+<ul>
+<li><p><em>Variable aleatòria d’interès</em>: <span class="math inline">\(X\)</span>: “Prenem una persona i li miram la temperatura, en graus F”, de mitjana <span class="math inline">\(\mu\)</span></p></li>
+<li><p><em>Contrast</em>:
+<span class="math display">\[
+\left\{\begin{array}{l}
+H_{0}:\mu=98.6\\
+H_{1}:\mu \neq 98.6
+\end{array}
+\right.
+\]</span></p></li>
+</ul>
+<p>Realitzarem aquest contrast amb R. Carregam la taula de temperatures, que prèviament hem guardat en el directori de treball de R, en un dataframe que anomenarem <code>BT</code>.</p>
+<pre class="sourceCode r"><code class="sourceCode r">BT=<span class="kw">read.table</span>(<span class="st">&quot;Body_Temperature.txt&quot;</span>)
+<span class="kw">head</span>(BT)</code></pre>
+<pre><code>##   Gender HeartRate Temperature
+## 1      M        69        97.0
+## 2      M        72        98.8
+## 3      M        68        96.2
+## 4      F        75        97.8
+## 5      F        68        98.8
+## 6      M        79       101.3</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(BT)</code></pre>
+<pre><code>## &#39;data.frame&#39;:    230 obs. of  3 variables:
+##  $ Gender     : Factor w/ 2 levels &quot;F&quot;,&quot;M&quot;: 2 2 2 1 1 2 1 1 1 2 ...
+##  $ HeartRate  : int  69 72 68 75 68 79 71 73 77 81 ...
+##  $ Temperature: num  97 98.8 96.2 97.8 98.8 ...</code></pre>
+<p>Veiem que la taula <code>BT</code> consta de 230 individus i 3 variables mesurades sobre cadascun d’ells: el sexe (variable <code>Gender</code>, amb valors <code>F</code> per a dona i <code>M</code> per a home), les pulsacions per minut (variable <code>HeartRate</code>) i la temperatura en graus F (variable <code>Temperature</code>).</p>
+<p>Com que la mostra és gran, <span class="math inline">\(n=230\)</span>, podem emprar un test t. Emprarem la funció <code>t.test</code>, aplicant-la al vector de temperatures i al valor que contrastam, 98.6, entrat amb el parametre <code>mu</code>. El paràmetre <code>alternative=&quot;two.sided&quot;</code> indica que el test serà bilateral.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">t.test</span>(BT<span class="op">$</span>Temperature, <span class="dt">mu=</span><span class="fl">98.6</span>, <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>)</code></pre>
+<pre><code>## 
+##  One Sample t-test
+## 
+## data:  BT$Temperature
+## t = -5.7205, df = 229, p-value = 3.301e-08
+## alternative hypothesis: true mean is not equal to 98.6
+## 95 percent confidence interval:
+##  98.17563 98.39307
+## sample estimates:
+## mean of x 
+##  98.28435</code></pre>
+<p>Del resultat cal destacar:</p>
+<ul>
+<li><p>El p-valor, <code>p-value</code>, en el nostre cas <span class="math inline">\(3.301\times 10^{-8}\)</span> (R l’ha escrit en notació científica: 3.301e-08).</p></li>
+<li><p>L’IC 95%, <code>95 percent confidence interval</code>, per al valor que contrastam (aquí, la temperatura mitjana poblacional), en el nostre cas [98.17563, 98.39307].</p></li>
+<li><p>La mitjana mostral de la mostra, <code>sample of x</code>, en el nostre cas 98.28435.</p></li>
+</ul>
+<p>La conclusió és:</p>
+<ul>
+<li><p>El p-valor és <span class="math inline">\(3\times 10^{-8}\)</span>, per la qual cosa obtenim evidència estadísticament significativa que la temperatura mitjana del cos humà no és de 98.6<sup>o</sup> F (37<sup>o</sup> C)</p></li>
+<li><p>A més, com com que l’IC 95% per a la temperatura mitjana del cos humà que hem obtingut va de 98.2 a 98.4 (36.78 a 36.89<sup>o</sup> C), hem trobat evidència a aquest nivell de confiança que aquesta temperatura mitjana és (lleugerament) inferior 98.6<sup>o</sup> F</p></li>
+</ul>
+<p>Ho resumiríem dient que hi ha evidència estadísticament significativa que la temperatura mitjana del cos humà no és de 98.6<sup>o</sup> F (p=3·10<sup>-8</sup>, IC 95% 98.2 a 98.4).</p>
+
+<div class="example">
+<p><span id="exm:temphomesdones" class="example"><strong>Exemple 1.3  </strong></span>La temperatura mitjana dels homes, és més alta que la de les dones?</p>
+</div>
+
+<p>Per resoldre aquesta qüestió, emprarem la mateixa taula de dades que abans.</p>
+<ul>
+<li><p><em>Variables aleatòries d’interès</em>:</p>
+<ul>
+<li><span class="math inline">\(X_h\)</span>: temperatura d’un home en graus F, de mitjana <span class="math inline">\(\mu_h\)</span></li>
+<li><span class="math inline">\(X_d\)</span>: temperatura d’una dona en graus F, de mitjana <span class="math inline">\(\mu_d\)</span></li>
+</ul></li>
+<li><p><em>Contrast</em>:
+<span class="math display">\[
+\left\{\begin{array}{l}
+H_{0}:\mu_h=\mu_d\\
+H_{1}:\mu_h&gt; \mu_d
+\end{array}
+\right.
+\]</span></p></li>
+</ul>
+<p>Per poder emprar un t test, primer ens cal saber si hi ha nombres suficientment grans d’homes i dones a la nostra mostra per emprar-lo. Per això calcularem la taula de freqüències dels sexes, aplicant la funció <code>table</code> al vector <code>BT$Gender</code> dels sexes:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">table</span>(BT<span class="op">$</span>Gender)</code></pre>
+<pre><code>## 
+##   F   M 
+## 116 114</code></pre>
+<p>Són prou grans.</p>
+<p>Anam a crear uns vectors amb les temperatures d’homes i de dones. Recordau que per extreure d’un dataframe el vector de valors d’una variable <code>V1</code> per als individus que prenen un valor concret <code>X</code> en una altra variable <code>V2</code> s’empra la construcció <code>dataframe[V2==X,V1]</code>. Així, les temperatures dels homes (individus on la variable <code>Gender</code> és igual a <code>M</code>) són</p>
+<pre class="sourceCode r"><code class="sourceCode r">BT[BT<span class="op">$</span>Gender<span class="op">==</span><span class="st">&quot;M&quot;</span>,<span class="st">&quot;Temperature&quot;</span>]</code></pre>
+<pre><code>##   [1]  97.0  98.8  96.2 101.3  99.2  97.5  97.3  98.6  99.0  98.0  97.0
+##  [12]  97.6  99.0  97.1  98.9  98.6  98.9  97.2  98.0  99.4  98.8  98.5
+##  [23]  99.6  97.3  96.5  97.8  98.3  98.1  98.8  97.7  98.3  97.7  99.1
+##  [34]  98.8  97.4  96.9  98.0  98.4 100.3  97.0  99.0 100.6  98.0  98.5
+##  [45]  97.0  97.0  98.6  97.8  97.3  96.3  96.7  96.9  97.0  97.1  97.1
+##  [56]  97.1  97.2  97.3  97.4  97.4  97.4  97.4  97.5  97.5  97.6  97.6
+##  [67]  97.6  97.7  97.8  97.8  97.8  97.8  97.9  97.9  98.0  98.0  98.0
+##  [78]  98.0  98.0  98.0  98.1  98.1  98.2  98.2  98.2  98.2  98.3  98.3
+##  [89]  98.4  98.4  98.4  98.4  98.5  98.5  98.6  98.6  98.6  98.6  98.6
+## [100]  98.6  98.7  98.7  98.8  98.8  98.8  98.9  99.0  99.0  99.0  99.1
+## [111]  99.2  99.3  99.4  99.5</code></pre>
+<p>Bé, cream els vectors <span class="math inline">\(X_h\)</span> (homes) y <span class="math inline">\(X_d\)</span> (dones)</p>
+<pre class="sourceCode r"><code class="sourceCode r">X_h=BT[BT<span class="op">$</span>Gender<span class="op">==</span><span class="st">&quot;M&quot;</span>,<span class="st">&quot;Temperature&quot;</span>]  <span class="co">#temperatures d&#39;homes</span>
+X_d=BT[BT<span class="op">$</span>Gender<span class="op">==</span><span class="st">&quot;F&quot;</span>,<span class="st">&quot;Temperature&quot;</span>]  <span class="co">#temperatures de dones</span></code></pre>
+<p>Per portar a terme un test t per comparar dues mitjanes, aplicam la funció <code>t.test</code> als vectors <code>X_h</code>i <code>X_d</code> amb paràmetre <code>alternative=&quot;greater&quot;</code> per indicar que el test és unilateral: la hipòtesi alternativa és que la mitjana de la primera població (homes) és més gran que la de la segona (dones). En aquest exemple, a més, especificarem que les mostres són independents amb <code>paired=FALSE</code> (no caldria, ja que és el valor per defecte) i a més hem d’especificar si les variàncies poblacionals són iguals (<code>var.equal=TRUE</code>) o diferents (<code>var.equal=FALSE</code>). El que farem serà provar quan les variàncies són iguals i quan són diferents: si les dues conclusions són la mateixa, aquesta serà la conclusió que prendrem.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">t.test</span>(X_h, X_d, <span class="dt">alternative=</span><span class="st">&quot;greater&quot;</span>,<span class="dt">paired=</span><span class="ot">FALSE</span>, <span class="dt">var.equal=</span><span class="ot">TRUE</span>)</code></pre>
+<pre><code>## 
+##  Two Sample t-test
+## 
+## data:  X_h and X_d
+## t = -2.5379, df = 228, p-value = 0.9941
+## alternative hypothesis: true difference in means is greater than 0
+## 95 percent confidence interval:
+##  -0.4569566        Inf
+## sample estimates:
+## mean of x mean of y 
+##  98.14474  98.42155</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">t.test</span>(X_h, X_d, <span class="dt">alternative=</span><span class="st">&quot;greater&quot;</span>,<span class="dt">paired=</span><span class="ot">FALSE</span>, <span class="dt">var.equal=</span><span class="ot">FALSE</span>)</code></pre>
+<pre><code>## 
+##  Welch Two Sample t-test
+## 
+## data:  X_h and X_d
+## t = -2.5358, df = 225.32, p-value = 0.9941
+## alternative hypothesis: true difference in means is greater than 0
+## 95 percent confidence interval:
+##  -0.4571095        Inf
+## sample estimates:
+## mean of x mean of y 
+##  98.14474  98.42155</code></pre>
+<p>En tots dos casos obtenim un p-valor (<code>p-value</code>) gran i un IC 95 % (<code>95 percent confidence interval</code>) per a la diferència de les mitjanes que conté el 0, per la qual cosa no podem descartar que les dues mitjanes siguin iguals.</p>
+<p>Ho resumiríem dient que no hi ha evidència estadísticament significativa que la temperatura mitjana de les dones sigui més baixa que la dels homes (p=0.99, IC 95% -0.46 a <span class="math inline">\(\infty\)</span>).</p>
+<p>Vegem, si <span class="math inline">\(\overline{X_h}=98.14\)</span> i <span class="math inline">\(\overline{X_d}=98.42\)</span>, com volíeu que obtinguéssim evidència que <span class="math inline">\(\mu_h&gt;\mu_d\)</span>? <em>Mirau sempre les dades primer!</em></p>
+<p><strong>Exercici</strong>: Emprant les mateixes dades, trobau evidència que <span class="math inline">\(\mu_h&lt;\mu_d\)</span>? I que <span class="math inline">\(\mu_h\neq \mu_d\)</span>?</p>
+<div class="figure" style="text-align: center"><span id="fig:base"></span>
+<img src="Bioestadistica-II_files/figure-html/tempcorp3.png" alt="Spoiler" width="50%" />
+<p class="caption">
+Figura 1.1: Spoiler
+</p>
+</div>
+
+<div class="example">
+<p><span id="exm:oatbran" class="example"><strong>Exemple 1.4  </strong></span>Desdijunar segó de civada (<em>oat bran</em>) en lloc de flocs de blat de moro (<em>corn flakes</em>), ajuda a reduir el nivell de colesterol?</p>
+</div>
+
+<p>Per resoldre aquesta qüestió, emprarem la taula de dades <strong>oatbran.txt</strong>, que trobareu a l’Aula Digital. Aquestes dades es recolliren en un assaig creuat sobre 14 individus. A cada un d’ells se li assignà un dels dos desdijunis i el prengueren durant 15 dies. Al final d’aquest període, se’ls analitzà el nivell de colesterol en sang. Passat un mes de descans, cada participant va desdijunar durant 15 l’altra dieta, i al final se’ls tornà a analitzar el nivell de colesterol en sang.</p>
+<!-- (J. Anderson \textsl{et a el}, ``Oat-bran cereal lowers serum total and LDL cholesterol in hypercholesterolemic men.'' \textsl{The American journal of clinical nutrition} 52 (1990), 495--499)
+-->
+<ul>
+<li><p><em>Variables aleatòries d’interès</em>:</p>
+<ul>
+<li><span class="math inline">\(X_{ob}\)</span>: Nivell de colesterol en sang d’una persona que consumeix <em>oat bran</em>, de mitjana <span class="math inline">\(\mu_{ob}\)</span></li>
+<li><span class="math inline">\(X_{cf}\)</span>: nivell de colesterol en sang d’una persona que consumeix <em>corn flakes</em>, de mitjana <span class="math inline">\(\mu_{cf}\)</span></li>
+</ul></li>
+<li><p><em>Contrast</em>:
+<span class="math display">\[
+\left\{\begin{array}{l}
+H_{0}:\mu_{ob}=\mu_{cf}\\
+H_{1}:\mu_{ob}&lt; \mu_{cf}
+\end{array}
+\right.
+\]</span></p></li>
+</ul>
+<p>Carregam la taula de dades, que prèviament hem guardat en el directori de treball de R, en un dataframe al que anomenam <code>OBR</code> i consultam la seva estructura:</p>
+<pre class="sourceCode r"><code class="sourceCode r">OBR=<span class="kw">read.table</span>(<span class="st">&quot;oatbran.txt&quot;</span>,<span class="dt">header=</span><span class="ot">TRUE</span>)
+<span class="kw">head</span>(OBR)</code></pre>
+<pre><code>##   CORNFLK OATBRAN
+## 1    4.61    3.94
+## 2    6.42    5.57
+## 3    5.40    5.85
+## 4    4.54    4.80
+## 5    3.98    3.68
+## 6    3.82    2.96</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(OBR)</code></pre>
+<pre><code>## &#39;data.frame&#39;:    14 obs. of  2 variables:
+##  $ CORNFLK: num  4.61 6.42 5.4 4.54 3.98 3.82 5.01 4.34 3.8 4.56 ...
+##  $ OATBRAN: num  3.94 5.57 5.85 4.8 3.68 2.96 4.41 3.72 3.49 3.94 ...</code></pre>
+<p>N’extraiem les dues variables en forma de vectors:</p>
+<pre class="sourceCode r"><code class="sourceCode r">OAT=OBR<span class="op">$</span>OATBRAN
+CFL=OBR<span class="op">$</span>CORNFLK</code></pre>
+<p>14 dades són poques, si volem aplicar un test t necessitam que provinguin d’una distribució normal. Per decidir si és veritat o no, més endavant explicarem contrastos de bondat d’ajustament, amb hipòtesi nul·la “Aquesta mostra prové d’una variable aleatòria amb tal distribució” i hipòtesi alternativa “No és veritat que aquesta mostra provengui d’una variable aleatòria amb tal distribució”. Per ara ens conformarem amb contrastar-ho a partir d’un gràfic.</p>
+<p>A Matemàtiques I us explicàvem que podeu dibuixar un histograma de les dades amb la densitat estimada de la distribució que les ha generades i la densitat de la normal de la seva mitjana i desviació típica, i mirar si sembla que les dades segueixen aquesta darrera densitat. Però amb poques dades això és mal de veure:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">hist</span>(OAT,<span class="dt">freq=</span><span class="ot">FALSE</span>, <span class="dt">breaks=</span><span class="dv">4</span>,<span class="dt">col=</span><span class="st">&quot;light blue&quot;</span>,<span class="dt">xlab=</span><span class="st">&quot;Colesterol&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;Densitat&quot;</span>, <span class="dt">main=</span><span class="st">&quot;Histograma de OATBRAN&quot;</span>)
+<span class="kw">lines</span>(<span class="kw">density</span>(OAT),<span class="dt">lty=</span><span class="dv">2</span>,<span class="dt">lwd=</span><span class="dv">2</span>)
+<span class="kw">curve</span>(<span class="kw">dnorm</span>(x,<span class="kw">mean</span>(OAT),<span class="kw">sd</span>(OAT)),<span class="dt">col=</span><span class="st">&quot;red&quot;</span>,<span class="dt">lwd=</span><span class="dv">2</span>,<span class="dt">add=</span><span class="ot">TRUE</span>)
+<span class="kw">legend</span>(<span class="st">&quot;topright&quot;</span>,<span class="dt">legend=</span><span class="kw">c</span>(<span class="st">&quot;Densitat estimada&quot;</span>,<span class="st">&quot;Normal&quot;</span>),<span class="dt">col=</span><span class="kw">c</span>(<span class="st">&quot;black&quot;</span>,<span class="st">&quot;red&quot;</span>),<span class="dt">lty=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">1</span>),<span class="dt">cex=</span><span class="fl">0.5</span>)
+
+<span class="kw">hist</span>(CFL,<span class="dt">freq=</span><span class="ot">FALSE</span>, <span class="dt">breaks=</span><span class="dv">4</span>,<span class="dt">col=</span><span class="st">&quot;light blue&quot;</span>,<span class="dt">xlab=</span><span class="st">&quot;Colesterol&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;Densitat&quot;</span>, <span class="dt">main=</span><span class="st">&quot;Histograma de CORNFLK&quot;</span>,<span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="fl">0.5</span>))
+<span class="kw">curve</span>(<span class="kw">dnorm</span>(x,<span class="kw">mean</span>(CFL),<span class="kw">sd</span>(CFL)),<span class="dt">col=</span><span class="st">&quot;red&quot;</span>,<span class="dt">lwd=</span><span class="dv">2</span>,<span class="dt">add=</span><span class="ot">TRUE</span>)
+<span class="kw">lines</span>(<span class="kw">density</span>(CFL),<span class="dt">lty=</span><span class="dv">2</span>,<span class="dt">lwd=</span><span class="dv">2</span>)
+<span class="kw">legend</span>(<span class="st">&quot;topright&quot;</span>,<span class="dt">legend=</span><span class="kw">c</span>(<span class="st">&quot;Densitat estimada&quot;</span>,<span class="st">&quot;Normal&quot;</span>),<span class="dt">col=</span><span class="kw">c</span>(<span class="st">&quot;black&quot;</span>,<span class="st">&quot;red&quot;</span>),<span class="dt">lty=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">1</span>),<span class="dt">cex=</span><span class="fl">0.5</span>)</code></pre>
+<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-12-1.png" width="480" style="display: block; margin: auto;" /><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-12-2.png" width="480" style="display: block; margin: auto;" /></p>
+<p>En aquest cas, una opció millor és dibuixar un <em>q-q-plot</em>. Un <strong>q-q-plot</strong> d’una mostra i una distribució teòrica és el gràfic dels <strong>q-q-punts</strong>: els punts de la forma (q-quantil de la distribució, q-quantil de la mostra), per a tots els valors de q que tengui sentit donada la mida de la mostra. Quan la distribució amb la que comparam la mostra és una normal, se’n diu un <strong>normal-plot</strong>.</p>
+<p>Si la mostra prové de la distribució emprada en el q-q-plot, és d’esperar que el q-quantil de la mostra sigui aproximadament igual al q-quantil de la distribució i per tant que aquests q-q-punts estiguin prop de la diagonal principal <span class="math inline">\(y=x\)</span>.</p>
+<p>La funció <code>qqPlot</code> del paquet <strong>car</strong> produeix uns <em>normal-plots</em> que contenen una regió de confiança del 95% que especifica què vol dir això que “els q-q-punts estiguin prop de la diagonal principal <span class="math inline">\(y=x\)</span>”, amb el significat usual de nivell de confiança. Ja l’explicarem en detall a la lliçó de R sobre contrastos de bondat d’ajustament.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(car)
+<span class="kw">qqPlot</span>(OAT,<span class="dt">mean=</span><span class="kw">mean</span>(OAT),<span class="dt">sd=</span><span class="kw">sd</span>(OAT),
+        <span class="dt">ylab=</span><span class="st">&quot;Quantils de OATBRAN&quot;</span>,<span class="dt">xlab=</span><span class="st">&quot;Quantils de normal&quot;</span>,<span class="dt">pch=</span><span class="dv">20</span>,<span class="dt">id=</span><span class="ot">FALSE</span>)
+<span class="kw">qqPlot</span>(CFL,<span class="dt">mean=</span><span class="kw">mean</span>(CFL),<span class="dt">sd=</span><span class="kw">sd</span>(CFL),
+       <span class="dt">ylab=</span><span class="st">&quot;Quantils de CORNFLK&quot;</span>,<span class="dt">xlab=</span><span class="st">&quot;Quantils de normal&quot;</span>,<span class="dt">pch=</span><span class="dv">20</span>,<span class="dt">id=</span><span class="ot">FALSE</span>)</code></pre>
+<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-13-1.png" width="480" style="display: block; margin: auto;" /><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-13-2.png" width="480" style="display: block; margin: auto;" /></p>
+<p>Aceptarem per tant que les nostres dades provenen de dues distribucions normals: podem fer servir la funció <code>t.test</code>.</p>
+<p>En aquest cas, el test t és de mostres aparellades (hem mesurat les dues variable aleatòries sobre els mateixos individus), per la qual cosa hem d’especificar <code>paired=TRUE</code> i no hem d’especificar el paràmetre <code>var.equal</code>. Emprarem el paràmetre <code>alternative=&quot;less&quot;</code> per indicas que el test és unilateral: la mitjana de la primera població és més petita que la de la segona</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">t.test</span>(OAT,CFL,<span class="dt">alternative=</span><span class="st">&quot;less&quot;</span>, <span class="dt">paired=</span><span class="ot">TRUE</span>)</code></pre>
+<pre><code>## 
+##  Paired t-test
+## 
+## data:  OAT and CFL
+## t = -3.3195, df = 13, p-value = 0.002768
+## alternative hypothesis: true difference in means is less than 0
+## 95 percent confidence interval:
+##        -Inf -0.1626132
+## sample estimates:
+## mean of the differences 
+##              -0.3485714</code></pre>
+<p>Com abans, el resultat inclou el p-valor, l’IC 95% per a la mitjana de les diferències (que és igual a la diferència de les mitjanes: recordau que <span class="math inline">\(E(X-Y)=E(X)-E(Y)\)</span>) i ara, com a novetat, la mitjana de les diferències (<code>mean of the differences</code>) en comptes de les dues mitjanes, ja que el que ens interessa és contrastar si la mitjana de les diferències és menor que 0.</p>
+<p>La conclusió és que hi ha evidència estadísticament significativa que desdijunar <em>oatbran</em> redueix el colesterol respecte dels <em>corn flakes</em> (p=0.003, IC 95% <span class="math inline">\(-\infty\)</span> a -0.163).</p>
+
+<div class="example">
+<p><span id="exm:unnamed-chunk-15" class="example"><strong>Exemple 1.5  </strong></span>Volem contrastar si el nivell mitjà de triglicèrids als nadons de 2 setmanes és més alt que el del seu cordó umbilical. Es prengué una mostra de 25 nadons i es mesuraren els nivells de triglicèrids en plasma a la sang del seu cordó umbilical i en la seva sang al cap de 2 setmanes de néixer. Tenim les dades a la taula <strong>trignadons.txt</strong> que trobareu a l’Aula Digital. Les seves variables són <code>CU</code>, les mesures del cordó umbilical, <code>DS</code>, les mesures al cap de dues setmanes, i <code>Nin</code>, que identifica el nadó.</p>
+</div>
+
+<ul>
+<li><p><em>Variables aleatòries d’interès</em>:</p>
+<ul>
+<li><span class="math inline">\(X_{cu}\)</span>: Nivell de triglicèrids en plasma a la sang del cordó umbilical d’un nadó, de mitjana <span class="math inline">\(\mu_{cu}\)</span></li>
+<li><span class="math inline">\(X_{ds}\)</span>: Nivell de triglicèrids en plasma d’un nadó de 2 setmanes, de mitjana <span class="math inline">\(\mu_{cf}\)</span></li>
+</ul></li>
+<li><p><em>Contrast</em>:
+<span class="math display">\[
+\left\{\begin{array}{l}
+H_{0}:\mu_{cu}=\mu_{ds}\\
+H_{1}:\mu_{cu}&lt; \mu_{ds}
+\end{array}
+\right.
+\]</span></p></li>
+</ul>
+<p>Carregam la taula de dades, que prèviament hem guardat en el directori de treball de R, en un dataframe al que anomenam <code>TGN</code> i consultam la seva estructura:</p>
+<pre class="sourceCode r"><code class="sourceCode r">TGN=<span class="kw">read.table</span>(<span class="st">&quot;trignadons.txt&quot;</span>,<span class="dt">header=</span><span class="ot">TRUE</span>)
+<span class="kw">head</span>(TGN)</code></pre>
+<pre><code>##   Child CU  DS
+## 1     1 70 118
+## 2     2 74 114
+## 3     3 83  74
+## 4     4 78  96
+## 5     5 75  89
+## 6     6 82  99</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(TGN)</code></pre>
+<pre><code>## &#39;data.frame&#39;:    25 obs. of  3 variables:
+##  $ Child: int  1 2 3 4 5 6 7 8 9 10 ...
+##  $ CU   : int  70 74 83 78 75 82 75 71 83 76 ...
+##  $ DS   : int  118 114 74 96 89 99 103 98 119 89 ...</code></pre>
+<p>Com que 25 dades són poques, miram si segueixen distribucions normals amb els seus normal-plots:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">qqPlot</span>(TGN<span class="op">$</span>CU,<span class="dt">mean=</span><span class="kw">mean</span>(TGN<span class="op">$</span>CU),<span class="dt">sd=</span><span class="kw">sd</span>(TGN<span class="op">$</span>CU),
+        <span class="dt">ylab=</span><span class="st">&quot;Quantils de la mostra&quot;</span>,<span class="dt">xlab=</span><span class="st">&quot;Quantils de normal&quot;</span>,<span class="dt">pch=</span><span class="dv">20</span>,<span class="dt">id=</span><span class="ot">FALSE</span>)
+<span class="kw">qqPlot</span>(TGN<span class="op">$</span>DS,<span class="dt">mean=</span><span class="kw">mean</span>(TGN<span class="op">$</span>DS),<span class="dt">sd=</span><span class="kw">sd</span>(TGN<span class="op">$</span>DS),
+       <span class="dt">ylab=</span><span class="st">&quot;Quantils de la mostra&quot;</span>,<span class="dt">xlab=</span><span class="st">&quot;Quantils de normal&quot;</span>,<span class="dt">pch=</span><span class="dv">20</span>,<span class="dt">id=</span><span class="ot">FALSE</span>)</code></pre>
+<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-17-1.png" width="480" style="display: block; margin: auto;" /><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-17-2.png" width="480" style="display: block; margin: auto;" /></p>
+<p>Vaja, no sembla que segueixin una distribució normal. Vegem els seus histogrames</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">hist</span>(TGN<span class="op">$</span>CU, <span class="dt">freq=</span><span class="ot">FALSE</span>, <span class="dt">main=</span><span class="st">&quot;Histograma de TGN$CU&quot;</span>, 
+     <span class="dt">xlab=</span><span class="st">&quot;&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;&quot;</span>,<span class="dt">col=</span><span class="st">&quot;light blue&quot;</span>)
+<span class="kw">lines</span>(<span class="kw">density</span>(TGN<span class="op">$</span>CU),<span class="dt">lty=</span><span class="dv">2</span>,<span class="dt">lwd=</span><span class="dv">2</span>)
+<span class="kw">curve</span>(<span class="kw">dnorm</span>(x,<span class="kw">mean</span>(TGN<span class="op">$</span>CU),<span class="kw">sd</span>(TGN<span class="op">$</span>CU)),<span class="dt">col=</span><span class="st">&quot;red&quot;</span>,<span class="dt">lwd=</span><span class="dv">2</span>,<span class="dt">add=</span><span class="ot">TRUE</span>)
+<span class="kw">legend</span>(<span class="st">&quot;topright&quot;</span>,<span class="dt">legend=</span><span class="kw">c</span>(<span class="st">&quot;Densitat estimada&quot;</span>,<span class="st">&quot;Normal&quot;</span>),<span class="dt">col=</span><span class="kw">c</span>(<span class="st">&quot;black&quot;</span>,<span class="st">&quot;red&quot;</span>),<span class="dt">lty=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">1</span>),<span class="dt">cex=</span><span class="fl">0.5</span>)
+
+<span class="kw">hist</span>(TGN<span class="op">$</span>DS, <span class="dt">freq=</span><span class="ot">FALSE</span>, <span class="dt">main=</span><span class="st">&quot;Histograma de TGN$DS&quot;</span>, 
+     <span class="dt">xlab=</span><span class="st">&quot;&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;&quot;</span>,<span class="dt">col=</span><span class="st">&quot;light blue&quot;</span>)
+<span class="kw">lines</span>(<span class="kw">density</span>(TGN<span class="op">$</span>DS),<span class="dt">lty=</span><span class="dv">2</span>,<span class="dt">lwd=</span><span class="dv">2</span>)
+<span class="kw">curve</span>(<span class="kw">dnorm</span>(x,<span class="kw">mean</span>(TGN<span class="op">$</span>DS),<span class="kw">sd</span>(TGN<span class="op">$</span>DS)),<span class="dt">col=</span><span class="st">&quot;red&quot;</span>,<span class="dt">lwd=</span><span class="dv">2</span>,<span class="dt">add=</span><span class="ot">TRUE</span>)
+<span class="kw">legend</span>(<span class="st">&quot;topright&quot;</span>,<span class="dt">legend=</span><span class="kw">c</span>(<span class="st">&quot;Densitat estimada&quot;</span>,<span class="st">&quot;Normal&quot;</span>),<span class="dt">col=</span><span class="kw">c</span>(<span class="st">&quot;black&quot;</span>,<span class="st">&quot;red&quot;</span>),<span class="dt">lty=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">1</span>),<span class="dt">cex=</span><span class="fl">0.5</span>)</code></pre>
+<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-18-1.png" width="480" style="display: block; margin: auto;" /><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-18-2.png" width="480" style="display: block; margin: auto;" /></p>
+<p>Les dues mostres presenten una cua a la dreta. En casos així, de vegades els logaritmes seguexen aproximadament una distribució normal:</p>
+<pre class="sourceCode r"><code class="sourceCode r">LogCU=<span class="kw">log</span>(TGN<span class="op">$</span>CU)
+<span class="kw">qqPlot</span>(LogCU,<span class="dt">mean=</span><span class="kw">mean</span>(LogCU),<span class="dt">sd=</span><span class="kw">sd</span>(LogCU),
+        <span class="dt">ylab=</span><span class="st">&quot;Quantils dels logaritmes&quot;</span>,<span class="dt">xlab=</span><span class="st">&quot;Quantils de normal&quot;</span>,<span class="dt">pch=</span><span class="dv">20</span>,<span class="dt">id=</span><span class="ot">FALSE</span>)
+
+LogDS=<span class="kw">log</span>(TGN<span class="op">$</span>DS)
+<span class="kw">qqPlot</span>(LogDS,<span class="dt">mean=</span><span class="kw">mean</span>(LogDS),<span class="dt">sd=</span><span class="kw">sd</span>(LogCU),
+        <span class="dt">ylab=</span><span class="st">&quot;Quantils dels logaritmes&quot;</span>,<span class="dt">xlab=</span><span class="st">&quot;Quantils de normal&quot;</span>,<span class="dt">pch=</span><span class="dv">20</span>,<span class="dt">id=</span><span class="ot">FALSE</span>)</code></pre>
+<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-19-1.png" width="480" style="display: block; margin: auto;" /><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-19-2.png" width="480" style="display: block; margin: auto;" /></p>
+<!--
+## Tests no paramètrics per a una o dues mitjanes 
+
+Si les variables aleatòries d'interès no són (aproximadament) normals i alguna mostra és petita, no podem usar un test t. En aquest cas, una possibilitat és provar de transformar les dades per veure si la transformació esdevé normal.
+
+Es pot provar de transformar les dades per veure si esdevenen normals
+
+O usar un \red{test no paramètric} (que no pressuposi que les vv.aa. siguin normals)
+
+
+
+
+
+\frametitle{Transformacions logarítmiques}\vspace*{-2ex}
+
+Sovint el logaritme d'una variable amb cua a la dreta és aproximadament normal
+
+\only<1>{\blue{Exemple}: 280 mesuraments de triglicèrids en sang de cordó umbilical
+
+\begin{center}
+\hspace*{-1ex}\includegraphics[width=0.5\linewidth]{Trigl1}\
+\includegraphics[width=0.5\linewidth]{qqTrig1}
+
+\end{center}}
+\only<2>{\blue{Exemple}: 280 \red{logaritmes} de mesuraments de triglicèrids en sang de cordó umbilical
+
+\begin{center}
+\hspace*{-1ex}\includegraphics[width=0.5\linewidth]{Trigl2}\
+\includegraphics[width=0.5\linewidth]{qqTrig2}
+\end{center}
+}
+
+
+
+
+
+
+\frametitle{Tests no paramètrics} 
+
+Els tests no paramètrics més populars per comparar mitjanes en realitat comparen \red{medianes} (i per tant mitjanes si les variables aleatòries són simètriques). Són:
+
+
+*\red{Test de Wilcoxon} per a una mitjana o dues mitjanes usant mostres aparellades
+
+*\red{Test de Mann-Whitney} per a dues mitjanes usant  mostres independents
+
+
+
+Es calculen amb \red{\texttt{wilcox.test}}: per a dues mostres, el primer amb  \blue{\texttt{paired=TRUE}}  i el segon amb \blue{\texttt{paired=FALSE}}
+ 
+
+
+
+
+
+
+\frametitle{Test de Wilcoxon d'una mitjana}\vspace*{-2ex}
+
+$X$ una variable aleatòria contínua simètrica al voltant de la mitjana $\mu$ desconeguda
+
+\red{Contrast}:
+$$
+\left\{\begin{array}{l}
+H_{0}:\mu=\mu_0\\ 
+H_{1}:\mu \neq \mu_0 \text{ o }\mu >\mu_0\text{ o }\mu<\mu_0
+\end{array}
+\right.
+$$
+
+Tenim una m.a.s.\ de $X$: $x_1,\ldots, x_n$
+
+
+
+
+
+
+\frametitle{Test de Wilcoxon d'una mitjana}\vspace*{-2ex}
+
+\red{Procediment}:
+\begin{enumerate}
+*Per a cada $i=1,\ldots,n$, sigui $d_i=x_i-\mu_0$; s'eliminen els 0
+
+*Enumeram els valors $d_i$ de menor a major valor absolut; en cas d'empats, a cada un li assignam la mitjana de les posicions (\red{rangs}) que ocuparien
+
+*$T_+$: suma dels rangs dels $d_i>0$; $T_{-}$: suma dels rangs dels $d_i<0$
+
+*Si $H_0$ vertadera, per la simetria esperam $T_+\approx T_-$:
+
+*Si $T_+$ és molt petit, és evidència que $\mu <\mu_0$
+*Si $T_+$ és molt gran,  és evidència que $\mu >\mu_0$
+*Si $T_+$ és molt petit o gran,  és evidència que $\mu\neq \mu_0$
+
+La distribució de $T_+$ per a cada $n$ quan $X$ és simètrica i $H_0$ vertadera és coneguda, es pot calcular el p-valor
+
+
+\end{enumerate}
+
+
+
+
+
+
+\frametitle{Exemple}\vspace*{-2ex}
+
+Alimentam amb una dieta especial 13 ratolins des del naixement fins a la setmana 12. Els augments de pes (en grams) varen ser:
+$$
+69,66,69,65,70,68,69,67,72,67,71,69,72
+$$
+Podem conclure que l'augment mitjà de pes en aquestes condicions és de menys de 70 g?
+
+\red{Contrast:}
+$$
+\left\{\begin{array}{l}
+H_{0}:\mu=70\\ 
+H_{1}:\mu <70
+\end{array}
+\right.
+$$
+
+\begin{center}\footnotesize
+\hspace*{-0.6cm}\begin{tabular}{l|cccccccccccccc}
+\hline
+$x_i$\hspace*{-0.75ex} & \hspace*{-0.75ex}    69\hspace*{-0.5ex} & \hspace*{-0.5ex}  66\hspace*{-0.5ex} & \hspace*{-0.5ex}  69\hspace*{-0.5ex} & \hspace*{-0.5ex}  65\hspace*{-0.5ex} & \hspace*{-0.5ex}  70\hspace*{-0.5ex} & \hspace*{-0.5ex}  68\hspace*{-0.5ex} & \hspace*{-0.5ex}  69\hspace*{-0.5ex} & \hspace*{-0.5ex}  67\hspace*{-0.5ex} & \hspace*{-0.5ex}  72\hspace*{-0.5ex} & \hspace*{-0.5ex}  67\hspace*{-0.5ex} & \hspace*{-0.5ex}  71\hspace*{-0.5ex} & \hspace*{-0.5ex}  69\hspace*{-0.5ex} & \hspace*{-0.5ex}  72\\
+$d_i$       \hspace*{-0.75ex} & \hspace*{-0.75ex}   -1\hspace*{-0.5ex} & \hspace*{-0.5ex}  -4\hspace*{-0.5ex} & \hspace*{-0.5ex}  -1\hspace*{-0.5ex} & \hspace*{-0.5ex}  -5   \hspace*{-0.75ex} & \hspace*{-0.75ex}    0\hspace*{-0.5ex} & \hspace*{-0.5ex}  -2\hspace*{-0.5ex} & \hspace*{-0.5ex}  -1\hspace*{-0.5ex} & \hspace*{-0.5ex}  -3\hspace*{-0.5ex} & \hspace*{-0.5ex}   2\hspace*{-0.5ex} & \hspace*{-0.5ex}  -3  \hspace*{-0.75ex} & \hspace*{-0.75ex}      1\hspace*{-0.5ex} & \hspace*{-0.5ex}  -1\hspace*{-0.5ex} & \hspace*{-0.5ex}   2\\
+Rk       \hspace*{-0.75ex} & \hspace*{-0.75ex}   1\hspace*{-0.75ex} & \hspace*{-0.75ex}    11\hspace*{-0.5ex} & \hspace*{-0.5ex}  2\hspace*{-0.75ex} & \hspace*{-0.75ex}   12 \hspace*{-0.75ex} & \hspace*{-0.75ex}     \hspace*{-0.75ex} & \hspace*{-0.75ex}   6\hspace*{-0.75ex} & \hspace*{-0.75ex}    3\hspace*{-0.75ex} & \hspace*{-0.75ex}  9 \hspace*{-0.75ex} & \hspace*{-0.75ex}   7\hspace*{-0.75ex} & \hspace*{-0.75ex}   10\hspace*{-0.75ex} & \hspace*{-0.75ex}      4\hspace*{-0.75ex} & \hspace*{-0.75ex}     5\hspace*{-0.75ex} & \hspace*{-0.75ex}   8  \\
+Rk  bo     \hspace*{-0.75ex} & \hspace*{-0.75ex}   3\hspace*{-0.75ex} & \hspace*{-0.75ex}    11\hspace*{-0.75ex} & \hspace*{-0.75ex}    3\hspace*{-0.75ex} & \hspace*{-0.75ex}   12 \hspace*{-0.75ex} & \hspace*{-0.75ex}     \hspace*{-0.75ex} & \hspace*{-0.75ex}    7\hspace*{-0.75ex} & \hspace*{-0.75ex}    3\hspace*{-0.75ex} & \hspace*{-0.75ex}  9.5\hspace*{-0.75ex} & \hspace*{-0.75ex}   7\hspace*{-0.75ex} & \hspace*{-0.75ex}    9.5\hspace*{-0.75ex} & \hspace*{-0.75ex}    3\hspace*{-0.75ex} & \hspace*{-0.75ex}   3\hspace*{-0.75ex} & \hspace*{-0.75ex}  7 \\
+S     \hspace*{-0.75ex} & \hspace*{-0.75ex}    -\hspace*{-0.5ex} & \hspace*{-0.5ex}  -\hspace*{-0.5ex} & \hspace*{-0.5ex}  -\hspace*{-0.5ex} & \hspace*{-0.5ex}  -\hspace*{-0.5ex} & \hspace*{-0.5ex}  \hspace*{-0.75ex} & \hspace*{-0.75ex}   -\hspace*{-0.5ex} & \hspace*{-0.5ex}  -\hspace*{-0.5ex} & \hspace*{-0.5ex}  -\hspace*{-0.5ex} & \hspace*{-0.5ex}   +\hspace*{-0.5ex} & \hspace*{-0.5ex}  -  \hspace*{-0.75ex} & \hspace*{-0.75ex}     +\hspace*{-0.5ex} & \hspace*{-0.5ex}  -\hspace*{-0.5ex} & \hspace*{-0.5ex}   +\\ \hline
+\end{tabular}
+\end{center}
+$T_+=7+3+7=17$ d'un total de $T_++T_-=78$
+%
+%
+%
+%
+%
+%
+%\begin{center}
+%\includegraphics[width=0.45\linewidth]{histwilk}
+%\end{center}
+
+
+
+\frametitle{Exemple}\vspace*{-2ex}
+
+\begin{lstlisting}
+> x=c(69,66,69,65,70,68,69,67,72,67,71,
+   69,72)
+> wilcox.test(x,mu=70,alternative="less")
+
+      Wilcoxon signed rank test with 
+      continuity correction
+data:  x
+V = 17, p-value = 0.04428
+alternative hypothesis: true location is less than 70
+\end{lstlisting}\vspace{-1.4ex}
+
+\begin{lstlisting}[style=warning]
+Warning messages:
+1: In wilcox.test.default(x, mu = 70, alternative = "less") :
+  cannot compute exact p-value with ties
+2: In wilcox.test.default(x, mu = 70, alternative = "less") :
+  cannot compute exact p-value with zeroes
+\end{lstlisting}
+
+
+
+
+
+
+
+
+
+\frametitle{Tests no paramètrics}
+
+\red{Atenció!}
+
+*Els millors tests no paramètrics solen tenir potència inferior als millors tests paramètrics
+
+*Els tests no paramètrics no solen produir IC fiables (es necessita una distribució)
+
+*Però, per exemple, emprar un test t quan no és adequat pot portar a conclusions equivocades
+
+
+\red{\bf Emprau tests paramètrics sempre que pogueu, però només quan pogueu} 
+
+
+
+
+
+\frametitle{Exemple 3 (cont.)}\vspace{-2ex}
+
+Si no volguéssim suposar que les mostres provenen de distribucions normals?
+
+
+\begin{lstlisting}
+> wilcox.test(OATBRAN,OBR$CORNFLK, 
+alternative="less",paired=TRUE)
+
+Wilcoxon signed rank test with continuity correction
+
+data: OBR$OATBRAN and OBR$CORNFLK
+V = 12, p-value = 0.006008
+alternative hypothesis: true location shift is less than 0
+\end{lstlisting}\vspace{-1.4ex}
+
+\begin{lstlisting}[style=warning]
+Warning message:
+In wilcox.test.default(OBR$OATBRAN, OBR$CORNFLK, alternative = "less", :
+cannot compute exact p-value with ties
+\end{lstlisting}
+
+Obtenim p-valor=0.006, mateixa conclusió
+
+
+
+
+
+\section{Variàncies}
+\subsection{Test $\chi^2$ d'1 variància}
+
+
+
+\frametitle{Test $\chi^2$ d'una variància}\vspace*{-2ex}
+
+Siguin $X\sim N(\mu,\sigma)$ i $X_1,\ldots,X_n$ una m.a.s.\ de $X$ de mida $n$ (arbitrària)
+
+Volem realitzar un contrast
+$$
+\left\{\begin{array}{l}
+H_{0}:\sigma=\sigma_0\\ 
+H_{1}:\sigma \neq\sigma_0\text{ o }\sigma >\sigma_0\text{ o }\sigma<\sigma_0
+\end{array}
+\right.
+$$
+o equivalentment
+$$
+\left\{\begin{array}{l}
+H_{0}:\sigma^2=\sigma_0^2\\ 
+H_{1}:\sigma^2 \neq\sigma_0^2\text{ o }\sigma^2 >\sigma_0^2\text{ o }\sigma^2<\sigma_0^2
+\end{array}
+\right.
+$$
+
+
+Si $H_0$ és vertadera, l'\red{estadístic de contrast}
+ $$
+\chi^2=\frac{(n-1) \widetilde{S}_X^2}{\sigma_{0}^2}
+$$
+té  una distribució $\chi_{n-1}^2$: el podem emprar per calcular p-valors etc.
+
+
+
+
+
+
+\frametitle{Test $\chi^2$ d'una variància}\vspace*{-2ex}
+
+Empram l'estadístic de contrast
+$$
+ \chi^2=\frac{(n-1)\widetilde{S}_X^2}{\sigma_0^2}
+$$
+Calculam el seu valor $\chi^2_0$ sobre la mostra
+
+p-valors:
+
+*Si $H_{1}:\sigma>\sigma_{0}$,
+{p-valor:} $P(\chi^2_{n-1}\geq \chi^2_0)$
+
+*Si $H_{1}:\sigma<\sigma_{0}$,
+{p-valor:} $P(\chi^2_{n-1}\leq \chi^2_0)$
+
+*Si $H_{1}:\sigma\neq \sigma_{0}$,\\
+{p-valor:}  \blue{$2\text{min}\big\{P(\chi_{n-1}^2\geq \chi^2_0), P(\chi_{n-1}^2\leq\chi^2_0)\big\}$}
+
+
+Implementat en la funció \red{\texttt{sigma.test}} del paquet \red{\texttt{TeachingDemos}}; sintaxi similar a \texttt{t.test}
+
+
+
+
+ 
+\frametitle{Test $\chi^2$ d'una variància}
+\vspace*{-2ex}
+
+\red{\textbf{Alerta amb els p-valors dels C.H. bilaterals quan la distribució de l'estadístic no és simètrica}}
+
+Suposem tenim una m.a.s. de $X$ normal de mida 25, i ha donat 
+$\widetilde{S}_X^2=1.25$. Volem contrastar $\sigma_X^2=0.8$. Llavors
+$$
+ \chi_0^2={(25-1)\cdot 1.25}/{0.8}=37.5
+$$
+
+\only<1>{Amb el contrast
+$$\left\{\begin{array}{l}
+H_{0}:\sigma_X^2=0.8 \\
+H_{1}:\sigma_X^2\ \red{>}\ 0.8
+\end{array}
+\right.
+$$
+El p-valor és
+$$
+P(\chi^2_{24} \geq 37.5)=\texttt{1-pchisq(37.5,24)}=0.039
+$$
+Rebutjam $H_0$}
+
+\only<2>{Amb el contrast $\left\{\begin{array}{l}
+H_{0}:\sigma_X^2=0.8 \\
+H_{1}:\sigma_X^2\ \red{\neq}\ 0.8
+\end{array}
+\right.$
+
+El p-valor és $2\min\{P(\chi^2_{24}\geq 37.5),P(\chi^2_{24}\leq 37.5)\}$:
+$$
+\begin{array}{rl}
+2\cdot P(\chi^2_{24}\geq 37.5)& =2\cdot 0.039=0.078\\[1ex]
+2\cdot P(\chi^2_{24}\leq 37.5) &=2\cdot 0.961=1.922
+\end{array}
+$$
+Prenem com a p-valor el més petit (\red{l'únic $\leq 1$}): 0.078. No podem rebutjar $H_0$.}
+
+
+
+
+
+
+
+
+
+\frametitle{Exemple 4}
+
+S'ha analitzat el líquid amniòtic d'una mostra aleatòria de 15 embarassades de 3er trimestre, i s'han obtingut les mesures següents de proteïnes totals (en grams per 100 ml)
+\begin{quote}
+\sf 0.69, 1.04, 0.39, 0.37, 0.64, 0.73, 0.69, 1.04, 0.83, 1.01, 0.19, 0.61, 0.42, 0.25, 0.79
+\end{quote}
+
+Podem concloure a partir d'aquestes dades, amb un nivell de significació del 5%, que la variància poblacional (és a dir, la variància de la quantitat de proteïna total en el líquid amniòtic de les embarassades de 3er trimestre expressada en grams per 100 ml) és diferent de 0.05?
+
+
+
+\frametitle{Exemple 4}\vspace*{-2ex}
+
+* *Variable aleatòria d'interès:} $X$: Quantitat de proteïna\ldots
+
+\red{Contrast:}
+$$
+\left\{\begin{array}{l}
+H_{0}:\sigma^2=0.05 \\
+H_{1}:\sigma^2\neq 0.05
+\end{array}
+\right.
+$$
+amb $\alpha=0.05$\pause
+
+Per poder aplicar el test $\chi^2$, cal que $X$ sigui normal
+\vspace*{-1ex}
+
+\begin{center}
+\includegraphics[width=0.45\linewidth]{qqplotamni}
+\end{center}
+\vspace*{-1ex}
+
+Acceptarem que $X$ és normal
+
+
+
+
+
+
+
+\frametitle{Exemple 4}\vspace*{-2ex}
+
+\red{Estadístic de contrast:} 
+$$
+\chi^2=\frac{(n-1) \widetilde{S}_X^2}{\sigma_{0}^2}
+$$
+que segueix una llei $\chi^2_{n-1}$ si $H_0$ és certa
+
+\red{Valor:}
+\begin{lstlisting}
+> x=c(0.69,1.04,0.39,0.37,0.64,0.73,0.69,
+  1.04,0.83,1.01,0.19,0.61,0.42,0.25,0.79)
+> var(x)
+[1] 0.07624
+\end{lstlisting}
+
+$$
+\chi_0^2=\frac{14\cdot  0.07624}{0.05}=21.3472
+$$
+
+
+
+
+
+
+\frametitle{Exemple 4}
+
+\red{p-valor} $=2\text{min}\big\{P(\chi_{n-1}^2\geq \chi^2_0), P(\chi_{n-1}^2\leq \chi^2_0)\big\}$
+
+
+*$P(\chi_{14}^2 \geq 21.3472)=\texttt{1-pchisq(21.3472,14)}=0.093$
+*$P(\chi_{14}^2\leq 21.3472)=\texttt{pchisq(21.3472,14)}=0.907$
+
+
+\red{p-valor} $=2\cdot\min\{0.093,0.907\}=0.186$
+
+
+No podem rebutjar la hipòtesi que la variància sigui 0.05 amb un nivell
+de significació del 5%
+
+
+
+
+
+\frametitle{Exemple 4}
+
+
+Com que el contrast és bilateral, l'IC 95% seria el del tema anterior (amb $q=1-\alpha=0.95$)
+$$
+\begin{array}{l}
+\displaystyle \left[ \frac{(n-1)\widetilde{S}_{X}^2}{\chi_{n-1,0.975}^2},
+\frac{(n-1)\widetilde{S}_{X}^2}{\chi_{n-1,0.025}^2}
+\right]=\left[ \frac{14\cdot 0.07624}{26.119},
+\frac{14\cdot 0.07624}{5.6287}\right]\\[3ex]
+\qquad\qquad=[0.0409,0.1896]
+\end{array}
+$$
+
+Conté el valor 0.05 contrastat.
+
+
+
+
+\frametitle{Exemple 4}\vspace*{-2ex}
+
+\begin{lstlisting}
+> #Instal·lam i carregam el paquet TeachingDemos
+...
+> sigma.test(x,sigmasq=0.05,
+   alternative="two.sided")
+
+One sample Chi-squared test for variance
+
+data:  x
+X-squared = 21.347, df = 14, p-value = 0.1861
+alternative hypothesis: true variance is not equal to 0.05
+95 percent confidence interval:
+ 0.04086535 0.18962728
+sample estimates:
+var of x 
+ 0.07624
+\end{lstlisting}
+
+
+
+
+
+\frametitle{Exemple 4}\vspace*{-3ex}
+
+\begin{lstlisting}
+> sqrt(0.05)
+[1] 0.2236068
+> sigma.test(x,sigma=0.2236068,
+   alternative="two.sided")
+
+One sample Chi-squared test for variance
+
+data:  x
+X-squared = 21.347, df = 14, p-value = 0.1861
+alternative hypothesis: true variance is not equal to 0.05
+95 percent confidence interval:
+ 0.04086535 0.18962728
+sample estimates:
+var of x 
+ 0.07624
+\end{lstlisting}
+
+\red{Alerta!} L'interval de confiança és el de la variància
+
+
+
+
+
+
+\subsection{Test F de 2 variàncies}
+
+
+\frametitle{Test F per a dues variàncies}
+
+Siguin $X_1,X_2$ dues variables aleatòries normals de desviacions típiques $\sigma_1$, $\sigma_2$
+
+En prenem dues m.a.s.\ independents de mides $n_1$ i $n_2$ i desviacions típiques mostrals $\widetilde{S}_1$ i  $\widetilde{S}_2$
+
+
+Volem realitzar el contrast
+$$
+\left\{\begin{array}{l}
+H_{0}:\sigma_1^2=\sigma_2^2\\[1ex]
+H_{1}:\sigma_1^2\neq \sigma_2^2\text{ o }\sigma_1^2> \sigma_2^2\text{ \blue  o }\sigma_1^2< \sigma_2^2
+\end{array}
+\right.
+$$
+
+L'interpretarem
+$$
+\left\{\begin{array}{l}
+H_{0}:\sigma_1^2/\sigma_2^2=1\\[1ex]
+H_{1}:\sigma_1^2/\sigma_2^2\neq 1\text{ \blue  o }\sigma_1^2/\sigma_2^2>1 \text{ \blue  o }\sigma_1^2/\sigma_2^2< 1
+\end{array}
+\right.
+$$
+
+
+
+
+
+\frametitle{Test F per a variàncies}
+
+S'hi empra l'estadístic de contrast
+$$
+F={\widetilde{S}_1^2}/{\widetilde{S}_2^2}
+$$
+que, si les dues poblacions són normals i 
+$$
+H_0: \sigma_1=\sigma_2
+$$
+ és vertadera, té distribució coneguda: la \emph{$F$ de Fisher-Snedecor} $F_{n_1-1,n_2-1}$ amb $n_1-1$ i $n_2-1$ graus de llibertat 
+ 
+Per això se li diu el \red{test F} 
+
+
+
+\frametitle{Test F per a variàncies}
+
+La distribució \red{$F_{n,m}$}, on $n,m$ són els seus \emph{graus de llibertat}:
+
+*És la del quocient d'una variable aleatòria $\chi^2_n$ per una variable aleatòria $\chi^2_m$
+
+*$n,m$ són els paràmetres dels qual depèn la funció de distribució
+
+*Amb R és \texttt{f}  
+
+*No és simètrica. \blue{Els p-valors es calculen com en el cas de la $\chi^2$.} \emph{Alerta en el cas bilateral!}
+
+
+Implementat en la funció \red{\texttt{var.test}} de R: s'aplica a les dues mostres, amb sintaxi similar a \texttt{t.test}
+
+
+
+
+
+
+\frametitle{Exemple 3 (cont.)}\vspace{-2ex}
+
+\blue{Les variables $X_h$ i $X_d$ de l'Exemple 3, tenen la mateixa variància?}
+
+Suposarem que totes dues són normals (les temperatures ho solen ser) i aplicarem un test F al contrast
+
+$$
+\left\{\begin{array}{l}
+H_{0}:\sigma_h^2=\sigma_d^2\\[1ex]
+H_{1}:\sigma_h^2\neq \sigma_d^2
+\end{array}
+\right.
+$$
+Calculam l'estadístic de contrast $F_0=\widetilde{S}_h^2/\widetilde{S}_d^2$
+
+\begin{lstlisting}
+> F0=var(X_h)/var(X_d)
+> F0
+[1] 1.201637
+\end{lstlisting}
+
+
+
+
+
+
+\frametitle{Exemple 3 (cont.)}\vspace{-2ex}
+
+El p-valor serà
+$$
+\blue{2\text{min}\big\{P(F_{n_1-1,n_2-1} \geq F_0), P(F_{n_1-1,n_2-1}\leq F_0)\big\}}
+$$
+on $n$ és el nombre d'homes i $m$ el nombre de dones
+
+\begin{lstlisting}
+> n=length(X_h)
+> m=length(X_d)
+> 1-pf(F0,n-1,m-1)
+[1] 0.1639021
+> pf(F0,n-1,m-1)
+[1] 0.8360979
+\end{lstlisting}
+
+El p-valor és $2\times 0.164=0.328$. No podem rebutjar que $X_h$ i $X_d$ tenguin la mateixa variància: acceptarem que tenen la mateixa variància.
+
+
+
+
+
+
+
+
+
+
+
+\frametitle{Exemple 3 (cont.)}\vspace{-2ex}
+
+Amb R:
+
+\begin{lstlisting}
+> var.test(X_h, X_d)
+
+F test to compare two variances
+
+data:  X_h and X_d
+F = 1.2016, num df = 113, denom df = 115, p-value = 0.3278
+alternative hypothesis: true ratio of variances is not equal to 1
+95 percent confidence interval:
+ 0.8311002 1.7384230
+sample estimates:
+ratio of variances 
+          1.201637
+\end{lstlisting}
+
+
+
+
+ 
+\frametitle{Exemple 3 (cont.)}\vspace{-2ex}
+
+\red{Conclusió}: 
+
+*Com  que \blue{p-valor $=0.328$}, no podem rebutjar que $X_h$ i $X_d$ tenguin la mateixa variància: acceptarem que tenen la mateixa variància
+
+*L'\blue{IC 95%} \red{per al quocient de les variàncies} \blue{va de 0.83 a 1.74}: com que conté l'1, també ens diu que, amb aquest nivell de confiança, no podem rebutjar que $X_h$ i $X_d$ tenguin la mateixa variància (encara que també podria ser que $\sigma^2_{X_h}$ fos un 70% més gran que $\sigma^2_{X_d}$)
+
+
+Per tant, si els tests t amb \texttt{var.equal=TRUE} i \texttt{var.equal=FALSE} haguessin donat conclusions diferents, prendríem la corresponent a variàncies iguals
+
+
+
+
+
+ 
+\frametitle{Exemple 3 (cont.)}\vspace{-2ex}
+
+\blue{Les variables $X_h$ i $X_d$ de l'Exemple 2, tenen la mateixa variància?}
+
+Era adequat suposar que provenen de distribucions normals?\vspace{-2ex}
+
+\begin{center}
+\hspace{-0.5cm}
+\includegraphics[width=0.5\linewidth]{histTM}\
+\includegraphics[width=0.5\linewidth]{histTF}
+\end{center} 
+
+
+
+ 
+\frametitle{Exemple 3 (cont.)}\vspace{-2ex}
+
+\blue{Les variables $X_m$ i $X_d$ de l'Exemple 2, tenen la mateixa variància?}
+
+Era adequat suposar que provenen de distribucions normals?\vspace{-2ex}
+
+\begin{center}
+\hspace{-0.5cm}
+\includegraphics[width=0.5\linewidth]{qqplotTM}\
+\includegraphics[width=0.5\linewidth]{qqplotTF}
+\end{center}\vspace{-3ex}
+
+Millor usar un test no paramètric, per més seguretat
+
+
+
+
+
+
+
+\frametitle{Tests no paramètrics}
+
+El test F no serveix per poc que les variables difereixin de normals
+
+En aquest cas, és necessari usar un test no paramètric
+
+Us recomanam emprar el \red{test de Fligner-Killeen}, implementat en R en la funció \red{\texttt{fligner.test}}, que en la pràctica ha mostrat ser més exacte  per a variables aleatòries molt diferents de normals
+
+
+Només serveix per a tests bilaterals, que en realitat són els únics interessants
+
+
+
+
+
+
+
+\frametitle{Exemple 3 (cont.)}
+
+\begin{lstlisting}
+> fligner.test(list(X_h,X_d))
+
+Fligner-Killeen test of homogeneity of variances
+
+data: list(X_h, X_m)
+Fligner-Killeen:med chi-squared = 1.7736, 
+df = 1, p-value = 0.1829
+\end{lstlisting}
+
+Acceptam que $X_h$ i $X_d$ tenen la mateixa variància
+
+
+
+
+
+
+\section{Proporcions}
+\subsection{1 proporció}
+
+
+\frametitle{Contrastos per a una $p$}
+
+Sigui $X$ una variable aleatòria Bernoulli  $Be(p)$
+
+Volem realitzar un contrast 
+$$
+\left\{\begin{array}{l}
+H_{0}:p=p_{0}\\
+H_{1}:p\neq p_{0}\text{ o }  p>p_0 \text{ o } p<p_0
+\end{array}
+\right.
+$$
+
+
+
+
+\frametitle{Test binomial exacte}
+
+
+
+
+\red{\bf Situació 1:} Prenem una m.a.s. de mida $n$ arbitrària
+
+
+Obtenim $x_0$ èxits, de manera que $\widehat{p}_X=x_0/n$
+
+Si $H_0$ és vertadera, el nombre d'èxits segueix una distribució $B(n,p_0)$. Ho podem usar per calcular p-valors de la manera usual. En diuen el \red{test binomial exacte}:
+
+
+*$H_{1}:p>p_{0}$: p-valor = $P(B(n,p_0)\geq x_0)$
+*$H_{1}:p<p_{0}$: p-valor = $P(B(n,p_0)\leq x_0)$
+*$H_{1}:p\neq p_{0}$: p-valor = $2\min\{P(B(n,p_0)\leq x_0),P(B(n,p_0)\geq x_0)\}$
+
+
+
+
+
+
+\frametitle{Test aproximat}\vspace*{-2ex}
+
+\red{\bf Situació 2:} Prenem una m.a.s. de mida $n$ \red{gran}
+
+
+En aquest cas, si  $H_{0}:p=p_{0}$ és vertadera,
+$$
+Z=\frac{\widehat{p}_X-p_0}{\sqrt{\frac{p_0(1-p_0)}{n}}}\approx N(0,1)
+$$
+Ho empram per calcular p-valors: si pren el valor $z_0$,
+
+*$H_{1}:p>p_{0}$: p-valor = $P(Z\geq z_0)$
+*$H_{1}:p<p_{0}$: p-valor = $P(Z\leq z_0)$
+*$H_{1}:p\neq p_{0}$: p-valor = $2P(Z\geq |z_0|)$ (recordau que $Z$ és simètrica)
+
+
+
+En cas de dubte, refiau-vos d'ell només si estau en les condicions de la fórmula de l'IC de Laplace (que és quan l'aproximació $Z\approx N(0,1)$ és millor)
+
+
+
+
+
+
+\frametitle{Exemple 5}
+\blue{La proporció d'estudiants esquerrans a la UIB, és diferent de la de l'estat espanyol?}
+
+El percentatge d'esquerrans a Espanya és del 10%. 
+
+De 30 estudiants de la UIB enquestats a l'atzar, 1 ha estat esquerrà.
+
+\red{V. a. d'interès:} $X$: Que un estudiant de la UIB,  sigui esquerrà, de probabilitat poblacional $p$
+
+\red{Contrast:}
+$$
+\left\{\begin{array}{l}
+H_{0}:p=0.1\\
+H_{1}:p\neq 0.1
+\end{array}
+\right.
+$$
+
+
+
+
+
+
+\frametitle{Exemple 5}
+
+Empram el test binomial exacte: Si $H_0$ és vertadera, el nombre d'èxits en una mostra de 30 és $B(30,0.1)$
+
+\red{p-valor} = $2\min\{P(B(30,0.1)\geq 1), P(B(30,0.1)\leq 1)\}$
+
+
+*$P(B(30,0.1)\geq 1)= \texttt{1-pbinom(0,30,0.1)}=0.96$
+
+*$P(B(30,0.1)\leq 1)= \texttt{pbinom(1,30,0.1)}=0.18$
+
+
+
+Per tant p-valor = 0.36: no podem rebutjar que $p=0.1$
+
+
+
+
+
+\frametitle{Exemple 5}\vspace*{-2ex}
+
+El test binomial exacte està implementat en R en la funció \texttt{binom.test}. 
+
+\begin{lstlisting}
+> binom.test(1, 30, p=0.1)
+
+     Exact binomial test
+data:  1 and 30
+number of successes = 1, number of trials = 30, p-value = 0.3592
+alternative hypothesis: true probability of success is not equal to 0.1
+95 percent confidence interval:
+ 0.0008435709 0.1721694556
+sample estimates:
+probability of success 
+            0.03333333 
+\end{lstlisting}
+
+L'IC bilateral és el de Clopper-Pearson
+
+
+
+
+
+\frametitle{Exemple 5}
+
+Ara emprarem el test aproximat (tot i que no és lo seu): Si $H_0$ és vertadera, 
+$$
+Z=\frac{\widehat{p}_X-p_0}{\sqrt{\frac{p_0(1-p_0)}{n}}}\approx N(0,1)
+$$
+
+L'estadístic de contrast sobre la nostra mostra val
+$$
+\frac{\frac{1}{30}-0.1}{\sqrt{\frac{0.1(1-0.1)}{30}}}=-1.22
+$$
+
+\red{p-valor} = $2P(Z\geq 1.22)=\texttt{2*(1-pnorm(1.22))}=0.22$
+
+
+No podem rebutjar que $p=0.1$
+
+
+
+
+
+
+\frametitle{Exemple 5}\vspace*{-2ex}
+
+El test aproximat està (millor) implementat en R en la funció \texttt{prop.test}. 
+
+\begin{lstlisting}
+> prop.test(1, 30, p=0.1)
+
+    1-sample proportions test with continuity correction
+data:  1 out of 30, null probability 0.1
+X-squared = 0.8333, df = 1, p-value = 0.3613
+alternative hypothesis: true p is not equal to 0.1
+95 percent confidence interval:
+ 0.001742467 0.190530216
+sample estimates:
+         p 
+0.03333333 
+\end{lstlisting}\vspace{-1.4ex}
+
+\begin{lstlisting}[style=warning]
+Warning message:
+In prop.test(1, 30, p = 0.1) : Chi-squared approximation may be incorrect
+\end{lstlisting}
+
+
+
+
+
+\frametitle{Exemple 5}\vspace*{-2ex}
+
+El nostre test aproximat  s'obté amb el paràmetre \texttt{correct=FALSE}
+
+\begin{lstlisting}
+> prop.test(1, 30, p=0.1,correct = FALSE)
+
+    1-sample proportions test without continuity correction
+data:  1 out of 30, null probability 0.1
+X-squared = 1.4815, df = 1, p-value = 0.2235
+alternative hypothesis: true p is not equal to 0.1
+95 percent confidence interval:
+ 0.00590859 0.16670391
+sample estimates:
+         p 
+0.03333333 
+\end{lstlisting}\vspace{-1.4ex}
+
+\begin{lstlisting}[style=warning]
+Warning message:
+In prop.test(1, 30, p = 0.1,correct = FALSE) : Chi-squared approximation may be incorrect
+\end{lstlisting}
+
+
+
+
+
+
+
+
+\frametitle{Exemple 5}\vspace*{-2ex}
+
+Potència d'aquest contrast?
+
+\begin{lstlisting}
+> library(pwr)
+> ES.h(0.1,0.03)  #La mida de l'efecte observat
+[1] 0.2953351
+> cohen.ES(test="p",size="small") #Per determinar-la a priori
+
+...
+    effect.size = 0.2
+
+> pwr.p.test(h=0.3, n=30, sig.level=0.05, 
+   alternative="two.sided")
+
+...
+          power = 0.3758563
+\end{lstlisting}
+
+
+
+
+
+
+\frametitle{Exemple 5}\vspace*{-2ex}
+
+Què hagués passat amb una mostra de 150 estudiants amb 5 esquerrans?
+
+\begin{lstlisting}
+> prop.test(5,150,p=0.1)
+
+1-sample proportions test with continuity correction
+
+data:  5 out of 150, null probability 0.1
+X-squared = 6.6852, df = 1, p-value = 0.009722
+alternative hypothesis: true p is not equal to 0.1
+95 percent confidence interval:
+ 0.01233588 0.08010876
+sample estimates:
+         p 
+0.03333333 
+\end{lstlisting}
+
+
+
+
+
+
+
+
+\frametitle{Exemple 5}\vspace*{-2ex}
+
+Què hagués passat amb una mostra de 150 estudiants, 5 esquerrans?
+
+\begin{lstlisting}
+> pwr.p.test(h=0.3,n=150,sig.level=0.05,
+    alternative="two.sided")
+
+proportion power calculation for binomial distribution (arcsine transformation) 
+
+              h = 0.3
+              n = 150
+      sig.level = 0.05
+          power = 0.9567605
+    alternative = two.sided
+\end{lstlisting}
+
+
+
+
+
+
+
+\frametitle{Exemple 5}\vspace*{-2ex}
+
+De quina mida hauríem d'haver pres la mostra per obtenir una potència del 90% amb $\alpha=0.05$ i esperant un efecte petit?
+
+
+\begin{lstlisting}
+> cohen.ES(test="p",size="small")
+...
+    effect.size = 0.2
+> pwr.p.test(h=0.2, power=0.9, 
+  sig.level=0.05, alternative="two.sided")
+
+proportion power calculation for binomial distribution (arcsine transformation) 
+
+              h = 0.2
+              n = 262.6855
+      sig.level = 0.05
+          power = 0.9
+    alternative = two.sided
+\end{lstlisting}
+
+
+
+
+
+
+%%%%%%%%%
+
+
+\subsection{2 props., mostres indep.}
+
+
+\frametitle{Tests per a 2 proporcions, mostres independents}
+
+Siguin $X_1$ i $X_2$ dues vv.aa. Bernoulli de paràmetres $p_1$ i $p_2$
+
+
+Volem realitzar un contrast
+$$
+\left\{\begin{array}{l}
+H_{0}:p_1=p_2\\ 
+H_{1}:p_1\neq p_2\text{ o }p_1> p_2\text{ o }p_1< p_2
+\end{array}
+\right.
+$$
+
+
+En prenem dues mostres independents, una de cada variable. Obtenim la taula següent
+\begin{center}
+\begin{tabular}{c|cc|c }
+  & $X_1$ & $X_2$ & Total  \\\hline
+Èxits & $n_{11}$ & $n_{12}$ & $E$  \\
+Fracassos & $n_{21}$ & $n_{22}$ & $F$   \\\hline 
+Total & $n_{1}$ & $n_{2}$ 
+\end{tabular}
+\end{center}
+
+
+
+
+\frametitle{Test $\chi^2$}\vspace*{-2ex}
+
+Suposem que les mostres són \emph{grans} ($n_1,n_2\geq 50$) i que els nombres d'èxits i de fracasos a cada mostra són $\geq 5$
+
+Siguin $\widehat{p}_1$ i $\widehat{p}_2$  les proporcions mostrals de les mostres
+
+Si la hipòtesi nu\l.la $H_0: p_1=p_2$ és vertadera,
+$$
+Z=\frac{\widehat{p}_1 -\widehat{p}_2}{
+\sqrt{\frac{n_1 \widehat{p}_1 +n_2 \widehat{p}_2}{n_1
++n_2}\cdot \Big(1-\frac{n_1 \widehat{p}_1 +n_2 \widehat{p}_2}{n_1
++n_2}\Big)\cdot \Big(\frac{1}{n_1}+\frac{1}{n_2}
+\Big)}}\approx N(0,1)
+$$
+(fixau-vos que $n_1 \widehat{p}_1 +n_2 \widehat{p}_2=E$).
+
+S'empra com sempre per calcular p-valors
+
+(Se'n diu \red{test $\chi^2$} perquè és un cas particular d'un test   $\chi^2$ que veurem més endavant, i  en realitat s'hi empra $Z^2$, que és  $\approx\chi^2_1$)
+
+
+
+
+
+
+
+
+
+
+
+
+
+\frametitle{Exemple 6}\vspace*{-2ex}
+
+Es vol saber si un determinat al·lel d'un gen és present o no amb la mateixa proporció entre els mallorquins i els menorquins
+
+Es prenen una mostra d'ADN de 100 individus amb almenys tres generacions
+familiars a l'illa de Mallorca, i una altra de 50 individus amb almenys tres generacions
+familiars a l'illa de  Menorca
+
+
+A la mostra mallorquina, 20 individus el tenen, i a la mostra menorquina, 12
+
+\begin{center}
+\begin{tabular}{c|cc }
+  & Mall. & Men.  \\\hline
+Present & 20 & 12 \\
+Absent & 80 & 38   \\\hline 
+Total & 100 & 50   
+\end{tabular}
+\end{center}
+
+
+
+
+
+
+
+\frametitle{Exemple 6}
+
+\red{Variables}: $X_1$ i $X_2$, que un mallorquí o un menorquí, respectivament, tengui aquest al·lel, de proporcions poblacionals $p_1$ i $p_2$
+
+
+\emph{Contrast}:
+$$
+\left\{\begin{array}{l}
+H_0:p_1=p_2\\
+H_1:p_1\neq p_2
+\end{array}\right.
+$$
+
+Estam les condicions d'emprar el test $\chi^2$
+
+\emph{Estadístic de contrast}: 
+$$
+Z=\frac{\widehat{p}_1 -\widehat{p}_2}{
+\sqrt{\frac{n_1 \widehat{p}_1 +n_2 \widehat{p}_2}{n_1
++n_2}\cdot \Big(1-\frac{n_1 \widehat{p}_1 +n_2 \widehat{p}_2}{n_1
++n_2}\Big)\cdot\Big(\frac{1}{n_1}+\frac{1}{n_2}
+\Big)}}$$
+que és aprox. $N(0,1)$ si $H_0$ és vertadera
+
+
+
+
+
+\frametitle{Exemple 6}
+
+\emph{Valor de l'estadístic}: $\widehat{p}_1=0.2$, $\widehat{p}_2=0.24$, $n_1=100$, $n_2=50$, $E=32$
+$$
+z_0=\frac{0.2 -0.24}{
+\sqrt{\frac{32}{150}\Big(1-\frac{32}{150}\Big)\Big(\frac{1}{100}+\frac{1}{50}
+\Big)}}
+=-0.5637$$
+
+\emph{p-valor}: $2\cdot P(Z\geq 0.5637)=0.573$
+
+
+\emph{Decisió}: Com que el p-valor és més gran que $\alpha=0.05$, acceptam la hipòtesi nul·la que les dues proporcions són iguals
+
+
+
+
+\frametitle{Test  $\chi^2$ amb R}\vspace*{-2ex}
+
+Amb R, es fa amb la funció \texttt{prop.test} aplicada al vector de nombres d'èxits i al vector de mides de mostres
+
+\begin{lstlisting}
+> prop.test(c(20,12),c(100,50),
+   alternative="two.sided")
+
+2-sample test for equality of proportions with continuity correction
+
+data:  c(20, 12) out of c(100, 50)
+X-squared = 0.12414, df = 1, p-value = 0.7246
+alternative hypothesis: two.sided
+95 percent confidence interval:
+ -0.1969858  0.1169858
+sample estimates:
+prop 1 prop 2 
+  0.20   0.24 
+\end{lstlisting}
+
+
+
+
+
+
+
+\frametitle{Test $\chi^2$ amb R}\vspace*{-2ex}
+
+Com al cas d'una proporció, el test que hem explicat en realitat correspon a l'opció \texttt{correct=FALSE}
+
+\begin{lstlisting}
+> prop.test(c(20,12),c(100,50),
+   alternative="two.sided",correct=FALSE)
+
+2-sample test for equality of proportions without continuity correction
+
+data:  c(20, 12) out of c(100, 50)
+X-squared = 0.3178, df = 1, p-value = 0.5729
+alternative hypothesis: two.sided
+95 percent confidence interval:
+ -0.1819858  0.1019858
+sample estimates:
+prop 1 prop 2 
+  0.20   0.24 
+\end{lstlisting}
+
+
+
+
+
+
+
+\frametitle{Test exacte de Fisher}\vspace*{-2ex}
+
+Si no se satisfan les condicions pel test $\chi^2$, sempre es pot aplicar el \red{test exacte de Fisher}
+
+\begin{center}
+\begin{tabular}{c|cc|c}
+  & $X_1$ & $X_2$ &  Total\\\hline
+Èxits & $n_{11}$ & $n_{12}$ &  $E$\\
+Fracassos & $n_{21}$ & $n_{22}$ &  $F$ \\\hline 
+Total & $n_{1}$ & $n_{2}$ & 
+\end{tabular}
+\end{center}
+
+Si $p_1=p_2$, la probabilitat d'obtenir $n_{11}$ èxits dins $X_1$ és la de:
+\begin{quote}
+\red{En una bossa hi tenim $E$ bolles Èxit i $F$ bolles Fracàs. Probabilitat d'obtenir $n_{11}$ bolles Èxit si en triam $n_{1}$ de cop.}
+\end{quote}
+Per tant, la distribució de $n_{11}$ és hipergeomètrica $H(E,F,n_{1})$. S'empra com a estadístic de contrast.
+
+
+
+
+
+
+\frametitle{Exemple 7}
+\vspace*{-1ex}
+
+Per determinar si la Síndrome de Mort Sobtada del Nadó (SIDS) té component genètic, es consideren els casos de SIDS en parelles de bessons monozigòtics i dizigòtics. Diguem: 
+
+*$p_1$: proporció de parelles de bessons monozigòtics amb algun cas de SIDS on només un germà la sofrí
+
+*$p_2$: proporció de parelles de bessons dizigòtics amb algun cas de SIDS on només un germà la sofrí
+
+
+Si la SIDS té component genètic, és d'esperar que $p_1<p_2$
+
+
+Volem realitzar el contrast
+$$
+\left\{\begin{array}{l}
+H_0:p_1=p_2\\
+H_1:p_1< p_2
+\end{array}\right.
+$$
+
+
+
+\frametitle{Exemple 7}
+
+En un estudi s'obtingueren les dades següents:
+\begin{center}
+\begin{tabular}{ll|cc|c}
+\multicolumn{2}{c}{} & \multicolumn{2}{c}{\bf Tipus de bessons} & \\  
+ & & Monozig. & Dizig. & Total \\ \hline
+ \textbf{Casos} & Un  & 23 & 35 & 58\\
+ \textbf{de SIDS} & Dos & 1 & 2 & 3\\\hline
+ & Total  & 24 & 37 & 
+\end{tabular}
+\end{center}
+
+\red{p-valor:}
+$$
+P(H(58,3,24)\leq 23) =\text{\texttt{phyper(23,58,3,24)}}=0.7841
+$$
+
+No podem rebutjar la hipòtesi nu\l.la
+
+
+
+
+\frametitle{Test exacte de Fisher}\vspace*{-2ex}
+
+Amb R es porta a terme amb la funció \texttt{fisher.test} aplicada a la taula de freqüències com l'hem donada
+
+\begin{lstlisting}
+> Dades=matrix(c(23,35,1,2), nrow=2,
+   byrow=TRUE)
+> fisher.test(Dades,alternative="less")
+
+  Fisher's Exact Test for Count Data
+data:  Dades
+p-value = 0.7841
+alternative hypothesis: true odds ratio is less than 1
+95 percent confidence interval:
+  0.00000 39.73954
+sample estimates:
+odds ratio 
+  1.308589 
+\end{lstlisting}
+
+
+
+
+
+\frametitle{Alerta amb \texttt{fisher.test}}
+
+La funció \texttt{fisher.test} no compara $p_1$ i $p_2$, sinó les seves \red{\sl odds} (\red{oportunitats}; en castellà, també \textsl{momios})
+$$
+\frac{p_1}{1-p_1}\text{ i }\frac{p_2}{1-p_2}
+$$
+i l'interval de confiança que dóna és per al quocient d'aquestes \textsl{odds}: la \red{\sl odds ratio} (\red{OR}, \red{raó d'oportunitats}; en castellà també \textsl{razón de momios})
+
+
+
+
+
+\frametitle{\textsl{Odds}}
+
+Les \red{\textsl{odds}} d'un esdeveniment $A$ són
+$$
+\red{\text{Odds}(A)}=\frac{P(A)}{P(A^c)}=\frac{P(A)}{1-P(A)}
+$$
+Indiquen quantes vegades és més probable $A$ que <<no $A$>>
+
+\blue{Exemples}: 
+
+*Si $P(A)=0.3$, $\text{Odds}(A)=0.3/0.7=0.43$
+*Si $P(A)=0$, $\text{Odds}(A)=0$
+*Si $P(A)=0.5$, $\text{Odds}(A)=1$
+*Si $P(A)=1$, $\text{Odds}(A)=\infty$
+
+
+
+
+
+
+
+\frametitle{\textsl{Odds}}
+
+\blue{Exemple}: Si $\text{Odds}(A)=0.6$ (o són \red{6 a 10})
+$$
+\begin{array}{l}
+0.6=\dfrac{P(A)}{1-P(A)}\Rightarrow 0.6-0.6P(A)=P(A)\\[2ex]
+\qquad \Rightarrow 0.6=1.6P(A)\Rightarrow P(A)=\dfrac{0.6}{1.6}=0.375
+\end{array}
+$$
+En general
+$$
+P(A)=\dfrac{\text{Odds}(A)}{1+\text{Odds}(A)}
+$$
+
+Per tant 
+$$
+\begin{array}{c}
+\text{Odds}(A)<\text{Odds}(B)\Longleftrightarrow P(A)<P(B)\\[1ex]
+\text{Odds}(A)=\text{Odds}(B)\Longleftrightarrow P(A)=P(B)
+\end{array}
+$$
+
+
+
+
+\frametitle{Exemple 6  (cont.)}
+
+El contrast dels al·lels amb el test $\chi^2$:
+
+\begin{lstlisting}
+> prop.test(c(20,12),c(100,50),
+   alternative="two.sided",correct=FALSE)
+...
+p-value = 0.5729
+95 percent confidence interval:
+ -0.1819858  0.1019858
+sample estimates:
+prop 1 prop 2 
+  0.20   0.24 
+\end{lstlisting}
+
+
+
+
+ 
+\frametitle{Exemple 6  (cont.)}
+
+
+*El \blue{p-valor $0.5729$} no ens permet rebutjar que les proporcions de mallorquins i menorquins amb l'al·lel objecte d'estudi siguin diferents
+
+*El \blue{IC 95%} per a la diferència de proporcions \blue{va de $-0.18$ a 0.1}: com que conté el 0, no podem rebutjar amb aquest nivell de confiança que les proporcions siguin iguals
+
+*La \blue{diferència de proporcions mostrals $p_1-p_2$} ha estat $0.2-0.24=-0.04$: la proporció de menorquins amb l'al·lel a la nostra mostra ha estat 4 punts percentuals més gran que la dels mallorquins
+
+
+
+
+\frametitle{Exemple 6  (cont.)}
+
+El contrast dels al·lels amb el test de Fisher:
+
+\begin{lstlisting}
+> Dades.G=matrix(c(20,12,80,38), nrow=2,
+   byrow=T)
+> fisher.test(Dades.G)
+...
+p-value = 0.673
+95 percent confidence interval:
+ 0.3287521 1.9742955
+sample estimates:
+odds ratio 
+ 0.7929466 
+\end{lstlisting}
+
+
+
+
+
+\frametitle{Exemple 6  (cont.)}
+
+
+*El \blue{p-valor $0.673$} no ens permet rebutjar que les \textsl{odds} (i per tant les probabilitats) de tenir aquest al·lel entre els mallorquins i els menorquins siguin la mateixa
+
+*El \blue{IC 95%} per a la \red{\textsl{odds ratio}}  (per al quocient d'\textsl{odds}) \blue{va de 0.33 a 1.97}: com que conté el 1, no podem rebutjar amb aquest nivell de confiança que les odds (i per tant les proporcions) siguin iguals (que correspondria a quocient igual a 1)
+
+*El \blue{quocient d'odds mostrals} (la \textsl{odds ratio} a la mostra) ha estat $0.79$: a la nostra mostra, les \textsl{odds} que un mallorquí tengués l'al·lel han estat 0.79 vegades (un 21% més petites que) les d'un menorquí
+
+
+
+
+\subsection{2 props, mostres aparellades}
+
+\frametitle{2 props., mostres aparellades}\vspace*{-2ex}
+
+Siguin $X_1$ i $X_2$ dues vv.aa. Bernoulli de paràmetres $p_1$ i $p_2$
+
+
+Volem realitzar un contrast
+$$
+\left\{\begin{array}{l}
+H_{0}:p_1=p_2\\ 
+H_{1}:p_1\neq p_2\text{ o }p_1> p_2\text{ o }p_1< p_2
+\end{array}
+\right.
+$$
+Les mesuram sobre els subjectes d'una mateixa mostra, o sobre els subjectes de dues mostres  aparellades, de mida $n$
+
+
+Resultats:\vspace*{-3ex}
+
+\begin{center}
+\begin{tabular}{l|l|c|c|}
+\multicolumn{2}{c}{\ } & \multicolumn{2}{c}{Variable $X_2$}\\ \cline{3-4}
+\multicolumn{2}{c|}{\ } &Èxit & Fracàs \\ \cline{2-4}
+Variable & Èxit & $a$ & $b$ \\\cline{2-4}
+$X_1$ & Fracàs & $c$ & $d$\\ \cline{2-4}
+\end{tabular}
+\end{center}
+
+
+
+
+
+
+\frametitle{2 props., mostres aparellades}
+
+Quan el test és \red{bilateral}, si  $n$ és prou gran ($\geq 100$) i si el nombre de \emph{casos discordants} ($b+c$ en la taula anterior) és grandet ($\geq 20$), es pot emprar el \emph{test de McNemar}, que empra l'estadístic
+$$
+Z^2=\frac{(b-c)^2}{b+c}
+$$
+que és aproximadament $\chi^2_1$ si $H_0$ és vertadera
+
+Està implementat en la funció \red{\texttt{mcnemar.test}}: s'aplica a la taula de freqüències absolutes anterior
+
+
+
+
+\frametitle{Exemple 8}\vspace*{-2ex}
+
+Es volgué comparar l'efectivitat d'un fàrmac nou contra la migranya amb la d'un placebo
+
+Es prengué una mostra de $500$ persones afectades per migranya. A cada una, a l'atzar, se li administrà el fàrmac o el placebo. Se'ls demanà si havien notat alleujament en el dolor.
+
+
+Al cap d'un temps, als mateixos individus se'ls subministrà l'altre tractament (fàrmac als que havien rebut placebo, 
+placebo als que havien rebut fàrmac) i se'ls tornà a demanar si havien notat o no milloria
+
+Els resultats varen ser:
+$$
+\begin{tabular}{c|c|cc|}
+\multicolumn{2}{c}{}& \multicolumn{2}{c} {Placebo}\\\cline{3-4}
+\multicolumn{2}{c|}{} & Sí & No \\\hline
+Fàrmac & Sí & 150 & 41 \\
+& No & 19 & 285
+\\\hline
+\end{tabular}
+$$
+
+
+
+
+
+\frametitle{Exemple 8} 
+
+\red{Variables d'interès:}
+
+*$X_1$: Trobar  milloria amb el fàrmac, de proporció poblacional $p_1$
+
+*$X_2$: Trobar  milloria amb el placebo, de proporció poblacional $p_2$
+
+
+
+\red{Contrast}: Volem emprar el test de McNemar, per tant ha de ser bilateral
+$$
+\left\{\begin{array}{l}
+H_0:p_1=p_2\\
+H_1:p_1\neq  p_2
+\end{array}\right.
+$$
+
+
+
+
+
+\frametitle{Exemple 8} 
+
+\begin{lstlisting}
+> Dades.M=matrix(c(150,41,19,285), nrow=2,
+     byrow=T)
+> mcnemar.test(Dades.M)
+
+McNemar's Chi-squared test with continuity correction
+
+data:  Dades.M
+McNemar's chi-squared = 7.35, df = 1, p-value = 0.006706
+\end{lstlisting}
+
+Podem rebutjar que tenen la mateixa taxa d'efectivitat, i com que la taxa d'efectivitat del fàrmac ha estat superior a la del placebo 
+($191/500$ contra $169/500$) concloem que la diferència és perquè el fàrmac es més efectiu
+
+
+
+
+
+
+\frametitle{Test binomial exacte}\vspace*{-2ex}
+
+Si no podeu emprar el test de McNemar, sempre podeu emprar un \emph{test binomial exacte}
+
+Considerau la taula de probabilitats
+\begin{center}
+\begin{tabular}{l|l|c|c|}
+\multicolumn{2}{c}{\ } & \multicolumn{2}{c}{Variable $X_2$}\\ \cline{3-4}
+\multicolumn{2}{c|}{\ } &Èxit & Fracàs \\ \cline{2-4}
+Variable & Èxit & $p_{11}$ & $p_{10}$ \\
+$X_1$ & Fracàs & $p_{01}$ & $p_{00}$\\ \cline{2-4}
+\end{tabular}
+\end{center}
+Llavors
+$$
+p_1=p_{11}+p_{01},\ p_2=p_{11}+p_{10}
+$$
+i per tant
+$$
+\begin{array}{l}
+p_1=p_2\Longleftrightarrow   p_{10}=p_{01}\\
+p_1\neq p_2\Longleftrightarrow   p_{10}\neq p_{01}\\
+p_1< p_2\Longleftrightarrow   p_{10}< p_{01}\\
+p_1> p_2\Longleftrightarrow   p_{10}> p_{01}
+\end{array}
+$$
+
+
+
+
+
+
+\frametitle{Test binomial exacte}
+
+Això permet traduir un contrast sobre $p_1$ i $p_2$ en el mateix  contrast sobre $p_{01}$ i $p_{10}$ i al final en un contrast d'una proporció
+
+Per exemple:
+$$
+\begin{array}{rl}
+\left\{\begin{array}{l}
+H_0: p_1=p_2\\
+H_1: p_1> p_2
+\end{array}\right. & 
+\Longleftrightarrow
+\left\{\begin{array}{l}
+H_0: p_{10}=p_{01}\\
+H_1: p_{10}>p_{01}
+\end{array}\right.\\[3ex]
+ & \Longleftrightarrow
+\left\{\begin{array}{l}
+H_0: \dfrac{p_{10}}{p_{10}+p_{01}}=0.5\\[2ex]
+H_1:  \dfrac{p_{10}}{p_{10}+p_{01}}>0.5
+\end{array}\right.
+\end{array}
+$$
+
+
+
+\frametitle{Test binomial exacte}\vspace*{-2ex}
+$$
+\left\{\begin{array}{l}
+H_0:  p_{10}/(p_{10}+p_{01})=0.5\\
+H_1:   p_{10}/(p_{10}+p_{01})>0.5
+\end{array}\right.
+$$
+
+\red{$p_{10}/(p_{10}+p_{01})$} és la proporció poblacional de (Èxit,Fracàs) dins la població de casos discordants
+
+Aquest darrer contrast el podem efectuar amb un test binomial exacte amb:
+
+
+*\blue{Mostra}: Casos discordants, de mida $b+c$
+*\blue{Èxits}: Èxit a $X_1$ i Fracàs a $X_2$, de mida  $b$
+*\blue{Proporció a contrastar}:  $p=0.5$
+
+
+Mirau només el p-valor (l'IC serà per a $p_{10}/(p_{10}+p_{01})$, no té res a veure amb $p_1-p_2$ o $p_1/p_2$)
+
+
+
+
+
+
+\frametitle{Exemple 8}\vspace{-6ex}
+{\small $$
+\begin{tabular}{c|c|cc|}
+\multicolumn{2}{c}{}& \multicolumn{2}{c} {Placebo}\\\cline{3-4}
+\multicolumn{2}{c|}{} & Sí & No \\\hline
+Fàrmac & Sí & 150 & 41 \\
+& No & 19 & 285
+\\\hline
+\end{tabular}
+$$
+
+}
+\begin{lstlisting}
+> binom.test(41, 60, p=0.5, alt="greater")
+
+    Exact one-sided binomial test
+
+data:  41 and 60
+number of successes = 41, number of trials = 60, p-value = 0.003109
+alternative hypothesis: true probability of success is greater than 0.5
+95 percent confidence interval:
+ 0.5708296 1.0000000
+sample estimates:
+probability of success 
+             0.6833333 
+\end{lstlisting}
+
+
+\end{document}
+
+
+
+\frametitle{Contrastos una mica més generals}
+
+Fins ara hem pres $H_0:\mu_1=\mu_2$. Un tipus de contrastos lleugerament més generals serien
+$$
+\left\{\begin{array}{l}
+H_0:\mu_1-\mu_2=\Delta\\
+H_1:\mu_1-\mu_2<\Delta\text{ o }\mu_1-\mu_2>\Delta\text{ o }\mu_1-\mu_2\neq\Delta
+\end{array}\right.
+$$
+amb $\Delta\in \RR$.
+
+
+Es fan igual, modificant lleugerament l'estadístic: substituïm als numeradors
+\begin{center}
+$\overline{X}_1-\overline{X}_2$ per
+\red{$\overline{X}_1-\overline{X}_2-\Delta$}
+\end{center}
+
+
+
+
+
+\frametitle{Exemple}
+Tenim dos tractaments, A i B, d'una malaltia. Tractam 50 malalts amb A i 100 amb B. 20 malalts  tractats amb A i 25 tractats amb B manifesten haver sentit malestar general durant els 7 dies posteriors a iniciar el tractament.
+
+
+Podem concloure, a un nivell de significació del 5%, que A produeix malestar general en una proporció dels malalts que és 5 punts percentuals superior  a la proporció dels malalts en què el produeix B?
+
+
+
+%%%%%%%%%
+
+
+\frametitle{Exemple}
+
+$p_1$: Fracció de malalts en què A produeix malestar general\\
+$p_2$: Fracció de malalts en què B produeix malestar general
+
+
+\emph{Contrast}:
+$$
+\left\{\begin{array}{l}
+H_0:p_1\leq p_2+0.05\\
+H_1:p_1>p_2+0.05
+\end{array}\right.
+$$
+
+\emph{Estadístic de contrast}:
+$$
+Z=\frac{\widehat{p}_1 -\widehat{p}_2-\Delta}{
+\sqrt{\Big(\frac{n_1 \widehat{p}_1 +n_2 \widehat{p}_2}{n_1
++n_2}\Big)\Big(1-\frac{n_1 \widehat{p}_1 +n_2 \widehat{p}_2}{n_1
++n_2}\Big)\Big(\frac{1}{n_1}+\frac{1}{n_2}
+\Big)}}\sim N(0,1)
+$$
+
+
+
+
+\frametitle{Exemple}
+
+
+\emph{Valor que pren}: $\widehat{p}_1=0.4$, $\widehat{p}_2=0.25$, $n_1=50$, $n_2=100$, $\Delta=0.05$
+$$
+z_0=\frac{0.4 -0.25-0.05}{
+\sqrt{\Big(\frac{20+25}{50+100}\Big)\Big(1-\frac{20+25}{50+100}\Big)\Big(\frac{1}{50}+\frac{1}{100}
+\Big)}}
+=1.26
+$$
+
+
+\emph{p-valor}: $P(Z\geq 1.26)= 0.104$
+
+
+\emph{Decisió}: Com que el p-valor és més gran que $\alpha=0.05$, no podem rebutjar la hipòtesi que $p_1-p_2$ és inferior a un $5%$
+
+
+
+\frametitle{Exemple}
+
+L'\emph{interval de confiança} per a  $p_1-p_2$
+al nivell de confiança $(1-\alpha)\cdot 100%$ en aquest contrast és
+
+{\footnotesize $$
+\left[\widehat{p}_1-\widehat{p}_2+z_{\alpha}\sqrt{\Big(\frac{n_1 \widehat{p}_1 +n_2 \widehat{p}_2}{n_1
++n_2}\Big)\Big(1-\frac{n_1 \widehat{p}_1 +n_2 \widehat{p}_2}{n_1
++n_2}\Big)\Big(\frac{1}{n_1}+\frac{1}{n_2}
+\Big)},\infty
+\right[
+$$
+}
+Operant:
+$$
+[(0.4-0.25)-1.645\cdot 0.0794,\infty [=[0.0194,\infty[
+$$
+Conté $0.05$, per tant no podem rebutjar que $p_1\leq p_2+ 0.05$ (però en canvi, no conté 0 i per tant podríem rebutjar que $p_1=p_2$)
+
+
+
+
+
+-->
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/cescrossello/Mates-II/edit/master/05-Contrastos2.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["Bioestadistica-II.pdf", "Bioestadistica-II.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

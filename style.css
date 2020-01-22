@@ -1,0 +1,42 @@
+p.caption {
+  color: #777;
+  margin-top: 10px;
+}
+p code {
+  white-space: inherit;
+}
+pre {
+  word-break: normal;
+  word-wrap: normal;
+}
+pre code {
+  white-space: inherit;
+}
+.rmdcaution, .rmdimportant, .rmdnote, .rmdwarning, .rmderror {
+  padding: 1em 1em 1em 4em;
+  margin-bottom: 10px;
+  background: #f5f5f5 5px center/3em no-repeat;
+}
+.rmdcorbes {
+  padding: 1em 1em 1em 4em;
+  margin-bottom: 10px;
+  background: #f9f9f9  5px center/3em  no-repeat;
+}
+.rmdcaution {
+  background-image: url("Bioestadistica-II_files/figure-html/caution.png");
+}
+.rmdimportant {
+  background-image: url("Bioestadistica-II_files/figure-html/important.png");
+}
+.rmdnote {
+  background-image: url("Bioestadistica-II_files/figure-html/note.png");
+}
+.rmdcorbes {
+  background-image: url("Bioestadistica-II_files/figure-html/corbes.png");
+}
+.rmdwarning {
+  background-image: url("Bioestadistica-II_files/figure-html/warning.png");
+}
+.rmderror {
+  background-image: url("Bioestadistica-II_files/figure-html/error.png");
+}

@@ -1,0 +1,20 @@
+book_filename: "Bioestadistica-II"
+output_dir: docs
+language:
+  label:
+    fig: 'Figura '
+    tab: 'Taula '
+    eq: 'Equació '
+    thm: 'Teorema '
+    lem: 'Lema '
+    cor: 'Corol·lari '
+    prp: 'Proposició '
+    def: 'Definició '
+    exm: 'Exemple '
+    exr: 'Ejercici '
+    proof: 'Demostració '
+    remark: 'Nota. '
+    solution: 'Solució. '
+  ui:
+    chapter_name: "Tema "
+delete_merged_file: true
