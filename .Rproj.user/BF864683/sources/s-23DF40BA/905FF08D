@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1579719619691.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "905FF08D",
+    "lastKnownWriteTime" : 1579722074,
+    "last_content_update" : 1579722074710,
+    "path" : "~/Documents/GitHub/MatesIIRmds/03-Intervals.Rmd",
+    "project_path" : "03-Intervals.Rmd",
+    "properties" : {
+        "cursorPosition" : "101,71",
+        "scrollLine" : "97"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

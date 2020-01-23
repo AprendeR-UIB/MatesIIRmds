@@ -1,0 +1,404 @@
+---
+title: "Contrastos d'hipòtesis"
+output:
+  html_document: default
+  pdf_document: default
+---
+
+```{r global_options, include=FALSE}
+knitr::opts_chunk$set(fig.width=5, fig.height=5, fig.align="center", echo=TRUE, warning=FALSE, message=FALSE,error=FALSE,cache=TRUE)
+library(knitr)
+library(printr) 
+```
+
+### Experiment de la 1a part
+
+Anem a estudiar la taxa d'encert del contrast del nivell mitjà de calci en sang en els diabètics, per mitjà de simulacions.
+
+Primer suposarem que el nivell mitjà real és 2.5, i simularem la probabilitat d'error de Tipus I. Com que estam fent el contrast amb nivell de significació 0.05, esperam que aquesta sigui la probabilitat d'error de Tipus I. Per fixar idees, modelarem la població de diabètics per mitjà d'una mostra de $10^6$ nombres generats amb distribució $N(2.5,0.5)$. La $\sigma=0.5$ ens l'hem inventada. Aprofitam per fixar la llavor d'aleatorietat.
+
+
+```{r}
+set.seed(42)
+mu0=2.5
+sigma=0.5
+poblacio=rnorm(10^6,mu0,sigma)
+L=qt(0.95,19)  #el llindar per n=20 i alfa=0.05
+```
+
+La funció **estadístic** següent pren una mostra aleatòria de mida $n$ d'un vector $X$ (sense repeticions, per simular l'experiment dels diabètics, on la mostra era sense reposició; com que la població és de 10 milions, si la $n$ no és exageradament gran això no influirà en les conclusions) i en calcula l'estadístic de contrast $T$:
+
+```{r}
+estadístic=function(n,X){
+mostra=sample(X,n,rep=FALSE) 
+(mean(mostra)-mu0)/(sd(mostra)/sqrt(n))
+}
+```
+
+I ara repetim 200 vegades el procés de prendre una mostra de mida 20 de la nostra població i calcular la $T$ corresponent. Després miram la proporció de vegades que això ha donat més gran que el llindar, és a dir, la proporció de vegades que cometríem un error de Tipus I i rebutjaríem la hipòtesi nul·la $\mu=2.5$.
+
+```{r}
+tes=replicate(200,estadístic(20,poblacio))
+p.error.Tipus.I=length(which((tes>L)==TRUE))/200
+p.error.Tipus.I
+```
+
+Ara suposarem que el nivell mitjà real és estrictament més gran que 2.5, i anam a simular la probabilitat d'error de Tipus II. Per començar, generam de manera uniforme un vector de 100 $\mu$'s entre 2.5 i 3.
+
+```{r}
+mus=runif(100,2.5,3)
+```
+
+I ara el que farem serà el següent: per a cada $\mu_i$ d'aquest vector, generam una "població de diabètics" per mitjà d'una mostra de $10^6$ nombres generats amb distribució $N(\mu_i,0.5)$, i repetim 200 vegades el procés de prendre una mostra de mida 20 d'aquesta població i calcular la $T$ corresponent. Després, per a cada $i$, miram la proporció de vegades que això ha donat més petit o igual que el llindar, és a dir, la proporció de vegades que cometem un error de Tipus II  i acceptam la hipòtesi nul·la $\mu=2.5$. Organitzam totes aquestes proporcions en un vector **p.error.Tipus.II**.
+
+```{r}
+p.error.Tipus.II=c()
+for (j in 1:100){
+  poblacio=rnorm(10^5,mus[j],sigma)
+  Tes=replicate(200,estadístic(20,poblacio))    
+  p.error.Tipus.II=c(p.error.Tipus.II, round( length(which((Tes<=L)==TRUE))/200,2))
+}
+p.error.Tipus.II
+```
+
+La proporció mitjana d'errors de tipus II, que ens dóna una idea de la probabilitat d'error de tipus II ha estat:
+
+```{r}
+mean(p.error.Tipus.II)
+```
+
+Si prenguéssim mostres més grans, aquesta probabilitat disminuiria. Repetim aquest segon experiment amb mostres de mida 200 per veure-ho.
+
+```{r}
+p.error.Tipus.II=c()
+for (j in 1:100){
+  poblacio=rnorm(10^5,mus[j],sigma)
+  Tes=replicate(200,estadístic(200,poblacio))    
+  p.error.Tipus.II=c(p.error.Tipus.II, round( length(which((Tes<=L)==TRUE))/200,2))
+}
+mean(p.error.Tipus.II)
+```
+
+Com més grans són les mostres, més gran és la potència del contrast (a mateix nivell de significació).
+
+###  Exemple 2
+
+Carregam la taula de temperatures, que prèviament hem guardat en el directori de treball de R, en un dataframe que anomenarem **BT**.
+
+```{r}
+BT=read.table("Body_Temperature.txt")
+str(BT)
+```
+
+Veiem que la taula **BT** consta de 230 individus i 3 variables mesurades sobre cadascun d'ells: el sexe (variable *Gender*, amb valors *F* per a dona i *M* per a home), les pulsacions per minut (variable *HeartRate*) i la temperatura (variable *Temperature*).
+
+Per constrastar si la temperatura mitjana és 98.6 o no, emprarem la funció **t.test**, aplicant-la al vector de temperatures i al valor que contrastam, 98.6, entrat amb el parametre **mu**. El paràmetre **alternative="two.sided"** indica que el test serà bilateral.
+
+```{r}
+t.test(BT$Temperature, mu=98.6, alternative="two.sided")
+```
+
+Del resultat cal destacar:
+
+* Ll p-valor, **p-value**, en el nostre cas $`r round(t.test(BT$Temperature, mu=98.6, alternative="two.sided")$p.value,11)`$ (R l'ha escrit en notació científica: *`r sprintf("%.3e", t.test(BT$Temperature, mu=98.6, alternative="two.sided")$p.value)`*).
+* L'IC 95%, **95 percent confidence interval**, per al valor que contrastam (aquí, la temperatura mitjana poblacional), en el nostre cas [`r round(t.test(BT$Temperature, mu=98.6, alternative="two.sided")$conf.int,5)`].
+* La mitjana mostral de la mostra, **sample of x**, en el nostre cas `r round(t.test(BT$Temperature, mu=98.6, alternative="two.sided")$estimate,5)`.
+
+
+###  Exemple 3
+
+Primer ens cal saber si hi ha nombres suficientment grans d'homes i dones a la nostra mostra per emprar un test t. Per això calcularem la taula de freqüències dels sexes, aplicant la funció **table** al vector **BT**$\$$**Gender** dels sexes:
+
+
+```{r}
+table(BT$Gender)
+```
+
+Anam a crear uns vectors amb les temperatures d'homes i de dones. Recordau que per extreure d'un dataframe el vector de valors d'una variable *V1* per als individus que prenen un valor concret *X* en una altra variable *V2* s'empra la construcció *dataframe[V2==X,V1]*. Així, les temperatures dels homes (individus on la variable *Gender* és igual a M) són
+
+```{r}
+BT[BT$Gender=="M","Temperature"]
+```
+
+Bé, cream els vectors $X_h$ (homes) y $X_d$ (dones)
+
+```{r}
+X_h=BT[BT$Gender=="M","Temperature"]  #temperatures d'hombes
+X_d=BT[BT$Gender=="F","Temperature"]  #temperatures de dones
+```
+
+Per portar a terme un test t per comparar dues mitjanes, aplicam la funció **t.test** als dos vectors. En aquest cas, a més s'ha d'especificar si les mostres són aparellades (**paired=TRUE**) o independents (**paired=FALSE**), i en aquest darrer cas, si les variàncies poblacionals són iguals (**var.equal=TRUE**) o diferents (**var.equal=FALSE**). En el nostre exemple les mostres són independents i el que farem per ara serà provar quan les variàncies són iguals i quan són diferents: si les dues conclusions són la mateixa, aquesta serà la conclusió que prendrem. El paràmetre **alternative="greater"** indica que el test serà unilateral: la hipòtesi alternativa és que la mitjana de la primera població és més gran que la de la segona.
+
+```{r}
+t.test(X_h, X_d, alternative="greater",paired=FALSE, var.equal=TRUE)
+t.test(X_h, X_d, alternative="greater",paired=FALSE, var.equal=FALSE)
+```
+
+En tots dos casos obtenim un p-valor (*p-value*) gran i un IC 95 % (*95 percent confidence interval*) per a la diferència de les mitjanes que conté el 0, per la qual cosa no podem descartar que les dues mitjanes siguin iguals. 
+
+
+###  Exemple 4
+
+Carregam la taula, que prèviament hem guardat en el directori de treball de R, en un dataframe al que anomenam *OBR* i consultam la seva estructura:
+
+```{r}
+OBR=read.table("oatbran.txt",header=TRUE)
+str(OBR)
+```
+
+N'extraiem les dues variables en forma de vectors:
+
+```{r}
+OAT=OBR$OATBRAN
+CFL=OBR$CORNFLK
+```
+
+
+14 dades són poques, si volem aplicar un test t necessitam que provinguin d'una distribució normal. Per decidir si és veritat o no, més endavant explicarem contrastos de bondat d'ajustament, amb hipòtesi nul·la "Aquesta mostra prové d'una variable aleatòria amb tal distribució" i hipòtesi alternativa "No és veritat que aquesta mostra provengui d'una variable aleatòria amb tal distribució". Per ara ens conformarem amb contrastar-ho a partir d'un gràfic.
+
+A Matemàtiques I us explicàvem que podeu dibuixar un histograma de les dades amb la densitat estimada de la distribució que les ha generades i la densitat de la normal de la seva mitjana i desviació típica, i mirar si sembla que les dades segueixen aquesta darrera densitat. Però amb poques dades això fa mal de veure:
+
+```{r}
+hist(OAT,freq=FALSE, breaks=4,col="light blue",xlab="Colesterol",ylab="Densitat", main="Histograma de OATBRAN")
+lines(density(OAT),lty=2,lwd=2)
+curve(dnorm(x,mean(OAT),sd(OAT)),col="red",lwd=2,add=TRUE)
+legend("topright",legend=c("Densitat estimada","Normal"),col=c("black","red"),lty=c(2,1),cex=0.5)
+
+hist(CFL,freq=FALSE, breaks=4,col="light blue",xlab="Colesterol",ylab="Densitat", main="Histograma de CORNFLK",ylim=c(0,0.5))
+curve(dnorm(x,mean(CFL),sd(CFL)),col="red",lwd=2,add=TRUE)
+lines(density(CFL),lty=2,lwd=2)
+legend("topright",legend=c("Densitat estimada","Normal"),col=c("black","red"),lty=c(2,1),cex=0.5)
+```
+
+Una opció millor és dibuixar un normal-plot amb franges de confiança: si els punts cauen dins la franja de confiança, podem acceptar que la mostra prové de la distribució normal usada. Usarem la funció **qqPlot** del paquet **car** (que carregam prèviament amb **library(car)**). 
+
+```{r}
+library(car)
+qqPlot(OAT,mean=mean(OAT),sd=sd(OAT),ylab="Quantils de OATBRAN",xlab="Quantils de normal",pch=20,id=FALSE)
+qqPlot(CFL,mean=mean(CFL),sd=sd(CFL),ylab="Quantils de CORNFLK",xlab="Quantils de normal",pch=20,id=FALSE)
+```
+
+Aceptarem per tant que les nostres dades provenen de dues distribucions normals
+
+En aquest cas, el test t és de mostres aparellades, per la qual cosa hem d'especificar **paired=TRUE** i no especificar **var.equal**. El paràmetre **alternative="less"** indica que el test serà unilateral: la mitjana de la primera població és més petita que la de la segona
+
+
+```{r}
+t.test(OAT,CFL,alternative="less", paired=TRUE)
+```
+
+Com abans, el resultat inclou el p-valor, l'IC 95% per a la mitjana de les diferències (que és igual a la diferència de les mitjanes: recordau que $E(X-Y)=E(X)-E(Y)$) i ara, com a novetat, la mitjana de les diferències (*mean of the differences*) en comptes de les dues mitjanes, ja que el que ens interessa és contrastar si la mitjana de les diferències és menor que 0.
+
+Si no volguéssim suposar que les mostres provenen de distribucions normals, empraríem el test de Wilcoxon, amb la funció **wilcox.test** i la mateixa sintaxi que **t.test**:
+
+```{r}
+wilcox.test(OAT,CFL,alternative="less",paired=TRUE)
+```
+
+### Exemple 4
+
+S'ha analitzat el líquid amniòtic d'una mostra aleatòria de 15 embarassades de 3er trimestre, i s'han obtingut les mesures següents de proteïnes totals (en grams per 100 ml)
+
+```{r}
+x=c(0.69,1.04,0.39,0.37,0.64,0.73,0.69,1.04,0.83,1.01,0.19,0.61,0.42,0.25,0.79)
+```
+
+Podem concloure a partir d'aquestes dades, amb un nivell de significació del 5%, que la variància poblacional (és a dir, la variància de la quantitat de proteïna total en el líquid amniòtic de les embarassades de 3er trimestre expressada en grams per 100 ml) és diferent de 0.05?
+
+Per emprar un test $\chi^2$, cal primer de tot mirar si podem acceptar que aquesta mostra prové d'una distribució normal. Emprarem el normal-plot.
+
+```{r}
+qqPlot(x,mean=mean(x),sd=sd(x),ylab="Quantils de la mostra",xlab="Quantils de normal",pch=20,id=FALSE)
+```
+
+
+Acceptarem que la variable poblacional és normal. Per portar a terme el test $\chi^2$, emprarem la funció **sigma.test** del paquet **TeachingDemos**. La sintaxi és la mateixa que la de **t.test**, excepte que a **sigma.test** s'hi ha  d'indicar si el que se contrasta és la variància (entrant-la amb el paràmetre *sigmasq*) o la desviació típica (entrant-la amb el paràmetre *sigma*). Al nostre cas, com que contrastam si la variància és o no 0.05, l'hi entram amb *sigmasq*.
+
+```{r}
+library(TeachingDemos)
+sigma.test(x, sigmasq=0.05, alternative="two.sided")
+```
+
+Obtenim un resultat com el de **t.test**, on hi podem llegir el p-valor i l'interval de confiança per a la variància poblacional.
+
+Com que contrastar que la variància és 0.05 és el mateix que contrastar que la desviació típica és $\sqrt{0.5}$, haguéssim pogut fer això darrer entrant a **sigma.test** aquest valor de *sigma*, i com que el valor per defecte de **alternative** és **"two.sided"**, no calia entrar-lo:
+
+```{r}
+sigma.test(x,sigma=sqrt(0.05))
+```
+
+R se n'ha adonat que voliem fer el mateix contrast que abans, i ha fet exactament el mateix contrast. L'interval de confiança que dóna en aquest cas segueix essent el de la variància.
+
+###  Exemple 3 (continuació)
+
+Volem contrastar si les variables aletòries $X_h$ i $X_d$ tenen la mateixa variància o no. Suposarem que són normals, i que per tant podem emprar el test F. Aquest test es porta a terme aplicant la funció **var.test** als dos vectors (com sempre, el valor per defecte de **alternative** és **"two.sided"**, no l'entram):
+
+
+```{r}
+var.test(X_h, X_d)
+```
+
+¿Era adient suposar que $X_h$ i $X_d$ són normals? Vegem els seus histogrames (com que les mostres són grans, els histogrames són informatius) i els seus normal-plot. 
+
+Els histogrames:
+
+```{r}
+hist(X_h,freq=FALSE, breaks=10,col="light blue",xlab="Temperatura",ylab="Densitat", main="Histograma de X_h")
+lines(density(X_h),lty=2,lwd=2)
+curve(dnorm(x,mean(X_h),sd(X_h)),col="red",lwd=2,add=TRUE)
+legend("topleft",legend=c("Densitat estimada","Normal"),col=c("black","red"),lty=c(2,1),cex=0.5)
+
+hist(X_d,freq=FALSE, breaks=10,col="light blue",xlab="Temperatura",ylab="Densitat", main="Histograma de X_d",ylim=c(0,0.5))
+curve(dnorm(x,mean(X_d),sd(X_d)),col="red",lwd=2,add=TRUE)
+lines(density(X_d),lty=2,lwd=2)
+legend("topleft",legend=c("Densitat estimada","Normal"),col=c("black","red"),lty=c(2,1),cex=0.5)
+```
+
+
+Els normal-plot:
+
+```{r}
+qqPlot(X_h,mean=mean(X_h),sd=sd(X_h),xlab="Quantils de normal", ylab="Quantils de temp. homes",pch=20,main="Normal-plot de X_h",id=FALSE)
+qqPlot(X_d,mean=mean(X_d),sd=sd(X_d),xlab="Quantils de normal",ylab="Quantils de temp. dones",pch=20,main="Normal-plot de X_d",id=FALSE)
+```
+
+No acaben de tenir pinta de normals. Com que és un test bilateral, emprarem el test no paramètric de Fligner-Kileen. S'aplica a una *list* formada pels dos  vectors.
+
+```{r}
+fligner.test(list(X_h,X_d))
+```
+
+
+###  Exemple 5
+
+Les funcions **binom.test** i **prop.test** per contrastar una proporció s'apliquen (en aquest ordre) al nombre d'èxits, a la mida de la mostra, i  al paràmetre **p** igualat a la probabilitat poblacional que volem contrastar. La lateralitat del test s'especifica com fins ara amb **alternative** (per defecte entén que és bilateral) i el nivell de significació entrant el nivell de confiança a **conf.level**, per defecte 0.95 (nivell de significació 0.05).
+
+```{r}
+binom.test(1,30,p=0.1)
+prop.test(1,30,p=0.1)
+```
+
+Obteniu el p-valor, l'IC 95% per a la probabilitat poblacional d'èxit (de Clopper-Pearson amb **binom.test**, de Wilson amb correcció de continuïtat amb **prop.test**), i a la darrera línia la proporció mostral. Entrant el paràmetre  **correct=FALSE** a **prop.test** obtenim exactament el contrast aproximat i l'interval de Wilson explicats a classe (sense correcció de continuïtat).
+
+
+###  Potència
+
+
+Per calcular la potència dels tests bàsics, podem usar les funcions del paquet **pwr**. Algunes funcions útils:
+
+* Les funcions del tipus **ES.qualque-cosa** serveixen per calcular la mida de l'efecte obtingut en el nostre experiment. Per a proporcions és **ES.h**
+
+```{r}
+library(pwr)
+ES.h(0.1,0.03)  #La mida de l'efecte observat
+```
+
+* La funció **cohen.ES** ens dóna per a cada tipus de test quina és la mida (numèrica) de l'efecte convencionalment considerat "petit", "mitjà" o "gran". Per exemple, quina mida de l'efecte hem d'emprar a la fórmula per a la potència del **prop.test** si esperam un efecte petit, és a dir, una diferència petita entre la proporció que observarem i la poblacional (perquè els estudiants de la UIB pot ser siguin diferents de la mitjana, però no esperam que siguin gaire diferents)? Aplicam **cohen.ES** amb paràmetres **test="p"**, per indicar que es tracta d'un contrast de **p**roporcions, i **size="small"** per indicar que esperam un efecte petit:
+
+```{r}
+cohen.ES(test="p",size="small")
+```
+
+* Les funcions del tipus **"pwr.tipus-de-test"** serveixen per relacionar la mida de la mostra (indicada amb *n*) o de les mostres (indicades amb *n1* i *n2*), la mida de l'efecte (indicada amb *d* als contrastos de mitjanes i amb *h* als contrastos de proporcions), el nivell de significació (indicat amb *sig.level*) i la potència (indicada amb *power*) del test en qüestió. Se li entren tres d'aquests valors i ens dóna el quart. Per exemple, en el nostre cas, per un **prop.test** d'una mostra hem d'emprar la funció **pwr.p.test**; com que és bilateral, hi hem d'indicar que **alternative="two.sided"**. Llavors, si volem saber la potència del contrast si la mida de la mostra és 30, la mida de l'efecte ha estat 0.3 i hem pres un nivell de significació 0.05, entram:
+
+```{r}
+pwr.p.test(h=0.3, n=30, sig.level=0.05,alternative="two.sided")
+```
+
+Què hagués passat amb una mostra de 150 estudiants amb 5 d'ells esquerrans? Quina hagués estat la potència del contrast?
+
+```{r}
+prop.test(5,150,p=0.1,alternative="two.sided")
+pwr.p.test(h=0.3,n=150,sig.level=0.05,alternative="two.sided")
+```
+
+De quina mida hauríem d'haver pres la mostra per obtenir una potència del 90% amb aquest nivell de significació i esperant un efecte petit?
+
+```{r}
+cohen.ES(test="p",size="small")
+pwr.p.test(h=0.2, power=0.9, sig.level=0.05,alternative="two.sided")
+```
+
+
+
+###  Exemple 6
+
+La taula de freqüències  és 
+
+$$
+\begin{array}{c|cc }
+  & \mbox{Mallorca} & \mbox{Menorca}  \\\hline
+\mbox{Present} & 20 & 12 \\
+\mbox{Absent} & 80 & 38   \\\hline 
+\mbox{Total} & 100 & 50   
+\end{array}
+$$
+
+Llavors podem aplicar **prop.test** de la manera següent:
+
+```{r}
+#Amb correcció de continuïtat
+prop.test(c(20,12),c(100,50),alternative="two.sided")
+#Sense correcció de continuïtat
+prop.test(c(20,12),c(100,50),alternative="two.sided",correct=FALSE)
+```
+
+Per portar a terme el test de Fisher, hem d'aplicar la funció **fisher.test** a la matriu:
+
+```{r}
+Dades.G=matrix(c(20,12,80,38), nrow=2, byrow=T)
+fisher.test(Dades.G)
+```
+
+L'IC 95% i l'estimació de la darrera línia són per a l'*odds ratio*
+
+
+
+###  Exemple 7
+
+La taula de freqüències  és 
+
+$$
+\begin{array}{c|cc }
+  & \mbox{Monozigòtics} & \mbox{Dizigòtics} \\\hline
+\mbox{Un SIDS} & 23 & 35  \\
+\mbox{Dos SIDS} & 1 & 2  \\\hline 
+\mbox{Total} & 24 &37   
+\end{array}
+$$
+
+```{r}
+Dades=matrix(c(23,35,1,2),nrow=2,byrow=TRUE)
+fisher.test(Dades,alternative="less")
+```
+
+
+
+###  Exemple 8
+
+La taula de freqüències  és 
+
+$$
+\begin{array}{c}
+\qquad\qquad\qquad\ \mbox{Placebo}\\[-2ex]
+\begin{array}{cccc}
+ & & \mbox{Sí} & \mbox{No} \\\hline
+\mbox{Fàrmac} & \mbox{Sí} & 150 & 41 \\
+& \mbox{No} & 19 & 285
+\end{array}
+\end{array}
+$$
+
+Per portar a terme el contrast bilateral de proporcions, entram aquesta taula en una matriu *Dades.M* i li aplicam  la funció **mcnemar.test**
+
+```{r}
+Dades.M=matrix(c(150,41,19,285), nrow=2,byrow=T)
+mcnemar.test(Dades.M)
+```
+
+Si volguéssim contrastar amb un test unilateral si el fàrmac té més èxit que el placebo, podem emprar el contrast binomial exacte explicat a classe
+
+```{r}
+binom.test(41,60,p=0.5,alternative="greater")
+```
+

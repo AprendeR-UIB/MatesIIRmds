@@ -203,7 +203,7 @@ Figura 1.1: Població <em>versus</em> mostra (Font: https//towardsdatascience.co
 
 <p>Formalment:</p>
 <ul>
-<li><p>Una <strong>població</strong> és un conjunt on està definida una variable aleatòria <span class="math inline">\(X\)</span>.</p></li>
+<li><p>Una <strong>població</strong> és un conjunt on està definida una variable aleatòria (<strong>poblacional</strong>) <span class="math inline">\(X\)</span>.</p></li>
 <li><p>Una <strong>mostra aleatòria simple</strong> de mida <span class="math inline">\(n\)</span> de la variable aleatòria <span class="math inline">\(X\)</span> és un vector <span class="math inline">\((X_1,\ldots,X_n)\)</span> format per <span class="math inline">\(n\)</span> còpies <em>independents</em> de <span class="math inline">\(X\)</span>.</p></li>
 <li><p>Una <strong>realització</strong> de la mostra aleatòria simple <span class="math inline">\((X_1,\ldots,X_n)\)</span> és un vector <span class="math inline">\((x_1,\ldots,x_n)\)</span> de valors presos per aquestes variables aleatòries.</p></li>
 <li><p>Un <strong>estimador</strong> és una variable aleatòria <span class="math inline">\(f(X_1,\ldots,X_n)\)</span> obtinguda aplicant una funció <span class="math inline">\(f\)</span> a una mostra aleatòria simple <span class="math inline">\(X_1,\ldots,X_n\)</span>.</p>
@@ -216,7 +216,7 @@ Figura 1.1: Població <em>versus</em> mostra (Font: https//towardsdatascience.co
 
 <ul>
 <li><p><em>Població</em>: El conjunt dels estudiants de la UIB</p></li>
-<li><p><em>Variable aleatòria</em> <span class="math inline">\(X\)</span>: Prenem un estudiant de la UIB i midam la seva alçada.</p></li>
+<li><p><em>Variable aleatòria poblacional</em> <span class="math inline">\(X\)</span>: Prenem un estudiant de la UIB i midam la seva alçada.</p></li>
 <li><p><em>Mostra aleatòria simple de mida 30</em>: Un vector <span class="math inline">\((X_1,\ldots,X_{30})\)</span> format per 30 còpies independents de <span class="math inline">\(X\)</span>.</p></li>
 <li><p>Una <em>realització</em> d’aquesta mostra aleatòria simple: Un vector <span class="math inline">\((x_1,\ldots,x_{30})\)</span> obtingut repetint 30 vegades, de manera independent cada una de les altres, el procés d’escollir un estudiant de la UIB i midar-li l’alçada.</p></li>
 <li><p><em>Estimador</em>: La mitjana aritmètica que farem servir sobre aquesta mostra és
@@ -374,7 +374,7 @@ Com us podeu imaginar, quan un resultat l’anomenen “Teorema Central” de qu
 <div class="rmdimportant">
 <p>Siguin <span class="math inline">\(X\)</span> una variable aleatòria <em>qualsevol</em> d’esperança <span class="math inline">\(\mu_X\)</span> i desviació típica <span class="math inline">\(\sigma_X\)</span> i <span class="math inline">\(X_1,\ldots, X_n\)</span> una mostra aleatòria simple de <span class="math inline">\(X\)</span>. Si la mida <span class="math inline">\(n\)</span> de la mostra és gran, la seva mitjana mostral <span class="math inline">\(\overline{X}\)</span> és aproximadament nomal
 <span class="math inline">\(N(\mu_X,\sigma_X/\sqrt{n})\)</span>.</p>
-<p>Aquí, “<span class="math inline">\(n\)</span> gran voldrà” dir a partir de 30 o 40, potser menys si <span class="math inline">\(X\)</span> no és molt diferent d’una normal i potser més si la <span class="math inline">\(X\)</span> és molt diferent d’una normal.</p>
+<p>Aquí, “<span class="math inline">\(n\)</span> gran” voldrà dir a partir de 30 o 40, potser menys si <span class="math inline">\(X\)</span> no és molt diferent d’una normal i potser més si la <span class="math inline">\(X\)</span> és molt diferent d’una normal.</p>
 </div>
 
 <p>A partir d’ara, sovint cometrem l’abús de llenguatge d’ometre l’adverbi “aproximadament” de l’expressió anterior, i direm simplement que si <span class="math inline">\(n\)</span> és gran, <span class="math inline">\(\overline{X}\)</span> és normal. Però hem de recordar que aquest “és normal” en realitat vol dir “la seva distribució és aproximadament la d’una variable normal”.</p>
@@ -469,28 +469,34 @@ Què passa si prenem les mostres aleatòries de notes de tests sense reposició?
 </div>
 <div id="proporcio-mostral" class="section level2">
 <h2><span class="header-section-number">1.3</span> Proporció mostral</h2>
-<p>Sigui <span class="math inline">\(X\)</span> una variable aleatòria Bernoulli amb <strong>probabilitat d’èxit</strong> (o <strong>proporció d’èxits</strong>) <span class="math inline">\(p_X\)</span>. Entendrem que <span class="math inline">\(X\)</span> pren els valors 1 (èxit) o 0 (fracàs).</p>
-<p>Sigui <span class="math inline">\(X_1,\ldots,X_n\)</span> una mostra aleatòria de mida <span class="math inline">\(n\)</span> de <span class="math inline">\(X\)</span>. Sigui <span class="math inline">\(S=\sum_{i=1}^n X_i\)</span> el nombre d’èxits observats en aquesta mostra aleatòria.</p>
-
-<div class="rmcaution">
-Recordau que <span class="math inline">\(E(X)=p_X\)</span> i <span class="math inline">\(\sigma_X=\sqrt{p_X(1-p_X)}\)</span>, i que si la mostra és aleatòria simple, aquesta <span class="math inline">\(S\)</span> és una variable aleatòria binomial <span class="math inline">\(B(n,p)\)</span>.
-</div>
-
+<p>Suposem que ara tenim una variable aleatòria poblacional <span class="math inline">\(X\)</span> que és Bernoulli amb <strong>probabilitat d’èxit</strong> (o <strong>proporció d’èxits</strong>) <span class="math inline">\(p_X\)</span>. Entendrem que <span class="math inline">\(X\)</span> pren els valors 1 (èxit) o 0 (fracàs). Recordau que <span class="math inline">\(E(X)=p_X\)</span> i <span class="math inline">\(\sigma_X=\sqrt{p_X(1-p_X)}\)</span>.</p>
+<p>Sigui <span class="math inline">\(X_1,\ldots,X_n\)</span> una mostra aleatòria de mida <span class="math inline">\(n\)</span> de <span class="math inline">\(X\)</span> i sigui <span class="math inline">\(S=\sum_{i=1}^n X_i\)</span> el nombre d’èxits observats en aquesta mostra aleatòria.</p>
 <p>La <strong>proporció mostral</strong> d’èxits de la nostra mostra és
 <span class="math display">\[
 \widehat{p}_X=\frac{S}{n}=\frac{\sum_{i=1}^n X_i}{n}.
-\]</span>
-Fixau-vos que <span class="math inline">\(\widehat{p}_X\)</span> és un cas particular de la mitjana mostral <span class="math inline">\(\overline{X}\)</span>, per tant per a les proporcion mostrals val tot el que hem dit fins ara per a mitjanes mostrals:</p>
+\]</span></p>
+
+<div class="rmdcaution">
+Recordau que si aquesta mostra és aleatòria simple, la <span class="math inline">\(S\)</span> és una variable aleatòria binomial <span class="math inline">\(B(n,p)\)</span>. Però és un doi dir que la proporció mostral <span class="math inline">\(\widehat{p}_X\)</span> és una variable aleatòria binomial, encara que només sigui perquè les variables aleatòries binomials prenen valors nombres naturals i els valors que pot prendre <span class="math inline">\(\widehat{p}_X\)</span> són fraccions entre 0 i 1.
+</div>
+
+
+<div class="rmdnote">
+<p>Recordau del Teorema <a href="#thm:combvar"><strong>??</strong></a> que si <span class="math inline">\(X\)</span> és normal, aleshores <span class="math inline">\(X/n\)</span> també és normal. En canvi, si <span class="math inline">\(X\)</span> és binomial, <span class="math inline">\(X/n\)</span> <em>no</em> és binomial. Per exemple, pel que acabam de veure, la <span class="math inline">\(S\)</span> d’una mostra aleatòria simple d’una variable Bernoulli és una variable binomial però <span class="math inline">\(\widehat{p}_X=S/n\)</span> no.</p>
+El fet que una combinació lineal de normals torni a ser normal és una molt bona propietat de la normal, que molt poques altres distribucions tenen.
+</div>
+
+<p>Fixau-vos que <span class="math inline">\(\widehat{p}_X\)</span> és un cas particular de la mitjana mostral <span class="math inline">\(\overline{X}\)</span>, per tant per a les proporcion mostrals val tot el que hem dit fins ara per a mitjanes mostrals:</p>
 
 <div class="theorem">
-<p><span id="thm:pX" class="theorem"><strong>Teorema 1.4  </strong></span>Si <span class="math inline">\(X\)</span> és una variable aleatòria Bernoulli amb probabilitat d’èxit <span class="math inline">\(p_X\)</span>, aleshores</p>
+<p><span id="thm:pX" class="theorem"><strong>Teorema 1.4  </strong></span>Si <span class="math inline">\(X\)</span> és una variable aleatòria Bernoulli amb probabilitat d’èxit <span class="math inline">\(p_X\)</span> i <span class="math inline">\(X_1,\ldots,X_n\)</span> és una mostra aleatòria de mida <span class="math inline">\(n\)</span> de <span class="math inline">\(X\)</span>, de proporció mostral <span class="math inline">\(\widehat{p}_X\)</span>, aleshores</p>
 <ol style="list-style-type: decimal">
 <li><p><span class="math inline">\(E(\widehat{p}_X)=p_X\)</span></p></li>
 <li><p>Si la mostra aleatòria és simple, <span class="math inline">\(\sigma({\widehat{p}_X})=\sqrt{\dfrac{p_X(1-p_X)}{n}}\)</span></p></li>
 <li><p>Si la mostra aleatòria és sense reposició i <span class="math inline">\(n\)</span> és relativament gran per comparació amb la mida de la població <span class="math inline">\(N\)</span>,
 <span class="math display">\[
 \sigma({\widehat{p}_X})=\sqrt{\frac{p_X(1-p_X)}{n}}\cdot
-\sqrt{\hphantom{(}\frac{N-n}{N-1}}
+\sqrt{\frac{\vphantom{(}N-n}{N-1}}
 \]</span></p></li>
 <li>Pel Teorema Central del Límit, si la mostra és aleatòria simple i la seva mida <span class="math inline">\(n\)</span> és gran, la distribució de <span class="math inline">\(\widehat{p}_X\)</span> és aproximadament la d’una variable
 <span class="math display">\[
@@ -513,7 +519,7 @@ i per tant
 </ul>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-32" class="example"><strong>Exemple 1.9  </strong></span>Tornem una altra vegada a la situació dels Exemples <a href="estimacio-puntual.html#exm:experimentTCL1">1.4</a> i <a href="estimacio-puntual.html#exm:experimentTCL2">1.6</a>. Vaig a traduir el fitxer de notes de tests en un vector binari: 0 per suspens (haver tret menys de 50) i 1 per aprovat (haver tret 50 o més):</p>
+<p><span id="exm:unnamed-chunk-33" class="example"><strong>Exemple 1.9  </strong></span>Tornem una altra vegada a la situació dels Exemples <a href="estimacio-puntual.html#exm:experimentTCL1">1.4</a> i <a href="estimacio-puntual.html#exm:experimentTCL2">1.6</a>. Vaig a traduir el fitxer de notes de tests en un vector binari: 0 per suspens (haver tret menys de 50) i 1 per aprovat (haver tret 50 o més):</p>
 </div>
 
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Iniciam totes les notes a 1</span>
@@ -548,11 +554,11 @@ props.mostrals=<span class="kw">replicate</span>(<span class="dv">10</span><span
      <span class="dt">ylab=</span><span class="st">&quot;Freqüències&quot;</span>,<span class="dt">main=</span><span class="st">&quot;Histograma de la mostra de proporcions&quot;</span>)
 <span class="kw">curve</span>(fact.trans.p<span class="op">*</span><span class="kw">dnorm</span>(x,<span class="kw">mean</span>(props.mostrals),<span class="kw">sd</span>(props.mostrals)),
       <span class="dt">col=</span><span class="st">&quot;red&quot;</span>,<span class="dt">lwd=</span><span class="dv">2</span>,<span class="dt">add=</span><span class="ot">TRUE</span>)</code></pre>
-<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-40-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-41-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>I això que la mida de les mostres, 40, no és especialment gran.</p>
 
 <div class="example">
-<span id="exm:unnamed-chunk-41" class="example"><strong>Exemple 1.10  </strong></span>Un 59.1% dels estudiants de la UIB són dones. Hem pres una mostra més o menys aleatòria de 60 estudiants de la UIB i hi hem trobat 40 dones, un 66.67%. Ens demanam si 40 de 60 és una quantitat raonable de dones en una mostra aleatòria simple d’estudiants de la UIB, o si són moltes (atès que hi esperaríem al voltant d’un 60% de dones).<br />
+<span id="exm:unnamed-chunk-42" class="example"><strong>Exemple 1.10  </strong></span>Un 59.1% dels estudiants de la UIB són dones. Hem pres una mostra més o menys aleatòria de 60 estudiants de la UIB i hi hem trobat 40 dones, un 66.67%. Ens demanam si 40 de 60 és una quantitat raonable de dones en una mostra aleatòria simple d’estudiants de la UIB, o si són moltes (atès que hi esperaríem al voltant d’un 60% de dones).<br />
 
 </div>
 
@@ -614,15 +620,20 @@ S^2_X=\frac{\sum_{i=1}^n X_{i}^2}{n}-\overline{X}^2
 
 
 <div class="theorem">
-<p><span id="thm:unnamed-chunk-46" class="theorem"><strong>Teorema 1.5  </strong></span>Si la variable aleatòria <span class="math inline">\(X\)</span> és <strong>normal</strong>, aleshores <span class="math inline">\(E(\widetilde{S}_{X}^2)=\sigma_{X}^2\)</span> i
+<p><span id="thm:unnamed-chunk-47" class="theorem"><strong>Teorema 1.5  </strong></span>Si <span class="math inline">\(X\)</span> és una variable aleatòria <strong>normal</strong> de desviació típica <span class="math inline">\(\sigma_X\)</span> i <span class="math inline">\(X_1,\ldots,X_n\)</span> és una mostra aleatòria simple de mida <span class="math inline">\(n\)</span> de <span class="math inline">\(X\)</span>, amb variància mostral <span class="math inline">\(\widetilde{S}_{X}^2\)</span>, aleshores <span class="math inline">\(E(\widetilde{S}_{X}^2)=\sigma_{X}^2\)</span> i
 la variable aleatòria
 <span class="math display">\[
 \frac{(n-1)\widetilde{S}_{X}^2}{\sigma_{X}^2}
 \]</span>
-té distribució coneguda: <span class="math inline">\(\chi_{n-1}^2\)</span> (llegit ``khi quadrat amb <span class="math inline">\(n-1\)</span> graus de llibertat).</p>
+té distribució coneguda: <span class="math inline">\(\chi_{n-1}^2\)</span> (es llegeix “khi quadrat amb <span class="math inline">\(n-1\)</span> graus de llibertat”).</p>
 </div>
 
-<p>De la distribució <span class="math inline">\(\chi_n^2\)</span> (<span class="math inline">\(\chi\)</span>: en català, <em>khi</em>; en castellà, <em>ji</em>; en anglès, <em>chi</em>, pronunciat <em>xai</em>), on <span class="math inline">\(n\)</span> són els <strong>graus de llibertat</strong>, heu de saber que:</p>
+
+<div class="rmdcaution">
+La lletra <span class="math inline">\(\chi\)</span> en català es diu <em>khi</em>; en castellà, <em>ji</em>; i en anglès, <em>chi</em>, pronunciat <em>xai</em>.
+</div>
+
+<p>De la distribució <span class="math inline">\(\chi_n^2\)</span>, on <span class="math inline">\(n\)</span> són els <strong>graus de llibertat</strong>, heu de saber que:</p>
 <ul>
 <li><p>Per definició, és la distribució de la suma dels quadrats de <span class="math inline">\(n\)</span> variables aleatòries normals estàndard independents. És a dir, si <span class="math inline">\(Z_{1},Z_{2},\ldots, Z_{n}\sim N(0,1)\)</span> són independents, la variable
 <span class="math display">\[
@@ -632,7 +643,7 @@ té distribució <span class="math inline">\(\chi_n^2\)</span>.</p></li>
 <li><p>La <span class="math inline">\(n\)</span> és un paràmetre del que depèn la seva distribució.</p></li>
 <li><p>Amb R és <code>chisq</code></p></li>
 <li><p>Si <span class="math inline">\(X\)</span> és una variable aleatòria amb distribució <span class="math inline">\(\chi_n^2\)</span>, aleshores <span class="math inline">\(E(X)=n\)</span> i <span class="math inline">\(\sigma_X^2=2 n\)</span></p></li>
-<li><p>Per a <span class="math inline">\(n\)</span> petits, la distribució d’una <span class="math inline">\(\chi_{n}^2\)</span> presenta una cua a la dreta, i a mida que <span class="math inline">\(n\)</span> creix, es va aproximant a una distribució normal <span class="math inline">\(N(n,\sqrt{2n})\)</span>, com podeu veure als gràfics següents</p></li>
+<li><p>Per a <span class="math inline">\(n\)</span> petits, la distribució d’una <span class="math inline">\(\chi_{n}^2\)</span> presenta una cua a la dreta, i a mida que <span class="math inline">\(n\)</span> creix, pel Teorema Central del Límit, es va aproximant a una distribució normal <span class="math inline">\(N(n,\sqrt{2n})\)</span>, com podeu veure als gràfics següents</p></li>
 </ul>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">curve</span>(<span class="kw">dchisq</span>(x,<span class="dv">1</span>),<span class="dt">col=</span><span class="dv">1</span>,<span class="dt">lwd=</span><span class="dv">2</span>,<span class="dt">xlim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">20</span>),<span class="dt">xlab=</span><span class="st">&quot;&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;&quot;</span>,<span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="fl">0.3</span>),<span class="dt">main=</span><span class="st">&quot;Algunes khi quadrat&quot;</span>)
 <span class="kw">curve</span>(<span class="kw">dchisq</span>(x,<span class="dv">2</span>),<span class="dt">col=</span><span class="dv">2</span>,<span class="dt">lwd=</span><span class="dv">2</span>,<span class="dt">add=</span><span class="ot">TRUE</span>)
@@ -642,17 +653,14 @@ té distribució <span class="math inline">\(\chi_n^2\)</span>.</p></li>
 <span class="kw">curve</span>(<span class="kw">dchisq</span>(x,<span class="dv">10</span>),<span class="dt">col=</span><span class="dv">6</span>,<span class="dt">lwd=</span><span class="dv">2</span>,<span class="dt">add=</span><span class="ot">TRUE</span>)
 <span class="kw">legend</span>(<span class="st">&quot;topright&quot;</span>,<span class="dt">col=</span><span class="dv">1</span><span class="op">:</span><span class="dv">6</span>,<span class="dt">lty=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>),
        <span class="dt">lwd=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">2</span>),<span class="dt">legend=</span><span class="kw">paste</span>(<span class="st">&quot;n=&quot;</span>,<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>,<span class="dv">10</span>),<span class="dt">sep=</span><span class="st">&quot;&quot;</span>),<span class="dt">cex=</span><span class="fl">0.8</span>)</code></pre>
-<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-47-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-49-1.png" width="480" style="display: block; margin: auto;" /></p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">curve</span>(<span class="kw">dchisq</span>(x,<span class="dv">300</span>),<span class="dt">xlim=</span><span class="kw">c</span>(<span class="dv">150</span>,<span class="dv">450</span>),<span class="dt">lwd=</span><span class="dv">2</span>,<span class="dt">xlab=</span><span class="st">&quot;&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;&quot;</span>,<span class="dt">main=</span><span class="st">&quot;Khi quadrat vs Normal&quot;</span>)
 <span class="kw">curve</span>(<span class="kw">dnorm</span>(x,<span class="dv">300</span>,<span class="kw">sqrt</span>(<span class="dv">600</span>)),<span class="dt">lwd=</span><span class="dv">2</span>,<span class="dt">col=</span><span class="st">&quot;red&quot;</span>,<span class="dt">add=</span><span class="ot">TRUE</span>)
 <span class="kw">legend</span>(<span class="st">&quot;topleft&quot;</span>,<span class="dt">col=</span><span class="kw">c</span>(<span class="st">&quot;black&quot;</span>,<span class="st">&quot;red&quot;</span>),<span class="dt">lty=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>),
        <span class="dt">lwd=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">2</span>),<span class="dt">legend=</span><span class="kw">c</span>(<span class="st">&quot;Khi quadrat amb n=300&quot;</span>,<span class="st">&quot;Normal&quot;</span>),<span class="dt">cex=</span><span class="fl">0.7</span>)</code></pre>
-<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-48-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-50-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>Tornem un instant a això dels <em>graus de llibertat</em>. Per què diem que la variància (mostral) té <span class="math inline">\(n-1\)</span> graus de llibertat?</p>
-<p>Doncs perquè si volem construir un conjunt de <span class="math inline">\(n\)</span> nombres <span class="math inline">\(x_1,\ldots,x_n\)</span> que tenguin variància un valor donat, posem <span class="math inline">\(y_0\)</span>, aleshores podem escollir <span class="math inline">\(n-1\)</span> d’ells, diguem <span class="math inline">\(x_1,\ldots,x_{n-1}\)</span>, com volguem i aleshores el darrer, <span class="math inline">\(x_n\)</span>, queda bastant fixat. En matemàtiques això se sol expressar dient que</p>
-<blockquote>
-<p>tenim <span class="math inline">\(n-1\)</span> graus de llibertat a l’hora d’escollir <span class="math inline">\(x_1,\ldots,x_n\)</span> amb variància fixada <span class="math inline">\(y_0\)</span>.</p>
-</blockquote>
+<p>Doncs perquè si volem construir un conjunt de <span class="math inline">\(n\)</span> nombres <span class="math inline">\(x_1,\ldots,x_n\)</span> que tenguin variància un valor donat, posem <span class="math inline">\(y_0\)</span>, aleshores podem escollir <span class="math inline">\(n-1\)</span> d’ells, <span class="math inline">\(x_1,\ldots,x_{n-1}\)</span>, com volguem i aleshores el darrer, <span class="math inline">\(x_n\)</span>, queda bastant fixat. En matemàtiques això se sol expressar dient que “tenim <span class="math inline">\(n-1\)</span> graus de llibertat a l’hora d’escollir <span class="math inline">\(x_1,\ldots,x_n\)</span> amb variància fixada <span class="math inline">\(y_0\)</span>”.</p>
 
 <div class="rmdcorbes">
 En efecte, si fixam el valor <span class="math inline">\(y_0\geqslant 0\)</span> de la variància i volem trobar <span class="math inline">\(x_1,\ldots,x_{n}\)</span>
@@ -664,16 +672,19 @@ vegem que podem triar amb total llibertat els valors de <span class="math inline
 <span class="math display">\[
 \begin{array}{l}
 ny_0 &amp; =\displaystyle \sum_{i=1}^n x_i^2-n\overline{x}^2= \sum_{i=1}^n x_i^2-n\Big(\frac{\sum_{i=1}^n x_i}{n}\Big)^2\\
-&amp; =\displaystyle \sum_{i=1}^n x_i^2-\frac{(\sum_{i=1}^n x_i)^2}{n}=\frac{1}{n}\left(n\sum_{i=1}^n x_i^2-\Big(\sum_{i=1}^{n} x_i\Big)^2\right)\\
-&amp; =\displaystyle \frac{1}{n}\left(n\sum_{i=1}^{n-1} x_i^2+n\mathbf{x_n}^2-\Big(\sum_{i=1}^{n-1} x_i\Big)^2 -2\Big(\sum_{i=1}^{n-1} x_i\Big)\mathbf{x_n}-\mathbf{x_n}^2\right)\\
-&amp; =\displaystyle \frac{1}{n}\left((n-1)\mathbf{x_n}^2-2\Big(\sum_{i=1}^{n-1} x_i\Big)\mathbf{x_n}+n\sum_{i=1}^{n-1} x_i^2-\Big(\sum_{i=1}^{n-1} x_i\Big)^2 \right)
+&amp; =\displaystyle \sum_{i=1}^n x_i^2-\frac{(\sum_{i=1}^n x_i)^2}{n}\\
+&amp; \displaystyle =\frac{1}{n}\left(n\sum_{i=1}^n x_i^2-\Big(\sum_{i=1}^{n} x_i\Big)^2\right)\\
+&amp; =\displaystyle \frac{1}{n}\left(n\sum_{i=1}^{n-1} x_i^2+n\mathbf{x_n}^2-\Big(\sum_{i=1}^{n-1} x_i\Big)^2\right.\\
+&amp; \displaystyle\qquad\qquad \left. -2\Big(\sum_{i=1}^{n-1} x_i\Big)\mathbf{x_n}-\mathbf{x_n}^2\right)\\
+&amp; =\displaystyle \frac{1}{n}\left((n-1)\mathbf{x_n}^2-2\Big(\sum_{i=1}^{n-1} x_i\Big)\mathbf{x_n}\right.\\
+&amp; \displaystyle\qquad\qquad \left.+n\sum_{i=1}^{n-1} x_i^2-\Big(\sum_{i=1}^{n-1} x_i\Big)^2 \right)
 \end{array}
 \]</span>
-d’on obtenim, finalment, l’equació de segon grau en <span class="math inline">\(\mathbf{x_n}\)</span>
+d’on (multiplicant els dos costats de la igualtat per <span class="math inline">\(n\)</span> i dividint-los per <span class="math inline">\(n-1\)</span>) obtenim, finalment, l’equació de segon grau en <span class="math inline">\(\mathbf{x_n}\)</span>
 <span class="math display">\[
-(n-1)\mathbf{x_n}^2-2\Big(\sum_{i=1}^{n-1} x_i\Big)\mathbf{x_n}+n\sum_{i=1}^{n-1} x_i^2-\Big(\sum_{i=1}^{n-1} x_i\Big)^2-n^2y_0^2=0
+\mathbf{x_n}^2-\frac{2\sum_{i=1}^{n-1} x_i}{n-1}\mathbf{x_n}+\frac{n\sum_{i=1}^{n-1} x_i^2-\Big(\sum_{i=1}^{n-1} x_i\Big)^2-n^2y_0^2}{n-1}=0
 \]</span>
-Per tant, fixat <span class="math inline">\(y_0\)</span>, podem escollir <span class="math inline">\(x_1,\ldots,x_{n-1}\)</span> com vulguem i aleshores <span class="math inline">\(x_n\)</span> queda fixat com una de les dues solucions d’aquesta equació de segon grau.
+Per tant, fixat <span class="math inline">\(y_0\)</span>, podem escollir <span class="math inline">\(x_1,\ldots,x_{n-1}\)</span> com vulguem i aleshores <span class="math inline">\(x_n\)</span> haurà de ser per força una de les dues solucions d’aquesta equació de segon grau.
 </div>
 
 </div>
@@ -682,7 +693,7 @@ Per tant, fixat <span class="math inline">\(y_0\)</span>, podem escollir <span c
 <p>Tornem a les mitjanes mostrals de variables normals.</p>
 
 <div class="theorem">
-<p><span id="thm:unnamed-chunk-50" class="theorem"><strong>Teorema 1.6  </strong></span>Sigui <span class="math inline">\(X\)</span> una variable <span class="math inline">\(N(\mu_X,\sigma_X)\)</span> i
+<p><span id="thm:unnamed-chunk-52" class="theorem"><strong>Teorema 1.6  </strong></span>Sigui <span class="math inline">\(X\)</span> una variable <span class="math inline">\(N(\mu_X,\sigma_X)\)</span> i
 sigui <span class="math inline">\(X_1,\ldots,X_n\)</span> una mostra aleatòria simple de <span class="math inline">\(X\)</span>, amb mitjana <span class="math inline">\(\overline{X}\)</span> i desviació típica mostral <span class="math inline">\(\widetilde{S}_{X}\)</span>. Aleshores, la variable aleatòria
 <span class="math display">\[
 T=\frac{\overline{X}-\mu_X}{\widetilde{S}_{X}/\sqrt{n}}
@@ -690,7 +701,11 @@ T=\frac{\overline{X}-\mu_X}{\widetilde{S}_{X}/\sqrt{n}}
 segueix una distribució coneguda, anomenada <strong>t de Student amb <span class="math inline">\(n-1\)</span> graus de llibertat</strong>, <span class="math inline">\(t_{n-1}\)</span>.</p>
 </div>
 
-<p>A <span class="math inline">\(\widetilde{S}_{X}/\sqrt{n}\)</span> li diem l’<strong>error típic</strong>, o <strong>estàndard</strong>, <strong>de la mostra</strong>: estima l’error estàndard <span class="math inline">\(\sigma_X/\sqrt{n}\)</span> de <span class="math inline">\(\overline{X}\)</span>.</p>
+
+<div class="rmdimportant">
+A <span class="math inline">\(\widetilde{S}_{X}/\sqrt{n}\)</span> li diem l’<strong>error típic</strong>, o <strong>estàndard</strong>, <strong>de la mostra</strong>: estima l’error típic <span class="math inline">\(\sigma_X/\sqrt{n}\)</span> de <span class="math inline">\(\overline{X}\)</span>.
+</div>
+
 <p>De la distribució t de Student amb <span class="math inline">\(n\)</span> graus de llibertat, <span class="math inline">\(t_{n}\)</span>, heu de saber que:</p>
 <ul>
 <li><p>Amb R és <code>t</code></p></li>
@@ -699,7 +714,7 @@ segueix una distribució coneguda, anomenada <strong>t de Student amb <span clas
 <span class="math display">\[
 P(T_{n}\leqslant-x)=P(T_{n}\geqslant x)=1-P(T_{n}\leqslant x)
 \]</span></p></li>
-<li><p>Si <span class="math inline">\(n\)</span> és gran, la distribució d’una variable <span class="math inline">\(T_{n}\)</span> amb distribució <span class="math inline">\(t_{n}\)</span> és aproximadament la de <span class="math inline">\(N(0,1)\)</span> (però amb més variància: un poc més aplatada), com podeu veure als gràfics següents:</p></li>
+<li><p>Si <span class="math inline">\(n\)</span> és gran, la distribució d’una variable <span class="math inline">\(T_{n}\)</span> amb distribució <span class="math inline">\(t_{n}\)</span> és aproximadament la d’una <span class="math inline">\(N(0,1)\)</span> (però amb més variància: un poc més aplatada), com podeu veure als gràfics següents:</p></li>
 </ul>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">curve</span>(<span class="kw">dnorm</span>(x),<span class="dt">col=</span><span class="dv">1</span>,<span class="dt">lwd=</span><span class="dv">2</span>,<span class="dt">xlim=</span><span class="kw">c</span>(<span class="op">-</span><span class="dv">4</span>,<span class="dv">4</span>),<span class="dt">xlab=</span><span class="st">&quot;&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;&quot;</span>,<span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="fl">0.4</span>),
       <span class="dt">main=</span><span class="st">&quot;Algunes t de Student&quot;</span>)
@@ -710,13 +725,13 @@ P(T_{n}\leqslant-x)=P(T_{n}\geqslant x)=1-P(T_{n}\leqslant x)
 <span class="kw">curve</span>(<span class="kw">dt</span>(x,<span class="dv">10</span>),<span class="dt">col=</span><span class="dv">6</span>,<span class="dt">lwd=</span><span class="dv">2</span>,<span class="dt">add=</span><span class="ot">TRUE</span>)
 <span class="kw">legend</span>(<span class="st">&quot;topleft&quot;</span>,<span class="dt">col=</span><span class="dv">1</span><span class="op">:</span><span class="dv">6</span>,<span class="dt">lty=</span><span class="kw">rep</span>(<span class="dv">1</span>,<span class="dv">6</span>), <span class="dt">lwd=</span><span class="kw">rep</span>(<span class="dv">2</span>,<span class="dv">6</span>),
 <span class="dt">legend=</span><span class="kw">c</span>(<span class="st">&quot;Normal estàndard&quot;</span>, <span class="kw">paste</span>(<span class="st">&quot;Student amb g.l.=&quot;</span>,<span class="kw">c</span>(<span class="dv">2</span><span class="op">:</span><span class="dv">5</span>,<span class="dv">10</span>),<span class="dt">sep=</span><span class="st">&quot;&quot;</span>)),<span class="dt">cex=</span><span class="fl">0.7</span>)</code></pre>
-<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-51-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-54-1.png" width="480" style="display: block; margin: auto;" /></p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">curve</span>(<span class="kw">dnorm</span>(x),<span class="dt">col=</span><span class="dv">1</span>,<span class="dt">lwd=</span><span class="dv">2</span>,<span class="dt">xlim=</span><span class="kw">c</span>(<span class="op">-</span><span class="dv">4</span>,<span class="dv">4</span>),<span class="dt">xlab=</span><span class="st">&quot;&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;&quot;</span>,<span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="fl">0.4</span>),
       <span class="dt">main=</span><span class="st">&quot;t vs Normal estàndard&quot;</span>)
 <span class="kw">curve</span>(<span class="kw">dt</span>(x,<span class="dv">50</span>),<span class="dt">col=</span><span class="dv">2</span>,<span class="dt">lwd=</span><span class="dv">2</span>,<span class="dt">add=</span><span class="ot">TRUE</span>)
 <span class="kw">legend</span>(<span class="st">&quot;topleft&quot;</span>,<span class="dt">col=</span><span class="dv">1</span><span class="op">:</span><span class="dv">2</span>,<span class="dt">lty=</span><span class="kw">rep</span>(<span class="dv">1</span>,<span class="dv">2</span>), <span class="dt">lwd=</span><span class="kw">rep</span>(<span class="dv">2</span>,<span class="dv">2</span>),
        <span class="dt">legend=</span><span class="kw">c</span>(<span class="st">&quot;Normal estàndard&quot;</span>, <span class="st">&quot;Student amb g.l.=50&quot;</span>),<span class="dt">cex=</span><span class="fl">0.7</span>)</code></pre>
-<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-52-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-55-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>Indicarem amb <span class="math inline">\(t_{n,q}\)</span> el <span class="math inline">\(q\)</span>-quantil d’una variable aleatòria <span class="math inline">\(T_{n}\)</span> que segueix una distribució <span class="math inline">\(t_n\)</span>. És a dir, <span class="math inline">\(t_{n,q}\)</span> és el valor tal que
 <span class="math display">\[
 P(T_{n}\leqslant t_{n,q})=q
@@ -725,12 +740,12 @@ Per la simetria de la distribució <span class="math inline">\(t_n\)</span>,
 <span class="math display">\[
 t_{n,q}=-t_{n,1-q}.
 \]</span></p>
-<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-53-1.png" width="480" style="display: block; margin: auto;" /></p>
-<p>Hi ha algunes propietats dels quantils de la t de Student que heu de saber:</p>
+<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-56-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p>Hi ha algunes propietats dels quantils de la t de Student que heu de saber, per poder aplicar-les quan no tingueu a l’abast R o una apli per calcular quantils:</p>
 <ul>
 <li><p><span class="math inline">\(t_{n ,q}\approx z_{q}\)</span> si <span class="math inline">\(n\)</span> és molt gran, posem <span class="math inline">\(n \geqslant 200\)</span></p></li>
-<li><p><span class="math inline">\(t_{n,0.95}\)</span> (per a <span class="math inline">\(n\geqslant 10\)</span>) està entre 1.64 i 1.8; ho aproximarem <span class="math inline">\(t_{n,0.95}\approx 1.7\)</span></p></li>
-<li><p><span class="math inline">\(t_{n,0.975}\)</span> (per a <span class="math inline">\(n\geqslant 10\)</span>) està entre 1.96 i 2.2; ho aproximarem <span class="math inline">\(t_{n,0.95}\approx 2\)</span></p></li>
+<li><p><span class="math inline">\(t_{n,0.95}\)</span> (per a <span class="math inline">\(10\leqslant n\leqslant 200\)</span>) està entre 1.65 i 1.8; ho podeu aproximar <span class="math inline">\(t_{n,0.95}\approx 1.7\)</span></p></li>
+<li><p><span class="math inline">\(t_{n,0.975}\)</span> (per a <span class="math inline">\(10\leqslant n\leqslant 200\)</span>) està entre 1.97 i 2.2; ho podeu aproximar <span class="math inline">\(t_{n,0.95}\approx 2\)</span></p></li>
 </ul>
 
 <div class="rmdcaution">
@@ -759,7 +774,7 @@ Es diu aleshores que l’estimació puntual és <strong>no esbiaixada</strong>.<
 <li><p><span class="math inline">\(E(\overline{X})=\mu_X\)</span>. Per tant, <span class="math inline">\(\overline{X}\)</span> és sempre un estimador no esbiaixat de <span class="math inline">\(\mu_X\)</span></p></li>
 <li><p><span class="math inline">\(E(\widehat{p}_X)=p_X\)</span>. Per tant, <span class="math inline">\(\widehat{p}_X\)</span> és sempre un estimador no esbiaixat de <span class="math inline">\(p_X\)</span></p></li>
 <li><p><span class="math inline">\(E(\widetilde{S}_{X}^2)=\sigma_X^2\)</span> si <span class="math inline">\(X\)</span> és normal. Per tant, <span class="math inline">\(\widetilde{S}_{X}^2\)</span> és un estimador no esbiaixat de <span class="math inline">\(\sigma_X^2\)</span> quan <span class="math inline">\(X\)</span> és normal</p></li>
-<li><p><span class="math inline">\(E({S}_{X}^2)=\dfrac{n-1}{n}\sigma_X^2\)</span> si <span class="math inline">\(X\)</span> és normal. Per tant, en aquest cas,
+<li><p>Com que <span class="math inline">\({S}_{X}^2=\dfrac{n-1}{n}\widetilde{S}_{X}^2\)</span>, tenim que <span class="math inline">\(E({S}_{X}^2)=\dfrac{n-1}{n}\sigma_X^2\)</span> si <span class="math inline">\(X\)</span> és normal. Per tant, en aquest cas,
 <span class="math inline">\({S}_{X}^2\)</span> <em>és un estimador esbiaixat de</em> <span class="math inline">\(\sigma_X^2\)</span>, amb biaix
 <span class="math display">\[
 E({S}_{X}^2)-\sigma_X^2=\dfrac{n-1}{n}\sigma_X^2-\sigma_X^2=-\dfrac{\sigma_X^2}{n}\ \mathop{\longrightarrow}_{\scriptscriptstyle
@@ -785,7 +800,7 @@ no esbiaixat més eficient de la variància poblacional <span class="math inline
 </ul>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-55" class="example"><strong>Exemple 1.11  </strong></span>Sigui <span class="math inline">\(X\)</span> una variable aleatòria normal <span class="math inline">\(N(\mu_X,\sigma_X)\)</span>.
+<p><span id="exm:unnamed-chunk-58" class="example"><strong>Exemple 1.11  </strong></span>Sigui <span class="math inline">\(X\)</span> una variable aleatòria normal <span class="math inline">\(N(\mu_X,\sigma_X)\)</span>.
 Considerem la mediana <span class="math inline">\(\mathit{Me}=Q_{0.5}\)</span> d’una mostra aleatòria simple de <span class="math inline">\(X\)</span> com a estimador puntual de <span class="math inline">\(\mu_X\)</span>, que coincideix amb la mediana de <span class="math inline">\(X\)</span> per la simetria de les variables normals.</p>
 </div>
 
@@ -805,7 +820,7 @@ S_X^2=\frac{(n-1)}{n} \widetilde{S}_X^2
 <span class="math display">\[
 \sigma(S_X^2)=\sqrt{\frac{(n-1)}{n}}\sigma(\widetilde{S}_X^2)&lt;\sigma(\widetilde{S}_X^2),
 \]</span><br />
-però és un estimador esbiaixat de <span class="math inline">\(\sigma_X^2\)</span>, tot i que el seu biaix tendeix a 0 quan <span class="math inline">\(n\to \infty\)</span>.</p>
+però és un estimador esbiaixat de <span class="math inline">\(\sigma_X^2\)</span>, amb biaix que tendeix a 0 quan <span class="math inline">\(n\to \infty\)</span>.</p>
 Si <span class="math inline">\(n\)</span> és petit (per davall de 30), és millor fer servir la variància mostral <span class="math inline">\(\widetilde{S}_X^2\)</span> per estimar la variància, ja que el biaix pot esbiaixar el resultat, però si <span class="math inline">\(n\)</span> és gran, el biaix de <span class="math inline">\(S_X^2\)</span> ja és petit i es pot fer servir <span class="math inline">\(S_X^2\)</span>: de fet, si <span class="math inline">\(n\)</span> és molt gran, dividir per <span class="math inline">\(n\)</span> o per <span class="math inline">\(n-1\)</span> no varia gaire el resultat i per tant <span class="math inline">\(\widetilde{S}_X^2\)</span> i <span class="math inline">\(S_X^2\)</span> donen valors molt semblants.
 </div>
 
@@ -816,13 +831,21 @@ Si <span class="math inline">\(n\)</span> és petit (per davall de 30), és mill
 dóna el valor del paràmetre que fa màxima la probabilitat d’obtenir aquesta mostra.</p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-57" class="example"><strong>Exemple 1.12  </strong></span>Suposem que tenim una variable aleatòria Bernoulli <span class="math inline">\(X\)</span> de probabilitat d’èxit <span class="math inline">\(p_X\)</span> desconeguda. Donada una mostra aleatòria simple <span class="math inline">\(x_1,\ldots,x_n\)</span> de <span class="math inline">\(X\)</span>, siguin <span class="math inline">\(\widehat{p}_x\)</span> la seva proporció mostral i <span class="math inline">\(P(x_1,\ldots,x_n\mid p)\)</span> la probabilitat d’obtenir la mostra quan la probabilitat poblacional és <span class="math inline">\(p\)</span>. Un estimador per a <span class="math inline">\(p_X\)</span> és màxim versemblant quan, aplicat a <span class="math inline">\(x_1,\ldots,x_n\)</span>, ens dóna el valor de <span class="math inline">\(p\)</span> que fa que <span class="math inline">\(P(x_1,\ldots,x_n\mid p)\)</span> sigui el màxim possible.</p>
+<p><span id="exm:unnamed-chunk-60" class="example"><strong>Exemple 1.12  </strong></span>Suposem que tenim una variable aleatòria Bernoulli <span class="math inline">\(X\)</span> de probabilitat d’èxit <span class="math inline">\(p_X\)</span> desconeguda. Donada una mostra aleatòria simple <span class="math inline">\(x_1,\ldots,x_n\)</span> de <span class="math inline">\(X\)</span>, siguin <span class="math inline">\(\widehat{p}_x\)</span> la seva proporció mostral i<br />
+<span class="math display">\[
+P(x_1,\ldots,x_n\mid p_X=p)
+\]</span>
+la probabilitat d’obtenir la mostra quan la probabilitat poblacional <span class="math inline">\(p_X\)</span> és igual <span class="math inline">\(p\)</span>. Un estimador per a <span class="math inline">\(p_X\)</span> és màxim versemblant quan, aplicat a cada mostra aleatòria simple <span class="math inline">\(x_1,\ldots,x_n\)</span> de <span class="math inline">\(X\)</span>, ens dóna el valor de <span class="math inline">\(p\)</span> que fa que
+<span class="math display">\[
+P(x_1,\ldots,x_n\mid p_X=p)
+\]</span>
+sigui el màxim possible.</p>
 </div>
 
 <p>Quin creieu que és l’estimador màxim versemblant de <span class="math inline">\(p_X\)</span>? Doncs sí, la proporció mostral <span class="math inline">\(\widehat{p}_X\)</span>.</p>
 
 <div class="theorem">
-<p><span id="thm:unnamed-chunk-58" class="theorem"><strong>Teorema 1.7  </strong></span>El valor de <span class="math inline">\(p\)</span> per al qual <span class="math inline">\(P(x_1,\ldots,x_n\mid p)\)</span> és màxim és <span class="math inline">\(\widehat{p}_x\)</span>.</p>
+<p><span id="thm:unnamed-chunk-61" class="theorem"><strong>Teorema 1.7  </strong></span>El valor de <span class="math inline">\(p\)</span> per al qual <span class="math inline">\(P(x_1,\ldots,x_n\mid p)\)</span> és màxim és <span class="math inline">\(\widehat{p}_x\)</span>.</p>
 </div>
 
 <p>La demostració és senzilla. Suposau que dins <span class="math inline">\(x_1,\ldots,x_n\)</span> hi ha <span class="math inline">\(m\)</span> 1s i <span class="math inline">\(n-m\)</span> 0s, de manera que <span class="math inline">\(\widehat{p}_X=m/n\)</span>. Aleshores, la probabilitat d’obtenir <span class="math inline">\(x_1,\ldots,x_n\)</span> és
@@ -857,7 +880,7 @@ Per fer-ho, assegut en un bar del Passeig Marítim vaig apuntar les llicències 
 <p>La solució d’aquest problema és donada pel resultat següent:</p>
 
 <div class="theorem">
-<p><span id="thm:unnamed-chunk-60" class="theorem"><strong>Teorema 1.8  </strong></span>Sigui <span class="math inline">\(X\)</span> una variable aleatòria uniforme sobre <span class="math inline">\(\{1,2,\ldots,N\}\)</span>, i sigui <span class="math inline">\(x_1,\ldots,x_n\)</span> una mostra aleatòria de <span class="math inline">\(X\)</span>. Sigui <span class="math inline">\(m=\max(x_1,\ldots,x_n)\)</span>. Aleshores, l’estimador no esbiaixat més eficient de <span class="math inline">\(n\)</span> és
+<p><span id="thm:unnamed-chunk-63" class="theorem"><strong>Teorema 1.8  </strong></span>Sigui <span class="math inline">\(X\)</span> una variable aleatòria uniforme sobre <span class="math inline">\(\{1,2,\ldots,N\}\)</span>, i sigui <span class="math inline">\(x_1,\ldots,x_n\)</span> una mostra aleatòria de <span class="math inline">\(X\)</span>. Sigui <span class="math inline">\(m=\max(x_1,\ldots,x_n)\)</span>. Aleshores, l’estimador no esbiaixat més eficient de <span class="math inline">\(n\)</span> és
 <span class="math display">\[
 \widehat{N}=m+\frac{m-n}{n}
 \]</span></p>
@@ -867,19 +890,23 @@ Per fer-ho, assegut en un bar del Passeig Marítim vaig apuntar les llicències 
 <div class="rmdcorbes">
 La idea que hi ha sota aquesta fórmula és que si suposau que teniu <span class="math inline">\(x_1,\ldots,x_n\)</span> ordenats en ordre creixent, de manera que <span class="math inline">\(x_n=m\)</span>, i calculau la mitjana de la longitud dels ‘forats’ a l’esquerra de cada valor <span class="math inline">\(x_i\)</span>, tenim que a l’esquerra de <span class="math inline">\(x_1\)</span> hi ha <span class="math inline">\(x_1-1\)</span> nombres i entre cada <span class="math inline">\(x_{i-1}\)</span> i <span class="math inline">\(x_{i}\)</span> hi ha <span class="math inline">\(x_{i}-x_{i-1}-1\)</span> nombres, i per tant aquesta mitjana és
 <span class="math display">\[
-\frac{(x_1-1)+(x_2-x_1-1)+\cdots+(x_{n}-x_{n-1}-1)}{n}=\frac{x_n-n}{n}=\frac{m-n}{n}
+\begin{array}{l}
+\displaystyle \frac{(x_1-1)+(x_2-x_1-1)+\cdots+(x_{n}-x_{n-1}-1)}{n}\\
+\displaystyle \qquad\quad =\frac{x_n-n}{n}=\frac{m-n}{n}
+\end{array}
 \]</span>
 i el que fa l’estimador <span class="math inline">\(\widehat{N}\)</span> és sumar al màxim de la mostra, <span class="math inline">\(m\)</span>, la mitjana dels forats entre membres de la mostra.
 </div>
 
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-62" class="example"><strong>Exemple 1.14  </strong></span>Continuem amb l’Exemple <a href="estimacio-puntual.html#exm:taxi1">1.13</a>. Emprant la fórmula anterior, estimo que el nombre de taxis de Palma era</p>
+<p><span id="exm:unnamed-chunk-65" class="example"><strong>Exemple 1.14  </strong></span>Continuem amb l’Exemple <a href="estimacio-puntual.html#exm:taxi1">1.13</a>. Emprant la fórmula anterior, obtenim</p>
 </div>
 
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">max</span>(taxis)<span class="op">+</span>(<span class="kw">max</span>(taxis)<span class="op">-</span><span class="kw">length</span>(taxis))<span class="op">/</span><span class="kw">length</span>(taxis)</code></pre>
 <pre><code>## [1] 1268.975</code></pre>
-<p>En realitat, consultant la web de l’Ajuntament, després vaig saber que en aquell moment n’hi havia 1246.</p>
+<p>la qual cosa ens permet estimar que hi havia 1269 taxis a Palma.
+En realitat, consultant la web de l’Ajuntament, després vaig saber que en aquell moment n’hi havia 1246.</p>
 </div>
 <div id="marca-recaptura" class="section level3">
 <h3><span class="header-section-number">1.7.2</span> Marca-recaptura</h3>
@@ -917,7 +944,7 @@ Nmax</code></pre>
 <p>Aquest <code>Nmax</code> és la <span class="math inline">\(N\)</span> que fa màxima la probabilitat que en una mostra de 10 peixos del nostre llac n’hi hagi 4 de marcats. Vegem-ho en un gràfic:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(N,p,<span class="dt">type=</span><span class="st">&quot;h&quot;</span>,<span class="dt">xaxp=</span><span class="kw">c</span>(<span class="dv">15</span>,<span class="dv">100</span>,<span class="dv">17</span>))
 <span class="kw">points</span>(Nmax,<span class="kw">dhyper</span>(<span class="dv">4</span>,<span class="dv">15</span>,Nmax<span class="dv">-15</span>,<span class="dv">10</span>),<span class="dt">type=</span><span class="st">&quot;h&quot;</span>,<span class="dt">col=</span><span class="st">&quot;red&quot;</span>,<span class="dt">lwd=</span><span class="fl">1.5</span>)</code></pre>
-<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-65-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-68-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>Un altre estimador per a <span class="math inline">\(N\)</span> a partir de <span class="math inline">\(K\)</span>, <span class="math inline">\(n\)</span> i <span class="math inline">\(k\)</span> és l’<strong>estimador de Chapman</strong>:
 <span class="math display">\[
 \widehat{N}=\frac{(n+1)\cdot (K+1)}{k+1}-1
@@ -927,8 +954,13 @@ Nmax</code></pre>
 <span class="math display">\[
 \widehat{N}=\frac{16\cdot 11}{5}-1=34.2
 \]</span>
-i ens fa estimar una població total d’uns 34 peixos. Abans hem obtingut entre 37 i 38 peixos. Quina és la correcta? Ni idea, no ho podem saber, ja que no sabem si la proporció de peixos marcats a la segona captura reflecteix la global, o si els peixos marcats hi estan sobrerepresentats o sotarepresentats.</p>
-<p>Resulta que l’estimador màxim versemblant
+i ens fa estimar una població total d’uns 34 peixos. Abans hem obtingut entre 37 i 38 peixos.</p>
+
+<div class="rmdnote">
+Quina de les dues estimacions s’acosta més a la realitat? Ni idea, no ho podem saber, amb una altra recaptura segurament haguéssim obtingut resultats diferents.
+</div>
+
+<p>L’estimador màxim versemblant
 <span class="math display">\[
 \widehat{N}=\frac{n\cdot K}{k}
 \]</span>

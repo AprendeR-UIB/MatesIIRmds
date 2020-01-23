@@ -44,6 +44,7 @@ par(cex.main=0.9,cex.axis=0.8,cex.lab=0.8)
 
 ```{r, paquets, include=FALSE}
 library(latex2exp)
+library(epitools)
 ```
 
 \renewcommand\chaptername{Tema}
