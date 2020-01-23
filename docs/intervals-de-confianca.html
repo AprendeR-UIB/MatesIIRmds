@@ -25,7 +25,7 @@
 <meta name="author" content="The Matemàtiques II team">
 
 
-<meta name="date" content="2020-01-22">
+<meta name="date" content="2020-01-23">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -356,28 +356,38 @@ fixau-vos que:</p>
 <span class="math display">\[
 \overline{x}=41.2,\quad \widetilde{s}=2.1
 \]</span>
-Per calcular un IC 95% per al percentatge mitjà d’augment, suposarem que la mostra és <em>aleatòria simple</em> i que la variable aleatòria que dóna el percentatge d’augment d’alcohol en sang en una persona després de prendre 4 canyes de cervesa és <em>normal</em>.</p>
+Per calcular un IC 95% per al percentatge mitjà d’augment, suposarem que la variable aleatòria que dóna el percentatge d’augment d’alcohol en sang en una persona després de prendre 4 canyes de cervesa és <em>normal</em> i que la mostra que hem pres d’aquesta variable és <em>aleatòria simple</em>.</p>
 </div>
 
 <p>Llavors, com que <span class="math inline">\(t_{n-1,0.975}\)</span>=<code>qt(0.975,39)</code>=2.0227, un IC 95% és
 <span class="math display">\[
 41.2\pm 2.0227\cdot \frac{2.1}{\sqrt{40}}\Rightarrow 41.2\pm 0.67\Rightarrow [40.53, 41.87]
 \]</span></p>
-<p>Hem suposat que la variable poblacional “Percentatge d’augment d’alcohol en sang després de prendre 4 canyes de cervesa” segueix una distribució normal. I si no fos normal?</p>
+<p>Per tant, estimam amb un 95% de confiança que el percentatge mitjà d’augment d’alcohol en sang després de prendre 4 canyes de cervesa està entre el 40.53% i el 41.87%.</p>
+<p>Per calcular l’interval anterior hem suposat que la variable poblacional “Percentatge d’augment d’alcohol en sang després de prendre 4 canyes de cervesa” segueix una distribució normal. I si no fos normal?</p>
 <ul>
 <li><p>En aquest cas, com que <span class="math inline">\(n=40\)</span>, és gran pel Teorema <a href="intervals-de-confianca.html#thm:ICmu">1.2</a> de la propera secció l’interval obtingut segueix essent (aproximadament) un interval de confiança del 95% per a <span class="math inline">\(\mu\)</span></p></li>
 <li><p>Si <span class="math inline">\(n\)</span> fos petit i <span class="math inline">\(X\)</span> molt diferent d’una normal, no es pot usar aquesta fórmula i cal buscar-se la vida (per exemple, emprar el mètode de <em>bootstrap</em>)</p></li>
 </ul>
+<p>També hem suposat que era una mostra aleatòria simple. I si no ho és?</p>
+<ul>
+<li><p>Si és aleatòria, com que el nombre de persones que poden prendre 4 canyes de cervesa és pràcticament la població mundial, molt gran, a efectes pràctics la podem considerar simple.</p></li>
+<li><p>Però segur que no és aleatòria, sinó oportunista. No hem tret per sorteig de la llista de tota la població mundial, ni tan sols de la de Mallorca, 40 persones i les hem fetes prendre 4 cerveses, sinó que hem cercat voluntaris. En aquest cas no podem fer res per salvar la fórmula, i la seva validesa depèn de si la mostra de persones presa pot passar per aleatòria o no.</p></li>
+</ul>
 </div>
 <div id="interval-de-confianca-per-a-la-mitjana-basat-en-la-t-de-student" class="section level2">
 <h2><span class="header-section-number">1.3</span> Interval de confiança per a la mitjana basat en la t de Student</h2>
-<p>A partir d’ara, per tal d’evitar ambigüitats, a les fórmules expressarem el nivell de confiança dels intervals en tant per u, no en tant per cent, i parlarem d’intervals de confiança de nivell de confiança <span class="math inline">\(q\)</span>, amb <span class="math inline">\(q\)</span> entre 0 i 1, en lloc d’intervals de confiança del <span class="math inline">\(100q\%\)</span>. És a dir, per exemple, els intervals de confiança del 95% seran intervals de confiança de nivell de confiança 0.95.</p>
+
+<div class="rmdnote">
+A partir d’ara, per tal d’evitar ambigüitats, a les fórmules expressarem el nivell de confiança dels intervals en tant per u, no en tant per cent, i parlarem d’intervals de confiança de nivell de confiança <span class="math inline">\(q\)</span>, amb <span class="math inline">\(q\)</span> entre 0 i 1, en lloc d’intervals de confiança del <span class="math inline">\(100q\%\)</span>. És a dir, per exemple, els intervals de confiança del 95% seran intervals de confiança de nivell de confiança 0.95.
+</div>
+
 <div id="la-formula" class="section level3 unnumbered">
 <h3>La fórmula</h3>
 <p>El mateix argument que abans, canviant 0.95 per <span class="math inline">\(q\)</span> dóna:</p>
 
 <div class="theorem">
-<span id="thm:unnamed-chunk-12" class="theorem"><strong>Teorema 1.1  </strong></span>Si <span class="math inline">\(X\sim N(\mu,\sigma)\)</span> i prenem una mostra aleatòria simple de mida <span class="math inline">\(n\)</span>, un interval de confiança de nivell de confiança <span class="math inline">\(q\)</span> (en tant per u) per a <span class="math inline">\(\mu\)</span> és
+<span id="thm:unnamed-chunk-13" class="theorem"><strong>Teorema 1.1  </strong></span>Si <span class="math inline">\(X\sim N(\mu,\sigma)\)</span> i en prenem una mostra aleatòria simple de mida <span class="math inline">\(n\)</span>, un interval de confiança de nivell de confiança <span class="math inline">\(q\)</span> (en tant per u) per a <span class="math inline">\(\mu\)</span> és
 <span class="math display">\[
 \overline{X}\pm t_{n-1,(1+q)/2}\cdot \frac{\widetilde{S}_X}{\sqrt{n}}
 \]</span>
@@ -387,10 +397,10 @@ Per calcular un IC 95% per al percentatge mitjà d’augment, suposarem que la m
 <p>Usant el Teorema Central del Límit i algunes aproximacions, tenim el següent resultat:</p>
 
 <div class="theorem">
-<span id="thm:ICmu" class="theorem"><strong>Teorema 1.2  </strong></span>Sigui <span class="math inline">\(X\)</span> una variable aleatòria qualsevol de mitjana poblacional <span class="math inline">\(\mu\)</span>. Suposem que prenem una mostra aleatòria simple de <span class="math inline">\(X\)</span> de mida <span class="math inline">\(n\)</span> gran (diguem, de 40 o més elements). Llavors, un interval de confiança de nivell de confiança <span class="math inline">\(q\)</span> per a <span class="math inline">\(\mu\)</span> és aproximadament
+<p><span id="thm:ICmu" class="theorem"><strong>Teorema 1.2  </strong></span>Sigui <span class="math inline">\(X\)</span> una variable aleatòria qualsevol de mitjana poblacional <span class="math inline">\(\mu\)</span>. Suposem que prenem una mostra aleatòria simple de <span class="math inline">\(X\)</span> de mida <span class="math inline">\(n\)</span> gran (diguem, de 40 o més elements). Llavors, un interval de confiança de nivell de confiança <span class="math inline">\(q\)</span> per a <span class="math inline">\(\mu\)</span> és aproximadament
 <span class="math display">\[
 \overline{X}\pm t_{n-1,(1+q)/2}\cdot \frac{\widetilde{S}_X}{\sqrt{n}}
-\]</span>
+\]</span></p>
 </div>
 
 <p>L’aproximació del teorema anterior és millor com més gran sigui <span class="math inline">\(n\)</span> o com més propera a una normal sigui la variable poblacional <span class="math inline">\(X\)</span>.</p>
@@ -426,13 +436,13 @@ on <span class="math inline">\(n=25\)</span>, <span class="math inline">\(\overl
 518\pm 13.65\Rightarrow
 [504.35,531.65]
 \]</span>
-No conté el 500 (en benefici del consumidor: tenim un 95% de seguretat que el nombre mitjà de radiografies per cartutxo està en realitat entre 504.35 i 531.65).</p>
+Tenim, doncs, un 95% de confiança que el nombre mitjà de radiografies per cartutxo està entre 504.35 i 531.65, i en particular que no és 500 (però en benefici del consumidor: estam molt segurs que és més gran que 500).</p>
 
 <div class="example">
-<p><span id="exm:RXprint2" class="example"><strong>Exemple 1.5  </strong></span>A l’exemple anterior hem suposat que la variable aleatòria era normal. Què passaria si no ho fos?</p>
+<p><span id="exm:RXprint2" class="example"><strong>Exemple 1.5  </strong></span>A l’exemple anterior hem suposat que la variable aleatòria era normal. Què passaria si fos molt diferent d’una normal?</p>
 </div>
 
-<p>Com que <span class="math inline">\(n=25\)</span> no és prou gran, no podríem aplicar la fórmula de l’interval de confiança basada en la t de Student. Emprarem el mètode del <em>bootstrap</em>, per a la qual cosa necessitam tenir les dades originals, i no només els seus estadístics. Tenim aquestes dades en el vector <code>Radios</code> següent:</p>
+<p>Com que <span class="math inline">\(n=25\)</span> no és prou gran, en principi no podríem aplicar la fórmula de l’interval de confiança basada en la t de Student. Emprarem el mètode del <em>bootstrap</em>, per a la qual cosa necessitam tenir les dades originals, i no només els seus estadístics. Tenim aquestes dades en el vector <code>Radios</code> següent:</p>
 <pre class="sourceCode r"><code class="sourceCode r">Radios=<span class="kw">c</span>(<span class="dv">485</span>,<span class="dv">511</span>,<span class="dv">509</span>,<span class="dv">509</span>,<span class="dv">561</span>,<span class="dv">529</span>,<span class="dv">458</span>,<span class="dv">532</span>,<span class="dv">545</span>,<span class="dv">546</span>,
         <span class="dv">503</span>,<span class="dv">577</span>,<span class="dv">547</span>,<span class="dv">477</span>,<span class="dv">507</span>,<span class="dv">548</span>,<span class="dv">480</span>,<span class="dv">444</span>,<span class="dv">461</span>,<span class="dv">573</span>,
         <span class="dv">513</span>,<span class="dv">604</span>,<span class="dv">542</span>,<span class="dv">501</span>,<span class="dv">488</span>)
@@ -443,7 +453,7 @@ No conté el 500 (en benefici del consumidor: tenim un 95% de seguretat que el n
 <p>Prenem 5000 mostres aleatòries simples de mida 25 (la mateixa mida que el conjunt de dades original) de les dades i calculam la mitjana de cada mostra; fixam la llavor d’aleatorietat perquè el càlcul sigui reproduïble:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">100</span>)
 Simulacions=<span class="kw">replicate</span>(<span class="dv">5000</span>,<span class="kw">mean</span>(<span class="kw">sample</span>(Radios,<span class="dv">25</span>,<span class="dt">rep=</span><span class="ot">TRUE</span>)))</code></pre>
-<p>Ara prenem com a IC 90% l’interval que va del quantil 0.05 al quantil 0.95 d’aquest vector de mitjanes:</p>
+<p>Ara prenem com a IC 90% l’interval que tanca el 90% de valors centrals d’aquest vector de mitjanes mostrals, és a dir, l’interval que va del quantil 0.05 al quantil 0.95 d’aquest vector de mitjanes:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">quantile</span>(Simulacions,<span class="kw">c</span>(<span class="fl">0.05</span>,<span class="fl">0.95</span>))</code></pre>
 <pre><code>##     5%    95% 
 ## 504.96 530.92</code></pre>
@@ -457,7 +467,7 @@ Simulacions=<span class="kw">replicate</span>(<span class="dv">5000</span>,<span
 &amp; \qquad \pm \frac{1+q}{2}\text{-quantil de la distr. mostral}\times \text{error típic de l&#39;estimació}
 \tag{1.1}
 \end{align}\]</span></p>
-<p>Aquesta estructura és molt típica (però, com veurem, no tots els intervals de confiança paramètrics tenen aquesta forma) i satisfà que:</p>
+<p>Aquesta estructura és molt típica (tot i que, com veurem, no tots els intervals de confiança paramètrics tenen aquesta forma) i satisfà que:</p>
 <ul>
 <li><p>L’interval de confiança està centrat en el valor de l’estimador</p></li>
 <li><p>La “probabilitat d’equivocar-se” es reparteix per igual als dos costats de l’interval: una fracció <span class="math inline">\(q/2\)</span> de les vegades el paràmetre estarà a l’esquerra de l’extrem inferior i una fracció <span class="math inline">\(q/2\)</span> de les vegades estarà a la dreta de l’extrem superior</p></li>
@@ -494,7 +504,7 @@ més ample</p></li>
 </div>
 <div id="calcul-de-la-mida-de-la-mostra-per-fixar-lerror" class="section level3 unnumbered">
 <h3>Càlcul de la mida de la mostra per fixar l’error</h3>
-<p>Recordem que l’IC q% per a <span class="math inline">\(\mu\)</span> basat en la t de Student
+<p>Recordem que l’interval de confiança de nivell de confiança <span class="math inline">\(q\)</span> per a <span class="math inline">\(\mu\)</span> basat en la t de Student
 <span class="math display">\[
 \overline{X}\pm t_{n-1,(1+q)/2}\cdot \frac{\widetilde{S}_X}{\sqrt{n}}
 \]</span>
@@ -516,7 +526,7 @@ Però fixau-vos que en aquesta desigualtat la <span class="math inline">\(n\)</s
 <span class="math display">\[
 t_{n-1,(1+q)/2}\rightsquigarrow z_{(1+q)/2} 
 \]</span></p></li>
-<li><p>Estimarem el valor de <span class="math inline">\(\widetilde{S}_X\)</span> mitjançant la desviació típica mostral <span class="math inline">\(\widetilde{S}_0\)</span> d’una <strong>prova pilot</strong> (una experiment anterior, realitzat per nosaltres o per qualcú altre amb una mostra petita)</p></li>
+<li><p>Estimarem el valor de <span class="math inline">\(\widetilde{S}_X\)</span> mitjançant la desviació típica mostral <span class="math inline">\(\widetilde{S}_0\)</span> d’una <strong>prova pilot</strong> (una experiment anterior, realitzat per nosaltres o per qualcú altre)</p></li>
 <li><p>D’aquesta manera, aproximam l’error <span class="math inline">\(M\)</span> per mitjà de
 <span class="math display">\[
 M\approx z_{(1+q)/2}\times \frac{\widetilde{S}_0}{\sqrt{n}}
@@ -531,13 +541,18 @@ n\geqslant\left(\frac{ z_{(1+q)/2}\cdot \widetilde{S}_0}{M_{max}}
 <p>En resum:</p>
 
 <div class="theorem">
-<p><span id="thm:unnamed-chunk-19" class="theorem"><strong>Teorema 1.3  </strong></span>Per estimar la <span class="math inline">\(\mu\)</span> amb nivell de confiança <span class="math inline">\(q\)</span> amb un marge d’error com a màxim <span class="math inline">\(M_{max}\)</span> mitjançant la fórmula basada en la t de Student, prendrem una mostra de mida <span class="math inline">\(n \geqslant( z_{(1+q)/2}\cdot \widetilde{S}_0/M_{max})^2\)</span>, on <span class="math inline">\(\widetilde{S}_0\)</span> és la desviació típica mostral obtinguda en una estimació anterior de <span class="math inline">\(\mu\)</span> (en una <em>prova pilot</em>).</p>
+<p><span id="thm:unnamed-chunk-20" class="theorem"><strong>Teorema 1.3  </strong></span>Per estimar la <span class="math inline">\(\mu\)</span> amb nivell de confiança <span class="math inline">\(q\)</span> amb un marge d’error com a màxim <span class="math inline">\(M_{max}\)</span> mitjançant la fórmula basada en la t de Student, prendrem una mostra de mida
+<span class="math display">\[
+n\geqslant\left(\frac{ z_{(1+q)/2}\cdot \widetilde{S}_0}{M_{max}}
+\right)^2,
+\]</span>
+on <span class="math inline">\(\widetilde{S}_0\)</span> és la desviació típica mostral obtinguda en una estimació anterior de <span class="math inline">\(\mu\)</span> (en una <em>prova pilot</em>).</p>
 </div>
 
-<p>Naturalment, quan després prenguem una mostra de mida <span class="math inline">\(n\)</span> calculada d’aquesta manera, pot passar qualsevol cosa, ja que hem emprat els resultats d’una mostra aleatòria per estimar la desviació típica d’una altra mostra i a més hem aproximat els quantils de la t de Student per els d’una normal estàndard, que són més petits. Però almenys haurem fet tot el que haurem pogut per fitar l’error dins el marge desitjat.</p>
+<p>Naturalment, quan després prenguem una mostra de mida <span class="math inline">\(n\)</span> calculada d’aquesta manera, pot passar qualsevol cosa, ja que hem emprat els resultats d’una mostra per estimar la desviació típica d’una altra mostra i a més hem aproximat els quantils de la t de Student per els d’una normal estàndard, que són més petits. Però almenys haurem fet tot el que haurem pogut per fitar l’error dins el marge desitjat.</p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-20" class="example"><strong>Exemple 1.6  </strong></span>A l’Exemple <a href="intervals-de-confianca.html#exm:alcohol1">1.3</a>, hem emprat una mostra de <span class="math inline">\(n=40\)</span> persones, amb <span class="math inline">\(\overline{x}=41.2\)</span> i <span class="math inline">\(\widetilde{s}=2.1\)</span>, i l’error ha estat
+<p><span id="exm:unnamed-chunk-21" class="example"><strong>Exemple 1.6  </strong></span>A l’Exemple <a href="intervals-de-confianca.html#exm:alcohol1">1.3</a>, hem emprat una mostra de <span class="math inline">\(n=40\)</span> persones, amb <span class="math inline">\(\overline{x}=41.2\)</span> i <span class="math inline">\(\widetilde{s}=2.1\)</span>, i l’error ha estat
 <span class="math display">\[
 t_{0.975,39}\cdot \frac{2.1}{\sqrt{40}}=0.67
 \]</span>
@@ -572,7 +587,7 @@ Per fer-ho, prenem una mostra aleatòria simple de <span class="math inline">\(X
 <p>Aquest mètode es basa en el fet que el nombre d’èxits <span class="math inline">\(x\)</span> en mostres aleatòries simples de mida <span class="math inline">\(n\)</span> de <span class="math inline">\(X\)</span> segueix una distribució binomial <span class="math inline">\(B(n,p_X)\)</span>. Raonant de manera similar a com obteníem l’interval per a <span class="math inline">\(\mu\)</span> basat en la t de Student (us estalviarem els detalls) arribam a la fórmula següent:</p>
 
 <div class="theorem">
-<p><span id="thm:unnamed-chunk-22" class="theorem"><strong>Teorema 1.4  </strong></span>Un interval de confiança de nivell de confiança <span class="math inline">\(q\)</span> per a <span class="math inline">\(p_X\)</span> és <span class="math inline">\([p_0,p_1]\)</span>, on</p>
+<p><span id="thm:unnamed-chunk-23" class="theorem"><strong>Teorema 1.4  </strong></span>Un interval de confiança de nivell de confiança <span class="math inline">\(q\)</span> per a <span class="math inline">\(p_X\)</span> és <span class="math inline">\([p_0,p_1]\)</span>, on</p>
 <ul>
 <li><p><span class="math inline">\(p_0\)</span> és la solució de l’equació
 <span class="math display">\[
@@ -598,8 +613,8 @@ Per fer-ho, prenem una mostra aleatòria simple de <span class="math inline">\(X
 <span class="kw">round</span>(<span class="kw">binom.exact</span>(<span class="dv">2</span>,<span class="dv">10</span>),<span class="dv">3</span>)</code></pre>
 <pre><code>##   x  n proportion lower upper conf.level
 ## 1 2 10        0.2 0.025 0.556       0.95</code></pre>
-<p>Dóna [0.025,0.556].</p>
-<p>L’interval de Clopper-Pearson té l’inconvenient que,en general, no està centrat en <span class="math inline">\(\widehat{p}_{X}\)</span>. Per exemple, el centre de l’interval anterior és <span class="math inline">\((0.025+0.556)/2= 0.29\)</span>, diferent de <span class="math inline">\(\widehat{p}_X=0.2\)</span></p>
+<p>Dóna l’interval [0.025,0.556]. Estimam per tant amb una confiança del 95% que aquest medicament cura entre el 2.5% i el 55.6% dels pacients.</p>
+<p>L’interval de Clopper-Pearson té l’inconvenient que, en general, no està centrat en <span class="math inline">\(\widehat{p}_{X}\)</span>. Per exemple, el centre de l’interval anterior és <span class="math inline">\((0.025+0.556)/2= 0.29\)</span>, diferent de <span class="math inline">\(\widehat{p}_X=0.2\)</span></p>
 </div>
 <div id="metode-de-wilson" class="section level3 unnumbered">
 <h3>Mètode de Wilson</h3>
@@ -616,7 +631,7 @@ P\Big(-z_{(1+q)/2}\leqslant\dfrac{\widehat{p}_{X}-p_X}
 <p>Aïllant <span class="math inline">\(p_X\)</span> obtenim:</p>
 
 <div class="theorem">
-<span id="thm:unnamed-chunk-25" class="theorem"><strong>Teorema 1.5  </strong></span>Si la mida <span class="math inline">\(n\)</span> de la mostra és gran, un interval de confiança de nivell de confiança <span class="math inline">\(q\)</span> per a <span class="math inline">\(p_X\)</span> és (aproximadament):
+<span id="thm:unnamed-chunk-26" class="theorem"><strong>Teorema 1.5  </strong></span>Si la mida <span class="math inline">\(n\)</span> de la mostra és gran, un interval de confiança de nivell de confiança <span class="math inline">\(q\)</span> per a <span class="math inline">\(p_X\)</span> és (aproximadament):
 <span class="math display">\[
 \frac{\widehat{p}_{X}+\frac{z_{(1+q)/{2}}^2}{2n}\pm z_{(1+q)/{2}}\sqrt{\frac{\widehat{p}_{X}(1-\widehat{p}_{X})}{n}+\frac{z_{(1+q)/{2}}^2}{4n^2}}}{1+\frac{z_{(1+q)/{2}}^2}{n}}
 \]</span>
@@ -624,7 +639,10 @@ P\Big(-z_{(1+q)/2}\leqslant\dfrac{\widehat{p}_{X}-p_X}
 
 <p>Amb R es calcula amb la funció</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">binom.wilson</span>(x,n,<span class="dt">conf.level=</span>...)</code></pre>
-<p>del paquet <strong>epitools</strong>, amb la mateixa sintaxi que <code>binom.exact</code>. Aquest interval també té l’inconvenient que, si us hi fixau, no està centrat en <span class="math inline">\(\widehat{p}_{X}\)</span>: el seu centre és <span class="math inline">\(\big(\widehat{p}_{X}+z_{(1+q)/{2}}^2/(2n)\big)/(1+z_{(1+q)/{2}}^2/{n})\)</span>.</p>
+<p>del paquet <strong>epitools</strong>, amb la mateixa sintaxi que <code>binom.exact</code>. Aquest interval també té l’inconvenient que, si us hi fixau, no està centrat en <span class="math inline">\(\widehat{p}_{X}\)</span>: el seu centre és
+<span class="math display">\[
+\frac{\widehat{p}_{X}+\frac{z_{(1+q)/{2}}^2}{2n}}{1+\frac{z_{(1+q)/{2}}^2}{n}}
+\]</span></p>
 </div>
 <div id="metode-de-laplace" class="section level3 unnumbered">
 <h3>Mètode de Laplace</h3>
@@ -635,7 +653,7 @@ n\geqslant 100,\ n\widehat{p}_{X}\geqslant 10,\  n(1-\widehat{p}_{X})\geqslant 1
 En aquest cas, a la fórmula de l’interval de Wilson podem suposar que els termes <span class="math inline">\(z_{(1+q)/{2}}^2/n\)</span> són (aproximadament) 0 i obtenim la fórmula següent:</p>
 
 <div class="theorem">
-<span id="thm:unnamed-chunk-27" class="theorem"><strong>Teorema 1.6  </strong></span>En les condicions explicades, un interval de confiança de nivell de confiança <span class="math inline">\(q\)</span> per a <span class="math inline">\(p_X\)</span> és (aproximadament):
+<span id="thm:unnamed-chunk-28" class="theorem"><strong>Teorema 1.6  </strong></span>En les condicions explicades, un interval de confiança de nivell de confiança <span class="math inline">\(q\)</span> per a <span class="math inline">\(p_X\)</span> és (aproximadament):
 <span class="math display">\[
 \widehat{p}_{X}\pm z_{(q+1)/2}\sqrt{\frac{\widehat{p}_{X}
 (1-\widehat{p}_{X})}{n}}
@@ -647,18 +665,19 @@ En aquest cas, a la fórmula de l’interval de Wilson podem suposar que els ter
 <p>del paquet <strong>epitools</strong>, amb la mateixa sintaxi que <code>binom.exact</code>. Aquesta fórmula és la més popular, amb més de 200 anys de rodatge.</p>
 
 <div class="rmdnote">
-Us heu de saber la fórmula de Laplace, no cal saber les fórmules dels altres dos intervals.
+<p>Us heu de saber la fórmula de Laplace, no cal saber les fórmules dels altres dos intervals.</p>
 </div>
 
+<p><img src="Bioestadistica-II_files/figure-html/mercifulgod.png" width="50%" style="display: block; margin: auto;" /></p>
 </div>
 <div id="mes-exemples" class="section level3 unnumbered">
 <h3>Més exemples</h3>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-30" class="example"><strong>Exemple 1.8  </strong></span>En una mostra aleatòria de 500 famílies amb nins en edat escolar es va trobar que 340 introduïen fruita de forma diària en la dieta dels seus fills. A partir d’aquestes dades, volem calcular un interval de confiança del 95% per a la proporció real de famílies d’aquesta ciutat amb nins en edat escolar que incorporen fruita fresca de forma diària en la dieta dels seus fills.</p>
+<p><span id="exm:unnamed-chunk-32" class="example"><strong>Exemple 1.8  </strong></span>En una mostra aleatòria de 500 famílies amb nins en edat escolar es va trobar que 340 introduïen fruita diàriament en la dieta dels seus fills. A partir d’aquestes dades, volem calcular un interval de confiança del 95% per a la proporció real de famílies d’aquesta ciutat amb nins en edat escolar que incorporen fruita fresca cada dia en la dieta dels seus fills.</p>
 </div>
 
-<p>Diguem <span class="math inline">\(X\)</span> a la variable aleatòria “Prenem una família amb nins en edat escolar i miram si inclou diàriament fruita a la dieta dels fills”. És Bernoulli, digem <span class="math inline">\(p_X\)</span> a la seva probabilitat d’èxit: la probabilitat que una família amb nins en edat escolar inclogui diàriament fruita a la dieta dels fills. Cercam un interval de confiança del 95% per a <span class="math inline">\(p_X\)</span></p>
+<p>Diguem <span class="math inline">\(X\)</span> a la variable aleatòria “Prenem una família amb nins en edat escolar i miram si inclou diàriament fruita a la dieta dels fills”. És Bernoulli, diguem <span class="math inline">\(p_X\)</span> a la seva probabilitat d’èxit: la probabilitat que una família amb nins en edat escolar inclogui diàriament fruita a la dieta dels fills. Cercam un interval de confiança del 95% per a <span class="math inline">\(p_X\)</span>.</p>
 <p>Com que <span class="math inline">\(n=500\geqslant 100\)</span>, <span class="math inline">\(n\widehat{p}_X=340\geqslant 10\)</span> i <span class="math inline">\(n(1-\widehat{p}_X)=160\geqslant 10\)</span>, podem emprar la fórmula de Laplace
 <span class="math display">\[
 \widehat{p}_{X}\pm z_{(q+1)/2}\sqrt{\frac{\widehat{p}_{X}
@@ -680,17 +699,19 @@ Dóna
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">round</span>(<span class="kw">binom.wilson</span>(<span class="dv">340</span>,<span class="dv">500</span>),<span class="dv">3</span>)</code></pre>
 <pre><code>##     x   n proportion lower upper conf.level
 ## 1 340 500       0.68 0.638 0.719       0.95</code></pre>
+<p>En resum, estimam que entre aproximadament un 64% i un 72% de les famílies d’aquesta ciutat amb nins en edat escolar inclouen diàriament fruita fresca en la dieta dels seus fills.</p>
 <p>Quan podem calcular més d’un interval per a <span class="math inline">\(p_X\)</span>, quin calculam?</p>
-<p>D’entrada cal dir que si podem calcular més d’un interval, segurament donaran molt parescuts, com heu pogut comprovar a l’exemple anterior. Però en tot cas, si podeu triar, heu de tenir en compte que:</p>
+<p>D’entrada cal dir que si podem calcular més d’un interval, segurament donaran molt parescuts, com heu pogut comprovar a l’exemple anterior. A més, recordau que les tres fórmules només ens donen “una confiança del 100q%” si s’apliquen a mostres aleatòries simples, i les nostres mostres gairebé sempre seran oportunistes, cas en el qual, si ens posam perepunyetes, no en podem aplicar cap.</p>
+<p>Però en tot cas, si no filam molt prim i podem triar, hem de tenir en compte que:</p>
 <ul>
 <li>L’interval de Clopper-Pearson és exacte, no empra cap aproximació, però:
 <ul>
 <li>Tendeix a donar un interval més ample del necessari</li>
 <li>No està centrat en la proporció mostral</li>
 <li>Només és un interval “exacte” si la mostra és aleatòria simple, cosa que gairebé sempre serà fals (com a molt, serà “aproximadament” aleatòria simple)</li>
-<li>Com que fins fa poc no es podia calcular, no és molt popular</li>
+<li>Com que no es pot calcular “a mà”, no és molt popular</li>
 </ul></li>
-<li><p>L’interval de Wilson és aproximat, fa servir l’aproximació a la normal donada pel Teorema Central del Límit. Això no és un gran emperò, pequè tanmateix segurament la mostra serà com a molt “aproximadament” aleatòria simple. Ara bé, tampoc no està centrat en la proporció mostral</p></li>
+<li><p>L’interval de Wilson és aproximat, fa servir l’aproximació a la normal donada pel Teorema Central del Límit. Això no és un gran emperò, pequè tanmateix segurament la mostra serà com a molt “aproximadament” aleatòria simple. Ara bé, tampoc no està centrat en la proporció mostral, i ens agrada poder donar els intervals en la forma “tal més menys qual” perquè d’aquesta manera donam l’estimació puntual i el marge d’error.</p></li>
 <li>L’interval de Laplace és <em>molt</em> aproximat, però:
 <ul>
 <li>Forma part de la cultura general del científic, tothom el coneix</li>
@@ -699,10 +720,10 @@ Dóna
 </ul>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-33" class="example"><strong>Exemple 1.9  </strong></span>En un assaig d’un nou tractament de quimioteràpia, en una mostra de <span class="math inline">\(n\)</span> malalts tractats, cap desenvolupà càncer testicular com a efecte secundari. Quin seria un interval de confiança al 95% per a la proporció de malalts tractats amb aquesta quimio que desenvolupen càncer testicular?</p>
+<p><span id="exm:unnamed-chunk-35" class="example"><strong>Exemple 1.9  </strong></span>En un assaig d’un nou tractament de quimioteràpia, en una mostra de <span class="math inline">\(n\)</span> malalts tractats, cap desenvolupà càncer testicular com a efecte secundari. Quin seria un interval de confiança al 95% per a la proporció de malalts tractats amb aquesta quimio que desenvolupen càncer testicular?</p>
 </div>
 
-<p>Per calcular-lo podem emprar el mètode de Clopper-Pearson, i si <span class="math inline">\(n\)</span> és gran, podem emprar el mètode de Wilson. No podem emprar la fórmula de Laplace, perquè <span class="math inline">\(\widehat{p}_X=0\)</span>.</p>
+<p>Per calcular-lo podem emprar el mètode de Clopper-Pearson i, si <span class="math inline">\(n\)</span> és gran, el de Wilson. No podem emprar la fórmula de Laplace, perquè <span class="math inline">\(\widehat{p}_X=0\)</span>.</p>
 <p>Pel que fa a Clopper-Pearson, aquest és un dels pocs casos que admeten solució analítica senzilla: dóna l’interval
 <span class="math display">\[
 \Big[0,1-\Big(\frac{1-q}{2}\Big)^{1/n}\Big]
@@ -724,7 +745,7 @@ Per exemple, si <span class="math inline">\(n=40\)</span></p>
 amb <span class="math inline">\(\widehat{p}_{X}=0\)</span> i <span class="math inline">\(z_{(1+q)/2}=1.96\)</span> dóna
 <span class="math display">\[
 \frac{\frac{1.96^2}{2n}\pm 1.96\sqrt{\frac{1.96^2}{4n^2}}}{1+\frac{1.96^2}{n}}\Longrightarrow
-\Big[0,\frac{1.96^2}{n+1.96^2}\Big]=\Big[0,\frac{3.84}{n+3.84}\Big]
+\Big[0,\frac{1.96^2}{n+1.96^2}\Big]
 \]</span>
 Per exemple, un altre cop amb <span class="math inline">\(n=40\)</span></p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">binom.wilson</span>(<span class="dv">0</span>,<span class="dv">40</span>)</code></pre>
@@ -732,7 +753,7 @@ Per exemple, un altre cop amb <span class="math inline">\(n=40\)</span></p>
 ## 1 0 40          0 6.330897e-18 0.0876216       0.95</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">qnorm</span>(<span class="fl">0.975</span>)<span class="op">^</span><span class="dv">2</span><span class="op">/</span>(<span class="dv">40</span><span class="op">+</span><span class="kw">qnorm</span>(<span class="fl">0.975</span>)<span class="op">^</span><span class="dv">2</span>)</code></pre>
 <pre><code>## [1] 0.0876216</code></pre>
-<p>Quan s’ha de calcular un interval de confiança del 95% per a una probabilitat <span class="math inline">\(p_X\)</span> a partir d’una mostra aleatòria simple on no hi ha hagut cap èxit, sovint es fa servir la regla següent:</p>
+<p>Quan s’ha de calcular “a ull” un interval de confiança del 95% per a una probabilitat <span class="math inline">\(p_X\)</span> a partir d’una mostra aleatòria simple on no hi ha hagut cap èxit, sovint es fa servir la regla següent:</p>
 <blockquote>
 <p><strong>Regla del 3:</strong> Quan en una mostra aleatòria simple de mida <span class="math inline">\(n\)</span> d’una variable aleatòria de Bernoulli de paràmetre <span class="math inline">\(p_X\)</span> no hi trobam cap èxit, un IC 95% per a <span class="math inline">\(p_X\)</span> va, aproximadament, de 0 a <span class="math inline">\(3/n\)</span>.</p>
 </blockquote>
@@ -744,7 +765,7 @@ Per exemple, un altre cop amb <span class="math inline">\(n=40\)</span></p>
 <span class="kw">curve</span>(<span class="dv">3</span><span class="op">/</span>x,<span class="dt">col=</span><span class="st">&quot;red&quot;</span>,<span class="dt">lwd=</span><span class="dv">2</span>,<span class="dt">add=</span><span class="ot">TRUE</span>)
 <span class="kw">legend</span>(<span class="st">&quot;topright&quot;</span>,<span class="dt">lty=</span><span class="kw">c</span>(<span class="ot">NA</span>,<span class="dv">1</span>),<span class="dt">pch=</span><span class="kw">c</span>(<span class="dv">20</span>,<span class="ot">NA</span>),
        <span class="dt">legend=</span><span class="kw">c</span>(<span class="st">&quot;Clopper-Pearson&quot;</span>,<span class="st">&quot;Regla del 3&quot;</span>),<span class="dt">col=</span><span class="kw">c</span>(<span class="st">&quot;black&quot;</span>,<span class="st">&quot;red&quot;</span>),<span class="dt">cex=</span><span class="fl">0.7</span>)</code></pre>
-<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-36-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-38-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>El gràfic següent mostra els valors <span class="math inline">\(3/n\)</span> i els extrems superiors dels IC 95% de Clopper-Pearson i de Wilson a partir d’una mostra de mida <span class="math inline">\(n\)</span> (<span class="math inline">\(n\geqslant 40\)</span> per als intervals de confiança de Wilson) amb 0 èxits:</p>
 <pre class="sourceCode r"><code class="sourceCode r">f=<span class="cf">function</span>(n){<span class="kw">binom.exact</span>(<span class="dv">0</span>,n)<span class="op">$</span>upper}
 <span class="kw">plot</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">100</span>,<span class="kw">sapply</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">100</span>,f),<span class="dt">pch=</span><span class="dv">20</span>,<span class="dt">cex=</span><span class="fl">0.5</span>,<span class="dt">xlab=</span><span class="st">&quot;n&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;Extrem superior&quot;</span>,
@@ -753,11 +774,11 @@ Per exemple, un altre cop amb <span class="math inline">\(n=40\)</span></p>
 <span class="kw">points</span>(<span class="dv">40</span><span class="op">:</span><span class="dv">100</span>,<span class="fl">3.84</span><span class="op">/</span>(<span class="dv">40</span><span class="op">:</span><span class="dv">100</span><span class="fl">+3.84</span>),<span class="dt">pch=</span><span class="dv">20</span>,<span class="dt">cex=</span><span class="fl">0.5</span>,<span class="dt">col=</span><span class="st">&quot;blue&quot;</span>)
 <span class="kw">legend</span>(<span class="st">&quot;topright&quot;</span>,<span class="dt">lty=</span><span class="kw">c</span>(<span class="ot">NA</span>,<span class="ot">NA</span>,<span class="dv">1</span>),<span class="dt">pch=</span><span class="kw">c</span>(<span class="dv">20</span>,<span class="dv">20</span>,<span class="ot">NA</span>),
     <span class="dt">legend=</span><span class="kw">c</span>(<span class="st">&quot;Clopper-Pearson&quot;</span>,<span class="st">&quot;Wilson&quot;</span>,<span class="st">&quot;Regla del 3&quot;</span>),<span class="dt">col=</span><span class="kw">c</span>(<span class="st">&quot;black&quot;</span>,<span class="st">&quot;blue&quot;</span>,<span class="st">&quot;red&quot;</span>),<span class="dt">cex=</span><span class="fl">0.7</span>)</code></pre>
-<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-37-1.png" width="480" style="display: block; margin: auto;" /></p>
-<p>Els extrems superiors dels intervals de Clopper-Pearson i Wilson se superposen.</p>
+<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-39-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p>Els extrems superiors dels intervals de Clopper-Pearson i Wilson se superposen en aquest darrer gràfic.</p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-38" class="example"><strong>Exemple 1.10  </strong></span>En un assaig d’un tractament de quimioteràpia, en una mostra de 100 pacients tractats, 25 desenvoluparen càncer testicular secundari. Volem calcular un IC 95% per a la proporció de pacients tractats amb aquesta quimioteràpia que desenvolupen càncer testicular.</p>
+<p><span id="exm:unnamed-chunk-40" class="example"><strong>Exemple 1.10  </strong></span>En un assaig d’un tractament de quimioteràpia, en una mostra de 100 pacients tractats, 25 desenvoluparen càncer testicular secundari. Volem calcular un IC 95% per a la proporció de pacients tractats amb aquesta quimioteràpia que desenvolupen càncer testicular.</p>
 </div>
 
 <p>En aquest cas podem emprar els tres mètodes:</p>
@@ -770,6 +791,7 @@ Per exemple, un altre cop amb <span class="math inline">\(n=40\)</span></p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">round</span>(<span class="kw">binom.approx</span>(<span class="dv">25</span>,<span class="dv">100</span>),<span class="dv">4</span>)</code></pre>
 <pre><code>##    x   n proportion  lower  upper conf.level
 ## 1 25 100       0.25 0.1651 0.3349       0.95</code></pre>
+<p>Concloem, amb un nivell de confiança del 95%, que entre aproximadament un 17% i un 34% dels pacients tractats amb aquesta quimioteràpia desenvolupen càncer testicular.</p>
 </div>
 <div id="calcul-de-la-mida-de-la-mostra-per-a-fixar-lerror" class="section level3 unnumbered">
 <h3>Càlcul de la mida de la mostra per a fixar l’error</h3>
@@ -782,7 +804,7 @@ No podem determinar la mida de la mostra a fi que l’interval de confiança tin
 <p>Fixau-vos que la funció <span class="math inline">\(y=p (1-p)\)</span>, amb <span class="math inline">\(p\in [0,1]\)</span>, és una paràbola còncava amb vèrtex al punt <span class="math inline">\(p=0.5\)</span></p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">curve</span>(x<span class="op">*</span>(<span class="dv">1</span><span class="op">-</span>x),<span class="dt">xlim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>),<span class="dt">xlab=</span><span class="st">&quot;p&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;&quot;</span>)
 <span class="kw">abline</span>(<span class="dt">v=</span><span class="fl">0.5</span>,<span class="dt">lty=</span><span class="st">&quot;dashed&quot;</span>)</code></pre>
-<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-40-1.png" width="480" style="display: block; margin: auto;" />
+<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-42-1.png" width="480" style="display: block; margin: auto;" />
 Per tant, el seu màxim s’assoleix a <span class="math inline">\(p=0.5\)</span>. Així, doncs
 <span class="math display">\[
 \widehat{p}_{X} (1-\widehat{p}_{X})\leqslant 0.5(1-0.5)=0.5^2\text{ per a tot $\widehat{p}_X\in[0,1]$}
@@ -795,11 +817,11 @@ i per tant
 \leqslant z_{(q+1)/2}\sqrt{\frac{0.5^2}{n}}=\frac{0.5z_{(q+1)/2}}{\sqrt{n}}=\frac{z_{(q+1)/2}}{2\sqrt{n}}
 \end{array}
 \]</span></p>
-<p>D’aquesta manera, si <span class="math inline">\(n\)</span> és tal que
+<p>D’aquesta manera, si prenem <span class="math inline">\(n\)</span> tal que
 <span class="math display">\[
 \frac{z_{(q+1)/2}}{2\sqrt{n}}\leqslant M_{max}
 \]</span>
-aleshores <span class="math inline">\(M\leqslant M_{max}\)</span> segur, valgui el que valgui <span class="math inline">\(\widehat{p}_{X}\)</span>.</p>
+aleshores segur que <span class="math inline">\(M\leqslant M_{max}\)</span>, valgui el que valgui <span class="math inline">\(\widehat{p}_{X}\)</span>.</p>
 <p>Per tant, el que farem serà calcular la <span class="math inline">\(n\)</span> per obtenir un error com a màxim <span class="math inline">\(M_{max}\)</span> <strong>en el cas més desfavorable</strong>: quan l’interval és el més ample possible, és a dir, suposant que <span class="math inline">\(\widehat{p}_{X}=0.5\)</span>:
 <span class="math display">\[
 M_{max}\geqslant\frac{z_{(q+1)/2}}{2\sqrt{n}}
@@ -809,12 +831,16 @@ n\geqslant\left(\frac{z_{(q+1)/2}}{2\cdot M_{max}}\right)^2
 <p>En resum:</p>
 
 <div class="theorem">
-<p><span id="thm:unnamed-chunk-41" class="theorem"><strong>Teorema 1.7  </strong></span>Si <span class="math inline">\(n\geqslant\big(z_{(q+1)/2}/(2\cdot M_{max})\big)^2\)</span>, l’error de l’interval de Laplace calculat amb una mostra de mida <span class="math inline">\(n\)</span> sempre serà com a molt <span class="math inline">\(M_{max}\)</span>.</p>
+<p><span id="thm:unnamed-chunk-43" class="theorem"><strong>Teorema 1.7  </strong></span>Si
+<span class="math display">\[
+  n\geqslant\left(\frac{z_{(q+1)/2}}{2\cdot M_{max}}\right)^2,
+\]</span>
+l’error de l’interval de Laplace calculat amb una mostra de mida <span class="math inline">\(n\)</span> sempre serà com a molt <span class="math inline">\(M_{max}\)</span>.</p>
 </div>
 
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-42" class="example"><strong>Exemple 1.11  </strong></span>Quina és la mida més petita d’una mostra que ens garanteixi un error de com a màxim 0.05 en estimar una proporció <span class="math inline">\(p_X\)</span> emprant un interval de confiança de Laplace del 95%?</p>
+<p><span id="exm:unnamed-chunk-44" class="example"><strong>Exemple 1.11  </strong></span>Quina és la mida més petita d’una mostra que ens garanteix un error de com a màxim 0.05 en estimar una proporció <span class="math inline">\(p_X\)</span> emprant un interval de confiança de Laplace del 95%?</p>
 </div>
 
 <p>Pel teorema anterior, per garantir un error de 0.05 en calcular un IC 95% per una proporció <span class="math inline">\(p_X\)</span> emprant la fórmula de Laplace, hem d’emprar una mostra de mida <span class="math inline">\(n\)</span> tal que
@@ -822,18 +848,23 @@ n\geqslant\left(\frac{z_{(q+1)/2}}{2\cdot M_{max}}\right)^2
 n\geqslant\Bigg(\frac{z_{(1+q)/2}}{2M_{max}}\Bigg)^2=\Bigg(\frac{1.96}{0.1}\Bigg)^2=384.16
 \]</span></p>
 <p>La mida més petita que satisfà aquesta condició és <span class="math inline">\(n=385\)</span>.</p>
+
+<div class="rmdcaution">
+La resposta correcta no és 384, per molt que 384.16 s’arrodoneixi a 384. Fixau-vos que 384 no és més gran que 384.16.
+</div>
+
 <p>Observau tres coses:</p>
 <ul>
-<li><p>El valor de <span class="math inline">\(n\)</span> només depèn de la precisió i del nivell de confiança, no de la natura de l’estudi</p></li>
-<li><p>Tal i com hem trobat la <span class="math inline">\(n\)</span>, estam segurs que si la mostra és com a mínim d’aquesta mida, l’interval de confiança de Laplace tendrà com a màxim una amplada <span class="math inline">\(2M_{max}\)</span>, sigui quina sigui la mostra. És de les poques vegades que podem estar segurs de qualque cosa en estadística.</p></li>
-<li><p>El teorema anterio és per l’amplada de l’interval de Laplace, però la <span class="math inline">\(n\)</span> segurament us sortirà molt gran i en aquest cas l’interval de Laplace sol aproximar molt bé els altres dos intervals.</p></li>
+<li><p>El valor de <span class="math inline">\(n\)</span> només depèn de la precisió i del nivell de confiança, no de la natura de l’estudi ni de proves pilot</p></li>
+<li><p>Tal i com hem trobat la <span class="math inline">\(n\)</span>, estam segurs que si la mostra és com a mínim d’aquesta mida, el marge d’error de l’interval de confiança de Laplace serà com a màxim <span class="math inline">\(M_{max}\)</span> (la seva amplada serà com a màxim <span class="math inline">\(2M_{max}\)</span>), sigui quina sigui la mostra. És de les poques vegades que podem estar segurs de qualque cosa en estadística.</p></li>
+<li><p>El teorema anterior és per l’amplada de l’interval de Laplace, però la <span class="math inline">\(n\)</span> segurament us sortirà molt gran i en aquest cas l’interval de Laplace aproxima molt bé els altres dos intervals.</p></li>
 </ul>
 </div>
 </div>
 <div id="intervals-de-confianca-per-a-la-variancia-duna-variable-normal" class="section level2">
 <h2><span class="header-section-number">1.5</span> Intervals de confiança per a la variància d’una variable normal</h2>
 <p>Suposem que tenim una variable normal <span class="math inline">\(X\sim N(\mu,\sigma)\)</span>. Volem trobar un IC 95% per a la seva variància <span class="math inline">\(\sigma^2\)</span> (o la seva desviació típica <span class="math inline">\(\sigma\)</span>). Per calcular-lo, prenem una mostra aleatòria simple de mida <span class="math inline">\(n\)</span>, de variància mostral <span class="math inline">\(\widetilde{S}^2_X\)</span>.</p>
-<p>Recordau que, en aquestes condicions
+<p>Recordau que, en aquestes condicions,
 <span class="math display">\[
 \frac{(n-1) \widetilde{S}_{X}^2}{\sigma^2}
 \]</span>
@@ -841,7 +872,7 @@ té distribució <span class="math inline">\(\chi^2_{n-1}\)</span></p>
 <p>Podem aprofitar aquest fet per obtenir intervals de confiança per a <span class="math inline">\(\sigma^2\)</span>:</p>
 
 <div class="theorem">
-<span id="thm:unnamed-chunk-43" class="theorem"><strong>Teorema 1.8  </strong></span>Si la variable <span class="math inline">\(X\)</span> és normal, un interval de confiança de nivell de confiança <span class="math inline">\(q\)</span> per a <span class="math inline">\(\sigma^2\)</span> és<br />
+<span id="thm:unnamed-chunk-46" class="theorem"><strong>Teorema 1.8  </strong></span>Si la variable <span class="math inline">\(X\)</span> és normal, un interval de confiança de nivell de confiança <span class="math inline">\(q\)</span> per a <span class="math inline">\(\sigma^2\)</span> és<br />
 <span class="math display">\[
 \left[ \frac{(n-1)\widetilde{S}_{X}^2}{\chi_{n-1,(1+q)/2}^2},
 \frac{(n-1)\widetilde{S}_{X}^2}{\chi_{n-1,(1-q)/2}^2}
@@ -875,15 +906,16 @@ q=P\left(\chi_{n-1,(1-q)/2}^2\leqslant\chi_{n-1}^2\leqslant
 \]</span>
 </div>
 
-<p>Fixau-vos que aquest interval de confiança per <span class="math inline">\(\sigma^2\)</span> no està centrat en <span class="math inline">\(\widetilde{S}_{X}^2\)</span>. A més, com que <span class="math inline">\(\chi_{n-1}^2\)</span> no és simètrica, s’han de calcularels dos quantils <span class="math inline">\(\chi_{n-1,(1-q)/2}^2\)</span> i <span class="math inline">\(\chi_{n-1,(1+q)/2}^2\)</span></p>
+<p>Fixau-vos que aquest interval de confiança per <span class="math inline">\(\sigma^2\)</span> no està centrat en <span class="math inline">\(\widetilde{S}_{X}^2\)</span>. A més, com que <span class="math inline">\(\chi_{n-1}^2\)</span> no és simètrica, s’han de calcular els dos quantils <span class="math inline">\(\chi_{n-1,(1-q)/2}^2\)</span> i <span class="math inline">\(\chi_{n-1,(1+q)/2}^2\)</span></p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-45" class="example"><strong>Exemple 1.12  </strong></span>Un índex de qualitat d’un reactiu químic és el temps que triga a actuar. L’estàndard és que aquest ha de ser <span class="math inline">\(\leqslant 30\)</span> segons. Se suposa que la distribució del temps d’actuació del reactiu és aproximadament normal. Es realitzen 30 proves en les quals es mesura el temps
-d’actuació del reactiu. Tenim els resultats guardats en el vector següent:</p>
+<p><span id="exm:unnamed-chunk-48" class="example"><strong>Exemple 1.12  </strong></span>Un índex de qualitat d’un reactiu químic és la variabilitat en el temps que triga a actuar: es demana que aquest temps sigui aproximadament constant, és a dir, que tengui una desviació típica petita.</p>
 </div>
 
-<pre class="sourceCode r"><code class="sourceCode r">Temps=<span class="kw">c</span>(<span class="dv">12</span>,<span class="dv">13</span>,<span class="dv">13</span>,<span class="dv">14</span>,<span class="dv">14</span>,<span class="dv">14</span>,<span class="dv">15</span>,<span class="dv">15</span>,<span class="dv">16</span>,<span class="dv">17</span>,<span class="dv">17</span>,<span class="dv">18</span>,<span class="dv">18</span>,<span class="dv">19</span>,<span class="dv">19</span>,<span class="dv">25</span>,<span class="dv">25</span>,<span class="dv">26</span>,<span class="dv">27</span>,<span class="dv">30</span>,<span class="dv">33</span>,<span class="dv">34</span>,<span class="dv">35</span>,<span class="dv">40</span>,<span class="dv">40</span>,<span class="dv">51</span>,<span class="dv">51</span>,<span class="dv">58</span>,<span class="dv">59</span>,<span class="dv">83</span>)</code></pre>
-<p>Volem calcular un interval de confiança per a la desviació típica <span class="math inline">\(\sigma\)</span> d’aquest temps d’actuació, amb nivell de confiança 95%. Com que la variable que ens dóna el temps és (aproximadament) normal, podem emprar la fórmula per a l’IC 95% per a <span class="math inline">\(\sigma^2\)</span> anterior:
+<p>Hem realitzat 30 proves en les quals hem mesurat el temps d’actuació d’un determinat reactiu, i a partir dels resultats volem calcular un IC 95% per a la desviació típica del seu temps d’actuació. Suposarem que la distribució del temps d’actuació d’aquest reactiu és aproximadament normal. Tenim els resultats guardats en el vector següent:</p>
+<pre class="sourceCode r"><code class="sourceCode r">Temps=<span class="kw">c</span>(<span class="dv">12</span>,<span class="dv">13</span>,<span class="dv">13</span>,<span class="dv">14</span>,<span class="dv">14</span>,<span class="dv">14</span>,<span class="dv">15</span>,<span class="dv">15</span>,<span class="dv">16</span>,<span class="dv">17</span>,<span class="dv">17</span>,<span class="dv">18</span>,<span class="dv">18</span>,<span class="dv">19</span>,<span class="dv">19</span>,
+        <span class="dv">25</span>,<span class="dv">25</span>,<span class="dv">26</span>,<span class="dv">27</span>,<span class="dv">30</span>,<span class="dv">33</span>,<span class="dv">34</span>,<span class="dv">35</span>,<span class="dv">40</span>,<span class="dv">40</span>,<span class="dv">51</span>,<span class="dv">51</span>,<span class="dv">58</span>,<span class="dv">59</span>,<span class="dv">83</span>)</code></pre>
+<p>Com que la variable que ens dóna el temps és (aproximadament) normal, podem emprar la fórmula per a l’IC 95% per a <span class="math inline">\(\sigma^2\)</span> anterior:
 <span class="math display">\[
 \left[ \frac{(n-1)\widetilde{S}_{X}^2}{\chi_{n-1,(1+q)/2}^2},
 \frac{(n-1)\widetilde{S}_{X}^2}{\chi_{n-1,(1-q)/2}^2}
@@ -903,6 +935,28 @@ d’actuació del reactiu. Tenim els resultats guardats en el vector següent:</
 <span class="math display">\[
 [\sqrt{191.26}, \sqrt{544.96}]=[13.83,23.34]
 \]</span></p>
+<p>Per tant la variabilitat dels temps d’actuació d’aquest reactiu és molt gran. Comparau aquest interval amb l’IC 95% per al seu temps mitjà d’actuació:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">round</span>(<span class="kw">t.test</span>(Temps)<span class="op">$</span>conf.int,<span class="dv">2</span>)</code></pre>
+<pre><code>## [1] 21.88 34.85
+## attr(,&quot;conf.level&quot;)
+## [1] 0.95</code></pre>
+<p>L’extrem superior de l’IC 95% per a la desviació típica és més gran que l’extrem inferior d’aquest IC 95% per a la mitjana.</p>
+<p>Amb R, aquest interval de confiança amb nivell de confiança <span class="math inline">\(q\)</span> per a la variància es pot calcular amb la funció</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">varTest</span>(X,<span class="dt">conf.level=</span>...)<span class="op">$</span>conf.int</code></pre>
+<p>del paquete <strong>EnvStats</strong>, on <code>X</code> és el vector que conté la mostra i <code>conf.level</code> indica el nivell de confiança en tant per u, que per defecte és igual a 0.95.</p>
+<p>Així, l’interval de confiança que ens demanàvem a l’exemple anterior es calcularia amb</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(EnvStats)
+<span class="kw">varTest</span>(Temps)<span class="op">$</span>conf.int</code></pre>
+<pre><code>##      LCL      UCL 
+## 191.2627 544.9572 
+## attr(,&quot;conf.level&quot;)
+## [1] 0.95</code></pre>
+<p>No, aquest és el de la variància. El de la desviació típica és:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sqrt</span>(<span class="kw">varTest</span>(Temps)<span class="op">$</span>conf.int)</code></pre>
+<pre><code>##      LCL      UCL 
+## 13.82977 23.34432 
+## attr(,&quot;conf.level&quot;)
+## [1] 0.95</code></pre>
 
 <div class="rmdcaution">
 L’interval per a la variància basat en la distribució <span class="math inline">\(\chi^2\)</span> no és vàlid si la variable poblacional no és (aproximadament) normal. En aquest cas, el millor és emprar un mètode no paramètric, com per exemple el <em>bootstrap</em>.
@@ -935,7 +989,7 @@ n\geqslant\frac{Nz_{(q+1)/2}^2}{4M_{max}^2(N-1)+z_{(q+1)/2}^2}
 </ul>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-48" class="example"><strong>Exemple 1.13  </strong></span>En una mostra aleatòria de 727 estudiants (diferents) de la UIB (<span class="math inline">\(N=12000\)</span>), 557 afirmàrem haver comès plagi en algun treball durant els seus estudis. Quin seria un interval de confiança del 95% per a la proporció <span class="math inline">\(p_X\)</span> d’estudiants de la UIB que han comès plagi en algun treball?</p>
+<p><span id="exm:unnamed-chunk-55" class="example"><strong>Exemple 1.13  </strong></span>En una mostra aleatòria de 727 estudiants (diferents) de la UIB (<span class="math inline">\(N=12000\)</span>), 557 afirmàrem haver comès plagi en algun treball durant els seus estudis. Quin seria un interval de confiança del 95% per a la proporció <span class="math inline">\(p_X\)</span> d’estudiants de la UIB que han comès plagi en algun treball?</p>
 </div>
 
 <p>Una mostra de 727 estudiants diferents és molt gran respecte del total d’estudiants de la UIB, per la qual cosa convé emprar la fórmula de Laplace amb el factor de població finita
@@ -950,7 +1004,7 @@ on <span class="math inline">\(\widehat{p}_{X}=557/727=0.766\)</span>, <span cla
 Estimam amb un nivell de confiança del 95% que entre un 75.1 i un 78.1 dels estudiants de la UIB han comès plagi en algun treball.</p>
 
 <div class="example">
-<span id="exm:unnamed-chunk-49" class="example"><strong>Exemple 1.14  </strong></span>De quina mida hem de prendre una mostra aleatòria sense reposició d’estudiants de la UIB per estimar una proporció amb nivell de confiança del 95% i un marge d’error màxim de 0.05?
+<p><span id="exm:unnamed-chunk-56" class="example"><strong>Exemple 1.14  </strong></span>De quina mida hem de prendre una mostra aleatòria sense reposició d’estudiants de la UIB per estimar una proporció amb nivell de confiança del 95% i un marge d’error màxim de 0.05?</p>
 </div>
 
 <p>Per la fórmula anterior (prenent <span class="math inline">\(N=12000\)</span> i <span class="math inline">\(z_{(1+q)/2}=1.96\)</span>), per garantir un marge d’error màxim de 0.05 cal prendre una mostra de mida
