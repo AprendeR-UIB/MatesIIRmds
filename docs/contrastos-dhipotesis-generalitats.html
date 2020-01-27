@@ -25,7 +25,7 @@
 <meta name="author" content="The Matemàtiques II team">
 
 
-<meta name="date" content="2020-01-22">
+<meta name="date" content="2020-01-27">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -33,7 +33,7 @@
   
   
 <link rel="prev" href="intervals-de-confianca.html">
-<link rel="next" href="contrastos-dhipotesis-dun-i-dos-parametres.html">
+
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -186,10 +186,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="contrastos-dhipotesis-generalitats.html"><a href="contrastos-dhipotesis-generalitats.html#el-risc-de-falsos-positius"><i class="fa fa-check"></i>El risc de falsos positius</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="contrastos-dhipotesis-dun-i-dos-parametres.html"><a href="contrastos-dhipotesis-dun-i-dos-parametres.html"><i class="fa fa-check"></i><b>4</b> Contrastos d’hipòtesis d’un i dos paràmetres</a><ul>
-<li class="chapter" data-level="4.1" data-path="contrastos-dhipotesis-dun-i-dos-parametres.html"><a href="contrastos-dhipotesis-dun-i-dos-parametres.html#test-t-per-a-una-mitjana"><i class="fa fa-check"></i><b>4.1</b> Test t per a una mitjana</a></li>
-<li class="chapter" data-level="4.2" data-path="contrastos-dhipotesis-dun-i-dos-parametres.html"><a href="contrastos-dhipotesis-dun-i-dos-parametres.html#test-t-per-a-dues-mitjanes"><i class="fa fa-check"></i><b>4.2</b> Test t per a dues mitjanes</a></li>
-</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/cescrossello/Mates-II" target="blank">Publicat amb  bookdown</a></li>
 
@@ -214,7 +210,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">Tema 3</span> Contrastos d’hipòtesis: Generalitats</h1>
 <div id="hipotesis-nulla-i-alternativa" class="section level2">
 <h2><span class="header-section-number">3.1</span> Hipòtesis nul·la i alternativa</h2>
-<p>En moltes situacions, s’ha de prendre a partir d’una mostra una <em>decisió</em> sobre si es pot acceptar o rebutjar una <em>hipòtesi</em> relativa al valor d’un paràmetre d’una població o diverses poblacions.
+<p>En moltes situacions, s’ha de prendre a partir d’una mostra una <strong>decisió</strong> sobre si es pot acceptar o rebutjar una <strong>hipòtesi</strong> relativa al valor d’un paràmetre d’una població o diverses poblacions.
 Per exemple:</p>
 <ul>
 <li><p>Volem saber si una moneda està trucada a favor de cara. Per decidir-ho, la llançam en l’aire una sèrie de vegades, i comptam quantes cares surten.</p></li>
@@ -232,7 +228,7 @@ H_{1}:\text{hipòtesi alternativa}
 \]</span></p>
 <p>En un contrast d’hipòtesis:</p>
 <ul>
-<li><p>Típicament, la <strong>hipòtesi nul·la</strong> <span class="math inline">\(H_{0}\)</span> és “no hi ha diferència”, “no passa res”, “no ha res estrany” o l’equivalent en el context del contrast:</p>
+<li><p>Típicament, la <strong>hipòtesi nul·la</strong> <span class="math inline">\(H_{0}\)</span> és “no hi ha diferència”, “no passa res”, “no hi ha res d’estrany” o l’equivalent en el context del contrast:</p>
 <ul>
 <li><p>La moneda és honrada (50% de probabilitat de cara)</p></li>
 <li><p>Els tractaments A i B són igual d’efectius en la curació de la malaltia X</p></li>
@@ -242,15 +238,16 @@ H_{1}:\text{hipòtesi alternativa}
 <li><p>La moneda està trucada a favor de cara (més del 50% de probabilitat de cara)</p></li>
 <li><p>A és més efectiu que B en la curació de la malaltia X</p></li>
 </ul></li>
-<li><p>Per defecte, estam disposats a acceptar <span class="math inline">\(H_0\)</span>: no hi ha diferència, no passa res.</p>
+<li><p>Per defecte, estam disposats a acceptar <span class="math inline">\(H_0\)</span>: que no hi ha diferència, no passa res.</p>
 <ul>
 <li><p>Per defecte, estam disposats a acceptar que la moneda és honrada (la majoria ho són, no?)</p></li>
 <li><p>Per defecte, estam disposats a acceptar que els dos tractaments són igual d’efectius</p></li>
 </ul></li>
-<li><p>Si obtenim evidència suficient de <span class="math inline">\(H_1\)</span>, rebutjarem <span class="math inline">\(H_0\)</span> en favor de <span class="math inline">\(H_1\)</span> i conclourem que <span class="math inline">\(H_1\)</span> és vertader. Què vol dir “obtenir evidència suficient de <span class="math inline">\(H_1\)</span>”? Doncs que rebutjarem <span class="math inline">\(H_0\)</span> quan les proves obtingudes la converteixin en <strong>inversemblant</strong> (mala de creure) per comparació amb <span class="math inline">\(H_1\)</span>:</p>
+<li><p>Si obtenim evidència suficient que <span class="math inline">\(H_1\)</span> és la hipòtesi vertadera, rebutjarem <span class="math inline">\(H_0\)</span> en favor de <span class="math inline">\(H_1\)</span> i conclourem que <span class="math inline">\(H_1\)</span> és vertadera.</p>
+<p>Què vol dir “obtenir evidència suficient que <span class="math inline">\(H_1\)</span> és vertadera”? Doncs que les proves obtingudes fan que <span class="math inline">\(H_0\)</span> sigui <strong>inversemblant</strong> (mala de creure) per comparació amb <span class="math inline">\(H_1\)</span>:</p>
 <ul>
 <li><p>Tendrem evidència que la moneda està trucada a favor de cara si a la nostra sèrie de llençaments la proporció de cares és tan i tan gran que fa molt difícil creure que la probabilitat de cara sigui del 50%</p></li>
-<li><p>Tendrem evidència que el tractament A és més efectiu que B en la curació de la malaltia X si en el nostre assaig la taxa de curació de la malaltia X amb el tractament A és tant i tant més gran que la de B que fa molt difícil creure que els dos tractaments siguin iguals d’efectius</p></li>
+<li><p>Tendrem evidència que el tractament A és més efectiu que B en la curació de la malaltia X si en el nostre assaig la taxa de curació de la malaltia X amb el tractament A és tan i tan més gran que la de B que fa molt difícil creure que els dos tractaments siguin iguals d’efectius</p></li>
 </ul></li>
 <li><p>Si no obtenim evidència suficient de <span class="math inline">\(H_1\)</span>, és a dir, si les nostres dades són compatibles amb <span class="math inline">\(H_0\)</span>, no podrem rebutjar-la: acceptarem la hipòtesi nul·la.</p>
 <ul>
@@ -284,7 +281,7 @@ H_{1}:\text{L&#39;acusat és culpable}
 <li><p>Si el jurat troba prou incriminatòries les proves, “més enllà de tot dubte raonable”, declara <strong>culpable</strong> l’acusat (rebutja <span class="math inline">\(H_0\)</span> en favor de <span class="math inline">\(H_1\)</span>)</p></li>
 <li><p>Si el jurat no les troba prou incriminatòries, el considera <strong>no culpable</strong> (no rebutja <span class="math inline">\(H_{0}\)</span>)</p></li>
 </ul>
-<p>Observau que considerar no culpable no és el mateix que demostrar que és innocent: simplement, es considera l’acosat no és culpable si no s’ha trobat prou evidència que sigui culpable.</p>
+<p>Observau que considerar no culpable no és el mateix que demostrar que és innocent: simplement, es considera que l’acusat no és culpable si no s’ha trobat prou evidència que sigui culpable.</p>
 
 <div class="example">
 <p><span id="exm:examen" class="example"><strong>Exemple 3.2  </strong></span>Un examen és un contrast d’hipòtesis. En aquest cas, “no passa res” significa que l’estudiant és com si no hagués anat al curs, no ha après res, i per tant aquesta és la hipòtesi nul·la; amb l’examen cercam evidència que l’estudiant ha après la matèria, per tant aquesta serà la hipòtesi alternativa:</p>
@@ -306,31 +303,33 @@ H_{1}:\text{L&#39;estudiant sap la matèria}
 <p><img src="Bioestadistica-II_files/figure-html/hipnul.png" width="75%" style="display: block; margin: auto;" /></p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-145" class="example"><strong>Exemple 3.3  </strong></span>Ens trobam amb la notícia següent al diari, i ens demanam si les dones practiquen realment menys esport que els homes.</p>
+<p><span id="exm:esport1" class="example"><strong>Exemple 3.3  </strong></span>Ens trobam amb la notícia següent al diari, i ens demanam si les dones practiquen realment menys esport que els homes.</p>
 </div>
 
 <p><img src="Bioestadistica-II_files/figure-html/mujeresdeporte.png" width="75%" style="display: block; margin: auto;" /></p>
 <p>Aquesta pregunta la podem plantejar de moltes maneres:</p>
 <ul>
 <li><p>Totes les dones fan cada dia menys hores d’esport que tots els homes?</p></li>
+<li><p>Si prenc una dona i un home a l’atzar, hi ha més d’un 50% de probabilitat que ella practiqui menys esport que ell?</p></li>
 <li><p>La majoria de les dones fan cada dia menys hores d’esport que la majoria dels homes?</p></li>
 <li><p>La proporció de practicants d’esport entre les dones és més petita que entre els homes?</p></li>
 <li><p>La mitjana setmanal de vegades que les dones practiquen esport és més petita que la dels homes?</p></li>
 <li><p>La mitjana setmanal d’hores que les dones practiquen esport és més petita que la dels homes?</p></li>
 <li><p>…</p></li>
 </ul>
+<p>Cada una d’aquestes preguntes es traduiria en un contrast d’hipòtesis diferent i possiblement mostres de tipus de dades diferents per realitzar-los.</p>
 <p>Com que aquí estam tractant contrastos sobre paràmetres poblacionals (mitjanes, proporcions, etc.), podríem plantejar algun dels tres darrers. Anem a centrar-nos en la darrera qüestió, sobre mitjanes setmanals d’hores d’esport.</p>
+<p>Aquí, les variables poblacionals d’interés són:</p>
+<ul>
+<li><span class="math inline">\(X_d\)</span>: prenc una dona i calcul el seu nombre mitjà d’hores setmanals d’esport, de mitjana <span class="math inline">\(\mu_d\)</span>: la mitjana d’hores setmanals d’esport de les dones</li>
+<li><span class="math inline">\(X_h\)</span>: prenc una dona i calcul el seu nombre mitjà d’hores setmanals d’esport, de mitjana <span class="math inline">\(\mu_h\)</span>: la mitjana d’hores setmanals d’esport dels homes</li>
+</ul>
 <p>El contrast que volem realitzar és</p>
 <ul>
 <li><p><em>Hipòtesi nul·la</em>: no hi ha diferència entre les mitjanes d’hores setmanals d’esport d’homes i dones</p></li>
 <li><p><em>Hipòtesi alternativa</em>: la mitjana d’hores setmanals d’esport de les dones és més petita que la dels homes</p></li>
 </ul>
-<p>Per formalitzar-lo, si diem</p>
-<ul>
-<li><span class="math inline">\(\mu_d\)</span>: mitjana d’hores setmanals d’esport en dones</li>
-<li><span class="math inline">\(\mu_h\)</span>: mitjana d’hores setmanals d’esport en homes</li>
-</ul>
-<p>aleshores el contrast és
+<p>És a dir
 <span class="math display">\[
 \left\{\begin{array}{ll} 
 H_{0}: \mu_d=\mu_h\\ 
@@ -354,11 +353,23 @@ H_{1}:\mu_d&lt;\mu_h
 <p>Com que aquí voldrem filar més prim que això del “nivell de confiança”, el procediment serà una mica més complicat.</p>
 
 <div class="rmdcaution">
+Les hipòtesis dels contrastos són sobre les poblacions, sobre les mostres.
+</div>
+
+<p>Aquí les hipòtesis del contrast comparaven les mitjanes <strong>poblacionals</strong> d’hores setmanals d’esport de les dones i els homes, no les mitjanes mostrals d’hores setmanals d’esport de les dones i els homes de la nostra mostra.</p>
+
+<div class="rmdcaution">
 La falta d’evidència a favor de <span class="math inline">\(H_1\)</span> no és evidència a favor de <span class="math inline">\(H_0\)</span>
 </div>
 
 <p>Si no podem assegurar que les dones practiquin menys esport que els homes (perquè no hàgim trobat evidència a favor d’aquesta hipòtesi), això no significarà que hàgim trobat evidència que els homes i les dones practiquin la mateixa quantitat d’esport o que les dones en practiquin més.</p>
-<p>Simplement, significarà que <em>l’evidència a favor de <span class="math inline">\(H_1\)</span> no ha estat prou forta com per poder afirmar que és vertadera</em> i acceptam que tothom practica la mateixa quantitat d’esport.</p>
+<p>Simplement, significarà que <em>l’evidència a favor de <span class="math inline">\(H_1\)</span> no ha estat prou forta com per poder afirmar que és vertadera</em> i per tant acceptam que tothom practica la mateixa quantitat d’esport.</p>
+
+<div class="rmdcaution">
+En general, mai no podrem trobar evidència de la hipòtesi nul·la.
+</div>
+
+<p>Si per exemple al nostre estudi haguéssim trobat que <span class="math inline">\(\overline{X}_d=\overline{X}_h\)</span>, això seria compatible amb la hipòtesi nul·la <span class="math inline">\(\mu_d=\mu_h\)</span>, i per això no la podríem rebutjar, però no aporta evidència que <span class="math inline">\(\mu_d=\mu_h\)</span>, ja que segurament també seria compatible, per exemple, amb <span class="math inline">\(\mu_d=\mu_h+0.0007\)</span> (les dones fan, de mitjana, un minut més d’esport a la setmana que els homes).</p>
 
 <div class="rmdcaution">
 No val canviar de contrast a la vista de les dades
@@ -381,7 +392,7 @@ H_{1}:\mu_d&gt;\mu_h
 \right.
 \]</span>
 sí que obtenim evidència que elles practiquen més esport que ells.</p>
-<p>D’això s’en diu “anar a pescar”: obteniu unes dades i mirau de què donen evidència. És mala pràctica científica.</p>
+<p>D’això s’en diu “anar a pescar”: obteniu unes dades i mirau de què donen evidència. És mala pràctica científica. Qualsevol conjunt de dades dóna evidència de qualque cosa.</p>
 
 <div class="rmdcaution">
 Triau la hipòtesi alternativa en funció del que cercau evidència
@@ -402,7 +413,8 @@ H_{0}: \mu_d=\mu_h\\
 H_{1}:\mu_d\neq \mu_h
 \end{array}
 \right.
-\]</span></p>
+\]</span>
+que tradueix la pregunta &quot;Els homes i les dones, de mitjana, practiquen esport un nombre diferent d’hores a la setmana?’’</p>
 <p>La pregunta (el contrast) us la plantejau <em>a priori</em> a partir d’hipòtesis o suposicions prèvies</p>
 
 <div class="rmdimportant">
@@ -421,8 +433,9 @@ H_{1}:\mu_d\neq \mu_h
 <div id="un-exemple" class="section level2">
 <h2><span class="header-section-number">3.2</span> Un exemple</h2>
 <p>Tenc una moneda, i crec que està trucada a favor de cara. Vull contrastar-ho.</p>
-<p>La hipòtesi nul·la serà que la moneda no està trucada (no hi ha res estrany en la meva moneda), i l’alternativa (de la que cerc evidència) que la moneda està trucada a favor de cara.</p>
-<p>Si dic <span class="math inline">\(p_{\mathit{Cara}}\)</span> a la probabilitat de treure cara amb la meva mneda, el contrast és
+<p>Aquí la variable aleatòria <span class="math inline">\(X\)</span> que ens interessa és “Llenç la moneda en l’aire i mir si surt cara”, que és Bernoulli amb probabilitat d’èxit (és a dir, probabilitat de treure cara amb la meva moneda) <span class="math inline">\(p_{\mathit{Cara}}\)</span>.</p>
+<p>La hipòtesi nul·la serà que la moneda no està trucada (no hi ha res estrany en la meva moneda), i l’alternativa (de la que cerc evidència) que la moneda està trucada a favor de cara.
+en termes de <span class="math inline">\(p_{\mathit{Cara}}\)</span>, el contrast és
 <span class="math display">\[
 \left\{\begin{array}{ll} 
 H_{0}:p_{\mathit{Cara}}= 0.5\\ 
@@ -431,10 +444,10 @@ H_{1}:p_{\mathit{Cara}}&gt; 0.5
 \right.
 \]</span></p>
 <p><strong>1)</strong> Suposem que llanç la moneda en l’aire 3 vegades i obtenc 3 cares. És evidència suficient que està trucada?</p>
-<p>Diguem <span class="math inline">\(X\)</span> a la variable aleatòria “Nombre de cares en 3 llançaments d’aquesta moneda.”</p>
-<p>Si la moneda no està trucada, <span class="math inline">\(X\sim B(3,0.5)\)</span> i per tant
+<p>Diguem <span class="math inline">\(S_3\)</span> a la variable aleatòria “Nombre de cares en 3 llançaments d’aquesta moneda.”</p>
+<p>Si la moneda no està trucada, <span class="math inline">\(S_3\sim B(3,0.5)\)</span> i per tant
 <span class="math display">\[
-P(X=3)=0.5^{3}=0.125
+P(S_3=3)=0.5^{3}=0.125
 \]</span></p>
 <p>El resultat obtingut no és molt improbable amb una moneda honrada (ho esperaríem 1 de cada 8 vegades): no és evidència suficient que estigui trucada.</p>
 
@@ -443,10 +456,10 @@ D’aquest tipus de procediment, emprant la distribució binomial del nombre d�
 </div>
 
 <p><strong>2)</strong> Suposem que ara llanç la moneda en l’aire 10 vegades i obtenc 10 cares. És evidència suficient que està trucada?</p>
-<p>Diguem ara <span class="math inline">\(X\)</span> a la variable aleatòria “Nombre de cares en 10 llançaments.”</p>
-<p>Si la moneda no està trucada, <span class="math inline">\(X\sim B(10,0.5)\)</span> i per tant
+<p>Diguem ara <span class="math inline">\(S_{10}\)</span> a la variable aleatòria “Nombre de cares en 10 llançaments.”</p>
+<p>Si la moneda no està trucada, <span class="math inline">\(S_{10}\sim B(10,0.5)\)</span> i per tant
 <span class="math display">\[
-P(X=10)=0.5^{10}=0.001
+P(S_{10}=10)=0.5^{10}=0.001
 \]</span></p>
 <p>El resultat obtingut és molt improbable si la moneda no està trucada: si la moneda no estigués trucada, només en 1 de cada 1000 seqüències de 10 llançaments obtendríem 10 cares. És a dir:</p>
 <blockquote>
@@ -463,7 +476,7 @@ H_{1}:p_{\mathit{Cara}}&gt; 0.5
 \end{array}
 \right.
 \]</span></p></li>
-<li><p>Hem recollit una mostra aleatòria</p></li>
+<li><p>Hem recollit una mostra aleatòria: la seqüència de llançaments</p></li>
 <li><p>Hem triat un <strong>estadístic de contrast</strong> amb distribució coneguda quan <span class="math inline">\(H_0\)</span> és vertadera: al nostre cas, el nombre de cares</p></li>
 <li><p>Hem calculat el valor d’aquest estadístic sobre la nostra mostra</p></li>
 <li><p>Hem calculat la probabilitat que l’estadístic prengui el valor observat si <span class="math inline">\(H_0\)</span> és vertadera</p></li>
@@ -474,13 +487,18 @@ H_{1}:p_{\mathit{Cara}}&gt; 0.5
 <ul>
 <li><p>Suposem que, al contrast anterior, llançam la moneda en l’aire 10 vegades i ara obtenim <em>10 creus</em>. És evidència suficient que està trucada a favor de cara? Òbviament no ho pot ser, però la probabilitat és la mateixa que abans:
 <span class="math display">\[
-P(X=0)=0.5^{10}=0.001
+P(S_{10}=0)=0.5^{10}=0.001
 \]</span></p></li>
-<li><p>En molts casos, <em>la probabilitat d’obtenir exactament el que hem obtingut pot ser molt petita, independentment del que hàgim obtingut</em>. Per exemple, suposem que llançam la moneda en l’aire 10000 vegadesi obtenim 5000 cares. Si la moneda és honrada, el nombre de cares seguirà una distribució binomial <span class="math inline">\(B(10000,0.5)\)</span> i la probabilitat d’obtenir 5000 cares serà <code>dbinom(5000,10000,0.5)</code>=0.008, ben petita, però clarament si la meitat de llançaments donen cara, no podem tenir mai evidència que la moneda estigui trucada.</p>
-<p>O, encara més exagerat, si l’estadístic de contrast segueix una distribució contínua, recordau que la probabilitat que una variable aleatòria contínua prengui un valor concret és 0. Més petit impossible, però no sempre rebutjarem la hipòtesi nu·la.</p></li>
+<li><p>En molts casos, <em>la probabilitat d’obtenir exactament el que hem obtingut pot ser molt petita, independentment del que hàgim obtingut</em>. Per exemple, suposem que llançam la moneda en l’aire 10000 vegades i obtenim 5000 cares. Si la moneda és honrada, el nombre de cares seguirà una distribució binomial <span class="math inline">\(B(10000,0.5)\)</span> i la probabilitat d’obtenir 5000 cares serà <code>dbinom(5000,10000,0.5)</code>=0.008, ben petita, però clarament si la meitat de llançaments donen cara, no podem tenir mai evidència que la moneda estigui trucada.</p>
+<p>O, encara més exagerat, si l’estadístic de contrast té distribució contínua, recordau que la probabilitat que una variable aleatòria contínua prengui un valor concret és 0. Més petit impossible, però no sempre rebutjarem la hipòtesi nu·la.</p></li>
 </ul>
-<p>En realitat, a (5) es calcula la probabilitat que, si <span class="math inline">\(H_0\)</span> és vertadera, l’estadístic prengui un valor tan extrem o més (en el sentit de <span class="math inline">\(H_1\)</span>) que l’obtingut. Li diem el <strong>p-valor</strong>. Recordau aquest nom.</p>
-<p>Al nostre exemple de la moneda, com que la hipòtesi nul·la és <span class="math inline">\(p_{\mathit{Cara}}= 0.5\)</span> i la hipòtesi alternativa és <span class="math inline">\(p_{\mathit{Cara}}&gt; 0.5\)</span>, el p-valor és la probabilitat que, si <span class="math inline">\(p_{\mathit{Cara}}= 0.5\)</span>, el nombre de cares sigui tan o més gran que l’obtingut a la nostra mostra. En els dos exemples anteriors concrets, 3 cares en 3 llançaments i 10 cares en 10 llançaments, és el mateix, perquè eren nombre màxim possible de cares i per tant, per exemple, treure 3 o més cares en 3 llançaments és exactament el mateix que treure 3 cares en 3 llançaments.</p>
+
+<div class="rmdimportant">
+<p>En realitat, a (5) es calcula la probabilitat que, si <span class="math inline">\(H_0\)</span> és vertadera, l’estadístic prengui un valor tan extrem o més (en el sentit de <span class="math inline">\(H_1\)</span>) que l’obtingut. Li diem el <strong>p-valor</strong>.</p>
+Recordau aquest nom.
+</div>
+
+<p>Al nostre exemple de la moneda, com que la hipòtesi nul·la és <span class="math inline">\(p_{\mathit{Cara}}= 0.5\)</span> i la hipòtesi alternativa és <span class="math inline">\(p_{\mathit{Cara}}&gt; 0.5\)</span>, el p-valor és la probabilitat que, si <span class="math inline">\(p_{\mathit{Cara}}= 0.5\)</span>, el nombre de cares sigui tan o més gran que l’obtingut a la nostra mostra. En els dos exemples anteriors concrets, 3 cares en 3 llançaments i 10 cares en 10 llançaments, és el mateix, perquè eren nombre màxim possible de cares i per tant, per exemple, treure 3 o més cares en 3 llançaments és exactament el mateix que treure 3 cares en 3 llançaments. Però en general no serà el cas.</p>
 <p><strong>3)</strong> Tornem al nostre contrast
 <span class="math display">\[
 \left\{\begin{array}{ll} 
@@ -490,14 +508,14 @@ H_{1}:p_{\mathit{Cara}}&gt; 0.5
 \right.
 \]</span>
 Suposem que llanç la moneda en l’aire 10 vegades i obtenc 7 cares. És evidència suficient que està trucada?</p>
-<p>Seguim dien <span class="math inline">\(X\)</span> a la variable aleatòria “Nombre de cares en 10 llançaments”. Si la moneda no està trucada, <span class="math inline">\(X\sim B(10,0.5)\)</span> i per tant
+<p>Seguim dient <span class="math inline">\(S_{10}\)</span> a la variable aleatòria “Nombre de cares en 10 llançaments”. Si la moneda no està trucada, <span class="math inline">\(S_{10}\sim B(10,0.5)\)</span> i per tant
 <span class="math display">\[
-\text{p-valor}=P(X\geqslant 7)=\texttt{1-pbinom(6,10,0.5)}=0.172
+\text{p-valor}=P(S_{10}\geqslant 7)=\texttt{1-pbinom(6,10,0.5)}=0.172
 \]</span>
-Un resultat tan extrem o més que l’obtingut no és molt improbable si la moneda no està trucada: passaria 1 de cada 6 vegades. Per tant, com que és batsnat compatible amb el fet que la moneda sigui honrada, no ho podem considerar evidència que estigui trucada a favor de cara.</p>
+Un resultat tan extrem o més que l’obtingut no és molt improbable si la moneda no està trucada: passaria 1 de cada 6 vegades. Per tant, com que és bastant compatible amb el fet que la moneda sigui honrada, no ho podem considerar evidència que estigui trucada a favor de cara.</p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-152" class="example"><strong>Exemple 3.4  </strong></span>Tenc una moneda, i ara crec que està trucada a favor de creu. Vull contrastar-ho. Plantejat en termes de <span class="math inline">\(p_{\mathit{Cara}}\)</span>, el contrast que vull realitzar és
+<p><span id="exm:unnamed-chunk-165" class="example"><strong>Exemple 3.4  </strong></span>Tenc una moneda, i ara crec que està trucada a favor de creu. Vull contrastar-ho. Plantejat en termes de <span class="math inline">\(p_{\mathit{Cara}}\)</span>, el contrast que vull realitzar és
 <span class="math display">\[
 \left\{\begin{array}{ll} 
 H_{0}:p_{\mathit{Cara}}= 0.5\\ 
@@ -508,24 +526,45 @@ H_{1}: p_{\mathit{Cara}}&lt; 0.5
 Suposem que llanç la moneda en l’aire 10 vegades i obtenc 1 cara. És evidència suficient que <span class="math inline">\(p_{\mathit{Cara}}&lt; 0.5\)</span>?</p>
 </div>
 
-<p>Seguim dient <span class="math inline">\(X\)</span> a la variable aleatòria “Nombre de cares en 10 llançaments d’aquesta moneda.” Si la moneda no està trucada, <span class="math inline">\(X\sim B(10,0.5)\)</span>.</p>
+<p>Seguim dient <span class="math inline">\(S_{10}\)</span> a la variable aleatòria “Nombre de cares en 10 llançaments d’aquesta moneda.” Si la moneda no està trucada, <span class="math inline">\(S_{10}\sim B(10,0.5)\)</span>.</p>
 <p>Ara, com que <span class="math inline">\(H_{1}\)</span> és <span class="math inline">\(p_{\mathit{Cara}}&lt; 0.5\)</span>, el p-valor, que és la probabilitat d’obtenir, si la moneda no està trucada, un nombre de cares tan extrem o més en el sentit de la hipòtesi alternativa que el que hem obtingut, serà la probabilitat de treure una cara o menys: com que <span class="math inline">\(H_{1}\)</span> és <span class="math inline">\(p_{\mathit{Cara}}&lt; 0.5\)</span>, “tan extrem o més en el sentit de la hipòtesi alternativa” significa “més petit o igual”. Per tant, el p-valor és
 <span class="math display">\[
-P(X\leqslant 1)=\texttt{pbinom(1,10,0.5)}=0.01
+P(S_{10}\leqslant 1)=\texttt{pbinom(1,10,0.5)}=0.01
 \]</span>
 Un resultat tan extrem o més que l’obtingut és molt improbable si <span class="math inline">\(p_{\mathit{Cara}}= 0.5\)</span>, passaria en 1 de cada 100 seqüències de 10 llançaments: ho podem considerar evidència que la moneda està trucada a favor de creu</p>
 </div>
 <div id="sec:pval" class="section level2">
 <h2><span class="header-section-number">3.3</span> El p-valor</h2>
-<p>El <strong>p-valor</strong> és la probabilitat que, si la hipòtesi nul·la és vertadera, l’estadístic de contrast prengui un valor tan o més extrem, en el sentit de la hipòtesi alternativa, que l’obtingut amb la nostra mostra. Repetim-ho. El <strong>p-valor</strong> és:</p>
+<p>El <strong>p-valor</strong> d’un contrast és la probabilitat que, si la hipòtesi nul·la és vertadera, l’estadístic de contrast prengui en una mostra aleatòria simple un valor tan o més extrem, en el sentit de la hipòtesi alternativa, que l’obtingut amb la mostra emprada per realitzar el contrast.</p>
+<p>Ho tornarem a repetir, posant èmfasi en els components fonamentals de la definició. El <strong>p-valor</strong> és:</p>
 <ul>
-<li>La probabilitat<br />
-</li>
-<li>que, si la hipòtesi nul·la és vertadera,</li>
-<li>l’estadístic de contrast</li>
-<li>prengui un valor tan o més extrem, en el sentit de la hipòtesi alternativa,</li>
+<li>La probabilitat que,</li>
+<li>si la hipòtesi nul·la és vertadera,</li>
+<li>l’estadístic de contrast prengui en una mostra aleatòria simple</li>
+<li>un valor tan o més extrem, en el sentit de la hipòtesi alternativa,</li>
 <li>que l’obtingut amb la nostra mostra.</li>
 </ul>
+
+<div class="example">
+<p><span id="exm:unnamed-chunk-166" class="example"><strong>Exemple 3.5  </strong></span>Per exemple, suposem que al contrast de les mitjanes d’hores setmanals d’esport d’homes i dones de l’Exemple <a href="contrastos-dhipotesis-generalitats.html#exm:esport1">3.3</a> empram com a estadístic de contrast la diferència entre les mitjanes mostrals <span class="math inline">\(\overline{X}_d-\overline{X}_h\)</span> (<strong>que no serà el cas: només és un exemple!</strong>). Aleshores, el p-valor del contrast és</p>
+</div>
+
+<ul>
+<li><p>La probabilitat que,</p></li>
+<li><p>si la hipòtesi nul·la és vertadera,</p>
+<p><em>si els homes i les dones practiquen de mitjana el mateix nombre d’hores d’esport a la setmana,</em></p></li>
+<li><p>l’estadístic de contrast prengui en una mostra aleatòria simple</p>
+<p><em>el valor de la mitjana d’hores setmanals d’esport en les dones menys la mitjana d’hores setmanals d’esport en els homes d’una mostra aleatòria</em></p></li>
+<li><p>un valor tan o més extrem, en el sentit de la hipòtesi alternativa,</p>
+<p><em>sigui més petit o igual</em> (perquè la hipòtesi alternativa és <span class="math inline">\(\mu_d&lt;\mu_h\)</span>, és a dir <span class="math inline">\(\mu_d-\mu_h&lt;0\)</span>)</p></li>
+<li><p>que l’obtingut amb la nostra mostra.</p>
+<p><em>que el de la nostra mostra</em></p></li>
+</ul>
+<p>En resum, el p-valor seria en aquest cas</p>
+<blockquote>
+<p>La probabilitat, suposant que els homes i les dones practiquen de mitjana el mateix nombre d’hores d’esport a la setmana, que, si prenem una mostra aleatòria d’homes i dones i calculam la diferència de la mitjana d’hores setmanals d’esport en les dones menys la mitjana d’hores setmanals d’esport en els homes d’aquesta mostra, el seu valor sigui més petit o igual que el de la nostra mostra.</p>
+</blockquote>
+<p>Si aquesta probabilitat és molt petita, la mostra obtinguda és poc consistent amb la hipòtesi nul·la i per tant conclourem que la hipòtesi alternativa és vertadera. Si, en canvi, aquesta probabilitat no és molt petita, la mostra obtinguda és compatible amb la hipòtesi nul·la i per tant no podrem rebutjar que sigui vertadera.</p>
 <p>El p-valor no és:</p>
 <ul>
 <li><p>La probabilitat que <span class="math inline">\(H_0\)</span> sigui vertadera condicionada al nostre resultat</p></li>
@@ -533,11 +572,11 @@ Un resultat tan extrem o més que l’obtingut és molt improbable si <span clas
 </ul>
 <p>És a l’inrevés: El p-valor és la probabilitat del nostre resultat (o quelcom més extrem) condicionada al fet que <span class="math inline">\(H_0\)</span> sigui vertadera. Per tant, el p-valor és una <strong>evidencia indirecta inversa</strong> de <span class="math inline">\(H_1\)</span>:</p>
 <blockquote>
-<p>Com més petit sigui el p-valor, més rar és el que hem obtingut si <span class="math inline">\(H_0\)</span> és vertadera, i per tant més evidència tenim que <span class="math inline">\(H_0\)</span> no pot ser vertadera.</p>
+<p>Com més petit sigui el p-valor, més rar seria el que hem obtingut si <span class="math inline">\(H_0\)</span> fos vertadera i <span class="math inline">\(H_1\)</span> falsa, i per tant més evidència tenim que <span class="math inline">\(H_0\)</span> no pot ser vertadera i que la vertadera és <span class="math inline">\(H_1\)</span>.</p>
 </blockquote>
 <p>Per exemple, que el p-valor d’un contrast doni 0.03</p>
 <ul>
-<li><p><strong>Significa</strong> que, si <span class="math inline">\(H_0\)</span> és vertadera, la probabilitat que l’estadístic de contrast prengui un valor tan extrem o més que el que ha pres és 0.03</p>
+<li><p><strong>Significa</strong> que, si <span class="math inline">\(H_0\)</span> és vertadera, la probabilitat que l’estadístic de contrast prengui sobre una mostra un valor tan extrem o més que el que ha pres és 0.03</p>
 <ul>
 <li><p><em>El trobau petit?</em> Ho preneu com a evidència que <span class="math inline">\(H_0\)</span> és falsa en favor de <span class="math inline">\(H_1\)</span></p></li>
 <li><p><em>No el trobau petit?</em> No teniu evidència per rebutjar que <span class="math inline">\(H_0\)</span> és vertadera</p></li>
@@ -555,7 +594,7 @@ En un contrast d’hipòtesis no obtenim cap informació directa sobre la probab
 
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-154" class="example"><strong>Exemple 3.5  </strong></span>Tenc una moneda i crec que està trucada; a favor de cara o a favor de creu, no ho sé, només sospit que està trucada. Vull contrastar-ho.</p>
+<p><span id="exm:unnamed-chunk-168" class="example"><strong>Exemple 3.6  </strong></span>Tenc una moneda i crec que està trucada; a favor de cara o a favor de creu, no ho sé, només sospit que està trucada. Vull contrastar-ho.</p>
 </div>
 
 <p>Plantejat en termes de la probabilitat de treure cara <span class="math inline">\(p_{\mathit{Cara}}\)</span>, el contrast que vull realitzar ara és
@@ -567,47 +606,50 @@ H_{1}:p_{\mathit{Cara}}\neq 0.5
 \right.
 \]</span>
 Suposem que la llanç en l’aire 10 vegades i obtenc 8 cares. És evidència suficient que està trucada?</p>
-<p>Com a la secció anterior, diguem <span class="math inline">\(X\)</span> a la variable “Nombre de cares en 10 llançaments”. Si <span class="math inline">\(p_{\mathit{Cara}}= 0.5\)</span>,
-<span class="math inline">\(X\sim B(10,0.5)\)</span>.</p>
-<p>En aquest exemple, “obtenir un resultat tan o més extrem, en el sentit de la hipòtesi alternativa, que l’obtingut” és treure un resultat <em>tant o més diferent de 5 cares i 5 creus que l’obtingut</em>: és a dir, treure almenys 8 cares o almenys 8 creus, o el que és el mateix, 8 o més cares o 2 o menys creus. Per tant, el p-valor és
+<p>Com a la secció anterior, diguem <span class="math inline">\(S_{10}\)</span> a la variable “Nombre de cares en 10 llançaments”. Si <span class="math inline">\(p_{\mathit{Cara}}= 0.5\)</span>,
+<span class="math inline">\(S_{10}\sim B(10,0.5)\)</span>.</p>
+<p>En aquest exemple, “obtenir un resultat tan o més extrem, en el sentit de la hipòtesi alternativa, que l’obtingut” és treure un resultat <em>tant o més diferent de 5 cares i 5 creus que l’obtingut</em>: és a dir, treure almenys 8 cares o almenys 8 creus, o el que és el mateix, treure o bé 8 o més cares, o bé 2 o menys cares. Per tant, el p-valor és
 <span class="math display">\[
 \begin{array}{l}
-P(X\geqslant 8\text{ o }X\leqslant 2) =P(X\geqslant 8) + P(X\leqslant 2)\\
-\qquad =1-P(X\leqslant 7) + P(X\leqslant 2)\\
+P(S_{10}\geqslant 8\text{ o }S_{10}\leqslant 2) =P(S_{10}\geqslant 8) + P(S_{10}\leqslant 2)\\
+\qquad =1-P(S_{10}\leqslant 7) + P(S_{10}\leqslant 2)\\
 \qquad =\texttt{1-pbinom(7,10,0.5)+pbinom(2,10,0.5)}\\
 \qquad =0.11
 \end{array}
 \]</span></p>
 <p>En realitat, i per motius històrics, en un contrast bilateral com aquest no es pren com a p-valor
 <span class="math display">\[
-P(X\geqslant 8\text{ o }X\leqslant 2)
+P(S_{10}\geqslant 8\text{ o }S_{10}\leqslant 2)
 \]</span>
 sinó
 <span class="math display">\[
-2\times\min\{P(X\geqslant 8),P(X\leqslant 8)\}.
+2\times\min\{P(S_{10}\geqslant 8),P(S_{10}\leqslant 8)\}.
 \]</span>
-Al nostre cas coincideix amb el que hem calculat perquè la variable <span class="math inline">\(X\sim B(10,0.5)\)</span> és simètrica, però si no ho fos no té perquè coincidir. Comprovem que, en efecte, en aquest exemple coincideixen:</p>
+Al nostre cas coincideix amb el que hem calculat perquè la variable <span class="math inline">\(S_{10}\sim B(10,0.5)\)</span> és simètrica, però si no ho fos no té perquè coincidir. Comprovem que, en efecte, en aquest exemple coincideixen:</p>
 <ul>
-<li><p><span class="math inline">\(P(X\geqslant 8)=\)</span><code>1-pbinom(7,10,0.5)</code><span class="math inline">\(=0.055\)</span></p></li>
-<li><p><span class="math inline">\(P(X\leqslant 8)=\)</span><code>pbinom(8,10,0.5)</code><span class="math inline">\(=0.989\)</span></p></li>
+<li><p><span class="math inline">\(P(S_{10}\geqslant 8)=\)</span><code>1-pbinom(7,10,0.5)</code><span class="math inline">\(=0.055\)</span></p></li>
+<li><p><span class="math inline">\(P(S_{10}\leqslant 8)=\)</span><code>pbinom(8,10,0.5)</code><span class="math inline">\(=0.989\)</span></p></li>
+<li><p><span class="math inline">\(\min\{0.055,0.989\}=0.055\)</span></p></li>
 <li><p>p-valor<span class="math inline">\(=2\times 0.055=0.11\)</span>.</p></li>
 </ul>
 <p>En resum, si la moneda no està trucada, el resultat obtingut és improbable, però no gaire (1 de cada 9 vegades passaria).
 És evidència suficient que estigui trucada?</p>
 
 <div class="rmdimportant">
-Per conveni, als contrastos bilaterals, per calcular el p-valor:
-* es calcula la probabilitat que l’estadístic de contrast prengui un valor més gran o igual que el de la mostra
-* es calcula la probabilitat que l’estadístic de contrast prengui un valor més petit o igual que el de la mostra
-* es pren el mínim d’aquests dos valors
-* i es multiplica per 2
-</div>
-
+<p>Per conveni, als contrastos bilaterals, per calcular el p-valor:</p>
+<ul>
+<li><p>es calcula la probabilitat que l’estadístic de contrast prengui un valor més gran o igual que el de la mostra</p></li>
+<li><p>es calcula la probabilitat que l’estadístic de contrast prengui un valor més petit o igual que el de la mostra</p></li>
+<li><p>es pren el mínim d’aquests dos valors</p></li>
+<li>i es multiplica per 2
+</div></li>
+</ul>
 </div>
 <div id="tipus-derrors" class="section level2">
 <h2><span class="header-section-number">3.4</span> Tipus d’errors</h2>
 <p>Al darrer exemple ens ha sorgit la qüestió de quin p-valor marca el llindar entre obtenir evidència o no. És 0.11 prou petit? La resposta és que depèn de quant estiguem disposats a equivocar-nos.</p>
-<p>La comparació entre la realitat i la decisió resultant d’un contrast dóna lloc a quatre situacions possibles:</p>
+<p>La comparació entre la realitat i la decisió resultant d’un contrast dóna lloc a quatre situacions possibles, resumides en la taula següent:</p>
+<p><img src="Bioestadistica-II_files/figure-html/errors.png" width="60%" style="display: block; margin: auto;" /></p>
 <ul>
 <li><p><em><span class="math inline">\(H_0\)</span> és la vertadera a la realitat i nosaltres decidim que <span class="math inline">\(H_1\)</span> és vertadera</em>.</p>
 <ul>
@@ -632,17 +674,21 @@ Per conveni, als contrastos bilaterals, per calcular el p-valor:
 </ul>
 
 <div class="rmdnote">
-<p>Observau que, en el context d’un contrast d’hipòtesi, un <strong>positiu</strong> és rebutjar la hipòtesi nul·la i decidir que l’alternativa és la vertadera, i un <strong>negatiu</strong> és acceptar la hipòtesi nul·la.</p>
+<p>Observau que, en el context d’un contrast d’hipòtesi,</p>
+<ul>
+<li><p>un resultat <strong>positiu</strong> és rebutjar la hipòtesi nul·la i decidir que l’alternativa és la vertadera (hem trobat qualque cosa)</p></li>
+<li>un resultat <strong>negatiu</strong> és acceptar la hipòtesi nul·la (no hem trobat res i ens hem de conformar amb la hipòtesi nul·la)</li>
+</ul>
 </div>
 
 <p>És a dir:</p>
 <ul>
-<li><p>el <strong>nivell de significació</strong> d’un contrast és la probabilitat que, si la hipótesi alternativa és vertadera, nosaltres ens equivoquem i acceptem la hipòtesi nul·la.</p></li>
-<li><p>la <strong>potència</strong> d’un contrast és la probabilitat que, si la hipótesi alternativa és vertadera, nosaltres l’encertem i rebutjem la hipòtesi nul·la en favor de l’alternativa.</p></li>
+<li><p>el <strong>nivell de significació</strong> d’un contrast és la probabilitat que, si la hipótesi nul·la és vertadera, nosaltres ens equivoquem i la rebutjem en favor de l’alternativa.</p></li>
+<li><p>la <strong>potència</strong> d’un contrast és la probabilitat que, si la hipótesi alternativa és vertadera, nosaltres ho detectem i rebutjem la hipòtesi nul·la en favor de l’alternativa.</p></li>
 </ul>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-157" class="example"><strong>Exemple 3.6  </strong></span>En un test d’embaraç, el contrast que es realitza és:
+<p><span id="exm:unnamed-chunk-172" class="example"><strong>Exemple 3.7  </strong></span>En un test d’embaraç, el contrast que es realitza és:
 <span class="math display">\[
 \left\{\begin{array}{ll} 
 H_{0}:\text{No estàs embaraçada}\\ 
@@ -655,7 +701,7 @@ H_{1}:\text{Estàs embaraçada}
 <p><img src="Bioestadistica-II_files/figure-html/types.png" width="60%" style="display: block; margin: auto;" /></p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-159" class="example"><strong>Exemple 3.7  </strong></span>En un judici, on s’ha de declarar un acusat innocent o culpable, el contrast era
+<p><span id="exm:unnamed-chunk-174" class="example"><strong>Exemple 3.8  </strong></span>En un judici, on s’ha de declarar un acusat innocent o culpable, el contrast era
 <span class="math display">\[
 \left\{\begin{array}{ll} 
 H_{0}:\text{L&#39;acusat és innocent}\\ 
@@ -673,7 +719,7 @@ H_{1}:\text{L&#39;acusat és culpable}
 <p>És pitjor l’error de tipus I, convé minimitzar-lo. Per això només es declara qualcú culpable quan les proves ho demostren més enllà de qualsevol dubte raonable</p>
 
 <div class="example">
-<span id="exm:unnamed-chunk-160" class="example"><strong>Exemple 3.8  </strong></span>En un examen, el contrast era
+<span id="exm:unnamed-chunk-175" class="example"><strong>Exemple 3.9  </strong></span>En un examen, el contrast era
 <span class="math display">\[
 \left\{\begin{array}{ll} 
 H_{0}:\text{L&#39;estudiant no sap la matèria}\\ 
@@ -698,13 +744,13 @@ El problema és quan fem disminuir <span class="math inline">\(\alpha\)</span>, 
 <li><p>Donar una regla de decisió per a un <span class="math inline">\(\alpha\)</span> màxim fixat</p></li>
 <li><p>Després, augmentar la mida <span class="math inline">\(n\)</span> de la mostra per arribar a la <span class="math inline">\(\beta\)</span> desitjada</p></li>
 </ol>
-<p>Abans d’acabar amb els errors, fixau-vos que si efectuam <span class="math inline">\(n\)</span> contrastos (independents) emprant una regla de decisió que garanteixi un nivell de significació <span class="math inline">\(\alpha\)</span> fixat, i a tots aquests contrastos la <span class="math inline">\(H_0\)</span> vertadera, el nombre de contrastos d’aquests on ens equivocarem i rebutjarem <span class="math inline">\(H_0\)</span> té distribució <span class="math inline">\(B(n,\alpha)\)</span>. En particular, assumim que esperam cometre un error de tipus I en 1 de cada <span class="math inline">\(1/\alpha\)</span> contrastos on l’hipòtesi nul·la sigui vertadera.</p>
+<p>Abans d’acabar amb els errors, fixau-vos que si efectuam <span class="math inline">\(m\)</span> contrastos (independents) emprant una regla de decisió que garanteixi un nivell de significació <span class="math inline">\(\alpha\)</span> fixat, i a tots aquests contrastos la <span class="math inline">\(H_0\)</span> és vertadera, el nombre de contrastos d’aquests on ens equivocarem i rebutjarem <span class="math inline">\(H_0\)</span> té distribució <span class="math inline">\(B(m,\alpha)\)</span>. En particular, assumim que esperam cometre un error de tipus I en 1 de cada <span class="math inline">\(1/\alpha\)</span> contrastos on l’hipòtesi nul·la sigui vertadera.</p>
 
 <div class="rmdcaution">
 Si efectuam molts de contrastos, augmenta la probabilitat de “trobar qualque cosa” encara que no hi hagi res que trobar.
 </div>
 
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-163"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-178"></span>
 <img src="http://imgs.xkcd.com/comics/significant.png" alt="&quot;Significant&quot; (https://xkcd.com/882/ (CC-BY-NC 2.5))"  />
 <p class="caption">
 Figura 3.1: “Significant” (<a href="https://xkcd.com/882/" class="uri">https://xkcd.com/882/</a> (CC-BY-NC 2.5))
@@ -713,9 +759,9 @@ Figura 3.1: “Significant” (<a href="https://xkcd.com/882/" class="uri">https
 </div>
 <div id="sec:exttest" class="section level2">
 <h2><span class="header-section-number">3.5</span> Exemple: El test t</h2>
-<p>Ens demanam si els homes joves amb diabetis tenen una concentració de calci en plasma superior a la dels homes joves sans. Ho traduiremm en un contrast d’hipòtesis sobre la concentració mitjana de calci en plasma en els homes joves amb diabetis, diguem-li <span class="math inline">\(\mu\)</span>:</p>
+<p>Ens demanam si els homes joves amb diabetis tenen una concentració de calci en plasma superior a la dels homes joves sans. Ho traduirem en un contrast d’hipòtesis sobre la concentració mitjana de calci en plasma en els homes joves amb diabetis, diguem-li <span class="math inline">\(\mu\)</span>:</p>
 <ul>
-<li><p>La hipòtesi nul·la serà que no hi ha diferència, és a dir, que <span class="math inline">\(\mu\)</span> és igual a la concentració mitjana de calci en plasma en els homes joves sans</p></li>
+<li><p>La hipòtesi nul·la serà que no hi ha diferència entre <span class="math inline">\(\mu\)</span> i la concentració mitjana de calci en plasma en els homes joves sans, és a dir, que són iguals</p></li>
 <li><p>La hipòtesi alternativa és d’allò que cercam evidència: que <span class="math inline">\(\mu\)</span> és més gran que la concentració mitjana de calci en plasma en els homes joves sans.</p></li>
 </ul>
 <p>Se sap que la concentració de calci en plasma en homes sans segueix una llei aproximadament normal. El seu valor mitjà en homes sans de 22 a 44 anys s’estima en 2.5 mmol/l.</p>
@@ -728,7 +774,7 @@ H_{1}:\mu &gt;2.5
 \right.
 \]</span></p>
 <p>En una mostra de 20 diabètics d’aquesta franja d’edat, es va obtenir una concentració mitjana de calci <span class="math inline">\(\overline{x}=3.2\)</span> mmol/l amb una desviació típica mostral <span class="math inline">\(\widetilde{s}=1.5\)</span>. Suposem que aquesta mostra de diabètics joves és representativa i raonablement aleatòria. Volem decidir el contrast a partir d’aquesta mostra.</p>
-<p>Diguem <span class="math inline">\(X\)</span> a la variable aleatòria “Prenem un home diabètic de 22 a 44 anys i li mesuram la concentració de calci en plasma”. Com que la concentració de calci en plasma en homes sans segueix una llei normal, suposarem que en els diabètics també.</p>
+<p>Diguem <span class="math inline">\(X\)</span> a la variable aleatòria “Prenem un home diabètic de 22 a 44 anys i li mesuram la concentració de calci en plasma”, de mitjana <span class="math inline">\(\mu\)</span>. Com que la concentració de calci en plasma en homes sans segueix una llei normal, suposarem que en els diabètics també.</p>
 <p>La nostra situació, doncs, és un cas particular del cas general següent. Tenim una variable aleatòria poblacional <span class="math inline">\(X\sim N(\mu,\sigma)\)</span> i plantejam el contrast
 <span class="math display">\[
 \left\{\begin{array}{l}
@@ -752,8 +798,8 @@ T=\frac{\overline{X}-\mu_0}{{\widetilde{S}_X}/{\sqrt{n}}}\sim t_{n-1}
 Usualment es pren <span class="math inline">\(\alpha=0.05\)</span> (una mica menys que la probabilitat de treure 4 cares seguides amb una moneda no trucada).
 </div>
 
-<p>És a dir, acceptam que la probabilitat d’equivocar-nos rebutjant <span class="math inline">\(H_0\)</span> en favor de <span class="math inline">\(H_1\)</span> és 0.05, o el que és el mateix, assumim que ens podem permetre el cometre un error de tipus I una vegada de cada 20 que la hipòtesi nul·la sigui vertadera.</p>
-<p>Sigui <span class="math inline">\(T_0\)</span> el valor que pren l’estadístic de contrast <span class="math inline">\(T\)</span> en la nostra mostra. Rebutjarem <span class="math inline">\(H_{0}\)</span> quan <span class="math inline">\(T_0\)</span> sigui més gran que un cert llindar <span class="math inline">\(L_0\)</span>, que determinam amb <span class="math inline">\(\alpha\)</span>:</p>
+<p>Aquí ara prendrem aquest mateix nivell de significació <span class="math inline">\(\alpha=0.05\)</span>. És a dir, acceptarem que la probabilitat d’equivocar-nos rebutjant <span class="math inline">\(H_0\)</span> en favor de <span class="math inline">\(H_1\)</span> és 0.05, o el que és el mateix, assumirem que ens podem permetre el cometre un error de tipus I una vegada de cada 20 que la hipòtesi nul·la sigui vertadera.</p>
+<p>Sigui <span class="math inline">\(T_0\)</span> el valor que pren l’estadístic de contrast <span class="math inline">\(T\)</span> en la nostra mostra. Rebutjarem <span class="math inline">\(H_{0}\)</span> si <span class="math inline">\(T_0\)</span> és més gran que un cert llindar <span class="math inline">\(L_0\)</span>, que determinam a partir de <span class="math inline">\(\alpha\)</span>:</p>
 <p><span class="math display">\[
 \begin{array}{l}
 \alpha = P(\text{Rebutjar } H_{0}| H_{0} \text{ certa})=P(T&gt; L_0)\\
@@ -761,7 +807,7 @@ Usualment es pren <span class="math inline">\(\alpha=0.05\)</span> (una mica men
 L_0= t_{n-1,1-\alpha}
 \end{array}
 \]</span>
-Per tant, per què el nivell de significació del contrast sigui <span class="math inline">\(\alpha\)</span>,</p>
+Per tant, a fi que el nivell de significació del contrast sigui <span class="math inline">\(\alpha\)</span>,</p>
 <blockquote>
 <p>Rebutjarem <span class="math inline">\(H_0\)</span> si <span class="math inline">\(T_0&gt;t_{n-1,1-\alpha}\)</span></p>
 </blockquote>
@@ -773,13 +819,13 @@ H_{0}:\mu=2.5\\
 H_{1}:\mu &gt; 2.5
 \end{array}
 \right.
-\]</span></p>
-<p>Tenim que <span class="math inline">\(\overline{x}=3.2\)</span>, <span class="math inline">\(\widetilde{s}=1.5\)</span> i <span class="math inline">\(n=20\)</span>, per tant l’estadístic de contrast val
+\]</span>
+Si <span class="math inline">\(\alpha=0.05\)</span> i <span class="math inline">\(n=20\)</span>, el llindar a partir del qual rebutjam <span class="math inline">\(H_0\)</span> és <span class="math inline">\(t_{n-1,1-\alpha}=t_{19,0.95}=\texttt{qt(0.95,19)}=1.73\)</span>.</p>
+<p>A la nostra mostra hi tenim que <span class="math inline">\(\overline{x}=3.2\)</span>, <span class="math inline">\(\widetilde{s}=1.5\)</span> i <span class="math inline">\(n=20\)</span>, per tant l’estadístic de contrast val
 <span class="math display">\[
 T_0=\frac{3.2-2.5}{1.5/\sqrt{20}}=2.09
-\]</span>
-Si <span class="math inline">\(\alpha=0.05\)</span>, <span class="math inline">\(t_{n-1,1-\alpha}=t_{19,0.95}=\texttt{qt(0.95,19)}=1.73\)</span></p>
-<p>Com <span class="math inline">\(2.09&gt;1.73\)</span>, <em>concloem amb un nivell de significació de 0.05 que el nivell mitjà de calci en sang en els joves diabètics és més gran que en els joves sans</em></p>
+\]</span></p>
+<p>Com que <span class="math inline">\(2.09&gt;1.73\)</span>, <em>concloem amb un nivell de significació de 0.05 que el nivell mitjà de calci en sang en els joves diabètics és més gran que en els joves sans.</em></p>
 <p>Anem a veure com entra en joc el p-valor. Recordem que rebutjarem <span class="math inline">\(H_0\)</span> quan <span class="math inline">\(T_0&gt;t_{n-1,1-\alpha}\)</span>:
 <span class="math display">\[
 \begin{array}{l}
@@ -789,7 +835,7 @@ Si <span class="math inline">\(\alpha=0.05\)</span>, <span class="math inline">\
 \qquad \Longleftrightarrow P(T\geqslant T_0)&lt;\alpha
 \end{array}
 \]</span></p>
-<p>I ara observau que <span class="math inline">\(P(T\geqslant T_0)\)</span> la probabilitat que, si <span class="math inline">\(H_0\)</span> és vertadera, l’estadístic de contrast <span class="math inline">\(T\)</span> prengui un valor tan extrem o més, en el sentit de <span class="math inline">\(H_1: \mu&gt;2.5\)</span>, que l’obtingut en la nostra mostra, <span class="math inline">\(T_0\)</span>: és el <em>p-valor</em> del contrast. Per tant, tenim una altra regla de rebuig (equivalent a l’anterior):</p>
+<p>I ara observau que <span class="math inline">\(P(T\geqslant T_0)\)</span> és la probabilitat que, si <span class="math inline">\(H_0\)</span> és vertadera, l’estadístic de contrast <span class="math inline">\(T\)</span> prengui un valor tan extrem o més, en el sentit de <span class="math inline">\(H_1: \mu&gt;2.5\)</span>, que l’obtingut en la nostra mostra, <span class="math inline">\(T_0\)</span>: és el <em>p-valor</em> del contrast. Per tant, tenim una altra regla de rebuig (equivalent a l’anterior):</p>
 <blockquote>
 <p>Rebutjarem <span class="math inline">\(H_0\)</span> quan el p-valor sigui més petit que <span class="math inline">\(\alpha\)</span></p>
 </blockquote>
@@ -811,7 +857,7 @@ per comparar la <span class="math inline">\(\mu\)</span> d’una variable amb el
 <p>Fixau-vos que la nostra conclusió ha estat que “concloem amb un <em>nivell de significació de 0.05</em> que el nivell mitjà de calci en sang en els joves diabètics és més gran que en els joves sans.”</p>
 <p>Per tant, <em>reconeixem una probabilitat d’equivocar-nos del 5%</em>: Si en realitat el nivell mitjà de calci en sang en els joves diabètics és el mateix que en els sans, la probabilitat que teníem d’equivocar-nos i concloure que el nivell mitjà de calci en sang en els joves diabètics és més gran que en els sans és del 5%.</p>
 <p>Anem a estudiar aquesta taxa d’encerts per mitjà d’una simulació.</p>
-<p>Primer suposarem que el nivell mitjà real és 2.5, i simularem la probabilitat d’error de tipus I. Com que estam fent el contrast amb nivell de significació 0.05, esperam que aquesta sigui la probabilitat d’error de tipus I. Per fixar idees, modelarem la població de diabètics per mitjà d’una mostra de 10<sup>6</sup> nombres generats amb distribució <span class="math inline">\(N(2.5,0.5)\)</span>. La <span class="math inline">\(\sigma=0.5\)</span> ens l’hem inventada. Aprofitam per fixar la llavor d’aleatorietat.</p>
+<p>Primer suposarem que el nivell mitjà real és 2.5, i simularem la probabilitat d’error de tipus I. Com que estam fent el contrast amb nivell de significació 0.05, esperam que aquesta sigui la probabilitat d’error de tipus I. Per fixar idees, modelarem la població de joves diabètics per mitjà d’una mostra de 10<sup>6</sup> nombres generats amb distribució <span class="math inline">\(N(2.5,0.5)\)</span>. La <span class="math inline">\(\sigma=0.5\)</span> ens l’hem inventada. Aprofitam per fixar la llavor d’aleatorietat.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">42</span>)
 mu0=<span class="fl">2.5</span>
 sigma=<span class="fl">0.5</span>
@@ -822,15 +868,15 @@ L=<span class="kw">qt</span>(<span class="fl">0.95</span>,<span class="dv">19</s
 mostra=<span class="kw">sample</span>(X,n,<span class="dt">rep=</span><span class="ot">FALSE</span>) 
 (<span class="kw">mean</span>(mostra)<span class="op">-</span>mu0)<span class="op">/</span>(<span class="kw">sd</span>(mostra)<span class="op">/</span><span class="kw">sqrt</span>(n))
 }</code></pre>
-<p>I ara repetim 200 vegades el procés de prendre una mostra de mida 20 de la nostra població i calcular la <span class="math inline">\(T\)</span> corresponent. Després miram la proporció de vegades que això ha donat més gran que el llindar, és a dir, la proporció de vegades que cometríem un error de tipus I i rebutjaríem la hipòtesi nul·la <span class="math inline">\(\mu=2.5\)</span>.</p>
+<p>I ara repetim 200 vegades el procés de prendre una mostra aleatòria de mida 20 de la nostra població i calcular la <span class="math inline">\(T\)</span> corresponent. Després miram la proporció de vegades que això ha donat més gran que el llindar, és a dir, la proporció de vegades que rebutjam la hipòtesi nul·la <span class="math inline">\(\mu=2.5\)</span> i que per tant cometem un error de tipus I.</p>
 <pre class="sourceCode r"><code class="sourceCode r">tes=<span class="kw">replicate</span>(<span class="dv">200</span>,estadí<span class="kw">stic</span>(<span class="dv">20</span>,poblacio))
 p.error.Tipus.I=<span class="kw">length</span>(<span class="kw">which</span>((tes<span class="op">&gt;</span>L)<span class="op">==</span><span class="ot">TRUE</span>))<span class="op">/</span><span class="dv">200</span>
 p.error.Tipus.I</code></pre>
 <pre><code>## [1] 0.04</code></pre>
 <p>Hem comès un 4% d’errors de tipus I, molt proper al 5% que esperàvem.</p>
-<p>Ara suposarem que el nivell mitjà real és estrictament més gran que 2.5, i anam a simular la probabilitat d’error de tipus II. Per començar, generam de manera uniforme un vector de 100 <span class="math inline">\(\mu\)</span>’s entre 2.5 i 3.</p>
-<pre class="sourceCode r"><code class="sourceCode r">mus=<span class="kw">runif</span>(<span class="dv">100</span>,<span class="fl">2.5</span>,<span class="dv">3</span>)</code></pre>
-<p>I ara el que farem serà el següent: per a cada <span class="math inline">\(\mu_i\)</span> d’aquest vector, generam una “població de diabètics” per mitjà d’una mostra de 10<sup>6</sup> nombres generats amb distribució <span class="math inline">\(N(\mu_i,0.5)\)</span>, i repetim 100 vegades el procés de prendre una mostra de mida 20 d’aquesta població i calcular la <span class="math inline">\(T\)</span> corresponent. Després, per a cada <span class="math inline">\(i\)</span>, miram la proporció de vegades que això ha donat més petit o igual que el llindar, és a dir, la proporció de vegades que cometem un error de tipus II i acceptam la hipòtesi nul·la <span class="math inline">\(\mu=2.5\)</span>. Organitzam totes aquestes proporcions en un vector <strong>p.error.Tipus.II</strong>.</p>
+<p>Ara suposarem que el nivell mitjà real és estrictament més gran que 2.5, i anam a simular la probabilitat d’error de tipus II. Per començar, generam de manera uniforme un vector de 100 <span class="math inline">\(\mu\)</span>’s entre 2.51 i 3.</p>
+<pre class="sourceCode r"><code class="sourceCode r">mus=<span class="kw">runif</span>(<span class="dv">100</span>,<span class="fl">2.51</span>,<span class="dv">3</span>)</code></pre>
+<p>I ara el que farem serà el següent: per a cada <span class="math inline">\(\mu_i\)</span> d’aquest vector, generam una “població de diabètics” per mitjà d’una mostra de 10<sup>6</sup> nombres generats amb distribució <span class="math inline">\(N(\mu_i,0.5)\)</span>, i repetim 100 vegades el procés de prendre una mostra de mida 20 d’aquesta població i calcular la <span class="math inline">\(T\)</span> corresponent. Després, per a cada <span class="math inline">\(i\)</span>, miram la proporció de vegades que això ha donat més petit o igual que el llindar, és a dir, la proporció de vegades que acceptam la hipòtesi nul·la <span class="math inline">\(\mu=2.5\)</span> i que per tant cometem un error de tipus II. Organitzam totes aquestes proporcions en un vector <strong>p.error.Tipus.II</strong>.</p>
 <pre class="sourceCode r"><code class="sourceCode r">p.error.Tipus.II=<span class="kw">c</span>()
 <span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">100</span>){
   poblacio=<span class="kw">rnorm</span>(<span class="dv">10</span><span class="op">^</span><span class="dv">5</span>,mus[j],sigma)
@@ -838,17 +884,17 @@ p.error.Tipus.I</code></pre>
   p.error.Tipus.II=<span class="kw">c</span>(p.error.Tipus.II, <span class="kw">round</span>( <span class="kw">length</span>(<span class="kw">which</span>((Tes<span class="op">&lt;=</span>L)<span class="op">==</span><span class="ot">TRUE</span>))<span class="op">/</span><span class="dv">200</span>,<span class="dv">2</span>))
 }
 p.error.Tipus.II</code></pre>
-<pre><code>##   [1] 0.08 0.23 0.02 0.84 0.92 0.82 0.00 0.03 0.02 0.14 0.13 0.92 0.86 0.18
-##  [15] 0.15 0.00 0.82 0.20 0.00 0.76 0.24 0.12 0.14 0.03 0.12 0.58 0.95 0.92
-##  [29] 0.00 0.80 0.84 0.72 0.04 0.86 0.51 0.62 0.00 0.10 0.80 0.89 0.04 0.68
-##  [43] 0.62 0.84 0.78 0.36 0.56 0.16 0.00 0.89 0.26 0.04 0.58 0.04 0.26 0.02
-##  [57] 0.02 0.88 0.40 0.88 0.06 0.02 0.88 0.84 0.04 0.34 0.16 0.94 0.48 0.01
-##  [71] 0.04 0.01 0.88 0.19 0.30 0.46 0.88 0.09 0.92 0.92 0.23 0.02 0.14 0.26
-##  [85] 0.96 0.74 0.32 0.40 0.26 0.04 0.61 0.28 0.81 0.88 0.86 0.60 0.68 0.08
-##  [99] 0.86 0.04</code></pre>
-<p>La proporció mitjana d’errors de tipus II, que ens dóna una idea de la probabilitat d’error de tipus II ha estat:</p>
+<pre><code>##   [1] 0.07 0.22 0.01 0.84 0.91 0.80 0.00 0.02 0.02 0.12 0.12 0.90 0.86 0.18
+##  [15] 0.13 0.00 0.78 0.18 0.00 0.72 0.22 0.12 0.14 0.03 0.11 0.56 0.94 0.92
+##  [29] 0.00 0.78 0.82 0.70 0.04 0.83 0.48 0.60 0.00 0.10 0.78 0.88 0.03 0.66
+##  [43] 0.62 0.81 0.77 0.34 0.55 0.15 0.00 0.86 0.24 0.04 0.57 0.04 0.24 0.01
+##  [57] 0.02 0.86 0.37 0.86 0.04 0.02 0.87 0.84 0.04 0.32 0.15 0.94 0.46 0.01
+##  [71] 0.04 0.01 0.88 0.18 0.28 0.44 0.82 0.08 0.91 0.90 0.22 0.02 0.12 0.24
+##  [85] 0.94 0.71 0.31 0.38 0.24 0.04 0.59 0.28 0.78 0.86 0.85 0.57 0.66 0.08
+##  [99] 0.84 0.04</code></pre>
+<p>La proporció mitjana d’errors de tipus II, que ens dóna una idea de la probabilitat d’error de tipus II, ha estat:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>(p.error.Tipus.II)</code></pre>
-<pre><code>## [1] 0.4224</code></pre>
+<pre><code>## [1] 0.4097</code></pre>
 <p>Si prenguéssim mostres més grans, aquesta probabilitat disminuiria. Repetim aquest segon experiment amb mostres de mida 200 per veure-ho.</p>
 <pre class="sourceCode r"><code class="sourceCode r">p.error.Tipus.II=<span class="kw">c</span>()
 <span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">100</span>){
@@ -857,7 +903,7 @@ p.error.Tipus.II</code></pre>
   p.error.Tipus.II=<span class="kw">c</span>(p.error.Tipus.II, <span class="kw">round</span>( <span class="kw">length</span>(<span class="kw">which</span>((Tes<span class="op">&lt;=</span>L)<span class="op">==</span><span class="ot">TRUE</span>))<span class="op">/</span><span class="dv">200</span>,<span class="dv">2</span>))
 }
 <span class="kw">mean</span>(p.error.Tipus.II)</code></pre>
-<pre><code>## [1] 0.1622</code></pre>
+<pre><code>## [1] 0.1399</code></pre>
 <p>Recordau que la <strong>potència</strong> d’un contrast és la probabilitat de <em>no</em> cometre un error de tipus II. Hem vist que prenent mostres més grans, la proporció d’errors de tipus II ha disminuït, és a dir, la potència ha augmentat. Això és general.</p>
 
 <div class="rmdimportant">
@@ -872,10 +918,10 @@ H_{1}:\mu &lt; \mu_0
 \end{array}
 \right.
 \]</span>
-En aquest cas, el p-valor seria <span class="math inline">\(P(T\leqslant T_0)\)</span> i, raonant exactament igual com abans, rebutjaríem <span class="math inline">\(H_0\)</span>:</p>
+En aquest cas, el p-valor és <span class="math inline">\(P(T\leqslant T_0)\)</span> i, raonant exactament igual com abans, obtenim les dues regles de rebuig equivalents següents:</p>
 <blockquote>
-<p>si <span class="math inline">\(T_0&lt; t_{n-1,\alpha}\)</span>
-si el p-valor és <span class="math inline">\(&lt; \alpha\)</span></p>
+<p>Rebutjarem <span class="math inline">\(H_0\)</span> si <span class="math inline">\(T_0&lt; t_{n-1,\alpha}\)</span><br />
+Rebutjarem <span class="math inline">\(H_0\)</span> si el p-valor és més petit que <span class="math inline">\(\alpha\)</span></p>
 </blockquote>
 <p>I què passa si ara cercam evidència que <span class="math inline">\(\mu\)</span> és <em>diferent</em> de <span class="math inline">\(\mu_0\)</span>, és a dir, si tenim el contrast
 <span class="math display">\[
@@ -885,7 +931,7 @@ H_{1}:\mu\ \neq  \mu_0
 \end{array}
 \right.
 \]</span></p>
-<p>Aleshores rebutjarem <span class="math inline">\(H_{0}\)</span> quan <span class="math inline">\(\overline{X}\)</span> és prou diferent de <span class="math inline">\(\mu_0\)</span>, per damunt o per davall de <span class="math inline">\(\mu_0\)</span>, i això ho traduïm en que rebutjarem <span class="math inline">\(H_{0}\)</span> quan <span class="math inline">\(|T_0|\)</span> (el valor absolut de <span class="math inline">\(T_0\)</span>) sigui més gran que un cert llindar <span class="math inline">\(L_0\)</span>, que determinam amb <span class="math inline">\(\alpha\)</span> com abans:</p>
+<p>Aleshores rebutjarem <span class="math inline">\(H_{0}\)</span> quan <span class="math inline">\(\overline{X}\)</span> és prou diferent de <span class="math inline">\(\mu_0\)</span>, per damunt o per davall de <span class="math inline">\(\mu_0\)</span>, i això ho traduïm en que rebutjarem <span class="math inline">\(H_{0}\)</span> quan <span class="math inline">\(|T_0|\)</span> (el valor absolut de <span class="math inline">\(T_0\)</span>) sigui més gran que un cert llindar <span class="math inline">\(L_0\)</span>, que determinam a partir de <span class="math inline">\(\alpha\)</span> com abans:</p>
 <p><span class="math display">\[
 \begin{array}{l}
 \alpha = P(\text{Rebutjar } H_{0}| H_{0} \text{ certa})=P(|T|&gt; L_0)\\
@@ -900,7 +946,7 @@ L_0= t_{n-1,1-\alpha/2}
 <blockquote>
 <p>Rebutjarem <span class="math inline">\(H_0\)</span> si <span class="math inline">\(|T_0|&gt;t_{n-1,1-\alpha/2}\)</span></p>
 </blockquote>
-<p>En aquest cas, el p-valor serà la probabilitat que <span class="math inline">\(T\)</span> prengui un valor tant o més extrem que <span class="math inline">\(T_0\)</span> en el sentit de la hipòtesi alternativa: és a dir, més enfora de 0 que <span class="math inline">\(T_0\)</span>: més gran que <span class="math inline">\(T_0\)</span> o més petit que <span class="math inline">\(-T_0\)</span>:
+<p>En aquest cas, el p-valor serà la probabilitat que <span class="math inline">\(T\)</span> prengui un valor tant o més extrem que <span class="math inline">\(T_0\)</span> en el sentit de la hipòtesi alternativa: és a dir, més enfora de 0 que <span class="math inline">\(T_0\)</span>: més gran que <span class="math inline">\(|T_0|\)</span> o més petit que <span class="math inline">\(-|T_0|\)</span>:
 <span class="math display">\[
 \text{p-valor} =P(T\leqslant-|T_0|)+P(T\geqslant|T_0|)=2 P(T\geqslant|T_0|)
 \]</span>
@@ -915,10 +961,10 @@ Per tant,
 \]</span></p>
 <p>Per tant, en un contrast bilateral amb nivell de significació <span class="math inline">\(\alpha\)</span> també tenim la regla de rebuig:</p>
 <blockquote>
-<p>Rebutjarem <span class="math inline">\(H_0\)</span> quan p-valor <span class="math inline">\(&lt; \alpha\)</span></p>
+<p>Rebutjarem <span class="math inline">\(H_0\)</span> si el p-valor és més petit que <span class="math inline">\(\alpha\)</span></p>
 </blockquote>
 
-<div class="rmdnote">
+<div class="rmdcorbes">
 Abans de continuar, fixau-vos que, com que <span class="math inline">\(|T_0|\geqslant 0\)</span> i una distribució t de Student és simètrica al voltant de 0,
 <span class="math display">\[
 P(T\geqslant|T_0|)\leqslant P(T\leqslant|T_0|)
@@ -947,7 +993,7 @@ Això és consistent amb el que us explicàvem al final de la Secció <a href="c
 
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-176" class="example"><strong>Exemple 3.9  </strong></span>Sigui <span class="math inline">\(X\)</span> una població normal. Volem fer el contrast
+<p><span id="exm:unnamed-chunk-191" class="example"><strong>Exemple 3.10  </strong></span>Sigui <span class="math inline">\(X\)</span> una població normal. Volem fer el contrast
 <span class="math display">\[
 \left\{\begin{array}{l}
 H_{0}:\mu=20\\ H_{1}:\mu&gt;20
@@ -972,7 +1018,7 @@ P(T\geqslant 1.944)=\texttt{1-pt(1.944,24)}=0.032
 </ul>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-177" class="example"><strong>Exemple 3.10  </strong></span>Sigui <span class="math inline">\(X\)</span> una població normal. Volem fer el contrast
+<p><span id="exm:unnamed-chunk-192" class="example"><strong>Exemple 3.11  </strong></span>Sigui <span class="math inline">\(X\)</span> una població normal. Volem fer el contrast
 <span class="math display">\[
 \left\{\begin{array}{l}
 H_{0}:\mu=20\\ H_{1}:\mu&gt;20
@@ -982,7 +1028,7 @@ H_{0}:\mu=20\\ H_{1}:\mu&gt;20
 amb un nivell de significació de 0.01. Amb la mateixa m.a.s. de l’exemple anterior. Què decidim?</p>
 </div>
 
-<p>El p-valor és el mateix que abans, perquè el contrast i la mostra són els mateixos, 0.032. Com que aquest p-valor ara és més gran que 0.01, no podem rebutjar <span class="math inline">\(H_0\)</span> amb <span class="math inline">\(\alpha=0.01\)</span> i hem d’acceptar que <span class="math inline">\(\mu=20\)</span></p>
+<p>El p-valor és el mateix que abans, 0.032, perquè el contrast i la mostra són els mateixos. Com que aquest p-valor ara és més gran que 0.01, no podem rebutjar <span class="math inline">\(H_0\)</span> amb <span class="math inline">\(\alpha=0.01\)</span> i hem d’acceptar que <span class="math inline">\(\mu=20\)</span></p>
 
 <div class="rmdnote">
 <p>Fixau-vos que per reduir la probabilitat d’equivocar-nos rebutjant <span class="math inline">\(H_0\)</span> si és vertadera, fem més fàcil acceptar-la “per si de cas”.</p>
@@ -990,7 +1036,7 @@ amb un nivell de significació de 0.01. Amb la mateixa m.a.s. de l’exemple ant
 
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-179" class="example"><strong>Exemple 3.11  </strong></span>Sigui <span class="math inline">\(X\)</span> una població normal. Volem fer el contrast
+<p><span id="exm:unnamed-chunk-194" class="example"><strong>Exemple 3.12  </strong></span>Sigui <span class="math inline">\(X\)</span> una població normal. Volem fer el contrast
 <span class="math display">\[
 \left\{\begin{array}{l}
 H_{0}:\mu=20\\ H_{1}:\mu\neq 20
@@ -1008,7 +1054,7 @@ amb un nivell de significació de 0.05. Amb la mateixa m.a.s. dels exemples ante
 <p>Com que el p-valor és més gran que <span class="math inline">\(\alpha\)</span>, no podem rebutjar <span class="math inline">\(H_0\)</span>: no podem afirmar amb <span class="math inline">\(\alpha=0.05\)</span> que <span class="math inline">\(\mu\neq 20\)</span></p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-180" class="example"><strong>Exemple 3.12  </strong></span>Sigui <span class="math inline">\(X\)</span> una població normal. Volem fer el contrast
+<p><span id="exm:unnamed-chunk-195" class="example"><strong>Exemple 3.13  </strong></span>Sigui <span class="math inline">\(X\)</span> una població normal. Volem fer el contrast
 <span class="math display">\[
 \left\{\begin{array}{l}
 H_{0}:\mu=20\\ H_{1}:\mu\neq 20
@@ -1052,11 +1098,11 @@ i com que p-valor és més petit que <span class="math inline">\(\alpha\)</span>
 <li><p><strong>Estadístic de contrast</strong>: el que calculam sobre una mostra aleatòria simple i ens permet definir una regla de rebuig de <span class="math inline">\(H_{0}\)</span></p></li>
 <li><p><strong>Regió crítica o de rebuig</strong>: el rang de valors de l’estadístic de contrast per als quals rebutjam <span class="math inline">\(H_{0}\)</span> amb un nivell de significació <span class="math inline">\(\alpha\)</span> donat</p></li>
 <li><p><strong>Regió d’acceptació</strong>: el complementari de la regió de rebuig, és a dir, el rang de valors de l’estadístic de contrast per als quals acceptam <span class="math inline">\(H_{0}\)</span> amb un nivell de significació <span class="math inline">\(\alpha\)</span> donat</p></li>
-<li><p><strong>p-valor</strong>: La probabilitat que l’estadístic de contrast prengui un valor tan o més extrem (en el sentit de <span class="math inline">\(H_1\)</span>) que l’obtingut sobre la nostra mostra si <span class="math inline">\(H_0\)</span> és vertadera</p></li>
+<li><p><strong>p-valor</strong>: La probabilitat que, si <span class="math inline">\(H_0\)</span> és vertadera, l’estadístic de contrast prengui sobre una mostra aleatòria simple un valor tan o més extrem (en el sentit de <span class="math inline">\(H_1\)</span>) que l’obtingut sobre la nostra mostra</p></li>
 </ul>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-182" class="example"><strong>Exemple 3.13  </strong></span>Si realitzam un test t per efectuar un contrast
+<p><span id="exm:unnamed-chunk-197" class="example"><strong>Exemple 3.14  </strong></span>Si realitzam un test t per efectuar un contrast
 <span class="math display">\[
 \left\{\begin{array}{l}
 H_{0}:\mu=\mu_0\\ 
@@ -1075,9 +1121,28 @@ T=\dfrac{\overline{X}-\mu_0}{{\widetilde{S}_X}/{\sqrt{n}}}&gt;t_{n-1,1-\alpha}
 <li><p><em>Estadístic de contrast</em>: Aquest <span class="math inline">\(T\)</span></p></li>
 <li><p><em>Regió crítica</em> per aquest <span class="math inline">\(\alpha\)</span>: l’interval <span class="math inline">\((t_{n-1,1-\alpha},\infty)\)</span></p></li>
 <li><p><em>Regió d’acceptació</em> per aquest <span class="math inline">\(\alpha\)</span>: l’interval <span class="math inline">\((-\infty,t_{n-1,1-\alpha}]\)</span></p></li>
-<li><p><em>p-valor</em>: <span class="math inline">\(P(T&gt;T_0)\)</span></p></li>
+<li><p><em>p-valor</em>: <span class="math inline">\(P(T\geqslant T_0)\)</span></p></li>
 </ul>
-<p>Si en canvi el contrast a efectuar és
+<p>Si en canvi el contrast que volem efectuar és
+<span class="math display">\[
+\left\{\begin{array}{l}
+H_{0}:\mu=\mu_0\\ 
+H_{1}:\mu &lt; \mu_0
+\end{array}
+\right.
+\]</span>
+rebutjam <span class="math inline">\(H_0\)</span> amb nivell de significació <span class="math inline">\(\alpha\)</span> (o amb nivell de confiança <span class="math inline">\(1-\alpha\)</span>) quan
+<span class="math display">\[
+T=\dfrac{\overline{X}-\mu_0}{{\widetilde{S}_X}/{\sqrt{n}}}&lt;t_{n-1,\alpha}
+\]</span></p>
+<p>Per tant:</p>
+<ul>
+<li><p><em>Estadístic de contrast</em>: El mateix <span class="math inline">\(T\)</span> que abans</p></li>
+<li><p><em>Regió crítica</em> per aquest <span class="math inline">\(\alpha\)</span>: l’interval <span class="math inline">\((-\infty,t_{n-1,\alpha})\)</span></p></li>
+<li><p><em>Regió d’acceptació</em> per aquest <span class="math inline">\(\alpha\)</span>: l’interval <span class="math inline">\([t_{n-1,\alpha},\infty]\)</span></p></li>
+<li><p><em>p-valor</em>: <span class="math inline">\(P(T\leqslant T_0)\)</span></p></li>
+</ul>
+<p>Finalment, si el contrast que volem realitzar és
 <span class="math display">\[
 \left\{\begin{array}{l}
 H_{0}:\mu=\mu_0\\ 
@@ -1091,10 +1156,10 @@ rebutjam <span class="math inline">\(H_0\)</span> amb nivell de significació <s
 \]</span>
 Per tant:</p>
 <ul>
-<li><p><em>Estadístic de contrast</em>: El mateix <span class="math inline">\(T\)</span> d’abans</p></li>
+<li><p><em>Estadístic de contrast</em>: El mateix <span class="math inline">\(T\)</span> que abans</p></li>
 <li><p><em>Regió crítica</em> per aquest <span class="math inline">\(\alpha\)</span>: la unió d’intervals <span class="math inline">\((-\infty,-t_{n-1,1-\alpha/2})\cup (t_{n-1,1-\alpha/2},\infty)\)</span></p></li>
 <li><p><em>Regió d’acceptació</em> per aquest <span class="math inline">\(\alpha\)</span>: l’interval <span class="math inline">\([-t_{n-1,1-\alpha/2},t_{n-1,1-\alpha/2}]\)</span></p></li>
-<li><p><em>p-valor</em>: <span class="math inline">\(2P(T&gt;|T_0|)\)</span></p></li>
+<li><p><em>p-valor</em>: <span class="math inline">\(2P(T\geqslant|T_0|)\)</span></p></li>
 </ul>
 <div id="interval-de-confianca-dun-contrast" class="section level3 unnumbered">
 <h3>Interval de confiança d’un contrast</h3>
@@ -1129,7 +1194,7 @@ Per tant, l’<strong>interval de confiança de nivell de confiança <span class
 \Bigg[3.2- 1.73\cdot \dfrac{1.5}{\sqrt{20}},\infty\Bigg)=[2.62,\infty)
 \]</span></p>
 <p>Obtenim que, amb un nivell de confiança del 95%, la concentració mitjana de calci en sang en els joves diabètics
-és <span class="math inline">\(\geqslant 2.62\)</span>, i que per tant (amb aquest nivell de confiança) no pot ser 2.5 (encara que per poc).</p>
+és com a mínim 2.62, i que per tant, amb aquest nivell de confiança, no pot ser 2.5, encara que per poc.</p>
 <p>Si efectuam un contrast bilateral amb un test t
 <span class="math display">\[
 \left\{\begin{array}{l}
@@ -1138,7 +1203,7 @@ H_{1}:\mu\neq  \mu_0
 \end{array}
 \right.
 \]</span>
-Acceptam <span class="math inline">\(H_0\)</span> amb nivell de significació <span class="math inline">\(\alpha\)</span> quan
+acceptam <span class="math inline">\(H_0\)</span> amb nivell de significació <span class="math inline">\(\alpha\)</span> quan
 <span class="math display">\[
 -t_{n-1,1-\alpha/2}\leqslant\dfrac{\overline{X}-\mu_0}{{\widetilde{S}_X}/{\sqrt{n}}}\leqslant t_{n-1,1-\alpha/2}
 \]</span>
@@ -1150,16 +1215,16 @@ Per tant, l’<strong>interval de confiança de nivell de confiança <span class
 <span class="math display">\[
 \Bigg[\overline{X}- t_{n-1,1-\alpha/2}\cdot \dfrac{\widetilde{S}_X}{\sqrt{n}},\overline{X}+ t_{n-1,1-\alpha/2}\cdot \dfrac{\widetilde{S}_X}{\sqrt{n}}\Bigg]
 \]</span>
-Us sona? Fent <span class="math inline">\(q=1-\alpha\)</span>, és el del tema anterior</p>
+Us sona? Fent <span class="math inline">\(q=1-\alpha\)</span>, és el del tema anterior.</p>
 
 <div class="rmdimportant">
 <p>Donat un contrast d’hipòtesis, podem decidir si rebutjam <span class="math inline">\(H_0\)</span> en favor de <span class="math inline">\(H_1\)</span> amb nivell de significació <span class="math inline">\(\alpha\)</span> emprant:</p>
 <ul>
 <li><p><strong>La regió crítica</strong>: Si l’estadístic de contrast cau dins la regió crítica per al nivell de significació <span class="math inline">\(\alpha\)</span>, rebutjam <span class="math inline">\(H_0\)</span></p></li>
-<li><p><strong>El p-valor:</strong>: Si el p-valor és més petit que el nivell de significació <span class="math inline">\(\alpha\)</span>, rebutjam <span class="math inline">\(H_0\)</span></p></li>
+<li><p><strong>El p-valor</strong>: Si el p-valor és més petit que el nivell de significació <span class="math inline">\(\alpha\)</span>, rebutjam <span class="math inline">\(H_0\)</span></p></li>
 <li><p><strong>L’interval de confiança</strong>: Si el paràmetre poblacional a contrastar no pertany a l’interval de confiança de nivell de confiança <span class="math inline">\(1-\alpha\)</span>, rebutjam <span class="math inline">\(H_0\)</span></p></li>
 </ul>
-<p>Els tres mètodes són equivalents. El més adequat és donar el p-valor i l’interval de confiança: el p-valor perquè és el que tothom espera, per costum, i l’interval de confiança perquè mostra el marge amb el qual hem acceptat o rebutjat la hipòtesi nul·la.</p>
+<p>Els tres mètodes són equivalents. El més adequat és donar el p-valor i l’interval de confiança: el p-valor perquè el lector el pugui comparar amb el nivell de significació que consideri oportú i l’interval de confiança perquè mostra el marge amb el qual hem acceptat o rebutjat la hipòtesi nul·la amb el nostre nivell de significació.</p>
 </div>
 
 <p>Si no establim un nivell de significació <span class="math inline">\(\alpha\)</span>, el que és habitual en Biologia és:</p>
@@ -1176,11 +1241,10 @@ Us sona? Fent <span class="math inline">\(q=1-\alpha\)</span>, és el del tema a
 </ul>
 <p>R marca aquestes franges amb un codi d’asteriscs</p>
 <pre><code>Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1</code></pre>
-<p>però hi ha altres propostes</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-184"></span>
-<img src="Bioestadistica-II_files/figure-html/emojis.png" alt="BMJ 2018; 363, doi: https://doi.org/10.1136/bmj.k5033" width="70%" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-199"></span>
+<img src="Bioestadistica-II_files/figure-html/emojis.png" alt="Emoticones per representar els nivells de significació estadística (BMJ 2018; 363, doi: https://doi.org/10.1136/bmj.k5033)" width="80%" />
 <p class="caption">
-Figura 3.2: BMJ 2018; 363, doi: <a href="https://doi.org/10.1136/bmj.k5033" class="uri">https://doi.org/10.1136/bmj.k5033</a>
+Figura 3.2: Emoticones per representar els nivells de significació estadística (BMJ 2018; 363, doi: <a href="https://doi.org/10.1136/bmj.k5033" class="uri">https://doi.org/10.1136/bmj.k5033</a>)
 </p>
 </div>
 <p>Atès que rebutjam <span class="math inline">\(H_0\)</span> si, i només si, el p-valor és <span class="math inline">\(&lt;\alpha\)</span>, el p-valor d’un contrast és el nivell de significació més petit per al qual rebutjaríem la hipòtesi nul·la. És a dir:</p>
@@ -1190,22 +1254,6 @@ El p-valor obtingut en un contrast és la probabilitat mínima que tenim d’equ
 </div>
 
 <p>Per tant, per favor, acostumau-vos a donar el p-valor, i no la franja de significació on cau.</p>
-
-<div class="rmdnote">
-<p>El paquet <strong>statcheck</strong> de R permet revisar de manera automàtica tots els càlculs d’un article escrit en un format concret en psicologia i comprovar-ne els p-valors. Els autors van analitzar 30,000 articles i varen concloure que (<em>Behavior research methods</em> 48 (2016), 1205-1226):</p>
-<blockquote>
-<p>“Hem trobat que la meitat dels articles contenen almenys un p-valor erroni. I un de cada vuit articles conté un p-valor molt inconsistent que afecta la conclusió estadística.”</p>
-</blockquote>
-<p>Per tant,</p>
-<ul>
-<li>Qualsevol article pot donar un p-valor petit que estigui equivocat</li>
-</ul>
-<p>No us en refieu. A més, teniu present que:</p>
-<ul>
-<li><p>Qualsevol estudi mal dissenyat o mal realitzat pot donar un p-valor petit… que no signifiqui absolutament res</p></li>
-<li>Qualsevol estudi pot donar per pur atzar un p-valor petit… que no signifiqui absolutament res
-</div></li>
-</ul>
 </div>
 <div id="la-potencia" class="section level3 unnumbered">
 <h3>La potència</h3>
@@ -1236,13 +1284,26 @@ Aquesta probabilitat és difícil de calcular, però hi ha paquets de R que ho s
 <p>i emprar la relació anterior per calcular la mida de la mostra necessària per assolir la potència desitjada.</p>
 
 <div class="rmdcaution">
-Desconfiau dels treballs on això no es faci. Podria ser que la potència fos molt baixa i hi hagués un <strong>biaix de infrapotència</strong> (<em>underpower</em>): es necessitava un efecte molt gran per observar diferència i publicar l’article.
+Desconfiau dels treballs on això no es faci. Podria ser que la potència fos molt baixa i hi hagués un <strong>biaix de infrapotència</strong> (<em>underpower</em>): es necessitava un efecte molt gran per poder rebutjar la hipòtesi nul·la i publicar l’article.
 </div>
 
 </div>
 <div id="el-risc-de-falsos-positius" class="section level3 unnumbered">
 <h3>El risc de falsos positius</h3>
-<p>El <strong>risc de positiu fals</strong>, <strong>FPR</strong> és
+<p>El paquet <strong>statcheck</strong> de R permet revisar de manera automàtica tots els càlculs d’un article escrit en un format concret en psicologia i comprovar-ne els p-valors. Els autors van analitzar 30,000 articles i varen concloure que (<em>Behavior research methods</em> 48 (2016), 1205-1226):</p>
+<blockquote>
+<p>“Hem trobat que la meitat dels articles contenen almenys un p-valor erroni. I un de cada vuit articles conté un p-valor molt inconsistent que afecta la conclusió estadística.”</p>
+</blockquote>
+<p>Per tant,</p>
+<ul>
+<li>Qualsevol article pot donar un p-valor petit que estigui equivocat</li>
+</ul>
+<p>No us en refieu. A més, teniu present que:</p>
+<ul>
+<li><p>Qualsevol estudi mal dissenyat o mal realitzat pot donar un p-valor petit… que no signifiqui absolutament res</p></li>
+<li><p>Qualsevol estudi perfectament dissenyat i realitzat pot donar per pur atzar un p-valor petit… que impliqui un positiu fals</p></li>
+</ul>
+<p>El <strong>risc de positiu fals</strong>, <strong>FPR</strong>, en un contrast és
 <span class="math display">\[
 P(H_0\text{ vertadera}|H_0\text{ rebutjada}).
 \]</span>
@@ -1254,14 +1315,15 @@ FPR&amp;=\dfrac{P(H_0)\cdot P(H_0\text{ reb.}|H_0)}{P(H_0)\cdot P(H_0\text{ reb.
 &amp; =\dfrac{(1-P(H_1))\cdot \alpha}{(1-P(H_1))\cdot \alpha+ P(H_1)\cdot (1-\beta)}
 \end{array}
 \]</span></p>
-<p>Per calcular-lo, hem de decidir <em>a priori</em> quina probabilitat assignam al fet que <span class="math inline">\(H_1\)</span> sigui vertadera.</p>
+<p>Per calcular-lo, hem de saber el nivell de significació i la potència i hem de decidir <em>a priori</em> quina probabilitat assignam al fet que <span class="math inline">\(H_1\)</span> sigui vertadera.</p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-188" class="example"><strong>Exemple 3.14  </strong></span>En un estudi (*Psychological Science** 22 (2011), pp. 1011-1018) es repartiren 66 participants en dos grups de 33, als que direm Bandera i Control, i els mostraren les mateixes 4 fotos d’edifcis. En les del grup Bandera, dues mostraven una bandera dels EUA, i en les del grup Control, aquestes banderes havien estat eliminades digitalment. Per emmascarar l’estudi, se’ls demanà que endevinassin l’hora del dia en què van ser preses les fotos.</p>
+<p><span id="exm:unnamed-chunk-202" class="example"><strong>Exemple 3.15  </strong></span>En un estudi (publicat a <em>Psychological Science</em> 22 (2011), pp. 1011-1018) es repartiren 66 participants en dos grups de 33, als que direm grup Bandera i grup Control, i els mostraren les mateixes 4 fotos d’edifcis. En les del grup Bandera, dues mostraven una bandera dels EUA, i en les del grup Control, aquestes banderes havien estat eliminades digitalment. Per emmascarar l’estudi, se’ls demanà que endevinassin l’hora del dia en què varen ser preses les fotos.</p>
 </div>
 
-<p>Després de mirar les fotos, emplenaren un qüestionari sobre idees polítiques, a partir del qual es calcula un cert “índex de republicanisme” <span class="math inline">\(M\)</span> del que l’ha contestat. Resulta que <span class="math inline">\(M\)</span> va ser significativament més gran en el grup Bandera que en el grup Control, i amb un nivell de significació <span class="math inline">\(\alpha=0.05\)</span> conclogueren que mirar fotos amb banderes dels EUA et “dretitza” (almenys temporalment) les idees polítiques. Vaig a estimar el risc que aquest positiu sigui fals.</p>
-<p>Com que <em>a priori</em>, trob molt improbable que la conclusió sigui certa, li assignaré <span class="math inline">\(P(H_1)=0.1\)</span> i gràcies. Llavors
+<p>Després de mirar les fotos, els participants emplenaren un qüestionari sobre idees polítiques, a partir del qual es pot calcular un cert “índex de republicanisme” <span class="math inline">\(M\)</span> del que l’ha contestat. Resulta que <span class="math inline">\(M\)</span> va ser significativament més gran en el grup Bandera que en el grup Control, i amb un nivell de significació <span class="math inline">\(\alpha=0.05\)</span> els autors de l’estudi conclogueren que mirar fotos amb banderes estatals et “dretitza” (almenys temporalment) les idees polítiques. Vaig a estimar el risc que aquest positiu sigui fals.</p>
+<p>Com que <em>a priori</em>, trob molt improbable que la conclusió sigui certa, li assignaré <span class="math inline">\(P(H_1)=0.1\)</span> i gràcies. Emprarem <span class="math inline">\(\alpha=0.05\)</span>, i si es calcula la potència del contrast publicat, resulta ser 0.51</p>
+<p>Llavors
 <span class="math display">\[
 FPR =\dfrac{0.9\cdot 0.05}{0.9\cdot 0.05+0.1\cdot 0.51}=0.47
 \]</span>
@@ -1275,8 +1337,8 @@ Per tant, <em>a posteriori</em>, crec que hi ha un 47% de probabilitats que <spa
           </div>
         </div>
       </div>
-<a href="intervals-de-confianca.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="contrastos-dhipotesis-dun-i-dos-parametres.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="intervals-de-confianca.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

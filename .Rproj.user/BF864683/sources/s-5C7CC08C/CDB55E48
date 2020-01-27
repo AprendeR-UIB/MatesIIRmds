@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1580024362211.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "CDB55E48",
+    "lastKnownWriteTime" : 1580128756,
+    "last_content_update" : 1580128756652,
+    "path" : "~/Documents/GitHub/MatesIIRmds/04-Contrastos1.Rmd",
+    "project_path" : "04-Contrastos1.Rmd",
+    "properties" : {
+        "cursorPosition" : "1339,10",
+        "scrollLine" : "1328"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}
