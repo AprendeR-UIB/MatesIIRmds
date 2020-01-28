@@ -1,8 +1,10 @@
 base
 knitr
 latex2exp
-linguisticsdown
+epitools
 carData
 car
-epitools
 EnvStats
+linguisticsdown
+TeachingDemos
+pwr
