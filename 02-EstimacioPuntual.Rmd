@@ -1,6 +1,17 @@
 
 # Estimació puntual
 
+L'objectiu principal de la **inferència estadística** és intentar obtenir informació sobre tota una població a partir de només una mostra, com quan volem saber si un brou és fat o salat tastant-ne només una culleradeta. El primer tipus d'informació que ens sol interessar és el valor concret d'alguna característica numèrica (una proporció, una mitjana...) d'una població, per exemple per poder escriure un titular com el següent:
+
+```{r, echo=FALSE, out.width="70%", fig.cap="https://www.efesalud.com/miopia-estudio-universitarios"}
+knitr::include_graphics("Bioestadistica-II_files/figure-html/miopia.png")
+```
+
+Aquest 60% no s'ha obtingut fent passar a tots els universitaris espanyols un test de miopia, ni tan sols demanant-los a tots si són miops o no, sinó que simplement s'ha pres una mostra d'universitaris, s'hi ha observat un 60% de miops i s'ha extrapolat aquesta proporció a tot el col·lectiu d'universitaris espanyols.
+
+El procés d'intentar endevinar el valor d'un paràmetre d'una població a partir d'una mostra se'n diu **estimació puntual**, i és el que tractarem en aquest tema. Al tema següent ens centrarem en intentar endevinar el valor d'un paràmetre amb un cert marge d'error i  de  seguretat.
+
+
 ## Definicions bàsiques
 
 Una **població** és un conjunt d'individus o objectes sobre el que volem obtenir informació.
@@ -16,7 +27,7 @@ Una **mostra aleatòria simple**  de mida $n$ d'una població s'obté repetint $
 
 Un **estimador** (**puntual**) o **estadístic** és una funció que aplicada a una mostra d'una població dóna un valor  que ens permet **estimar** alguna cosa que vulguem saber de tota la població.
 
-```{r, echo=FALSE,out.width="60%",fig.cap="Població *versus* mostra (Font: https//towardsdatascience.com)"}
+```{r, echo=FALSE,out.width="60%",fig.cap="Població *versus* mostra"}
 knitr::include_graphics("Bioestadistica-II_files/figure-html/poblaciomostra.png")
 ```
 
@@ -119,7 +130,7 @@ plot(1:200,prob,type="l",lwd=2,xlab="n",ylab="probabilitat",
      xaxp=c(0,200,20),yaxp=c(0,1,10))
 ```
 
-El gràfic següent mostra la mida màxima $n$ d'una mostra aleatòria simple extreta d'una població de mida $N$ per què la probabilitat de repeticions sigui menor que 0.05, en funció de $N$
+El gràfic següent mostra la mida màxima $n$ d'una mostra aleatòria simple extreta d'una població de mida $N$ per que la probabilitat de repeticions sigui menor que 0.05, en funció de $N$
 
 ```{r}
 h=function(n){max(which(sapply(1:(n/50),f,N=n)>0.95))}
@@ -195,7 +206,7 @@ set.seed(100)
 ```
 
 
-Si en prenem una mostra aleatòria simple, per exemple de mida 40, la seva mitjana mostral no té perquè coincidir amb la mitjana poblacional:
+Si en prenem una mostra aleatòria simple, per exemple de mida 40, la seva mitjana mostral no té per què coincidir amb la mitjana poblacional:
 ```{r}
 MAS=sample(tests,40,replace=TRUE)
 mean(MAS)

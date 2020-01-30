@@ -54,7 +54,7 @@ library(car)
 
 # Presentació {-}
 
-Això és una edició en línea dels apunts de Matemàtiques II dels graus de Biologia i Bioquímica de la UIB.
+Això és una edició en línea dels apunts de Matemàtiques II dels graus de Biologia i Bioquímica de la UIB. No són autocontinguts pel que fa al R: suposam que l'estudiant va llegint les lliçons de R corresponents a cada tema a la 2^a^ part del manual  *AprendeR*, que trobareu a https://aprender-uib.github.io/AprendeR2/.
 
 El llibre està escrit en *R Markdown*, emprant *RStudio* com a editor de textos i el paquet **bookdown** per convertir els fitxers *markdown* en un llibre 
 

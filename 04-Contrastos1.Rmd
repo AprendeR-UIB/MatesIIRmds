@@ -1,7 +1,5 @@
 # Contrastos d'hipòtesis: Generalitats
 
-##  Hipòtesis nul·la i alternativa
-
 En moltes situacions, s'ha de prendre  a partir d'una mostra una **decisió** sobre si es pot acceptar o rebutjar una **hipòtesi** relativa  al valor d'un paràmetre d'una població o diverses poblacions. 
 Per exemple:
 
@@ -10,6 +8,10 @@ Per exemple:
 * Volem decidir si un tractament nou A és més efectiu que el tractament vell B en la curació d'una malaltia X. Per decidir-ho, portam a terme un assaig clínic, tractant amb A un grup de malalts i amb B un altre grup de malalts, i comparam la taxa de curació dels tractaments sobre aquests dos grups.
 
 El mètode estadístic que s'empra per acceptar o rebutjar  una hipòtesi rep el nom de **contrast d'hipòtesis**.
+
+
+##  Hipòtesis nul·la i alternativa
+
 
 En un contrast d'hipòtesis, es comparen sempre dues hipòtesis  alternatives: la **hipòtesi nul·la** $H_{0}$ i la **hipòtesi
 alternativa** $H_{1}$. Se sol plantejar formalment
@@ -362,7 +364,7 @@ En realitat, a (5) es calcula la probabilitat que, si $H_0$ és vertadera, l'est
 Recordau aquest nom.
 ```
 
-Al nostre exemple de la moneda, com que la hipòtesi nul·la és $p_{\mathit{Cara}}= 0.5$ i la hipòtesi alternativa és $p_{\mathit{Cara}}> 0.5$, el p-valor és la probabilitat que, si $p_{\mathit{Cara}}= 0.5$, el nombre de cares sigui tan o més gran que l'obtingut a la nostra mostra. En els dos exemples anteriors concrets, 3 cares en 3 llançaments i 10 cares en 10 llançaments, és el mateix, perquè eren nombre màxim possible de cares i per tant, per exemple, treure 3 o més cares en 3 llançaments és exactament el mateix que treure 3 cares en 3 llançaments. Però en general no serà el cas.
+Al nostre exemple de la moneda, com que la hipòtesi nul·la és $p_{\mathit{Cara}}= 0.5$ i la hipòtesi alternativa és $p_{\mathit{Cara}}> 0.5$, el p-valor és la probabilitat que, si $p_{\mathit{Cara}}= 0.5$, el nombre de cares sigui tan o més gran que l'obtingut a la nostra mostra. En els dos exemples anteriors concrets, 3 cares en 3 llançaments i 10 cares en 10 llançaments, és el mateix, perquè eren el nombre màxim possible de cares i per tant, per exemple, treure 3 o més cares en 3 llançaments és exactament el mateix que treure 3 cares en 3 llançaments. Però en general no serà el cas.
 
 
 **3)** Tornem al nostre contrast
@@ -515,7 +517,7 @@ sinó
 $$
 2\times\min\{P(S_{10}\geq 8),P(S_{10}\leq 8)\}.
 $$
-Al nostre cas coincideix amb el que hem calculat perquè la variable $S_{10}\sim B(10,0.5)$ és simètrica, però si no ho fos no té perquè coincidir. Comprovem que, en efecte, en aquest exemple coincideixen:
+Al nostre cas coincideix amb el que hem calculat perquè la variable $S_{10}\sim B(10,0.5)$ és simètrica, però si no ho fos no té per què coincidir. Comprovem que, en efecte, en aquest exemple coincideixen:
 
 * $P(S_{10}\geq 8)=$`1-pbinom(7,10,0.5)`$=`r round(1-pbinom(7,10,0.5),3)`$
 
@@ -964,7 +966,7 @@ Això és consistent amb el que us explicàvem al final de la Secció \@ref(sec:
 ```
 
 
-```{example}
+```{example,ttestmu20}
 Sigui $X$ una població normal. Volem fer el contrast
 $$
 \left\{\begin{array}{l}
@@ -1014,7 +1016,7 @@ Fixau-vos que per reduir la probabilitat d'equivocar-nos rebutjant $H_0$ si és 
 ```
 
 
-```{example}
+```{example,ttest1bis}
 Sigui $X$ una població normal. Volem fer el contrast
 $$
 \left\{\begin{array}{l}
@@ -1034,6 +1036,19 @@ $$
 $$
 
 Com que el p-valor és més gran que $\alpha$, no podem rebutjar $H_0$: no podem afirmar amb $\alpha=0.05$ que $\mu\neq 20$
+
+```{block2,type="rmdcaution"}
+Com pot ser que amb la mateixa mostra i mateix nivell de significació poguem concloure que $\mu> 20$ però no poguem concloure que $\mu\neq 20$? O és que $\mu> 20$ no implica que $\mu\neq 20$?
+```
+
+```{r, echo=FALSE,out.width="40%"}
+knitr::include_graphics("Bioestadistica-II_files/figure-html/romanos.png")
+```
+  
+Vegem, si haguéssim demostrat que segur que $\mu> 20$, està clar que això implicaria que $\mu\neq 20$. Però hem arribat a la conclusió $\mu> 20$ assumint un cert marge d'equivocar-nos, una probabilitat d'error de tipus I de 0.05. En aquesta situació les regles de la lògica aristotèlica ja no funcionen.
+
+Fixau-vos que, en realitat, el que passa és que trobarem evidència que $\mu\neq 20$ si $T$ és molt gran o molt petit, i per tant al contrast bilateral hi tenim dues fonts d'error de tipus I: que per pur atzar $T$ ens surti molt gran o que ens surti molt petit. 
+En canvi, només trobarem evidència que $\mu> 20$ si $T$ és molt gran, i per tant hi tenim una sola font d'error de tipus I. Aleshores, per garantir una mateixa probabilitat d'error de tipus I, hem de ser molt més exigents al contrast bilateral, on ens podem equivocar de dues maneres diferents, que a l'unilateral. 
 
 
 ```{example}
