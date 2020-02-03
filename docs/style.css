@@ -12,10 +12,20 @@ pre {
 pre code {
   white-space: inherit;
 }
-.rmdcaution, .rmdimportant, .rmdnote, .rmdwarning, .rmderror {
+.rmdcaution, .rmdimportant, .rmdnote, .rmdwarning, .rmdmercifulgod {
   padding: 1em 1em 1em 4em;
   margin-bottom: 10px;
   background: #f5f5f5 5px center/3em no-repeat;
+}
+.rmdmercifulgod {
+  padding: 1em 1em 2em 5em;
+  margin-bottom: 10px;
+  background: #f5f5f5 5px center/4em no-repeat;
+}
+.rmderror {
+  padding: 1em 1em 2em 5em;
+  margin-bottom: 10px;
+  background: #f5f5f5 5px center/4em no-repeat;
 }
 .rmdcorbes {
   padding: 1em 1em 1em 4em;
@@ -39,4 +49,7 @@ pre code {
 }
 .rmderror {
   background-image: url("Bioestadistica-II_files/figure-html/error.png");
+}
+.rmdmercifulgod {
+  background-image: url("Bioestadistica-II_files/figure-html/mercifulgod.png");
 }
