@@ -1,0 +1,14 @@
+"0","p.error.Tipus.II=c()
+for (j in 1:100){
+  poblacio=rnorm(10^5,mus[j],sigma)
+  if (mean(poblacio)>2.5){
+  Tes=replicate(200,estadístic(20,poblacio))    
+  p.error.Tipus.II=c(p.error.Tipus.II, round( length(which((Tes<=L)==TRUE))/200,2))
+  }
+}
+length(p.error.Tipus.II) #Nombre de poblacions emprades
+"
+"1","[1]"
+"1"," 100"
+"1","
+"

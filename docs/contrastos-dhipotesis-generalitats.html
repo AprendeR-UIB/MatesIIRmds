@@ -25,7 +25,7 @@
 <meta name="author" content="The Matemàtiques II team">
 
 
-<meta name="date" content="2020-02-03">
+<meta name="date" content="2020-02-04">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -351,7 +351,7 @@ H_{1}:\text{L&#39;estudiant sap la matèria}
 <p>Aquí, les variables poblacionals d’interés són:</p>
 <ul>
 <li><span class="math inline">\(X_d\)</span>: prenc una dona i calcul el seu nombre mitjà d’hores setmanals d’esport, de mitjana <span class="math inline">\(\mu_d\)</span>: la mitjana d’hores setmanals d’esport de les dones</li>
-<li><span class="math inline">\(X_h\)</span>: prenc una dona i calcul el seu nombre mitjà d’hores setmanals d’esport, de mitjana <span class="math inline">\(\mu_h\)</span>: la mitjana d’hores setmanals d’esport dels homes</li>
+<li><span class="math inline">\(X_h\)</span>: prenc un home i calcul el seu nombre mitjà d’hores setmanals d’esport, de mitjana <span class="math inline">\(\mu_h\)</span>: la mitjana d’hores setmanals d’esport dels homes</li>
 </ul>
 <p>El contrast que volem realitzar és</p>
 <ul>
@@ -382,7 +382,7 @@ H_{1}:\mu_d&lt;\mu_h
 <p>Com que aquí voldrem filar més prim que això del “nivell de confiança”, el procediment serà una mica més complicat.</p>
 
 <div class="rmdcaution">
-Les hipòtesis dels contrastos són sobre les poblacions, sobre les mostres.
+Les hipòtesis dels contrastos són sobre paràmetres de les poblacions, NO sobre estadístics de les mostres.
 </div>
 
 <p>Aquí les hipòtesis del contrast comparaven les mitjanes <strong>poblacionals</strong> d’hores setmanals d’esport de les dones i els homes, no les mitjanes mostrals d’hores setmanals d’esport de les dones i els homes de la nostra mostra.</p>
@@ -527,7 +527,8 @@ P(S_{10}=0)=0.5^{10}=0.001
 Recordau aquest nom.
 </div>
 
-<p>Al nostre exemple de la moneda, com que la hipòtesi nul·la és <span class="math inline">\(p_{\mathit{Cara}}= 0.5\)</span> i la hipòtesi alternativa és <span class="math inline">\(p_{\mathit{Cara}}&gt; 0.5\)</span>, el p-valor és la probabilitat que, si <span class="math inline">\(p_{\mathit{Cara}}= 0.5\)</span>, el nombre de cares sigui tan o més gran que l’obtingut a la nostra mostra. En els dos exemples anteriors concrets, 3 cares en 3 llançaments i 10 cares en 10 llançaments, és el mateix, perquè eren el nombre màxim possible de cares i per tant, per exemple, treure 3 o més cares en 3 llançaments és exactament el mateix que treure 3 cares en 3 llançaments. Però en general no serà el cas.</p>
+<p>Al nostre exemple de la moneda, com que la hipòtesi nul·la és <span class="math inline">\(p_{\mathit{Cara}}= 0.5\)</span> i la hipòtesi alternativa és <span class="math inline">\(p_{\mathit{Cara}}&gt; 0.5\)</span>, el p-valor és la probabilitat que, si <span class="math inline">\(p_{\mathit{Cara}}= 0.5\)</span>, el nombre de cares sigui tan o més gran que l’obtingut a la nostra mostra.</p>
+<p>En els dos exemples anteriors concrets, on obteníem 3 cares en 3 llançaments i 10 cares en 10 llançaments, és el mateix demanar que el nombre de cares sigui igual a l’obtingut i demanar que el nombre de cares sigui més gran o igual que l’obtingut, perquè en els dos experiments hem obtingut el nombre màxim possible de cares; per exemple, treure 3 o més cares en 3 llançaments és exactament el mateix que treure 3 cares en 3 llançaments. Però en general no serà el cas.</p>
 <p><strong>3)</strong> Tornem al nostre contrast
 <span class="math display">\[
 \left\{\begin{array}{ll} 
@@ -544,7 +545,7 @@ Suposem que llanç la moneda en l’aire 10 vegades i obtenc 7 cares. És evidè
 Un resultat tan extrem o més que l’obtingut no és molt improbable si la moneda no està trucada: passaria 1 de cada 6 vegades. Per tant, com que és bastant compatible amb el fet que la moneda sigui honrada, no ho podem considerar evidència que estigui trucada a favor de cara.</p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-167" class="example"><strong>Exemple 4.4  </strong></span>Tenc una moneda, i ara crec que està trucada a favor de creu. Vull contrastar-ho. Plantejat en termes de <span class="math inline">\(p_{\mathit{Cara}}\)</span>, el contrast que vull realitzar és
+<p><span id="exm:unnamed-chunk-166" class="example"><strong>Exemple 4.4  </strong></span>Tenc una moneda, i ara crec que està trucada a favor de creu. Vull contrastar-ho. Plantejat en termes de <span class="math inline">\(p_{\mathit{Cara}}\)</span>, el contrast que vull realitzar és
 <span class="math display">\[
 \left\{\begin{array}{ll} 
 H_{0}:p_{\mathit{Cara}}= 0.5\\ 
@@ -575,7 +576,7 @@ Un resultat tan extrem o més que l’obtingut és molt improbable si <span clas
 </ul>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-168" class="example"><strong>Exemple 4.5  </strong></span>Per exemple, suposem que al contrast de les mitjanes d’hores setmanals d’esport d’homes i dones de l’Exemple <a href="contrastos-dhipotesis-generalitats.html#exm:esport1">4.3</a> empram com a estadístic de contrast la diferència entre les mitjanes mostrals <span class="math inline">\(\overline{X}_d-\overline{X}_h\)</span> (<strong>que no serà el cas: només és un exemple!</strong>). Aleshores, el p-valor del contrast és</p>
+<p><span id="exm:unnamed-chunk-167" class="example"><strong>Exemple 4.5  </strong></span>Per exemple, suposem que al contrast de les mitjanes d’hores setmanals d’esport d’homes i dones de l’Exemple <a href="contrastos-dhipotesis-generalitats.html#exm:esport1">4.3</a> empram com a estadístic de contrast la diferència entre les mitjanes mostrals <span class="math inline">\(\overline{X}_d-\overline{X}_h\)</span> (<strong>que no serà el cas: només és un exemple!</strong>). Aleshores, el p-valor del contrast és</p>
 </div>
 
 <ul>
@@ -623,7 +624,7 @@ En un contrast d’hipòtesis no obtenim cap informació directa sobre la probab
 
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-170" class="example"><strong>Exemple 4.6  </strong></span>Tenc una moneda i crec que està trucada; a favor de cara o a favor de creu, no ho sé, només sospit que està trucada. Vull contrastar-ho.</p>
+<p><span id="exm:unnamed-chunk-169" class="example"><strong>Exemple 4.6  </strong></span>Tenc una moneda i crec que està trucada; a favor de cara o a favor de creu, no ho sé, només sospit que està trucada. Vull contrastar-ho.</p>
 </div>
 
 <p>Plantejat en termes de la probabilitat de treure cara <span class="math inline">\(p_{\mathit{Cara}}\)</span>, el contrast que vull realitzar ara és
@@ -717,7 +718,7 @@ Al nostre cas coincideix amb el que hem calculat perquè la variable <span class
 </ul>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-174" class="example"><strong>Exemple 4.7  </strong></span>En un test d’embaraç, el contrast que es realitza és:
+<p><span id="exm:unnamed-chunk-173" class="example"><strong>Exemple 4.7  </strong></span>En un test d’embaraç, el contrast que es realitza és:
 <span class="math display">\[
 \left\{\begin{array}{ll} 
 H_{0}:\text{No estàs embaraçada}\\ 
@@ -730,7 +731,7 @@ H_{1}:\text{Estàs embaraçada}
 <p><img src="Bioestadistica-II_files/figure-html/types.png" width="60%" style="display: block; margin: auto;" /></p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-176" class="example"><strong>Exemple 4.8  </strong></span>En un judici, on s’ha de declarar un acusat innocent o culpable, el contrast era
+<p><span id="exm:unnamed-chunk-175" class="example"><strong>Exemple 4.8  </strong></span>En un judici, on s’ha de declarar un acusat innocent o culpable, el contrast era
 <span class="math display">\[
 \left\{\begin{array}{ll} 
 H_{0}:\text{L&#39;acusat és innocent}\\ 
@@ -748,7 +749,7 @@ H_{1}:\text{L&#39;acusat és culpable}
 <p>És pitjor l’error de tipus I, convé minimitzar-lo. Per això només es declara qualcú culpable quan les proves ho demostren més enllà de qualsevol dubte raonable</p>
 
 <div class="example">
-<span id="exm:unnamed-chunk-177" class="example"><strong>Exemple 4.9  </strong></span>En un examen, el contrast era
+<span id="exm:unnamed-chunk-176" class="example"><strong>Exemple 4.9  </strong></span>En un examen, el contrast era
 <span class="math display">\[
 \left\{\begin{array}{ll} 
 H_{0}:\text{L&#39;estudiant no sap la matèria}\\ 
@@ -773,13 +774,13 @@ El problema és quan fem disminuir <span class="math inline">\(\alpha\)</span>, 
 <li><p>Donar una regla de decisió per a un <span class="math inline">\(\alpha\)</span> màxim fixat</p></li>
 <li><p>Després, augmentar la mida <span class="math inline">\(n\)</span> de la mostra per arribar a la <span class="math inline">\(\beta\)</span> desitjada</p></li>
 </ol>
-<p>Abans d’acabar amb els errors, fixau-vos que si efectuam <span class="math inline">\(m\)</span> contrastos (independents) emprant una regla de decisió que garanteixi un nivell de significació <span class="math inline">\(\alpha\)</span> fixat, i a tots aquests contrastos la <span class="math inline">\(H_0\)</span> és vertadera, el nombre de contrastos d’aquests on ens equivocarem i rebutjarem <span class="math inline">\(H_0\)</span> té distribució <span class="math inline">\(B(m,\alpha)\)</span>. En particular, assumim que esperam cometre un error de tipus I en 1 de cada <span class="math inline">\(1/\alpha\)</span> contrastos on l’hipòtesi nul·la sigui vertadera.</p>
+<p>Abans d’acabar amb els errors, fixau-vos que si efectuam <span class="math inline">\(M\)</span> contrastos (independents) emprant una regla de decisió que garanteixi un nivell de significació <span class="math inline">\(\alpha\)</span> fixat, i a tots aquests contrastos la <span class="math inline">\(H_0\)</span> és vertadera, el nombre de contrastos d’aquests on ens equivocarem i rebutjarem <span class="math inline">\(H_0\)</span> té distribució <span class="math inline">\(B(M,\alpha)\)</span>. En particular, esperam equivocar-nos en <span class="math inline">\(\alpha M\)</span> d’aquests <span class="math inline">\(M\)</span> contrastos on l’hipòtesi nul·la sigui vertadera.</p>
 
 <div class="rmdcaution">
 Si efectuam molts de contrastos, augmenta la probabilitat de “trobar qualque cosa” encara que no hi hagi res que trobar.
 </div>
 
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-180"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-179"></span>
 <img src="http://imgs.xkcd.com/comics/significant.png" alt="&quot;Significant&quot; (https://xkcd.com/882/ (CC-BY-NC 2.5))"  />
 <p class="caption">
 Figura 4.1: “Significant” (<a href="https://xkcd.com/882/" class="uri">https://xkcd.com/882/</a> (CC-BY-NC 2.5))
@@ -903,37 +904,42 @@ p.error.Tipus.I=<span class="kw">length</span>(<span class="kw">which</span>((te
 p.error.Tipus.I</code></pre>
 <pre><code>## [1] 0.04</code></pre>
 <p>Hem comès un 4% d’errors de tipus I, molt proper al 5% que esperàvem.</p>
-<p>Ara suposarem que el nivell mitjà real és estrictament més gran que 2.5, i anam a simular la probabilitat d’error de tipus II. Per començar, generam de manera uniforme un vector de 100 <span class="math inline">\(\mu\)</span>’s entre 2.51 i 3.</p>
-<pre class="sourceCode r"><code class="sourceCode r">mus=<span class="kw">runif</span>(<span class="dv">100</span>,<span class="fl">2.51</span>,<span class="dv">3</span>)</code></pre>
-<p>I ara el que farem serà el següent: per a cada <span class="math inline">\(\mu_i\)</span> d’aquest vector, generam una “població de diabètics” per mitjà d’una mostra de 10<sup>6</sup> nombres generats amb distribució <span class="math inline">\(N(\mu_i,0.5)\)</span>, i repetim 100 vegades el procés de prendre una mostra de mida 20 d’aquesta població i calcular la <span class="math inline">\(T\)</span> corresponent. Després, per a cada <span class="math inline">\(i\)</span>, miram la proporció de vegades que això ha donat més petit o igual que el llindar, és a dir, la proporció de vegades que acceptam la hipòtesi nul·la <span class="math inline">\(\mu=2.5\)</span> i que per tant cometem un error de tipus II. Organitzam totes aquestes proporcions en un vector <strong>p.error.Tipus.II</strong>.</p>
-<pre class="sourceCode r"><code class="sourceCode r">p.error.Tipus.II=<span class="kw">c</span>()
+<p>Ara suposarem que el nivell mitjà real és estrictament més gran que 2.5, i anam a simular els errors de tipus II, per veure amb quina freqüència els cometem. Per començar, generam de manera uniforme un vector de 100 <span class="math inline">\(\mu\)</span>’s entre 2.6 i 3.</p>
+<pre class="sourceCode r"><code class="sourceCode r">mus=<span class="kw">runif</span>(<span class="dv">100</span>,<span class="fl">2.6</span>,<span class="dv">3</span>)</code></pre>
+<p>I ara el que farem serà el següent. Per a cada <span class="math inline">\(\mu_i\)</span> d’aquest vector, generam una “població de diabètics” en forma d’una mostra de 10<sup>6</sup> nombres generats amb distribució <span class="math inline">\(N(\mu_i,0.5)\)</span>. Com que volem poblacions on la hipòtesi alternativa, $ &gt;2.5$, sigui vertadera, d’aquestes poblacions només ens quedarem amb les que tenguin mitjana més gran que 2.5. A continuació, per a cada una d’aquestes poblacions, repetim 100 vegades el procés de prendre una mostra aleatòria simple de mida 20 d’aquesta població i calcular la <span class="math inline">\(T\)</span> corresponent. Després, per a cada població, miram la proporció de vegades que això ha donat més petit o igual que el llindar, és a dir, la proporció de vegades que acceptam la hipòtesi nul·la <span class="math inline">\(\mu=2.5\)</span> i que per tant cometem un error de tipus II. Organitzam totes aquestes proporcions en un vector <strong>p.error.Tipus.II</strong>.</p>
+<pre class="sourceCode r"><code class="sourceCode r">sigma=<span class="fl">0.5</span>
+p.error.Tipus.II=<span class="kw">c</span>()
 <span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">100</span>){
   poblacio=<span class="kw">rnorm</span>(<span class="dv">10</span><span class="op">^</span><span class="dv">5</span>,mus[j],sigma)
+  <span class="cf">if</span> (<span class="kw">mean</span>(poblacio)<span class="op">&gt;</span><span class="fl">2.5</span>){
   Tes=<span class="kw">replicate</span>(<span class="dv">200</span>,estadí<span class="kw">stic</span>(<span class="dv">20</span>,poblacio))    
   p.error.Tipus.II=<span class="kw">c</span>(p.error.Tipus.II, <span class="kw">round</span>( <span class="kw">length</span>(<span class="kw">which</span>((Tes<span class="op">&lt;=</span>L)<span class="op">==</span><span class="ot">TRUE</span>))<span class="op">/</span><span class="dv">200</span>,<span class="dv">2</span>))
+  }
 }
 p.error.Tipus.II</code></pre>
-<pre><code>##   [1] 0.07 0.22 0.01 0.84 0.91 0.80 0.00 0.02 0.02 0.12 0.12 0.90 0.86 0.18
-##  [15] 0.13 0.00 0.78 0.18 0.00 0.72 0.22 0.12 0.14 0.03 0.11 0.56 0.94 0.92
-##  [29] 0.00 0.78 0.82 0.70 0.04 0.83 0.48 0.60 0.00 0.10 0.78 0.88 0.03 0.66
-##  [43] 0.62 0.81 0.77 0.34 0.55 0.15 0.00 0.86 0.24 0.04 0.57 0.04 0.24 0.01
-##  [57] 0.02 0.86 0.37 0.86 0.04 0.02 0.87 0.84 0.04 0.32 0.15 0.94 0.46 0.01
-##  [71] 0.04 0.01 0.88 0.18 0.28 0.44 0.82 0.08 0.91 0.90 0.22 0.02 0.12 0.24
-##  [85] 0.94 0.71 0.31 0.38 0.24 0.04 0.59 0.28 0.78 0.86 0.85 0.57 0.66 0.08
-##  [99] 0.84 0.04</code></pre>
-<p>La proporció mitjana d’errors de tipus II, que ens dóna una idea de la probabilitat d’error de tipus II, ha estat:</p>
+<pre><code>##   [1] 0.04 0.13 0.00 0.59 0.70 0.56 0.00 0.00 0.01 0.06 0.08 0.70 0.54 0.12
+##  [15] 0.08 0.00 0.52 0.08 0.00 0.53 0.14 0.06 0.08 0.02 0.08 0.36 0.82 0.74
+##  [29] 0.00 0.60 0.58 0.46 0.03 0.60 0.30 0.34 0.00 0.06 0.55 0.64 0.02 0.42
+##  [43] 0.39 0.59 0.52 0.20 0.32 0.07 0.00 0.70 0.16 0.02 0.36 0.02 0.14 0.01
+##  [57] 0.02 0.72 0.21 0.66 0.03 0.02 0.64 0.59 0.02 0.22 0.12 0.76 0.30 0.01
+##  [71] 0.04 0.01 0.66 0.08 0.19 0.29 0.60 0.05 0.71 0.72 0.12 0.02 0.07 0.14
+##  [85] 0.77 0.46 0.17 0.20 0.14 0.03 0.34 0.18 0.58 0.70 0.59 0.40 0.48 0.04
+##  [99] 0.62 0.04</code></pre>
+<p>La proporció mitjana d’errors de tipus II ha estat:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>(p.error.Tipus.II)</code></pre>
-<pre><code>## [1] 0.4097</code></pre>
-<p>Si prenguéssim mostres més grans, aquesta probabilitat disminuiria. Repetim aquest segon experiment amb mostres de mida 200 per veure-ho.</p>
+<pre><code>## [1] 0.289</code></pre>
+<p>Si prenguéssim mostres més grans, la probabilitat d’error de tipus II disminueix. Comprovem-ho repetint aquest segon experiment amb mostres de mida 200.</p>
 <pre class="sourceCode r"><code class="sourceCode r">p.error.Tipus.II=<span class="kw">c</span>()
 <span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">100</span>){
   poblacio=<span class="kw">rnorm</span>(<span class="dv">10</span><span class="op">^</span><span class="dv">5</span>,mus[j],sigma)
-  Tes=<span class="kw">replicate</span>(<span class="dv">200</span>,estadí<span class="kw">stic</span>(<span class="dv">200</span>,poblacio))    
+   <span class="cf">if</span> (<span class="kw">mean</span>(poblacio)<span class="op">&gt;</span><span class="fl">2.5</span>){
+Tes=<span class="kw">replicate</span>(<span class="dv">200</span>,estadí<span class="kw">stic</span>(<span class="dv">200</span>,poblacio))    
   p.error.Tipus.II=<span class="kw">c</span>(p.error.Tipus.II, <span class="kw">round</span>( <span class="kw">length</span>(<span class="kw">which</span>((Tes<span class="op">&lt;=</span>L)<span class="op">==</span><span class="ot">TRUE</span>))<span class="op">/</span><span class="dv">200</span>,<span class="dv">2</span>))
+   }
 }
 <span class="kw">mean</span>(p.error.Tipus.II)</code></pre>
-<pre><code>## [1] 0.1399</code></pre>
-<p>Recordau que la <strong>potència</strong> d’un contrast és la probabilitat de <em>no</em> cometre un error de tipus II. Hem vist que prenent mostres més grans, la proporció d’errors de tipus II ha disminuït, és a dir, la potència ha augmentat. Això és general.</p>
+<pre><code>## [1] 0.0051</code></pre>
+<p>Recordau que la <strong>potència</strong> d’un contrast és la probabilitat de <em>no</em> cometre un error de tipus II. Hem vist que prenent mostres més grans, la proporció d’errors de tipus II ha disminuït. Això és general: si augmentam la mida de la mostra i mantenim el nivell de significació, la potència augmenta.</p>
 
 <div class="rmdimportant">
 Si fixam el nivell de significació, com més grans són les mostres, més gran és la potència del contrast.
@@ -1047,7 +1053,7 @@ P(T\geqslant 1.944)=\texttt{1-pt(1.944,24)}=0.032
 </ul>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-193" class="example"><strong>Exemple 4.11  </strong></span>Sigui <span class="math inline">\(X\)</span> una població normal. Volem fer el contrast
+<p><span id="exm:unnamed-chunk-192" class="example"><strong>Exemple 4.11  </strong></span>Sigui <span class="math inline">\(X\)</span> una població normal. Volem fer el contrast
 <span class="math display">\[
 \left\{\begin{array}{l}
 H_{0}:\mu=20\\ H_{1}:\mu&gt;20
@@ -1092,7 +1098,7 @@ Com pot ser que amb la mateixa mostra i mateix nivell de significació poguem co
 En canvi, només trobarem evidència que <span class="math inline">\(\mu&gt; 20\)</span> si <span class="math inline">\(T\)</span> és molt gran, i per tant hi tenim una sola font d’error de tipus I. Aleshores, per garantir una mateixa probabilitat d’error de tipus I, hem de ser molt més exigents al contrast bilateral, on ens podem equivocar de dues maneres diferents, que a l’unilateral.</p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-197" class="example"><strong>Exemple 4.13  </strong></span>Sigui <span class="math inline">\(X\)</span> una població normal. Volem fer el contrast
+<p><span id="exm:unnamed-chunk-196" class="example"><strong>Exemple 4.13  </strong></span>Sigui <span class="math inline">\(X\)</span> una població normal. Volem fer el contrast
 <span class="math display">\[
 \left\{\begin{array}{l}
 H_{0}:\mu=20\\ H_{1}:\mu\neq 20
@@ -1140,7 +1146,7 @@ i com que p-valor és més petit que <span class="math inline">\(\alpha\)</span>
 </ul>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-199" class="example"><strong>Exemple 4.14  </strong></span>Si realitzam un test t per efectuar un contrast
+<p><span id="exm:unnamed-chunk-198" class="example"><strong>Exemple 4.14  </strong></span>Si realitzam un test t per efectuar un contrast
 <span class="math display">\[
 \left\{\begin{array}{l}
 H_{0}:\mu=\mu_0\\ 
@@ -1279,7 +1285,7 @@ Us sona? Fent <span class="math inline">\(q=1-\alpha\)</span>, és el del tema a
 </ul>
 <p>R marca aquestes franges amb un codi d’asteriscs</p>
 <pre><code>Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1</code></pre>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-201"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-200"></span>
 <img src="Bioestadistica-II_files/figure-html/emojis.png" alt="Emoticones per representar els nivells de significació estadística (BMJ 2018; 363, doi: https://doi.org/10.1136/bmj.k5033)" width="80%" />
 <p class="caption">
 Figura 4.2: Emoticones per representar els nivells de significació estadística (BMJ 2018; 363, doi: <a href="https://doi.org/10.1136/bmj.k5033" class="uri">https://doi.org/10.1136/bmj.k5033</a>)
@@ -1304,7 +1310,7 @@ per tant la potència era
 <span class="math display">\[
 1-\beta=P(T&gt;1.73| \mu&gt;2.5).
 \]</span>
-Aquesta probabilitat és difícil de calcular, però hi ha paquets de R que ho saben fer.</p>
+Aquesta probabilitat és impossible de calcular, però hi ha paquets de R que la saben estimar.</p>
 <p>Per a cada tipus de contrast es té una relació numèrica entre:</p>
 <ul>
 <li><p>La <strong>potència</strong> <span class="math inline">\(1-\beta\)</span></p></li>
@@ -1356,7 +1362,7 @@ FPR&amp;=\dfrac{P(H_0)\cdot P(H_0\text{ reb.}|H_0)}{P(H_0)\cdot P(H_0\text{ reb.
 <p>Per calcular-lo, hem de saber el nivell de significació i la potència i hem de decidir <em>a priori</em> quina probabilitat assignam al fet que <span class="math inline">\(H_1\)</span> sigui vertadera.</p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-204" class="example"><strong>Exemple 4.15  </strong></span>En un estudi (publicat a <em>Psychological Science</em> 22 (2011), pp. 1011-1018) es repartiren 66 participants en dos grups de 33, als que direm grup Bandera i grup Control, i els mostraren les mateixes 4 fotos d’edifcis. En les del grup Bandera, dues mostraven una bandera dels EUA, i en les del grup Control, aquestes banderes havien estat eliminades digitalment. Per emmascarar l’estudi, se’ls demanà que endevinassin l’hora del dia en què varen ser preses les fotos.</p>
+<p><span id="exm:unnamed-chunk-203" class="example"><strong>Exemple 4.15  </strong></span>En un estudi (publicat a <em>Psychological Science</em> 22 (2011), pp. 1011-1018) es repartiren 66 participants en dos grups de 33, als que direm grup Bandera i grup Control, i els mostraren les mateixes 4 fotos d’edificis. En les del grup Bandera, dues mostraven una bandera dels EUA, i en les del grup Control, aquestes banderes havien estat eliminades digitalment. Per emmascarar l’estudi, se’ls demanà que endevinassin l’hora del dia en què varen ser preses les fotos.</p>
 </div>
 
 <p>Després de mirar les fotos, els participants emplenaren un qüestionari sobre idees polítiques, a partir del qual es pot calcular un cert “índex de republicanisme” <span class="math inline">\(M\)</span> del que l’ha contestat. Resulta que <span class="math inline">\(M\)</span> va ser significativament més gran en el grup Bandera que en el grup Control, i amb un nivell de significació <span class="math inline">\(\alpha=0.05\)</span> els autors de l’estudi conclogueren que mirar fotos amb banderes estatals et “dretitza” (almenys temporalment) les idees polítiques. Vaig a estimar el risc que aquest positiu sigui fals.</p>
