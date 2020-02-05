@@ -1,0 +1,4 @@
+"0","length(which(X2sim>=X2))/10000
+"
+"2","Error in which(X2sim >= X2) : object 'X2' not found
+"

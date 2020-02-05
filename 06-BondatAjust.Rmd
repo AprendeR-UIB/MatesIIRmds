@@ -1,4 +1,4 @@
-# Contrastos de bondat d'ajust (PROVISIONAL)
+# Contrastos de bondat d'ajust
 
 Els contrastos d'un paràmetre del tema anterior els empràvem bàsicament per cercar evidència que a un paràmetre poblacional (una mitjana, una proporció) "li passava qualque cosa": 
 
@@ -6,21 +6,21 @@ Els contrastos d'un paràmetre del tema anterior els empràvem bàsicament per c
 
 * Tenim evidència que la proporció poblacional d'èxits és més gran que el 10%?
 
-Però també podem entendre que hi cercàvem  si podíem acceptar que el paràmetre poblacional de la variable que havia produit la mostra era  igual a qualque cosa: 
+Però també podem entendre que hi cercàvem  si podem acceptar que el paràmetre poblacional de la variable que havia produit la mostra era  igual a qualque cosa: 
 
 * Podem acceptar que  la mitjana poblacional és igual de 2? 
 
 * Podem acceptar que la proporció poblacional d'èxits és del 10%?
 
-Als contrastos de bondat d'ajust anam una passa més enllà, i ens demanam si podem acceptar que la variable poblacional té una distribució concreta, o si pel contrari seria molt estrany que la nostra mostra hagués estat produïda per una variable amb aquella distribució:
+Als contrastos de bondat d'ajust anam una passa més enllà, i ens demanam si podem acceptar que la variable poblacional té una distribució concreta, o si per contra seria molt estrany que la nostra mostra hagués estat produïda per una variable amb aquella distribució:
 
-* Llençam un dau en l'aire moltes vegades, apuntam els resultats, i ens demanam si podem acceptar que el dau és honrat (és a dir, que tots els resultats són equiprobables) o si pel contrari hi ha evidència que està trucat.
+* Llençam un dau en l'aire moltes vegades, apuntam els resultats, i ens demanam si podem acceptar que el dau és honrat (és a dir, que tots els resultats són equiprobables) o si per contra hi ha evidència que està trucat.
 
-* Anotam els ingressos diaris per una determinada malaltia en un hospital i ens demanam si podem acceptar que segueixen una distribució de Poisson o si pel contrari hi ha evidència que no és el cas, la qual cosa seria senyal que hi ha un brot estrany de la malaltia.
+* Anotam els ingressos diaris per una determinada malaltia en un hospital i ens demanam si podem acceptar que segueixen una distribució de Poisson o si per contra hi ha evidència que no és el cas, la qual cosa seria senyal que hi ha un brot estrany de la malaltia.
 
 * Volem emprar una mostra petita en un t-test. Podem acceptar que prové d'una distribució normal? 
 
-De fet, ja hem estudiat un tipus de contrast de bondat d'ajust: els contrastos bilaterals d'una proporció, on ens demanam si podem acceptar que la mostra prové de tal variable Bernoulli o si pel contrari hi ha evidència que no.
+De fet, ja hem estudiat un tipus de contrast de bondat d'ajust: els contrastos bilaterals d'una proporció, on ens demanàvem si podem acceptar que la mostra prové de tal variable Bernoulli o si per contra hi ha evidència que no.
 
 
 
@@ -47,15 +47,15 @@ Hi ha evidència que no totes les xifres tenen la mateixa probabilitat de sortir
 
 Aquesta és la típica pregunta d'un contrast de bondat d'ajust.
 
-* En principi, estam disposats a acceptar que la nostra mostra prové d'una variable amb una certa distribució
+* En principi, estam disposats a acceptar que la nostra mostra prové d'una variable amb una certa distribució:
 
-    * Que totes les darreres xifres de la Grossa tenen la mateixa probabilitat d'aparèixer
+    Que totes les darreres xifres de la Grossa tenen la mateixa probabilitat d'aparèixer.
     
-* Rebutjarem aquesta hipòtesi si seria molt estrany haver obtingut la nostra mostra si la variable seguís aquesta distribució.
+* Rebutjarem aquesta hipòtesi si seria molt estrany haver obtingut la nostra mostra si la variable seguís aquesta distribució:
 
-    * Si les darreres xifres tenguessin totes la mateixa probabilitat d'aparèixer, esperaríem una certa uniformitat en les seves freqüències a la nostra mostra. Si les freqüències reals se separen molt d'aquesta uniformitat, tendrem motius per dubtar que totes tenien la mateixa probabilitat d'aparèixer.
+    Si les darreres xifres tenguessin totes la mateixa probabilitat d'aparèixer, esperaríem una certa uniformitat en les seves freqüències a la nostra mostra. Si les freqüències reals se separen molt d'aquesta uniformitat, tendrem motius per dubtar que tots els dígits tenien la mateixa probabilitat d'aparèixer.
 
-```{r}
+```{r,fig.width=5}
 Grossa=c(22,8,13,21,27,31,27,22,23,17)
 barplot(Grossa,col="light blue",names=0:9,
         main="Darreres xifres de la Grossa de Nadal")
@@ -87,10 +87,10 @@ Els tests de bondat d'ajust es basen bàsicament en:
 
 Per exemple, continuant amb el nostre exemple de la Grossa, si totes les darreres xifres tinguessin la mateixa probabilitat d'aparèixer, la seva probabilitat seria 1/10, i per tant el valor esperat d'aparicions de cadascuna d'elles seria 211/10=21.1.
 
-```{r}
-barplot(Grossa,col="light blue",names=0:9,
+```{r,fig.width=5}
+barplot(Grossa, col="light blue", names=0:9,
         main="Darreres xifres de la Grossa de Nadal")
-abline(h=21.1,col="red",lwd=2,lty="dashed")
+abline(h=21.1, col="red", lwd=2, lty="dashed")
 ```
 
 Les desviacions observades respecte d'aquest valor, representat per la línia vermella al gràfic anterior, són prou grans com per dubtar que aquestes xifres són equiprobables, o podem acceptar que es deuen a l'atzar?
@@ -104,7 +104,7 @@ Les desviacions observades respecte d'aquest valor, representat per la línia ve
 
 El test més popular per a variables aleatòries qualitatives, ordinals i quantitatives discretes (o contínues agrupades) és el **test $\chi^2$ de Pearson**.
 
-Suposem que tenim una mostra aleatòria simple de mida $n$. Agrupam tots els resultats possibles en $k$ grups  (**classes**; poden ser tots els resultats individuals possibles, si només n'hi ha un conjunt finit). Volem contrastar si les observacions segueixen una *distribució totalment coneguda*, per a la qual coneixem la probabilitat  que una observació caigui dins cada una de les classes.
+Suposem que tenim una mostra aleatòria simple de mida $n$. Agrupam tots els resultats possibles en $k$ **classes**,  $C_1,\ldots,C_k$ (poden ser tots els resultats individuals possibles, si només n'hi ha un conjunt finit). Volem contrastar si les observacions segueixen una *distribució totalment coneguda*, per a la qual coneixem la probabilitat  que una observació caigui dins cada una de les classes.
 
 
 El contrast és, recordem, 
@@ -116,7 +116,7 @@ H_{1}: \text{La població no té aquesta distribució}
 \right.
 $$
 
-Per a cada classe $i$, diguem
+Per a cada classe $C_i$, diguem
 
 * $obs_i$: la freqüència absoluta **observada** d'aquesta classe
 
@@ -129,37 +129,43 @@ Per a cada classe $i$, diguem
 Rebutjarem $H_0$ si les $obs_i$ són prou diferents de les $esp_i$. Per mesurar-ho, empram el teorema següent:
 
 ```{theorem,khi2BA}
-L'estadístic de contrast
-$$
-X^2=\sum_{i=1}^k \frac{(obs_{i}-esp_{i})^2}{esp_{i}}
-$$
-té (aproximadament) una distribució $\chi_{k-1}^2$ si 
-
-* La mida $n$ de la mostra és gran ($n\geq 30$)
+Si $H_0$ és vertadera, la distribució contrastada està completament determinada i se satisfan les condicions següents:
+  
+* La mida $n$ de la mostra és gran (ho fixarem en $n\geq 30$)
 
 * Les classes cobreixen tots els resultats possibles: $\sum\limits_{i=1}^kesp_i= n$
 
 *  Totes les classes tenen prou probabilitat teòrica com per tenir-les en compte (nosaltres emprarem la **Regla de Cochran**: totes les $esp_i\geq 5$)
+
+aleshores l'estadístic de contrast
+$$
+\chi^2=\sum_{i=1}^k \frac{(obs_{i}-esp_{i})^2}{esp_{i}}
+$$
+té (aproximadament) una distribució $\chi_{k-1}^2$. 
+
+Si la distribució contrastada no estava completament determinada i se n'han estimat $m$ paràmetres a partir de la mostra, s'ha de prendre com a distribució de l'estadístic de contrast una $\chi_{k-1-m}^2$.
+
+
 ```
 
 ```{block2,type="rmdnote"}
-Fixau-vos que l'extadístic de contrast $X^2$ s'obté de la manera següent:
+Fixau-vos que l'extadístic de contrast $\chi^2$ s'obté de la manera següent:
 
-1. Per cada classe $i$:
+1. Per cada classe $C_i$:
 
     a. Se resta $obs_{i}-esp_{i}$
     b. S'eleva el resultat al quadrat: $(obs_{i}-esp_{i})^2$
     c. Es divideix el resultat per $esp_i$: $(obs_{i}-esp_{i})^2/esp_{i}$
 
-2. Se sumen aquests valors per a totes les classes $i$.
+2. Se sumen aquests valors per a totes les classes $C_i$.
 
 ```
     
 Aleshores, el contrast se fa de la manera següent:
 
-1. Se calcula el valor que pren l'estadístic de contrast sobre la nostra mostra, diguem-li $X_0^2$
+1. Se calcula el valor que pren l'estadístic de contrast sobre la nostra mostra, diguem-li $\chi_0^2$
 
-2. El p-valor del contrast és $P(X^2\geq X_0^2)$, calculada tenint en compte que $X^2$ té distribució $\chi^2$ amb nombre de graus de llibertat:
+2. El p-valor del contrast és $P(\chi^2\geq \chi_0^2)$, calculada tenint en compte que $\chi^2$ té distribució $\chi^2$ amb nombre de graus de llibertat:
 
     * Si no s'ha estimat cap paràmetre de la distribució amb la mostra, el nombre de classes menys 1: $\chi^2_{k-1}$
     
@@ -185,7 +191,7 @@ $$
 Com que totes les feqüències esperades valen 21.1, el valor de l'estadístic de contrast sobre aquesta mostra és
 $$
 \begin{array}{rl}
- X_0^2& \displaystyle=\frac{(22-21.1)^2}{21.1}+\frac{(8-21.1)^2}{21.1}+\cdots\\[2ex]
+ \chi_0^2& \displaystyle=\frac{(22-21.1)^2}{21.1}+\frac{(8-21.1)^2}{21.1}+\cdots\\[2ex]
  & \qquad\quad\displaystyle +\frac{(23-21.1)^2}{21.1} +\frac{(17-21.1)^2}{21.1}=20.23
 \end{array}
 $$
@@ -196,6 +202,8 @@ Esp=rep(21.1,10)
 X2=sum((Grossa-Esp)^2/Esp)
 X2
 ```
+
+En resum, per resoldre la qüestió plantejada en l'Exemple \@ref(exm:grossa) procedim de la manera següent:
 
 *Contrast*:
 $$
@@ -208,7 +216,7 @@ $$
 
 *Estadístic de contrast*:
 $$
-X^2=\sum_{i=1}^k \frac{(obs_{i}-esp_{i})^2}{esp_{i}}
+\chi^2=\sum_{i=1}^k \frac{(obs_{i}-esp_{i})^2}{esp_{i}}
 $$
 
 Estam en les condicions del Teorema \@ref(thm:khi2BA):
@@ -219,9 +227,9 @@ Estam en les condicions del Teorema \@ref(thm:khi2BA):
 
 * Cada $esp_i=21.1\geq 5$
 
-
 Per tant, com que no estimam cap paràmetre de la distribució, aquest estadístic de contrast segueix una llei $\chi^2_9$.
 
+*Valor de l'estadístic de contrast*: Ja l'hem calculat, 20.23.
 
 *p-valor*: $P(\chi_9^2\geq 20.23)=\texttt{1-pchisq(20.23,9)}= 0.0165$ 
 
@@ -233,30 +241,28 @@ knitr::include_graphics("Bioestadistica-II_files/figure-html/oops.png")
 ```
 
 
-Bé, naturalment, pot ser un error de tipus I.
-
 ```{example,grossasim}
-Anem a comprovar amb una simulació aquest p-valor. El que farem serà el següent: Repetirem 10000 vegades el procés d'extreure a l'atzar i de manera equiprobable 211 dígits, calcularem la taula de freqüències de cada una d'aquestes mostres, calcularem l'estadístic de contrast $X^2$ sobre cada una d'aquestes taules, i calcularem la fracció de vegades que $X^2$ ha donat per sobre del valor de la nostra mostra, que era 20.23.
+Anem a comprovar amb una simulació aquest p-valor. El que farem serà el següent: Repetirem 10000 vegades, amb un `replicate`, el procés d'extreure a l'atzar i de manera equiprobable 211 dígits, calcular-ne la taula de freqüències de cada una d'aquestes mostres i calcular l'estadístic de contrast $\chi^2$ sobre cada una d'aquestes taules. Finalment, calcularem la fracció de vegades que $\chi^2$ ha donat per sobre del valor de la nostra mostra, que era 20.23.
 
 
 ```
 
 ```{r}
 set.seed(42)
-X2sim=replicate(10000,sum((as.vector(table(sample(0:9,211,rep=TRUE)))-21.1)^2/21.1))
+X2sim=replicate(10000,sum((table(sample(0:9,211,rep=TRUE))-21.1)^2/21.1))
 length(which(X2sim>=X2))/10000
 ```
 
-Només un 1.6% de les 10000 simulacions han donat un valor de $X^2$ més gran o igual que el de la mostra de Grosses de Nadal. Per tant, el valor de la $X^2$ de la mostra de Grosses de Nadal és anormalment gran si les darreres xifres tenen totes la mateixa probabilitat d'aparèixer. Però anormal no vol dir impossible. 
+Només un 1.6% de les 10000 simulacions han donat un valor de $\chi^2$ més gran o igual que el de la mostra de Grosses de Nadal. Per tant, el valor de la $\chi^2$ de la mostra de Grosses de Nadal és anormalment gran si les darreres xifres tenen totes la mateixa probabilitat d'aparèixer. Naturalment, anormal no vol dir impossible, però... 
 
 La funció per realitzar un test $\chi^2$ amb R és
 ```{r,eval=FALSE}
 chisq.test(obs, p=...)
 ``` 
-on `obs` és el vector de les freqüències observades de les classes, $(obs_i)_i$ i `p` s'ha d'igualar al vector de les prrobabilitats teòriques de les classes, $(p_i)_i$. Si no s'especifica, s'entén que totes les probabilitats són iguals.
+on `obs` és el vector de les freqüències observades de les classes, $(obs_i)_i$ i `p` s'ha d'igualar al vector de les probabilitats teòriques de les classes, $(p_i)_i$. Si no s'especifica, s'entén que totes les probabilitats són iguals.
 
 ```{block2,type="rmdcaution"}
-La suma de les probabilitats entrades a `p` ha de ser 1.
+La suma de les probabilitats entrades a `p` ha de ser igual a 1.
 ```
 
 Al nostre exemple de la Grossa de Nadal, entraríem simplement
@@ -265,7 +271,7 @@ Al nostre exemple de la Grossa de Nadal, entraríem simplement
 chisq.test(Grossa)
 ```
 
-Obtenim el valor de $X^2$, `X-squared`, els graus de llibertat, `df`, i el p-valor, `p-value`.
+Obtenim el valor de $\chi^2$, `X-squared`, els graus de llibertat, `df`, i el p-valor, `p-value`.
 
 ```{example,industrial}
 Un tècnic de medi ambient vol estudiar l'augment de temperatura de l'aigua a dos quilòmetres dels abocaments d'aigua autoritzats d'una
@@ -310,7 +316,7 @@ $$
 
 *Estadístic de contrast*: Volem emprar el test $\chi^2$, així que l'estadístic de contrast serà
 $$
-X^2=\sum_{i=1}^k \frac{(obs_{i}-esp_{i})^2}{esp_{i}}
+\chi^2=\sum_{i=1}^k \frac{(obs_{i}-esp_{i})^2}{esp_{i}}
 $$
 
 Cal comprovar que se satisfan les condicions del Teorema \@ref(thm:khi2BA).
@@ -337,7 +343,7 @@ $$
 $$
 Ara ja cobreixen tots els resultats possibles.
 
-* Totes les freqüències esperades són més grans o igual a 5? 
+* Totes les freqüències esperades són com a mínim 5? 
 
 Doncs no ho sabem, les haurem de calcular. Recordem que són les freqüències esperades de cada classe suposant que la variable poblacional és $N(3.5,0.7)$, i s'obtenen multiplicant la probabilitat de cada interval (amb aquesta distribució) per la mida de la mostra, 40.
 
@@ -345,6 +351,7 @@ La probabilitat de la 1^a^ classe és
 $$
             p_1 =P(X\leq 1.95)=\texttt{pnorm(1.95,3.5,0.7)}=0.0134
 $$
+i la seva freqüència esperada és
 $$
 esp_1=p_1\cdot n= 0.0134\cdot 40=0.536
 $$
@@ -356,19 +363,21 @@ $$
     & =\texttt{pnorm(2.45,3.5,0.7)-pnorm(1.95,3.5,0.7)}=0.0534
     \end{array}
 $$
-Per tant la freqüència esperada de la  2^a^ classe és
+i per tant la seva freqüència esperada és
 $$
     esp_2=p_2\cdot n= 0.0534\cdot 40= 2.136
 $$
     
-Anam a calcular amb R totes les freqüències esperades d'aquesta manera:
+Anam a calcular amb R totes les freqüències esperades d'aquesta manera i d'un sol cop:
 ```{r}
 freq.obs=c(2,1,4,15,10,5,3)
 n=sum(freq.obs)
 lims=c(-Inf,1.95,2.45,2.95,3.45,3.95,4.45,Inf)
+lim.esq=lims[-length(lims)]  #Els límits inferiors de les classes
+lim.dret=lims[-1]  #Els límits superiors de les classes
 mu=3.5
 sigma=0.7
-prob.esp=pnorm(lims[2:8],mu,sigma)-pnorm(lims[1:7],mu,sigma)
+prob.esp=pnorm(lim.dret,mu,sigma)-pnorm(lim.esq,mu,sigma)
 freq.esp=n*prob.esp
 round(freq.esp,3)
 ```
@@ -399,12 +408,12 @@ $$
 $$
 
 
-Ara ja podem aplicar el text $\chi^2$ amb aquestes $k=4$ classes. Com que no hem estimat cap paràmetre, la distribució de l'estadístic de contrast és $\chi^2_3$.
+Ara ja podem aplicar el text $\chi^2$ amb aquestes $k=4$ classes. Com que no hem estimat cap paràmetre, prendrem com a distribució de l'estadístic de contrast una $\chi^2_3$.
 
 *Valor de l'estadístic de contrast*:
 $$
 \begin{array}{rl} 
-X_0^2 &\displaystyle=\frac{(7-8.64)^2}{8.64}+\frac{(15-10.22)^2}{10.22}\\
+\chi_0^2 &\displaystyle=\frac{(7-8.64)^2}{8.64}+\frac{(15-10.22)^2}{10.22}\\
 &\displaystyle\qquad\quad +\frac{(10-10.733)^2}{10.733}+\frac{(8-10.407)^2}{10.407}=3.154
 \end{array}
 $$
@@ -440,12 +449,12 @@ Quan volem realitzar un  test $\chi^2$ i no es compleixen les condicions per que
 
 * Es genera un conjunt molt gran de mostres aleatòries amb la distribució  esperada i de la mateixa mida que la nostra mostra
 
-* Es calcula l'estadístic de contrast $X^2$ sobre cada mostra
+* Es calcula l'estadístic de contrast $\chi^2$ sobre cada mostra
 
-* S'estima el p-valor mitjançant la fracció de mostres que han donat un $X^2$ més gran que el de la nostra mostra
+* S'estima el p-valor mitjançant la fracció de mostres que han donat un $\chi^2$ més gran que el de la nostra mostra
 
 Recordau que ja hem emprat aquest mètode a l'Exemple \@ref(exm:grossasim) per "comprovar" el p-valor obtingut a l'Exemple \@ref(exm:grossa2) amb el test $\chi^2$ "exacte". Però no cal complicar-se tant la vida per realitzar-lo.
-La funció ``chisq.test} també permet usar el mètode de Montecarlo, entrant-hi el paràmetre `simulate.p.value=TRUE` i, si es vol, igualant el paràmetre `B` al nombre de simulacions desitjat (per defecte, 2000). Naturalment, com que es basa  en una simulació aleatòria, pot ser que en cada execució doni un p-valor diferent.
+La funció `chisq.test` també permet usar el mètode de Montecarlo, entrant-hi el paràmetre `simulate.p.value=TRUE` i, si es vol, igualant el paràmetre `B` al nombre de simulacions desitjat (per defecte, en farà 2000). Naturalment, com que es basa  en una simulació aleatòria, pot ser que en cada execució doni un p-valor diferent.
 
 Per exemple, podíem emprar el mètode de Montecarlo per realitzar el contrast de l'Exemple \@ref(exm:industrial) amb les classes originals esteses, sense agrupar-les. 
 
@@ -454,7 +463,7 @@ set.seed(42)
 chisq.test(freq.obs, p=prob.esp, simulate.p.value=TRUE, B=5000)
 ```
 
-*Conclusió*: Podem acceptar que els augments de temperatures observats segueixen una llei normal $N(3.5,0.7)$ (test $\chi^2$ simulat, p-valor=0.22).
+*Conclusió*: Podem acceptar que els augments de temperatures observats segueixen una llei normal $N(3.5,0.7)$ (test $\chi^2$ de Montercarlo, p-valor=0.22).
 
 
 
@@ -470,14 +479,14 @@ El test és exactament el mateix, excepte que ara cal restar al nombre $k-1$ de 
 
 
 ```{example,gataca}
-Es vol determinar si el nombre de vegades que apareix la seqüència GATACA en una
+Volem determinar si el nombre de vegades que apareix la seqüència GATACA en una
 cadena d'ADN humà de longitud 1000 segueix una llei de Poisson.
 
 
 ```
 
 
-Es prenen 576  mostres de cadenes d'ADN humà de longitud 1000 i s'hi compten els nombres de GATACA. Els resultats són els de la taula següent:
+Per fer-ho, prenem 576  mostres de cadenes d'ADN humà de longitud 1000 i hi comptam els nombres de GATACA. Els resultats són els de la taula següent:
 $$
 \begin{array}{r|rrrrrr}
 \hline
@@ -499,22 +508,7 @@ H_1: \text{La mostra no prové d'aquesta distribució}
 \right.
 $$
 
-Necessitam estimar el paràmetre $\lambda$
-
-
-
-
-$$
-\begin{array}{r|rrrrrr}
-\hline
-x_i & 0 & 1 & 2 & 3 & 4 & 5 \\
-\hline
-obs_{i} & 229 & 211 & 93 & 35 & 7 & 1 \\
-\hline
-\end{array}
-$$
-
-$\lambda$ és el valor esperat d'una variable $Po(\lambda)$. El podem estimar amb la mitjana mostral:
+Necessitam estimar el paràmetre $\lambda$, que és el valor esperat d'una variable Poisson i per tant l'estimarem amb la mitjana mostral:
 $$
 \lambda  =\dfrac{229 + 211 +  93 + 35 +7 + 1 }{576}=\dfrac{576}{576}=1
 $$
@@ -533,7 +527,7 @@ $$
 
 *Estadístic de contrast*: Volem emprar el test $\chi^2$, així que l'estadístic de contrast serà
 $$
-X^2=\sum_{i=1}^k \frac{(obs_{i}-esp_{i})^2}{esp_{i}}
+\chi^2=\sum_{i=1}^k \frac{(obs_{i}-esp_{i})^2}{esp_{i}}
 $$
 
 Cal comprovar que se satisfan les condicions del Teorema \@ref(thm:khi2BA).
@@ -542,7 +536,7 @@ Cal comprovar que se satisfan les condicions del Teorema \@ref(thm:khi2BA).
 
 * Per veure si les freqüències esperades són totes més grans o iguals que 5, les hem de calcular. 
 
-Recordem que, si $X$ és una variable aleatòria de Poisson,
+Recordem que, si $X$ és una variable aleatòria de Poisson $Po(\lambda)$,
 $$
 P(X=k)=e^{-\lambda}\cdot \frac{\lambda^k}{k!}
 $$
@@ -573,14 +567,14 @@ $$
 
 
 ```{block2,type="rmderror"}
-Aquestes classes estan malament! Recordau que les classes han de cobrir tots els resultats possibles! Els resultats possible d'una variable Poisson són tots els números naturals.
+Aquestes classes estan malament! Recordau que les classes han de cobrir tots els resultats possibles! Els resultats possibles d'una variable Poisson són tots els nombres naturals.
 ````
 
-Per cobrir tots els resultats possible, cal canviar el 5 per "5 o més", de probabilitat 
+Per cobrir tots els resultats possibles, cal canviar el 5 per "5 o més" i recalcular la probabilitat i la freqüència esperada d'aquesta classe: la seva probabilitat és
 ```{r}
 round(1-ppois(4,0.929),3)
 ```
-i freqüència esperada
+i la seva freqüència esperada és
 ```{r}
 round((1-ppois(4,0.929))*576,2)
 ```
@@ -599,7 +593,7 @@ esp_i &  227.49 & 211.34 & 98.17 & 30.40  & 7.06 &  1.55\\ \hline
 \end{array}
 $$
 
-Per que totes les classes tenguin freqüència esperada més gran o igual que 5, agruparem les dues darreres columnes.
+Per que totes les classes tenguin freqüència esperada més gran o igual que 5, agruparem les dues darreres classes
 
 $$
 \begin{array}{l|rrrrr}
@@ -616,12 +610,12 @@ $$
 Ara totes les freqüències esperades són prou grans i les classes cobreixen tots els valors possibles de la variable. L'estadístic de contrast té distribució $\chi_{k-1}^2$ amb $k=5$, per tant $\chi_{4}^2$.
 
 
-```{r, echo=FALSE, out.width="50%"}
+```{r, echo=FALSE, out.width="40%"}
 knitr::include_graphics("Bioestadistica-II_files/figure-html/batman.png")
 ```
 
 ```{block2,type="rmderror"}
-Hem estimat la $\lambda$, per tant l'estadístic de contrast té distribució $\chi_{k-1-m}^2$ amb $k$ el nombre de classes i $m$ el nombre de paràmetres estimats.
+Com que hem estimat la $\lambda$, hem de considerar l'estadístic de contrast amb distribució $\chi_{k-1-m}^2$ amb $k$ el nombre de classes i $m$ el nombre de paràmetres estimats.
 ```
 
 Perdó. L'estadístic de contrast té distribució $\chi_{3}^2$. Podem continuar.
@@ -638,9 +632,9 @@ round(X02,2)
 
 *p-valor*: $P(\chi_3^2\geq `r round(X02,2)`)=\texttt{1-pchisq(1.02,3)}=0.796$
 
-*Conclusió*: Podem acceptar que les observacions trobades segueixen una llei de Poisson (test $\chi^2$ de Pearson, p-valor 0.796):  acceptam que les aparicions de GATACA en cadenes d'ADN de longitud 1000 són aleatòries.
+*Conclusió*: Podem acceptar que les observacions trobades segueixen una llei de Poisson (test $\chi^2$ de Pearson, p-valor 0.796).
 
-Amb R simplement ens estalviam el càlcul explícit de $X_0^2$ i del p-valor, perquè tota la saragata de calcular freqüències esperades i agrupar a fi que se satisfaci la llei de Cochran no ens la podem estalviar. 
+Amb R simplement ens estalviam el càlcul explícit de $\chi_0^2$ i del p-valor, perquè tota la saragata de calcular freqüències esperades i agrupar a fi que se satisfaci la llei de Cochran no ens la podem estalviar. 
 
 
 ```{r}
@@ -650,7 +644,7 @@ chisq.test(obs.gataca,p=probs.gataca)
 *Conclusió*: No podem rebutjar que les observacions trobades segueixin una llei de Poisson (test $\chi^2$ de Pearson, p-valor **0.9065????**).
 
 ```{block2,type="rmderror"}
-No havíem quedat que el nombre de graus de llibertat era 3? R n'ha emprat 4, `df=4`, no té manera de saber que hem estimat un paràmetre?
+No havíem quedat que el nombre de graus de llibertat era 3? R n'ha emprat 4, `df=4`, perquè no sap que hem estimat un paràmetre
 ```
 
 
@@ -701,7 +695,7 @@ valors
 
 
 2. Consideram la **funció de distribució mostral** $F_{n}$
-d'aquesta mostra: la funció de distribució d'una variable $n$ amb domini tot $\mathbb{R}$ per a la qual cada $x_{(i)}$ tingués probabilitat $1/n$ i la resta de reals tingués probabilitat 0.
+d'aquesta mostra: la funció de distribució d'una variable $n$ amb domini tot $\mathbb{R}$ per a la qual cada $x_{(i)}$ tingués probabilitat $1/n$ i la resta de reals tingués probabilitat 0:
 $$
 F_n(x)=\left\{\begin{array}{ll}
 0 &\text{ si } x< x_{(1)} \\
@@ -727,35 +721,37 @@ $$
 El gràfic d'aquesta distribució és el següent:
 
 ```{r}
-plot(c(1,valors,6),c(0,(0:5)/5,1),type="s", xlab="",ylab="",lwd=1.5)
+plot(c(1,valors,7), c(0,(0:5)/5,1), type="s", lwd=1.5, 
+     xlab="", ylab="")
 ```
 
-3. Comparam $F_n(x)$ amb $F_X(x)$. Si són molt diferents, rebutjarem que la mostra s'ha produït amb distribució $F_X$. Donem-lis una ullada:
+3. Comparam $F_n(x)$ amb $F_X(x)$. Si són molt diferents, rebutjarem que la mostra s'ha produït amb distribució $F_X$. 
 ```{r}
 plot(c(1,valors,6),c(0,(0:5)/5,1),type="s", xlab="",ylab="",lwd=1.5)
 curve(pnorm(x,3,1.5),col="red",lwd=1.5,add=TRUE)
-legend("topleft",col=c("black","red"),lty=c(1,1),legend=c(expression(F[6]),"N(3,1.5)"),cex=0.7)
+legend("topleft",col=c("black","red"),lty=c(1,1),
+       legend=c(expression(F[6]),"N(3,1.5)"),cex=0.7)
 ```
 
-Per fer-ho, calcularem $\max\{|F_n(x)-F_X(x)|\mid x\in \mathbb{R}\}$. Com que $F_X$ és creixent, aquest màxim s'assoleix a qualque escaló.
-Aleshores, per calcular 
+Per comparar $F_n(x)$ amb $F_X(x)$, calcularem 
 $$
-\sup\{|F_n(x)-F_X(x)|\mid x\in \mathbb{R}\}
+\max\{|F_n(x)-F_X(x)|\mid x\in \mathbb{R}\}
 $$
-primer calculam, per a cada $x_{(i)}$, la seva **discrepància**: la distància entre $F_n(x_{(i)})$ i els extrems de l'escaló corresponent:
+Com que $F_X$ és creixent, aquest màxim s'assoleix a qualque escaló.
+Per tant, per calcular aquest màxim primer calculam, per a cada $x_{(i)}$, la seva **discrepància**: la distància entre $F_X(x_{(i)})$ i els extrems de l'escaló corresponent,
 $$
 D_n(x_{(i)})=\max\Big\{\Big| F_X(x_{(i)})-\frac{i-1}{n}\Big|, \Big|F_{X}(x_{(i)})-\frac{i}{n}\Big|\Big\}
 $$
 i prenem la **discrepància màxima**, és a dir, el màxim d'aquestes discrepàncies:
 $$
-D_n=\max\big\{D_n(x_{(h)})\mid h=1,\ldots, n\big\}
+D_n=\max\big\{D_n(x_{(i)})\mid i=1,\ldots, n\big\}
 $$
 
-Al nostre exemple, els valors $F_n(x_{(i)})$ són:
+Al nostre exemple, els valors $F_X(x_{(i)})$ són:
 ```{r}
 round(pnorm(valors,3,1.5),3)
 ```
-i per tant
+i per tant les discrepàncies són
 $$
 \begin{array}{rl}
 D_6(x_{(1)}) & =\max\{| F_X(1.34)-0|, |F_X(1.34)-1/6|\}\\
@@ -778,13 +774,12 @@ D_6(x_{(6)}) & =\max\{| F_X(5.84)-5/6|, |F_X(5.84)-6/6|\}\\
 & =\max\{ 0.138, 0.029\}=0.138
 \end{array}
 $$
-
-La discrepància màxima és
+i la discrepància màxima és
 $$
 D_6=\max\{0.134,0.168,0.191,0.15,0.185,0.138\}=0.191
 $$
 
-4. Aquesta discrepància màxima segueix una distribució coneguda (que no depèn de la $X$ mentre sigui contínua) que permet calcular  el p-valor com la probabilitat que $D_n$ prengui un valor més gran o igual que l'obtingut sobre la nostra mostra. Aquesta distribució (acumulada) és donada per la funció `pkolm` del paquet **kolmim**.
+4. Aquesta discrepància màxima segueix una distribució coneguda (que no depèn de la $X$ mentre sigui contínua) que permet calcular  el p-valor com la probabilitat que $D_n$ prengui un valor més gran o igual que l'obtingut sobre la nostra mostra. La corresponent funció de distribució acumulada és donada per la funció `pkolm` del paquet **kolmim**. Per tant, el p-valor és
 ```{r}
 library(kolmim)
 round(1-pkolm(0.191,6),3)
