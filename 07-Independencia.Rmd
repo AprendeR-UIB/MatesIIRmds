@@ -1,17 +1,17 @@
 # Contrastos d'independència i homogeneïtat (Provisional)
 
-En els contrastos d'independència de dues variables $X$ i $Y$, la hipòtesi nul·la és que $X$ i $Y$ són independents. Quan traduïm la independència de dues variables en termes de "la probabilitat de la intersecció és el producte de probabilitats", resulta que un contrast d'independència és un tipus concret de contrast de bondat d'ajust i podrem emprar-hi un test $\chi^2$ (al pitjor dels casos, de Montecarlo si les mostres no satisfan les condicions necessàries per poder aplicar el Teorema \@ref(thm:khi2BA)).
+En els contrastos d'independència de dues variables $X$ i $Y$, la hipòtesi nul·la és que no hi ha cap relació entre $X$ i $Y$, és a dir, que són independents. Quan traduïm la independència de dues variables en termes de "la probabilitat de la intersecció és el producte de probabilitats", resulta que un contrast d'independència és un tipus concret de contrast de bondat d'ajust.
 
 En els contrastos d'homogeneïtat  de dues variables $X$ i $Y$, la hipòtesi nul·la és que la distribució de $Y$ condicionada  a cada un dels valors que pot prendre $X$ és sempre la mateixa, que és una altra manera de dir que $X$ i $Y$ són independents. Per tant, els contrastos d'homogeneïtat són formalment contrastos d'independència, però difereixen en la forma com s'hi recull la mostra:
 
-* En un contrast d'independència, la mostra és **transversal**: es pren una mostra de la població on estan definides $X$ i $Y$ i es miren els valors de les dues variables sobre els individus de la mostra
+* En un contrast d'independència, la mostra és **transversal**: es pren una mostra de la població on estan definides $X$ i $Y$ i es miren els valors de les dues variables sobre els individus de la mostra, i surt el que surt
 
-* En un contrast d'homogeneïtat, la mostra és **estratificada**: es pren una mostra independent per a cada un dels valors que pot prendre $X$ i es mira el valor de $Y$ sobre tots aquests individus
+* En un contrast d'homogeneïtat, la mostra és **estratificada**: es pren una mostra independent per a cada un dels valors que pot prendre $X$, de mides fixades d'antuvi, i es mira el valor de $Y$ sobre tots aquests individus
 
 
 ## Test $\chi^2$ d'independència
 
-Suposem que tenim dues variables aleatòries $X$ i $Y$ que només poden prendre valors $X_{1},\ldots,X_{s}$ i $Y_{1},\ldots,Y_{t}$, respectivament. Les considerarem qualitatives, i aleshores aquests $X_i$ i $Y_j$ seran els seus nivells, però poden ser ordinals o quantitatives discretes. L'inportant és que només poden prendre un conjunt finit de valors cadascuna.
+Suposem que tenim dues variables aleatòries $X$ i $Y$ que només poden prendre valors $X_{1},\ldots,X_{s}$ i $Y_{1},\ldots,Y_{t}$, respectivament. Les considerarem qualitatives  i direm a aquests $X_i$ i $Y_j$ els seus nivells, però poden ser ordinals o quantitatives discretes. L'inportant és que només poden prendre un conjunt finit de valors cadascuna.
 
 Volem contrastar si $X$ i $Y$ són independents, és a dir
 $$
@@ -99,7 +99,7 @@ $$
 \left\{
 \begin{array}{ll}
 H_0: p_{ij}=p_i \cdot q_j \text{ per a tots } 1\leq i \leq s,\ 1\leq j\leq t \\
-H_1: \mbox{no totes aquestes igualtats són vertaderes}
+H_1: \mbox{No totes aquestes igualtats són vertaderes}
 \end{array}
 \right.
 $$
@@ -111,7 +111,7 @@ i per tant hi podem fer servir un test $\chi^2$. Els passos concrets seran els s
 $$
 \begin{array}{|c|cccccc|c|}
 \hline X\backslash Y & Y_1 & Y_2 & \ldots & Y_j & \ldots
-& Y_t & n_{i \bullet} \\
+& Y_t & \text{Total} \\
 \hline X_1 & n_{11} & n_{12} & \ldots & n_{1j} & \ldots & n_{1t} &
 n_{1
 \bullet} \\ X_2 & n_{21} & n_{22} & \ldots & n_{2j} & \ldots &
@@ -124,7 +124,7 @@ n_{it} & n_{i \bullet} \\ \vdots & \vdots & \vdots & \vdots &
 \vdots &
 \vdots & \vdots & \vdots \\ X_s & n_{s1} & n_{s2} & \ldots &
 n_{sj} &
-\ldots & n_{st} & n_{s \bullet} \\ \hline n_{\bullet j} & n_{\bullet
+\ldots & n_{st} & n_{s \bullet} \\ \hline text{Total} & n_{\bullet
 1} &
 n_{\bullet 2} & \ldots & n_{\bullet j} & \ldots & n_{\bullet t} &
 n \\ 
@@ -134,23 +134,28 @@ $$
 
 2. Estimam cada $p_i$ amb ${n_{i\bullet}}/{n}$ i cada $q_j$ amb ${n_{\bullet j}}/{n}$
 
-3. Si les variables aleatòries fossin independents, tendríem les probabilitats teòriques
+3. Si les variables aleatòries fossin independents,  les probabilitats teòriques serien
 $$
 p_{ij}=\frac{n_{i\bullet}}{n}\cdot \frac{n_{\bullet j}}{n}
 $$
-    i per tant la freqüència esperada de cada parell $(X_i,Y_j)$ si les variables aleatòries són independents és
+    i per tant la freqüència esperada de cada parell $(X_i,Y_j)$ si les variables aleatòries són independents seria
 $$
-p_{ij}\cdot n=\dfrac{n_{i\bullet}}{n}\cdot \dfrac{n_{\bullet j}}{n}\cdot n=\dfrac{n_{i\bullet}\cdot n_{\bullet j}}{n}
+esp_{ij}=p_{ij}\cdot n=\dfrac{n_{i\bullet}}{n}\cdot \dfrac{n_{\bullet j}}{n}\cdot n=\dfrac{n_{i\bullet}\cdot n_{\bullet j}}{n}
 $$ 
 
 4. L'estadístic del test $\chi^2$ és doncs
 $$
-\chi^2=\sum\limits_{i=1}^s\sum\limits_{j=1}^t \frac{ \left( n_{ij}- \frac{n_{i\bullet}\cdot n_{\bullet j} }{n}
-\right)^2 } {\frac{n_{i\bullet} \cdot n_{\bullet j}}{n}}
+\chi^2=\sum\limits_{i=1}^s\sum\limits_{j=1}^t \frac{ ( n_{ij}- esp_{ij})^2 } {esp_{ij}}
 $$
 
+    Arribats en aquest punt, el Teorema \@ref(thm:khi2BA) ens diu que:
+    
 ```{theorem}
-Si les variables $X$ i $Y$ són independents,  $n$ és gran (diguem $n\geq 30$) i cada freqüència esperada $esp_{ij}=n_{i\bullet}\cdot n_{\bullet j}/{n}$ és $\geq 5$,  l'estadístic
+Si les variables $X$ i $Y$ són independents,  $n$ és gran (diguem $n\geq 30$) i cada freqüència esperada 
+$$
+esp_{ij}=\frac{n_{i\bullet}\cdot n_{\bullet j}}{n}
+$$
+és $\geq 5$,  l'estadístic
 $$
 \chi^2=\sum\limits_{i=1}^s\sum\limits_{j=1}^t \frac{ ( n_{ij}- esp_{ij})^2 } {esp_{ij}}
 $$
@@ -226,7 +231,7 @@ $$
 
 *p-valor*: $P(\chi^2_2\geq 64.24)=\texttt{1-pchisq(64.24,2)}=1.1\cdot 10^{-14}$
 
-*Conclusió*: Hem trobat evidència estadísticament significativa que hi ha associació entre l'estatus de fumador d'un nin i patir tos nocturna (test $\chi^2$, p-valor 10^-14^).
+*Conclusió*: Hem trobat evidència estadísticament significativa que hi ha associació entre l'estatus de fumador d'un nin i que pateixi tos nocturna (test $\chi^2$, p-valor 10^-14^).
 
 Podem efectuar un test $\chi^2$ d'independència aplicant la funció `chisq.test` a la taula de freqüències absolutes:
 
@@ -245,9 +250,9 @@ Volem contrastar si hi ha associació entre el grau de compliment del calendari 
 La taula següent mostra la classificació d'una mostra de  444 nens segons el seu CCV  i el nivell sociocultural dels pares:
 $$
 \begin{array}{l}
-\hphantom{CCV BaixBB}\text{Nivell sociocultural}\\
-\begin{array}{l|ccc|}
-\text{CCV} &\text{Baix}& \text{Mitjà} &\text{Alt}\\ \hline
+\hphantom{Compli CCV BaixBB}\text{Nivell sociocultural}\\
+\begin{array}{r|ccc|}
+\text{Compliment CCV} &\text{Baix}& \text{Mitjà} &\text{Alt}\\ \hline
 \text{Baix} &38 &76 &79\\
 \text{Mitjà-baix}& 2& 41& 92\\
 \text{Mitjà-alt}& 2& 21& 50\\
@@ -258,7 +263,7 @@ $$
 
 *Variable aleatòries  d'interès*: 
 
-* $X$: "Prenem un nin i avaluam el seu CCV"
+* $X$: "Prenem un nin i avaluam el seu grau de compliment del CCV"
 * $Y$: "Prenem un nin i avaluam el nivell sociocultural dels pares"
 
 *Contrast*:
@@ -278,7 +283,49 @@ TaulaCCV=matrix(c(38,76,79,2,41,92,2,21,50,0,12,31),
 chisq.test(TaulaCCV)
 ```
 
-R ens avisa que no es compleixen les condicions per usar el test $\chi^2$: segurament hi ha freqüències esperades petites.
+R ens avisa que no es compleixen les condicions per usar el test $\chi^2$: segurament hi ha freqüències esperades petites. Vegem-ho, i aprofitarem per fer-ho amb R:
+
+* Les $n_{i\bullet}$ són les sumes de les fileres:
+```{r}
+Freq.CCV=rowSums(TaulaCCV)
+Freq.CCV
+```
+
+* Les $n_{i\bulletj}$ són les sumes de les columnes:
+```{r}
+Freq.NSC=colSums(TaulaCCV)
+Freq.NSC
+```
+
+* La matriu de les $(n_{i\bullet}n_{\bullet j}/n)$ s'obté fent el producte matricial
+$$
+\begin{array}{l}
+\displaystyle \frac{1}{n}\left(\begin{array}{c}
+n_{1\bullet}\\
+n_{2\bullet}\\
+\vdots\\
+n_{s\bullet}
+\end{array}\right)\cdot
+\big(n_{\bullet 1},n_{\bullet 2},\ldots,n_{\bullet t}\big)\\
+\qquad
+\displaystyle =
+\left(
+\begin{array}{cccc}
+\frac{n_{1\bullet}n_{\bullet 1}}{n} & \frac{n_{1\bullet}n_{\bullet 2}}{n} & \ldots & \frac{n_{1\bullet}n_{\bullet t}}{n}\\
+\frac{n_{2\bullet}n_{\bullet 1}}{n} & \frac{n_{2\bullet}n_{\bullet 2}}{n} & \ldots & \frac{n_{2\bullet}n_{\bullet t}}{n}\\
+\vdots & \vdots & \ddots & \vdots \\
+\frac{n_{s\bullet}n_{\bullet 1}}{n} & \frac{n_{s\bullet}n_{\bullet 2}}{n} & \ldots & \frac{n_{s\bullet}n_{\bullet t}}{n}
+\end{array}
+\right)
+\end{array}
+$$
+
+```{r}
+Freqs.Esp=(1/sum(TaulaCCV))*matrix(Freq.CCV,ncol=1,byrow=TRUE)%*%matrix(Freq.NSC,nrow=1,byrow=TRUE)
+Freqs.Esp
+```
+
+Efectivament, l'entrada (4,1) és menor que 5.
 
 Farem servir el mètode de Montecarlo:
 
@@ -325,14 +372,14 @@ $$
 Però el disseny de l'experiment és diferent:
 
 ```{block2,type="rmdimportant"}
-* En un **contrast d'independència** prenem una mostra  **transversal** de la població, sense controlar el nombre de subjectes que hi surten de cada nivell $X_i$
+* En un **contrast d'independència** prenem una mostra  **transversal** de la població, sense controlar el nombre de subjectes que hi surten de cada nivell $X_i$.
 
 * En un **contrast d'homogeneïtat** prenem una mostra **estratificada**, és a dir, una mostra de cada nivell $X_i$ de $X$, triant *a priori* el nombre de subjectes de cada un d'aquests nivells; per exemple, imposant que totes aquestes mostres tenguin la mateixa mida, o que la mida de cada mostra sigui proporcional al nombre d'individus de la població sobre els que $X$ val $X_i$.
 
 ```
 
 ```{example,colesterolhom}
-Volem comparar 3 tractaments per baixar el nivell de colesterol, A, B i C, per veure si tenen taxes d'èxit diferents;  aquí entendrem com a "Èxit" que el nivell de colesterol baixi dels 240 mg/dl a les 5 setmanes de tractament. En un assaig clínic, assignam cada tractament a 100 pacients amb colesterol alt escollits de manera independent uns dels altres, i anotam si el tractament ha tengut èxit.
+Volem comparar 3 tractaments per baixar el nivell de colesterol, A, B i C, per veure si tenen taxes d'èxit diferents. En una primera aproximació, entendrem com a "Èxit" que el nivell de colesterol baixi dels 240 mg/dl a les 5 setmanes de tractament. En un assaig clínic, assignam cada tractament a 100 pacients amb colesterol alt escollits de manera independent uns dels altres, i anotam si el tractament ha tengut èxit.
 
 
 
@@ -355,7 +402,7 @@ $$
 Volem contrastar si la probabilitat d'èxit de cada tractament és la mateixa o no. Fixem-nos que és un contrast d'homogeneïtat, perquè hem pres una mostra de mida prefixada de cada tractament.
 
 ```{block2,type="rmdnote"}
-Per que fos un contrast d'independència, hauríem d'haver pres 300 malalts d'hipercolesterolèmia que estiguessin prenent algun d'aquests tractaments, i hauríem anotat de cada un quin tractament prenen i si ha tengut èxit. Amb aquesta mostra transversal, ens exposàvem que algun tractament fos seguit per molt pocs, o fins i tot cap, malalt.
+Per que fos un contrast d'independència, hauríem d'haver pres 300 malalts d'hipercolesterolèmia que estiguessin prenent algun d'aquests tractaments, i hauríem anotat de cada un quin tractament pren i si ha tengut èxit. Amb aquesta mostra transversal, hi havia el risc que algun tractament fos seguit per molt pocs, o fins i tot cap, malalt.
 ```
 
 
@@ -371,7 +418,7 @@ Per que fos un contrast d'independència, hauríem d'haver pres 300 malalts d'hi
 $$
 \left\{\begin{array}{l}
 H_0: p_A=p_B=p_C\\
-H_1: \mbox{no és veritat que $p_A=p_B=p_C$}
+H_1: \mbox{No és veritat que $p_A=p_B=p_C$}
 \end{array}\right.
 $$
 
@@ -384,9 +431,9 @@ TaulaC
 chisq.test(TaulaC)
 ```
 
-*Conclusió*: Hem trobat evidència significativa que hi ha diferència entre algunes taxes d'èxit (test $\chi^2$ d'homogeneïtat,  p-valor 0.04).  
+*Conclusió*: Hem trobat evidència significativa que els tres tractaments no tenen la mateixa taxa d'èxit (test $\chi^2$ d'homogeneïtat,  p-valor 0.04).  
 
-Ara seria necessari efectuar 3 contrastos de parelles de proporcions per trobar quines parelles de tractaments tenes taxes d'èxit diferents. Però això ja és una altra pregunta.
+Ara seria necessari efectuar 3 contrastos de parelles de proporcions per trobar quines parelles de tractaments tenes taxes d'èxit diferents. Us ho deixam com a exercici.
 
 De la mateixa manera que les dues variables involucrades en un contrast d'independència podien tenir més de dos nivells, podem efectuar contrastos d'homogeneïtat en situacions més generals que la comparació de variables Bernoulli.
 
@@ -431,8 +478,9 @@ $$
 \emph{Contrast}:
 $$
 \left\{\begin{array}{l}
-H_0:  P(Y=N|X=T)=P(Y=N|X=T')\text{ per a cada nivell $L$ de colesterol}\\
-\hphantom{H_0:  }\quad \text{i cada $T,T'\in \{A,B,C\}$}\\
+H_0:  P(Y=L|X=T)=P(Y=L|X=T')\\
+\hphantom{H_0:  }\quad\text{ per a cada nivell $L$ de colesterol}\\
+\hphantom{H_0:  }\quad \text{ i cada parell de tractaments $T,T'$}\\
 H_1: \mbox{Alguna d'aquestes igualtats és falsa}
 \end{array}\right.
 $$
@@ -445,13 +493,13 @@ TaulaC2
 chisq.test(TaulaC2)
 ```
 
-*Conclusió*: No podem rebutjar que A, B i C tenguin el mateix efecte quan distingim tres classes de nivell de colesterol (test $\chi^2$ d'homogeneïtat, p-valor 0.09)
+*Conclusió*: No hem trobat evidència estadísticament significativa que A, B i C no tenguin el mateix efecte quan distingim tres classes de nivell de colesterol (test $\chi^2$ d'homogeneïtat, p-valor 0.09). La conclusió concreta ja dependria de si prenguéssim nivell de significació 0.05 o o.1.
 
 
 ## Test $\chi^2$ de tendència (Opcional)
 
 Un **contrast de tendència** és una generalització del contrast d'homogeneïtat de proporcions. En el contrast de tendència, tenim 
-una variable aleatòria *ordinal* $X$ de nivells ordenats $X_1<\cdots< X_k$, i una variable aleatòria Bernoulli $Y$ de nivells "Èxit" i "Fracàs". Diguem $P(Y=\text{Èxit}|X=X_i)=p_i$, per a tot $i. Més en concret, el contrast és
+una variable aleatòria *ordinal* $X$ de nivells ordenats $X_1<\cdots< X_k$, i una variable aleatòria Bernoulli $Y$ de nivells "Èxit" i "Fracàs". Diguem $p_i=P(Y=\text{Èxit}|X=X_i)$, per a tot $i$. El contrast que volem realitzar és
 $$
 \left\{
 \begin{array}{ll}
@@ -462,9 +510,11 @@ H_1: \text{ $p_1\leq\cdots \leq p_k$ i almenys una }\\
 \right.
 $$
 
+Fixau-vos que "$p_1\leq\cdots \leq p_k$ i almenys una  d'aquestes desigualtats és estricta" és equivalent a "$p_1\leq\cdots \leq p_k$ i $p_1<p_k$", i aquesta darrera reformulació és més curta.
+
 
 Es duu a terme amb un **test $\chi^2$ de Cochran-Armitage**, una variant del test $\chi^2$ explicat fins ara.
-Per utilitzar-ho, basta que la mostra total sigui gran ($\geq 30$), no cal la condició de Cochran.
+Per utilitzar-lo, basta que la mostra total sigui gran ($\geq 30$), no cal la condició de Cochran.
 
 Amb R s'efectua amb la funció `prop.trend.test`, aplicada al vector de freqüències d'èxits i el vector de freqüències de cada nivell de $X$.
 
@@ -487,7 +537,7 @@ $$
 \end{array}
 $$
 
-Com que l'estatus de fumador és una variable ordinal i, naturalment, en darrera instància cercam proves que el fumar causa la tos nocturna, ens interessa contrastar si la probabilitat de tos nocturna creix amb la freqüència de fumar.
+Com que l'estatus de fumador és una variable ordinal i, naturalment, en darrera instància cercam proves que el fumar causa la tos nocturna, ens pot interessar contrastar si la probabilitat de tos nocturna creix amb la freqüència de fumar.
 
 *Variables d'interès*:
 
