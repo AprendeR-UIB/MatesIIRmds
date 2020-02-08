@@ -25,7 +25,7 @@
 <meta name="author" content="The Matemàtiques II team">
 
 
-<meta name="date" content="2020-02-06">
+<meta name="date" content="2020-02-07">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -260,7 +260,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 \]</span>
 o equivalentment
 <span class="math display">\[
-P(X=X_i,Y=Y_j)=P(X=X_i)P(Y=Y_j)\text{ per a tots $i,j$}
+P(X=X_i,Y=Y_j)=P(X=X_i)\cdot P(Y=Y_j)\text{ per a tots $i,j$}
 \]</span></p>
 <p>El contrast serà
 <span class="math display">\[
@@ -273,11 +273,11 @@ H_1: \mbox{$X$ i $Y$ són dependents}
 <p>Sovint en lloc de dir que “<span class="math inline">\(X\)</span> i <span class="math inline">\(Y\)</span> són dependents”, direm que “hi ha <strong>associació</strong> entre <span class="math inline">\(X\)</span> i <span class="math inline">\(Y\)</span>”.</p>
 <p>Fixem-nos ara que la caracterització de la independència com a
 <span class="math display">\[
-P(X=X_i,Y=Y_j)=P(X=X_i)P(Y=Y_j)\text{ per a tots $i,j$}
+P(X=X_i,Y=Y_j)=P(X=X_i)\cdot P(Y=Y_j)\text{ per a tots $i,j$}
 \]</span>
 ens permet entendre el contrast d’independència com un contrast de bondat d’ajust, amb hipòtesi nul·la
 <span class="math display">\[
-H_0: P(X=X_i,Y=Y_j)=P(X=X_i)P(Y=Y_j)\text{ per a tots $i,j$}
+H_0: P(X=X_i,Y=Y_j)=P(X=X_i)\cdot P(Y=Y_j)\text{ per a tots $i,j$}
 \]</span>
 Hi farem servir un test <span class="math inline">\(\chi^2\)</span>.</p>
 
@@ -298,15 +298,15 @@ El contrast d’igualtat de dues proporcions és un cas particular de contrast d
 &amp; \text{No fumador} &amp; \text{Ocasional} &amp; \text{Regular} &amp; \text{Total} \\\hline
 \text{Tos} &amp; 266 &amp; 395 &amp; 80 &amp; 741\\
 \text{No tos}&amp; 1037 &amp; 977 &amp; 92 &amp; 2106\\\hline
-\text{Total} &amp;1303 &amp; 1372 &amp; 172 &amp; 2847\\\hline
+\text{Total} &amp;1303 &amp; 1372 &amp; 172 &amp; 2847
 \end{array}
 \end{array}
 \]</span></p>
 <p>En aquesta situació:</p>
 <p><em>Variables aleatòries d’interès</em>:</p>
 <ul>
-<li><span class="math inline">\(X\)</span>: “Prenem un nin i avaluam el seu estatus de fumador”</li>
-<li><span class="math inline">\(Y\)</span>: “Prenem un nin i miram si té tos nocturna o no”</li>
+<li><span class="math inline">\(X\)</span>: “Prenem un nin i miram si té tos nocturna o no”</li>
+<li><span class="math inline">\(Y\)</span>: “Prenem un nin i avaluam el seu estatus de fumador”</li>
 </ul>
 <p><em>Contrast</em>:
 <span class="math display">\[
@@ -332,14 +332,18 @@ H_0: p_{ij}=p_i \cdot q_j \text{ per a tots } 1\leqslant i \leqslant s,\ 1\leqsl
 H_1: \mbox{No totes aquestes igualtats són vertaderes}
 \end{array}
 \right.
-\]</span>
-i per tant hi podem fer servir un test <span class="math inline">\(\chi^2\)</span>. Els passos concrets seran els següents:</p>
+\]</span></p>
+<p>És a dir, la hipòtesi nul·la és</p>
+<blockquote>
+<p>La distribució de probabilitats que ha donat la mostra de parells de valors <span class="math inline">\((X,Y)\)</span> és el producte de la distribució de probabilitats de <span class="math inline">\(X\)</span> per la distribució de probabilitats de <span class="math inline">\(Y\)</span></p>
+</blockquote>
+<p>i per tant podem entendre aquest contrast com un contrast de bondat d’ajust (sobre la distribució conjunta de <span class="math inline">\((X,Y)\)</span>) i hi podem fer servir un test <span class="math inline">\(\chi^2\)</span>. Els passos concrets seran els següents:</p>
 <ol style="list-style-type: decimal">
 <li>Mesuram les variables aleatòries sobre una mostra aleatòria simple de <span class="math inline">\(n\)</span> subjectes, i obtenim una taula de contingència de freqüències absolutes com la següent (on <span class="math inline">\(n_{i,j}\)</span> indica nombre de subjectes amb <span class="math inline">\(X=X_i\)</span> i <span class="math inline">\(Y=Y_j\)</span>; <span class="math inline">\(n_{i\bullet}\)</span> indica nombre de subjectes amb <span class="math inline">\(X=X_i\)</span>; i <span class="math inline">\(n_{\bullet j}\)</span> indica nombre de subjectes amb <span class="math inline">\(Y=Y_j\)</span>):</li>
 </ol>
 <p><span class="math display">\[
-\begin{array}{|c|cccccc|c|}
-\hline X\backslash Y &amp; Y_1 &amp; Y_2 &amp; \ldots &amp; Y_j &amp; \ldots
+\begin{array}{c|cccccc|c}
+X\backslash Y &amp; Y_1 &amp; Y_2 &amp; \ldots &amp; Y_j &amp; \ldots
 &amp; Y_t &amp; \text{Total} \\
 \hline X_1 &amp; n_{11} &amp; n_{12} &amp; \ldots &amp; n_{1j} &amp; \ldots &amp; n_{1t} &amp;
 n_{1
@@ -353,11 +357,10 @@ n_{it} &amp; n_{i \bullet} \\ \vdots &amp; \vdots &amp; \vdots &amp; \vdots &amp
 \vdots &amp;
 \vdots &amp; \vdots &amp; \vdots \\ X_s &amp; n_{s1} &amp; n_{s2} &amp; \ldots &amp;
 n_{sj} &amp;
-\ldots &amp; n_{st} &amp; n_{s \bullet} \\ \hline text{Total} &amp; n_{\bullet
+\ldots &amp; n_{st} &amp; n_{s \bullet} \\ \hline \text{Total} &amp; n_{\bullet
 1} &amp;
 n_{\bullet 2} &amp; \ldots &amp; n_{\bullet j} &amp; \ldots &amp; n_{\bullet t} &amp;
-n \\ 
-\hline
+n 
 \end{array}
 \]</span></p>
 <ol start="2" style="list-style-type: decimal">
@@ -416,7 +419,7 @@ el nombre de graus de llibertat és el nombre de classes, <span class="math inli
 &amp; \text{No fumador} &amp; \text{Ocasional} &amp; \text{Regular} &amp; \text{Total} \\\hline
 \text{Tos} &amp; 266 &amp; 395 &amp; 80 &amp; 741\\
 \text{No tos}&amp; 1037 &amp; 977 &amp; 92 &amp; 2106\\\hline
-\text{Total} &amp;1303 &amp; 1372 &amp; 172 &amp; 2847\\\hline
+\text{Total} &amp;1303 &amp; 1372 &amp; 172 &amp; 2847
 \end{array}
 \end{array}
 \]</span></p>
@@ -425,7 +428,7 @@ el nombre de graus de llibertat és el nombre de classes, <span class="math inli
 \begin{array}{l|ccc}
 &amp; \text{No fumador} &amp; \text{Ocasional} &amp; \text{Regular}  \\\hline
 \text{Tos} &amp; 741\cdot 1303/2847 &amp; 741\cdot 1372/2847 &amp; 741\cdot 172/2847  \\
-\text{No tos}&amp; 2106\cdot 1303/2847 &amp; 2106\cdot 1372/2847 &amp; 2106\cdot 172/2847 \\\hline
+\text{No tos}&amp; 2106\cdot 1303/2847 &amp; 2106\cdot 1372/2847 &amp; 2106\cdot 172/2847 
 \end{array}
 \]</span>
 Operant:
@@ -433,7 +436,7 @@ Operant:
 \begin{array}{l|ccc}
 &amp; \text{No fumador} &amp; \text{Ocasional} &amp; \text{Regular}  \\\hline
 \text{Tos} &amp; 339.14 &amp;  357.1 &amp; 44.77  \\
-\text{No tos}&amp; 963.86 &amp; 1014.9 &amp; 127.23  \\\hline
+\text{No tos}&amp; 963.86 &amp; 1014.9 &amp; 127.23 
 \end{array}
 \]</span></p>
 <p>Són totes prou grans. Per tant l’estadístic de contrast
@@ -468,12 +471,13 @@ Taula</code></pre>
 <span class="math display">\[
 \begin{array}{l}
 \hphantom{Compli CCV BaixBB}\text{Nivell sociocultural}\\
-\begin{array}{r|ccc|}
-\text{Compliment CCV} &amp;\text{Baix}&amp; \text{Mitjà} &amp;\text{Alt}\\ \hline
-\text{Baix} &amp;38 &amp;76 &amp;79\\
-\text{Mitjà-baix}&amp; 2&amp; 41&amp; 92\\
-\text{Mitjà-alt}&amp; 2&amp; 21&amp; 50\\
-\text{Alt}&amp; 0 &amp;12&amp; 31
+\begin{array}{r|ccc|l}
+\text{Compliment CCV} &amp;\text{Baix}&amp; \text{Mitjà} &amp;\text{Alt} &amp;\text{Total}\\ \hline
+\text{Baix} &amp;38 &amp;76 &amp;79 &amp; 193\\
+\text{Mitjà-baix}&amp; 2&amp; 41&amp; 92 &amp; 135\\
+\text{Mitjà-alt}&amp; 2&amp; 21&amp; 50 &amp; 73\\
+\text{Alt}&amp; 0 &amp;12&amp; 31 &amp; 43\\ \hline
+\text{Total} &amp; 42 &amp; 150 &amp; 252 &amp; 444
 \end{array}
 \end{array}
 \]</span></p>
@@ -500,7 +504,7 @@ H_1: \mbox{Hi ha associació entre $X$ i $Y$}
 ## 
 ## data:  TaulaCCV
 ## X-squared = 56.378, df = 6, p-value = 2.441e-10</code></pre>
-<p>R ens avisa que no es compleixen les condicions per usar el test <span class="math inline">\(\chi^2\)</span>: segurament hi ha freqüències esperades petites. Vegem-ho, i aprofitarem per fer-ho amb R:</p>
+<p>R ens avisa que no es compleixen les condicions per usar el test <span class="math inline">\(\chi^2\)</span>; segurament hi ha freqüències esperades petites. Vegem-ho, i aprofitarem per fer-ho amb R:</p>
 <ul>
 <li>Les <span class="math inline">\(n_{i\bullet}\)</span> són les sumes de les fileres:</li>
 </ul>
@@ -537,7 +541,7 @@ n_{s\bullet}
 \end{array}
 \]</span></li>
 </ul>
-<pre class="sourceCode r"><code class="sourceCode r">Freqs.Esp=(<span class="dv">1</span><span class="op">/</span><span class="kw">sum</span>(TaulaCCV))<span class="op">*</span><span class="kw">matrix</span>(Freq.CCV,<span class="dt">ncol=</span><span class="dv">1</span>,<span class="dt">byrow=</span><span class="ot">TRUE</span>)<span class="op">%*%</span><span class="kw">matrix</span>(Freq.NSC,<span class="dt">nrow=</span><span class="dv">1</span>,<span class="dt">byrow=</span><span class="ot">TRUE</span>)
+<pre class="sourceCode r"><code class="sourceCode r">Freqs.Esp=(<span class="dv">1</span><span class="op">/</span><span class="kw">sum</span>(TaulaCCV))<span class="op">*</span>Freq.CCV<span class="op">%*%</span><span class="kw">t</span>(Freq.NSC)
 Freqs.Esp</code></pre>
 <pre><code>##           [,1]     [,2]      [,3]
 ## [1,] 18.256757 65.20270 109.54054
@@ -605,14 +609,14 @@ H_1: \text{ $X$ i $Y$ no són independents}
 &amp; A &amp; B &amp; C &amp; \text{Total} \\\hline
 \text{Èxit} &amp; 43 &amp; 61 &amp; 53 &amp; 157\\
 \text{Fracàs} &amp; 57 &amp; 39 &amp; 47 &amp; 143\\\hline
-\text{Total} &amp; 100 &amp; 100 &amp; 100 &amp; 300\\\hline
+\text{Total} &amp; 100 &amp; 100 &amp; 100 &amp; 300 
 \end{array}
 \end{array}
 \]</span></p>
 <p>Volem contrastar si la probabilitat d’èxit de cada tractament és la mateixa o no. Fixem-nos que és un contrast d’homogeneïtat, perquè hem pres una mostra de mida prefixada de cada tractament.</p>
 
 <div class="rmdnote">
-Per que fos un contrast d’independència, hauríem d’haver pres 300 malalts d’hipercolesterolèmia que estiguessin prenent algun d’aquests tractaments, i hauríem anotat de cada un quin tractament pren i si ha tengut èxit. Amb aquesta mostra transversal, hi havia el risc que algun tractament fos seguit per molt pocs, o fins i tot cap, malalt.
+Per que fos un contrast d’independència, hauríem d’haver pres 300 malalts d’hipercolesterolèmia que estiguessin prenent algun d’aquests tractaments, i hauríem anotat de cada un quin tractament pren i si ha tengut èxit. Amb una mostra transversal obtinguda d’aquesta darrera manera, hi havia el risc que algun tractament fos seguit per molt pocs, o fins i tot cap, malalt.
 </div>
 
 <p><em>Variables aleatòries</em>:</p>
@@ -643,7 +647,7 @@ TaulaC</code></pre>
 ## X-squared = 6.5209, df = 2, p-value = 0.03837</code></pre>
 <p><em>Conclusió</em>: Hem trobat evidència significativa que els tres tractaments no tenen la mateixa taxa d’èxit (test <span class="math inline">\(\chi^2\)</span> d’homogeneïtat, p-valor 0.04).</p>
 <p>Ara seria necessari efectuar 3 contrastos de parelles de proporcions per trobar quines parelles de tractaments tenes taxes d’èxit diferents. Us ho deixam com a exercici.</p>
-<p>De la mateixa manera que les dues variables involucrades en un contrast d’independència podien tenir més de dos nivells, podem efectuar contrastos d’homogeneïtat en situacions més generals que la comparació de variables Bernoulli.</p>
+<p>De la mateixa manera que les dues variables involucrades en un contrast d’independència podien tenir més de dos nivells, podem efectuar contrastos d’homogeneïtat en situacions més generals que la comparació de proporcions.</p>
 <p>Suposem doncs que tenim una variable aleatòria qualitativa <span class="math inline">\(X\)</span> de nivells <span class="math inline">\(X_1,\ldots,X_k\)</span>, i una variable aleatòria qualitativa <span class="math inline">\(Y\)</span> de nivells <span class="math inline">\(Y_1,\ldots,Y_l\)</span>, i volem contrastar si la probabilitat que <span class="math inline">\(Y\)</span> prengui els seus diferents valors sobre un individu depèn o no del valor de <span class="math inline">\(X\)</span> sobre aquest individu. És a dir, volem contrastar si <span class="math inline">\(P(Y=Y_h|X=X_i)=P(Y=Y_h|X=X_j)\)</span> per a tots <span class="math inline">\(i,j,h\)</span>.</p>
 
 <div class="example">
@@ -706,9 +710,9 @@ H_1: \text{ $p_1\leqslant\cdots \leqslant p_k$ i almenys una }\\
 \end{array} 
 \right.
 \]</span></p>
-<p>Fixau-vos que “<span class="math inline">\(p_1\leqslant\cdots \leqslant p_k\)</span> i almenys una d’aquestes desigualtats és estricta” és equivalent a “<span class="math inline">\(p_1\leqslant\cdots \leqslant p_k\)</span> i <span class="math inline">\(p_1&lt;p_k\)</span>”, i aquesta darrera reformulació és més curta.</p>
+<p>Fixau-vos que dir “<span class="math inline">\(p_1\leqslant\cdots \leqslant p_k\)</span> i almenys una d’aquestes desigualtats és estricta” és equivalent a dir “<span class="math inline">\(p_1\leqslant\cdots \leqslant p_k\)</span> i <span class="math inline">\(p_1&lt;p_k\)</span>”, només que aquesta darrera reformulació és més curta.</p>
 <p>Es duu a terme amb un <strong>test <span class="math inline">\(\chi^2\)</span> de Cochran-Armitage</strong>, una variant del test <span class="math inline">\(\chi^2\)</span> explicat fins ara.
-Per utilitzar-lo, basta que la mostra total sigui gran (<span class="math inline">\(\geqslant 30\)</span>), no cal la condició de Cochran.</p>
+Per utilitzar-lo, basta que la mostra total sigui gran (<span class="math inline">\(\geqslant 30\)</span>), no cal la condició de Cochran. (Si teniu curiositat sobre com es fa, podeu consultar <a href="https://en.wikipedia.org/wiki/Cochran–Armitage_test_for_trend">la seva entrada de la Wikipedia</a>)</p>
 <p>Amb R s’efectua amb la funció <code>prop.trend.test</code>, aplicada al vector de freqüències d’èxits i el vector de freqüències de cada nivell de <span class="math inline">\(X\)</span>.</p>
 
 <div class="example">

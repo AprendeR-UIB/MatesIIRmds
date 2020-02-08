@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1581100779858.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2469307931",
+    "id" : "8B6CC7FD",
+    "lastKnownWriteTime" : 1581145562,
+    "last_content_update" : 1581145562512,
+    "path" : "~/Documents/GitHub/MatesIIRmds/07-Independencia.Rmd",
+    "project_path" : "07-Independencia.Rmd",
+    "properties" : {
+        "cursorPosition" : "517,0",
+        "scrollLine" : "538"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

@@ -1,4 +1,5 @@
-"0","Freqs.Esp
+"0","Freqs.Esp=(1/sum(TaulaCCV))*Freq.CCV%*%t(Freq.NSC)
+Freqs.Esp
 "
 "1","    "
 "1","      [,1]"
