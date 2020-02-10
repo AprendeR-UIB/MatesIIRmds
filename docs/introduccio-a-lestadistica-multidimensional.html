@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Tema 1 Introducció a l’estadística multidimensional | Matemàtiques II</title>
+  <meta name="description" content="Apunts Matemàtiques II bookdown::gitbook.">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+
+  <meta property="og:title" content="Tema 1 Introducció a l’estadística multidimensional | Matemàtiques II" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Apunts Matemàtiques II bookdown::gitbook." />
+  <meta name="github-repo" content="cescrossello/MatesII" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Tema 1 Introducció a l’estadística multidimensional | Matemàtiques II" />
+  
+  <meta name="twitter:description" content="Apunts Matemàtiques II bookdown::gitbook." />
+  
+
+<meta name="author" content="The Matemàtiques II team">
+
+
+<meta name="date" content="2020-02-10">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="index.html">
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Bioestadística II</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Presentació</a></li>
+<li class="chapter" data-level="1" data-path="introduccio-a-lestadistica-multidimensional.html"><a href="introduccio-a-lestadistica-multidimensional.html"><i class="fa fa-check"></i><b>1</b> Introducció a l’estadística multidimensional</a><ul>
+<li class="chapter" data-level="1.1" data-path="introduccio-a-lestadistica-multidimensional.html"><a href="introduccio-a-lestadistica-multidimensional.html#vectors-aleatoris"><i class="fa fa-check"></i><b>1.1</b> Vectors aleatoris</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/cescrossello/Mates-II" target="blank">Publicat amb  bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Matemàtiques II</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="introduccio-a-lestadistica-multidimensional" class="section level1">
+<h1><span class="header-section-number">Tema 1</span> Introducció a l’estadística multidimensional</h1>
+<div id="vectors-aleatoris" class="section level2">
+<h2><span class="header-section-number">1.1</span> Vectors aleatoris</h2>
+<p>Una <strong>variable aleatòria <span class="math inline">\(p\)</span>-dimensional</strong>, o <strong>vector aleatori de dimensió <span class="math inline">\(p\)</span></strong>, és un vector format per <span class="math inline">\(p\)</span> variables aleatòries
+<span class="math display">\[
+\underline{X}=(X_1,X_2,\ldots,X_p).
+\]</span>
+Com en el cas de les variables aleatòries unidimensionals, és important distingir entre els vectors aleatoris i les <strong>realitzacions</strong> o les mostres dels mateixos, que corresponen a mesurar les variables que formen el vector sobre un individu de la població o sobre un conjunt d’individus.</p>
+
+<div class="example">
+<span id="exm:unnamed-chunk-2" class="example"><strong>Exemple 1.1  </strong></span>Si diem <span class="math inline">\(X_1\)</span> a la variable aleatòria que dóna l’edat d’un individu (en anys), <span class="math inline">\(X_2\)</span> a la que dóna la seva altura (arrodonida a cm) i <span class="math inline">\(X_3\)</span> a la que dóna el seu pes (arrodonida a kg amb una xifra decimal), llavors
+<span class="math display">\[
+\underline{X}=(X_1,X_2,X_3)
+\]</span>
+és un vector aleatori de dimensió 3. Cada cop que prenem un individu i li mesuram l’edat, l’alçada i el pes i organitzam aquestes mesures en aquest ordre en un vector, obtenim una realització de <span class="math inline">\(\underline{X}\)</span>.
+</div>
+
+<p>Sigui ara <span class="math inline">\(\underline{X}=(X_1,X_2,\ldots,X_p)\)</span> un vector aleatori i, per a cada <span class="math inline">\(i=1,\ldots,p\)</span>, siguin <span class="math inline">\(\mu_i\)</span> i <span class="math inline">\(\sigma_i\)</span> la mitjana i la desviació típica, respectivament, de la seva component <span class="math inline">\(X_i\)</span>. Aleshores:</p>
+<ul>
+<li><p>El <strong>valor esperat</strong>, o <strong>vector de mitjanes</strong>, de <span class="math inline">\(\underline{X}\)</span> és el vector format pels valors esperats, o mitjanes, de les seves components componentes:
+<span class="math display">\[
+E(\underline{X})=(E(X_1),\ldots,E(X_p))=(\mu_1,\ldots,\mu_p).
+\]</span>
+Per abreviar, de vegades indicarem aquest vector simplement amb <span class="math inline">\(\boldsymbol\mu\)</span>.</p></li>
+<li><p>El <strong>vector de variàncies</strong> de <span class="math inline">\(\underline{X}\)</span> és el vector format per les variàncies de les seves components:
+<span class="math display">\[
+Var(\underline{X})=(Var(X_1),\ldots,Var(X_p))=(\sigma_1^2,\ldots,\sigma_p^2).
+\]</span></p></li>
+<li><p>El <strong>vector de desviacions típiques</strong> de <span class="math inline">\(\underline{X}\)</span> és el vector format per les desviacions típiques de les seves components:
+<span class="math display">\[
+\sigma(\underline{X})=(\sigma(X_1),\ldots,\sigma(X_p))=(\sigma_1,\ldots,\sigma_p).
+\]</span></p></li>
+</ul>
+<p>Donades dues variables aleatòries <span class="math inline">\(X_1\)</span> i <span class="math inline">\(X_2\)</span> de mitjanes <span class="math inline">\(\mu_1\)</span> i <span class="math inline">\(\mu_2\)</span>, respectivament, la seva <strong>covariància</strong> és
+<span class="math display">\[
+Cov(X_1,X_2)=E((X_1-\mu_1)\cdot ( X_2-\mu_2)).
+\]</span>
+És fàcil comprovar que la covariància també es pot calcular mitjançant la identitat
+<span class="math display">\[
+Cov(X_1,X_2)=E(X_1\cdot X_2) -\mu_1\cdot \mu_2.
+\]</span></p>
+
+<div class="rmdcorbes">
+En efecte,
+<span class="math display">\[
+\begin{array}{rl}
+Cov(X_1,X_2) &amp; =E((X_1-\mu_1) ( X_2-\mu_2))=
+E(X_1X_2-\mu_1X_2-\mu_2X_1+\mu_1\mu_2)\\ &amp;
+=E(X_1X_2)-\mu_1E(X_2)-\mu_2E(X_1)+\mu_1\mu_2\\ &amp;=
+E(X_1X_2)-\mu_1\mu_2-\mu_2\mu_1+\mu_1\mu_2
+=E(X_1X_2)-\mu_1\mu_2
+\end{array}
+\]</span>
+</div>
+
+<p>La covariància de <span class="math inline">\(X_1\)</span> i <span class="math inline">\(X_2\)</span> pot prendre qualsevol valor real, i mesura el grau de variació conjunta de les variables. Si valors grans d’una variable corresponen a valors grans de l’altra, la seva covariància és positiva. En el cas oposat, si valors grans d’una variable corresponen a valors petits de l’altra, la seva covariància és negativa. Per tant, el signe de la covariància reflexa la tendència de la relació entre les variables. Emperò, la seva magnitud en valor absolut no té una interpretació senzilla.</p>
+
+<div class="rmdimportant">
+Si <span class="math inline">\(X_1\)</span> i <span class="math inline">\(X_2\)</span> són variables independents, la seva covariància es 0, perquè en aquest cas <span class="math inline">\(E(X_1\cdot X_2) =\mu_1\mu_2\)</span>. El recíproc és fals: dues variables aleatòries poden tener covariància 0 i no ser independents.
+</div>
+
+
+<div class="example">
+<p><span id="exm:nocorr" class="example"><strong>Exemple 1.2  </strong></span>Suposem que tenim un dau tetraèdric no trucat amb les cares marcades amb els valors -2, -1, 1 i 2. Siguin <span class="math inline">\(X\)</span> la variable aleatòria que consisteix a llançar el dau i anotar el resultat, i <span class="math inline">\(Y\)</span> la variable aleatòria que consisteix a llançar el dau i anotar el <em>quadrat</em> del resultat obtingut. Com les quatre cares del dau són equiprobables,
+<span class="math display">\[
+\begin{array}{l}
+\displaystyle P(X=-2)=P(X=-1)=P(X=1)=P(X=2)=\frac{1}{4}\\
+\displaystyle P(Y=1)=P(Y=4)=\frac{1}{2}
+\end{array}
+\]</span></p>
+</div>
+
+<p>Com que <span class="math inline">\(Y\)</span> és funció de <span class="math inline">\(X\)</span>, ja que <span class="math inline">\(I=X^2\)</span>, costa creure que <span class="math inline">\(X\)</span> i <span class="math inline">\(Y\)</span> vagin a ser independents. Vegem que, en efecte, no ho són. Observau que els únics possibles valors per al vector <span class="math inline">\((X,Y)\)</span> en una tirada del dau són (-2,4), (-1,1), (1,1) i (2,4), cadascun amb probabilitat 1/4. Llavors, per exemple, la probabilitat d’obtenir en una tirada <span class="math inline">\(X=-1\)</span> i <span class="math inline">\(Y=4\)</span> és 0, perquè és impossible, mentre que
+<span class="math display">\[
+P(X=-1)\cdot P(Y=4)=\frac{1}{4}\cdot\frac{1}{2}=\frac{1}{8}\neq 0.
+\]</span></p>
+<p>Vegem ara que la covariància de <span class="math inline">\(X\)</span> i <span class="math inline">\(Y\)</span> es 0. Per calcular-la, primer necessitam conéixer els valors esperats de les variables:
+<span class="math display">\[
+\begin{array}{l}
+\displaystyle E(X)=(-2)\cdot \frac{1}{4}+(-1)\cdot \frac{1}{4}+1\cdot \frac{1}{4}+2\cdot \frac{1}{4}=0\\
+\displaystyle E(Y)=1\cdot \frac{1}{2}+4\cdot \frac{1}{2}=2.5
+\end{array}
+\]</span>
+Per tant
+<span class="math display">\[
+\begin{array}{l}
+Cov(X,Y)=E\big(X\cdot Y\big)-E(X)\cdot E(Y)=E\big(X\cdot Y\big)-0\cdot 2.5=E\big(X\cdot Y\big)\\
+\qquad =P\big(X=-2,Y=4\big)\cdot (-2\cdot 4)+P\big(X=-1,Y=1\big)\cdot (-1\cdot 1)\\\qquad\qquad\qquad+P\big(X=1,Y=1\big)\cdot (1\cdot 1)+P\big(X=2,Y=4\big)\cdot (2\cdot 4)\\
+\qquad =\displaystyle \frac{1}{4}\cdot (-8)+\frac{1}{4}\cdot (-1)+\frac{1}{4}\cdot 1+\frac{1}{4}\cdot 8=0.
+\end{array}
+\]</span>
+Així doncs, <span class="math inline">\(X\)</span> i <span class="math inline">\(Y\)</span> són variables dependents, però la seva covariància és 0.</p>
+<p>La covariància és simètrica, <span class="math inline">\(Cov(X_1,X_2)=Cov(X_2,X_1)\)</span>, i la covariància d’una variable aleatòria amb ella mateixa és la seva variància:
+<span class="math display">\[
+Cov(X,X)=E((X-\mu)^2)=Var(X).
+\]</span>
+Per simplificar la notació, se sol utilitzar <span class="math inline">\(\sigma_{ij}\)</span> per indicar la covariància de dues variables aleatòries <span class="math inline">\(X_i\)</span> i <span class="math inline">\(X_j\)</span> que formin part d’un vector aleatori. És a dir, escriurem
+<span class="math display">\[
+\sigma_{i j}=Cov(X_i,X_j)\text{ i }
+\sigma_{ii}=Cov(X_i,X_i)=\sigma_i^2.
+\]</span></p>
+<p>Com al cas unidimensional, un vector aleatori <span class="math inline">\(\underline{X}=(X_1,\ldots,X_p)\)</span>
+admet una mesura de la seva dispersió respecte del seu valor esperat <span class="math inline">\(\boldsymbol\mu\)</span>. És la seva <em>matriu de covariàncies</em>, que es defineix com
+<span class="math display">\[
+\begin{array}{l}
+\displaystyle Cov(\underline{X})  =E((\underline{X}-\boldsymbol\mu)^t\cdot (\underline{X}-\boldsymbol\mu))=
+E\left(\!\begin{pmatrix} X_1-\mu_1 \\ X_2-\mu_2 \\ \vdots \\ X_p-\mu_p\end{pmatrix}\!\cdot\!
+(X_1-\mu_1, X_2-\mu_2,\ldots,X_p-\mu_p)\right)\\[3ex] 
+\displaystyle \quad
+=\begin{pmatrix} E((X_1-\mu_1)^2) &amp; E((X_1-\mu_1)(X_2-\mu_2)) &amp; \ldots  &amp; E((X_1-\mu_1)(X_p-\mu_p))\\
+E((X_2-\mu_2)(X_1-\mu_1)) &amp; E((X_2-\mu_2)^2)  &amp;  \ldots  &amp;E((X_2-\mu_2)(X_p-\mu_p))\\
+\vdots &amp; \vdots &amp; \ddots  &amp; \vdots\\
+E((X_p-\mu_p)(X_1-\mu_1)) &amp; E((X_p-\mu_p)(X_2-\mu_2)) &amp; \ldots  &amp;  E((X_p-\mu_p)^2) 
+ \end{pmatrix}
+\\[3ex] \displaystyle\quad
+=\begin{pmatrix} \sigma_{1 1} &amp; \sigma_{1 2} &amp; \ldots &amp; \sigma_{1
+p}\\
+\sigma_{2 1} &amp; \sigma_{2 2} &amp; \ldots &amp; \sigma_{2 p}\\
+\vdots &amp; \vdots &amp;\ddots  &amp; \vdots\\
+\sigma_{p 1} &amp; \sigma_{p 2} &amp; \ldots &amp; \sigma_{p p}\\
+ \end{pmatrix}
+\end{array}
+\]</span>
+És a dir, la matriu de covariàncies de <span class="math inline">\(\underline{X}\)</span> té com a entrada <span class="math inline">\((i,j)\)</span> la covariància <span class="math inline">\(\sigma_{ij}\)</span> de <span class="math inline">\(X_i\)</span> i <span class="math inline">\(X_j\)</span>. Es pot comprovar fàcilment que aquesta matriu es pot calcular mitjançant la identitat
+<span class="math display">\[
+Cov(\underline{X})=E(\underline{X}^t\cdot \underline{X})-\boldsymbol\mu^t\cdot \boldsymbol\mu.
+\]</span></p>
+<p>Com que el valor concret de la covariància és difícil d’interpretar, per a mesurar la relació lineal entre dues variables aleatòries s’usa l’anomenat <strong>coeficient de correlació lineal de Pearson</strong> (o <strong>correlació</strong> a seques), que ve a ser una versió normalitzada de la covariància. En concret, la <strong>correlació</strong> de les variables <span class="math inline">\(X_i\)</span> i <span class="math inline">\(X_j\)</span> es defineix com el quocient
+<span class="math display">\[
+Cor(X_i,X_j)=\frac{\sigma_{i j}}{\sigma_{i} \sigma_{j}},
+\]</span>
+i és una mesura adimensional de la relació entre <span class="math inline">\(X_i\)</span> i <span class="math inline">\(X_j\)</span>. Sovint denotarem <span class="math inline">\(Cor(X_i,X_j)\)</span> per mitjà de <span class="math inline">\(\rho_{ij}\)</span>.</p>
+<p>Les correlacions tenen les propietats següents:</p>
+<ol style="list-style-type: decimal">
+<li><p><span class="math inline">\(-1\leqslant\rho_{i j}\leqslant 1\)</span>.</p></li>
+<li><p><span class="math inline">\(\rho_{i j}= \rho_{j i}\)</span> i <span class="math inline">\(\rho_{ii}=1\)</span>.</p></li>
+<li><p>Si <span class="math inline">\(a_i,a_j,b_i,b_j\in \mathbb{R}\)</span> i <span class="math inline">\(a_i,a_j\neq 0\)</span>, llavors
+<span class="math display">\[
+Cor(a_iX_i+b_i,a_jX_j+b_j)=\pm Cor(X_i,X_j),
+\]</span>
+on el signe que apareix és el del producte <span class="math inline">\(a_i\cdot a_j\)</span>.</p></li>
+<li><p>Si <span class="math inline">\(\rho_{i j}=\pm 1\)</span>, les variables tenen una relació lineal perfecta, és a dir, existeixen <span class="math inline">\(\alpha,\beta\in \mathbb{R}\)</span> tals que <span class="math inline">\(X_i=\alpha X_j+\beta\)</span>. La pendent <span class="math inline">\(\alpha\)</span> d’aquesta recta té el mateix signe que la correlació.</p></li>
+<li><p>Si <span class="math inline">\(\rho_{i j}=0\)</span>, diem que les variables <span class="math inline">\(X_i\)</span> i <span class="math inline">\(X_j\)</span> són <strong>incorrelades</strong>.
+Notem que la correlació és 0 si, i només si, la covariància és 0. Per tant, dues variables aleatòries independents són incorrelades. El recíproc en general és fals, com mostra l’Exemple <a href="introduccio-a-lestadistica-multidimensional.html#exm:nocorr">1.2</a>.</p></li>
+</ol>
+<p>La <em>matriu de correlacions</em> d’un vector aleatori <span class="math inline">\(\underline{X}=(X_1,\ldots,X_p)\)</span> és
+<span class="math display">\[
+Cor(\underline{X})
+=\begin{pmatrix} 1 &amp; \rho_{1 2} &amp; \ldots &amp; \rho_{1 p}\\
+\rho_{2 1} &amp; 1 &amp; \ldots &amp; \rho_{2 p}\\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots\\
+\rho_{p 1} &amp; \rho_{p 2} &amp; \ldots &amp; 1\\
+ \end{pmatrix}.
+\]</span></p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/cescrossello/Mates-II/edit/master/08-EstMult.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["Bioestadistica-II.pdf", "Bioestadistica-II.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -1,0 +1,178 @@
+# Introducció  a l'estadística multidimensional
+
+En general, les dades que es recullen en experiments són multidimensionals: mesuram diverses variables aleatòries sobre una mateixa mostra d'individus, i organitzam aquesta informació en taules de dades on les fileres representen els individus observats i cada columna correspon a una variable diferent. És a dir, el que fem és avaluar un vector de variables aleatòries (en direm un **vector aleatori**) sobre els individus d'una població. En aquesta lliçó introduïm alguns conceptes nous sobre vectors de variables aleatòries i les seves realitzacions.
+
+## Vectors aleatoris
+
+Un **vector aleatori de dimensió $p$** és un vector format per $p$ variables aleatòries 
+$$
+\underline{X}=(X_1,X_2,\ldots,X_p).
+$$
+Com en el cas de les variables aleatòries unidimensionals, és important distingir entre un vectors aleatori i les **realitzacions** o  les **mostres** d'aquest vector, que corresponen a mesurar les variables del vector sobre un individu de la població o sobre un conjunt d'individus.
+
+```{example}
+Si diem $X_1$ a la variable aleatòria que dóna l'edat d'un individu (en anys), $X_2$ a la que dóna la seva alçada (arrodonida a cm) i $X_3$ a la que dóna el seu pes (arrodonida a kg amb una xifra decimal), llavors
+$$
+\underline{X}=(X_1,X_2,X_3)
+$$
+és un vector aleatori de dimensió 3. Cada cop que prenem un individu i n'anotam l'edat, l'alçada i el pes i organitzam aquestes mesures en aquest ordre en un vector, obtenim una **realització** de $\underline{X}$. 
+Llavors,una **mostra** de $X$ serà un conjunt de vectors amb l'edat, l'alçada i el pes d'un grup d'individus de la població. Usualment, organitzarem una mostra de $X$ per mitjà d'una taula de dades amb fileres aquests vectors.
+```
+
+Sigui ara $\underline{X}=(X_1,X_2,\ldots,X_p)$ un vector aleatori i, per a cada $i=1,\ldots,p$, siguin $\mu_i$ i $\sigma_i$ la mitjana i la desviació típica, respectivament, de la seva component $X_i$. Aleshores:
+
+* El **valor esperat**, o **vector de mitjanes**,  de  $\underline{X}$ és el vector format pels valors esperats, o mitjanes, de les seves components:
+$$
+E(\underline{X})=(E(X_1),\ldots,E(X_p))=(\mu_1,\ldots,\mu_p).
+$$
+Per  abreviar, de vegades indicarem aquest vector simplement amb $\boldsymbol\mu$.
+
+* El **vector de variàncies**  de  $\underline{X}$ és el vector format per les variàncies de les seves components:
+$$
+Var(\underline{X})=(Var(X_1),\ldots,Var(X_p))=(\sigma_1^2,\ldots,\sigma_p^2).
+$$
+
+* El **vector de desviacions típiques**  de  $\underline{X}$ és el vector format per les desviacions típiques de les seves components:
+$$
+\sigma(\underline{X})=(\sigma(X_1),\ldots,\sigma(X_p))=(\sigma_1,\ldots,\sigma_p).
+$$
+
+
+### Covariància
+
+Donades dues variables aleatòries $X_1$ i $X_2$ de mitjanes $\mu_1$ i $\mu_2$, respectivament, la seva **covariància** és 
+$$
+Cov(X_1,X_2)=E((X_1-\mu_1)\cdot ( X_2-\mu_2)).
+$$
+És fàcil comprovar que la covariància també es pot calcular mitjançant la identitat
+$$
+Cov(X_1,X_2)=E(X_1\cdot X_2) -\mu_1\cdot \mu_2.
+$$
+
+```{block2,type="rmdcorbes"}
+En efecte,
+$$
+\begin{array}{rl}
+Cov(X_1,X_2) & =E((X_1-\mu_1) ( X_2-\mu_2))=
+E(X_1X_2-\mu_1X_2-\mu_2X_1+\mu_1\mu_2)\\ &
+=E(X_1X_2)-\mu_1E(X_2)-\mu_2E(X_1)+\mu_1\mu_2\\ &=
+E(X_1X_2)-\mu_1\mu_2-\mu_2\mu_1+\mu_1\mu_2
+=E(X_1X_2)-\mu_1\mu_2
+\end{array}
+$$
+```
+
+La covariància de  $X_1$ i $X_2$ pot prendre qualsevol valor real, i mesura el grau de variació conjunta de les variables. Si valors grans d'una variable corresponen a valors grans de l'altra, la seva covariància és positiva. En el cas oposat, si valors grans d'una variable corresponen a valors petits de l'altra, la seva covariància és negativa. Per tant, el signe de la covariància  reflexa la tendència de la relació entre les variables. Emperò, la seva magnitud en valor absolut no té una interpretació senzilla. 
+
+```{block2, type="rmdimportant"}
+Si $X_1$ i $X_2$ són variables independents, la seva covariància es 0, perquè en aquest cas $E(X_1\cdot X_2) =\mu_1\mu_2$. El recíproc és fals: dues variables aleatòries poden tener covariància 0 i no ser independents.
+```
+
+```{example,nocorr} 
+Suposem que tenim un dau tetraèdric no trucat amb les cares marcades amb els valors -2, -1, 1 i 2. Siguin $X$ la variable aleatòria que consisteix a llançar el dau i anotar el resultat, i $Y$ la variable aleatòria que consisteix a llançar el dau i anotar el *quadrat* del resultat obtingut. Com les quatre cares del dau són equiprobables, 
+$$
+\begin{array}{l}
+\displaystyle P(X=-2)=P(X=-1)=P(X=1)=P(X=2)=\frac{1}{4}\\
+\displaystyle P(Y=1)=P(Y=4)=\frac{1}{2}
+\end{array}
+$$
+  
+  
+```
+Com que $Y$ és funció de $X$, ja que $I=X^2$, costa creure que $X$ i $Y$ vagin a ser independents. Vegem que, en efecte, no ho són. Observau que  els únics possibles valors per al vector $(X,Y)$ en una tirada del dau són (-2,4), (-1,1), (1,1) i (2,4), cadascun amb probabilitat 1/4. Llavors, per exemple, la probabilitat d'obtenir en una tirada $X=-1$ i $Y=4$ és 0, perquè és impossible, mentre que
+$$
+P(X=-1)\cdot P(Y=4)=\frac{1}{4}\cdot\frac{1}{2}=\frac{1}{8}\neq 0.
+$$
+
+Vegem ara que la covariància de $X$ i $Y$ es 0. Per calcular-la, primer necessitam conéixer els valors esperats de les variables:
+$$
+\begin{array}{l}
+\displaystyle E(X)=(-2)\cdot \frac{1}{4}+(-1)\cdot \frac{1}{4}+1\cdot \frac{1}{4}+2\cdot \frac{1}{4}=0\\
+\displaystyle E(Y)=1\cdot \frac{1}{2}+4\cdot \frac{1}{2}=2.5
+\end{array}
+$$
+Per tant
+$$
+\begin{array}{l}
+Cov(X,Y)=E\big(X\cdot Y\big)-E(X)\cdot E(Y)=E\big(X\cdot Y\big)-0\cdot 2.5=E\big(X\cdot Y\big)\\
+\qquad =P\big(X=-2,Y=4\big)\cdot (-2\cdot 4)+P\big(X=-1,Y=1\big)\cdot (-1\cdot 1)\\\qquad\qquad\qquad+P\big(X=1,Y=1\big)\cdot (1\cdot 1)+P\big(X=2,Y=4\big)\cdot (2\cdot 4)\\
+\qquad =\displaystyle \frac{1}{4}\cdot (-8)+\frac{1}{4}\cdot (-1)+\frac{1}{4}\cdot 1+\frac{1}{4}\cdot 8=0.
+\end{array}
+$$
+Així doncs, $X$ i $Y$ són variables dependents, però la seva covariància és 0. 
+
+La covariància és simètrica, $Cov(X_1,X_2)=Cov(X_2,X_1)$, i la covariància d'una variable aleatòria amb ella mateixa és la seva variància: 
+$$
+Cov(X,X)=E((X-\mu)^2)=Var(X).
+$$
+Per simplificar la notació, se sol utilitzar $\sigma_{ij}$ per indicar la covariància de dues variables aleatòries $X_i$ i $X_j$ que formin part d'un vector aleatori. És a dir, escriurem
+$$
+\sigma_{i j}=Cov(X_i,X_j)\text{ i }
+\sigma_{ii}=Cov(X_i,X_i)=\sigma_i^2.
+$$
+
+Com al cas unidimensional, un vector aleatori $\underline{X}=(X_1,\ldots,X_p)$
+admet una mesura de la seva dispersió respecte del seu valor esperat $\boldsymbol\mu$. És la seva *matriu de covariàncies*, que es defineix com
+$$
+\begin{array}{l}
+\displaystyle Cov(\underline{X})  =E((\underline{X}-\boldsymbol\mu)^t\cdot (\underline{X}-\boldsymbol\mu))=
+E\left(\!\begin{pmatrix} X_1-\mu_1 \\ X_2-\mu_2 \\ \vdots \\ X_p-\mu_p\end{pmatrix}\!\cdot\!
+(X_1-\mu_1, X_2-\mu_2,\ldots,X_p-\mu_p)\right)\\[3ex] 
+\displaystyle \quad
+=\begin{pmatrix} E((X_1-\mu_1)^2) & E((X_1-\mu_1)(X_2-\mu_2)) & \ldots  & E((X_1-\mu_1)(X_p-\mu_p))\\
+E((X_2-\mu_2)(X_1-\mu_1)) & E((X_2-\mu_2)^2)  &  \ldots  &E((X_2-\mu_2)(X_p-\mu_p))\\
+\vdots & \vdots & \ddots  & \vdots\\
+E((X_p-\mu_p)(X_1-\mu_1)) & E((X_p-\mu_p)(X_2-\mu_2)) & \ldots  &  E((X_p-\mu_p)^2) 
+ \end{pmatrix}
+\\[3ex] \displaystyle\quad
+=\begin{pmatrix} \sigma_{1 1} & \sigma_{1 2} & \ldots & \sigma_{1
+p}\\
+\sigma_{2 1} & \sigma_{2 2} & \ldots & \sigma_{2 p}\\
+\vdots & \vdots &\ddots  & \vdots\\
+\sigma_{p 1} & \sigma_{p 2} & \ldots & \sigma_{p p}\\
+ \end{pmatrix}
+\end{array}
+$$
+És a dir, la matriu de covariàncies de $\underline{X}$ té com a entrada $(i,j)$ la covariància $\sigma_{ij}$ de $X_i$ i $X_j$. Es pot comprovar fàcilment que aquesta matriu es pot calcular mitjançant la identitat
+$$
+Cov(\underline{X})=E(\underline{X}^t\cdot \underline{X})-\boldsymbol\mu^t\cdot \boldsymbol\mu.
+$$
+
+### Correlació de Pearson
+
+
+Com que el valor concret de la covariància és difícil d'interpretar, per a mesurar la relació lineal entre dues variables aleatòries s'usa l'anomenat **coeficient de correlació lineal de Pearson** (o **correlació** a seques), que ve a ser una versió normalitzada de la covariància. En concret, la **correlació** de les variables $X_i$ i $X_j$ es defineix com el quocient
+$$
+Cor(X_i,X_j)=\frac{\sigma_{i j}}{\sigma_{i} \sigma_{j}},
+$$
+i és una mesura adimensional de la relació entre $X_i$ i $X_j$. Sovint denotarem $Cor(X_i,X_j)$ per mitjà de $\rho_{ij}$.
+
+Les correlacions tenen les propietats següents:
+
+1. $-1\leq \rho_{i j}\leq 1$.
+
+2. $\rho_{i j}= \rho_{j i}$ i $\rho_{ii}=1$.
+
+3. Si $a_i,a_j,b_i,b_j\in \mathbb{R}$ i $a_i,a_j\neq 0$, llavors
+$$
+Cor(a_iX_i+b_i,a_jX_j+b_j)=\pm Cor(X_i,X_j),
+$$
+on el signe que apareix és el del producte $a_i\cdot a_j$.
+
+4. Si $\rho_{i j}=\pm 1$, les variables tenen una relació lineal perfecta, és a dir, existeixen $\alpha,\beta\in \mathbb{R}$ tals que $X_i=\alpha X_j+\beta$. La pendent $\alpha$ d'aquesta recta té el mateix signe que la correlació.
+
+5. Si $\rho_{i j}=0$, diem que les variables $X_i$ i $X_j$ són **incorrelades**.
+Notem que la correlació és 0 si, i només si, la covariància és 0. Per tant, dues variables aleatòries independents són incorrelades. El recíproc en general és fals, com mostra l'Exemple \@ref(exm:nocorr).
+
+
+
+
+La *matriu de correlacions* d'un vector aleatori $\underline{X}=(X_1,\ldots,X_p)$ és
+$$
+Cor(\underline{X})
+=\begin{pmatrix} 1 & \rho_{1 2} & \ldots & \rho_{1 p}\\
+\rho_{2 1} & 1 & \ldots & \rho_{2 p}\\
+\vdots & \vdots & \ddots & \vdots\\
+\rho_{p 1} & \rho_{p 2} & \ldots & 1\\
+ \end{pmatrix}.
+$$
