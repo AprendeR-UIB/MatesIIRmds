@@ -25,7 +25,7 @@
 <meta name="author" content="The Matemàtiques II team">
 
 
-<meta name="date" content="2020-02-10">
+<meta name="date" content="2020-02-11">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -135,7 +135,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1" data-path="repas-de-la-distribucio-normal.html"><a href="repas-de-la-distribucio-normal.html"><i class="fa fa-check"></i><b>1</b> Repàs de la distribució normal</a><ul>
 <li class="chapter" data-level="1.1" data-path="repas-de-la-distribucio-normal.html"><a href="repas-de-la-distribucio-normal.html#propietats-de-la-distribucio-normal"><i class="fa fa-check"></i><b>1.1</b> Propietats de la distribució normal</a></li>
 <li class="chapter" data-level="1.2" data-path="repas-de-la-distribucio-normal.html"><a href="repas-de-la-distribucio-normal.html#amb-r"><i class="fa fa-check"></i><b>1.2</b> Amb R</a></li>
-<li class="chapter" data-level="1.3" data-path="repas-de-la-distribucio-normal.html"><a href="repas-de-la-distribucio-normal.html#tipificacio"><i class="fa fa-check"></i><b>1.3</b> Tipificació</a></li>
+<li class="chapter" data-level="1.3" data-path="repas-de-la-distribucio-normal.html"><a href="repas-de-la-distribucio-normal.html#combinacions-lineals"><i class="fa fa-check"></i><b>1.3</b> Combinacions lineals</a></li>
 <li class="chapter" data-level="1.4" data-path="repas-de-la-distribucio-normal.html"><a href="repas-de-la-distribucio-normal.html#intervals-de-referencia"><i class="fa fa-check"></i><b>1.4</b> Intervals de referència</a></li>
 <li class="chapter" data-level="1.5" data-path="repas-de-la-distribucio-normal.html"><a href="repas-de-la-distribucio-normal.html#el-z-score"><i class="fa fa-check"></i><b>1.5</b> El z-score</a></li>
 </ul></li>
@@ -550,7 +550,7 @@ Suposem que llanç la moneda en l’aire 10 vegades i obtenc 7 cares. És evidè
 Un resultat tan extrem o més que l’obtingut no és molt improbable si la moneda no està trucada: passaria 1 de cada 6 vegades. Per tant, com que és bastant compatible amb el fet que la moneda sigui honrada, no ho podem considerar evidència que estigui trucada a favor de cara.</p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-166" class="example"><strong>Exemple 4.4  </strong></span>Tenc una moneda, i ara crec que està trucada a favor de creu. Vull contrastar-ho. Plantejat en termes de <span class="math inline">\(p_{\mathit{Cara}}\)</span>, el contrast que vull realitzar és
+<p><span id="exm:unnamed-chunk-180" class="example"><strong>Exemple 4.4  </strong></span>Tenc una moneda, i ara crec que està trucada a favor de creu. Vull contrastar-ho. Plantejat en termes de <span class="math inline">\(p_{\mathit{Cara}}\)</span>, el contrast que vull realitzar és
 <span class="math display">\[
 \left\{\begin{array}{ll} 
 H_{0}:p_{\mathit{Cara}}= 0.5\\ 
@@ -581,7 +581,7 @@ Un resultat tan extrem o més que l’obtingut és molt improbable si <span clas
 </ul>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-167" class="example"><strong>Exemple 4.5  </strong></span>Per exemple, suposem que al contrast de les mitjanes d’hores setmanals d’esport d’homes i dones de l’Exemple <a href="contrastos-dhipotesis-generalitats.html#exm:esport1">4.3</a> empram com a estadístic de contrast la diferència entre les mitjanes mostrals <span class="math inline">\(\overline{X}_d-\overline{X}_h\)</span> (<strong>que no serà el cas: només és un exemple!</strong>). Aleshores, el p-valor del contrast és</p>
+<p><span id="exm:unnamed-chunk-181" class="example"><strong>Exemple 4.5  </strong></span>Per exemple, suposem que al contrast de les mitjanes d’hores setmanals d’esport d’homes i dones de l’Exemple <a href="contrastos-dhipotesis-generalitats.html#exm:esport1">4.3</a> empram com a estadístic de contrast la diferència entre les mitjanes mostrals <span class="math inline">\(\overline{X}_d-\overline{X}_h\)</span> (<strong>que no serà el cas: només és un exemple!</strong>). Aleshores, el p-valor del contrast és</p>
 </div>
 
 <ul>
@@ -629,7 +629,7 @@ En un contrast d’hipòtesis no obtenim cap informació directa sobre la probab
 
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-169" class="example"><strong>Exemple 4.6  </strong></span>Tenc una moneda i crec que està trucada; a favor de cara o a favor de creu, no ho sé, només sospit que està trucada. Vull contrastar-ho.</p>
+<p><span id="exm:unnamed-chunk-183" class="example"><strong>Exemple 4.6  </strong></span>Tenc una moneda i crec que està trucada; a favor de cara o a favor de creu, no ho sé, només sospit que està trucada. Vull contrastar-ho.</p>
 </div>
 
 <p>Plantejat en termes de la probabilitat de treure cara <span class="math inline">\(p_{\mathit{Cara}}\)</span>, el contrast que vull realitzar ara és
@@ -723,7 +723,7 @@ Al nostre cas coincideix amb el que hem calculat perquè la variable <span class
 </ul>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-173" class="example"><strong>Exemple 4.7  </strong></span>En un test d’embaraç, el contrast que es realitza és:
+<p><span id="exm:unnamed-chunk-187" class="example"><strong>Exemple 4.7  </strong></span>En un test d’embaraç, el contrast que es realitza és:
 <span class="math display">\[
 \left\{\begin{array}{ll} 
 H_{0}:\text{No estàs embaraçada}\\ 
@@ -736,7 +736,7 @@ H_{1}:\text{Estàs embaraçada}
 <p><img src="Bioestadistica-II_files/figure-html/types.png" width="60%" style="display: block; margin: auto;" /></p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-175" class="example"><strong>Exemple 4.8  </strong></span>En un judici, on s’ha de declarar un acusat innocent o culpable, el contrast era
+<p><span id="exm:unnamed-chunk-189" class="example"><strong>Exemple 4.8  </strong></span>En un judici, on s’ha de declarar un acusat innocent o culpable, el contrast era
 <span class="math display">\[
 \left\{\begin{array}{ll} 
 H_{0}:\text{L&#39;acusat és innocent}\\ 
@@ -754,7 +754,7 @@ H_{1}:\text{L&#39;acusat és culpable}
 <p>És pitjor l’error de tipus I, convé minimitzar-lo. Per això només es declara qualcú culpable quan les proves ho demostren més enllà de qualsevol dubte raonable</p>
 
 <div class="example">
-<span id="exm:unnamed-chunk-176" class="example"><strong>Exemple 4.9  </strong></span>En un examen, el contrast era
+<span id="exm:unnamed-chunk-190" class="example"><strong>Exemple 4.9  </strong></span>En un examen, el contrast era
 <span class="math display">\[
 \left\{\begin{array}{ll} 
 H_{0}:\text{L&#39;estudiant no sap la matèria}\\ 
@@ -785,7 +785,7 @@ El problema és quan fem disminuir <span class="math inline">\(\alpha\)</span>, 
 Si efectuam molts de contrastos, augmenta la probabilitat de “trobar qualque cosa” encara que no hi hagi res que trobar.
 </div>
 
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-179"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-193"></span>
 <img src="http://imgs.xkcd.com/comics/significant.png" alt="&quot;Significant&quot; (https://xkcd.com/882/ (CC-BY-NC 2.5))"  />
 <p class="caption">
 Figura 4.1: “Significant” (<a href="https://xkcd.com/882/" class="uri">https://xkcd.com/882/</a> (CC-BY-NC 2.5))
@@ -1058,7 +1058,7 @@ P(T\geqslant 1.944)=\texttt{1-pt(1.944,24)}=0.032
 </ul>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-192" class="example"><strong>Exemple 4.11  </strong></span>Sigui <span class="math inline">\(X\)</span> una població normal. Volem fer el contrast
+<p><span id="exm:unnamed-chunk-206" class="example"><strong>Exemple 4.11  </strong></span>Sigui <span class="math inline">\(X\)</span> una població normal. Volem fer el contrast
 <span class="math display">\[
 \left\{\begin{array}{l}
 H_{0}:\mu=20\\ H_{1}:\mu&gt;20
@@ -1103,7 +1103,7 @@ Com pot ser que amb la mateixa mostra i mateix nivell de significació poguem co
 En canvi, només trobarem evidència que <span class="math inline">\(\mu&gt; 20\)</span> si <span class="math inline">\(T\)</span> és molt gran, i per tant hi tenim una sola font d’error de tipus I. Aleshores, per garantir una mateixa probabilitat d’error de tipus I, hem de ser molt més exigents al contrast bilateral, on ens podem equivocar de dues maneres diferents, que a l’unilateral.</p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-196" class="example"><strong>Exemple 4.13  </strong></span>Sigui <span class="math inline">\(X\)</span> una població normal. Volem fer el contrast
+<p><span id="exm:unnamed-chunk-210" class="example"><strong>Exemple 4.13  </strong></span>Sigui <span class="math inline">\(X\)</span> una població normal. Volem fer el contrast
 <span class="math display">\[
 \left\{\begin{array}{l}
 H_{0}:\mu=20\\ H_{1}:\mu\neq 20
@@ -1151,7 +1151,7 @@ i com que p-valor és més petit que <span class="math inline">\(\alpha\)</span>
 </ul>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-198" class="example"><strong>Exemple 4.14  </strong></span>Si realitzam un test t per efectuar un contrast
+<p><span id="exm:unnamed-chunk-212" class="example"><strong>Exemple 4.14  </strong></span>Si realitzam un test t per efectuar un contrast
 <span class="math display">\[
 \left\{\begin{array}{l}
 H_{0}:\mu=\mu_0\\ 
@@ -1290,7 +1290,7 @@ Us sona? Fent <span class="math inline">\(q=1-\alpha\)</span>, és el del tema a
 </ul>
 <p>R marca aquestes franges amb un codi d’asteriscs</p>
 <pre><code>Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1</code></pre>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-200"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-214"></span>
 <img src="Bioestadistica-II_files/figure-html/emojis.png" alt="Emoticones per representar els nivells de significació estadística (BMJ 2018; 363, doi: https://doi.org/10.1136/bmj.k5033)" width="80%" />
 <p class="caption">
 Figura 4.2: Emoticones per representar els nivells de significació estadística (BMJ 2018; 363, doi: <a href="https://doi.org/10.1136/bmj.k5033" class="uri">https://doi.org/10.1136/bmj.k5033</a>)
@@ -1367,7 +1367,7 @@ FPR&amp;=\dfrac{P(H_0)\cdot P(H_0\text{ reb.}|H_0)}{P(H_0)\cdot P(H_0\text{ reb.
 <p>Per calcular-lo, hem de saber el nivell de significació i la potència i hem de decidir <em>a priori</em> quina probabilitat assignam al fet que <span class="math inline">\(H_1\)</span> sigui vertadera.</p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-203" class="example"><strong>Exemple 4.15  </strong></span>En un estudi (publicat a <em>Psychological Science</em> 22 (2011), pp. 1011-1018) es repartiren 66 participants en dos grups de 33, als que direm grup Bandera i grup Control, i els mostraren les mateixes 4 fotos d’edificis. En les del grup Bandera, dues mostraven una bandera dels EUA, i en les del grup Control, aquestes banderes havien estat eliminades digitalment. Per emmascarar l’estudi, se’ls demanà que endevinassin l’hora del dia en què varen ser preses les fotos.</p>
+<p><span id="exm:unnamed-chunk-217" class="example"><strong>Exemple 4.15  </strong></span>En un estudi (publicat a <em>Psychological Science</em> 22 (2011), pp. 1011-1018) es repartiren 66 participants en dos grups de 33, als que direm grup Bandera i grup Control, i els mostraren les mateixes 4 fotos d’edificis. En les del grup Bandera, dues mostraven una bandera dels EUA, i en les del grup Control, aquestes banderes havien estat eliminades digitalment. Per emmascarar l’estudi, se’ls demanà que endevinassin l’hora del dia en què varen ser preses les fotos.</p>
 </div>
 
 <p>Després de mirar les fotos, els participants emplenaren un qüestionari sobre idees polítiques, a partir del qual es pot calcular un cert “índex de republicanisme” <span class="math inline">\(M\)</span> del que l’ha contestat. Resulta que <span class="math inline">\(M\)</span> va ser significativament més gran en el grup Bandera que en el grup Control, i amb un nivell de significació <span class="math inline">\(\alpha=0.05\)</span> els autors de l’estudi conclogueren que mirar fotos amb banderes estatals et “dretitza” (almenys temporalment) les idees polítiques. Vaig a estimar el risc que aquest positiu sigui fals.</p>

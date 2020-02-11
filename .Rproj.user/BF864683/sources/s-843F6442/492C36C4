@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1581439431299.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1126970835",
+    "id" : "492C36C4",
+    "lastKnownWriteTime" : 1581441617,
+    "last_content_update" : 1581441617700,
+    "path" : "~/Documents/GitHub/MatesIIRmds/02-EstimacioPuntual.Rmd",
+    "project_path" : "02-EstimacioPuntual.Rmd",
+    "properties" : {
+        "cursorPosition" : "760,181",
+        "scrollLine" : "748"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}
