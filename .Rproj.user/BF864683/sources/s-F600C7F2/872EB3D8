@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1581436519847.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "872EB3D8",
+    "lastKnownWriteTime" : 1581525989,
+    "last_content_update" : 1581525989507,
+    "path" : "~/Documents/GitHub/MatesIIRmds/01-Normal.Rmd",
+    "project_path" : "01-Normal.Rmd",
+    "properties" : {
+        "cursorPosition" : "431,34",
+        "scrollLine" : "424"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

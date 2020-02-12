@@ -12,7 +12,7 @@ pre {
 pre code {
   white-space: inherit;
 }
-.rmdcaution, .rmdimportant, .rmdnote, .rmdwarning, .rmdexercici {
+.rmdcaution, .rmdimportant, .rmdnote, .rmdwarning {
   padding: 1em 1em 1em 4em;
   margin-bottom: 10px;
   background: #f5f5f5 5px center/3em no-repeat;
@@ -21,6 +21,11 @@ pre code {
   padding: 1em 1em 1em 6em;
   margin-bottom: 10px;
   background: #f5f5f5 5px center/5em no-repeat;
+}
+.rmdexercici {
+  padding: 1em 1em 1em 4em;
+  margin-bottom: 10px;
+  background: #f9f9f9 5px center/3em no-repeat;
 }
 .rmderror {
   padding: 1em 1em 2em 7em;
