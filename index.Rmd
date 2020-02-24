@@ -81,6 +81,9 @@ Detalls matemàtics que us poden interessar, però que no cal saber.
 ```{block2,type="rmdnote"}
 Comentari que volem emfatitzar.
 ```
+```{block2,type="rmdrecordau"}
+Comentari que volem que recordeu.
+```
 ```{block2,type="rmderrorpetit"}
 Acabam de matar un moixet.
 ```

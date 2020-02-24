@@ -12,7 +12,7 @@ pre {
 pre code {
   white-space: inherit;
 }
-.rmdcaution, .rmdimportant, .rmdnote, .rmdwarning {
+.rmdcaution, .rmdimportant, .rmdnote, .rmdrecordau {
   padding: 1em 1em 1em 4em;
   margin-bottom: 10px;
   background: #f5f5f5 5px center/3em no-repeat;
@@ -54,8 +54,8 @@ pre code {
 .rmdcorbes {
   background-image: url("Bioestadistica-II_files/figure-html/corbes.png");
 }
-.rmdwarning {
-  background-image: url("Bioestadistica-II_files/figure-html/warning.png");
+.rmdrecordau {
+  background-image: url("Bioestadistica-II_files/figure-html/recordau.png");
 }
 .rmderror {
   background-image: url("Bioestadistica-II_files/figure-html/error.png");

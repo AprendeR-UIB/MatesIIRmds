@@ -43,34 +43,44 @@ En un contrast d'hipòtesis:
 
     *  Per defecte, estam disposats a acceptar que els dos tractaments són igual d'efectius
 
-* Si obtenim evidència suficient que $H_1$ és la hipòtesi vertadera, rebutjarem $H_0$ en favor de $H_1$ i conclourem que $H_1$ és vertadera. 
+* Si obtenim evidència suficient que $H_0$ és falsa, rebutjarem $H_0$ en favor de $H_1$ i conclourem que $H_1$ és vertadera. 
 
-    Què vol dir "obtenir evidència suficient que $H_1$ és vertadera"? Doncs que les proves obtingudes fan que $H_0$ sigui  **inversemblant** (mala de creure) per comparació amb $H_1$:
+    Què vol dir "obtenir evidència suficient que $H_0$ és falsa"? Doncs que les proves obtingudes fan que $H_0$ sigui  **inversemblant** (mala de creure) per comparació amb $H_1$:
 
    *  Tendrem evidència que la moneda està trucada a favor de cara si a la nostra sèrie de llençaments la proporció de cares és tan i tan gran que fa molt difícil creure que la probabilitat de cara sigui del 50%
 
     * Tendrem evidència que el tractament A és més efectiu que B en la curació de la malaltia X si en el nostre assaig la taxa de curació de la malaltia X amb el tractament A és tan i tan més gran que la de B que fa molt difícil creure que els dos tractaments siguin iguals d'efectius
 
-*  Si no obtenim evidència suficient de $H_1$, és a dir, si les nostres dades són compatibles amb $H_0$, no podrem rebutjar-la: acceptarem la hipòtesi nul·la.
+*  Si no obtenim evidència suficient que $H_0$ és falsa, és a dir, si les nostres dades són compatibles amb $H_0$, no podrem rebutjar-la: acceptarem la hipòtesi nul·la.
 
-     *  Acceptarem que la moneda no està trucada a favor de cara si a la nostra sèrie de llençaments la proporció de cares no és prou gran com per fer molt difícil creure que no hi estigui
+     *  Acceptarem que la moneda no està trucada a favor de cara si a la nostra sèrie de llençaments la proporció de cares no és prou gran com per fer molt difícil creure que sigui honrada
 
      * Acceptarem que el tractament A és igual d'efectiu que B en la curació de la malaltia X si en el nostre assaig la taxa de curació de la malaltia X amb el tractament A no és prou més gran que la de B com per fer molt difícil creure que els dos tractaments siguin iguals d'efectius
      
-     
-
+    
 
 ```{block2,type="rmdcaution"}
-* Si rebutjam $H_0$ en favor de $H_1$ *no* serà perquè hàgim provat que $H_0$ sigui impossible, ni tan sols que sigui improbable: tan sols haurem observat que és *mala de creure vists els resultats del nostre experiment*
-  
-* Si acceptam la hipòtesi nul·la és perquè no trobam motius per dubtar d'ella, però no haurem trobat evidència que sigui vertadera ni haurem demostrat que sigui probable (i possible en principi ho és sempre).
-
+Si rebutjam $H_0$ en favor de $H_1$ *no* serà perquè hàgim provat que $H_0$ sigui impossible, ni tan sols que sigui improbable: tan sols haurem observat que és *mala de creure vists els resultats del nostre experiment*
 ```
 
+Per exemple, si en una seqüència de 30 llançaments d'una moneda obtenim totes les vegades cara, segurament ho considerarem evidència que la moneda està trucada, però **no demostra que la moneda estigui trucada**. Sí, fa mal de creure que sigui honrada, però no és impossible: la moneda podria ser honrada i per pur atzar nosaltres haver tengut aquesta ratxa de cares. I tampoc podem dir que sigui improbable que sigui honrada, ja que nosaltres sabem calcular
+$$
+P(\text{30 cares en 30 llençaments}|\text{La moneda és honrada})=0.5^{30}
+$$
+però no sabem calcular
+$$
+P(\text{La moneda és honrada}|\text{30 cares en 30 llençaments}).
+$$
+
+```{block2,type="rmdcaution"}
+Si acceptam la hipòtesi nul·la és perquè no trobam motius per dubtar d'ella, però no haurem trobat evidència que sigui vertadera ni haurem demostrat que sigui probable (i possible en principi ho és sempre).
+```
+
+Per exemple, si en una seqüència de 4 llançaments d'una moneda obtenim 2 cares, haurem d'acceptar que la moneda és honrada. Però podria ser que estigués lleugerament escorada cap a cara i no haver-se notat en una seqüència curta de llançaments.
 
 
 ```{example,judici}
-En un judici (on l'acusat és innocent si no es demostra el contrari), se cerca evidència que l'acusat és culpable, per tant aquesta és la hipòtesi alternativa:
+En un judici (on l'acusat és innocent si no es demostra el contrari, i per tant estam disposats a acceptar per defecte que és innocent), se cerca evidència que l'acusat és culpable, per tant aquesta és la hipòtesi alternativa:
 
 ```
 * El contrast és
@@ -81,7 +91,7 @@ H_{1}:\text{L'acusat és culpable}
 \end{array}
 \right.
 $$
-* S'obtenen proves
+* S'aporten proves
 
 * Si el jurat troba prou incriminatòries les proves, "més enllà de tot dubte raonable", declara **culpable**  l'acusat (rebutja $H_0$ en favor de $H_1$)
 
@@ -147,8 +157,9 @@ Com que aquí estam tractant contrastos sobre paràmetres poblacionals (mitjanes
 
 Aquí, les variables poblacionals d'interés són:
 
-*  $X_d$: prenc una dona i calcul el seu nombre mitjà d'hores setmanals d'esport, de mitjana $\mu_d$: la mitjana d'hores setmanals d'esport de les dones
-*  $X_h$: prenc un home i calcul el seu nombre mitjà d'hores setmanals d'esport, de mitjana $\mu_h$: la mitjana d'hores setmanals d'esport dels homes
+*  $X_d$: "Prenc una dona i calcul el seu nombre mitjà d'hores setmanals d'esport", de mitjana $\mu_d$: la mitjana d'hores setmanals d'esport de les dones (la mitjana de les mitjanes d'hores setmanals d'esport de totes les dones és la mitjana d'hores setmanals d'esport de les dones).
+
+*  $X_h$: "Prenc un home i calcul el seu nombre mitjà d'hores setmanals d'esport", de mitjana $\mu_h$: la mitjana d'hores setmanals d'esport dels homes
 
 
 El contrast que volem realitzar és 
@@ -176,9 +187,9 @@ El procediment per realitzar-lo serà:
 
 * Si $\overline{X}_d$ és molt més petita que $\overline{X}_h$, ho prendrem com a evidència que  $\mu_d<\mu_h$
 
-* En cas contrari, no podrem rebutjar que $\mu_d=\mu_h$
+* Si $\overline{X}_d$ no és molt més petita que $\overline{X}_h$, no podrem rebutjar que $\mu_d=\mu_h$
 
-Què significa "suficientment més petit"? Una opció, que podríem importar del tema anterior, seria calcular un interval de confiança del 95% per a $\mu_d-\mu_h$ a partir de la mostra
+Què significa "$\overline{X}_d$ molt més petita que $\overline{X}_h$"? Una opció, que podríem importar del tema anterior, seria calcular un interval de confiança del 95% per a $\mu_d-\mu_h$ a partir de la mostra:
 
 *  Si està totalment a l'esquerra del 0, amb un 95% de confiança podem concloure que $\mu_d<\mu_h$
 
@@ -186,6 +197,7 @@ Què significa "suficientment més petit"? Una opció, que podríem importar del
 
 Com que aquí voldrem filar més prim que això del "nivell de confiança", el procediment serà una mica més complicat.
 
+Abans de tancar aquesta secció, volem emfatitzar algunes advertències.
 
 ```{block2,type="rmdcaution"}
 Les hipòtesis dels contrastos són sobre paràmetres de les poblacions, NO sobre estadístics de les mostres.
@@ -221,7 +233,7 @@ H_{1}:\mu_d<\mu_h
 \end{array}
 \right.
 $$
-i obtenim $\overline{X}_d$ molt més gran que $\overline{X}_h$ en la nostra mostra, concloem que no tenim evidència que $\mu_d<\mu_h$ i punt. És fer *trampes* dir "No hem trobat evidència que les dones practiquin menys esport que els homes, però si amb aquestes mateixes dades realitzam el contrast
+i obtenim que $\overline{X}_d$ és molt més gran que $\overline{X}_h$ en la nostra mostra, concloem que no tenim evidència que $\mu_d<\mu_h$ i punt. És fer *trampes* dir: "No hem trobat evidència que les dones practiquin menys esport que els homes, però si amb aquestes mateixes dades realitzam el contrast
 $$
 \left\{\begin{array}{ll} 
 H_{0}: \mu_d=\mu_h\\ 
@@ -229,12 +241,12 @@ H_{1}:\mu_d>\mu_h
 \end{array}
 \right.
 $$
-sí que obtenim evidència que elles practiquen més esport  que ells. 
+sí que obtenim evidència que elles practiquen més esport  que ells."
 
-D'això s'en diu "anar a pescar": obteniu unes dades i mirau de què donen evidència. És mala praxis científica. Qualsevol conjunt de dades dóna evidència de qualque cosa.
+D'això s'en diu "anar a pescar" o també "torturar les dades": obtenir unes dades i cercar de què donen evidència. És mala praxis científica. Qualsevol conjunt de dades, si el torturam prou, acaba donant evidència de qualque cosa.
 
 ```{block2,type="rmdcaution"}
-Triau la hipòtesi alternativa en funció del que cercau evidència
+Triau la hipòtesi alternativa en funció d'allò que cercau evidència
 ```
 
 No confongueu
@@ -253,7 +265,7 @@ H_{1}:\mu_d\neq \mu_h
 \end{array}
 \right.
 $$
-que tradueix la pregunta "Els homes i les dones,  de mitjana, practiquen esport un nombre diferent d'hores a la setmana?''
+que tradueix la pregunta "Els homes i les dones,  de mitjana, practiquen esport quantitats diferents d'hores a la setmana?''
 
 
 
@@ -282,7 +294,7 @@ Aquí la variable aleatòria $X$ que ens interessa és "Llenç la moneda en l'ai
 
 
 La hipòtesi nul·la serà que la moneda no està trucada (no hi ha res estrany en la meva moneda), i l'alternativa (de la que cerc evidència) que la moneda està trucada a favor de cara. 
-en termes de  $p_{\mathit{Cara}}$, el contrast és
+En termes de  $p_{\mathit{Cara}}$, el contrast és
 $$
 \left\{\begin{array}{ll} 
 H_{0}:p_{\mathit{Cara}}= 0.5\\ 
@@ -291,7 +303,11 @@ H_{1}:p_{\mathit{Cara}}> 0.5
 \right.
 $$
 
-**1)** Suposem que llanç la moneda en l'aire 3 vegades i obtenc 3 cares. És evidència suficient que està trucada?
+```{example}
+Suposem que llanç la moneda en l'aire 3 vegades i obtenc 3 cares. És evidència suficient que està trucada?
+
+
+```
 
 Diguem $S_3$ a la variable aleatòria "Nombre de cares en 3 llançaments d'aquesta moneda."
 
@@ -300,14 +316,18 @@ $$
 P(S_3=3)=0.5^{3}=0.125
 $$
 
-El resultat obtingut no és molt improbable amb una moneda honrada (ho esperaríem 1 de cada 8 vegades): no és evidència suficient que estigui trucada.
+El resultat obtingut no és molt improbable amb una moneda honrada: passaria en 1 de cada 8 seqüències de 3 llançaments.  Per tant, no és evidència suficient que estigui trucada.
 
-```{block2,type="rmdnote"}
+```{block2,type="rmdrecordau"}
 D'aquest tipus de procediment, emprant la distribució binomial del nombre d'èxits en una mostra aleatòria simple per contrastar un valor de la probabilitat poblacional d'èxit, en direm un **test binomial**.
 ```
 
 
-**2)** Suposem que ara llanç  la moneda en l'aire 10 vegades i obtenc 10 cares. És evidència suficient que està trucada?
+```{example}
+Suposem que ara llanç  la moneda en l'aire 10 vegades i obtenc 10 cares. És evidència suficient que està trucada?
+
+
+```
 
 Diguem ara $S_{10}$ a la variable aleatòria "Nombre de cares en 10 llançaments."
 
@@ -316,11 +336,11 @@ $$
 P(S_{10}=10)=0.5^{10}=0.001
 $$
 
-El resultat obtingut és molt improbable si la moneda no està trucada: si la moneda no estigués trucada, només en 1 de cada 1000 seqüències de 10 llançaments obtendríem 10 cares. És a dir:
+El resultat obtingut és molt improbable si la moneda no està trucada: si la moneda fos honrada, només en 1 de cada 1000 seqüències de 10 llançaments obtendríem 10 cares. És a dir:
 
-> El resultat del nostre experiment seria molt estrany si la moneda no estigués trucada, per tant és *inversemblant* que no estigui trucada.
+> El resultat del nostre experiment seria molt estrany si la moneda fos honrada, per tant és *inversemblant* que sigui honrada.
 
-Ho consideram evidència que sí està trucada.
+Ho consideram evidència que està trucada.
 
 
 Fixau-vos en el procediment:
@@ -336,7 +356,7 @@ $$
 
 2.  Hem recollit una mostra aleatòria: la seqüència de llançaments
 
-3.  Hem triat un **estadístic de contrast** amb distribució coneguda quan $H_0$ és vertadera: al nostre cas, el nombre de cares
+3.  Hem triat un **estadístic de contrast** amb distribució mostral coneguda quan $H_0$ és vertadera: al nostre cas, el nombre de cares
 
 4.  Hem calculat el valor d'aquest estadístic sobre la nostra mostra
 
@@ -358,10 +378,8 @@ $$
 
     O, encara més exagerat, si l'estadístic de contrast té distribució contínua,  recordau que la probabilitat que una variable aleatòria contínua prengui un valor concret és 0. Més petit impossible, però no sempre rebutjarem la hipòtesi nu·la.
 
-```{block2,type="rmdimportant"}
-En realitat, a (5) es calcula la probabilitat que, si $H_0$ és vertadera, l'estadístic prengui un valor tan extrem o més (en el sentit de $H_1$) que l'obtingut. Li diem el **p-valor**. 
-
-Recordau aquest nom.
+```{block2,type="rmdrecordau"}
+En realitat, a (5) es calcula la probabilitat que, si $H_0$ és vertadera, l'estadístic prengui un valor tan extrem o més (en el sentit de $H_1$) que l'obtingut. A aquesta probabiitat li diem el **p-valor**. 
 ```
 
 Al nostre exemple de la moneda, com que la hipòtesi nul·la és $p_{\mathit{Cara}}= 0.5$ i la hipòtesi alternativa és $p_{\mathit{Cara}}> 0.5$, el p-valor és la probabilitat que, si $p_{\mathit{Cara}}= 0.5$, el nombre de cares sigui tan o més gran que l'obtingut a la nostra mostra. 
@@ -369,7 +387,8 @@ Al nostre exemple de la moneda, com que la hipòtesi nul·la és $p_{\mathit{Car
 En els dos exemples anteriors concrets, on obteníem 3 cares en 3 llançaments i 10 cares en 10 llançaments, és el mateix demanar que el nombre de cares sigui igual a l'obtingut i demanar que el nombre de cares sigui més gran o igual que l'obtingut, perquè en els dos experiments hem obtingut el nombre màxim possible de cares; per exemple, treure 3 o més cares en 3 llançaments és exactament el mateix que treure 3 cares en 3 llançaments. Però en general no serà el cas.
 
 
-**3)** Tornem al nostre contrast
+```{example}
+Tornem al nostre contrast
 $$
 \left\{\begin{array}{ll} 
 H_{0}:p_{\mathit{Cara}}= 0.5\\ 
@@ -379,7 +398,12 @@ H_{1}:p_{\mathit{Cara}}> 0.5
 $$
 Suposem que llanç la moneda en l'aire 10 vegades i obtenc 7 cares. És evidència suficient que està trucada?
 
-Seguim dient $S_{10}$ a la variable aleatòria "Nombre de cares en 10 llançaments". Si la moneda no està trucada, $S_{10}\sim B(10,0.5)$ i per tant
+
+```
+
+Seguim dient $S_{10}$ a la variable aleatòria "Nombre de cares en 10 llançaments". Si la moneda no està trucada, $S_{10}\sim B(10,0.5)$.
+Com que la hipòtesi alternativa és $p_{\mathit{Cara}}> 0.5$, "obtenir un nombre de cares tan extrem o més  que el que hem obtingut en el sentit de la hipòtesi alternativa" és treure tantes cares com les que hem obtingut *o més*, és a dir treure 7 o més cares.  
+Per tant
 $$
 \text{p-valor}=P(S_{10}\geq 7)=\texttt{1-pbinom(6,10,0.5)}=0.172
 $$
@@ -401,27 +425,27 @@ Suposem que llanç la moneda en l'aire 10 vegades i obtenc 1 cara. És evidènci
 
 Seguim dient $S_{10}$ a la variable aleatòria "Nombre de cares en 10 llançaments d'aquesta moneda." Si la moneda no està trucada, $S_{10}\sim B(10,0.5)$.
 
-Ara, com que $H_{1}$ és $p_{\mathit{Cara}}< 0.5$, el p-valor, que és la probabilitat d'obtenir, si la moneda no està trucada, un nombre de cares tan extrem o més en el sentit de la hipòtesi alternativa que el que hem obtingut, serà la probabilitat de treure una cara o menys: com que $H_{1}$ és $p_{\mathit{Cara}}< 0.5$, "tan extrem o més en el sentit de la hipòtesi alternativa" significa "més petit o igual". Per tant, el p-valor és
+Ara, com que $H_{1}$ és $p_{\mathit{Cara}}< 0.5$, "obtenir un nombre de cares tan extrem o més  que el que hem obtingut en el sentit de la hipòtesi alternativa" és treure tantes cares com les que hem obtingut *o menys*, és a dir treure 1 cara o cap. Per tant
 $$
-P(S_{10}\leq 1)=\texttt{pbinom(1,10,0.5)}=0.01
+\text{p-valor}=P(S_{10}\leq 1)=\texttt{pbinom(1,10,0.5)}=0.01
 $$
-Un resultat tan extrem o més que l'obtingut és molt improbable si $p_{\mathit{Cara}}= 0.5$, passaria en 1 de cada 100 seqüències de 10 llançaments: ho podem considerar evidència que la moneda està trucada a favor de creu
+Un resultat tan extrem o més que l'obtingut és molt improbable si $p_{\mathit{Cara}}= 0.5$: passaria en 1 de cada 100 seqüències de 10 llançaments. Ho podem considerar evidència que la moneda està trucada a favor de creu
 
 
 ## El p-valor {#sec:pval}
 
-El **p-valor** d'un contrast és la probabilitat que, si la hipòtesi nul·la és vertadera,  l'estadístic de contrast prengui  en una mostra aleatòria simple un valor tan o més extrem, en el sentit de la hipòtesi alternativa, que l'obtingut amb la mostra emprada per realitzar el contrast. 
+El **p-valor** d'un contrast és la probabilitat que, si la hipòtesi nul·la és vertadera,  l'estadístic de contrast prengui  en una mostra aleatòria simple  de la mateixa mida que la nostra un valor tan o més extrem, en el sentit de la hipòtesi alternativa, que l'obtingut amb la mostra emprada per realitzar el contrast. 
 
 Ho tornarem a repetir, posant èmfasi en els components fonamentals de la definició. El **p-valor** és:
 
 * La probabilitat que,
 * si la hipòtesi nul·la és vertadera, 
-* l'estadístic de contrast prengui en una mostra aleatòria simple
+* l'estadístic de contrast prengui en una mostra aleatòria simple de la mateixa mida que la nostra
 * un valor tan o més extrem, en el sentit de la hipòtesi alternativa, 
 * que l'obtingut amb la nostra mostra.
 
 ```{example}
-Per exemple, suposem que al contrast de les mitjanes d'hores setmanals d'esport d'homes i dones de l'Exemple \@ref(exm:esport1) empram com a estadístic de contrast la diferència entre les mitjanes mostrals $\overline{X}_d-\overline{X}_h$ (**que no serà el cas: només és un exemple!**). Aleshores, el p-valor del contrast és
+Suposem que al contrast de les mitjanes d'hores setmanals d'esport d'homes i dones de l'Exemple \@ref(exm:esport1) empram com a estadístic de contrast la diferència entre les mitjanes mostrals $\overline{X}_d-\overline{X}_h$ (**que no serà el cas: només és un exemple!**) i que hem pres mostres de 50 dones i de 50 homes Aleshores, el p-valor del contrast és
 
 
 ```
@@ -430,11 +454,11 @@ Per exemple, suposem que al contrast de les mitjanes d'hores setmanals d'esport 
 
 * si la hipòtesi nul·la és vertadera, 
 
-    *si els homes i les dones practiquen de mitjana el mateix nombre d'hores d'esport a la setmana,*
+    *si $\mu_d=\mu_h$, és a dir, si els homes i les dones practiquen de mitjana el mateix nombre d'hores d'esport a la setmana,*
 
 * l'estadístic de contrast prengui  en una mostra aleatòria simple
 
-    *el valor de la mitjana d'hores setmanals d'esport en les dones menys la mitjana d'hores setmanals d'esport en els homes d'una mostra aleatòria*
+    *el valor de $\overline{X}_d-\overline{X}_h$, és a dir, de la mitjana mostral d'hores setmanals d'esport en les dones menys la mitjana mostral d'hores setmanals d'esport en els homes, d'una mostra aleatòria formada per 50 dones i 50 homes*
 
 *  un valor tan o més extrem, en el sentit de la hipòtesi alternativa, 
 
@@ -446,9 +470,9 @@ Per exemple, suposem que al contrast de les mitjanes d'hores setmanals d'esport 
     
 En resum, el p-valor seria en aquest cas
 
-> La probabilitat, suposant que els homes i les dones practiquen de mitjana el mateix nombre d'hores d'esport a la setmana, que, si prenem una mostra aleatòria d'homes i dones i calculam la diferència de la mitjana d'hores setmanals d'esport en les dones menys la mitjana d'hores setmanals d'esport en els homes d'aquesta mostra, el seu valor sigui més petit o igual que el de la nostra mostra.
+> La probabilitat, suposant que $\mu_d=\mu_h$, que, si prenem una mostra aleatòria de 50 dones i 50 homes, el valor de $\overline{X}_d-\overline{X}_h$ que obtinguem sigui més petit o igual que el de la nostra mostra.
 
-Si aquesta probabilitat és molt petita, la mostra obtinguda és poc consistent amb la hipòtesi nul·la i per tant conclourem que la hipòtesi alternativa és vertadera. Si, en canvi, aquesta probabilitat no és molt petita, la mostra obtinguda és compatible amb la hipòtesi nul·la i per tant no podrem rebutjar que sigui vertadera.
+Si aquesta probabilitat és molt petita, la mostra obtinguda és poc consistent amb la hipòtesi nul·la i per tant conclourem que la hipòtesi alternativa és vertadera. Si, en canvi, aquesta probabilitat no és molt petita, la mostra obtinguda és compatible amb la hipòtesi nul·la i per tant no podrem rebutjar que $H_0$ sigui vertadera.
 
 
 ```{block2,type="rmdimportant"}
@@ -467,9 +491,9 @@ El p-valor no és:
 
 Per exemple, que el p-valor d'un contrast doni 0.03 
 
-*  **Significa** que, si $H_0$ és vertadera, la probabilitat que l'estadístic de contrast prengui sobre una mostra un valor tan extrem o més que el que ha pres és 0.03 
+*  **Significa** que, si $H_0$ és vertadera, la probabilitat que l'estadístic de contrast prengui sobre una mostra un valor tan extrem o més que el que hem obtingut és 0.03 
 
-    * *El trobau petit?* Ho preneu com a evidència que $H_0$ és falsa en favor de $H_1$
+    * *El trobau petit?* Ho preneu com a evidència que $H_0$ és falsa i $H_1$ vertadera
     
     * *No el trobau petit?* No teniu evidència per rebutjar que $H_0$ és vertadera
 
@@ -504,7 +528,7 @@ Suposem que la llanç en l'aire 10 vegades i obtenc 8 cares. És evidència sufi
 Com a la secció anterior, diguem $S_{10}$ a la variable "Nombre de cares en 10 llançaments". Si $p_{\mathit{Cara}}= 0.5$, 
 $S_{10}\sim B(10,0.5)$.
 
-En aquest exemple, "obtenir un resultat tan o més extrem, en el sentit de la hipòtesi alternativa, que l'obtingut" és treure un resultat *tant o més diferent de 5 cares i 5 creus que l'obtingut*: és a dir, treure almenys 8 cares o almenys 8 creus, o el que és el mateix, treure o bé 8 o més cares, o bé 2 o menys cares. Per tant, el p-valor és
+Si la hipòtesi nul·la fos vertadera, esperaríem treure 5 cares i 5 creus. Com que la hipòtesi alternativa és $H_{1}:p_{\mathit{Cara}}\neq 0.5$, ara "obtenir un resultat tan o més extrem, en el sentit de la hipòtesi alternativa, que l'obtingut" és treure un resultat *tant o més diferent de 5 cares i 5 creus que l'obtingut*: és a dir, treure almenys 8 cares o almenys 8 creus, o el que és el mateix, treure o bé 8 o més cares, o bé 2 o menys cares. Per tant, el p-valor és
 $$
 \begin{array}{l}
 P(S_{10}\geq 8\text{ o }S_{10}\leq 2) =P(S_{10}\geq 8) + P(S_{10}\leq 2)\\
@@ -514,59 +538,22 @@ P(S_{10}\geq 8\text{ o }S_{10}\leq 2) =P(S_{10}\geq 8) + P(S_{10}\leq 2)\\
 \end{array}
 $$
 
-
-En realitat, i per motius històrics, en els contrastos bilaterals no es pren com a p-valor
-$$
-P(S_{10}\geq 8\text{ o }S_{10}\leq 2)
-$$ 
-sinó, per conveni, 
-$$
-2\times\min\{P(S_{10}\geq 8),P(S_{10}\leq 8)\}
-$$
-
 ```{block2,type="rmdcorbes"}
-En realitat, per a un contrast binomial bilateral com el que ens ocupa, es pren per conveni com a p-valor
+En realitat (i per exemple és el que fa R), en un **contrast binomial bilateral** el que es fa és entendre "obtenir un resultat tan o més extrem, en el sentit de la hipòtesi alternativa, que l'obtingut"  com "obtenir qualque resultat de probabiitat més petita o igual que la del nostre resultat" i aleshores es pren com a p-valor la suma de les probabilitats dels resultats amb probabilitat més petita o igual que la del que hem obtingut. 
+
+És a dir, en el nostre exemple el p-valor que calcularia R 
 $$
-\sum_{k\text{ tals que }\atop P(S_{10}=k)\leq P(S_{10}=8)} P(S_{10}=k).
+\sum_{k\text{ tals que }\atop P(S_{10}=k)\leq P(S_{10}=8)} P(S_{10}=k)
 $$
-Aquest seria el p-valor que calcularia R. Però aquí no ens complicarem tant la vida i farem servir a **tots els contrastos bilaterals** la fórmula
-$$
-\text{p-valor}=2\times\min\{P(S_{10}\geq 8),P(S_{10}\leq 8)\}.
-$$
-  
+i coincideix  amb el nostre p-valor, perquè els $k$ tals que $P(S_{10}=k)\leq P(S_{10}=8)$ són exactament 0, 1, 2, 8, 9 i 10. 
+
+Això us pot ser útil si en algun exemple de contrast binomial bilateral us costa  decidir què és "un resultat tan o més extrem, en el sentit de la hipòtesi alternativa, que l'obtingut".
 ```
 
 
-Al nostre cas aquestes reformulacions coincideixen amb el que hem calculat perquè la variable $S_{10}\sim B(10,0.5)$ és simètrica, però si no ho fos no té per què coincidir. Comprovem que, en efecte, en aquest exemple coincideixen:
+En resum, si la moneda no està trucada, un resultat com l'obtingut o més llunyà de "meitat cares, meitat creus" és improbable, però no gaire (1 de cada 9 vegades passaria). És evidència suficient que estigui trucada?
 
-* $2\times\min\{P(S_{10}\geq 8),P(S_{10}\leq 8)\}$:
-
-    * $P(S_{10}\geq 8)=$`1-pbinom(7,10,0.5)`$=`r round(1-pbinom(7,10,0.5),3)`$
-
-    * $P(S_{10}\leq 8)=$`pbinom(8,10,0.5)`$=`r round(pbinom(8,10,0.5),3)`$
-
-    * $\min\{`r round(1-pbinom(7,10,0.5),3)`,`r round(pbinom(8,10,0.5),3)`\}=`r round(1-pbinom(7,10,0.5),3)`$
-
-    * p-valor$=2\times 0.055=0.11$.  
-    
-* $\displaystyle \sum_{k\text{ tals que }\atop P(S_{10}=k)\leq P(S_{10}=8)} P(S_{10}=k)$:
-
-    * Calculem les probabilitats $P(S_{10}=k)$:
-```{r}
-data.frame(resultats=0:10,probabilitats=dbinom(0:10,10,0.5))
-```
-
-    * Els valors de $k$ tals que $P(S_{10}=k)\leq P(S_{10}=8)$ són 0, 1, 2, 8, 9 i 10 i per tant
-$$
-\begin{array}{l}
-\displaystyle \sum_{k\text{ tals que }\atop P(S_{10}=k)\leq P(S_{10}=8)} P(S_{10}=k)=
-\sum_{k=0, 1, 2, 8, 9, 10} P(S_{10}=k)\\
-\displaystyle \qquad =\sum_{k=0, 1, 2} P(S_{10}=k)+\sum_{k=8, 9, 10} P(S_{10}=k)=
-P(S_{10}\leq 2)+P(S_{10}\geq 8)
-\end{array}
-$$
-
-En resum, si la moneda no està trucada, el resultat obtingut és improbable, però no gaire (1 de cada 9 vegades passaria). És evidència suficient que estigui trucada?
+<!--
 
 ```{block2,type="rmdimportant"}
 Recordau a partir d'ara que, per conveni, als contrastos bilaterals, per calcular el p-valor:
@@ -579,7 +566,7 @@ Recordau a partir d'ara que, per conveni, als contrastos bilaterals, per calcula
 
 * i es multiplica per 2
 ```
-
+-->
 
 ## Tipus d'errors
 
@@ -597,29 +584,43 @@ knitr::include_graphics("Bioestadistica-II_files/figure-html/errors.png")
 
     * La conclusió del contrast és errònia. En diem **error de tipus I** o **positiu fals**. 
     
-    * Indicarem amb $\alpha$ la probabilitat de cometre un error de tipus I i en direm el **nivell de significació**. 
+    * Indicarem amb $\alpha$ la probabilitat de cometre un error de tipus I i en direm el **nivell de significació**: 
+$$
+\alpha=P(\text{Rebutjar } H_0| H_0\text{ vertadera}).
+$$
 
 * *$H_1$ és vertadera a la realitat i nosaltres acceptam $H_0$*. 
 
     * La conclusió del contrast és errònia. En diem **error de tipus II** o **negatiu fals**. 
     
-    * Indicarem amb $\beta$ la probabilitat de cometre un error de tipus II. 
+    * Indicarem amb $\beta$ la probabilitat de cometre un error de tipus II:
+$$
+\beta=P(\text{Acceptar } H_0| H_1\text{ vertadera}).
+$$
 
 
 * *$H_1$ és vertadera a la realitat i nosaltres decidim que $H_1$ és vertadera*. 
 
     * La conclusió del contrast és correcta.  En diem un **positiu vertader**. 
     
-    * La probabilitat d'encertar amb un positiu vertader és $1-\beta$ i en direm la **potència**. 
+    * La probabilitat d'encertar amb un positiu vertader és $1-\beta$ i en direm la **potència**:
+
+$$
+1-\beta=P(\text{Rebutjar } H_0| H_1\text{ vertadera}).
+$$
 
 * *$H_0$ és la vertadera a la realitat i nosaltres l'acceptam*. 
 
     * La conclusió del contrast és correcta. En diem un **negatiu vertader**. 
     
-    * La probabilitat d'encertar amb un negatiu vertader és $1-\alpha$ i en direm el **nivell de confiança**.
+    * La probabilitat d'encertar amb un negatiu vertader és $1-\alpha$ i en direm el **nivell de confiança**:
+$$
+1-\alpha=P(\text{Acceptar } H_0| H_0\text{ vertadera}).
+$$
 
-```{block2,type="rmdnote"}
-Observau que, en el context d'un contrast d'hipòtesi, 
+
+```{block2,type="rmdrecordau"}
+En el context d'un contrast d'hipòtesis, 
 
 * un resultat **positiu** és rebutjar la hipòtesi nul·la i decidir que l'alternativa és la vertadera (hem trobat qualque cosa)
 
@@ -628,7 +629,7 @@ Observau que, en el context d'un contrast d'hipòtesi,
 ```
 
 
-És a dir:
+Ho tornam a repetir:
 
 * el **nivell de significació** d'un contrast és la probabilitat que, **si** la hipótesi nul·la és vertadera, nosaltres ens equivoquem i la rebutjem en favor de l'alternativa:
 $$
@@ -696,12 +697,14 @@ Es poden donar dos errors:
 
 *  Que l'estudiant suspengui sabent la matèria
 
+```{block2,type="rmdexercici"}
 Quin és el de tipus I i quin el de tipus II? Quin creieu que és pitjor?
+```
 
-
-L'objectiu primari en un contrast és trobar una regla de rebuig de $H_{0}$ que tengui poca
+Normalment, es considera pitjor cometre un error de tipus I que cometre un error de tipus II.
+Per tant, l'objectiu primari en un contrast és trobar una regla de rebuig de $H_{0}$ que tengui poca
 probabilitat $\alpha$ d'error de tipus I. Però també voldríem minimitzar la probabilitat $\beta$ d'error de tipus II.
-El problema és quan fem disminuir $\alpha$, sol augmentar $\beta$.
+El problema és que quan fem disminuir $\alpha$, sol augmentar $\beta$.
 
 ```{r, echo=FALSE,fig.width=5,fig.asp=2}
 knitr::include_graphics("Bioestadistica-II_files/figure-html/columpio.png")
@@ -714,7 +717,7 @@ Què se sol fer?
 2. Després,  augmentar la mida $n$ de la mostra per arribar a la $\beta$ desitjada
 
 
-Abans d'acabar amb els errors, fixau-vos que si efectuam $M$ contrastos (independents) emprant una regla de decisió que garanteixi un nivell de significació $\alpha$ fixat, i a tots aquests contrastos la $H_0$ és vertadera, el nombre de contrastos d'aquests on ens equivocarem i rebutjarem $H_0$ té distribució $B(M,\alpha)$. En particular, esperam equivocar-nos en $\alpha M$ d'aquests $M$  contrastos on l'hipòtesi nul·la sigui vertadera. 
+Abans d'acabar amb els errors, fixau-vos que si efectuam $M$ contrastos (independents) emprant una regla de decisió que garanteixi un nivell de significació $\alpha$ fixat, i a tots aquests contrastos la $H_0$ és vertadera, el nombre de contrastos d'aquests on ens equivocarem i rebutjarem $H_0$ té distribució binomial $B(M,\alpha)$. En particular, esperam equivocar-nos en $\alpha M$ d'aquests $M$  contrastos on l'hipòtesi nul·la sigui vertadera. 
 
 ```{block2,type="rmdcaution"}
 Si efectuam molts de contrastos, augmenta la probabilitat de "trobar qualque cosa" encara que no hi hagi res que trobar.
@@ -772,11 +775,11 @@ La idea que guiarà el procediment per prendre una decisió en aquest contrast s
 
 Per concretar "suficientment gran" cal fixar $\alpha$. 
 
-```{block2,type="rmdimportant"}
+```{block2,type="rmdrecordau"}
 Usualment es pren $\alpha=0.05$ (una mica menys que la probabilitat de treure 4 cares seguides amb una moneda no trucada).
 ```
 
-Aquí ara prendrem aquest mateix nivell de significació $\alpha=0.05$. És a dir, acceptarem que la probabilitat d'equivocar-nos rebutjant $H_0$ en favor de $H_1$ és 0.05, o el que és el mateix, assumirem que ens podem permetre el cometre un error de tipus I una vegada de cada 20  que la hipòtesi nul·la sigui vertadera.
+Aquí ara prendrem aquest mateix nivell de significació $\alpha=0.05$. És a dir, acceptarem que la probabilitat d'equivocar-nos rebutjant $H_0$ en favor de $H_1$ és 0.05, o el que és el mateix, ens permetrem cometre un error de tipus I una vegada de cada 20  que la hipòtesi nul·la sigui vertadera.
 
 Sigui $T_0$ el valor que pren l'estadístic de contrast $T$ en la nostra mostra.  Rebutjarem $H_{0}$ si $T_0$ és més gran que un cert llindar $L_0$, que determinam a partir de $\alpha$:
 
@@ -861,11 +864,11 @@ segments(1.7,0,1.7,0.4)
 text(3,0.12,0.05,cex=1.2)
 text(3,0.4,"Regió de rebuig", cex=1.2, col="blue")
 text(3,0.38,"de", cex=1.2, col="blue")
-text(3.44,0.3875,expression(H[0]), cex=1.2, col="blue")
+text(3.44,0.378,expression(H[0]), cex=1.2, col="blue")
 
 text(-2,0.4,"Regió d'acceptació", cex=1.2)
 text(-2.2,0.38,"de", cex=1.2)
-text(-1.76,0.3775,expression(H[0]), cex=1.2)
+text(-1.76,0.378,expression(H[0]), cex=1.2)
 ```
 
 
@@ -897,7 +900,7 @@ Com que el p-valor és més petit que 0.05, *concloem amb un nivell de significa
 knitr::include_graphics("Bioestadistica-II_files/figure-html/pfm.png")
 ```
 
-```{block2,type="rmdnote"}
+```{block2,type="rmdrecordau"}
 D'aquest tipus de procediment, emprant la distribució t de Student de
 $$
 T=\frac{\overline{X}-\mu_0}{{\widetilde{S}_X}/{\sqrt{n}}}\sim t_{n-1}
@@ -913,35 +916,38 @@ Per tant, *reconeixem una probabilitat d'equivocar-nos del 5%*: Si en realitat e
 
 Anem a estudiar aquesta taxa d'encerts per mitjà d'una simulació.
 
-Primer suposarem que el nivell mitjà real és 2.5, i simularem la probabilitat d'error de tipus I. Com que estam fent el contrast amb nivell de significació 0.05, esperam que aquesta sigui la probabilitat d'error de tipus I. Per fixar idees, modelarem la població de joves diabètics per mitjà d'una mostra de 10^6^ nombres generats amb distribució $N(2.5,0.5)$. La $\sigma=0.5$ ens l'hem inventada. Aprofitam per fixar la llavor d'aleatorietat.
+Primer suposarem que el nivell mitjà real és 2.5, i simularem la probabilitat d'error de tipus I. Com que estam fent el contrast amb nivell de significació 0.05, esperam al voltant d'un 5% d'errors de tipus I. Per fixar idees, modelarem la població de joves diabètics per mitjà d'una variable aleatòria $N(2.5,0.5)$. La $\sigma=0.5$ ens l'hem inventada. Aprofitam per fixar la llavor d'aleatorietat. 
 
 
 ```{r}
 set.seed(42)
 mu0=2.5
-sigma=0.5
-poblacio=rnorm(10^6,mu0,sigma)
-L=qt(0.95,19)  #el llindar per n=20 i alfa=0.05
+sigma0=0.5
 ```
-
-La funció `estadístic` següent pren una mostra aleatòria de mida $n$ d'un vector $X$ (sense repeticions, per simular l'experiment dels diabètics, on la mostra era sense reposició; com que la població és de 10 milions, si la $n$ no és exageradament gran això no influirà en les conclusions) i en calcula l'estadístic de contrast $T$:
+El llindar $L_0$ per $n=20$ i $\alpha=0.05$ és
 
 ```{r}
-estadístic=function(n,X){
-mostra=sample(X,n,rep=FALSE) 
+L0=qt(0.95,19)
+```
+
+La funció `estadístic` següent pren una mostra aleatòria de mida $n$ d'una variable $N(\mu, \sigma)$ i en calcula l'estadístic de contrast $T$:
+
+```{r}
+estadístic=function(n,mu,sigma){
+mostra=rnorm(n,mu,sigma) 
 (mean(mostra)-mu0)/(sd(mostra)/sqrt(n))
 }
 ```
 
-I ara repetim 200 vegades el procés de prendre una mostra aleatòria de mida 20 de la nostra població i calcular la $T$ corresponent. Després miram la proporció de vegades que això ha donat més gran que el llindar, és a dir, la proporció de vegades que rebutjam la hipòtesi nul·la $\mu=2.5$ i que per tant cometem un error de tipus I.
+Ara, repetim 200 vegades el procés de prendre una mostra aleatòria de mida 20 de la nostra població i calcular la $T$ corresponent. Després miram la proporció de vegades que això ha donat més gran que el llindar, és a dir, la proporció de vegades que rebutjam la hipòtesi nul·la $\mu=2.5$ i que per tant cometem un error de tipus I.
 
 ```{r}
-tes=replicate(200,estadístic(20,poblacio))
-p.error.Tipus.I=length(which((tes>L)==TRUE))/200
+Tes=replicate(200,estadístic(20,mu0,sigma0))
+p.error.Tipus.I=length(which((Tes>L0)==TRUE))/200
 p.error.Tipus.I
 ```
 
-Hem comès un `r 100*p.error.Tipus.I`% d'errors de tipus I, molt proper al 5% que esperàvem.
+Hem comès exactament un `r 100*p.error.Tipus.I`% d'errors de tipus I!
 
 Ara suposarem que el nivell mitjà real és estrictament més gran que 2.5, i anam a simular els errors de tipus II, per veure amb quina freqüència els cometem. Per començar, generam de manera uniforme un vector de 100 $\mu$'s entre 2.6 i 3.
 
@@ -949,17 +955,13 @@ Ara suposarem que el nivell mitjà real és estrictament més gran que 2.5, i an
 mus=runif(100,2.6,3)
 ```
 
-I ara el que farem serà el següent. Per a cada $\mu_i$ d'aquest vector, generam una "població de diabètics" en forma d'una mostra de 10^6^ nombres generats amb distribució $N(\mu_i,0.5)$. Com que volem poblacions on la hipòtesi alternativa, $\mu>2.5$, sigui vertadera, d'aquestes poblacions només ens quedarem amb les que tenguin mitjana més gran que 2.5.  A continuació, per a cada una d'aquestes poblacions, repetim 100 vegades el procés de prendre una mostra aleatòria simple de mida 20 d'aquesta població i calcular la $T$ corresponent. Després, per a cada població, miram la proporció de vegades que això ha donat més petit o igual que el llindar, és a dir, la proporció de vegades que acceptam la hipòtesi nul·la $\mu=2.5$ i que per tant cometem un error de tipus II. Organitzam totes aquestes proporcions en un vector **p.error.Tipus.II**.
+I ara el que farem serà el següent. Per a cada $\mu_i$ d'aquest vector, prendrem com a "població de diabètics" una variable  $N(\mu_i,0.5)$. A continuació, per a cada una d'aquestes poblacions, repetim 100 vegades el procés de prendre una mostra aleatòria simple de mida 20 d'aquesta població i calcular la $T$ corresponent. Després, per a cada població, miram la proporció de vegades que això ha donat més petit o igual que el llindar, és a dir, la proporció de vegades que acceptam la hipòtesi nul·la $\mu=2.5$ i que per tant cometem un error de tipus II. Organitzam totes aquestes proporcions en un vector **p.error.Tipus.II**.
 
 ```{r}
-sigma=0.5
 p.error.Tipus.II=c()
 for (j in 1:100){
-  poblacio=rnorm(10^5,mus[j],sigma)
-  if (mean(poblacio)>2.5){
-  Tes=replicate(200,estadístic(20,poblacio))    
-  p.error.Tipus.II=c(p.error.Tipus.II, round( length(which((Tes<=L)==TRUE))/200,2))
-  }
+  Tes=replicate(200,estadístic(20,mus[j],sigma0))    
+  p.error.Tipus.II=c(p.error.Tipus.II, round(length(which((Tes<=L0)==TRUE))/200,2))
 }
 p.error.Tipus.II
 ```
@@ -975,11 +977,8 @@ Si prenguéssim mostres més grans, la probabilitat  d'error de tipus II disminu
 ```{r}
 p.error.Tipus.II=c()
 for (j in 1:100){
-  poblacio=rnorm(10^5,mus[j],sigma)
-   if (mean(poblacio)>2.5){
-Tes=replicate(200,estadístic(200,poblacio))    
-  p.error.Tipus.II=c(p.error.Tipus.II, round( length(which((Tes<=L)==TRUE))/200,2))
-   }
+Tes=replicate(200,estadístic(200,mus[j],sigma0))    
+  p.error.Tipus.II=c(p.error.Tipus.II, round(length(which((Tes<=L0)==TRUE))/200,2))
 }
 mean(p.error.Tipus.II)
 ```
