@@ -2,7 +2,7 @@
 
 En general, les dades que es recullen en experiments són multidimensionals: mesuram diverses variables aleatòries sobre una mateixa mostra d'individus, i organitzam aquesta informació en taules de dades on les fileres representen els individus observats i cada columna correspon a una variable diferent. És a dir, el que fem és avaluar un vector de variables aleatòries (en direm un **vector aleatori**) sobre els individus d'una població. En aquesta lliçó introduïm alguns conceptes nous sobre vectors de variables aleatòries i les seves realitzacions.
 
-## Vectors aleatoris
+## Poblacions: vectors aleatoris
 
 Un **vector aleatori de dimensió $p$** és un vector format per $p$ variables aleatòries 
 $$
@@ -176,3 +176,314 @@ Cor(\underline{X})
 \rho_{p 1} & \rho_{p 2} & \ldots & 1\\
  \end{pmatrix}.
 $$
+
+
+
+
+## Estadística descriptiva: Mostres
+
+### Covariàncies
+
+Siguin $x=(x_1,\ldots,x_n)$ i $y=(y_1,\ldots,y_n)$ dos vectors obtinguts mesurant dues variables aleatòries $X$ i $Y$ sobre una mateixa mostra d'individus de mida $n$ d'una població. Siguin $\overline{x}$ i $\overline{y}$ les seves mitjanes mostrals. Aleshores la seva **covariància mostral** és
+$$
+\widetilde{s}_{xy} =
+\frac{1}{n-1} \sum_{i =1}^n\big((x_{i}-\overline{{x}})(y_i-\overline{y})\big)
+$$
+i la seva **covariància** (**a seques**) és
+$$
+{s}_{xy} =
+\frac{1}{n} \sum_{i =1}^n\big((x_{i}-\overline{{x}})(y_i-\overline{y})\big)=\frac{n-1}{n}\widetilde{s}_{XY}.
+$$
+És a dir, com sempre, la diferència entre la versió "mostral" i la versió "a seques" rau en el denominador, $n-1$ i $n$ respectvament.
+
+Com en el cas poblacional, la **covariància** entre dos vectors mesura la tendència que tenen les seves dades a variar conjuntament. Quan la covariància és positiva, si una $x_i$ és gran o petita, la corresponent $y_i$ tendeix a tenir el mateix comportament. Quan la covariància és negativa, aquesta tendència s'inverteix: si una $x_i$ és gran, la corresponent $y_i$ tendeix a ser petita, i viceversa. 
+
+És immediat comprovar que les dues covariàncies són simètriques,
+$$
+\widetilde{s}_{xy}=\widetilde{s}_{yx}
+$$
+i que covariància generalitza la variància, en el sentit que la variància d'un vector és la seva covariància amb ell mateix
+$$
+\widetilde{s}_{xy}=\widetilde{s}^2_{x},\
+{s}_{xy}={s}^2_{y}.
+$$
+
+L'estadístic $\widetilde{s}_{xy}$ sempre és un estimador no esbiaixat de la covariància poblacional $\sigma_{XY}$ de les variables aleatòries $X$ y $Y$ que ha produït els vectors $x$ i $y$, mentre que  $s_2,{xy}$ és el seu estimador màxim versemblant quan la distribució conjunta de les variables $X,Y$ és el que s'anomena [normal bivariant](http://es.wikipedia.org/wiki/Distribución_normal_multivariante}).
+
+
+```{example,multex1}
+Hem mesurat l'índex de massa corporal, BMI, i el nivell de colesterol en 5 individus sans. Guardam els resultats en un *data frame* i en calculam les mitjanes:
+
+
+```
+
+```{r}
+BMI= c(18.3,24.4,24.6,24.4,22.2,19.5)
+Chol=c(170,202,215,218,210,210)
+DF=data.frame(BMI,Chol)
+mean(BMI)
+mean(Chol)
+```
+
+Aleshores la covariància mostral d'aquests dos vectors és 
+$$
+\frac{1}{5}\Big((18.3-22.23)(170-205.5)+(24.4-22.23)(202-205.5)+(24.6-22.23)(215-205.5)+(24.4-22.23)(218-205.5)+(22.2-22.23)(210-205.5)+(19.5-22.23)(210-205.5)\Big)=`r cov(BMI,Chol)`
+$$
+
+i la seva covariància a seques
+$$
+\frac{1}{6}\Big((18.3-22.23)(170-205.5)+(24.4-22.23)(202-205.5)+(24.6-22.23)(215-205.5)+(24.4-22.23)(218-205.5)+(22.2-22.23)(210-205.5)+(19.5-22.23)(210-205.5)\Big)=`r 4*cov(BMI,Chol)/5`
+$$
+
+
+
+La covariància *mostral* de dos vectors numèrics de la mateixa longitud $n$ es pot calcular amb R mitjançant la funció `cov`.
+Per  obtenir la seva covariància *a seques*, cal multiplicar el resultat de `cov` per $(n-1)/n$.
+
+```{r}
+cov(BMI,Chol)
+```
+
+Si tenim una taula de dades de la forma
+$$
+\begin{pmatrix}
+x_{1 1} & x_{1 2} &\ldots & x_{1 p}\\
+x_{2 1} & x_{2 2} &\ldots & x_{2 p}\\
+\vdots & \vdots   &   \ddots    &\vdots\\ 
+x_{n 1} & x_{n 2} &\ldots & x_{n p}
+\end{pmatrix}.
+$$
+on cada columna representa els valors d'una certa variable $X_i$ sobre una mateixa mostra de $n$ individus, la seva **matriu de covariàncies mostrals** és la matriu
+$$
+\widetilde{{S}}=
+\begin{pmatrix}  
+ \widetilde{s}_{1 1} & \widetilde{s}_{1 2} & \ldots & \widetilde{s}_{1 p}\\
+ \widetilde{s}_{2 1} & \widetilde{s}_{2 2} & \ldots & \widetilde{s}_{2 p}\\
+  \vdots & \vdots  &  \ddots      & \vdots\\
+\widetilde{s}_{p 1} & \widetilde{s}_{p 2} & \ldots & \widetilde{s}_{p p}
+\end{pmatrix}
+$$
+on cada $\widetilde{s}_{i j}$ representa la covariància mostral de les columnes $i$-èssima i $j$-èssima. La **matriu de covaiàncies** a seques es defineix de manera similar, però amb les covariàncies a seques:
+$$
+{S}=
+\begin{pmatrix}  
+ s_{1 1} & s_{1 2} & \ldots & s_{1 p}\\
+ s_{2 1} & s_{2 2} & \ldots & s_{2 p}\\
+  \vdots & \vdots  &   \ddots     & \vdots\\
+ s_{p 1} & s_{p 2} & \ldots & s_{p p}
+\end{pmatrix}
+$$
+
+La matriu de covariàncies mostrals es calcula amb la funció `cov` aplicada a la matriu o el *data frame* de variables numèriques que emmagatzema la taula de dades. Per calcular la matriu de covaiàncies a seques, es multiplica el resultat de `cov` per $(n-1)/n$, on $n$ és el nombre de fileres de la taula.
+
+```{example,multex2}
+Anem a afegir a la taula de dades de l'Exemple \@ref(exm:multex1) una tercera variable amb les edats dels 5 individus representats en ella. 
+
+
+````
+
+```{r}
+DF$Edats=c(49,39,50,44,40,36)
+DF
+```
+
+La matriu de covariàncies mostrals d'aquesta taula és
+```{r}
+cov(DF)
+```
+
+Podreu observar que a la diagonal hi obtenim les variàncies mostrals de les variables de la taula:
+```{r}
+apply(DF,MARGIN=2,FUN=var)
+```
+
+i que, per exemple, l'entrada (2,1) coincideix amb la covariància de `BMI` i `Chol` que hem calculat abans. La matriu és simètrica, perquè les covariàncies són simètriques.
+
+### Correlació de Pearson
+
+
+La **correlació de Pearson** de  dos vectors $x=(x_1,\ldots,x_n)$ i $y=(y_1,\ldots,y_n)$ (obtinguts mesurant dues variables aleatòries $X$ i $Y$ sobre una mateixa mostra d'individus de mida $n$ d'una població)  és la seva covariància mostral dividida pel producte de els seves desviacions típiques mostrals:
+$$
+r_{xy}=\frac{\widetilde{s}_{xy}}{\widetilde{s}_x\cdot \widetilde{s}_y}.
+$$
+
+També és igual a la seva covariància dividida pel producte de les seves desviacions típiques, perquè els canvis de denominador se cancel·len:
+$$
+r_{xy}\frac{\widetilde{s}_{xy}}{\widetilde{s}_x\cdot \widetilde{s}_y}=
+\frac{\frac{n}{n-1}\cdot {s}_{xy}}{\sqrt{\frac{n}{n-1}}\cdot {s}_x \cdot\sqrt{\frac{n}{n-1}}\cdot{s}_y}=
+\frac{s_{xy}}{s_x \cdot s_y}=r_{xy},
+$$
+
+
+L'estadístic $r_{ij}$ és un estimador màxim versemblant de la correlació de Pearson  $\rho_{XY}$ de less variables aleatòries poblacionals $X$ i $Y$ quan la seva distribució conjunta és normal bivariant i n'és un estimador esbiaixat, amb biaix que tendeix a 0. Altres propietats importants:
+
+* La correlació de Pearson és simètrica: $r_{xy}=r_{yx}$.
+
+* $-1\leq r_{xy}\leq 1$.
+
+* $r_{xx}=1$.
+
+* $r_{x}$ tiene el mismo signo que $s_{xy}$.
+
+* $r_{xy}=\pm 1$ si, i només si, existeixen  $a, b\in \mathbb{R}$ tals que $y=ax+b$, és a dir,  $y_i=ax_i+b$ per a tots els $i=1,\ldots,n$. El pendent $a$ d'aquesta relación lineal té el mateix signe que $r_{xy}$.
+
+
+* El coeficient de determinació $R^2$ de la regressió lineal per mínims quadrats de $y$ respecte de $x$  és igual al quadrat de la seva correlació de Pearson, $r_{xy}^2$. Per tant, com més s'acosta $|r_{xy}|$ a 1, més s'acosten el vector $x,y$ a dependre linealment ll'un de l'altre.
+
+
+Amb R, la correlació de Pearson de dos vectors es pot calcular amb la funció `cor`.
+
+```{example,multex1rev}
+Tornem a la situació de l'Exemple \@ref(exm:multex1). La covariància mostral i les desviacions típiques mostrals dels vectors `BMI` i `Chol` són
+
+```
+
+```{r}
+sd(BMI)
+sd(Chol)
+cov(BMI,Chol)
+```
+i per tant la seva correlació de Pearson és
+$$
+r_{BMI,Chol}=\frac{`r round(cov(BMI,Chol),3)`}{`r round(sd(BMI),3)`\cdot `r round(sd(Chol),3)`}= `r round(round(cov(BMI,Chol),3)/(round(sd(BMI),3)* round(sd(Chol),3)),3)`
+$$
+Amb R, s'obté directament amb
+```{r}
+cor(BMI,Chol)
+```
+
+Vegem que el seu quadrat és igual al $R^2$ de la regressió lineal de `Chol` en funció de `BMI`:
+```{r}
+cor(BMI,Chol)^2
+summary(lm(Chol~BMI))$r.squared
+```
+
+Si tenim una taula de dades de la forma
+$$
+\begin{pmatrix}
+x_{1 1} & x_{1 2} &\ldots & x_{1 p}\\
+x_{2 1} & x_{2 2} &\ldots & x_{2 p}\\
+\vdots & \vdots   &   \ddots    &\vdots\\ 
+x_{n 1} & x_{n 2} &\ldots & x_{n p}
+\end{pmatrix}.
+$$
+on cada columna representa els valors d'una certa variable $X_i$ sobre una mateixa mostra de $n$ individus, la seva **matriu de correlacions de Pearson** és la matriu
+$$
+\widetilde{R}=
+\begin{pmatrix}  
+ 1 & r_{1 2} & \ldots & r_{1 p}\\
+ r_{2 1} & 1 & \ldots & r_{2 p}\\
+  \vdots & \vdots  &  \ddots      & \vdots\\
+r_{p 1} & r_{p 2} & \ldots & 1
+\end{pmatrix}
+$$
+on cada $r_{i j}$ és la correlació de les columnes $i$-èssima i $j$-èssima. 
+
+Aquesta matriu de correlacions es calcula amb la funció `cor` aplicada a la matriu o el *data frame* de variables numèriques que emmagatzema la taula de dades. 
+
+
+
+```{example}
+La matriu de correlacions de Pearson de la taula de dades `DF` de l'Exemple \@ref(exm:multex2) és
+
+
+```
+
+```{r}
+cor(DF)
+```
+
+
+## Correlació de Spearman
+
+
+La correlació de Pearson mesura específicament la tendència de dues variables quantitatives contínues a dependre linealment l'una de l'altra. En circumstàncies en les quals no esperem aquesta dependència lineal, o en les quals les nostres variables siguin quantitatives discretes o simplement qualitatives, emprar la correlació de Pearson per a analitzar la relació entre dues variables no és el més adequat. Entre les propostes alternatives, la més popular és la **correlació de Spearman**. 
+
+Aquest índex assigna a cada valor de cada vector el seu **rang** (la seva posició en el vector ordenat de menor a major, i en cas d'empats la mitjana de les posicions que ocuparien tots els empats) i calcula la correlació de Pearson d'aquests rangs. Amb R, la correlació de Spearman es calcula directament amb la funció `cor` entrant-li el paràmetre `method="spearman"`. (El valor per defecte del paràmetre `method` és `"pearson"` i per això no l'indicam quan calculam la correlació de Pearson.)
+
+
+```{example} 
+Calculem a mà la correlació de Spearman dels vectors `BMI` i `Chol`. El primer que farem serà calcular els rangs dels valors
+  
+  
+```
+
+$$
+\begin{array}{|c|c||c|c|}
+\hline
+\mathit{BMI} & \mathit{Rang} & \mathit{Chol}&  \mathit{Rang}
+\\\hline\hline
+`r DF[1,1]`& `r rank(DF$BMI)[1]` & `r DF[1,2]`& `r rank(DF$Chol)[1]` \\
+`r DF[2,1]`&`r rank(DF$BMI)[2]` & `r DF[2,2]` & `r rank(DF$Chol)[2]`\\
+`r DF[3,1]`&`r rank(DF$BMI)[3]` & `r DF[3,2]`& `r rank(DF$Chol)[3]` \\
+`r DF[4,1]`&`r rank(DF$BMI)[4]` & `r DF[4,2]`&  `r rank(DF$Chol)[4]`\\ 
+`r DF[5,1]`&`r rank(DF$BMI)[5]` & `r DF[5,2]`&  `r rank(DF$Chol)[5]`\\
+`r DF[6,1]`&`r rank(DF$BMI)[6]` & `r DF[6,2]`&  `r rank(DF$Chol)[6]`\\\hline
+\end{array}
+$$
+
+
+
+
+Per tant, la correlación de Spearman de 
+$$
+\mathit{BMI}=(`r BMI`)\mbox{ i }\mathit{Chol}=(`r Chol`)
+$$
+és la correlació de Pearson de
+$$
+(`r rank(BMI)`)\mbox{ y }(`r rank(Chol)`)
+$$
+
+Veámoslo:
+
+```{r}
+cor(BMI,Chol,method="spearman")
+cor(c(1,4.5,6,4.5,3,2),c(1,2,4,5.5,3,5.5))
+```
+
+
+## Contrastos de correlació
+
+En un **contrast de correlació** de dues variables poblacionals $X$ i $Y$, la hipòtesi nul·la és que no hi ha correlació entre les dues variables, la qual cosa tradueix que no hi ha relació entre elles:
+$$
+\left\{
+\begin{array}{ll}
+H_0: & \rho_{XY}=0\\
+H_1: & \rho_{XY}> 0\text{ o }\rho_{XY}< 0\text{ o }\rho_{XY}\neq 0
+\end{array}\right.
+$$
+
+Fixau-vos que si en un contrast d'aquests rebutjau la hipòtesi nul·la, en particular arribau a la conclusió que les variables $X$ i $Y$ no són independents (perquè si fossin independents, la seva correlació seria 0).
+
+
+Amb R es pot efectuar amb la funció `cor.test`.
+
+```{example}
+Volem contrastar si hi ha correlació positiva entre el BMI i el nivell de colesterol d'un adult sa, amb un nivell de significació del 5%.
+
+
+```
+
+*Variables poblacionals d'interès*:
+
+* $\mathit{BMI}$: "Prenem un adult sa i mesuram el seu BMI"
+* $\mathit{Chol}$: "Prenem un adult sa i mesuram el nivell de colesterol"
+
+*Contrast*:
+$$
+\left\{
+\begin{array}{ll}
+H_0: & \rho_{\textit{BMI,Chol}}=0\\
+H_1: & \rho_{\textit{BMI,Chol}}>0
+\end{array}\right.
+$$
+
+Emprarem les mostres `BMI` i `Chol` de l'Exemple\@ref(exm:multex1).
+
+```{r}
+cor.test(BMI,Chol,alternative="greater")
+```
+
+*Conclusió*: No hem obtingut evidència estadísticament significativa que el BMI i el nivell de colesterol d'un adult sa tenguin correlació positiva   (test de correlació, p-valor 0.1134, IC 95% per a la correlació de $-0.278$ a 1).
+
+

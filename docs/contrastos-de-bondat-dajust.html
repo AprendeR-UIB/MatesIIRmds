@@ -24,7 +24,7 @@
 
 
 
-<meta name="date" content="2020-02-17">
+<meta name="date" content="2020-02-24">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -182,7 +182,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.6" data-path="contrastos-dhipotesis-generalitats.html"><a href="contrastos-dhipotesis-generalitats.html#recapitulacio"><i class="fa fa-check"></i><b>4.6</b> Recapitulació</a><ul>
 <li class="chapter" data-level="" data-path="contrastos-dhipotesis-generalitats.html"><a href="contrastos-dhipotesis-generalitats.html#interval-de-confianca-dun-contrast"><i class="fa fa-check"></i>Interval de confiança d’un contrast</a></li>
 <li class="chapter" data-level="" data-path="contrastos-dhipotesis-generalitats.html"><a href="contrastos-dhipotesis-generalitats.html#la-potencia"><i class="fa fa-check"></i>La potència</a></li>
-<li class="chapter" data-level="" data-path="contrastos-dhipotesis-generalitats.html"><a href="contrastos-dhipotesis-generalitats.html#el-risc-de-falsos-positius"><i class="fa fa-check"></i>El risc de falsos positius</a></li>
+<li class="chapter" data-level="" data-path="contrastos-dhipotesis-generalitats.html"><a href="contrastos-dhipotesis-generalitats.html#el-risc-de-positiu-fals"><i class="fa fa-check"></i>El risc de positiu fals</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="contrastos-dhipotesis-dun-i-dos-parametres.html"><a href="contrastos-dhipotesis-dun-i-dos-parametres.html"><i class="fa fa-check"></i><b>5</b> Contrastos d’hipòtesis d’un i dos paràmetres</a><ul>
@@ -285,7 +285,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre class="sourceCode r"><code class="sourceCode r">Grossa=<span class="kw">c</span>(<span class="dv">22</span>,<span class="dv">8</span>,<span class="dv">13</span>,<span class="dv">21</span>,<span class="dv">27</span>,<span class="dv">31</span>,<span class="dv">27</span>,<span class="dv">22</span>,<span class="dv">23</span>,<span class="dv">17</span>)
 <span class="kw">barplot</span>(Grossa,<span class="dt">col=</span><span class="st">&quot;light blue&quot;</span>,<span class="dt">names=</span><span class="dv">0</span><span class="op">:</span><span class="dv">9</span>,
         <span class="dt">main=</span><span class="st">&quot;Darreres xifres de la Grossa de Nadal&quot;</span>)</code></pre>
-<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-328-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-339-1.png" width="60%" style="display: block; margin: auto;" /></p>
 <p>Més en general, un <strong>contrast de bondat d’ajust</strong> té la forma següent:
 <span class="math display">\[
 \left\{
@@ -309,7 +309,7 @@ I, com sempre,</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">barplot</span>(Grossa, <span class="dt">col=</span><span class="st">&quot;light blue&quot;</span>, <span class="dt">names=</span><span class="dv">0</span><span class="op">:</span><span class="dv">9</span>,
         <span class="dt">main=</span><span class="st">&quot;Darreres xifres de la Grossa de Nadal&quot;</span>)
 <span class="kw">abline</span>(<span class="dt">h=</span><span class="fl">21.1</span>, <span class="dt">col=</span><span class="st">&quot;red&quot;</span>, <span class="dt">lwd=</span><span class="dv">2</span>, <span class="dt">lty=</span><span class="st">&quot;dashed&quot;</span>)</code></pre>
-<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-329-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-340-1.png" width="60%" style="display: block; margin: auto;" /></p>
 <p>Les desviacions observades respecte d’aquest valor, representat per la línia vermella al gràfic anterior, són prou grans com per dubtar que aquestes xifres són equiprobables, o podem acceptar que es deuen a l’atzar?</p>
 </div>
 <div id="test-chi2-de-pearson" class="section level2">
@@ -836,7 +836,7 @@ El gràfic d’aquesta distribució és el següent:</p></li>
 </ol>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(<span class="kw">c</span>(<span class="dv">1</span>,valors,<span class="dv">7</span>), <span class="kw">c</span>(<span class="dv">0</span>,(<span class="dv">0</span><span class="op">:</span><span class="dv">5</span>)<span class="op">/</span><span class="dv">5</span>,<span class="dv">1</span>), <span class="dt">type=</span><span class="st">&quot;s&quot;</span>, <span class="dt">lwd=</span><span class="fl">1.5</span>, 
      <span class="dt">xlab=</span><span class="st">&quot;&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;&quot;</span>)</code></pre>
-<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-358-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-369-1.png" width="60%" style="display: block; margin: auto;" /></p>
 <ol start="3" style="list-style-type: decimal">
 <li>Comparam <span class="math inline">\(F_n(x)\)</span> amb <span class="math inline">\(F_X(x)\)</span>. Si són molt diferents, rebutjarem que la mostra s’ha produït amb distribució <span class="math inline">\(F_X\)</span>.</li>
 </ol>
@@ -844,7 +844,7 @@ El gràfic d’aquesta distribució és el següent:</p></li>
 <span class="kw">curve</span>(<span class="kw">pnorm</span>(x,<span class="dv">3</span>,<span class="fl">1.5</span>),<span class="dt">col=</span><span class="st">&quot;red&quot;</span>,<span class="dt">lwd=</span><span class="fl">1.5</span>,<span class="dt">add=</span><span class="ot">TRUE</span>)
 <span class="kw">legend</span>(<span class="st">&quot;topleft&quot;</span>,<span class="dt">col=</span><span class="kw">c</span>(<span class="st">&quot;black&quot;</span>,<span class="st">&quot;red&quot;</span>),<span class="dt">lty=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>),
        <span class="dt">legend=</span><span class="kw">c</span>(<span class="kw">expression</span>(F[<span class="dv">6</span>]),<span class="st">&quot;N(3,1.5)&quot;</span>),<span class="dt">cex=</span><span class="fl">0.7</span>)</code></pre>
-<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-359-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-370-1.png" width="60%" style="display: block; margin: auto;" /></p>
 <p>Per comparar <span class="math inline">\(F_n(x)\)</span> amb <span class="math inline">\(F_X(x)\)</span>, calcularem
 <span class="math display">\[
 \max\{|F_n(x)-F_X(x)|\mid x\in \mathbb{R}\}

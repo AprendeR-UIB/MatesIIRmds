@@ -24,7 +24,7 @@
 
 
 
-<meta name="date" content="2020-02-17">
+<meta name="date" content="2020-02-24">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -182,7 +182,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.6" data-path="contrastos-dhipotesis-generalitats.html"><a href="contrastos-dhipotesis-generalitats.html#recapitulacio"><i class="fa fa-check"></i><b>4.6</b> Recapitulació</a><ul>
 <li class="chapter" data-level="" data-path="contrastos-dhipotesis-generalitats.html"><a href="contrastos-dhipotesis-generalitats.html#interval-de-confianca-dun-contrast"><i class="fa fa-check"></i>Interval de confiança d’un contrast</a></li>
 <li class="chapter" data-level="" data-path="contrastos-dhipotesis-generalitats.html"><a href="contrastos-dhipotesis-generalitats.html#la-potencia"><i class="fa fa-check"></i>La potència</a></li>
-<li class="chapter" data-level="" data-path="contrastos-dhipotesis-generalitats.html"><a href="contrastos-dhipotesis-generalitats.html#el-risc-de-falsos-positius"><i class="fa fa-check"></i>El risc de falsos positius</a></li>
+<li class="chapter" data-level="" data-path="contrastos-dhipotesis-generalitats.html"><a href="contrastos-dhipotesis-generalitats.html#el-risc-de-positiu-fals"><i class="fa fa-check"></i>El risc de positiu fals</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="contrastos-dhipotesis-dun-i-dos-parametres.html"><a href="contrastos-dhipotesis-dun-i-dos-parametres.html"><i class="fa fa-check"></i><b>5</b> Contrastos d’hipòtesis d’un i dos paràmetres</a><ul>
@@ -635,7 +635,7 @@ CFL=OBR<span class="op">$</span>CORNFLK</code></pre>
 <span class="kw">lines</span>(<span class="kw">density</span>(CFL),<span class="dt">lty=</span><span class="dv">2</span>,<span class="dt">lwd=</span><span class="dv">2</span>)
 <span class="kw">legend</span>(<span class="st">&quot;topright&quot;</span>,<span class="dt">legend=</span><span class="kw">c</span>(<span class="st">&quot;Densitat estimada&quot;</span>,<span class="st">&quot;Normal&quot;</span>),
        <span class="dt">col=</span><span class="kw">c</span>(<span class="st">&quot;black&quot;</span>,<span class="st">&quot;red&quot;</span>),<span class="dt">lty=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">1</span>),<span class="dt">cex=</span><span class="fl">0.5</span>)</code></pre>
-<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-252-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-263-1.png" width="60%" style="display: block; margin: auto;" /></p>
 <p>En aquest cas, una opció millor és dibuixar un <em>q-q-plot</em>. Un <strong>q-q-plot</strong> d’una mostra i una distribució teòrica és el gràfic dels <strong>q-q-punts</strong>: els punts de la forma <em>(q-quantil de la distribució, q-quantil de la mostra)</em>, per a tots els valors de q que tengui sentit donada la mida de la mostra. Quan la distribució amb la que comparam la mostra és una normal, se’n diu un <strong>normal-plot</strong>.</p>
 <p>Si la mostra prové de la distribució emprada en el q-q-plot, és d’esperar que el q-quantil de la mostra sigui aproximadament igual al q-quantil de la distribució i per tant que aquests q-q-punts estiguin prop de la diagonal principal <span class="math inline">\(y=x\)</span>.</p>
 <p>La funció <code>qqPlot</code> del paquet <strong>car</strong> produeix uns <em>q-q-plots</em> que contenen una regió de confiança del 95% que especifica què vol dir això que “els q-q-punts estiguin prop de la diagonal principal <span class="math inline">\(y=x\)</span>”, amb el significat usual de nivell de confiança. L’explicam amb detall a la lliçó de R sobre contrastos de bondat d’ajust.</p>
@@ -644,7 +644,7 @@ CFL=OBR<span class="op">$</span>CORNFLK</code></pre>
         <span class="dt">ylab=</span><span class="st">&quot;Quantils de OATBRAN&quot;</span>, <span class="dt">xlab=</span><span class="st">&quot;Quantils de normal&quot;</span>, <span class="dt">pch=</span><span class="dv">20</span>, <span class="dt">id=</span><span class="ot">FALSE</span>)
 <span class="kw">qqPlot</span>(CFL, <span class="dt">distribution=</span><span class="st">&quot;norm&quot;</span>, <span class="dt">mean=</span><span class="kw">mean</span>(CFL),<span class="dt">sd=</span><span class="kw">sd</span>(CFL),
        <span class="dt">ylab=</span><span class="st">&quot;Quantils de CORNFLK&quot;</span>, <span class="dt">xlab=</span><span class="st">&quot;Quantils de normal&quot;</span>, <span class="dt">pch=</span><span class="dv">20</span>, <span class="dt">id=</span><span class="ot">FALSE</span>)</code></pre>
-<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-254-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-265-1.png" width="60%" style="display: block; margin: auto;" /></p>
 <p>Aceptarem per tant que les nostres dades provenen de dues distribucions normals: podem fer servir la funció <code>t.test</code>.</p>
 <p>En aquest cas, el test t és de mostres aparellades (hem mesurat les dues variable aleatòries sobre els mateixos individus), per la qual cosa hem d’especificar <code>paired=TRUE</code> i no hem d’especificar el paràmetre <code>var.equal</code>. Emprarem el paràmetre <code>alternative=&quot;less&quot;</code> per indicar que el test és unilateral: la mitjana de la primera població és més petita que la de la segona.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">t.test</span>(OAT,CFL,<span class="dt">alternative=</span><span class="st">&quot;less&quot;</span>, <span class="dt">paired=</span><span class="ot">TRUE</span>)</code></pre>
@@ -701,7 +701,7 @@ H_{1}:\mu_{cu}&lt; \mu_{ds}
 <span class="kw">qqPlot</span>(TGN<span class="op">$</span>DS,  <span class="dt">distribution=</span><span class="st">&quot;norm&quot;</span>, <span class="dt">mean=</span><span class="kw">mean</span>(TGN<span class="op">$</span>DS), <span class="dt">sd=</span><span class="kw">sd</span>(TGN<span class="op">$</span>DS),
        <span class="dt">ylab=</span><span class="st">&quot;Quantils de la mostra&quot;</span>, <span class="dt">xlab=</span><span class="st">&quot;Quantils de normal&quot;</span>, 
        <span class="dt">pch=</span><span class="dv">20</span>,<span class="dt">id=</span><span class="ot">FALSE</span>)</code></pre>
-<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-258-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-269-1.png" width="60%" style="display: block; margin: auto;" /></p>
 <p>Vaja, no sembla que segueixin una distribució normal. Vegem els seus histogrames</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">hist</span>(TGN<span class="op">$</span>CU, <span class="dt">freq=</span><span class="ot">FALSE</span>, <span class="dt">main=</span><span class="st">&quot;Histograma de TGN$CU&quot;</span>, 
      <span class="dt">xlab=</span><span class="st">&quot;&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;&quot;</span>,<span class="dt">col=</span><span class="st">&quot;light blue&quot;</span>)
@@ -716,7 +716,7 @@ H_{1}:\mu_{cu}&lt; \mu_{ds}
 <span class="kw">curve</span>(<span class="kw">dnorm</span>(x,<span class="kw">mean</span>(TGN<span class="op">$</span>DS),<span class="kw">sd</span>(TGN<span class="op">$</span>DS)),<span class="dt">col=</span><span class="st">&quot;red&quot;</span>,<span class="dt">lwd=</span><span class="dv">2</span>,<span class="dt">add=</span><span class="ot">TRUE</span>)
 <span class="kw">legend</span>(<span class="st">&quot;topright&quot;</span>,<span class="dt">legend=</span><span class="kw">c</span>(<span class="st">&quot;Densitat estimada&quot;</span>,<span class="st">&quot;Normal&quot;</span>),<span class="dt">col=</span><span class="kw">c</span>(<span class="st">&quot;black&quot;</span>,<span class="st">&quot;red&quot;</span>),
        <span class="dt">lty=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">1</span>),<span class="dt">cex=</span><span class="fl">0.5</span>)</code></pre>
-<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-260-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-271-1.png" width="60%" style="display: block; margin: auto;" /></p>
 <p>Les dues mostres presenten una cua a la dreta. En casos així, de vegades els logaritmes seguexen aproximadament una distribució normal. Vegem si hi ha sort.</p>
 <pre class="sourceCode r"><code class="sourceCode r">LogCU=<span class="kw">log</span>(TGN<span class="op">$</span>CU)
 <span class="kw">qqPlot</span>(LogCU, <span class="dt">distribution=</span><span class="st">&quot;norm&quot;</span>, <span class="dt">mean=</span><span class="kw">mean</span>(LogCU), <span class="dt">sd=</span><span class="kw">sd</span>(LogCU),
@@ -727,7 +727,7 @@ LogDS=<span class="kw">log</span>(TGN<span class="op">$</span>DS)
 <span class="kw">qqPlot</span>(LogDS, <span class="dt">distribution=</span><span class="st">&quot;norm&quot;</span>, <span class="dt">mean=</span><span class="kw">mean</span>(LogDS), <span class="dt">sd=</span><span class="kw">sd</span>(LogCU),
         <span class="dt">ylab=</span><span class="st">&quot;Quantils dels logaritmes&quot;</span>, <span class="dt">xlab=</span><span class="st">&quot;Quantils de normal&quot;</span>, 
        <span class="dt">pch=</span><span class="dv">20</span>, <span class="dt">id=</span><span class="ot">FALSE</span>)</code></pre>
-<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-262-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-273-1.png" width="60%" style="display: block; margin: auto;" /></p>
 <p>Aquests logaritmes ja poden passar per normals. Per tant, el que farem serà, en lloc de comparar les mitjanes dels nivells de triglicèrids, comparar les mitjanes dels seus logaritmes.</p>
 
 <div class="rmdcaution">
@@ -826,7 +826,7 @@ H_{1}:\mu &lt;70
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">qqPlot</span>(pesos, <span class="dt">distribution=</span><span class="st">&quot;norm&quot;</span>, <span class="dt">mean=</span><span class="kw">mean</span>(pesos), <span class="dt">sd=</span><span class="kw">sd</span>(pesos),
         <span class="dt">ylab=</span><span class="st">&quot;Quantils de la mostra&quot;</span>, <span class="dt">xlab=</span><span class="st">&quot;Quantils de normal&quot;</span>, <span class="dt">pch=</span><span class="dv">20</span>, <span class="dt">id=</span><span class="ot">FALSE</span>)
 <span class="kw">boxplot</span>(pesos)</code></pre>
-<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-269-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-280-1.png" width="60%" style="display: block; margin: auto;" /></p>
 <p>Per tant, emprarem un test de Wilcoxon. Vegem com aniria a mà.</p>
 <ol style="list-style-type: decimal">
 <li>Calculam els <span class="math inline">\(d_i=x_i-70\)</span></li>
@@ -898,7 +898,7 @@ T_-=2.5+ 12 + 2.5 + 10 + 6   + 2.5  + 6   +  8 +  2.5=52
 <p>El test de Wilcoxon per a dues mitjanes emprant mostres aparellades és bàsicament el test anterior aplicat a la diferència dels valors de les dues variables a les parelles.</p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-271" class="example"><strong>Exemple 5.7  </strong></span>Una alternativa a la transformació logarítmica portada a terme a l’Exemple <a href="contrastos-dhipotesis-dun-i-dos-parametres.html#exm:sangumbil">5.5</a> hagués estat emprar el test de Wilcoxon per a mostres aparellades.</p>
+<p><span id="exm:unnamed-chunk-282" class="example"><strong>Exemple 5.7  </strong></span>Una alternativa a la transformació logarítmica portada a terme a l’Exemple <a href="contrastos-dhipotesis-dun-i-dos-parametres.html#exm:sangumbil">5.5</a> hagués estat emprar el test de Wilcoxon per a mostres aparellades.</p>
 </div>
 
 <p>El contrast ara seria
@@ -983,7 +983,7 @@ Alerta amb els p-valors dels contrastos bilaterals quan la distribució de l’e
 
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-274" class="example"><strong>Exemple 5.8  </strong></span>Suposem que tenim una mostra aleatòria simple de <span class="math inline">\(X\)</span> normal de mida 25, i ha donat
+<p><span id="exm:unnamed-chunk-285" class="example"><strong>Exemple 5.8  </strong></span>Suposem que tenim una mostra aleatòria simple de <span class="math inline">\(X\)</span> normal de mida 25, i ha donat
 <span class="math inline">\(\widetilde{S}_X^2=1.25\)</span>. Volem realitzar alguns contrastos amb hipòtesi nul·la <span class="math inline">\(\sigma_X^2=0.8\)</span>, i per tant tendrem
 <span class="math display">\[
 \chi_0^2=\frac{(25-1)\cdot 1.25}{0.8}=37.5
@@ -1023,10 +1023,10 @@ El p-valor és
 \]</span>
 Amb nivell de confiança <span class="math inline">\(\alpha=0.05\)</span>, no podem rebutjar <span class="math inline">\(H_0\)</span>.</p></li>
 </ul>
-<p>En resum: amb la nostra mostra trobam evidència estadísticament significativa que <span class="math inline">\(\sigma&gt;\sigma_0\)</span>, però no trobam evidència estadísticament significativa que <span class="math inline">\(\sigma\neq \sigma_0\)</span>. No us ha de venir de nou, ja ens hi hem trobat en altres ocasions (recordau els Exemples <a href="contrastos-dhipotesis-generalitats.html#exm:ttestmu20">4.10</a> i <a href="contrastos-dhipotesis-generalitats.html#exm:ttest1bis">4.12</a>): per rebutjar la hipòtesi nul·la en un contrast bilateral cal més evidència que en un contrast unilateral, perquè al contrast bilateral tenim dues fonts d’error de tipus I i al contrast unilateral només una.</p>
+<p>En resum: amb la nostra mostra trobam evidència estadísticament significativa que <span class="math inline">\(\sigma&gt;\sigma_0\)</span>, però no trobam evidència estadísticament significativa que <span class="math inline">\(\sigma\neq \sigma_0\)</span>. No us ha de venir de nou, ja ens hi hem trobat en altres ocasions (recordau els Exemples <a href="contrastos-dhipotesis-generalitats.html#exm:ttestmu20">4.13</a> i <a href="contrastos-dhipotesis-generalitats.html#exm:ttest1bis">4.15</a>): per rebutjar la hipòtesi nul·la en un contrast bilateral cal més evidència que en un contrast unilateral, perquè al contrast bilateral tenim dues fonts d’error de tipus I i al contrast unilateral només una.</p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-275" class="example"><strong>Exemple 5.9  </strong></span>S’ha analitzat el líquid amniòtic d’una mostra aleatòria de 15 embarassades de 3er trimestre, i s’han obtingut les mesures següents de proteïnes totals (en grams per 100 ml):</p>
+<p><span id="exm:unnamed-chunk-286" class="example"><strong>Exemple 5.9  </strong></span>S’ha analitzat el líquid amniòtic d’una mostra aleatòria de 15 embarassades de 3er trimestre, i s’han obtingut les mesures següents de proteïnes totals (en grams per 100 ml):</p>
 </div>
 
 <pre class="sourceCode r"><code class="sourceCode r">amnio=<span class="kw">c</span>(<span class="fl">0.69</span>,<span class="fl">1.04</span>,<span class="fl">0.39</span>,<span class="fl">0.37</span>,<span class="fl">0.64</span>,<span class="fl">0.73</span>,<span class="fl">0.69</span>,<span class="fl">1.04</span>,<span class="fl">0.83</span>,<span class="fl">1.01</span>,
@@ -1046,7 +1046,7 @@ amb <span class="math inline">\(\alpha=0.05\)</span></p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">qqPlot</span>(amnio, <span class="dt">distribution=</span><span class="st">&quot;norm&quot;</span>, <span class="dt">mean=</span><span class="kw">mean</span>(amnio), <span class="dt">sd=</span><span class="kw">sd</span>(amnio),
         <span class="dt">ylab=</span><span class="st">&quot;Quantils de la mostra&quot;</span>, <span class="dt">xlab=</span><span class="st">&quot;Quantils de normal&quot;</span>, 
        <span class="dt">pch=</span><span class="dv">20</span>, <span class="dt">id=</span><span class="ot">FALSE</span>)</code></pre>
-<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-278-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-289-1.png" width="60%" style="display: block; margin: auto;" /></p>
 <p>Acceptarem que <span class="math inline">\(X\)</span> és normal.</p>
 <p><em>Estadístic de contrast</em>:
 <span class="math display">\[
@@ -1144,7 +1144,7 @@ Per aquest motiu a aquest contrast se li diu un <strong>test F</strong>.</p>
 <p>El test F està implementat en la funció <code>var.test</code> de R: s’aplica a les dues mostres, amb sintaxi similar a la de <code>t.test</code>.</p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-282" class="example"><strong>Exemple 5.10  </strong></span>Les variables <span class="math inline">\(X_d\)</span> i <span class="math inline">\(X_h\)</span> de l’Exemple <a href="contrastos-dhipotesis-dun-i-dos-parametres.html#exm:temphomesdones">5.3</a>, tenen la mateixa variància?</p>
+<p><span id="exm:unnamed-chunk-293" class="example"><strong>Exemple 5.10  </strong></span>Les variables <span class="math inline">\(X_d\)</span> i <span class="math inline">\(X_h\)</span> de l’Exemple <a href="contrastos-dhipotesis-dun-i-dos-parametres.html#exm:temphomesdones">5.3</a>, tenen la mateixa variància?</p>
 </div>
 
 <p>Suposarem que totes dues són normals (les temperatures ho solen ser) i diguem <span class="math inline">\(\sigma_d^2\)</span> i <span class="math inline">\(\sigma_h^2\)</span> a les seves variàncies.</p>
@@ -1209,7 +1209,7 @@ F=\widetilde{S}_d^2/\widetilde{S}_h^2
 <span class="kw">curve</span>(<span class="kw">dnorm</span>(x,<span class="kw">mean</span>(X_h),<span class="kw">sd</span>(X_h)),<span class="dt">col=</span><span class="st">&quot;red&quot;</span>,<span class="dt">lwd=</span><span class="dv">2</span>,<span class="dt">add=</span><span class="ot">TRUE</span>)
 <span class="kw">legend</span>(<span class="st">&quot;topright&quot;</span>,<span class="dt">legend=</span><span class="kw">c</span>(<span class="st">&quot;Densitat estimada&quot;</span>,<span class="st">&quot;Normal&quot;</span>),
        <span class="dt">col=</span><span class="kw">c</span>(<span class="st">&quot;black&quot;</span>,<span class="st">&quot;red&quot;</span>),<span class="dt">lty=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">1</span>),<span class="dt">cex=</span><span class="fl">0.5</span>)</code></pre>
-<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-287-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-298-1.png" width="60%" style="display: block; margin: auto;" /></p>
 <p>i els normal-plot:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">qqPlot</span>(X_d, <span class="dt">distribution=</span><span class="st">&quot;norm&quot;</span>, <span class="dt">mean=</span><span class="kw">mean</span>(X_d), <span class="dt">sd=</span><span class="kw">sd</span>(X_d),
        <span class="dt">ylab=</span><span class="st">&quot;Quantils de la mostra de dones&quot;</span>, <span class="dt">xlab=</span><span class="st">&quot;Quantils de normal&quot;</span>, 
@@ -1217,7 +1217,7 @@ F=\widetilde{S}_d^2/\widetilde{S}_h^2
 <span class="kw">qqPlot</span>(X_h, <span class="dt">distribution=</span><span class="st">&quot;norm&quot;</span>, <span class="dt">mean=</span><span class="kw">mean</span>(X_h), <span class="dt">sd=</span><span class="kw">sd</span>(X_h),
        <span class="dt">ylab=</span><span class="st">&quot;Quantils de la mostra d&#39;homes&quot;</span>, <span class="dt">xlab=</span><span class="st">&quot;Quantils de normal&quot;</span>, 
        <span class="dt">pch=</span><span class="dv">20</span>, <span class="dt">id=</span><span class="ot">FALSE</span>)</code></pre>
-<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-289-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-300-1.png" width="60%" style="display: block; margin: auto;" /></p>
 <p>Seria millor haver emprat un test no paramètric, per més seguretat.</p>
 </div>
 <div id="tests-no-parametrics-1" class="section level3">
@@ -1347,7 +1347,7 @@ Z=\frac{\widehat{p}_X-p_0}{\sqrt{\frac{p_0(1-p_0)}{n}}}
 <p>on els paràmetres tenen el mateix significat que a <code>binom.test</code> excepte <code>correct</code>, que serveix per especificar si volem que s’apliqui una correcció de continuïtat (que és recomanable quan s’aproxima una variable discreta per una contínua però que nosaltres no aplicarem en realitzar contrastos “a mà” per no complicar-los) que millora els resultats. El seu valor per defecte és <code>TRUE</code>, i és el que us recomanan que empreu; el que hem explicat aquí correspon a <code>correct=FALSE</code>. L’interval de confiança que dóna aquesta funció en un contrast bilateral és el de Wilson (amb o sense correcció de continuïtat, segons el que valgui <code>correct</code>).</p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-297" class="example"><strong>Exemple 5.12  </strong></span>Continuant amb l’Exemple <a href="contrastos-dhipotesis-dun-i-dos-parametres.html#exm:esqUIB1">5.11</a>, ara hi emprarem el test aproximat, tot i que no és lo seu.</p>
+<p><span id="exm:unnamed-chunk-308" class="example"><strong>Exemple 5.12  </strong></span>Continuant amb l’Exemple <a href="contrastos-dhipotesis-dun-i-dos-parametres.html#exm:esqUIB1">5.11</a>, ara hi emprarem el test aproximat, tot i que no és lo seu.</p>
 </div>
 
 <p><em>Estadístic de contrast</em>:
@@ -1398,7 +1398,7 @@ El missatge d’advertència que ens ha donat R en aquestes dues execucions de l
 
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-301" class="example"><strong>Exemple 5.13  </strong></span>Quina és la potència del contrast realitzat a l’exemple anterior?</p>
+<p><span id="exm:unnamed-chunk-312" class="example"><strong>Exemple 5.13  </strong></span>Quina és la potència del contrast realitzat a l’exemple anterior?</p>
 </div>
 
 <p>Emprarem les funcions del paquet <strong>pwr</strong> per calcular-la. Primer calculam la mida de l’efecte observat amb la funció <code>ES.h</code> aplicada a la proporció poblacional contrastada i a la proporció mostral:</p>
@@ -1441,7 +1441,7 @@ El missatge d’advertència que ens ha donat R en aquestes dues execucions de l
 <p>Amb una mostra més gran, la potència és més gran, és més fàcil detectar que la hipòtesi alternativa sigui vertadera.</p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-306" class="example"><strong>Exemple 5.14  </strong></span>De quina mida hauríem d’haver pres la mostra per obtenir una potència del 90% amb <span class="math inline">\(\alpha=0.05\)</span> i esperant un efecte petit?</p>
+<p><span id="exm:unnamed-chunk-317" class="example"><strong>Exemple 5.14  </strong></span>De quina mida hauríem d’haver pres la mostra per obtenir una potència del 90% amb <span class="math inline">\(\alpha=0.05\)</span> i esperant un efecte petit?</p>
 </div>
 
 <p>Per determinar el valor d’un “efecte petit” entram</p>
@@ -1741,7 +1741,7 @@ Per tant, si l’interval de confiança per a la <em>odds ratio</em> que dóna l
 
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-320" class="example"><strong>Exemple 5.17  </strong></span>Si, per exemple, la <em>odds ratio</em> de <span class="math inline">\(A\)</span> i <span class="math inline">\(B\)</span> és
+<p><span id="exm:unnamed-chunk-331" class="example"><strong>Exemple 5.17  </strong></span>Si, per exemple, la <em>odds ratio</em> de <span class="math inline">\(A\)</span> i <span class="math inline">\(B\)</span> és
 <span class="math display">\[
   \text{OR}(A,B)=\frac{\text{Odds}(A)}{\text{Odds}(B)}=1.5
 \]</span>
@@ -1754,7 +1754,7 @@ i per tant <span class="math inline">\(\text{Odds}(A)=1.5\cdot \text{Odds}(B)\)<
 </ul>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-321" class="example"><strong>Exemple 5.18  </strong></span>Si realitzam el contrast de l’Exemple <a href="contrastos-dhipotesis-dun-i-dos-parametres.html#exm:allel1">5.15</a> amb el test <span class="math inline">\(\chi^2\)</span>, obtenim</p>
+<p><span id="exm:unnamed-chunk-332" class="example"><strong>Exemple 5.18  </strong></span>Si realitzam el contrast de l’Exemple <a href="contrastos-dhipotesis-dun-i-dos-parametres.html#exm:allel1">5.15</a> amb el test <span class="math inline">\(\chi^2\)</span>, obtenim</p>
 </div>
 
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">prop.test</span>(<span class="kw">c</span>(<span class="dv">20</span>,<span class="dv">12</span>),<span class="kw">c</span>(<span class="dv">100</span>,<span class="dv">50</span>),<span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>,<span class="dt">correct=</span><span class="ot">FALSE</span>)</code></pre>
@@ -1966,7 +1966,7 @@ i el podem efectuar amb un test binomial exacte prenent:</p>
 <p>L’inconvenient d’aquest test és que l’interval de confiança que donarà és per a <span class="math inline">\(p_{10}/(p_{10}+p_{01})\)</span>, i no té res a veure amb <span class="math inline">\(p_1-p_2\)</span> o <span class="math inline">\(p_1/p_2\)</span>. Per tant només ens hi podem fixar en el p-valor.</p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-326" class="example"><strong>Exemple 5.20  </strong></span>Tornem a la situació de l’Exemple <a href="contrastos-dhipotesis-dun-i-dos-parametres.html#exm:migranya">5.19</a>. Ara volem fer el contrast que realment ens interessa, que és si la taxa d’efectivitat del fàrmac és més gran que la del placebo:</p>
+<p><span id="exm:unnamed-chunk-337" class="example"><strong>Exemple 5.20  </strong></span>Tornem a la situació de l’Exemple <a href="contrastos-dhipotesis-dun-i-dos-parametres.html#exm:migranya">5.19</a>. Ara volem fer el contrast que realment ens interessa, que és si la taxa d’efectivitat del fàrmac és més gran que la del placebo:</p>
 </div>
 
 <p><span class="math display">\[
