@@ -1,6 +1,6 @@
 # Introducció  a l'estadística multidimensional
 
-En general, les dades que es recullen en experiments són multidimensionals: mesuram diverses variables aleatòries sobre una mateixa mostra d'individus, i organitzam aquesta informació en taules de dades on les fileres representen els individus observats i cada columna correspon a una variable diferent. És a dir, el que fem és avaluar un vector de variables aleatòries (en direm un **vector aleatori**) sobre els individus d'una població. En aquesta lliçó introduïm alguns conceptes nous sobre vectors de variables aleatòries i les seves realitzacions.
+En general, les dades que es recullen en experiments són multidimensionals: mesuram diverses variables aleatòries sobre una mateixa mostra d'individus i organitzam aquesta informació en taules de dades on les fileres representen els individus observats i cada columna correspon a una variable diferent. És a dir, el que fem és avaluar un vector de variables aleatòries (en direm un **vector aleatori**) sobre els individus d'una població. En aquesta lliçó introduïm alguns conceptes nous sobre vectors de variables aleatòries i taules multidimensionals de dades quantitatives.
 
 ## Poblacions: vectors aleatoris
 
@@ -8,18 +8,30 @@ Un **vector aleatori de dimensió $p$** és un vector format per $p$ variables a
 $$
 \underline{X}=(X_1,X_2,\ldots,X_p).
 $$
-Com en el cas de les variables aleatòries unidimensionals, és important distingir entre un vectors aleatori i les **realitzacions** o  les **mostres** d'aquest vector, que corresponen a mesurar les variables del vector sobre un individu de la població o sobre un conjunt d'individus.
+
 
 ```{example}
-Si diem $X_1$ a la variable aleatòria que dóna l'edat d'un individu (en anys), $X_2$ a la que dóna la seva alçada (arrodonida a cm) i $X_3$ a la que dóna el seu pes (arrodonida a kg amb una xifra decimal), llavors
+Si diem $\textit{BMI}$ a la variable aleatòria que dóna l'Índex de Massa Corporal (BMI) d'una persona, $C$ a la variable aleatòria que dóna el nivell de colesterol en mg/dl d'una persona i $E$  a la variable aleatòria que dóna l'edat d'una persona en anys, llavors
 $$
-\underline{X}=(X_1,X_2,X_3)
+\underline{X}=(\textit{BMI},C,E)
 $$
-és un vector aleatori de dimensió 3. Cada cop que prenem un individu i n'anotam l'edat, l'alçada i el pes i organitzam aquestes mesures en aquest ordre en un vector, obtenim una **realització** de $\underline{X}$. 
-Llavors,una **mostra** de $X$ serà un conjunt de vectors amb l'edat, l'alçada i el pes d'un grup d'individus de la població. Usualment, organitzarem una mostra de $X$ per mitjà d'una taula de dades amb fileres aquests vectors.
+és un vector aleatori de dimensió 3. Cada cop que prenem una persona i n'anotam el BMI, el nivell de colesterol i l'edat i organitzam aquestes mesures en aquest ordre en un vector, obtenim una **realització** d'aquest vector aleatori $\underline{X}$. 
+
+Llavors,una **mostra** de $X$ serà un conjunt de vectors amb el BMI, el nivell de colesterol i l'edat d'un grup de persones de la població. Usualment, organitzarem una mostra de $X$ per mitjà d'una taula de dades amb fileres aquests vectors i les columnes definides per les tres variables mesurades.
 ```
 
-Sigui ara $\underline{X}=(X_1,X_2,\ldots,X_p)$ un vector aleatori i, per a cada $i=1,\ldots,p$, siguin $\mu_i$ i $\sigma_i$ la mitjana i la desviació típica, respectivament, de la seva component $X_i$. Aleshores:
+```{block2,type="rmdcaution"}
+No confongueu vector aleatori amb mostra aleatòria. Tot i que tots dos es representen formalment per mitjà de vectors de variables aleatòries, 
+
+* En un vector aleatori, en principi totes les variables són diferents i les avaluam sobre el mateix individu, obtenint un vector de mesures d'aquest individu
+
+* En una mostra aleatòriai, totes les variables són còpies de la mateixa variable $X$ i les avaluam cada una sobre un individu diferent, obtenint una mostra de valors de $X$
+
+
+```
+
+
+Siguin $\underline{X}=(X_1,X_2,\ldots,X_p)$ un vector aleatori i  $\mu_i$ i $\sigma_i$ la mitjana i la desviació típica, respectivament, de cada $X_i$. 
 
 * El **valor esperat**, o **vector de mitjanes**,  de  $\underline{X}$ és el vector format pels valors esperats, o mitjanes, de les seves components:
 $$
@@ -40,36 +52,39 @@ $$
 
 ### Covariància
 
-Donades dues variables aleatòries $X_1$ i $X_2$ de mitjanes $\mu_1$ i $\mu_2$, respectivament, la seva **covariància** és 
+Donades dues variables aleatòries $X,Y$ de mitjanes $\mu_X$ i $\mu_Y$, respectivament, la seva **covariància** és 
 $$
-Cov(X_1,X_2)=E((X_1-\mu_1)\cdot ( X_2-\mu_2)).
+\sigma_{X,Y}=E((X-\mu_X)\cdot ( Y-\mu_Y)).
 $$
-És fàcil comprovar que la covariància també es pot calcular mitjançant la identitat
+És fàcil comprovar que
 $$
-Cov(X_1,X_2)=E(X_1\cdot X_2) -\mu_1\cdot \mu_2.
+\sigma_{X,Y}=E(X\cdot Y) -\mu_X\cdot \mu_Y.
 $$
 
 ```{block2,type="rmdcorbes"}
 En efecte,
 $$
 \begin{array}{rl}
-Cov(X_1,X_2) & =E((X_1-\mu_1) ( X_2-\mu_2))=
-E(X_1X_2-\mu_1X_2-\mu_2X_1+\mu_1\mu_2)\\ &
-=E(X_1X_2)-\mu_1E(X_2)-\mu_2E(X_1)+\mu_1\mu_2\\ &=
-E(X_1X_2)-\mu_1\mu_2-\mu_2\mu_1+\mu_1\mu_2
-=E(X_1X_2)-\mu_1\mu_2
+\sigma_{X,Y} & =E((X-\mu_X) ( Y-\mu_Y))=
+E(XY-\mu_XY-\mu_YX+\mu_X\mu_Y)\\ &
+=E(XY)-\mu_XE(Y)-\mu_YE(X)+\mu_X\mu_Y\\ &=
+E(XY)-\mu_X\mu_Y-\mu_Y\mu_X+\mu_X\mu_Y
+=E(XY)-\mu_X\mu_Y
 \end{array}
 $$
 ```
 
-La covariància de  $X_1$ i $X_2$ pot prendre qualsevol valor real, i mesura el grau de variació conjunta de les variables. Si valors grans d'una variable corresponen a valors grans de l'altra, la seva covariància és positiva. En el cas oposat, si valors grans d'una variable corresponen a valors petits de l'altra, la seva covariància és negativa. Per tant, el signe de la covariància  reflexa la tendència de la relació entre les variables. Emperò, la seva magnitud en valor absolut no té una interpretació senzilla. 
+La covariància de  $X$ i $Y$ pot prendre qualsevol valor real, i mesura el grau de variació conjunta de les variables. Si quan $X$ pren un valor gran sobre un individu, $Y$ tendeix a també prendre'l gran, i quan $X$ pren un valor petit sobre un individu, $Y$  tendeix a també prendre'l petit, la seva covariància és positiva. Si, en canvi, quan $X$ pren un valor gran sobre un individu, $Y$  tendeix a prendre'l petit i vice versa, la seva covariància és negativa. Per tant:
 
-```{block2, type="rmdimportant"}
-Si $X_1$ i $X_2$ són variables independents, la seva covariància es 0, perquè en aquest cas $E(X_1\cdot X_2) =\mu_1\mu_2$. El recíproc és fals: dues variables aleatòries poden tener covariància 0 i no ser independents.
+```{block2,type="rmdimportant"}
+El signe de la covariància  reflecteix la tendència de la relació entre les variables. 
 ```
+ 
+Si $X$ i $Y$ són variables independents, la seva covariància es 0, perquè en aquest cas $E(X\cdot Y) =\mu_X\mu_Y$. El recíproc és fals: dues variables aleatòries poden tener covariància 0 i no ser independents.
+Vegem un exemple d'aquest darrer fet:
 
 ```{example,nocorr} 
-Suposem que tenim un dau tetraèdric no trucat amb les cares marcades amb els valors -2, -1, 1 i 2. Siguin $X$ la variable aleatòria que consisteix a llançar el dau i anotar el resultat, i $Y$ la variable aleatòria que consisteix a llançar el dau i anotar el *quadrat* del resultat obtingut. Com les quatre cares del dau són equiprobables, 
+Suposem que tenim un dau tetraèdric no trucat amb les cares marcades amb els valors -2, -1, 1 i 2. Siguin $X$ la variable aleatòria que consisteix a llançar el dau i anotar el resultat, i $Y$ la variable aleatòria que consisteix a llançar el dau i anotar el *quadrat* del resultat obtingut. Com que les quatre cares del dau són equiprobables, 
 $$
 \begin{array}{l}
 \displaystyle P(X=-2)=P(X=-1)=P(X=1)=P(X=2)=\frac{1}{4}\\
@@ -79,12 +94,12 @@ $$
   
   
 ```
-Com que $Y$ és funció de $X$, ja que $I=X^2$, costa creure que $X$ i $Y$ vagin a ser independents. Vegem que, en efecte, no ho són. Observau que  els únics possibles valors per al vector $(X,Y)$ en una tirada del dau són (-2,4), (-1,1), (1,1) i (2,4), cadascun amb probabilitat 1/4. Llavors, per exemple, la probabilitat d'obtenir en una tirada $X=-1$ i $Y=4$ és 0, perquè és impossible, mentre que
+Com que $Y$ és funció de $X$, ja que $Y=X^2$, $X$ i $Y$ no poden ser mai independents. Vegem que, en efecte, no ho són. Observau que  els únics possibles valors per al vector $(X,Y)$ en una tirada del dau són (-2,4), (-1,1), (1,1) i (2,4), cadascun amb probabilitat 1/4. Llavors, per exemple, la probabilitat d'obtenir en una tirada $X=-1$ i $Y=4$ és 0, perquè és impossible, mentre que
 $$
 P(X=-1)\cdot P(Y=4)=\frac{1}{4}\cdot\frac{1}{2}=\frac{1}{8}\neq 0.
 $$
 
-Vegem ara que la covariància de $X$ i $Y$ es 0. Per calcular-la, primer necessitam conéixer els valors esperats de les variables:
+Vegem ara que la covariància de $X$ i $Y$ es 0. Per calcular-la, primer necessitam calcular els valors esperats de les variables:
 $$
 \begin{array}{l}
 \displaystyle E(X)=(-2)\cdot \frac{1}{4}+(-1)\cdot \frac{1}{4}+1\cdot \frac{1}{4}+2\cdot \frac{1}{4}=0\\
@@ -94,90 +109,64 @@ $$
 Per tant
 $$
 \begin{array}{l}
-Cov(X,Y)=E\big(X\cdot Y\big)-E(X)\cdot E(Y)=E\big(X\cdot Y\big)-0\cdot 2.5=E\big(X\cdot Y\big)\\
+\sigma_{X,Y)=E\big(X\cdot Y\big)-E(X)\cdot E(Y)=E\big(X\cdot Y\big)-0\cdot 2.5=E\big(X\cdot Y\big)\\
 \qquad =P\big(X=-2,Y=4\big)\cdot (-2\cdot 4)+P\big(X=-1,Y=1\big)\cdot (-1\cdot 1)\\\qquad\qquad\qquad+P\big(X=1,Y=1\big)\cdot (1\cdot 1)+P\big(X=2,Y=4\big)\cdot (2\cdot 4)\\
 \qquad =\displaystyle \frac{1}{4}\cdot (-8)+\frac{1}{4}\cdot (-1)+\frac{1}{4}\cdot 1+\frac{1}{4}\cdot 8=0.
 \end{array}
 $$
 Així doncs, $X$ i $Y$ són variables dependents, però la seva covariància és 0. 
 
-La covariància és simètrica, $Cov(X_1,X_2)=Cov(X_2,X_1)$, i la covariància d'una variable aleatòria amb ella mateixa és la seva variància: 
-$$
-Cov(X,X)=E((X-\mu)^2)=Var(X).
-$$
-Per simplificar la notació, se sol utilitzar $\sigma_{ij}$ per indicar la covariància de dues variables aleatòries $X_i$ i $X_j$ que formin part d'un vector aleatori. És a dir, escriurem
-$$
-\sigma_{i j}=Cov(X_i,X_j)\text{ i }
-\sigma_{ii}=Cov(X_i,X_i)=\sigma_i^2.
-$$
+Dues propietats importants més de la covariància:
 
-Com al cas unidimensional, un vector aleatori $\underline{X}=(X_1,\ldots,X_p)$
-admet una mesura de la seva dispersió respecte del seu valor esperat $\boldsymbol\mu$. És la seva *matriu de covariàncies*, que es defineix com
+* La covariància és simètrica: $\sigma_{X,Y}=\sigma_{Y,X}$
+
+* La covariància d'una variable aleatòria amb ella mateixa és la seva variància: $\sigma_{X,X}=E((X-\mu_X)^2)=\sigma^2(X)$
+
+
+La *matriu de covariàncies* d'un vector aleatori $\underline{X}=(X_1,\ldots,X_p)$ és la matriu formada per les covariàncies dels parells de variables que la formen:
 $$
-\begin{array}{l}
-\displaystyle Cov(\underline{X})  =E((\underline{X}-\boldsymbol\mu)^t\cdot (\underline{X}-\boldsymbol\mu))=
-E\left(\!\begin{pmatrix} X_1-\mu_1 \\ X_2-\mu_2 \\ \vdots \\ X_p-\mu_p\end{pmatrix}\!\cdot\!
-(X_1-\mu_1, X_2-\mu_2,\ldots,X_p-\mu_p)\right)\\[3ex] 
-\displaystyle \quad
-=\begin{pmatrix} E((X_1-\mu_1)^2) & E((X_1-\mu_1)(X_2-\mu_2)) & \ldots  & E((X_1-\mu_1)(X_p-\mu_p))\\
-E((X_2-\mu_2)(X_1-\mu_1)) & E((X_2-\mu_2)^2)  &  \ldots  &E((X_2-\mu_2)(X_p-\mu_p))\\
-\vdots & \vdots & \ddots  & \vdots\\
-E((X_p-\mu_p)(X_1-\mu_1)) & E((X_p-\mu_p)(X_2-\mu_2)) & \ldots  &  E((X_p-\mu_p)^2) 
- \end{pmatrix}
-\\[3ex] \displaystyle\quad
-=\begin{pmatrix} \sigma_{1 1} & \sigma_{1 2} & \ldots & \sigma_{1
-p}\\
-\sigma_{2 1} & \sigma_{2 2} & \ldots & \sigma_{2 p}\\
+\sigma_{\underline{X})=\begin{pmatrix} \sigma_{X_1,X_1} & \sigma_{X_1,X_2} & \ldots & \sigma_{X_1,X_p}\\
+\sigma_{X_2,X_1} & \sigma_{X_2,X_2} & \ldots & \sigma_{X_2,X_p}\\
 \vdots & \vdots &\ddots  & \vdots\\
-\sigma_{p 1} & \sigma_{p 2} & \ldots & \sigma_{p p}\\
+\sigma_{X_p,X_1} & \sigma_{X_p,X_2} & \ldots & \sigma_{X_p,X_p}\\
  \end{pmatrix}
-\end{array}
-$$
-És a dir, la matriu de covariàncies de $\underline{X}$ té com a entrada $(i,j)$ la covariància $\sigma_{ij}$ de $X_i$ i $X_j$. Es pot comprovar fàcilment que aquesta matriu es pot calcular mitjançant la identitat
-$$
-Cov(\underline{X})=E(\underline{X}^t\cdot \underline{X})-\boldsymbol\mu^t\cdot \boldsymbol\mu.
 $$
 
-### Correlació de Pearson
+Fixau-vos que les entrades de la diagonal són les variàncies de les variables del vector: $\sigma_{X_i,X_i}=\sigma^2_{X_i}$.
 
 
-Com que el valor concret de la covariància és difícil d'interpretar, per a mesurar la relació lineal entre dues variables aleatòries s'usa l'anomenat **coeficient de correlació lineal de Pearson** (o **correlació** a seques), que ve a ser una versió normalitzada de la covariància. En concret, la **correlació** de les variables $X_i$ i $X_j$ es defineix com el quocient
+### Correlació
+
+Com hem dit, el signe de la variància té una interpretació senzilla, ja que reflecteix la tendència de la relació entre les variables. 
+Emperò, la seva magnitud no té una interpretació senzilla. Aleshores, per mesurar la relació lineal entre dues variables aleatòries s'usa l'anomenat **coeficient de correlació lineal de Pearson** (o **correlació** a seques), que ve a ser una versió normalitzada de la covariància. En concret, la **correlació** de les variables $X$ i $Y$ es defineix com el quocient de la seva covariància pel productes de les seves desviacions típiques:
 $$
-Cor(X_i,X_j)=\frac{\sigma_{i j}}{\sigma_{i} \sigma_{j}},
+\rho_{X,Y}=\frac{\sigma_{X,Y}}{\sigma_{X} \sigma_{Y}},
 $$
-i és una mesura adimensional de la relació entre $X_i$ i $X_j$. Sovint denotarem $Cor(X_i,X_j)$ per mitjà de $\rho_{ij}$.
 
-Les correlacions tenen les propietats següents:
+La correlació té les propietats importants següents:
 
-1. $-1\leq \rho_{i j}\leq 1$.
+1. No té unitats (perquè les unitats de $\sigma_X$ són les de $X$, les unitats de $\sigma_Y$ són les de $Y$, i les unitats de $\sigma_{X,Y}$ són les de $X$ per les de $Y$)
 
-2. $\rho_{i j}= \rho_{j i}$ i $\rho_{ii}=1$.
+1. Pren valors entre -1 i 1: $-1\leq \rho_{X,Y}\leq 1$
 
-3. Si $a_i,a_j,b_i,b_j\in \mathbb{R}$ i $a_i,a_j\neq 0$, llavors
+2. És simètrica, $\rho_{X,Y}= \rho_{Y,X}$
+
+3. La correlació d'una variable amb ella mateixa és 1: $\rho_{X,X}=1$
+
+4. Si $\rho_{X,Y}=\pm 1$, les variables $X,Y$ tenen una **relació lineal perfecta**, és a dir, existeixen $a,b\in \mathbb{R}$ tals que $Y=a X+b$. La pendent $a$ d'aquesta recta té el mateix signe que $\rho_{X,Y}$.
+
+5. Si $\rho_{X,Y}=0$, diem que les variables $X$ i $Y$ són **incorrelades**. Notem que la correlació és 0 si, i només si, la covariància és 0. Per tant, si $X$ i $Y$ són independents, també són incorrelades. El recíproc en general és fals, com mostra l'Exemple \@ref(exm:nocorr).
+
+
+La *matriu de correlacions* d'un vector aleatori $\underline{X}=(X_1,\ldots,X_p)$ és la matriu formada per les correlacions de parells de les seves variables:
 $$
-Cor(a_iX_i+b_i,a_jX_j+b_j)=\pm Cor(X_i,X_j),
-$$
-on el signe que apareix és el del producte $a_i\cdot a_j$.
-
-4. Si $\rho_{i j}=\pm 1$, les variables tenen una relació lineal perfecta, és a dir, existeixen $\alpha,\beta\in \mathbb{R}$ tals que $X_i=\alpha X_j+\beta$. La pendent $\alpha$ d'aquesta recta té el mateix signe que la correlació.
-
-5. Si $\rho_{i j}=0$, diem que les variables $X_i$ i $X_j$ són **incorrelades**.
-Notem que la correlació és 0 si, i només si, la covariància és 0. Per tant, dues variables aleatòries independents són incorrelades. El recíproc en general és fals, com mostra l'Exemple \@ref(exm:nocorr).
-
-
-
-
-La *matriu de correlacions* d'un vector aleatori $\underline{X}=(X_1,\ldots,X_p)$ és
-$$
-Cor(\underline{X})
-=\begin{pmatrix} 1 & \rho_{1 2} & \ldots & \rho_{1 p}\\
-\rho_{2 1} & 1 & \ldots & \rho_{2 p}\\
+\rho(\underline{X})
+=\begin{pmatrix} 1 & \rho_{X_1,X_2} & \ldots & \rho_{X_1,X_p}\\
+\rho_{X_2,X_1} & 1 & \ldots & \rho_{X_2,X_p}\\
 \vdots & \vdots & \ddots & \vdots\\
-\rho_{p 1} & \rho_{p 2} & \ldots & 1\\
+\rho_{X_p,X_1} & \rho_{X_p,X_2} & \ldots & 1\\
  \end{pmatrix}.
 $$
-
-
 
 
 ## Estadística descriptiva: Mostres
@@ -186,29 +175,35 @@ $$
 
 Siguin $x=(x_1,\ldots,x_n)$ i $y=(y_1,\ldots,y_n)$ dos vectors obtinguts mesurant dues variables aleatòries $X$ i $Y$ sobre una mateixa mostra d'individus de mida $n$ d'una població. Siguin $\overline{x}$ i $\overline{y}$ les seves mitjanes mostrals. Aleshores la seva **covariància mostral** és
 $$
-\widetilde{s}_{xy} =
-\frac{1}{n-1} \sum_{i =1}^n\big((x_{i}-\overline{{x}})(y_i-\overline{y})\big)
+\widetilde{s}_{x,y} =\frac{1}{n-1} \sum_{i =1}^n\big((x_{i}-\overline{{x}})(y_i-\overline{y})\big)
 $$
 i la seva **covariància** (**a seques**) és
 $$
-{s}_{xy} =
-\frac{1}{n} \sum_{i =1}^n\big((x_{i}-\overline{{x}})(y_i-\overline{y})\big)=\frac{n-1}{n}\widetilde{s}_{XY}.
+{s}_{x,y} =\frac{1}{n} \sum_{i =1}^n\big((x_{i}-\overline{{x}})(y_i-\overline{y})\big)=\frac{n-1}{n}\widetilde{s}_{XY}.
 $$
 És a dir, com sempre, la diferència entre la versió "mostral" i la versió "a seques" rau en el denominador, $n-1$ i $n$ respectvament.
+
+```{block2,type="rmdimportant"}
+La covariància de dos vectors només té sentit quan aquests vectors representen els valors de dues variables quantitatives sobre els mateixos individus i en el mateix ordre. En particular, per existir els dos vectors han de tenir la mateixa longitud.
+```
 
 Com en el cas poblacional, la **covariància** entre dos vectors mesura la tendència que tenen les seves dades a variar conjuntament. Quan la covariància és positiva, si una $x_i$ és gran o petita, la corresponent $y_i$ tendeix a tenir el mateix comportament. Quan la covariància és negativa, aquesta tendència s'inverteix: si una $x_i$ és gran, la corresponent $y_i$ tendeix a ser petita, i viceversa. 
 
 És immediat comprovar que les dues covariàncies són simètriques,
 $$
-\widetilde{s}_{xy}=\widetilde{s}_{yx}
+\widetilde{s}_{x,y}=\widetilde{s}_{y,x}
 $$
-i que covariància generalitza la variància, en el sentit que la variància d'un vector és la seva covariància amb ell mateix
+i que  la covariància generalitza la variància, en el sentit que la variància d'un vector és la seva covariància amb ell mateix
 $$
-\widetilde{s}_{xy}=\widetilde{s}^2_{x},\
-{s}_{xy}={s}^2_{y}.
+\widetilde{s}_{x,x}=\widetilde{s}^2_{x},\ {s}_{x,x}={s}^2_{x}.
 $$
 
-L'estadístic $\widetilde{s}_{xy}$ sempre és un estimador no esbiaixat de la covariància poblacional $\sigma_{XY}$ de les variables aleatòries $X$ y $Y$ que ha produït els vectors $x$ i $y$, mentre que  $s_2,{xy}$ és el seu estimador màxim versemblant quan la distribució conjunta de les variables $X,Y$ és el que s'anomena [normal bivariant](http://es.wikipedia.org/wiki/Distribución_normal_multivariante}).
+Les covariàncies de dos vectors estimen la covariància poblacional de les variables que han produït els vectors:
+
+* La covariància mostral $\widetilde{s}_{x,y}$ sempre és un estimador no esbiaixat de la covariància poblacional $\sigma_{X,Y}$
+
+
+* La covariància a seques $s_{x,y}$ és l'estimador màxim versemblant de $\sigma_{X,Y}$ quan la distribució conjunta de les variables $X,Y$ és el que s'anomena [normal bivariant](http://es.wikipedia.org/wiki/Distribución_normal_multivariante}).
 
 
 ```{example,multex1}
@@ -227,57 +222,68 @@ mean(Chol)
 
 Aleshores la covariància mostral d'aquests dos vectors és 
 $$
-\frac{1}{5}\Big((18.3-22.23)(170-205.5)+(24.4-22.23)(202-205.5)+(24.6-22.23)(215-205.5)+(24.4-22.23)(218-205.5)+(22.2-22.23)(210-205.5)+(19.5-22.23)(210-205.5)\Big)=`r cov(BMI,Chol)`
+\begin{array}{l}
+\dfrac{1}{5}\Big((18.3-22.23)(170-205.5)+(24.4-22.23)(202-205.5)+(24.6-22.23)(215-205.5)\\
+\qquad +(24.4-22.23)(218-205.5)+(22.2-22.23)(210-205.5)+(19.5-22.23)(210-205.5)\Big)=`r cov(BMI,Chol)`
+\end{array}
 $$
 
-i la seva covariància a seques
+i la seva covariància a seques és
 $$
-\frac{1}{6}\Big((18.3-22.23)(170-205.5)+(24.4-22.23)(202-205.5)+(24.6-22.23)(215-205.5)+(24.4-22.23)(218-205.5)+(22.2-22.23)(210-205.5)+(19.5-22.23)(210-205.5)\Big)=`r 4*cov(BMI,Chol)/5`
+\begin{array}{l}
+\dfrac{1}{6}\Big((18.3-22.23)(170-205.5)+(24.4-22.23)(202-205.5)+(24.6-22.23)(215-205.5)\\
+\qquad +(24.4-22.23)(218-205.5)+(22.2-22.23)(210-205.5)+(19.5-22.23)(210-205.5)\Big)=`r 4*cov(BMI,Chol)/5`
+\end{array}
 $$
 
 
 
-La covariància *mostral* de dos vectors numèrics de la mateixa longitud $n$ es pot calcular amb R mitjançant la funció `cov`.
+La covariància *mostral* de dos vectors numèrics de la mateixa longitud $n$ es calcula amb R amb la funció `cov`.
 Per  obtenir la seva covariància *a seques*, cal multiplicar el resultat de `cov` per $(n-1)/n$.
 
 ```{r}
 cov(BMI,Chol)
 ```
 
-Si tenim una taula de dades de la forma
+Considerem una taula de dades de la forma
 $$
-\begin{pmatrix}
+\begin{array}{cccc}
+X_1 & X_2 & \ldots & X_p\\ \hline
 x_{1 1} & x_{1 2} &\ldots & x_{1 p}\\
 x_{2 1} & x_{2 2} &\ldots & x_{2 p}\\
 \vdots & \vdots   &   \ddots    &\vdots\\ 
 x_{n 1} & x_{n 2} &\ldots & x_{n p}
-\end{pmatrix}.
+\end{array}
 $$
-on cada columna representa els valors d'una certa variable $X_i$ sobre una mateixa mostra de $n$ individus, la seva **matriu de covariàncies mostrals** és la matriu
+on cada columna representa els valors d'una certa variable $X_i$ i cada filera un individu d'una mostra de la població, de manera que l'entrada (i,j) d'aquesta taula és el valor de $X_j$ sobre l'individu $i$-èssim de la mostra. 
+
+La **matriu de covariàncies mostrals** d'aquesta és la matriu
 $$
 \widetilde{{S}}=
 \begin{pmatrix}  
- \widetilde{s}_{1 1} & \widetilde{s}_{1 2} & \ldots & \widetilde{s}_{1 p}\\
- \widetilde{s}_{2 1} & \widetilde{s}_{2 2} & \ldots & \widetilde{s}_{2 p}\\
+ \widetilde{s}^2_{X_1} & \widetilde{s}_{X_1,X_2} & \ldots & \widetilde{s}_{X_1,X_p}\\
+ \widetilde{s}_{X_2,X_1} &  \widetilde{s}^2_{X_2} & \ldots & \widetilde{s}_{X_2,X_p}\\
   \vdots & \vdots  &  \ddots      & \vdots\\
-\widetilde{s}_{p 1} & \widetilde{s}_{p 2} & \ldots & \widetilde{s}_{p p}
+\widetilde{s}_{X_p,X_1} & \widetilde{s}_{X_p,X_2} & \ldots &  \widetilde{s}^2_{X_p}
 \end{pmatrix}
 $$
-on cada $\widetilde{s}_{i j}$ representa la covariància mostral de les columnes $i$-èssima i $j$-èssima. La **matriu de covaiàncies** a seques es defineix de manera similar, però amb les covariàncies a seques:
+i la **matriu de covaiàncies** (**a seques**) es defineix de manera similar, però amb les covariàncies a seques:
 $$
 {S}=
 \begin{pmatrix}  
- s_{1 1} & s_{1 2} & \ldots & s_{1 p}\\
- s_{2 1} & s_{2 2} & \ldots & s_{2 p}\\
-  \vdots & \vdots  &   \ddots     & \vdots\\
- s_{p 1} & s_{p 2} & \ldots & s_{p p}
+ s^2_{X_1} & s_{X_1,X_2} & \ldots & s_{X_1,X_p}\\
+ s_{X_2,X_1} & s^2_{X_2} & \ldots & s_{X_2,X_p}\\
+  \vdots & \vdots  &  \ddots      & \vdots\\
+s_{X_p,X_1} & s_{X_p,X_2} & \ldots & s^2_{X_p}
 \end{pmatrix}
 $$
 
-La matriu de covariàncies mostrals es calcula amb la funció `cov` aplicada a la matriu o el *data frame* de variables numèriques que emmagatzema la taula de dades. Per calcular la matriu de covaiàncies a seques, es multiplica el resultat de `cov` per $(n-1)/n$, on $n$ és el nombre de fileres de la taula.
+
+
+La matriu de covariàncies mostrals es calcula amb la funció `cov` aplicada a la matriu o el *data frame* de variables numèriques que emmagatzema la taula de dades. Per calcular la matriu de covariàncies a seques, es multiplica el resultat de `cov` per $(n-1)/n$, on $n$ és el nombre de fileres de la taula.
 
 ```{example,multex2}
-Anem a afegir a la taula de dades de l'Exemple \@ref(exm:multex1) una tercera variable amb les edats dels 5 individus representats en ella. 
+Anem a afegir a la taula de dades de l'Exemple \@ref(exm:multex1) una tercera variable amb les edats dels 6 individus representats en ella. 
 
 
 ````
@@ -301,37 +307,19 @@ i que, per exemple, l'entrada (2,1) coincideix amb la covariància de `BMI` i `C
 
 ### Correlació de Pearson
 
+Siguin $x=(x_1,\ldots,x_n)$ i $y=(y_1,\ldots,y_n)$ dos vectors  obtinguts mesurant dues variables aleatòries $X$ i $Y$ sobre una mateixa mostra d'individus de mida $n$ d'una població.
 
-La **correlació de Pearson** de  dos vectors $x=(x_1,\ldots,x_n)$ i $y=(y_1,\ldots,y_n)$ (obtinguts mesurant dues variables aleatòries $X$ i $Y$ sobre una mateixa mostra d'individus de mida $n$ d'una població)  és la seva covariància mostral dividida pel producte de els seves desviacions típiques mostrals:
+La **correlació de Pearson** de  $x$ i $y$ és la seva covariància mostral dividida pel producte de les seves desviacions típiques mostrals:
 $$
-r_{xy}=\frac{\widetilde{s}_{xy}}{\widetilde{s}_x\cdot \widetilde{s}_y}.
+r_{x,y}=\frac{\widetilde{s}_{x,y}}{\widetilde{s}_x\cdot \widetilde{s}_y}.
 $$
 
 També és igual a la seva covariància dividida pel producte de les seves desviacions típiques, perquè els canvis de denominador se cancel·len:
 $$
-r_{xy}\frac{\widetilde{s}_{xy}}{\widetilde{s}_x\cdot \widetilde{s}_y}=
-\frac{\frac{n}{n-1}\cdot {s}_{xy}}{\sqrt{\frac{n}{n-1}}\cdot {s}_x \cdot\sqrt{\frac{n}{n-1}}\cdot{s}_y}=
-\frac{s_{xy}}{s_x \cdot s_y}=r_{xy},
+r_{x,y}\frac{\widetilde{s}_{x,y}}{\widetilde{s}_x\cdot \widetilde{s}_y}=
+\frac{\frac{n}{n-1}\cdot {s}_{x,y}}{\sqrt{\frac{n}{n-1}}\cdot {s}_x \cdot\sqrt{\frac{n}{n-1}}\cdot{s}_y}=
+\frac{s_{x,y}}{s_x \cdot s_y}=r_{x,y},
 $$
-
-
-L'estadístic $r_{ij}$ és un estimador màxim versemblant de la correlació de Pearson  $\rho_{XY}$ de less variables aleatòries poblacionals $X$ i $Y$ quan la seva distribució conjunta és normal bivariant i n'és un estimador esbiaixat, amb biaix que tendeix a 0. Altres propietats importants:
-
-* La correlació de Pearson és simètrica: $r_{xy}=r_{yx}$.
-
-* $-1\leq r_{xy}\leq 1$.
-
-* $r_{xx}=1$.
-
-* $r_{x}$ tiene el mismo signo que $s_{xy}$.
-
-* $r_{xy}=\pm 1$ si, i només si, existeixen  $a, b\in \mathbb{R}$ tals que $y=ax+b$, és a dir,  $y_i=ax_i+b$ per a tots els $i=1,\ldots,n$. El pendent $a$ d'aquesta relación lineal té el mateix signe que $r_{xy}$.
-
-
-* El coeficient de determinació $R^2$ de la regressió lineal per mínims quadrats de $y$ respecte de $x$  és igual al quadrat de la seva correlació de Pearson, $r_{xy}^2$. Per tant, com més s'acosta $|r_{xy}|$ a 1, més s'acosten el vector $x,y$ a dependre linealment ll'un de l'altre.
-
-
-Amb R, la correlació de Pearson de dos vectors es pot calcular amb la funció `cor`.
 
 ```{example,multex1rev}
 Tornem a la situació de l'Exemple \@ref(exm:multex1). La covariància mostral i les desviacions típiques mostrals dels vectors `BMI` i `Chol` són
@@ -347,7 +335,32 @@ i per tant la seva correlació de Pearson és
 $$
 r_{BMI,Chol}=\frac{`r round(cov(BMI,Chol),3)`}{`r round(sd(BMI),3)`\cdot `r round(sd(Chol),3)`}= `r round(round(cov(BMI,Chol),3)/(round(sd(BMI),3)* round(sd(Chol),3)),3)`
 $$
-Amb R, s'obté directament amb
+
+La correlació de Pearson de dos vectors estima la correlació de les variables poblacionals  que han produït els vectors. En concret
+
+* $r_{x,y}$ és un estimador màxim versemblant de $\rho_{X,Y}$ de les variables aleatòries poblacionals $X$ i $Y$ quan la seva distribució conjunta és normal bivariant. A més, el seu biaix que tendeix a 0. 
+
+
+Altres propietats importants de la correlació de Pearson:
+
+* La correlació de Pearson és simètrica: $r_{x,y}=r_{y,x}$
+
+* La correlació de Pearson pren valors només entre -1 i 1: $-1\leq r_{x,y}\leq 1$
+
+* La correlació de Pearson d'un vector amb ell mateix és 1: $r_{x,x}=1$
+
+* $r_{x,y}$ té el mateix signe que $s_{x,y}$
+
+* $r_{x,y}=\pm 1$ si, i només si, existeixen  $a, b\in \mathbb{R}$ tals que $y=ax+b$, és a dir,  $y_i=ax_i+b$ per a cada $i=1,\ldots,n$. El pendent $a$ d'aquesta relación lineal té el mateix signe que $r_{x,y}$.
+
+* El coeficient de determinació $R^2$ de la regressió lineal per mínims quadrats de $y$ respecte de $x$  és igual al quadrat de la seva correlació de Pearson:
+$$
+R^2=r_{x,y}^2
+$$
+Per tant, com més s'acosta $|r_{x,y}|$ a 1, més s'acosten els vectors $x,y$ a dependre linealment l'un de l'altre.
+
+
+Amb R, la correlació de Pearson de dos vectors es pot calcular amb la funció `cor`. Per exemple, la correlació del Pearson dels vectors `BMI` i `Chol` s'obté amb
 ```{r}
 cor(BMI,Chol)
 ```
@@ -358,36 +371,31 @@ cor(BMI,Chol)^2
 summary(lm(Chol~BMI))$r.squared
 ```
 
-Si tenim una taula de dades de la forma
+
+Suposem que tenim una taula de dades de la forma
 $$
-\begin{pmatrix}
+\begin{array}{cccc}
+X_1 & X_2 & \ldots & X_p\\ \hline
 x_{1 1} & x_{1 2} &\ldots & x_{1 p}\\
 x_{2 1} & x_{2 2} &\ldots & x_{2 p}\\
 \vdots & \vdots   &   \ddots    &\vdots\\ 
 x_{n 1} & x_{n 2} &\ldots & x_{n p}
-\end{pmatrix}.
+\end{array}
 $$
-on cada columna representa els valors d'una certa variable $X_i$ sobre una mateixa mostra de $n$ individus, la seva **matriu de correlacions de Pearson** és la matriu
+on cada columna representa els valors d'una certa variable $X_i$ i cada filera un individu d'una mostra de la població, de manera que l'entrada (i,j) d'aquesta taula és el valor de $X_j$ sobre l'individu $i$-èssim de la mostra. 
+
+La seva **matriu de correlacions de Pearson** és la matriu
 $$
-\widetilde{R}=
 \begin{pmatrix}  
- 1 & r_{1 2} & \ldots & r_{1 p}\\
- r_{2 1} & 1 & \ldots & r_{2 p}\\
+ 1 & r_{X_1,X_2} & \ldots & r_{X_1,X_p}\\
+ r_{X_2,X_1} & 1 & \ldots & r_{X_2,X_p}\\
   \vdots & \vdots  &  \ddots      & \vdots\\
-r_{p 1} & r_{p 2} & \ldots & 1
+r_{X_p,X_1} & r_{X_p,X_2} & \ldots & 1
 \end{pmatrix}
 $$
-on cada $r_{i j}$ és la correlació de les columnes $i$-èssima i $j$-èssima. 
-
-Aquesta matriu de correlacions es calcula amb la funció `cor` aplicada a la matriu o el *data frame* de variables numèriques que emmagatzema la taula de dades. 
 
 
-
-```{example}
-La matriu de correlacions de Pearson de la taula de dades `DF` de l'Exemple \@ref(exm:multex2) és
-
-
-```
+Aquesta matriu de correlacions es calcula amb la funció `cor` aplicada a la matriu o el *data frame* de variables numèriques que emmagatzema la taula de dades. Per exemple, la matriu de correlacions de Pearson de la taula de dades `DF` de l'Exemple \@ref(exm:multex2) és
 
 ```{r}
 cor(DF)
@@ -399,7 +407,22 @@ cor(DF)
 
 La correlació de Pearson mesura específicament la tendència de dues variables quantitatives contínues a dependre linealment l'una de l'altra. En circumstàncies en les quals no esperem aquesta dependència lineal, o en les quals les nostres variables siguin quantitatives discretes o simplement qualitatives, emprar la correlació de Pearson per a analitzar la relació entre dues variables no és el més adequat. Entre les propostes alternatives, la més popular és la **correlació de Spearman**. 
 
-Aquest índex assigna a cada valor de cada vector el seu **rang** (la seva posició en el vector ordenat de menor a major, i en cas d'empats la mitjana de les posicions que ocuparien tots els empats) i calcula la correlació de Pearson d'aquests rangs. Amb R, la correlació de Spearman es calcula directament amb la funció `cor` entrant-li el paràmetre `method="spearman"`. (El valor per defecte del paràmetre `method` és `"pearson"` i per això no l'indicam quan calculam la correlació de Pearson.)
+La correlació de Spearman  de dos vectors $x$ i $y$ és la correlació de Pearson dels vectors de **rangs** $x$ i $y$. El  vector de rangs d'un vector $x$ s'obté substituïnt cada valor de $x$ per la seva posició en el vector ordenat de menor a major, i en cas d'empats la mitjana de les posicions que ocuparien tots els empats (aquests rangs ja han sortit, al test de bondat d'ajust de Kolmogorov-Smirnov). Per exemple, el vector de rangs de 
+$$
+x=(4,5,1,5,1,3,4,4)
+$$
+és
+$$
+(5,7.5,1.5,7.5,1.5,3,5,5)
+$$
+Com hem calculat  aquest vector?
+
+* Als dos elements 1 de $x$ els tocarien les posicions 1, 2 del vector ordenat, i per tant el seu rang és la mitjana d'aquestes dues posicions: 1.5. 
+* A l'element 3 li tocaria la posició 3 del vector ordenat, i com que només n'hi ha un, aquest és el seu rang. 
+* Als tres elements 4 els tocarien les posicions 4, 5 i 6 del vector ordenat, i per tant el seu rang és la mitjana d'aquestes tres posicions: 5. 
+* Finalment, als dos elements 5 els tocarien les posicions 7, 8 del vector ordenat, i per tant el seu rang és la mitjana d'aquestes dues posicions: 7.5.
+
+Amb R, la correlació de Spearman es calcula directament amb la funció `cor` entrant-li el paràmetre `method="spearman"`. (El valor per defecte del paràmetre `method` és `"pearson"` i per això no l'indicam quan calculam la correlació de Pearson.)
 
 
 ```{example} 
@@ -423,8 +446,6 @@ $$
 $$
 
 
-
-
 Per tant, la correlación de Spearman de 
 $$
 \mathit{BMI}=(`r BMI`)\mbox{ i }\mathit{Chol}=(`r Chol`)
@@ -434,7 +455,7 @@ $$
 (`r rank(BMI)`)\mbox{ y }(`r rank(Chol)`)
 $$
 
-Veámoslo:
+Comprovem-ho:
 
 ```{r}
 cor(BMI,Chol,method="spearman")
@@ -444,7 +465,7 @@ cor(c(1,4.5,6,4.5,3,2),c(1,2,4,5.5,3,5.5))
 
 ## Contrastos de correlació
 
-En un **contrast de correlació** de dues variables poblacionals $X$ i $Y$, la hipòtesi nul·la és que no hi ha correlació entre les dues variables, la qual cosa tradueix que no hi ha relació entre elles:
+En un **contrast de correlació** de dues variables poblacionals $X$ i $Y$, la hipòtesi nul·la és que no hi ha correlació entre les dues variables, la qual cosa  s'entén que tradueix que no hi ha cap  relació entre elles.
 $$
 \left\{
 \begin{array}{ll}
@@ -453,10 +474,12 @@ H_1: & \rho_{XY}> 0\text{ o }\rho_{XY}< 0\text{ o }\rho_{XY}\neq 0
 \end{array}\right.
 $$
 
-Fixau-vos que si en un contrast d'aquests rebutjau la hipòtesi nul·la, en particular arribau a la conclusió que les variables $X$ i $Y$ no són independents (perquè si fossin independents, la seva correlació seria 0).
+```{block2,type="rmdimportant"}
+Si en un contrast de correlació rebutjam la hipòtesi nul·la, en particular concloem que les variables $X$ i $Y$ no són independents (perquè si fossin independents, la seva correlació seria 0).
+```
 
 
-Amb R es pot efectuar amb la funció `cor.test`.
+No explicarem com es fa a mà aquest contrast ni quines hipòtesis han de satisfer les variables poblacionals per que el resultat sigui fiable. Simplement heu de saber que s'efectua amb la funció `cor.test`.
 
 ```{example}
 Volem contrastar si hi ha correlació positiva entre el BMI i el nivell de colesterol d'un adult sa, amb un nivell de significació del 5%.

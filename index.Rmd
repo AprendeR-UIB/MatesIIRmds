@@ -63,7 +63,7 @@ Aquests apunts no són autocontinguts pel que fa al R: suposam que l'estudiant v
 Aquests apunts estan en construcció. A la llista següent hi anirem anunciant les actualitzacions.
 
 * 02-03-2020: Afegits dos exemples a la Secció \@ref(sec:pobl)
-* 24-02-2020: Pujat temma 4 i corregits alguns errors irrellevants als temes anteriors
+* 24-02-2020: Pujat tema 4 i corregits alguns errors irrellevants als temes anteriors
 * 17-02-2020: Pujats temes 1, 2 i 3
 
 **Significats d'algunes capses**:

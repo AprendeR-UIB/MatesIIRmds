@@ -24,7 +24,7 @@
 
 
 
-<meta name="date" content="2020-02-24">
+<meta name="date" content="2020-03-02">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -149,7 +149,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.6.2" data-path="estimacio-puntual.html"><a href="estimacio-puntual.html#estimadors-eficients"><i class="fa fa-check"></i><b>2.6.2</b> Estimadors eficients</a></li>
 <li class="chapter" data-level="2.6.3" data-path="estimacio-puntual.html"><a href="estimacio-puntual.html#estimadors-maxim-versemblants"><i class="fa fa-check"></i><b>2.6.3</b> Estimadors màxim versemblants</a></li>
 </ul></li>
-<li class="chapter" data-level="2.7" data-path="estimacio-puntual.html"><a href="estimacio-puntual.html#estimacio-de-poblacions"><i class="fa fa-check"></i><b>2.7</b> Estimació de poblacions</a><ul>
+<li class="chapter" data-level="2.7" data-path="estimacio-puntual.html"><a href="estimacio-puntual.html#sec:pobl"><i class="fa fa-check"></i><b>2.7</b> Estimació de poblacions</a><ul>
 <li class="chapter" data-level="2.7.1" data-path="estimacio-puntual.html"><a href="estimacio-puntual.html#estimacio-de-poblacions-numerades"><i class="fa fa-check"></i><b>2.7.1</b> Estimació de poblacions numerades</a></li>
 <li class="chapter" data-level="2.7.2" data-path="estimacio-puntual.html"><a href="estimacio-puntual.html#marca-recaptura"><i class="fa fa-check"></i><b>2.7.2</b> Marca-recaptura</a></li>
 </ul></li>
@@ -219,9 +219,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.2" data-path="contrastos-dindependencia-i-homogeneitat.html"><a href="contrastos-dindependencia-i-homogeneitat.html#test-chi2-dhomogeneitat"><i class="fa fa-check"></i><b>7.2</b> Test <span class="math inline">\(\chi^2\)</span> d’homogeneïtat</a></li>
 <li class="chapter" data-level="7.3" data-path="contrastos-dindependencia-i-homogeneitat.html"><a href="contrastos-dindependencia-i-homogeneitat.html#test-chi2-de-tendencia-opcional"><i class="fa fa-check"></i><b>7.3</b> Test <span class="math inline">\(\chi^2\)</span> de tendència (Opcional)</a></li>
 </ul></li>
-<li class="divider"></li>
-<li><a href="https://github.com/cescrossello/Mates-II" target="blank">Publicat amb  bookdown</a></li>
-
+<li class="chapter" data-level="8" data-path="introduccio-a-lestadistica-multidimensional.html"><a href="introduccio-a-lestadistica-multidimensional.html"><i class="fa fa-check"></i><b>8</b> Introducció a l’estadística multidimensional</a><ul>
+<li class="chapter" data-level="8.1" data-path="introduccio-a-lestadistica-multidimensional.html"><a href="introduccio-a-lestadistica-multidimensional.html#poblacions-vectors-aleatoris"><i class="fa fa-check"></i><b>8.1</b> Poblacions: vectors aleatoris</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="introduccio-a-lestadistica-multidimensional.html"><a href="introduccio-a-lestadistica-multidimensional.html#covariancia"><i class="fa fa-check"></i><b>8.1.1</b> Covariància</a></li>
+<li class="chapter" data-level="8.1.2" data-path="introduccio-a-lestadistica-multidimensional.html"><a href="introduccio-a-lestadistica-multidimensional.html#correlacio-de-pearson"><i class="fa fa-check"></i><b>8.1.2</b> Correlació de Pearson</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="introduccio-a-lestadistica-multidimensional.html"><a href="introduccio-a-lestadistica-multidimensional.html#estadistica-descriptiva-mostres"><i class="fa fa-check"></i><b>8.2</b> Estadística descriptiva: Mostres</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="introduccio-a-lestadistica-multidimensional.html"><a href="introduccio-a-lestadistica-multidimensional.html#covariancies"><i class="fa fa-check"></i><b>8.2.1</b> Covariàncies</a></li>
+<li class="chapter" data-level="8.2.2" data-path="introduccio-a-lestadistica-multidimensional.html"><a href="introduccio-a-lestadistica-multidimensional.html#correlacio-de-pearson-1"><i class="fa fa-check"></i><b>8.2.2</b> Correlació de Pearson</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="introduccio-a-lestadistica-multidimensional.html"><a href="introduccio-a-lestadistica-multidimensional.html#correlacio-de-spearman"><i class="fa fa-check"></i><b>8.3</b> Correlació de Spearman</a></li>
+<li class="chapter" data-level="8.4" data-path="introduccio-a-lestadistica-multidimensional.html"><a href="introduccio-a-lestadistica-multidimensional.html#contrastos-de-correlacio"><i class="fa fa-check"></i><b>8.4</b> Contrastos de correlació</a></li>
+</ul></li>
 </ul>
 
       </nav>
@@ -285,7 +294,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre class="sourceCode r"><code class="sourceCode r">Grossa=<span class="kw">c</span>(<span class="dv">22</span>,<span class="dv">8</span>,<span class="dv">13</span>,<span class="dv">21</span>,<span class="dv">27</span>,<span class="dv">31</span>,<span class="dv">27</span>,<span class="dv">22</span>,<span class="dv">23</span>,<span class="dv">17</span>)
 <span class="kw">barplot</span>(Grossa,<span class="dt">col=</span><span class="st">&quot;light blue&quot;</span>,<span class="dt">names=</span><span class="dv">0</span><span class="op">:</span><span class="dv">9</span>,
         <span class="dt">main=</span><span class="st">&quot;Darreres xifres de la Grossa de Nadal&quot;</span>)</code></pre>
-<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-339-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-356-1.png" width="60%" style="display: block; margin: auto;" /></p>
 <p>Més en general, un <strong>contrast de bondat d’ajust</strong> té la forma següent:
 <span class="math display">\[
 \left\{
@@ -309,7 +318,7 @@ I, com sempre,</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">barplot</span>(Grossa, <span class="dt">col=</span><span class="st">&quot;light blue&quot;</span>, <span class="dt">names=</span><span class="dv">0</span><span class="op">:</span><span class="dv">9</span>,
         <span class="dt">main=</span><span class="st">&quot;Darreres xifres de la Grossa de Nadal&quot;</span>)
 <span class="kw">abline</span>(<span class="dt">h=</span><span class="fl">21.1</span>, <span class="dt">col=</span><span class="st">&quot;red&quot;</span>, <span class="dt">lwd=</span><span class="dv">2</span>, <span class="dt">lty=</span><span class="st">&quot;dashed&quot;</span>)</code></pre>
-<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-340-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-357-1.png" width="60%" style="display: block; margin: auto;" /></p>
 <p>Les desviacions observades respecte d’aquest valor, representat per la línia vermella al gràfic anterior, són prou grans com per dubtar que aquestes xifres són equiprobables, o podem acceptar que es deuen a l’atzar?</p>
 </div>
 <div id="test-chi2-de-pearson" class="section level2">
@@ -836,7 +845,7 @@ El gràfic d’aquesta distribució és el següent:</p></li>
 </ol>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(<span class="kw">c</span>(<span class="dv">1</span>,valors,<span class="dv">7</span>), <span class="kw">c</span>(<span class="dv">0</span>,(<span class="dv">0</span><span class="op">:</span><span class="dv">5</span>)<span class="op">/</span><span class="dv">5</span>,<span class="dv">1</span>), <span class="dt">type=</span><span class="st">&quot;s&quot;</span>, <span class="dt">lwd=</span><span class="fl">1.5</span>, 
      <span class="dt">xlab=</span><span class="st">&quot;&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;&quot;</span>)</code></pre>
-<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-369-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-386-1.png" width="60%" style="display: block; margin: auto;" /></p>
 <ol start="3" style="list-style-type: decimal">
 <li>Comparam <span class="math inline">\(F_n(x)\)</span> amb <span class="math inline">\(F_X(x)\)</span>. Si són molt diferents, rebutjarem que la mostra s’ha produït amb distribució <span class="math inline">\(F_X\)</span>.</li>
 </ol>
@@ -844,7 +853,7 @@ El gràfic d’aquesta distribució és el següent:</p></li>
 <span class="kw">curve</span>(<span class="kw">pnorm</span>(x,<span class="dv">3</span>,<span class="fl">1.5</span>),<span class="dt">col=</span><span class="st">&quot;red&quot;</span>,<span class="dt">lwd=</span><span class="fl">1.5</span>,<span class="dt">add=</span><span class="ot">TRUE</span>)
 <span class="kw">legend</span>(<span class="st">&quot;topleft&quot;</span>,<span class="dt">col=</span><span class="kw">c</span>(<span class="st">&quot;black&quot;</span>,<span class="st">&quot;red&quot;</span>),<span class="dt">lty=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>),
        <span class="dt">legend=</span><span class="kw">c</span>(<span class="kw">expression</span>(F[<span class="dv">6</span>]),<span class="st">&quot;N(3,1.5)&quot;</span>),<span class="dt">cex=</span><span class="fl">0.7</span>)</code></pre>
-<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-370-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-387-1.png" width="60%" style="display: block; margin: auto;" /></p>
 <p>Per comparar <span class="math inline">\(F_n(x)\)</span> amb <span class="math inline">\(F_X(x)\)</span>, calcularem
 <span class="math display">\[
 \max\{|F_n(x)-F_X(x)|\mid x\in \mathbb{R}\}
@@ -970,16 +979,17 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/cescrossello/Mates-II/edit/master/06-BondatAjust.Rmd",
-"text": "Edit"
+"link": null,
+"text": null
 },
 "history": {
 "link": null,
 "text": null
 },
-"download": ["Bioestadistica-II.pdf", "Bioestadistica-II.epub"],
+"download": null,
 "toc": {
-"collapse": "subsection"
+"collapse": "subsection",
+"download": ["pdf", "epub"]
 }
 });
 });
