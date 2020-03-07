@@ -1,4 +1,0 @@
-"0","TGN=read.table(""trignadons.txt"",header=TRUE)
-head(TGN)
-"
-"0",""
