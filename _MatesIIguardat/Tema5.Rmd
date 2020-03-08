@@ -1,0 +1,461 @@
+---
+title: "ANOVA"
+output:
+  html_document: default
+  pdf_document: default
+---
+
+```{r global_options, include=FALSE}
+knitr::opts_chunk$set(fig.width=6, fig.height=6, fig.align="center", echo=TRUE, warning=FALSE, message=FALSE,error=FALSE)
+library(knitr)
+#library(printr) 
+set.seed(42)
+```
+
+#### Exemple 1
+
+Es realitzà un estudi per investigar l'efecte del
+CO2 sobre la taxa de creixement de  *Pseudomonas fragi* (un corruptor d'aliments).  Es creu que el creixement es veu afectat per la quantitat de CO2 en l'aire. Per contrastar-ho, en un experiment s'administrà CO2 a 5 pressions atmosfèriques diferents a 10 cultius diferents per cada nivell, i s'anotà l'increment (en %) de la massa cel·lular al cap d'una hora.
+
+Les dades obtingudes varen ser:
+$$
+\begin{array}{c}
+\mbox{Pressió de CO${}_2$ (en atmosferes)}\\
+{\begin{array}{rrrrr}
+0.0&0.08&0.29&0.50&0.86\\\hline
+62.6&50.9&45.5&29.5&24.9\\
+59.6&44.3&41.1&22.8&17.2\\
+64.5&47.5&29.8&19.2&7.8\\
+59.3&49.5&38.3&20.6&10.5\\
+58.6&48.5&40.2&29.2&17.8\\
+64.6&50.4&38.5&24.1&22.1\\
+50.9&35.2&30.2&22.6&22.6\\
+56.2&49.9&27.0&32.7&16.8\\
+52.3&42.6&40.0&24.4&15.9\\
+62.8&41.6&33.9&29.6&8.8\\
+\end{array}}
+\end{array}
+$$
+
+Emmagatzemarem les dades  en  un dataframe amb dues variables:
+
+* **Inc**: increment massa cel·lular (en %)
+* **Pre**: Nivell de pressió, com a factor
+
+
+```{r}
+Inc=c(62.6,50.9,45.5,29.5,24.9,59.6,44.3,41.1,22.8,17.2,64.5,47.5,29.8,19.2,7.8,59.3,49.5,38.3,20.6,10.5,58.6,48.5,40.2,29.2,17.8,64.6,50.4,38.5,24.1,22.1,50.9,35.2,30.2,22.6,22.6,56.2,49.9,27.0,32.7,16.8,52.3,42.6,40.0,24.4,15.9,62.8,41.6,33.9,29.6,8.8)
+Pre=as.factor(rep(c("0.0","0.08","0.29","0.50","0.86"), times=10))
+CO2=data.frame(Inc,Pre)
+str(CO2)
+head(CO2,7)
+N=dim(CO2)[1] 
+k=length(levels(CO2$Pre))
+c(N,k)
+```
+
+Donem una ullada a les dades.
+
+```{r}
+CO2mat=matrix(c(62.6,50.9,45.5,29.5,24.9,59.6,44.3,41.1,22.8,17.2,64.5,47.5,29.8,19.2,7.8,59.3,49.5,38.3,20.6,10.5,58.6,48.5,40.2,29.2,17.8,64.6,50.4,38.5,24.1,22.1,50.9,35.2,30.2,22.6,22.6,56.2,49.9,27.0,32.7,16.8,52.3,42.6,40.0,24.4,15.9,62.8,41.6,33.9,29.6,8.8),10,5,byrow=T)
+coor_x =matrix(c(rep(1,10),rep(2,10),rep(3,10),rep(4,10),rep(5,10)),10,5)
+plot(c(coor_x[,1],coor_x[,2],coor_x[,3],coor_x[,4],coor_x[,5]),
+     c(CO2mat[,1],CO2mat[,2],CO2mat[,3],CO2mat[,4],CO2mat[,5]),type="p",pch=18,cex=2,xlab="Nivell de CO2",ylab="% de massa cel·lular")
+```
+
+```{r}
+plot(1:50,c(CO2mat[,1],CO2mat[,2],CO2mat[,3],CO2mat[,4],CO2mat[,5]),type="p",pch=17,xlab="Nombre de microorganisme",ylab="% de massa cel·lular",cex=0)
+points(1:10,CO2mat[,1],pch=18,cex=1.5)
+points(11:20,CO2mat[,2],pch=15,cex=1.5)
+points(21:30,CO2mat[,3],pch=17,cex=1.5)
+points(31:40,CO2mat[,4],pch=19,cex=1.5)
+points(41:50,CO2mat[,5],pch=16,cex=1.5)
+lines(c(0,50),c(mean(CO2mat),mean(CO2mat)),lwd=3,col="red")
+text(5,mean(CO2mat[,3]-2),"Mitjana global",col="red")
+for (i in 1:5){lines(c(0+10*(i-1),10*i),c(mean(CO2mat[,i]),mean(CO2mat[,i])),lwd=3)}
+text(20,mean(CO2mat[,1]),"Mitjana del nivell 0.0")
+text(30,mean(CO2mat[,2]),"Mitjana del nivell 0.08")
+text(40,mean(CO2mat[,3]-1),"Mitjana del nivell 0.29")
+text(20,mean(CO2mat[,4]),"Mitjana del nivell 0.50")
+text(30,mean(CO2mat[,5]),"Mitjana del nivell 0.86")
+```
+
+Les mitjanes mostrals dels nivells són:
+
+```{r} 
+mitjanes.nivells=aggregate(Inc~Pre,data=CO2,mean)
+mitjanes.nivells
+```
+
+La mitjana mostral de totes les dades és:
+
+```{r} 
+mitjana.total=mean(CO2$Inc)
+mitjana.total
+```
+
+Comprovem la identitat de la suma de quadrats:
+
+```{r}
+SSTotal=sum((CO2$Inc-mitjana.total)^2)
+SSTotal
+SSTr=sum(table(CO2$Pre)*(mitjanes.nivells[,2]-mitjana.total)^2)
+SSTr
+SSE=sum((CO2$Inc-mitjanes.nivells[,2])^2)
+SSE
+SSTr+SSE
+```
+
+
+Els quadrats mitjans són:
+```{r}
+MSTr=SSTr/(k-1) 
+MSTr
+MSE=SSE/(N-k) 
+MSE
+```
+
+
+L'estadístic de contrast $F$ val:
+```{r}
+EstF=MSTr/MSE 
+EstF
+```
+
+Finalment, el p-valor  $P(F_{k-1,N-k}\geq F)$ val
+```{r}
+1-pf(EstF,k-1,N-k)
+```
+
+Per tant, rebutjam $H_0$ i concloem que el nivell de pressió de CO2 influeix en el creixement mitjà del microorganisme *P. fragi*.
+
+Amb R, aquest contrast ANOVA es pot realitzar directament amb la instrucció següent:
+
+```{r}
+summary(aov(CO2$Inc~CO2$Pre))
+```
+
+Perquè aquesta ANOVA tengui sentit, cal que les mostres provenguin de poblacions normals amb variàncies iguals. La normalitat la comprovam amb el test de Lilliefors; ho farem amb totes les mostres de cop:
+
+```{r}
+library(nortest)
+p.val.lillie=function(i){lillie.test(CO2[CO2$Pre==levels(CO2$Pre)[i],1])$p.value}
+sapply(1:k,FUN=p.val.lillie)
+```
+
+Com que tots els p-valors surten grans, acceptam que totes les mostres provenen de distribucions normals. Ara, per contrastar l'homoestaciditat, usam el test de Bartlett:
+
+```{r}
+bartlett.test(CO2$Inc~CO2$Pre)
+```
+
+Com que el p-valor és gran, acceptam que totes les variàncies són iguals: hem fet bé realitzant una ANOVA.
+
+Ara ens podem demanar quines parelles de pressions donen creixements mitjans diferents. Usarem el test de comparació per parelles amb l'ajust de Bonferroni:
+
+```{r}
+pairwise.t.test(CO2$Inc,CO2$Pre,p.adjust.method="bonferroni")
+```
+
+i de Holm:
+
+```{r}
+pairwise.t.test(CO2$Inc,CO2$Pre)
+```
+
+En els dos casos, tots els p-valors són molt petits i concloem que les mitjanes són totes diferents.
+
+Si no haguéssim pogut realitzar una ANOVA, haguéssim efectuat un test de Kruskal-Wallis:
+
+```{r}
+kruskal.test(CO2$Inc~CO2$Pre)
+```
+
+i llavors les comparacions per parelles amb un test de Mann-Whitney per parelles:
+
+```{r}
+pairwise.wilcox.test(CO2$Inc,CO2$Pre,paired=FALSE,p.adjust.method="bonferroni")
+```
+
+Les conclusions són les mateixes.
+
+### Exemple 2
+
+Disposam de quatre tractaments genètics diferents per corregir un cert gen defectuós responsable d'una malaltia. Els investigadors volen saber si els quatre tractaments tenen una eficàcia similar o no. Per contrastar-ho, prenen 20 malalts diferents a l'atzar, els reparteixen aleatòriament en 4 grups de 5 malalts, i assignen de forma aleatòria un dels quatre tractaments a cada grup. Després d'aplicar el tractament, mesuren l'expressió del gen defectuós sota estudi.
+
+Les dades (en nombres de còpies de mRNA per nanolitre) obtingudes són:
+$$
+\begin{array}{c}
+\mbox{Tractament}\\\hline
+\begin{array}{cccc}
+\mbox{A} & \mbox{B} & \mbox{C} & \mbox{D} \\
+\hline
+96 & 93 & 70 &  78 \\
+99 & 90 & 90 & 87 \\
+100 & 75 & 84 & 57 \\
+104 & 80 & 76 & 66  \\
+84 & 90 & 78 & 76
+\end{array}
+\end{array}
+$$
+
+Entram les dades en un dataframe:
+
+
+```{r}
+Expr=c(96,93,70,78,99,90,90,87,100,75,84,57,104,80,76,66,84,90,78,76)
+Tract=as.factor(rep(c("A","B","C","D"),5))
+EG=data.frame(Expr,Tract)
+str(EG)
+head(EG)
+```
+
+Comprovem si podem emprar una ANOVA per comparar les eficàcies mitjanes d'aquests tractaments. Mirem primer la normalitat de les mostres. Com que tenim repeticions a les columnes, farem servir el test de Shapiro-Wilk.
+
+```{r}
+p.val.SW=function(i){shapiro.test(EG[EG$Tract==levels(EG$Tract)[i],1])$p.value}
+sapply(1:length(levels(EG$Tract)),FUN=p.val.SW)
+```
+
+Com que tots els p-valors surten grans, acceptam que totes les mostres provenen de distribucions normals. Ara, per contrastar l'homoestaciditat, usam el test de Bartlett:
+
+```{r}
+bartlett.test(EG$Expr~EG$Tract)
+```
+
+Concloem que les quatre variàncies són iguals. 
+Podem efectuar l'ANOVA:
+
+```{r}
+summary(aov(Expr~Tract,data=EG))
+```
+
+
+Com que el p-valor és petit, concloem que no totes les mitjanes són iguals. Contrastem ara quines parelles de tractaments tenen eficàcia mitjana diferent.
+
+* Amb Bonferroni:
+
+```{r}
+pairwise.t.test(EG$Expr,EG$Tract,p.adjust.method="bonferroni")
+```
+
+* Amb Holm:
+
+```{r}
+pairwise.t.test(EG$Expr,EG$Tract,p.adjust.method="holm")
+```
+
+Amb tots dos mètodes d'ajust, concloem que el tractament A té eficàcia  diferent dels tractaments C i D, però que no podem rebutjar la igualtat d'eficàcies de cap altra parella de tractaments.
+
+
+### Exemple  3
+
+Volem determinar si l'energia que es requereix per dur a terme tres activitats físiques (córrer, passejar i muntar amb bicicleta) és la mateixa o no. Quantificam aquesta energia amb el nombre de Kca consumides per Km recorregut.  Les diferències metabòliques entre els individus poden afectar l'energia requerida per dur a terme una determinada activitat. Per tant, no és aconsellable triar tres grups d'individus i a cada un fer-li fer una de les tres activitats físiques: les diferències metabòliques entre els individus triats podrien  afectar els resultats i amagar l'efecte real. Així que el que fem és seleccionar alguns individus, demanar a cadascun que corri, camini i recorri amb bicicleta una distància fixada en tres moments diferents seleccionats a l'atzar, i mesurar per a cada individu el consum de Kca/Km durant cada activitat.
+
+Resultats obtinguts per a 8 individus:
+
+$$
+\begin{array}{l|ccc}
+& & \mbox{Tractament} & & \\
+\mbox{Individu} & \mbox{1 (corrent)} & \mbox{2 (caminant)} & \mbox{3 (pedalejant)}\\\hline
+1&1.4&1.1&0.7\\
+2&1.5&1.2&0.8\\
+3&1.8&1.3&0.7\\
+4&1.7&1.3&0.8\\
+5&1.6&0.7&0.1\\
+6&1.5&1.2&0.7\\
+7&1.7&1.1&0.4\\
+8&2.0&1.3&0.6\\
+\end{array}
+$$
+
+Realitzarem una ANOVA de blocs: els blocs són els individus, els tractaments les diferents activitats.
+
+Entrarem les dades en un dataframe de tres columnes: **kilocal**, les Kcal/Km consumides, **blocs**, l'individu, i **tractd**, el tractament. Per poder després fer l'ANOVA, aquests dos darrers seran factors.
+
+```{r}
+kilocal=c(1.4,1.1,0.7,1.5,1.2,0.8,1.8,1.3,0.7,1.7,1.3,0.8,1.6,0.7,0.1,1.5,1.2,0.7,1.7,1.1,0.4,2.0,1.3,0.6)
+blocs=as.factor(rep(1:8,each=3))
+blocs
+tracts=as.factor(rep(1:3,times=8))
+tracts
+Dades=data.frame(kilocal,tracts,blocs)
+str(Dades)
+head(Dades)
+```
+
+
+Calculem les mitjanes:
+```{r}
+mean.tracts=aggregate(kilocal~tracts,data=Dades,mean)
+mean.tracts
+mean.blocs=aggregate(kilocal~blocs,data=Dades,mean)
+mean.blocs
+mean.tot=mean(kilocal)
+mean.tot
+```
+
+Calculem les variabilitats:
+
+* Variabilitat total:
+
+```{r}
+SS.Tot=sum((kilocal-mean.tot)^2)
+SS.Tot
+```
+
+* Variabilitat deguda als tractaments:
+
+```{r}
+SS.Tr=8*sum((mean.tracts[,2]-mean.tot)^2)
+SS.Tr
+```
+
+* Variabilitat deguda als blocs:
+```{r}
+SS.Bl=3*sum((mean.blocs[,2]-mean.tot)^2)
+SS.Bl
+```
+
+* Variabilitat deguda a factors aleatoris
+```{r}
+SSE=sum((kilocal-mean.tracts[,2]-rep(mean.blocs[,2],each=3)+mean.tot)^2)
+SSE
+```
+
+Comprovem la identitat de sumes de quadrats:
+
+```{r}
+SS.Tr+SS.Bl+SSE-SS.Tot
+```
+
+
+Per efectuar l'ANOVA de blocs, aplicam **aov** "sumant els dos factors":
+ 
+```{r}
+summary(aov(kilocal~tracts+blocs,data=Dades))
+```
+
+Com que el p-valor de la filera corresponent als tractaments és petit, podem rebutjar que totes les mitjanes siguin iguals. Si ara volem determinar quins parells de mitjanes són diferents, podem efectuar les comparacions per parelles. Ho fem directament ajustant per Bonferroni:
+
+
+```{r}
+pairwise.t.test(Dades$kilocal,Dades$tracts,paired=TRUE,p.adjust.method="bonferroni")
+```
+
+Els tres p-valors són petits, per tant concloem que les tres mitjanes són diferents.
+
+Si no creguéssim que podem emprar una ANOVA, haguéssim pogut efectuar un test de Friedman:
+
+```{r}
+friedman.test(kilocal~tracts|blocs,data=Dades)
+```
+
+i llavors faríem les comparacions per parelles amb tests de Wilcoxon:
+
+
+```{r}
+pairwise.wilcox.test(Dades$kilocal,Dades$tracts,paired=TRUE,p.adjust.method="bonferroni")
+```
+
+Les conclusions són les mateixes.
+
+
+### Exemple 4
+
+En un experiment per determinar l'efecte de la llum i la temperatura sobre l'índex gonadosomàtic (GSI; una  mesura de creixement de l'ovari) d'una espècie de peix, es van utilitzar dos fotoperíodes (14 hores de llum--10 hores de foscor, i 9 hores de llum--15 hores de foscor) i dues  temperatures (16^o^ i 27^o^ C). L'experiment es va realitzar sobre $20$ femelles. Es van dividir aleatòriament en $4$ subgrups de  $5$ exemplars cadascun. Cada grup va rebre una combinació diferent de llum i temperatura. Als 3 mesos es mesuraren els GSI dels peixos
+
+Els resultats obtinguts es mostren en la taula següent:
+
+
+$$
+\begin{array}{lcc}
+ & \mbox{Factor $A$} & \mbox{(fotoperíode)}\\ \hline
+\mbox{Factor $B$} & \mbox{9 hores}& \mbox{14 hores}\\
+\mbox{(temperatura)} &  &\\\hline
+ 16^\circ C & 1.30 & 1.01 \\
+& 2.88 & 1.52 \\
+& 2.42 & 1.02 \\
+& 2.66 & 1.32 \\
+& 2.94 & 1.63 \\
+27^\circ C & 0.90 & 0.83 \\
+& 1.06 & 0.67 \\
+& 0.98 & 0.57 \\
+& 1.29 & 0.47 \\
+& 1.12 & 0.66 \\\hline
+\end{array}
+$$
+
+
+Organitzarem les dades en un dataframe amb 3 variables: **GSI**, quantitativa, contendrà el $GSI$ de cada peix; **llum**, un factor que  contendrà el valor del nivell del  factor
+$A$ per a cada peix; i **temp**, un factor que  contendrà el valor del nivell del  factor
+$B$ per a cada peix.
+
+```{r}
+GSI= c(1.30,1.01,2.88,1.52,2.42,1.02,2.66,1.32,2.94,1.63,0.90,0.83,1.06,0.67,0.98,0.57,1.29,0.47,1.12,0.66)
+llum=as.factor(rep(c(9,14),10))
+llum
+temp=as.factor(rep(c(16,27),each=10))
+temp
+peixos=data.frame(GSI,llum,temp)
+str(peixos)
+head(peixos)
+```
+
+
+
+
+Mitjanes:
+
+```{r}
+Xb.i.j.bullet=aggregate(GSI~llum+temp,
+  data=peixos,mean)
+Xb.i.j.bullet
+Xb.A=aggregate(GSI~llum,data=peixos,mean)
+Xb.A
+Xb.B=aggregate(GSI~temp,data=peixos,mean)
+Xb.B
+Xb=mean(peixos$GSI)
+```
+
+Sumes de quadrats:
+
+```{r}
+n=5;a=2;b=2
+SS.Tot=sum((peixos$GSI-mean(peixos$GSI))^2)
+SS.Tot
+SS.A=b*n*sum((Xb.A[,2]-mean(peixos$GSI))^2)
+SS.A
+SS.B=a*n*sum((Xb.B[,2]-mean(peixos$GSI))^2)
+SS.B
+SS.AB=n*sum((Xb.i.j.bullet[,3]-Xb.A[,2]-rep(Xb.B[,2],each=a)+mean(peixos$GSI))^2)
+SS.AB
+SS.Tr=n*sum((Xb.i.j.bullet[,3]-mean(peixos$GSI))^2)
+SS.Tr
+SS.E=sum((peixos$GSI-c(rep(Xb.i.j.bullet[1:2,3],n),rep(Xb.i.j.bullet[3:4,3],n)))^2)
+SS.E         
+SS.A+SS.B+SS.AB
+SS.Tr+SS.E
+```
+
+L'ANOVA complet:
+
+```{r}
+summary(aov(GSI~llum*temp,data=peixos))
+summary(aov(GSI~llum:temp,data=peixos))
+```
+
+Els contrastos no paramètrics:
+
+```{r}
+kruskal.test(GSI~interaction(llum,temp),data=peixos)
+```
+
+```{r}
+Xb.i.j.bullet=aggregate(GSI~llum+temp,
+  data=peixos,mean)
+friedman.test(GSI~llum|temp, data=Xb.i.j.bullet)
+friedman.test(GSI~temp|llum, data=Xb.i.j.bullet)
+```
+
+
