@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html >
-
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Tema 4 Contrastos d’hipòtesis: Generalitats | Matemàtiques II</title>
-  <meta name="description" content="Apunts Matemàtiques II bookdown::gitbook.">
-  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+  <meta name="description" content="Apunts Matemàtiques II bookdown::gitbook." />
+  <meta name="generator" content="bookdown 0.12 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Tema 4 Contrastos d’hipòtesis: Generalitats | Matemàtiques II" />
   <meta property="og:type" content="book" />
@@ -24,11 +23,11 @@
 
 
 
-<meta name="date" content="2020-03-08">
+<meta name="date" content="2020-03-09" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
 <link rel="prev" href="intervals-de-confianca.html">
@@ -55,7 +54,6 @@ a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
 a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
@@ -931,31 +929,31 @@ per comparar la <span class="math inline">\(\mu\)</span> d’una variable amb el
 <p>Per tant, <em>reconeixem una probabilitat d’equivocar-nos del 5%</em>: Si en realitat el nivell mitjà de calci en sang en els joves diabètics és el mateix que en els sans, la probabilitat que teníem d’equivocar-nos i concloure que el nivell mitjà de calci en sang en els joves diabètics és més gran que en els sans és del 5%.</p>
 <p>Anem a estudiar aquesta taxa d’encerts per mitjà d’una simulació.</p>
 <p>Primer suposarem que el nivell mitjà real és 2.5, i simularem la probabilitat d’error de tipus I. Com que estam fent el contrast amb nivell de significació 0.05, esperam al voltant d’un 5% d’errors de tipus I. Per fixar idees, modelarem la població de joves diabètics per mitjà d’una variable aleatòria <span class="math inline">\(N(2.5,0.5)\)</span>. La <span class="math inline">\(\sigma=0.5\)</span> ens l’hem inventada. Aprofitam per fixar la llavor d’aleatorietat.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">42</span>)
-mu0=<span class="fl">2.5</span>
-sigma0=<span class="fl">0.5</span></code></pre>
+<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb172-1" data-line-number="1"><span class="kw">set.seed</span>(<span class="dv">42</span>)</a>
+<a class="sourceLine" id="cb172-2" data-line-number="2">mu0=<span class="fl">2.5</span></a>
+<a class="sourceLine" id="cb172-3" data-line-number="3">sigma0=<span class="fl">0.5</span></a></code></pre></div>
 <p>El llindar <span class="math inline">\(L_0\)</span> per <span class="math inline">\(n=20\)</span> i <span class="math inline">\(\alpha=0.05\)</span> és</p>
-<pre class="sourceCode r"><code class="sourceCode r">L0=<span class="kw">qt</span>(<span class="fl">0.95</span>,<span class="dv">19</span>)</code></pre>
+<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb173-1" data-line-number="1">L0=<span class="kw">qt</span>(<span class="fl">0.95</span>,<span class="dv">19</span>)</a></code></pre></div>
 <p>La funció <code>estadístic</code> següent pren una mostra aleatòria de mida <span class="math inline">\(n\)</span> d’una variable <span class="math inline">\(N(\mu, \sigma)\)</span> i en calcula l’estadístic de contrast <span class="math inline">\(T\)</span>:</p>
-<pre class="sourceCode r"><code class="sourceCode r">estadístic=<span class="cf">function</span>(n,mu,sigma){
-mostra=<span class="kw">rnorm</span>(n,mu,sigma) 
-(<span class="kw">mean</span>(mostra)<span class="op">-</span>mu0)<span class="op">/</span>(<span class="kw">sd</span>(mostra)<span class="op">/</span><span class="kw">sqrt</span>(n))
-}</code></pre>
+<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb174-1" data-line-number="1">estadístic=<span class="cf">function</span>(n,mu,sigma){</a>
+<a class="sourceLine" id="cb174-2" data-line-number="2">mostra=<span class="kw">rnorm</span>(n,mu,sigma) </a>
+<a class="sourceLine" id="cb174-3" data-line-number="3">(<span class="kw">mean</span>(mostra)<span class="op">-</span>mu0)<span class="op">/</span>(<span class="kw">sd</span>(mostra)<span class="op">/</span><span class="kw">sqrt</span>(n))</a>
+<a class="sourceLine" id="cb174-4" data-line-number="4">}</a></code></pre></div>
 <p>Ara, repetim 200 vegades el procés de prendre una mostra aleatòria de mida 20 de la nostra població i calcular la <span class="math inline">\(T\)</span> corresponent. Després miram la proporció de vegades que això ha donat més gran que el llindar, és a dir, la proporció de vegades que rebutjam la hipòtesi nul·la <span class="math inline">\(\mu=2.5\)</span> i que per tant cometem un error de tipus I.</p>
-<pre class="sourceCode r"><code class="sourceCode r">Tes=<span class="kw">replicate</span>(<span class="dv">200</span>,estadí<span class="kw">stic</span>(<span class="dv">20</span>,mu0,sigma0))
-p.error.Tipus.I=<span class="kw">length</span>(<span class="kw">which</span>((Tes<span class="op">&gt;</span>L0)<span class="op">==</span><span class="ot">TRUE</span>))<span class="op">/</span><span class="dv">200</span>
-p.error.Tipus.I</code></pre>
+<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb175-1" data-line-number="1">Tes=<span class="kw">replicate</span>(<span class="dv">200</span>,estadí<span class="kw">stic</span>(<span class="dv">20</span>,mu0,sigma0))</a>
+<a class="sourceLine" id="cb175-2" data-line-number="2">p.error.Tipus.I=<span class="kw">length</span>(<span class="kw">which</span>((Tes<span class="op">&gt;</span>L0)<span class="op">==</span><span class="ot">TRUE</span>))<span class="op">/</span><span class="dv">200</span></a>
+<a class="sourceLine" id="cb175-3" data-line-number="3">p.error.Tipus.I</a></code></pre></div>
 <pre><code>## [1] 0.05</code></pre>
 <p>Hem comès exactament un 5% d’errors de tipus I!</p>
 <p>Ara suposarem que el nivell mitjà real és estrictament més gran que 2.5, i anam a simular els errors de tipus II, per veure amb quina freqüència els cometem. Per començar, generam de manera uniforme un vector de 100 <span class="math inline">\(\mu\)</span>’s entre 2.6 i 3.</p>
-<pre class="sourceCode r"><code class="sourceCode r">mus=<span class="kw">runif</span>(<span class="dv">100</span>,<span class="fl">2.6</span>,<span class="dv">3</span>)</code></pre>
+<div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb177-1" data-line-number="1">mus=<span class="kw">runif</span>(<span class="dv">100</span>,<span class="fl">2.6</span>,<span class="dv">3</span>)</a></code></pre></div>
 <p>I ara el que farem serà el següent. Per a cada <span class="math inline">\(\mu_i\)</span> d’aquest vector, prendrem com a “població de diabètics” una variable <span class="math inline">\(N(\mu_i,0.5)\)</span>. A continuació, per a cada una d’aquestes poblacions, repetim 200 vegades el procés de prendre una mostra aleatòria simple de mida 20 d’aquesta població i calcular la <span class="math inline">\(T\)</span> corresponent. Després, per a cada població, miram la proporció de vegades que això ha donat més petit o igual que el llindar, és a dir, la proporció de vegades que acceptam la hipòtesi nul·la <span class="math inline">\(\mu=2.5\)</span> i que per tant cometem un error de tipus II. Organitzam totes aquestes proporcions en un vector <strong>p.error.Tipus.II</strong>.</p>
-<pre class="sourceCode r"><code class="sourceCode r">p.error.Tipus.II=<span class="kw">rep</span>(<span class="dv">1</span>,<span class="dv">100</span>)
-<span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">100</span>){
-  Tes=<span class="kw">replicate</span>(<span class="dv">200</span>,estadí<span class="kw">stic</span>(<span class="dv">20</span>,mus[j],sigma0))    
-  p.error.Tipus.II[j]=<span class="kw">round</span>(<span class="kw">length</span>(<span class="kw">which</span>((Tes<span class="op">&lt;=</span>L0)<span class="op">==</span><span class="ot">TRUE</span>))<span class="op">/</span><span class="dv">200</span>,<span class="dv">2</span>)
-}
-p.error.Tipus.II</code></pre>
+<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb178-1" data-line-number="1">p.error.Tipus.II=<span class="kw">rep</span>(<span class="dv">1</span>,<span class="dv">100</span>)</a>
+<a class="sourceLine" id="cb178-2" data-line-number="2"><span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">100</span>){</a>
+<a class="sourceLine" id="cb178-3" data-line-number="3">  Tes=<span class="kw">replicate</span>(<span class="dv">200</span>,estadí<span class="kw">stic</span>(<span class="dv">20</span>,mus[j],sigma0))    </a>
+<a class="sourceLine" id="cb178-4" data-line-number="4">  p.error.Tipus.II[j]=<span class="kw">round</span>(<span class="kw">length</span>(<span class="kw">which</span>((Tes<span class="op">&lt;=</span>L0)<span class="op">==</span><span class="ot">TRUE</span>))<span class="op">/</span><span class="dv">200</span>,<span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb178-5" data-line-number="5">}</a>
+<a class="sourceLine" id="cb178-6" data-line-number="6">p.error.Tipus.II</a></code></pre></div>
 <pre><code>##   [1] 0.24 0.36 0.52 0.53 0.31 0.04 0.08 0.09 0.78 0.68 0.62 0.00 0.10 0.12
 ##  [15] 0.65 0.01 0.04 0.62 0.57 0.10 0.58 0.25 0.30 0.00 0.29 0.48 0.26 0.00
 ##  [29] 0.08 0.66 0.07 0.08 0.79 0.03 0.02 0.00 0.00 0.56 0.52 0.24 0.72 0.04
@@ -965,15 +963,15 @@ p.error.Tipus.II</code></pre>
 ##  [85] 0.21 0.07 0.18 0.68 0.02 0.32 0.06 0.64 0.66 0.27 0.08 0.49 0.20 0.02
 ##  [99] 0.10 0.42</code></pre>
 <p>La proporció mitjana d’errors de tipus II ha estat:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>(p.error.Tipus.II)</code></pre>
+<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb180-1" data-line-number="1"><span class="kw">mean</span>(p.error.Tipus.II)</a></code></pre></div>
 <pre><code>## [1] 0.3091</code></pre>
 <p>Si prenem mostres més grans, la probabilitat d’error de tipus II disminueix. Comprovem-ho repetint aquest segon experiment amb mostres de mida 200.</p>
-<pre class="sourceCode r"><code class="sourceCode r">p.error.Tipus.II<span class="fl">.200</span>=<span class="kw">rep</span>(<span class="dv">1</span>,<span class="dv">100</span>)
-<span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">100</span>){
-Tes=<span class="kw">replicate</span>(<span class="dv">200</span>,estadí<span class="kw">stic</span>(<span class="dv">200</span>,mus[j],sigma0))    
-  p.error.Tipus.II<span class="fl">.200</span>[j]=<span class="kw">round</span>(<span class="kw">length</span>(<span class="kw">which</span>((Tes<span class="op">&lt;=</span>L0)<span class="op">==</span><span class="ot">TRUE</span>))<span class="op">/</span><span class="dv">200</span>,<span class="dv">2</span>)
-}
-<span class="kw">mean</span>(p.error.Tipus.II<span class="fl">.200</span>)</code></pre>
+<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb182-1" data-line-number="1">p.error.Tipus.II<span class="fl">.200</span>=<span class="kw">rep</span>(<span class="dv">1</span>,<span class="dv">100</span>)</a>
+<a class="sourceLine" id="cb182-2" data-line-number="2"><span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">100</span>){</a>
+<a class="sourceLine" id="cb182-3" data-line-number="3">Tes=<span class="kw">replicate</span>(<span class="dv">200</span>,estadí<span class="kw">stic</span>(<span class="dv">200</span>,mus[j],sigma0))    </a>
+<a class="sourceLine" id="cb182-4" data-line-number="4">  p.error.Tipus.II<span class="fl">.200</span>[j]=<span class="kw">round</span>(<span class="kw">length</span>(<span class="kw">which</span>((Tes<span class="op">&lt;=</span>L0)<span class="op">==</span><span class="ot">TRUE</span>))<span class="op">/</span><span class="dv">200</span>,<span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb182-5" data-line-number="5">}</a>
+<a class="sourceLine" id="cb182-6" data-line-number="6"><span class="kw">mean</span>(p.error.Tipus.II<span class="fl">.200</span>)</a></code></pre></div>
 <pre><code>## [1] 0.0074</code></pre>
 <p>Multiplicant per 10 la mida de les mostres, hem baixat d’una taxa d’errors de tipus II del 30.91% al 0.74%.</p>
 <p>Recordau que la <strong>potència</strong> d’un contrast és la probabilitat de <em>no</em> cometre un error de tipus II. Hem vist que prenent mostres més grans, la proporció d’errors de tipus II ha disminuït. Això és general:</p>

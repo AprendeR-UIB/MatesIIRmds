@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html >
-
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Tema 3 Intervals de confiança | Matemàtiques II</title>
-  <meta name="description" content="Apunts Matemàtiques II bookdown::gitbook.">
-  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+  <meta name="description" content="Apunts Matemàtiques II bookdown::gitbook." />
+  <meta name="generator" content="bookdown 0.12 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Tema 3 Intervals de confiança | Matemàtiques II" />
   <meta property="og:type" content="book" />
@@ -24,11 +23,11 @@
 
 
 
-<meta name="date" content="2020-03-08">
+<meta name="date" content="2020-03-09" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
 <link rel="prev" href="estimacio-puntual.html">
@@ -55,7 +54,6 @@ a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
 a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
@@ -402,25 +400,25 @@ i obtenim l’IC 95% per a <span class="math inline">\(\mu\)</span> anunciat:
 <p><span id="exm:unnamed-chunk-151" class="example"><strong>Exemple 3.2  </strong></span>Fem un experiment per veure que, efectivament, aquesta fórmula “encerta”, en el sentit que conté la <span class="math inline">\(\mu\)</span>, al voltant del 95% de les vegades. Al bloc de codi següent: generam una <em>Població</em> de 10<sup>7</sup> “individus” que segueixen una llei normal estàndard i en calculam la mitjana <code>mu</code>; definim una funció <code>IC</code> que calcula l’IC 95% per a la mitjana <span class="math inline">\(\mu\)</span> amb la fórmula anterior; prenem 200 mostres aleatòries simples de mida 50 de la nostra població i les aplicam aquesta funció, obtenint una matriu <code>M</code> de 200 columnes formades pels dos extrems dels intervals (l’inferior a la primera filera i el superior a la segona filera); finalment, miram quantes vegades hem encertat, és a dir, a quantes columnes de <code>M</code> la mitjana poblacional <code>mu</code> està entre l’entrada de la primera filera i la de la segona.</p>
 </div>
 
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">42</span>)
-Poblacio=<span class="kw">rnorm</span>(<span class="dv">10</span><span class="op">^</span><span class="dv">7</span>)
-mu=<span class="kw">mean</span>(Poblacio)
-IC=<span class="cf">function</span>(x){
-  n=<span class="kw">length</span>(x)
-  <span class="kw">mean</span>(x)<span class="op">+</span><span class="kw">qt</span>(<span class="fl">0.975</span>,n<span class="dv">-1</span>)<span class="op">*</span><span class="kw">sd</span>(x)<span class="op">/</span><span class="kw">sqrt</span>(n)<span class="op">*</span><span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>)}
-M=<span class="kw">replicate</span>(<span class="dv">200</span>,<span class="kw">IC</span>(<span class="kw">sample</span>(Poblacio,<span class="dv">50</span>,<span class="dt">replace=</span><span class="ot">TRUE</span>)))
-Encerts=<span class="kw">length</span>(<span class="kw">which</span>(mu<span class="op">&gt;=</span>M[<span class="dv">1</span>,] <span class="op">&amp;</span><span class="st"> </span>mu<span class="op">&lt;=</span>M[<span class="dv">2</span>,]))
-Encerts</code></pre>
+<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb119-1" data-line-number="1"><span class="kw">set.seed</span>(<span class="dv">42</span>)</a>
+<a class="sourceLine" id="cb119-2" data-line-number="2">Poblacio=<span class="kw">rnorm</span>(<span class="dv">10</span><span class="op">^</span><span class="dv">7</span>)</a>
+<a class="sourceLine" id="cb119-3" data-line-number="3">mu=<span class="kw">mean</span>(Poblacio)</a>
+<a class="sourceLine" id="cb119-4" data-line-number="4">IC=<span class="cf">function</span>(x){</a>
+<a class="sourceLine" id="cb119-5" data-line-number="5">  n=<span class="kw">length</span>(x)</a>
+<a class="sourceLine" id="cb119-6" data-line-number="6">  <span class="kw">mean</span>(x)<span class="op">+</span><span class="kw">qt</span>(<span class="fl">0.975</span>,n<span class="dv">-1</span>)<span class="op">*</span><span class="kw">sd</span>(x)<span class="op">/</span><span class="kw">sqrt</span>(n)<span class="op">*</span><span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>)}</a>
+<a class="sourceLine" id="cb119-7" data-line-number="7">M=<span class="kw">replicate</span>(<span class="dv">200</span>,<span class="kw">IC</span>(<span class="kw">sample</span>(Poblacio,<span class="dv">50</span>,<span class="dt">replace=</span><span class="ot">TRUE</span>)))</a>
+<a class="sourceLine" id="cb119-8" data-line-number="8">Encerts=<span class="kw">length</span>(<span class="kw">which</span>(mu<span class="op">&gt;=</span>M[<span class="dv">1</span>,] <span class="op">&amp;</span><span class="st"> </span>mu<span class="op">&lt;=</span>M[<span class="dv">2</span>,]))</a>
+<a class="sourceLine" id="cb119-9" data-line-number="9">Encerts</a></code></pre></div>
 <pre><code>## [1] 189</code></pre>
 <p>Hem encertat 189 vegades, és a dir, un 94.5% de les vegades. És aproximadament el que esperàvem. Si ho provau amb altres llavors d’aleatorietat obtendreu altres resultats, de vegades millors, de vegades pitjors.</p>
 <p>Per veure millor els encerts, dibuixam els intervals en un gràfic, on apareixeran en gris els que encerten i en vermell els que no encerten.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(<span class="dv">1</span>,<span class="dt">type=</span><span class="st">&quot;n&quot;</span>,<span class="dt">xlim=</span><span class="kw">c</span>(<span class="op">-</span><span class="fl">0.8</span>,<span class="fl">0.8</span>),<span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">200</span>),
-  <span class="dt">xlab=</span><span class="st">&quot;Valors&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;Repeticions&quot;</span>, <span class="dt">main=</span><span class="st">&quot;200 IC 95%&quot;</span>)
-seg.int=<span class="cf">function</span>(i){color=<span class="st">&quot;grey&quot;</span>;
-  <span class="cf">if</span>((mu<span class="op">&lt;</span>M[<span class="dv">1</span>,i]) <span class="op">|</span><span class="st"> </span>(mu<span class="op">&gt;</span>M[<span class="dv">2</span>,i])){color=<span class="st">&quot;red&quot;</span>}
-  <span class="kw">segments</span>(M[<span class="dv">1</span>,i],i,M[<span class="dv">2</span>,i],i,<span class="dt">col=</span>color,<span class="dt">lwd=</span><span class="dv">2</span>)}
-<span class="kw">sapply</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">200</span>,<span class="dt">FUN=</span>seg.int)
-<span class="kw">abline</span>(<span class="dt">v=</span>mu,<span class="dt">lwd=</span><span class="dv">2</span>)</code></pre>
+<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb121-1" data-line-number="1"><span class="kw">plot</span>(<span class="dv">1</span>,<span class="dt">type=</span><span class="st">&quot;n&quot;</span>,<span class="dt">xlim=</span><span class="kw">c</span>(<span class="op">-</span><span class="fl">0.8</span>,<span class="fl">0.8</span>),<span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">200</span>),</a>
+<a class="sourceLine" id="cb121-2" data-line-number="2">  <span class="dt">xlab=</span><span class="st">&quot;Valors&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;Repeticions&quot;</span>, <span class="dt">main=</span><span class="st">&quot;200 IC 95%&quot;</span>)</a>
+<a class="sourceLine" id="cb121-3" data-line-number="3">seg.int=<span class="cf">function</span>(i){color=<span class="st">&quot;grey&quot;</span>;</a>
+<a class="sourceLine" id="cb121-4" data-line-number="4">  <span class="cf">if</span>((mu<span class="op">&lt;</span>M[<span class="dv">1</span>,i]) <span class="op">|</span><span class="st"> </span>(mu<span class="op">&gt;</span>M[<span class="dv">2</span>,i])){color=<span class="st">&quot;red&quot;</span>}</a>
+<a class="sourceLine" id="cb121-5" data-line-number="5">  <span class="kw">segments</span>(M[<span class="dv">1</span>,i],i,M[<span class="dv">2</span>,i],i,<span class="dt">col=</span>color,<span class="dt">lwd=</span><span class="dv">2</span>)}</a>
+<a class="sourceLine" id="cb121-6" data-line-number="6"><span class="kw">sapply</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">200</span>,<span class="dt">FUN=</span>seg.int)</a>
+<a class="sourceLine" id="cb121-7" data-line-number="7"><span class="kw">abline</span>(<span class="dt">v=</span>mu,<span class="dt">lwd=</span><span class="dv">2</span>)</a></code></pre></div>
 <p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-153-1.png" width="60%" style="display: block; margin: auto;" /></p>
 
 <div class="rmdcaution">
@@ -428,8 +426,8 @@ seg.int=<span class="cf">function</span>(i){color=<span class="st">&quot;grey&qu
 </div>
 
 <p>Per exemple, de mitjana, un 5% de les vegades que calculam un IC 95%, el paràmetre poblacional no pertany a l’interval obtingut. Per tant, si calculam <span class="math inline">\(n\)</span> IC 95% sobre mostres aleatòries simples independents, el nombre de vegades que l’interval resultant no contendrà el paràmetre poblacional seguirà una distribució binomial <span class="math inline">\(B(n,0.05)\)</span>. El gràfic següent dóna el valor de <span class="math inline">\(P(X\geqslant 1)\)</span> per a una variable aleatòria <span class="math inline">\(X\)</span> de tipus <span class="math inline">\(B(n,0.05)\)</span>, per a <span class="math inline">\(n=0,...,100\)</span>, i per tant la probabilitat que si calculam <span class="math inline">\(n\)</span> IC 95% sobre mostres aleatòries simples independents, almenys un d’ells no contengui el paràmetre poblacional desitjat.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(<span class="dv">1</span><span class="op">-</span><span class="kw">dbinom</span>(<span class="dv">0</span>,<span class="dv">0</span><span class="op">:</span><span class="dv">100</span>,<span class="fl">0.05</span>),<span class="dt">pch=</span><span class="dv">20</span>,<span class="dt">xlab=</span><span class="st">&quot;n&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;Probabilitat&quot;</span>,
-     <span class="dt">main=</span><span class="st">&quot;Probabilitat d&#39;algun èxit en una B(n,0.05)&quot;</span>)</code></pre>
+<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb122-1" data-line-number="1"><span class="kw">plot</span>(<span class="dv">1</span><span class="op">-</span><span class="kw">dbinom</span>(<span class="dv">0</span>,<span class="dv">0</span><span class="op">:</span><span class="dv">100</span>,<span class="fl">0.05</span>),<span class="dt">pch=</span><span class="dv">20</span>,<span class="dt">xlab=</span><span class="st">&quot;n&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;Probabilitat&quot;</span>,</a>
+<a class="sourceLine" id="cb122-2" data-line-number="2">     <span class="dt">main=</span><span class="st">&quot;Probabilitat d&#39;algun èxit en una B(n,0.05)&quot;</span>)</a></code></pre></div>
 <p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-155-1.png" width="60%" style="display: block; margin: auto;" /></p>
 
 <div class="rmdimportant">
@@ -541,18 +539,18 @@ Tenim, doncs, un 95% de confiança que el nombre mitjà de radiografies per cart
 </div>
 
 <p>Com que <span class="math inline">\(n=25\)</span> no és prou gran, en principi no podríem aplicar la fórmula de l’interval de confiança basada en la t de Student. Emprarem el mètode del <em>bootstrap</em>, per a la qual cosa necessitam tenir les dades originals, i no només els seus estadístics. Tenim aquestes dades en el vector <code>Radios</code> següent:</p>
-<pre class="sourceCode r"><code class="sourceCode r">Radios=<span class="kw">c</span>(<span class="dv">485</span>,<span class="dv">511</span>,<span class="dv">509</span>,<span class="dv">509</span>,<span class="dv">561</span>,<span class="dv">529</span>,<span class="dv">458</span>,<span class="dv">532</span>,<span class="dv">545</span>,<span class="dv">546</span>,
-        <span class="dv">503</span>,<span class="dv">577</span>,<span class="dv">547</span>,<span class="dv">477</span>,<span class="dv">507</span>,<span class="dv">548</span>,<span class="dv">480</span>,<span class="dv">444</span>,<span class="dv">461</span>,<span class="dv">573</span>,
-        <span class="dv">513</span>,<span class="dv">604</span>,<span class="dv">542</span>,<span class="dv">501</span>,<span class="dv">488</span>)
-<span class="kw">mean</span>(Radios)</code></pre>
+<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb123-1" data-line-number="1">Radios=<span class="kw">c</span>(<span class="dv">485</span>,<span class="dv">511</span>,<span class="dv">509</span>,<span class="dv">509</span>,<span class="dv">561</span>,<span class="dv">529</span>,<span class="dv">458</span>,<span class="dv">532</span>,<span class="dv">545</span>,<span class="dv">546</span>,</a>
+<a class="sourceLine" id="cb123-2" data-line-number="2">        <span class="dv">503</span>,<span class="dv">577</span>,<span class="dv">547</span>,<span class="dv">477</span>,<span class="dv">507</span>,<span class="dv">548</span>,<span class="dv">480</span>,<span class="dv">444</span>,<span class="dv">461</span>,<span class="dv">573</span>,</a>
+<a class="sourceLine" id="cb123-3" data-line-number="3">        <span class="dv">513</span>,<span class="dv">604</span>,<span class="dv">542</span>,<span class="dv">501</span>,<span class="dv">488</span>)</a>
+<a class="sourceLine" id="cb123-4" data-line-number="4"><span class="kw">mean</span>(Radios)</a></code></pre></div>
 <pre><code>## [1] 518</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sd</span>(Radios)</code></pre>
+<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb125-1" data-line-number="1"><span class="kw">sd</span>(Radios)</a></code></pre></div>
 <pre><code>## [1] 39.89987</code></pre>
 <p>Prenem 5000 mostres aleatòries simples de mida 25 (la mateixa mida que el conjunt de dades original) de les dades i calculam la mitjana de cada mostra; fixam la llavor d’aleatorietat per que el càlcul sigui reproduïble:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">100</span>)
-Simulacions=<span class="kw">replicate</span>(<span class="dv">5000</span>,<span class="kw">mean</span>(<span class="kw">sample</span>(Radios,<span class="dv">25</span>,<span class="dt">rep=</span><span class="ot">TRUE</span>)))</code></pre>
+<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb127-1" data-line-number="1"><span class="kw">set.seed</span>(<span class="dv">100</span>)</a>
+<a class="sourceLine" id="cb127-2" data-line-number="2">Simulacions=<span class="kw">replicate</span>(<span class="dv">5000</span>,<span class="kw">mean</span>(<span class="kw">sample</span>(Radios,<span class="dv">25</span>,<span class="dt">rep=</span><span class="ot">TRUE</span>)))</a></code></pre></div>
 <p>Ara prenem com a IC 90% l’interval que tanca el 90% de valors centrals d’aquest vector de mitjanes mostrals, és a dir, l’interval que va del quantil 0.05 al quantil 0.95 d’aquest vector de mitjanes:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">quantile</span>(Simulacions,<span class="kw">c</span>(<span class="fl">0.05</span>,<span class="fl">0.95</span>))</code></pre>
+<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb128-1" data-line-number="1"><span class="kw">quantile</span>(Simulacions,<span class="kw">c</span>(<span class="fl">0.05</span>,<span class="fl">0.95</span>))</a></code></pre></div>
 <pre><code>##     5%    95% 
 ## 504.96 530.92</code></pre>
 <p>Obtenim l’interval [504.96,530.92]: amb la fórmula basada en la t de Student, havíem obtingut l’interval [504.35,531.65].</p>
@@ -592,10 +590,10 @@ més ample</p></li>
 <div id="amb-r-1" class="section level3 unnumbered">
 <h3>Amb R</h3>
 <p>La funció</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">t.test</span>(X,<span class="dt">conf.level=</span>...)<span class="op">$</span>conf.int</code></pre>
+<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb130-1" data-line-number="1"><span class="kw">t.test</span>(X,<span class="dt">conf.level=</span>...)<span class="op">$</span>conf.int</a></code></pre></div>
 <p>calcula l’interval de confiança basat en la t de Student per a la <span class="math inline">\(\mu\)</span> de la variable aleatòria de la que el vector <code>X</code> n’és una mostra. El paràmetre <code>conf.level</code> permet especificar el nivell de confiança (en tant per u). El seu valor per defecte és 0.95, així que per calcular un IC 95% no cal especificar-lo.</p>
 <p>Per exemple, l’IC 90% per al nombre mitjà de radiografies per cartutxo de l’Exemple <a href="intervals-de-confianca.html#exm:RXprint">3.4</a> es calcularia amb</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">t.test</span>(Radios,<span class="dt">conf.level=</span><span class="fl">0.9</span>)<span class="op">$</span>conf.int</code></pre>
+<div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb131-1" data-line-number="1"><span class="kw">t.test</span>(Radios,<span class="dt">conf.level=</span><span class="fl">0.9</span>)<span class="op">$</span>conf.int</a></code></pre></div>
 <pre><code>## [1] 504.3472 531.6528
 ## attr(,&quot;conf.level&quot;)
 ## [1] 0.9</code></pre>
@@ -700,7 +698,7 @@ Per fer-ho, prenem una mostra aleatòria simple de <span class="math inline">\(X
 </ul>
 <p>Calcular a mà aquest interval és intractable, i en general dóna més ample del necessari (degut a la natura discreta de la distribució binomial, que només pren valors nombres naturals), però es pot emprar amb mostres aleatòries simples de qualsevol mida ja que empra que el nombre d’èxits <span class="math inline">\(S\)</span> en mostres aleatòries simples de mida <span class="math inline">\(n\)</span> de <span class="math inline">\(X\)</span> segueix una distribució binomial i això sempre és veritat.</p>
 <p>Per calcular-lo amb R, podeu emprar la funció del paquet <strong>epitools</strong></p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">binom.exact</span>(S,n,<span class="dt">conf.level=</span>...)</code></pre>
+<div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb133-1" data-line-number="1"><span class="kw">binom.exact</span>(S,n,<span class="dt">conf.level=</span>...)</a></code></pre></div>
 <p>on <code>S</code>és el nombre d’èxits, <code>n</code> la mida de la mostra, i <code>conf.level</code> el nivell de confiança en tant per u, que per defecte val 0.95.</p>
 
 <div class="example">
@@ -708,8 +706,8 @@ Per fer-ho, prenem una mostra aleatòria simple de <span class="math inline">\(X
 </div>
 
 <p>Emprarem el mètode de Clopper-Pearson:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(epitools)
-<span class="kw">round</span>(<span class="kw">binom.exact</span>(<span class="dv">2</span>,<span class="dv">10</span>),<span class="dv">3</span>)</code></pre>
+<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb134-1" data-line-number="1"><span class="kw">library</span>(epitools)</a>
+<a class="sourceLine" id="cb134-2" data-line-number="2"><span class="kw">round</span>(<span class="kw">binom.exact</span>(<span class="dv">2</span>,<span class="dv">10</span>),<span class="dv">3</span>)</a></code></pre></div>
 <pre><code>##   x  n proportion lower upper conf.level
 ## 1 2 10        0.2 0.025 0.556       0.95</code></pre>
 <p>Dóna l’interval [0.025,0.556]. Estimam per tant amb una confiança del 95% que aquest medicament cura entre el 2.5% i el 55.6% dels pacients.</p>
@@ -742,7 +740,7 @@ P\Big(-z_{(1+q)/2}\leqslant\dfrac{\widehat{p}_{X}-p_X}
 </div>
 
 <p>Amb R es calcula amb la funció</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">binom.wilson</span>(x,n,<span class="dt">conf.level=</span>...)</code></pre>
+<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb136-1" data-line-number="1"><span class="kw">binom.wilson</span>(x,n,<span class="dt">conf.level=</span>...)</a></code></pre></div>
 <p>del paquet <strong>epitools</strong>, amb la mateixa sintaxi que <code>binom.exact</code>. Aquest interval també té l’inconvenient que, si us hi fixau, no està centrat en <span class="math inline">\(\widehat{p}_{X}\)</span>: el seu centre és
 <span class="math display">\[
 \frac{\widehat{p}_{X}+\frac{z_{(1+q)/{2}}^2}{2n}}{1+\frac{z_{(1+q)/{2}}^2}{n}}
@@ -765,7 +763,7 @@ En aquest cas, a la fórmula de l’interval de Wilson podem suposar que els ter
 </div>
 
 <p>Amb R es calcula amb la funció</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">binom.approx</span>(x,n,<span class="dt">conf.level=</span>...)</code></pre>
+<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb137-1" data-line-number="1"><span class="kw">binom.approx</span>(x,n,<span class="dt">conf.level=</span>...)</a></code></pre></div>
 <p>del paquet <strong>epitools</strong>, amb la mateixa sintaxi que <code>binom.exact</code>. Aquesta fórmula és la més popular, amb més de 200 anys de rodatge.</p>
 
 <div class="rmdmercifulgod">
@@ -792,14 +790,14 @@ Dóna
 0.68\pm 1.96\sqrt{\frac{0.68(1-0.68)}{500}}\Rightarrow [0.639,0.721]
 \]</span></p>
 <p>Amb R:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">round</span>(<span class="kw">binom.approx</span>(<span class="dv">340</span>,<span class="dv">500</span>), <span class="dv">3</span>)</code></pre>
+<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb138-1" data-line-number="1"><span class="kw">round</span>(<span class="kw">binom.approx</span>(<span class="dv">340</span>,<span class="dv">500</span>), <span class="dv">3</span>)</a></code></pre></div>
 <pre><code>##     x   n proportion lower upper conf.level
 ## 1 340 500       0.68 0.639 0.721       0.95</code></pre>
 <p>Amb els altres mètodes, que també podríem aplicar en aquest cas, obtenim els intervals:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">round</span>(<span class="kw">binom.exact</span>(<span class="dv">340</span>,<span class="dv">500</span>),<span class="dv">3</span>)</code></pre>
+<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb140-1" data-line-number="1"><span class="kw">round</span>(<span class="kw">binom.exact</span>(<span class="dv">340</span>,<span class="dv">500</span>),<span class="dv">3</span>)</a></code></pre></div>
 <pre><code>##     x   n proportion lower upper conf.level
 ## 1 340 500       0.68 0.637 0.721       0.95</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">round</span>(<span class="kw">binom.wilson</span>(<span class="dv">340</span>,<span class="dv">500</span>),<span class="dv">3</span>)</code></pre>
+<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb142-1" data-line-number="1"><span class="kw">round</span>(<span class="kw">binom.wilson</span>(<span class="dv">340</span>,<span class="dv">500</span>),<span class="dv">3</span>)</a></code></pre></div>
 <pre><code>##     x   n proportion lower upper conf.level
 ## 1 340 500       0.68 0.638 0.719       0.95</code></pre>
 <p>En resum, estimam que entre aproximadament un 64% i un 72% de les famílies d’aquesta ciutat amb nins en edat escolar inclouen diàriament fruita fresca en la dieta dels seus fills.</p>
@@ -836,10 +834,10 @@ que, si <span class="math inline">\(q=0.95\)</span>, queda
 [0,1-0.025^{1/n}].
 \]</span>
 Per exemple, si <span class="math inline">\(n=40\)</span></p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">binom.exact</span>(<span class="dv">0</span>,<span class="dv">40</span>)</code></pre>
+<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb144-1" data-line-number="1"><span class="kw">binom.exact</span>(<span class="dv">0</span>,<span class="dv">40</span>)</a></code></pre></div>
 <pre><code>##   x  n proportion lower     upper conf.level
 ## 1 0 40          0     0 0.0880973       0.95</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="dv">1</span><span class="fl">-0.025</span><span class="op">^</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">40</span>)</code></pre>
+<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb146-1" data-line-number="1"><span class="dv">1</span><span class="fl">-0.025</span><span class="op">^</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">40</span>)</a></code></pre></div>
 <pre><code>## [1] 0.0880973</code></pre>
 <p>Si podem emprar el mètode de Wilson, la fórmula
 <span class="math display">\[
@@ -851,10 +849,10 @@ amb <span class="math inline">\(\widehat{p}_{X}=0\)</span> i <span class="math i
 \Big[0,\frac{1.96^2}{n+1.96^2}\Big]
 \]</span>
 Per exemple, un altre cop amb <span class="math inline">\(n=40\)</span></p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">binom.wilson</span>(<span class="dv">0</span>,<span class="dv">40</span>)</code></pre>
+<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb148-1" data-line-number="1"><span class="kw">binom.wilson</span>(<span class="dv">0</span>,<span class="dv">40</span>)</a></code></pre></div>
 <pre><code>##   x  n proportion        lower     upper conf.level
 ## 1 0 40          0 6.330897e-18 0.0876216       0.95</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">qnorm</span>(<span class="fl">0.975</span>)<span class="op">^</span><span class="dv">2</span><span class="op">/</span>(<span class="dv">40</span><span class="op">+</span><span class="kw">qnorm</span>(<span class="fl">0.975</span>)<span class="op">^</span><span class="dv">2</span>)</code></pre>
+<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb150-1" data-line-number="1"><span class="kw">qnorm</span>(<span class="fl">0.975</span>)<span class="op">^</span><span class="dv">2</span><span class="op">/</span>(<span class="dv">40</span><span class="op">+</span><span class="kw">qnorm</span>(<span class="fl">0.975</span>)<span class="op">^</span><span class="dv">2</span>)</a></code></pre></div>
 <pre><code>## [1] 0.0876216</code></pre>
 <p>Quan s’ha de calcular “a ull” un interval de confiança del 95% per a una probabilitat <span class="math inline">\(p_X\)</span> a partir d’una mostra aleatòria simple on no hi ha hagut cap èxit, sovint es fa servir la regla següent:</p>
 <blockquote>
@@ -862,21 +860,21 @@ Per exemple, un altre cop amb <span class="math inline">\(n=40\)</span></p>
 </blockquote>
 <p>Amb aquesta regla, en el nostre exemple amb <span class="math inline">\(n=40\)</span> obtendríem l’interval [0,3/40]=[0,0.075], no molt enfora del [0,0.088] que hem obtingut amb els altres dos mètodes.</p>
 <p>Per veure com la regla del 3 aproxima l’interval de Clopper-Pearson, el gràfic següent mostra els valors <span class="math inline">\(3/n\)</span> i l’extrem superior de l’IC 95% de Clopper-Pearson a partir d’una mostra de mida <span class="math inline">\(n\)</span> amb 0 èxits:</p>
-<pre class="sourceCode r"><code class="sourceCode r">f=<span class="cf">function</span>(n){<span class="kw">binom.exact</span>(<span class="dv">0</span>,n)<span class="op">$</span>upper}
-<span class="kw">plot</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">100</span>,<span class="kw">sapply</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">100</span>,f),<span class="dt">pch=</span><span class="dv">20</span>,<span class="dt">cex=</span><span class="fl">0.7</span>,<span class="dt">xlab=</span><span class="st">&quot;n&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;Extrem superior&quot;</span>,
-     <span class="dt">main=</span><span class="st">&quot;Extrem superior d&#39;un IC 95% en cas de 0 èxits&quot;</span>)
-<span class="kw">curve</span>(<span class="dv">3</span><span class="op">/</span>x,<span class="dt">col=</span><span class="st">&quot;red&quot;</span>,<span class="dt">lwd=</span><span class="dv">2</span>,<span class="dt">add=</span><span class="ot">TRUE</span>)
-<span class="kw">legend</span>(<span class="st">&quot;topright&quot;</span>,<span class="dt">lty=</span><span class="kw">c</span>(<span class="ot">NA</span>,<span class="dv">1</span>),<span class="dt">pch=</span><span class="kw">c</span>(<span class="dv">20</span>,<span class="ot">NA</span>),
-       <span class="dt">legend=</span><span class="kw">c</span>(<span class="st">&quot;Clopper-Pearson&quot;</span>,<span class="st">&quot;Regla del 3&quot;</span>),<span class="dt">col=</span><span class="kw">c</span>(<span class="st">&quot;black&quot;</span>,<span class="st">&quot;red&quot;</span>),<span class="dt">cex=</span><span class="fl">0.7</span>)</code></pre>
+<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb152-1" data-line-number="1">f=<span class="cf">function</span>(n){<span class="kw">binom.exact</span>(<span class="dv">0</span>,n)<span class="op">$</span>upper}</a>
+<a class="sourceLine" id="cb152-2" data-line-number="2"><span class="kw">plot</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">100</span>,<span class="kw">sapply</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">100</span>,f),<span class="dt">pch=</span><span class="dv">20</span>,<span class="dt">cex=</span><span class="fl">0.7</span>,<span class="dt">xlab=</span><span class="st">&quot;n&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;Extrem superior&quot;</span>,</a>
+<a class="sourceLine" id="cb152-3" data-line-number="3">     <span class="dt">main=</span><span class="st">&quot;Extrem superior d&#39;un IC 95% en cas de 0 èxits&quot;</span>)</a>
+<a class="sourceLine" id="cb152-4" data-line-number="4"><span class="kw">curve</span>(<span class="dv">3</span><span class="op">/</span>x,<span class="dt">col=</span><span class="st">&quot;red&quot;</span>,<span class="dt">lwd=</span><span class="dv">2</span>,<span class="dt">add=</span><span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb152-5" data-line-number="5"><span class="kw">legend</span>(<span class="st">&quot;topright&quot;</span>,<span class="dt">lty=</span><span class="kw">c</span>(<span class="ot">NA</span>,<span class="dv">1</span>),<span class="dt">pch=</span><span class="kw">c</span>(<span class="dv">20</span>,<span class="ot">NA</span>),</a>
+<a class="sourceLine" id="cb152-6" data-line-number="6">       <span class="dt">legend=</span><span class="kw">c</span>(<span class="st">&quot;Clopper-Pearson&quot;</span>,<span class="st">&quot;Regla del 3&quot;</span>),<span class="dt">col=</span><span class="kw">c</span>(<span class="st">&quot;black&quot;</span>,<span class="st">&quot;red&quot;</span>),<span class="dt">cex=</span><span class="fl">0.7</span>)</a></code></pre></div>
 <p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-183-1.png" width="60%" style="display: block; margin: auto;" /></p>
 <p>El gràfic següent mostra els valors <span class="math inline">\(3/n\)</span> i els extrems superiors dels IC 95% de Clopper-Pearson i de Wilson a partir d’una mostra de mida <span class="math inline">\(n\)</span> (<span class="math inline">\(n\geqslant 40\)</span> per als intervals de confiança de Wilson) amb 0 èxits:</p>
-<pre class="sourceCode r"><code class="sourceCode r">f=<span class="cf">function</span>(n){<span class="kw">binom.exact</span>(<span class="dv">0</span>,n)<span class="op">$</span>upper}
-<span class="kw">plot</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">100</span>,<span class="kw">sapply</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">100</span>,f),<span class="dt">pch=</span><span class="dv">20</span>,<span class="dt">cex=</span><span class="fl">0.5</span>,<span class="dt">xlab=</span><span class="st">&quot;n&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;Extrem superior&quot;</span>,
-     <span class="dt">main=</span><span class="st">&quot;Extrem superior d&#39;un IC 95% en cas de 0 èxits&quot;</span>)
-<span class="kw">curve</span>(<span class="dv">3</span><span class="op">/</span>x,<span class="dt">col=</span><span class="st">&quot;red&quot;</span>,<span class="dt">lwd=</span><span class="fl">1.5</span>,<span class="dt">add=</span><span class="ot">TRUE</span>)
-<span class="kw">points</span>(<span class="dv">40</span><span class="op">:</span><span class="dv">100</span>,<span class="fl">3.84</span><span class="op">/</span>(<span class="dv">40</span><span class="op">:</span><span class="dv">100</span><span class="fl">+3.84</span>),<span class="dt">pch=</span><span class="dv">20</span>,<span class="dt">cex=</span><span class="fl">0.5</span>,<span class="dt">col=</span><span class="st">&quot;blue&quot;</span>)
-<span class="kw">legend</span>(<span class="st">&quot;topright&quot;</span>,<span class="dt">lty=</span><span class="kw">c</span>(<span class="ot">NA</span>,<span class="ot">NA</span>,<span class="dv">1</span>),<span class="dt">pch=</span><span class="kw">c</span>(<span class="dv">20</span>,<span class="dv">20</span>,<span class="ot">NA</span>),
-    <span class="dt">legend=</span><span class="kw">c</span>(<span class="st">&quot;Clopper-Pearson&quot;</span>,<span class="st">&quot;Wilson&quot;</span>,<span class="st">&quot;Regla del 3&quot;</span>),<span class="dt">col=</span><span class="kw">c</span>(<span class="st">&quot;black&quot;</span>,<span class="st">&quot;blue&quot;</span>,<span class="st">&quot;red&quot;</span>),<span class="dt">cex=</span><span class="fl">0.7</span>)</code></pre>
+<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb153-1" data-line-number="1">f=<span class="cf">function</span>(n){<span class="kw">binom.exact</span>(<span class="dv">0</span>,n)<span class="op">$</span>upper}</a>
+<a class="sourceLine" id="cb153-2" data-line-number="2"><span class="kw">plot</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">100</span>,<span class="kw">sapply</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">100</span>,f),<span class="dt">pch=</span><span class="dv">20</span>,<span class="dt">cex=</span><span class="fl">0.5</span>,<span class="dt">xlab=</span><span class="st">&quot;n&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;Extrem superior&quot;</span>,</a>
+<a class="sourceLine" id="cb153-3" data-line-number="3">     <span class="dt">main=</span><span class="st">&quot;Extrem superior d&#39;un IC 95% en cas de 0 èxits&quot;</span>)</a>
+<a class="sourceLine" id="cb153-4" data-line-number="4"><span class="kw">curve</span>(<span class="dv">3</span><span class="op">/</span>x,<span class="dt">col=</span><span class="st">&quot;red&quot;</span>,<span class="dt">lwd=</span><span class="fl">1.5</span>,<span class="dt">add=</span><span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb153-5" data-line-number="5"><span class="kw">points</span>(<span class="dv">40</span><span class="op">:</span><span class="dv">100</span>,<span class="fl">3.84</span><span class="op">/</span>(<span class="dv">40</span><span class="op">:</span><span class="dv">100</span><span class="fl">+3.84</span>),<span class="dt">pch=</span><span class="dv">20</span>,<span class="dt">cex=</span><span class="fl">0.5</span>,<span class="dt">col=</span><span class="st">&quot;blue&quot;</span>)</a>
+<a class="sourceLine" id="cb153-6" data-line-number="6"><span class="kw">legend</span>(<span class="st">&quot;topright&quot;</span>,<span class="dt">lty=</span><span class="kw">c</span>(<span class="ot">NA</span>,<span class="ot">NA</span>,<span class="dv">1</span>),<span class="dt">pch=</span><span class="kw">c</span>(<span class="dv">20</span>,<span class="dv">20</span>,<span class="ot">NA</span>),</a>
+<a class="sourceLine" id="cb153-7" data-line-number="7">    <span class="dt">legend=</span><span class="kw">c</span>(<span class="st">&quot;Clopper-Pearson&quot;</span>,<span class="st">&quot;Wilson&quot;</span>,<span class="st">&quot;Regla del 3&quot;</span>),<span class="dt">col=</span><span class="kw">c</span>(<span class="st">&quot;black&quot;</span>,<span class="st">&quot;blue&quot;</span>,<span class="st">&quot;red&quot;</span>),<span class="dt">cex=</span><span class="fl">0.7</span>)</a></code></pre></div>
 <p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-184-1.png" width="60%" style="display: block; margin: auto;" /></p>
 <p>Els extrems superiors dels intervals de Clopper-Pearson i Wilson se superposen en aquest darrer gràfic.</p>
 
@@ -885,13 +883,13 @@ Per exemple, un altre cop amb <span class="math inline">\(n=40\)</span></p>
 </div>
 
 <p>En aquest cas podem emprar els tres mètodes:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">round</span>(<span class="kw">binom.exact</span>(<span class="dv">25</span>,<span class="dv">100</span>),<span class="dv">4</span>)</code></pre>
+<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb154-1" data-line-number="1"><span class="kw">round</span>(<span class="kw">binom.exact</span>(<span class="dv">25</span>,<span class="dv">100</span>),<span class="dv">4</span>)</a></code></pre></div>
 <pre><code>##    x   n proportion  lower  upper conf.level
 ## 1 25 100       0.25 0.1688 0.3466       0.95</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">round</span>(<span class="kw">binom.wilson</span>(<span class="dv">25</span>,<span class="dv">100</span>),<span class="dv">4</span>)</code></pre>
+<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb156-1" data-line-number="1"><span class="kw">round</span>(<span class="kw">binom.wilson</span>(<span class="dv">25</span>,<span class="dv">100</span>),<span class="dv">4</span>)</a></code></pre></div>
 <pre><code>##    x   n proportion  lower upper conf.level
 ## 1 25 100       0.25 0.1755 0.343       0.95</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">round</span>(<span class="kw">binom.approx</span>(<span class="dv">25</span>,<span class="dv">100</span>),<span class="dv">4</span>)</code></pre>
+<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb158-1" data-line-number="1"><span class="kw">round</span>(<span class="kw">binom.approx</span>(<span class="dv">25</span>,<span class="dv">100</span>),<span class="dv">4</span>)</a></code></pre></div>
 <pre><code>##    x   n proportion  lower  upper conf.level
 ## 1 25 100       0.25 0.1651 0.3349       0.95</code></pre>
 <p>Concloem, amb un nivell de confiança del 95%, que entre aproximadament un 17% i un 34% dels pacients tractats amb aquesta quimioteràpia desenvolupen càncer testicular.</p>
@@ -906,8 +904,8 @@ perquè l’interval de confiança de Laplace és <span class="math inline">\(\w
 <p>No podem determinar la mida de la mostra a fi que l’interval de confiança tingui un error màxim sense conèixer <span class="math inline">\(\widehat{p}_{X}\)</span>, que no coneixem sense una mostra.</p>
 <p>Però en el cas de l’interval de Laplace per a una proporció, podem donar un <span class="math inline">\(n\)</span> que garanteixi una amplada màxima donada valgui el que valgui <span class="math inline">\(\widehat{p}_{X}\in [0,1]\)</span>.</p>
 <p>Fixau-vos que la funció <span class="math inline">\(y=p (1-p)\)</span>, amb <span class="math inline">\(p\in [0,1]\)</span>, és una paràbola còncava amb vèrtex al punt <span class="math inline">\(p=0.5\)</span></p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">curve</span>(x<span class="op">*</span>(<span class="dv">1</span><span class="op">-</span>x),<span class="dt">xlim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>),<span class="dt">xlab=</span><span class="st">&quot;p&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;&quot;</span>)
-<span class="kw">abline</span>(<span class="dt">v=</span><span class="fl">0.5</span>,<span class="dt">lty=</span><span class="st">&quot;dashed&quot;</span>)</code></pre>
+<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb160-1" data-line-number="1"><span class="kw">curve</span>(x<span class="op">*</span>(<span class="dv">1</span><span class="op">-</span>x),<span class="dt">xlim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>),<span class="dt">xlab=</span><span class="st">&quot;p&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;&quot;</span>)</a>
+<a class="sourceLine" id="cb160-2" data-line-number="2"><span class="kw">abline</span>(<span class="dt">v=</span><span class="fl">0.5</span>,<span class="dt">lty=</span><span class="st">&quot;dashed&quot;</span>)</a></code></pre></div>
 <p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-187-1.png" width="60%" style="display: block; margin: auto;" />
 Per tant, el seu màxim s’assoleix a <span class="math inline">\(p=0.5\)</span>. Així, doncs
 <span class="math display">\[
@@ -1021,8 +1019,8 @@ Fixau-vos que aquest interval de confiança per <span class="math inline">\(\sig
 </div>
 
 <p>Hem realitzat 30 proves en les quals hem mesurat el temps d’actuació d’un determinat reactiu, i a partir dels resultats volem calcular un IC 95% per a la desviació típica del seu temps d’actuació. Tenim els resultats guardats en el vector següent:</p>
-<pre class="sourceCode r"><code class="sourceCode r">Temps=<span class="kw">c</span>(<span class="dv">12</span>,<span class="dv">13</span>,<span class="dv">13</span>,<span class="dv">14</span>,<span class="dv">14</span>,<span class="dv">14</span>,<span class="dv">15</span>,<span class="dv">15</span>,<span class="dv">16</span>,<span class="dv">17</span>,<span class="dv">17</span>,<span class="dv">18</span>,<span class="dv">18</span>,<span class="dv">19</span>,<span class="dv">19</span>,
-        <span class="dv">25</span>,<span class="dv">25</span>,<span class="dv">26</span>,<span class="dv">27</span>,<span class="dv">30</span>,<span class="dv">33</span>,<span class="dv">34</span>,<span class="dv">35</span>,<span class="dv">40</span>,<span class="dv">40</span>,<span class="dv">51</span>,<span class="dv">51</span>,<span class="dv">58</span>,<span class="dv">59</span>,<span class="dv">83</span>)</code></pre>
+<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb161-1" data-line-number="1">Temps=<span class="kw">c</span>(<span class="dv">12</span>,<span class="dv">13</span>,<span class="dv">13</span>,<span class="dv">14</span>,<span class="dv">14</span>,<span class="dv">14</span>,<span class="dv">15</span>,<span class="dv">15</span>,<span class="dv">16</span>,<span class="dv">17</span>,<span class="dv">17</span>,<span class="dv">18</span>,<span class="dv">18</span>,<span class="dv">19</span>,<span class="dv">19</span>,</a>
+<a class="sourceLine" id="cb161-2" data-line-number="2">        <span class="dv">25</span>,<span class="dv">25</span>,<span class="dv">26</span>,<span class="dv">27</span>,<span class="dv">30</span>,<span class="dv">33</span>,<span class="dv">34</span>,<span class="dv">35</span>,<span class="dv">40</span>,<span class="dv">40</span>,<span class="dv">51</span>,<span class="dv">51</span>,<span class="dv">58</span>,<span class="dv">59</span>,<span class="dv">83</span>)</a></code></pre></div>
 <p>Per ara suposarem que la distribució del temps d’actuació d’aquest reactiu és (aproximadament) normal. Més endavant estudiarem tècniques per determinar (amb un cert nivell de confiança) si podem acceptar que una mostra prové d’una variable normal.</p>
 <p>Continuem. Com que la variable que ens dóna el temps és (aproximadament) normal, podem emprar la fórmula per a l’IC 95% per a <span class="math inline">\(\sigma^2\)</span> anterior:
 <span class="math display">\[
@@ -1050,17 +1048,17 @@ Aquest interval és per a la variància!
 [\sqrt{191.26}, \sqrt{544.96}]=[13.83,23.34]
 \]</span></p>
 <p>Per tant la variabilitat dels temps d’actuació d’aquest reactiu és molt gran. Comparau aquest interval amb l’IC 95% per al seu temps mitjà d’actuació:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">round</span>(<span class="kw">t.test</span>(Temps)<span class="op">$</span>conf.int,<span class="dv">2</span>)</code></pre>
+<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb162-1" data-line-number="1"><span class="kw">round</span>(<span class="kw">t.test</span>(Temps)<span class="op">$</span>conf.int,<span class="dv">2</span>)</a></code></pre></div>
 <pre><code>## [1] 21.88 34.85
 ## attr(,&quot;conf.level&quot;)
 ## [1] 0.95</code></pre>
 <p>L’extrem superior de l’IC 95% per a la desviació típica és més gran que l’extrem inferior d’aquest IC 95% per a la mitjana.</p>
 <p>Amb R, aquest interval de confiança amb nivell de confiança <span class="math inline">\(q\)</span> per a la variància es pot calcular amb la funció</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">varTest</span>(X,<span class="dt">conf.level=</span>...)<span class="op">$</span>conf.int</code></pre>
+<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb164-1" data-line-number="1"><span class="kw">varTest</span>(X,<span class="dt">conf.level=</span>...)<span class="op">$</span>conf.int</a></code></pre></div>
 <p>del paquete <strong>EnvStats</strong>, on <code>X</code> és el vector que conté la mostra i <code>conf.level</code> indica el nivell de confiança en tant per u, que per defecte és igual a 0.95.</p>
 <p>Així, l’interval de confiança que ens demanàvem a l’exemple anterior es calcularia amb</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(EnvStats)
-<span class="kw">varTest</span>(Temps)<span class="op">$</span>conf.int</code></pre>
+<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb165-1" data-line-number="1"><span class="kw">library</span>(EnvStats)</a>
+<a class="sourceLine" id="cb165-2" data-line-number="2"><span class="kw">varTest</span>(Temps)<span class="op">$</span>conf.int</a></code></pre></div>
 <pre><code>##      LCL      UCL 
 ## 191.2627 544.9572 
 ## attr(,&quot;conf.level&quot;)
@@ -1071,7 +1069,7 @@ Que no, que aquest és el de la variància!
 </div>
 
 <p>L’IC 95% per a la desviació típica és:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sqrt</span>(<span class="kw">varTest</span>(Temps)<span class="op">$</span>conf.int)</code></pre>
+<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb167-1" data-line-number="1"><span class="kw">sqrt</span>(<span class="kw">varTest</span>(Temps)<span class="op">$</span>conf.int)</a></code></pre></div>
 <pre><code>##      LCL      UCL 
 ## 13.82977 23.34432 
 ## attr(,&quot;conf.level&quot;)
@@ -1087,9 +1085,9 @@ L’interval per a la variància basat en la distribució <span class="math inli
 </div>
 
 <p>Prenem 5000 mostres aleatòries simples de mida 30 del vector <code>Temps</code> i calculam la desviació típica mostral de cada mostra:</p>
-<pre class="sourceCode r"><code class="sourceCode r">Simulacions.sd=<span class="kw">replicate</span>(<span class="dv">5000</span>,<span class="kw">sd</span>(<span class="kw">sample</span>(Temps,<span class="dv">30</span>,<span class="dt">rep=</span><span class="ot">TRUE</span>)))</code></pre>
+<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb169-1" data-line-number="1">Simulacions.sd=<span class="kw">replicate</span>(<span class="dv">5000</span>,<span class="kw">sd</span>(<span class="kw">sample</span>(Temps,<span class="dv">30</span>,<span class="dt">rep=</span><span class="ot">TRUE</span>)))</a></code></pre></div>
 <p>Ara prenem com a IC 95% l’interval que va del quantil 0.025 al quantil 0.975 d’aquest vector de desviacions típiques:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">quantile</span>(Simulacions.sd,<span class="kw">c</span>(<span class="fl">0.025</span>,<span class="fl">0.975</span>))</code></pre>
+<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb170-1" data-line-number="1"><span class="kw">quantile</span>(Simulacions.sd,<span class="kw">c</span>(<span class="fl">0.025</span>,<span class="fl">0.975</span>))</a></code></pre></div>
 <pre><code>##     2.5%    97.5% 
 ## 11.00926 22.69609</code></pre>
 <p>No ha sortit molt diferent de l’obtingut amb la fórmula basada en la distribució <span class="math inline">\(\chi^2\)</span>.</p>

@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html >
-
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Tema 6 Contrastos de bondat d’ajust | Matemàtiques II</title>
-  <meta name="description" content="Apunts Matemàtiques II bookdown::gitbook.">
-  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+  <meta name="description" content="Apunts Matemàtiques II bookdown::gitbook." />
+  <meta name="generator" content="bookdown 0.12 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Tema 6 Contrastos de bondat d’ajust | Matemàtiques II" />
   <meta property="og:type" content="book" />
@@ -24,11 +23,11 @@
 
 
 
-<meta name="date" content="2020-03-08">
+<meta name="date" content="2020-03-09" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
 <link rel="prev" href="contrastos-dhipotesis-dun-i-dos-parametres.html">
@@ -55,7 +54,6 @@ a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
 a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
@@ -291,9 +289,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>Rebutjarem aquesta hipòtesi si seria molt estrany haver obtingut la nostra mostra si la variable seguís aquesta distribució:</p>
 <p>Si les darreres xifres tenguessin totes la mateixa probabilitat d’aparèixer, esperaríem una certa uniformitat en les seves freqüències a la nostra mostra. Si les freqüències reals se separen molt d’aquesta uniformitat, tendrem motius per dubtar que tots els dígits tenien la mateixa probabilitat d’aparèixer.</p></li>
 </ul>
-<pre class="sourceCode r"><code class="sourceCode r">Grossa=<span class="kw">c</span>(<span class="dv">22</span>,<span class="dv">8</span>,<span class="dv">13</span>,<span class="dv">21</span>,<span class="dv">27</span>,<span class="dv">31</span>,<span class="dv">27</span>,<span class="dv">22</span>,<span class="dv">23</span>,<span class="dv">17</span>)
-<span class="kw">barplot</span>(Grossa,<span class="dt">col=</span><span class="st">&quot;light blue&quot;</span>,<span class="dt">names=</span><span class="dv">0</span><span class="op">:</span><span class="dv">9</span>,
-        <span class="dt">main=</span><span class="st">&quot;Darreres xifres de la Grossa de Nadal&quot;</span>)</code></pre>
+<div class="sourceCode" id="cb290"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb290-1" data-line-number="1">Grossa=<span class="kw">c</span>(<span class="dv">22</span>,<span class="dv">8</span>,<span class="dv">13</span>,<span class="dv">21</span>,<span class="dv">27</span>,<span class="dv">31</span>,<span class="dv">27</span>,<span class="dv">22</span>,<span class="dv">23</span>,<span class="dv">17</span>)</a>
+<a class="sourceLine" id="cb290-2" data-line-number="2"><span class="kw">barplot</span>(Grossa,<span class="dt">col=</span><span class="st">&quot;light blue&quot;</span>,<span class="dt">names=</span><span class="dv">0</span><span class="op">:</span><span class="dv">9</span>,</a>
+<a class="sourceLine" id="cb290-3" data-line-number="3">        <span class="dt">main=</span><span class="st">&quot;Darreres xifres de la Grossa de Nadal&quot;</span>)</a></code></pre></div>
 <p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-365-1.png" width="60%" style="display: block; margin: auto;" /></p>
 <p>Més en general, un <strong>contrast de bondat d’ajust</strong> té la forma següent:
 <span class="math display">\[
@@ -315,9 +313,9 @@ I, com sempre,</p>
 <li><p>Determinar si les freqüències observades són prou diferents de les teòriques com per fer inversemblant la hipòtesi nul·la</p></li>
 </ol>
 <p>Per exemple, continuant amb el nostre exemple de la Grossa, si totes les darreres xifres tinguessin la mateixa probabilitat d’aparèixer, la seva probabilitat seria 1/10, i per tant el valor esperat d’aparicions de cadascuna d’elles seria 211/10=21.1.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">barplot</span>(Grossa, <span class="dt">col=</span><span class="st">&quot;light blue&quot;</span>, <span class="dt">names=</span><span class="dv">0</span><span class="op">:</span><span class="dv">9</span>,
-        <span class="dt">main=</span><span class="st">&quot;Darreres xifres de la Grossa de Nadal&quot;</span>)
-<span class="kw">abline</span>(<span class="dt">h=</span><span class="fl">21.1</span>, <span class="dt">col=</span><span class="st">&quot;red&quot;</span>, <span class="dt">lwd=</span><span class="dv">2</span>, <span class="dt">lty=</span><span class="st">&quot;dashed&quot;</span>)</code></pre>
+<div class="sourceCode" id="cb291"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb291-1" data-line-number="1"><span class="kw">barplot</span>(Grossa, <span class="dt">col=</span><span class="st">&quot;light blue&quot;</span>, <span class="dt">names=</span><span class="dv">0</span><span class="op">:</span><span class="dv">9</span>,</a>
+<a class="sourceLine" id="cb291-2" data-line-number="2">        <span class="dt">main=</span><span class="st">&quot;Darreres xifres de la Grossa de Nadal&quot;</span>)</a>
+<a class="sourceLine" id="cb291-3" data-line-number="3"><span class="kw">abline</span>(<span class="dt">h=</span><span class="fl">21.1</span>, <span class="dt">col=</span><span class="st">&quot;red&quot;</span>, <span class="dt">lwd=</span><span class="dv">2</span>, <span class="dt">lty=</span><span class="st">&quot;dashed&quot;</span>)</a></code></pre></div>
 <p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-366-1.png" width="60%" style="display: block; margin: auto;" /></p>
 <p>Les desviacions observades respecte d’aquest valor, representat per la línia vermella al gràfic anterior, són prou grans com per dubtar que aquestes xifres són equiprobables, o podem acceptar que es deuen a l’atzar?</p>
 </div>
@@ -407,9 +405,9 @@ Com que totes les feqüències esperades valen 21.1, el valor de l’estadístic
 \end{array}
 \]</span></p>
 <p>Calculat amb R:</p>
-<pre class="sourceCode r"><code class="sourceCode r">Esp=<span class="kw">rep</span>(<span class="fl">21.1</span>,<span class="dv">10</span>)
-X2=<span class="kw">sum</span>((Grossa<span class="op">-</span>Esp)<span class="op">^</span><span class="dv">2</span><span class="op">/</span>Esp)
-X2</code></pre>
+<div class="sourceCode" id="cb292"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb292-1" data-line-number="1">Esp=<span class="kw">rep</span>(<span class="fl">21.1</span>,<span class="dv">10</span>)</a>
+<a class="sourceLine" id="cb292-2" data-line-number="2">X2=<span class="kw">sum</span>((Grossa<span class="op">-</span>Esp)<span class="op">^</span><span class="dv">2</span><span class="op">/</span>Esp)</a>
+<a class="sourceLine" id="cb292-3" data-line-number="3">X2</a></code></pre></div>
 <pre><code>## [1] 20.23223</code></pre>
 <p>En resum, per resoldre la qüestió plantejada en l’Exemple <a href="contrastos-de-bondat-dajust.html#exm:grossa">6.1</a> procedim de la manera següent:</p>
 <p><em>Contrast</em>:
@@ -440,13 +438,13 @@ H_{1}: \text{Les darreres xifres de la Grossa NO són equiprobables}
 <p><span id="exm:grossasim" class="example"><strong>Exemple 6.3  </strong></span>Anem a comprovar amb una simulació aquest p-valor. El que farem serà el següent: Repetirem 10000 vegades, amb un <code>replicate</code>, el procés d’extreure a l’atzar i de manera equiprobable 211 dígits, calcular-ne la taula de freqüències de cada una d’aquestes mostres i calcular l’estadístic de contrast <span class="math inline">\(\chi^2\)</span> sobre cada una d’aquestes taules. Finalment, calcularem la fracció de vegades que <span class="math inline">\(\chi^2\)</span> ha donat per sobre del valor de la nostra mostra, que era 20.23.</p>
 </div>
 
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">42</span>)
-X2sim=<span class="kw">replicate</span>(<span class="dv">10000</span>,<span class="kw">sum</span>((<span class="kw">table</span>(<span class="kw">sample</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">9</span>,<span class="dv">211</span>,<span class="dt">rep=</span><span class="ot">TRUE</span>))<span class="op">-</span><span class="fl">21.1</span>)<span class="op">^</span><span class="dv">2</span><span class="op">/</span><span class="fl">21.1</span>))
-<span class="kw">length</span>(<span class="kw">which</span>(X2sim<span class="op">&gt;=</span>X2))<span class="op">/</span><span class="dv">10000</span></code></pre>
+<div class="sourceCode" id="cb294"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb294-1" data-line-number="1"><span class="kw">set.seed</span>(<span class="dv">42</span>)</a>
+<a class="sourceLine" id="cb294-2" data-line-number="2">X2sim=<span class="kw">replicate</span>(<span class="dv">10000</span>,<span class="kw">sum</span>((<span class="kw">table</span>(<span class="kw">sample</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">9</span>,<span class="dv">211</span>,<span class="dt">rep=</span><span class="ot">TRUE</span>))<span class="op">-</span><span class="fl">21.1</span>)<span class="op">^</span><span class="dv">2</span><span class="op">/</span><span class="fl">21.1</span>))</a>
+<a class="sourceLine" id="cb294-3" data-line-number="3"><span class="kw">length</span>(<span class="kw">which</span>(X2sim<span class="op">&gt;=</span>X2))<span class="op">/</span><span class="dv">10000</span></a></code></pre></div>
 <pre><code>## [1] 0.0158</code></pre>
 <p>Només un 1.6% de les 10000 simulacions han donat un valor de <span class="math inline">\(\chi^2\)</span> més gran o igual que el de la mostra de Grosses de Nadal. Per tant, el valor de la <span class="math inline">\(\chi^2\)</span> de la mostra de Grosses de Nadal és anormalment gran si les darreres xifres tenen totes la mateixa probabilitat d’aparèixer. Naturalment, anormal no vol dir impossible, però…</p>
 <p>La funció per realitzar un test <span class="math inline">\(\chi^2\)</span> amb R és</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">chisq.test</span>(obs, <span class="dt">p=</span>...)</code></pre>
+<div class="sourceCode" id="cb296"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb296-1" data-line-number="1"><span class="kw">chisq.test</span>(obs, <span class="dt">p=</span>...)</a></code></pre></div>
 <p>on <code>obs</code> és el vector de les freqüències observades de les classes, <span class="math inline">\((obs_i)_i\)</span> i <code>p</code> s’ha d’igualar al vector de les probabilitats teòriques de les classes, <span class="math inline">\((p_i)_i\)</span>. Si no s’especifica, s’entén que totes les probabilitats són iguals.</p>
 
 <div class="rmdcaution">
@@ -454,7 +452,7 @@ La suma de les probabilitats entrades a <code>p</code> ha de ser igual a 1.
 </div>
 
 <p>Al nostre exemple de la Grossa de Nadal, entraríem simplement</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">chisq.test</span>(Grossa)</code></pre>
+<div class="sourceCode" id="cb297"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb297-1" data-line-number="1"><span class="kw">chisq.test</span>(Grossa)</a></code></pre></div>
 <pre><code>## 
 ##  Chi-squared test for given probabilities
 ## 
@@ -547,16 +545,16 @@ i per tant la seva freqüència esperada és
     esp_2=p_2\cdot n= 0.0534\cdot 40= 2.136
 \]</span></p>
 <p>Anam a calcular amb R totes les freqüències esperades d’aquesta manera i d’un sol cop:</p>
-<pre class="sourceCode r"><code class="sourceCode r">freq.obs=<span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">15</span>,<span class="dv">10</span>,<span class="dv">5</span>,<span class="dv">3</span>)
-n=<span class="kw">sum</span>(freq.obs)
-lims=<span class="kw">c</span>(<span class="op">-</span><span class="ot">Inf</span>,<span class="fl">1.95</span>,<span class="fl">2.45</span>,<span class="fl">2.95</span>,<span class="fl">3.45</span>,<span class="fl">3.95</span>,<span class="fl">4.45</span>,<span class="ot">Inf</span>)
-lim.esq=lims[<span class="op">-</span><span class="kw">length</span>(lims)]  <span class="co">#Els límits inferiors de les classes</span>
-lim.dret=lims[<span class="op">-</span><span class="dv">1</span>]  <span class="co">#Els límits superiors de les classes</span>
-mu=<span class="fl">3.5</span>
-sigma=<span class="fl">0.7</span>
-prob.esp=<span class="kw">pnorm</span>(lim.dret,mu,sigma)<span class="op">-</span><span class="kw">pnorm</span>(lim.esq,mu,sigma)
-freq.esp=n<span class="op">*</span>prob.esp
-<span class="kw">round</span>(freq.esp,<span class="dv">3</span>)</code></pre>
+<div class="sourceCode" id="cb299"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb299-1" data-line-number="1">freq.obs=<span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">15</span>,<span class="dv">10</span>,<span class="dv">5</span>,<span class="dv">3</span>)</a>
+<a class="sourceLine" id="cb299-2" data-line-number="2">n=<span class="kw">sum</span>(freq.obs)</a>
+<a class="sourceLine" id="cb299-3" data-line-number="3">lims=<span class="kw">c</span>(<span class="op">-</span><span class="ot">Inf</span>,<span class="fl">1.95</span>,<span class="fl">2.45</span>,<span class="fl">2.95</span>,<span class="fl">3.45</span>,<span class="fl">3.95</span>,<span class="fl">4.45</span>,<span class="ot">Inf</span>)</a>
+<a class="sourceLine" id="cb299-4" data-line-number="4">lim.esq=lims[<span class="op">-</span><span class="kw">length</span>(lims)]  <span class="co">#Els límits inferiors de les classes</span></a>
+<a class="sourceLine" id="cb299-5" data-line-number="5">lim.dret=lims[<span class="op">-</span><span class="dv">1</span>]  <span class="co">#Els límits superiors de les classes</span></a>
+<a class="sourceLine" id="cb299-6" data-line-number="6">mu=<span class="fl">3.5</span></a>
+<a class="sourceLine" id="cb299-7" data-line-number="7">sigma=<span class="fl">0.7</span></a>
+<a class="sourceLine" id="cb299-8" data-line-number="8">prob.esp=<span class="kw">pnorm</span>(lim.dret,mu,sigma)<span class="op">-</span><span class="kw">pnorm</span>(lim.esq,mu,sigma)</a>
+<a class="sourceLine" id="cb299-9" data-line-number="9">freq.esp=n<span class="op">*</span>prob.esp</a>
+<a class="sourceLine" id="cb299-10" data-line-number="10"><span class="kw">round</span>(freq.esp,<span class="dv">3</span>)</a></code></pre></div>
 <pre><code>## [1]  0.536  2.136  5.968 10.220 10.733  6.912  3.495</code></pre>
 <p>Per tant, tenim la taula
 <span class="math display">\[
@@ -596,7 +594,7 @@ P(\chi_{3}^2\geqslant 3.154)=\texttt{1-pchisq(3.154,3)}=0.37
 \]</span></p>
 <p><em>Conclusió</em>: Podem acceptar que els augments de temperatures observats segueixen una llei normal <span class="math inline">\(N(3.5,0.7)\)</span> (test <span class="math inline">\(\chi^2\)</span> de Pearson, p-valor=0.37).</p>
 <p>Amb R, si aplicam directament la funció <code>chisq-test</code> als vectors de freqüències i probabilitats de les classes originals (bé, de les esteses per cobrir tot <span class="math inline">\(\mathbb{R}\)</span>) R ens avisa que el resultat no és de fiar:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">chisq.test</span>(freq.obs,<span class="dt">p=</span>prob.esp)</code></pre>
+<div class="sourceCode" id="cb301"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb301-1" data-line-number="1"><span class="kw">chisq.test</span>(freq.obs,<span class="dt">p=</span>prob.esp)</a></code></pre></div>
 <pre><code>## Warning in chisq.test(freq.obs, p = prob.esp): Chi-squared approximation
 ## may be incorrect</code></pre>
 <pre><code>## 
@@ -605,11 +603,11 @@ P(\chi_{3}^2\geqslant 3.154)=\texttt{1-pchisq(3.154,3)}=0.37
 ## data:  freq.obs
 ## X-squared = 8.1337, df = 6, p-value = 0.2285</code></pre>
 <p>Haurem d’agrupar primer a mà les classes, abans d’aplicar <code>chisq.test</code>:</p>
-<pre class="sourceCode r"><code class="sourceCode r">freq.obs.agrup=<span class="kw">c</span>(<span class="kw">sum</span>(freq.obs[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>]),
-   freq.obs[<span class="dv">4</span><span class="op">:</span><span class="dv">5</span>], <span class="kw">sum</span>(freq.obs[<span class="dv">6</span><span class="op">:</span><span class="dv">7</span>]))
-prob.esp.agrup=<span class="kw">c</span>(<span class="kw">sum</span>(prob.esp[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>]),
-  prob.esp[<span class="dv">4</span><span class="op">:</span><span class="dv">5</span>], <span class="kw">sum</span>(prob.esp[<span class="dv">6</span><span class="op">:</span><span class="dv">7</span>]))
-<span class="kw">chisq.test</span>(freq.obs.agrup, <span class="dt">p=</span>prob.esp.agrup)</code></pre>
+<div class="sourceCode" id="cb304"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb304-1" data-line-number="1">freq.obs.agrup=<span class="kw">c</span>(<span class="kw">sum</span>(freq.obs[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>]),</a>
+<a class="sourceLine" id="cb304-2" data-line-number="2">   freq.obs[<span class="dv">4</span><span class="op">:</span><span class="dv">5</span>], <span class="kw">sum</span>(freq.obs[<span class="dv">6</span><span class="op">:</span><span class="dv">7</span>]))</a>
+<a class="sourceLine" id="cb304-3" data-line-number="3">prob.esp.agrup=<span class="kw">c</span>(<span class="kw">sum</span>(prob.esp[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>]),</a>
+<a class="sourceLine" id="cb304-4" data-line-number="4">  prob.esp[<span class="dv">4</span><span class="op">:</span><span class="dv">5</span>], <span class="kw">sum</span>(prob.esp[<span class="dv">6</span><span class="op">:</span><span class="dv">7</span>]))</a>
+<a class="sourceLine" id="cb304-5" data-line-number="5"><span class="kw">chisq.test</span>(freq.obs.agrup, <span class="dt">p=</span>prob.esp.agrup)</a></code></pre></div>
 <pre><code>## 
 ##  Chi-squared test for given probabilities
 ## 
@@ -627,8 +625,8 @@ prob.esp.agrup=<span class="kw">c</span>(<span class="kw">sum</span>(prob.esp[<s
 <p>Recordau que ja hem emprat aquest mètode a l’Exemple <a href="contrastos-de-bondat-dajust.html#exm:grossasim">6.3</a> per “comprovar” el p-valor obtingut a l’Exemple <a href="contrastos-de-bondat-dajust.html#exm:grossa2">6.2</a> amb el test <span class="math inline">\(\chi^2\)</span> “exacte”. Però no cal complicar-se tant la vida per realitzar-lo.
 La funció <code>chisq.test</code> també permet usar el mètode de Montecarlo, entrant-hi el paràmetre <code>simulate.p.value=TRUE</code> i, si es vol, igualant el paràmetre <code>B</code> al nombre de simulacions desitjat (per defecte, en farà 2000). Naturalment, com que es basa en una simulació aleatòria, pot ser que en cada execució doni un p-valor diferent.</p>
 <p>Per exemple, podíem emprar el mètode de Montecarlo per realitzar el contrast de l’Exemple <a href="contrastos-de-bondat-dajust.html#exm:industrial">6.4</a> amb les classes originals esteses, sense agrupar-les.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">42</span>)
-<span class="kw">chisq.test</span>(freq.obs, <span class="dt">p=</span>prob.esp, <span class="dt">simulate.p.value=</span><span class="ot">TRUE</span>, <span class="dt">B=</span><span class="dv">5000</span>)</code></pre>
+<div class="sourceCode" id="cb306"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb306-1" data-line-number="1"><span class="kw">set.seed</span>(<span class="dv">42</span>)</a>
+<a class="sourceLine" id="cb306-2" data-line-number="2"><span class="kw">chisq.test</span>(freq.obs, <span class="dt">p=</span>prob.esp, <span class="dt">simulate.p.value=</span><span class="ot">TRUE</span>, <span class="dt">B=</span><span class="dv">5000</span>)</a></code></pre></div>
 <pre><code>## 
 ##  Chi-squared test for given probabilities with simulated p-value
 ##  (based on 5000 replicates)
@@ -701,10 +699,10 @@ Aquesta no és la mitjana de la mostra!
 P(X=k)=e^{-\lambda}\cdot \frac{\lambda^k}{k!}
 \]</span></p>
 <p>Les probabilitats <span class="math inline">\(p_i\)</span> d’obtenir <span class="math inline">\(i=0,1,2,3,4,5\)</span> són</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">round</span>(<span class="kw">dpois</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">5</span>,<span class="fl">0.929</span>),<span class="dv">3</span>)</code></pre>
+<div class="sourceCode" id="cb308"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb308-1" data-line-number="1"><span class="kw">round</span>(<span class="kw">dpois</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">5</span>,<span class="fl">0.929</span>),<span class="dv">3</span>)</a></code></pre></div>
 <pre><code>## [1] 0.395 0.367 0.170 0.053 0.012 0.002</code></pre>
 <p>i les freqüències esperades <span class="math inline">\(esp_i=p_i\cdot n\)</span> d’aquests valors són</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">round</span>(<span class="kw">dpois</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">5</span>,<span class="fl">0.929</span>)<span class="op">*</span><span class="dv">576</span>,<span class="dv">2</span>)</code></pre>
+<div class="sourceCode" id="cb310"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb310-1" data-line-number="1"><span class="kw">round</span>(<span class="kw">dpois</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">5</span>,<span class="fl">0.929</span>)<span class="op">*</span><span class="dv">576</span>,<span class="dv">2</span>)</a></code></pre></div>
 <pre><code>## [1] 227.49 211.34  98.17  30.40   7.06   1.31</code></pre>
 <p>Obtenim la taula
 <span class="math display">\[
@@ -724,10 +722,10 @@ Aquestes classes estan malament! Recordau que les classes han de cobrir tots els
 </div>
 
 <p>Per cobrir tots els resultats possibles, cal canviar el 5 per “5 o més” i recalcular la probabilitat i la freqüència esperada d’aquesta classe: la seva probabilitat és</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">round</span>(<span class="dv">1</span><span class="op">-</span><span class="kw">ppois</span>(<span class="dv">4</span>,<span class="fl">0.929</span>),<span class="dv">3</span>)</code></pre>
+<div class="sourceCode" id="cb312"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb312-1" data-line-number="1"><span class="kw">round</span>(<span class="dv">1</span><span class="op">-</span><span class="kw">ppois</span>(<span class="dv">4</span>,<span class="fl">0.929</span>),<span class="dv">3</span>)</a></code></pre></div>
 <pre><code>## [1] 0.003</code></pre>
 <p>i la seva freqüència esperada és</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">round</span>((<span class="dv">1</span><span class="op">-</span><span class="kw">ppois</span>(<span class="dv">4</span>,<span class="fl">0.929</span>))<span class="op">*</span><span class="dv">576</span>,<span class="dv">2</span>)</code></pre>
+<div class="sourceCode" id="cb314"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb314-1" data-line-number="1"><span class="kw">round</span>((<span class="dv">1</span><span class="op">-</span><span class="kw">ppois</span>(<span class="dv">4</span>,<span class="fl">0.929</span>))<span class="op">*</span><span class="dv">576</span>,<span class="dv">2</span>)</a></code></pre></div>
 <pre><code>## [1] 1.55</code></pre>
 <p>Obtenim la taula
 <span class="math display">\[
@@ -762,17 +760,17 @@ Com que hem estimat la <span class="math inline">\(\lambda\)</span>, hem de cons
 
 <p>Perdó. L’estadístic de contrast té distribució <span class="math inline">\(\chi_{3}^2\)</span>. Podem continuar.</p>
 <p><em>Valor de l’estadístic de contrast</em>:</p>
-<pre class="sourceCode r"><code class="sourceCode r">obs.gataca=<span class="kw">c</span>(<span class="dv">229</span>,<span class="dv">211</span>,<span class="dv">93</span>,<span class="dv">35</span>,<span class="dv">8</span>)
-n=<span class="kw">sum</span>(obs.gataca)
-probs.gataca=<span class="kw">c</span>(<span class="kw">dpois</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">3</span>,<span class="fl">0.929</span>),<span class="dv">1</span><span class="op">-</span><span class="kw">ppois</span>(<span class="dv">3</span>,<span class="fl">0.929</span>))
-esp.gataca=probs.gataca<span class="op">*</span>n
-X02=<span class="kw">sum</span>((obs.gataca<span class="op">-</span>esp.gataca)<span class="op">^</span><span class="dv">2</span><span class="op">/</span>esp.gataca)
-<span class="kw">round</span>(X02,<span class="dv">2</span>)</code></pre>
+<div class="sourceCode" id="cb316"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb316-1" data-line-number="1">obs.gataca=<span class="kw">c</span>(<span class="dv">229</span>,<span class="dv">211</span>,<span class="dv">93</span>,<span class="dv">35</span>,<span class="dv">8</span>)</a>
+<a class="sourceLine" id="cb316-2" data-line-number="2">n=<span class="kw">sum</span>(obs.gataca)</a>
+<a class="sourceLine" id="cb316-3" data-line-number="3">probs.gataca=<span class="kw">c</span>(<span class="kw">dpois</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">3</span>,<span class="fl">0.929</span>),<span class="dv">1</span><span class="op">-</span><span class="kw">ppois</span>(<span class="dv">3</span>,<span class="fl">0.929</span>))</a>
+<a class="sourceLine" id="cb316-4" data-line-number="4">esp.gataca=probs.gataca<span class="op">*</span>n</a>
+<a class="sourceLine" id="cb316-5" data-line-number="5">X02=<span class="kw">sum</span>((obs.gataca<span class="op">-</span>esp.gataca)<span class="op">^</span><span class="dv">2</span><span class="op">/</span>esp.gataca)</a>
+<a class="sourceLine" id="cb316-6" data-line-number="6"><span class="kw">round</span>(X02,<span class="dv">2</span>)</a></code></pre></div>
 <pre><code>## [1] 1.02</code></pre>
 <p><em>p-valor</em>: <span class="math inline">\(P(\chi_3^2\geqslant 1.02)=\texttt{1-pchisq(1.02,3)}=0.796\)</span></p>
 <p><em>Conclusió</em>: Podem acceptar que les observacions trobades segueixen una llei de Poisson (test <span class="math inline">\(\chi^2\)</span> de Pearson, p-valor 0.796).</p>
 <p>Amb R simplement ens estalviam el càlcul explícit de <span class="math inline">\(\chi_0^2\)</span> i del p-valor, perquè tota la saragata de calcular freqüències esperades i agrupar a fi que se satisfaci la llei de Cochran no ens la podem estalviar.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">chisq.test</span>(obs.gataca,<span class="dt">p=</span>probs.gataca)</code></pre>
+<div class="sourceCode" id="cb318"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb318-1" data-line-number="1"><span class="kw">chisq.test</span>(obs.gataca,<span class="dt">p=</span>probs.gataca)</a></code></pre></div>
 <pre><code>## 
 ##  Chi-squared test for given probabilities
 ## 
@@ -785,7 +783,7 @@ No havíem quedat que el nombre de graus de llibertat era 3? R n’ha emprat 4, 
 </div>
 
 <p>R ha calculat el p-valor prenent <span class="math inline">\(\chi_4^2\)</span>, nosaltres l’hem de calcular amb <span class="math inline">\(\chi_3^2\)</span></p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="dv">1</span><span class="op">-</span><span class="kw">pchisq</span>(<span class="fl">1.0215</span>,<span class="dv">3</span>)</code></pre>
+<div class="sourceCode" id="cb320"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb320-1" data-line-number="1"><span class="dv">1</span><span class="op">-</span><span class="kw">pchisq</span>(<span class="fl">1.0215</span>,<span class="dv">3</span>)</a></code></pre></div>
 <pre><code>## [1] 0.7960498</code></pre>
 <p>Ara ja tenim el mateix p-valor que abans.</p>
 </div>
@@ -801,7 +799,7 @@ Per a distribucions concretes, mides de mostres dins marges concrets o quan esti
 <p>Tot seguit explicam com funciona aquest test.</p>
 <p>Partim d’una mostra <span class="math inline">\(x_1,x_2,\ldots,x_n\)</span> <em>amb tots els valors diferents</em> i volem contrastar si ha estat produïda per una variable <span class="math inline">\(X\)</span> contínua amb funció de distribució <span class="math inline">\(F_X\)</span>.</p>
 <p>Per exemple, suposem que volem constrastar si podem acceptar que els valors del vector següent provenen d’una distribució normal <span class="math inline">\(N(3,1.5)\)</span>.</p>
-<pre class="sourceCode r"><code class="sourceCode r">valors=<span class="kw">c</span>(<span class="fl">5.84</span>,<span class="fl">4.57</span>,<span class="fl">1.34</span>,<span class="fl">3.58</span>,<span class="fl">1.54</span>,<span class="fl">2.25</span>)</code></pre>
+<div class="sourceCode" id="cb322"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb322-1" data-line-number="1">valors=<span class="kw">c</span>(<span class="fl">5.84</span>,<span class="fl">4.57</span>,<span class="fl">1.34</span>,<span class="fl">3.58</span>,<span class="fl">1.54</span>,<span class="fl">2.25</span>)</a></code></pre></div>
 <p>Per tant, el <em>contrast</em> és
 <span class="math display">\[
 \left\{
@@ -814,8 +812,8 @@ H_0: \text{ aquesta mostra no prové d&#39;una $X\sim N(3,1.5)$}
 <ol style="list-style-type: decimal">
 <li>Ordenam la mostra: <span class="math inline">\(x_{(1)}&lt; x_{(2)}&lt;\cdots&lt; x_{(n)}\)</span>.</li>
 </ol>
-<pre class="sourceCode r"><code class="sourceCode r">valors=<span class="kw">sort</span>(valors)
-valors</code></pre>
+<div class="sourceCode" id="cb323"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb323-1" data-line-number="1">valors=<span class="kw">sort</span>(valors)</a>
+<a class="sourceLine" id="cb323-2" data-line-number="2">valors</a></code></pre></div>
 <pre><code>## [1] 1.34 1.54 2.25 3.58 4.57 5.84</code></pre>
 <ol start="2" style="list-style-type: decimal">
 <li><p>Consideram la <strong>funció de distribució mostral</strong> <span class="math inline">\(F_{n}\)</span>
@@ -843,16 +841,16 @@ F_6(x)=\left\{\begin{array}{ll}
 \]</span>
 El gràfic d’aquesta distribució és el següent:</p></li>
 </ol>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(<span class="kw">c</span>(<span class="dv">1</span>,valors,<span class="dv">7</span>), <span class="kw">c</span>(<span class="dv">0</span>,(<span class="dv">0</span><span class="op">:</span><span class="dv">5</span>)<span class="op">/</span><span class="dv">5</span>,<span class="dv">1</span>), <span class="dt">type=</span><span class="st">&quot;s&quot;</span>, <span class="dt">lwd=</span><span class="fl">1.5</span>, 
-     <span class="dt">xlab=</span><span class="st">&quot;&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;&quot;</span>)</code></pre>
+<div class="sourceCode" id="cb325"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb325-1" data-line-number="1"><span class="kw">plot</span>(<span class="kw">c</span>(<span class="dv">1</span>,valors,<span class="dv">7</span>), <span class="kw">c</span>(<span class="dv">0</span>,(<span class="dv">0</span><span class="op">:</span><span class="dv">5</span>)<span class="op">/</span><span class="dv">5</span>,<span class="dv">1</span>), <span class="dt">type=</span><span class="st">&quot;s&quot;</span>, <span class="dt">lwd=</span><span class="fl">1.5</span>, </a>
+<a class="sourceLine" id="cb325-2" data-line-number="2">     <span class="dt">xlab=</span><span class="st">&quot;&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;&quot;</span>)</a></code></pre></div>
 <p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-395-1.png" width="60%" style="display: block; margin: auto;" /></p>
 <ol start="3" style="list-style-type: decimal">
 <li>Comparam <span class="math inline">\(F_n(x)\)</span> amb <span class="math inline">\(F_X(x)\)</span>. Si són molt diferents, rebutjarem que la mostra s’ha produït amb distribució <span class="math inline">\(F_X\)</span>.</li>
 </ol>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(<span class="kw">c</span>(<span class="dv">1</span>,valors,<span class="dv">6</span>),<span class="kw">c</span>(<span class="dv">0</span>,(<span class="dv">0</span><span class="op">:</span><span class="dv">5</span>)<span class="op">/</span><span class="dv">5</span>,<span class="dv">1</span>),<span class="dt">type=</span><span class="st">&quot;s&quot;</span>, <span class="dt">xlab=</span><span class="st">&quot;&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;&quot;</span>,<span class="dt">lwd=</span><span class="fl">1.5</span>)
-<span class="kw">curve</span>(<span class="kw">pnorm</span>(x,<span class="dv">3</span>,<span class="fl">1.5</span>),<span class="dt">col=</span><span class="st">&quot;red&quot;</span>,<span class="dt">lwd=</span><span class="fl">1.5</span>,<span class="dt">add=</span><span class="ot">TRUE</span>)
-<span class="kw">legend</span>(<span class="st">&quot;topleft&quot;</span>,<span class="dt">col=</span><span class="kw">c</span>(<span class="st">&quot;black&quot;</span>,<span class="st">&quot;red&quot;</span>),<span class="dt">lty=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>),
-       <span class="dt">legend=</span><span class="kw">c</span>(<span class="kw">expression</span>(F[<span class="dv">6</span>]),<span class="st">&quot;N(3,1.5)&quot;</span>),<span class="dt">cex=</span><span class="fl">0.7</span>)</code></pre>
+<div class="sourceCode" id="cb326"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb326-1" data-line-number="1"><span class="kw">plot</span>(<span class="kw">c</span>(<span class="dv">1</span>,valors,<span class="dv">6</span>),<span class="kw">c</span>(<span class="dv">0</span>,(<span class="dv">0</span><span class="op">:</span><span class="dv">5</span>)<span class="op">/</span><span class="dv">5</span>,<span class="dv">1</span>),<span class="dt">type=</span><span class="st">&quot;s&quot;</span>, <span class="dt">xlab=</span><span class="st">&quot;&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;&quot;</span>,<span class="dt">lwd=</span><span class="fl">1.5</span>)</a>
+<a class="sourceLine" id="cb326-2" data-line-number="2"><span class="kw">curve</span>(<span class="kw">pnorm</span>(x,<span class="dv">3</span>,<span class="fl">1.5</span>),<span class="dt">col=</span><span class="st">&quot;red&quot;</span>,<span class="dt">lwd=</span><span class="fl">1.5</span>,<span class="dt">add=</span><span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb326-3" data-line-number="3"><span class="kw">legend</span>(<span class="st">&quot;topleft&quot;</span>,<span class="dt">col=</span><span class="kw">c</span>(<span class="st">&quot;black&quot;</span>,<span class="st">&quot;red&quot;</span>),<span class="dt">lty=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>),</a>
+<a class="sourceLine" id="cb326-4" data-line-number="4">       <span class="dt">legend=</span><span class="kw">c</span>(<span class="kw">expression</span>(F[<span class="dv">6</span>]),<span class="st">&quot;N(3,1.5)&quot;</span>),<span class="dt">cex=</span><span class="fl">0.7</span>)</a></code></pre></div>
 <p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-396-1.png" width="60%" style="display: block; margin: auto;" /></p>
 <p>Per comparar <span class="math inline">\(F_n(x)\)</span> amb <span class="math inline">\(F_X(x)\)</span>, calcularem
 <span class="math display">\[
@@ -868,7 +866,7 @@ i prenem la <strong>discrepància màxima</strong>, és a dir, el màxim d’aqu
 D_n=\max\big\{D_n(x_{(i)})\mid i=1,\ldots, n\big\}
 \]</span></p>
 <p>Al nostre exemple, els valors <span class="math inline">\(F_X(x_{(i)})\)</span> són:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">round</span>(<span class="kw">pnorm</span>(valors,<span class="dv">3</span>,<span class="fl">1.5</span>),<span class="dv">3</span>)</code></pre>
+<div class="sourceCode" id="cb327"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb327-1" data-line-number="1"><span class="kw">round</span>(<span class="kw">pnorm</span>(valors,<span class="dv">3</span>,<span class="fl">1.5</span>),<span class="dv">3</span>)</a></code></pre></div>
 <pre><code>## [1] 0.134 0.165 0.309 0.650 0.852 0.971</code></pre>
 <p>i per tant les discrepàncies són
 <span class="math display">\[
@@ -900,15 +898,15 @@ D_6=\max\{0.134,0.168,0.191,0.15,0.185,0.138\}=0.191
 <ol start="4" style="list-style-type: decimal">
 <li>Aquesta discrepància màxima segueix una distribució coneguda (que no depèn de la <span class="math inline">\(X\)</span> mentre sigui contínua) que permet calcular el p-valor com la probabilitat que <span class="math inline">\(D_n\)</span> prengui un valor més gran o igual que l’obtingut sobre la nostra mostra. La corresponent funció de distribució acumulada és donada per la funció <code>pkolm</code> del paquet <strong>kolmim</strong>. Per tant, el p-valor és</li>
 </ol>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(kolmim)
-<span class="kw">round</span>(<span class="dv">1</span><span class="op">-</span><span class="kw">pkolm</span>(<span class="fl">0.191</span>,<span class="dv">6</span>),<span class="dv">3</span>)</code></pre>
+<div class="sourceCode" id="cb329"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb329-1" data-line-number="1"><span class="kw">library</span>(kolmim)</a>
+<a class="sourceLine" id="cb329-2" data-line-number="2"><span class="kw">round</span>(<span class="dv">1</span><span class="op">-</span><span class="kw">pkolm</span>(<span class="fl">0.191</span>,<span class="dv">6</span>),<span class="dv">3</span>)</a></code></pre></div>
 <pre><code>## [1] 0.951</code></pre>
 <p><em>Conclusió</em>: Podem acceptar que la mostra prové d’una variable aleatòria normal amb <span class="math inline">\(\mu=3\)</span> i <span class="math inline">\(\sigma=1.5\)</span> (test de Kolmogorov-Smirnov, p-valor 0.95)</p>
 <p>Per realitzar un test K-S amb R, disposam de la instrucció</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ks.test</span>(x,<span class="st">&quot;pdistribució&quot;,paràmetres)</span></code></pre>
+<div class="sourceCode" id="cb331"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb331-1" data-line-number="1"><span class="kw">ks.test</span>(x,<span class="st">&quot;pdistribució&quot;,paràmetres)</span></a></code></pre></div>
 <p>on <code>x</code> és el vector que conté la mostra, la <code>pdistribució</code> és la funció de distribució que contrastam, i els <code>paràmetres</code> són els de la distribució. Al nostre exemple, simplement entraríem</p>
-<pre class="sourceCode r"><code class="sourceCode r">valors=<span class="kw">c</span>(<span class="fl">5.84</span>,<span class="fl">4.57</span>,<span class="fl">1.34</span>,<span class="fl">3.58</span>,<span class="fl">1.54</span>,<span class="fl">2.25</span>)
-<span class="kw">ks.test</span>(valors,<span class="st">&quot;pnorm&quot;</span>,<span class="dv">3</span>,<span class="fl">1.5</span>)</code></pre>
+<div class="sourceCode" id="cb332"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb332-1" data-line-number="1">valors=<span class="kw">c</span>(<span class="fl">5.84</span>,<span class="fl">4.57</span>,<span class="fl">1.34</span>,<span class="fl">3.58</span>,<span class="fl">1.54</span>,<span class="fl">2.25</span>)</a>
+<a class="sourceLine" id="cb332-2" data-line-number="2"><span class="kw">ks.test</span>(valors,<span class="st">&quot;pnorm&quot;</span>,<span class="dv">3</span>,<span class="fl">1.5</span>)</a></code></pre></div>
 <pre><code>## 
 ##  One-sample Kolmogorov-Smirnov test
 ## 
@@ -927,8 +925,8 @@ D_6=\max\{0.134,0.168,0.191,0.15,0.185,0.138\}=0.191
 </ul>
 <p>Amb R, aquest test està implementat en la funció <code>lillie.test</code> del paquet <strong>nortest</strong>.</p>
 <p>Per exemple, si ens haguéssim demanat d’entrada si la nostra mostra prové de qualque variable normal, haguéssim entrat</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(nortest)
-<span class="kw">lillie.test</span>(valors)</code></pre>
+<div class="sourceCode" id="cb334"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb334-1" data-line-number="1"><span class="kw">library</span>(nortest)</a>
+<a class="sourceLine" id="cb334-2" data-line-number="2"><span class="kw">lillie.test</span>(valors)</a></code></pre></div>
 <pre><code>## 
 ##  Lilliefors (Kolmogorov-Smirnov) normality test
 ## 

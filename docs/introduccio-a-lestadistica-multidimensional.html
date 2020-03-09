@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html >
-
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Tema 8 Introducció a l’estadística multidimensional | Matemàtiques II</title>
-  <meta name="description" content="Apunts Matemàtiques II bookdown::gitbook.">
-  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+  <meta name="description" content="Apunts Matemàtiques II bookdown::gitbook." />
+  <meta name="generator" content="bookdown 0.12 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Tema 8 Introducció a l’estadística multidimensional | Matemàtiques II" />
   <meta property="og:type" content="book" />
@@ -24,11 +23,11 @@
 
 
 
-<meta name="date" content="2020-03-08">
+<meta name="date" content="2020-03-09" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
 <link rel="prev" href="contrastos-dindependencia-i-homogeneitat.html">
@@ -55,7 +54,6 @@ a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
 a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
@@ -256,17 +254,58 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Un <strong>vector aleatori de dimensió <span class="math inline">\(p\)</span></strong> és un vector format per <span class="math inline">\(p\)</span> variables aleatòries
 <span class="math display">\[
 \underline{X}=(X_1,X_2,\ldots,X_p).
-\]</span></p>
+\]</span>
+Una <strong>realització</strong> de <span class="math inline">\(\underline{X}\)</span> és un vector <span class="math inline">\((x_1,\ldots,x_p)\)</span> format pels valors de <span class="math inline">\(X_1,\ldots,X_p\)</span> sobre un individu. Una <strong>mostra</strong> de <span class="math inline">\(\underline{X}\)</span> és un conjunt de realitzacions. Usualment, organitzam una mostra de <span class="math inline">\(\underline{X}\)</span> per mitjà d’una taula de dades amb fileres aquests vectors i les columnes definides per les variables <span class="math inline">\(X_1,\ldots,X_p\)</span>.</p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-418" class="example"><strong>Exemple 8.1  </strong></span>Si diem <span class="math inline">\(\textit{BMI}\)</span> a la variable aleatòria que dóna l’Índex de Massa Corporal (BMI) d’una persona, <span class="math inline">\(C\)</span> a la variable aleatòria que dóna el nivell de colesterol en mg/dl d’una persona i <span class="math inline">\(E\)</span> a la variable aleatòria que dóna l’edat d’una persona en anys, llavors
+<span id="exm:unnamed-chunk-418" class="example"><strong>Exemple 8.1  </strong></span>Si diem <span class="math inline">\(\textit{BMI}\)</span> a la variable aleatòria que dóna l’Índex de Massa Corporal (BMI) d’una persona, <span class="math inline">\(C\)</span> a la variable aleatòria que dóna el nivell de colesterol en mg/dl d’una persona i <span class="math inline">\(E\)</span> a la variable aleatòria que dóna l’edat d’una persona en anys, llavors
 <span class="math display">\[
 \underline{X}=(\textit{BMI},C,E)
 \]</span>
-és un vector aleatori de dimensió 3. Cada cop que prenem una persona i n’anotam el BMI, el nivell de colesterol i l’edat i organitzam aquestes mesures en aquest ordre en un vector, obtenim una <strong>realització</strong> d’aquest vector aleatori <span class="math inline">\(\underline{X}\)</span>.</p>
-Llavors,una <strong>mostra</strong> de <span class="math inline">\(\underline{X}\)</span> serà un conjunt de vectors amb el BMI, el nivell de colesterol i l’edat d’un grup de persones de la població. Usualment, organitzarem una mostra de <span class="math inline">\(\underline{X}\)</span> per mitjà d’una taula de dades amb fileres aquests vectors i les columnes definides per les tres variables mesurades.
+és un <strong>vector aleatori</strong> de dimensió 3. Cada cop que prenem una persona i n’anotam el BMI, el nivell de colesterol i l’edat i organitzam aquestes mesures en aquest ordre en un vector, obtenim una <strong>realització</strong> d’aquest vector aleatori <span class="math inline">\(\underline{X}\)</span>. Llavors,una <strong>mostra</strong> de <span class="math inline">\(\underline{X}\)</span> serà un conjunt de vectors amb el BMI, el nivell de colesterol i l’edat d’un grup de persones de la població. Per exemple
 </div>
 
+<table>
+<thead>
+<tr class="header">
+<th align="right">BMI</th>
+<th align="right">C</th>
+<th align="right">E</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">18.3</td>
+<td align="right">170</td>
+<td align="right">49</td>
+</tr>
+<tr class="even">
+<td align="right">24.4</td>
+<td align="right">202</td>
+<td align="right">39</td>
+</tr>
+<tr class="odd">
+<td align="right">24.6</td>
+<td align="right">215</td>
+<td align="right">50</td>
+</tr>
+<tr class="even">
+<td align="right">24.4</td>
+<td align="right">218</td>
+<td align="right">44</td>
+</tr>
+<tr class="odd">
+<td align="right">22.2</td>
+<td align="right">210</td>
+<td align="right">40</td>
+</tr>
+<tr class="even">
+<td align="right">19.5</td>
+<td align="right">210</td>
+<td align="right">36</td>
+</tr>
+</tbody>
+</table>
 
 <div class="rmdcaution">
 <p>No confongueu vector aleatori amb mostra aleatòria. Tot i que tots dos es representen formalment per mitjà de vectors de variables aleatòries,</p>
@@ -316,13 +355,13 @@ E(XY)-\mu_X\mu_Y-\mu_Y\mu_X+\mu_X\mu_Y
 \]</span>
 </div>
 
-<p>La covariància de <span class="math inline">\(X\)</span> i <span class="math inline">\(Y\)</span> pot prendre qualsevol valor real, i mesura el grau de variació conjunta de les variables. Si quan <span class="math inline">\(X\)</span> pren un valor gran sobre un individu, <span class="math inline">\(Y\)</span> tendeix a també prendre’l gran, i quan <span class="math inline">\(X\)</span> pren un valor petit sobre un individu, <span class="math inline">\(Y\)</span> tendeix a també prendre’l petit, la seva covariància és positiva. Si, en canvi, quan <span class="math inline">\(X\)</span> pren un valor gran sobre un individu, <span class="math inline">\(Y\)</span> tendeix a prendre’l petit i vice versa, la seva covariància és negativa. Per tant:</p>
+<p>La covariància de <span class="math inline">\(X\)</span> i <span class="math inline">\(Y\)</span> pot prendre qualsevol valor real, i mesura el grau de variació conjunta de les variables. Si quan <span class="math inline">\(X\)</span> pren un valor gran sobre un individu, <span class="math inline">\(Y\)</span> tendeix a també prendre’l gran, i quan <span class="math inline">\(X\)</span> pren un valor petit sobre un individu, <span class="math inline">\(Y\)</span> tendeix a també prendre’l petit, la seva covariància és positiva. Si, en canvi, quan <span class="math inline">\(X\)</span> pren un valor gran sobre un individu, <span class="math inline">\(Y\)</span> tendeix a prendre’l petit i vice versa, la seva covariància és negativa.</p>
 
 <div class="rmdimportant">
 <p>El signe de la covariància reflecteix la tendència de la relació entre les variables:</p>
 <ul>
-<li>Covariància positiva: Si <span class="math inline">\(X\)</span> creix, <span class="math inline">\(Y\)</span> creix, i si <span class="math inline">\(X\)</span> decreix, <span class="math inline">\(Y\)</span> decreix</li>
-<li>Covariància negativa: Si <span class="math inline">\(X\)</span> creix, <span class="math inline">\(Y\)</span> decreix, i si <span class="math inline">\(X\)</span> decreix, <span class="math inline">\(Y\)</span> creix</li>
+<li>Covariància positiva: Si <span class="math inline">\(X\)</span> creix, <span class="math inline">\(Y\)</span> tendeix a créixer, i si <span class="math inline">\(X\)</span> decreix, <span class="math inline">\(Y\)</span> tendeix a decréixer</li>
+<li>Covariància negativa: Si <span class="math inline">\(X\)</span> creix, <span class="math inline">\(Y\)</span> tendeix a decréixer, i si <span class="math inline">\(X\)</span> decreix, <span class="math inline">\(Y\)</span> tendeix a créixer</li>
 </ul>
 </div>
 
@@ -349,14 +388,14 @@ P(X=-1)\cdot P(Y=4)=\frac{1}{4}\cdot\frac{1}{2}=\frac{1}{8}\neq 0.
 <p>Vegem ara que la covariància de <span class="math inline">\(X\)</span> i <span class="math inline">\(Y\)</span> es 0. Per calcular-la, primer necessitam calcular els valors esperats de les variables:
 <span class="math display">\[
 \begin{array}{l}
-\displaystyle E(X)=(-2)\cdot \frac{1}{4}+(-1)\cdot \frac{1}{4}+1\cdot \frac{1}{4}+2\cdot \frac{1}{4}=0\\
-\displaystyle E(Y)=1\cdot \frac{1}{2}+4\cdot \frac{1}{2}=2.5
+\displaystyle \mu_X=(-2)\cdot \frac{1}{4}+(-1)\cdot \frac{1}{4}+1\cdot \frac{1}{4}+2\cdot \frac{1}{4}=0\\
+\displaystyle \mu_Y=1\cdot \frac{1}{2}+4\cdot \frac{1}{2}=2.5
 \end{array}
 \]</span>
 Per tant
 <span class="math display">\[
 \begin{array}{l}
-\sigma_{X,Y}=E\big(X\cdot Y\big)-E(X)\cdot E(Y)=E\big(X\cdot Y\big)-0\cdot 2.5=E\big(X\cdot Y\big)\\
+\sigma_{X,Y}=E\big(X\cdot Y\big)-\mu_X\cdot \mu_Y=E\big(X\cdot Y\big)-0\cdot 2.5=E\big(X\cdot Y\big)\\
 \qquad =P\big(X=-2,Y=4\big)\cdot (-2\cdot 4)+P\big(X=-1,Y=1\big)\cdot (-1\cdot 1)\\
 \qquad\qquad\qquad +P\big(X=1,Y=1\big)\cdot (1\cdot 1)+P\big(X=2,Y=4\big)\cdot (2\cdot 4)\\
 \qquad =\displaystyle \frac{1}{4}\cdot (-8)+\frac{1}{4}\cdot (-1)+\frac{1}{4}\cdot 1+\frac{1}{4}\cdot 8=0.
@@ -382,12 +421,12 @@ Així doncs, <span class="math inline">\(X\)</span> i <span class="math inline">
 \sigma_{X_p,X_1} &amp; \sigma_{X_p,X_2} &amp; \ldots &amp; \sigma_{X_p,X_p}\\
  \end{pmatrix}
 \]</span></p>
-<p>Fixau-vos que les entrades de la diagonal són les variàncies de les variables del vector: <span class="math inline">\(\sigma_{X_i,X_i}=\sigma^2_{X_i}\)</span>.</p>
+<p>Aquesta matriu és simètrica i les entrades de la diagonal són les variàncies de les variables del vector, perquè <span class="math inline">\(\sigma_{X_i,X_i}=\sigma^2_{X_i}\)</span>.</p>
 </div>
 <div id="correlacio" class="section level3">
 <h3><span class="header-section-number">8.1.2</span> Correlació</h3>
 <p>Com hem dit, el signe de la variància té una interpretació senzilla, ja que reflecteix la tendència de la relació entre les variables.
-Emperò, la seva magnitud no té una interpretació senzilla. Aleshores, per mesurar la relació lineal entre dues variables aleatòries s’usa l’anomenat <strong>coeficient de correlació lineal de Pearson</strong> (o <strong>correlació</strong> a seques), que ve a ser una versió normalitzada de la covariància. En concret, la <strong>correlació</strong> de les variables <span class="math inline">\(X\)</span> i <span class="math inline">\(Y\)</span> es defineix com el quocient de la seva covariància pel producte de les seves desviacions típiques:
+Emperò, la seva magnitud no té una interpretació senzilla. Aleshores, per mesurar la relació lineal entre dues variables aleatòries contínues s’usa l’anomenat <strong>coeficient de correlació lineal de Pearson</strong> (o <strong>correlació</strong> a seques), que ve a ser una versió normalitzada de la covariància. En concret, la <strong>correlació</strong> de les variables <span class="math inline">\(X\)</span> i <span class="math inline">\(Y\)</span> es defineix com el quocient de la seva covariància pel producte de les seves desviacions típiques:
 <span class="math display">\[
 \rho_{X,Y}=\frac{\sigma_{X,Y}}{\sigma_{X} \sigma_{Y}},
 \]</span></p>
@@ -408,7 +447,8 @@ Emperò, la seva magnitud no té una interpretació senzilla. Aleshores, per mes
 \vdots &amp; \vdots &amp; \ddots &amp; \vdots\\
 \rho_{X_p,X_1} &amp; \rho_{X_p,X_2} &amp; \ldots &amp; 1\\
  \end{pmatrix}.
-\]</span></p>
+\]</span>
+Aquesta matriu és simètrica per la simetria de la correlació.</p>
 </div>
 </div>
 <div id="estadistica-descriptiva-mostres" class="section level2">
@@ -451,12 +491,12 @@ La covariància de dos vectors només té sentit quan aquests vectors represente
 <p><span id="exm:multex1" class="example"><strong>Exemple 8.3  </strong></span>Hem mesurat l’índex de massa corporal, BMI, i el nivell de colesterol en 5 individus sans. Guardam els resultats en un <em>data frame</em> i en calculam les mitjanes:</p>
 </div>
 
-<pre class="sourceCode r"><code class="sourceCode r">BMI=<span class="st"> </span><span class="kw">c</span>(<span class="fl">18.3</span>,<span class="fl">24.4</span>,<span class="fl">24.6</span>,<span class="fl">24.4</span>,<span class="fl">22.2</span>,<span class="fl">19.5</span>)
-Chol=<span class="kw">c</span>(<span class="dv">170</span>,<span class="dv">202</span>,<span class="dv">215</span>,<span class="dv">218</span>,<span class="dv">210</span>,<span class="dv">210</span>)
-DF=<span class="kw">data.frame</span>(BMI,Chol)
-<span class="kw">mean</span>(BMI)</code></pre>
+<div class="sourceCode" id="cb361"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb361-1" data-line-number="1">BMI=<span class="st"> </span><span class="kw">c</span>(<span class="fl">18.3</span>,<span class="fl">24.4</span>,<span class="fl">24.6</span>,<span class="fl">24.4</span>,<span class="fl">22.2</span>,<span class="fl">19.5</span>)</a>
+<a class="sourceLine" id="cb361-2" data-line-number="2">Chol=<span class="kw">c</span>(<span class="dv">170</span>,<span class="dv">202</span>,<span class="dv">215</span>,<span class="dv">218</span>,<span class="dv">210</span>,<span class="dv">210</span>)</a>
+<a class="sourceLine" id="cb361-3" data-line-number="3">DF=<span class="kw">data.frame</span>(BMI,Chol)</a>
+<a class="sourceLine" id="cb361-4" data-line-number="4"><span class="kw">mean</span>(BMI)</a></code></pre></div>
 <pre><code>## [1] 22.23333</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>(Chol)</code></pre>
+<div class="sourceCode" id="cb363"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb363-1" data-line-number="1"><span class="kw">mean</span>(Chol)</a></code></pre></div>
 <pre><code>## [1] 204.1667</code></pre>
 <p>Aleshores la covariància mostral d’aquests dos vectors és
 <span class="math display">\[
@@ -476,7 +516,7 @@ DF=<span class="kw">data.frame</span>(BMI,Chol)
 \]</span></p>
 <p>La covariància <em>mostral</em> de dos vectors numèrics de la mateixa longitud <span class="math inline">\(n\)</span> es calcula amb R amb la funció <code>cov</code>.
 Per obtenir la seva covariància <em>a seques</em>, cal multiplicar el resultat de <code>cov</code> per <span class="math inline">\((n-1)/n\)</span>.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">cov</span>(BMI,Chol)</code></pre>
+<div class="sourceCode" id="cb365"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb365-1" data-line-number="1"><span class="kw">cov</span>(BMI,Chol)</a></code></pre></div>
 <pre><code>## [1] 33.83333</code></pre>
 <p>Considerem una taula de dades de la forma
 <span class="math display">\[
@@ -508,15 +548,16 @@ i la <strong>matriu de covaiàncies</strong> (<strong>a seques</strong>) es defi
   \vdots &amp; \vdots  &amp;  \ddots      &amp; \vdots\\
 s_{X_p,X_1} &amp; s_{X_p,X_2} &amp; \ldots &amp; s^2_{X_p}
 \end{pmatrix}
-\]</span></p>
+\]</span>
+Totes dues són simètriques.</p>
 <p>La matriu de covariàncies mostrals es calcula amb la funció <code>cov</code> aplicada a la matriu o el <em>data frame</em> de variables numèriques que emmagatzema la taula de dades. Per calcular la matriu de covariàncies a seques, es multiplica el resultat de <code>cov</code> per <span class="math inline">\((n-1)/n\)</span>, on <span class="math inline">\(n\)</span> és el nombre de fileres de la taula.</p>
 
 <div class="example">
 <p><span id="exm:multex2" class="example"><strong>Exemple 8.4  </strong></span>Afegirem a la taula de dades de l’Exemple <a href="introduccio-a-lestadistica-multidimensional.html#exm:multex1">8.3</a> una tercera variable amb les edats dels 6 individus representats en ella.</p>
 </div>
 
-<pre class="sourceCode r"><code class="sourceCode r">DF<span class="op">$</span>Edats=<span class="kw">c</span>(<span class="dv">49</span>,<span class="dv">39</span>,<span class="dv">50</span>,<span class="dv">44</span>,<span class="dv">40</span>,<span class="dv">36</span>)
-DF</code></pre>
+<div class="sourceCode" id="cb367"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb367-1" data-line-number="1">DF<span class="op">$</span>Edats=<span class="kw">c</span>(<span class="dv">49</span>,<span class="dv">39</span>,<span class="dv">50</span>,<span class="dv">44</span>,<span class="dv">40</span>,<span class="dv">36</span>)</a>
+<a class="sourceLine" id="cb367-2" data-line-number="2">DF</a></code></pre></div>
 <pre><code>##    BMI Chol Edats
 ## 1 18.3  170    49
 ## 2 24.4  202    39
@@ -525,16 +566,16 @@ DF</code></pre>
 ## 5 22.2  210    40
 ## 6 19.5  210    36</code></pre>
 <p>La matriu de covariàncies mostrals d’aquesta taula és</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">cov</span>(DF)</code></pre>
+<div class="sourceCode" id="cb369"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb369-1" data-line-number="1"><span class="kw">cov</span>(DF)</a></code></pre></div>
 <pre><code>##             BMI      Chol  Edats
 ## BMI    7.586667  33.83333   1.14
 ## Chol  33.833333 309.76667 -33.00
 ## Edats  1.140000 -33.00000  32.00</code></pre>
-<p>Podreu observar que a la diagonal hi obtenim les variàncies mostrals de les variables de la taula:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">apply</span>(DF,<span class="dt">MARGIN=</span><span class="dv">2</span>,<span class="dt">FUN=</span>var)</code></pre>
+<p>Podreu observar que és simètrica, que a la diagonal hi obtenim les variàncies mostrals de les variables de la taula:</p>
+<div class="sourceCode" id="cb371"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb371-1" data-line-number="1"><span class="kw">apply</span>(DF,<span class="dt">MARGIN=</span><span class="dv">2</span>,<span class="dt">FUN=</span>var)</a></code></pre></div>
 <pre><code>##        BMI       Chol      Edats 
 ##   7.586667 309.766667  32.000000</code></pre>
-<p>i que, per exemple, l’entrada (2,1) coincideix amb la covariància de <code>BMI</code> i <code>Chol</code> que hem calculat abans. La matriu és simètrica, perquè les covariàncies són simètriques.</p>
+<p>i que l’entrada (2,1) coincideix amb la covariància de <code>BMI</code> i <code>Chol</code> que hem calculat abans.</p>
 </div>
 <div id="correlacio-de-pearson" class="section level3">
 <h3><span class="header-section-number">8.2.2</span> Correlació de Pearson</h3>
@@ -547,18 +588,18 @@ r_{x,y}=\frac{\widetilde{s}_{x,y}}{\widetilde{s}_x\cdot \widetilde{s}_y}.
 <span class="math display">\[
 r_{x,y}=\frac{\widetilde{s}_{x,y}}{\widetilde{s}_x\cdot \widetilde{s}_y}=
 \frac{\frac{n}{n-1}\cdot {s}_{x,y}}{\sqrt{\frac{n}{n-1}}\cdot {s}_x \cdot\sqrt{\frac{n}{n-1}}\cdot{s}_y}=
-\frac{s_{x,y}}{s_x \cdot s_y}=r_{x,y},
+\frac{s_{x,y}}{s_x \cdot s_y}=r_{x,y}.
 \]</span></p>
 
 <div class="example">
 <p><span id="exm:multex1rev" class="example"><strong>Exemple 8.5  </strong></span>Tornem a la situació de l’Exemple <a href="introduccio-a-lestadistica-multidimensional.html#exm:multex1">8.3</a>. La covariància mostral i les desviacions típiques mostrals dels vectors <code>BMI</code> i <code>Chol</code> són</p>
 </div>
 
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sd</span>(BMI)</code></pre>
+<div class="sourceCode" id="cb373"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb373-1" data-line-number="1"><span class="kw">sd</span>(BMI)</a></code></pre></div>
 <pre><code>## [1] 2.75439</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sd</span>(Chol)</code></pre>
+<div class="sourceCode" id="cb375"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb375-1" data-line-number="1"><span class="kw">sd</span>(Chol)</a></code></pre></div>
 <pre><code>## [1] 17.60019</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">cov</span>(BMI,Chol)</code></pre>
+<div class="sourceCode" id="cb377"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb377-1" data-line-number="1"><span class="kw">cov</span>(BMI,Chol)</a></code></pre></div>
 <pre><code>## [1] 33.83333</code></pre>
 <p>i per tant la seva correlació de Pearson és
 <span class="math display">\[
@@ -582,12 +623,12 @@ R^2=r_{x,y}^2
 Per tant, com més s’acosta <span class="math inline">\(|r_{x,y}|\)</span> a 1, més s’acosten els vectors <span class="math inline">\(x,y\)</span> a dependre linealment l’un de l’altre.</p></li>
 </ul>
 <p>Amb R, la correlació de Pearson de dos vectors es pot calcular amb la funció <code>cor</code>. Per exemple, la correlació del Pearson dels vectors <code>BMI</code> i <code>Chol</code> s’obté amb</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">cor</span>(BMI,Chol)</code></pre>
+<div class="sourceCode" id="cb379"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb379-1" data-line-number="1"><span class="kw">cor</span>(BMI,Chol)</a></code></pre></div>
 <pre><code>## [1] 0.6979141</code></pre>
 <p>Vegem que el seu quadrat és igual al <span class="math inline">\(R^2\)</span> de la regressió lineal de <code>Chol</code> en funció de <code>BMI</code>:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">cor</span>(BMI,Chol)<span class="op">^</span><span class="dv">2</span></code></pre>
+<div class="sourceCode" id="cb381"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb381-1" data-line-number="1"><span class="kw">cor</span>(BMI,Chol)<span class="op">^</span><span class="dv">2</span></a></code></pre></div>
 <pre><code>## [1] 0.487084</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(<span class="kw">lm</span>(Chol<span class="op">~</span>BMI))<span class="op">$</span>r.squared</code></pre>
+<div class="sourceCode" id="cb383"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb383-1" data-line-number="1"><span class="kw">summary</span>(<span class="kw">lm</span>(Chol<span class="op">~</span>BMI))<span class="op">$</span>r.squared</a></code></pre></div>
 <pre><code>## [1] 0.487084</code></pre>
 <p>Suposem que tenim una taula de dades de la forma
 <span class="math display">\[
@@ -600,7 +641,7 @@ x_{n 1} &amp; x_{n 2} &amp;\ldots &amp; x_{n p}
 \end{array}
 \]</span>
 on cada columna representa els valors d’una certa variable <span class="math inline">\(X_i\)</span> i cada filera un individu d’una mostra de la població, de manera que l’entrada <span class="math inline">\(x_{ij}\)</span> d’aquesta taula és el valor de <span class="math inline">\(X_j\)</span> sobre l’individu <span class="math inline">\(i\)</span>-èssim de la mostra.</p>
-<p>La seva <strong>matriu de correlacions de Pearson</strong> és la matriu
+<p>La seva <strong>matriu de correlacions de Pearson</strong> és la matriu simètrica
 <span class="math display">\[
 \begin{pmatrix}  
  1 &amp; r_{X_1,X_2} &amp; \ldots &amp; r_{X_1,X_p}\\
@@ -610,7 +651,7 @@ r_{X_p,X_1} &amp; r_{X_p,X_2} &amp; \ldots &amp; 1
 \end{pmatrix}
 \]</span></p>
 <p>Aquesta matriu de correlacions es calcula amb la funció <code>cor</code> aplicada a la matriu o el <em>data frame</em> de variables numèriques que emmagatzema la taula de dades. Per exemple, la matriu de correlacions de Pearson de la taula de dades <code>DF</code> de l’Exemple <a href="introduccio-a-lestadistica-multidimensional.html#exm:multex2">8.4</a> és</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">cor</span>(DF)</code></pre>
+<div class="sourceCode" id="cb385"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb385-1" data-line-number="1"><span class="kw">cor</span>(DF)</a></code></pre></div>
 <pre><code>##              BMI       Chol       Edats
 ## BMI   1.00000000  0.6979141  0.07316517
 ## Chol  0.69791406  1.0000000 -0.33145274
@@ -619,8 +660,8 @@ r_{X_p,X_1} &amp; r_{X_p,X_2} &amp; \ldots &amp; 1
 </div>
 <div id="correlacio-de-spearman" class="section level2">
 <h2><span class="header-section-number">8.3</span> Correlació de Spearman</h2>
-<p>La correlació de Pearson mesura específicament la tendència de dues variables quantitatives contínues a dependre linealment l’una de l’altra. En circumstàncies en les quals no esperem aquesta dependència lineal, o en les quals les nostres variables siguin quantitatives discretes o simplement qualitatives, emprar la correlació de Pearson per a analitzar la relació entre dues variables no és el més adequat. Entre les propostes alternatives, la més popular és la <strong>correlació de Spearman</strong>.</p>
-<p>La correlació de Spearman de dos vectors <span class="math inline">\(x\)</span> i <span class="math inline">\(y\)</span> és la correlació de Pearson dels vectors de <strong>rangs</strong> <span class="math inline">\(x\)</span> i <span class="math inline">\(y\)</span>. El vector de rangs d’un vector <span class="math inline">\(x\)</span> s’obté substituïnt cada valor de <span class="math inline">\(x\)</span> per la seva posició en el vector ordenat de menor a major, i en cas d’empats assigna la mitjana de les posicions que ocuparien tots els empats (aquests rangs ja han sortit, al test de bondat d’ajust de Kolmogorov-Smirnov). Per exemple, el vector de rangs de
+<p>La correlació de Pearson mesura específicament la tendència de dues variables contínues a dependre linealment l’una de l’altra. En circumstàncies en les quals no esperem aquesta dependència lineal, o en les quals les nostres variables siguin quantitatives discretes o simplement ordinals, emprar la correlació de Pearson per a analitzar la relació entre dues variables no és el més adequat. Entre les propostes alternatives, la més popular és la <strong>correlació de Spearman</strong>.</p>
+<p>La correlació de Spearman de dos vectors <span class="math inline">\(x\)</span> i <span class="math inline">\(y\)</span> és la correlació de Pearson dels vectors de <strong>rangs</strong> de <span class="math inline">\(x\)</span> i <span class="math inline">\(y\)</span>. El vector de rangs d’un vector <span class="math inline">\(x\)</span> s’obté substituïnt cada valor de <span class="math inline">\(x\)</span> per la seva posició en el vector ordenat de menor a major, i en cas d’empats assigna la mitjana de les posicions que ocuparien tots els empats (aquests rangs ja han sortit, al <a href="https://aprender-uib.github.io/MatesII/contrastos-de-bondat-dajust.html#test-de-kolmogorov-smirnov">test de bondat d’ajust de Kolmogorov-Smirnov</a>). Per exemple, el vector de rangs de
 <span class="math display">\[
 x=(4,5,1,5,1,3,4,4)
 \]</span>
@@ -640,12 +681,12 @@ Com hem calculat aquest vector?</p>
 Per cert, amb R els rangs es calculen amb la funció <code>rank</code>:
 </div>
 
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rank</span>(<span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">1</span>,<span class="dv">5</span>,<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">4</span>))</code></pre>
+<div class="sourceCode" id="cb387"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb387-1" data-line-number="1"><span class="kw">rank</span>(<span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">1</span>,<span class="dv">5</span>,<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">4</span>))</a></code></pre></div>
 <pre><code>## [1] 5.0 7.5 1.5 7.5 1.5 3.0 5.0 5.0</code></pre>
 <p>Amb R, la correlació de Spearman es calcula directament amb la funció <code>cor</code> entrant-li el paràmetre <code>method=&quot;spearman&quot;</code>. (El valor per defecte del paràmetre <code>method</code> és <code>&quot;pearson&quot;</code> i per això no l’indicam quan calculam la correlació de Pearson.)</p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-434" class="example"><strong>Exemple 8.6  </strong></span>Calculem a mà la correlació de Spearman dels vectors <code>BMI</code> i <code>Chol</code>. El primer que farem serà calcular els rangs dels valors</p>
+<p><span id="exm:unnamed-chunk-435" class="example"><strong>Exemple 8.6  </strong></span>Calculem a mà la correlació de Spearman dels vectors <code>BMI</code> i <code>Chol</code>. El primer que farem serà calcular els rangs dels valors</p>
 </div>
 
 <p><span class="math display">\[
@@ -670,9 +711,9 @@ Per cert, amb R els rangs es calculen amb la funció <code>rank</code>:
 (1, 4.5, 6, 4.5, 3, 2)\mbox{ i }(1, 2, 5, 6, 3.5, 3.5)
 \]</span></p>
 <p>Comprovem-ho:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">cor</span>(BMI,Chol,<span class="dt">method=</span><span class="st">&quot;spearman&quot;</span>)</code></pre>
+<div class="sourceCode" id="cb389"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb389-1" data-line-number="1"><span class="kw">cor</span>(BMI,Chol,<span class="dt">method=</span><span class="st">&quot;spearman&quot;</span>)</a></code></pre></div>
 <pre><code>## [1] 0.6470588</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">cor</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="fl">4.5</span>,<span class="dv">6</span>,<span class="fl">4.5</span>,<span class="dv">3</span>,<span class="dv">2</span>),<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="fl">3.5</span>,<span class="fl">3.5</span>))</code></pre>
+<div class="sourceCode" id="cb391"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb391-1" data-line-number="1"><span class="kw">cor</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="fl">4.5</span>,<span class="dv">6</span>,<span class="fl">4.5</span>,<span class="dv">3</span>,<span class="dv">2</span>),<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="fl">3.5</span>,<span class="fl">3.5</span>))</a></code></pre></div>
 <pre><code>## [1] 0.6470588</code></pre>
 </div>
 <div id="contrastos-de-correlacio" class="section level2">
@@ -687,13 +728,13 @@ H_1: &amp; \rho_{XY}&gt; 0\text{ o }\rho_{XY}&lt; 0\text{ o }\rho_{XY}\neq 0
 \]</span></p>
 
 <div class="rmdimportant">
-Si en un contrast de correlació rebutjam la hipòtesi nul·la, en particular concloem que les variables <span class="math inline">\(X\)</span> i <span class="math inline">\(Y\)</span> no són independents (perquè si fossin independents, la seva correlació seria 0).
+Si en un contrast de correlació rebutjam la hipòtesi nul·la, en particular concloem que les variables <span class="math inline">\(X\)</span> i <span class="math inline">\(Y\)</span> són dependents (perquè si fossin independents, la seva correlació seria 0).
 </div>
 
 <p>No explicarem com es fa a mà aquest contrast ni quines hipòtesis han de satisfer les variables poblacionals per que el resultat sigui fiable. Simplement heu de saber que s’efectua amb la funció <code>cor.test</code>.</p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-437" class="example"><strong>Exemple 8.7  </strong></span>Volem contrastar si hi ha correlació positiva entre el BMI i el nivell de colesterol d’un adult sa, amb un nivell de significació del 5%.</p>
+<p><span id="exm:unnamed-chunk-438" class="example"><strong>Exemple 8.7  </strong></span>Volem contrastar si hi ha correlació positiva entre el BMI i el nivell de colesterol d’un adult sa, amb un nivell de significació del 5%.</p>
 </div>
 
 <p><em>Variables poblacionals d’interès</em>:</p>
@@ -710,7 +751,7 @@ H_1: &amp; \rho_{\textit{BMI,Chol}}&gt;0
 \end{array}\right.
 \]</span></p>
 <p>Emprarem les mostres <code>BMI</code> i <code>Chol</code> de l’Exemple<a href="introduccio-a-lestadistica-multidimensional.html#exm:multex1">8.3</a>.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">cor.test</span>(BMI,Chol,<span class="dt">alternative=</span><span class="st">&quot;greater&quot;</span>)</code></pre>
+<div class="sourceCode" id="cb393"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb393-1" data-line-number="1"><span class="kw">cor.test</span>(BMI,Chol,<span class="dt">alternative=</span><span class="st">&quot;greater&quot;</span>)</a></code></pre></div>
 <pre><code>## 
 ##  Pearson&#39;s product-moment correlation
 ## 

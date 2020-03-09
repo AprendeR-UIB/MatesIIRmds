@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1583750460733.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3778130937",
+    "id" : "1898172C",
+    "lastKnownWriteTime" : 1583751777,
+    "last_content_update" : 1583751777874,
+    "path" : "~/Documents/GitHub/MatesIIRmds/08-EstMult.Rmd",
+    "project_path" : "08-EstMult.Rmd",
+    "properties" : {
+        "cursorPosition" : "509,117",
+        "scrollLine" : "500"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 6,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

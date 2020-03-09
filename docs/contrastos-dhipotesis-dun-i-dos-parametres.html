@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html >
-
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Tema 5 Contrastos d’hipòtesis d’un i dos paràmetres | Matemàtiques II</title>
-  <meta name="description" content="Apunts Matemàtiques II bookdown::gitbook.">
-  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+  <meta name="description" content="Apunts Matemàtiques II bookdown::gitbook." />
+  <meta name="generator" content="bookdown 0.12 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Tema 5 Contrastos d’hipòtesis d’un i dos paràmetres | Matemàtiques II" />
   <meta property="og:type" content="book" />
@@ -24,11 +23,11 @@
 
 
 
-<meta name="date" content="2020-03-08">
+<meta name="date" content="2020-03-09" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
 <link rel="prev" href="contrastos-dhipotesis-generalitats.html">
@@ -55,7 +54,6 @@ a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
 a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
@@ -441,8 +439,8 @@ i que l’estadístic de contrast <span class="math inline">\(T\)</span> sobre d
 <div id="tests-t-amb-r" class="section level3">
 <h3><span class="header-section-number">5.1.3</span> Tests t amb R</h3>
 <p>Tots aquests tests t estan implementats en la funció de R</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">t.test</span>(x, y, <span class="dt">mu=</span>..., <span class="dt">alternative=</span>..., <span class="dt">paired=</span>...,
-       <span class="dt">var.equal=</span>..., <span class="dt">conf.level=</span>...)</code></pre>
+<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb185-1" data-line-number="1"><span class="kw">t.test</span>(x, y, <span class="dt">mu=</span>..., <span class="dt">alternative=</span>..., <span class="dt">paired=</span>...,</a>
+<a class="sourceLine" id="cb185-2" data-line-number="2">       <span class="dt">var.equal=</span>..., <span class="dt">conf.level=</span>...)</a></code></pre></div>
 <p>on:</p>
 <ul>
 <li><p>Entram com a <code>x</code> una mostra i a <code>mu</code> el valor amb el qual volem contrastar <span class="math inline">\(\mu\)</span>, o entram com a <code>x</code> i <code>y</code> les
@@ -476,8 +474,8 @@ H_{1}:\mu \neq 98.6
 \right.
 \]</span></p>
 <p>Realitzarem aquest contrast amb R. Carregam la taula de temperatures, que prèviament hem guardat en el directori de treball de R, en un dataframe que anomenarem <code>BT</code>.</p>
-<pre class="sourceCode r"><code class="sourceCode r">BT=<span class="kw">read.table</span>(<span class="st">&quot;Body_Temperature.txt&quot;</span>)
-<span class="kw">head</span>(BT)</code></pre>
+<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb186-1" data-line-number="1">BT=<span class="kw">read.table</span>(<span class="st">&quot;Body_Temperature.txt&quot;</span>)</a>
+<a class="sourceLine" id="cb186-2" data-line-number="2"><span class="kw">head</span>(BT)</a></code></pre></div>
 <pre><code>##   Gender HeartRate Temperature
 ## 1      M        69        97.0
 ## 2      M        72        98.8
@@ -485,14 +483,14 @@ H_{1}:\mu \neq 98.6
 ## 4      F        75        97.8
 ## 5      F        68        98.8
 ## 6      M        79       101.3</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(BT)</code></pre>
+<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb188-1" data-line-number="1"><span class="kw">str</span>(BT)</a></code></pre></div>
 <pre><code>## &#39;data.frame&#39;:    230 obs. of  3 variables:
 ##  $ Gender     : Factor w/ 2 levels &quot;F&quot;,&quot;M&quot;: 2 2 2 1 1 2 1 1 1 2 ...
 ##  $ HeartRate  : int  69 72 68 75 68 79 71 73 77 81 ...
 ##  $ Temperature: num  97 98.8 96.2 97.8 98.8 ...</code></pre>
 <p>Veiem que la taula <code>BT</code> consta de 230 individus i 3 variables mesurades sobre cadascun d’ells: el sexe (variable <code>Gender</code>, amb nivells <code>F</code> per a dona i <code>M</code> per a home), les pulsacions per minut (variable <code>HeartRate</code>) i la temperatura en graus F (variable <code>Temperature</code>).</p>
 <p>Com que la mostra és gran, <span class="math inline">\(n=230\)</span>, podem emprar un test t. Emprarem la funció <code>t.test</code>, aplicant-la al vector de temperatures i al valor que contrastam, 98.6, entrat amb el parametre <code>mu</code>. El paràmetre <code>alternative=&quot;two.sided&quot;</code> indica que el test serà bilateral.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">t.test</span>(BT<span class="op">$</span>Temperature, <span class="dt">mu=</span><span class="fl">98.6</span>, <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>)</code></pre>
+<div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb190-1" data-line-number="1"><span class="kw">t.test</span>(BT<span class="op">$</span>Temperature, <span class="dt">mu=</span><span class="fl">98.6</span>, <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
 <pre><code>## 
 ##  One Sample t-test
 ## 
@@ -536,13 +534,13 @@ H_{1}:\mu_d&lt; \mu_h
 \right.
 \]</span></p>
 <p>Per poder emprar un t test, primer ens cal saber si hi ha nombres suficientment grans d’homes i dones a la nostra mostra per emprar-lo. Per això calcularem la taula de freqüències dels sexes, aplicant la funció <code>table</code> al vector <code>BT$Gender</code> dels sexes:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">table</span>(BT<span class="op">$</span>Gender)</code></pre>
+<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb192-1" data-line-number="1"><span class="kw">table</span>(BT<span class="op">$</span>Gender)</a></code></pre></div>
 <pre><code>## 
 ##   F   M 
 ## 116 114</code></pre>
 <p>Són prou grans.</p>
 <p>Anam a crear uns vectors amb les temperatures d’homes i de dones. Recordau que hi ha diverses maneres d’extreure d’un dataframe el vector de valors d’una variable <code>V1</code> per als individus que prenen un valor concret <code>X</code> en una altra variable <code>V2</code>: per exemple <code>dataframe$V1[V2==X]</code> o <code>dataframe[V2==X,V1]</code>. Així, les temperatures dels homes (individus on la variable <code>Gender</code> és igual a <code>M</code>) són</p>
-<pre class="sourceCode r"><code class="sourceCode r">BT<span class="op">$</span>Temperature[BT<span class="op">$</span>Gender<span class="op">==</span><span class="st">&quot;M&quot;</span>]</code></pre>
+<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb194-1" data-line-number="1">BT<span class="op">$</span>Temperature[BT<span class="op">$</span>Gender<span class="op">==</span><span class="st">&quot;M&quot;</span>]</a></code></pre></div>
 <pre><code>##   [1]  97.0  98.8  96.2 101.3  99.2  97.5  97.3  98.6  99.0  98.0  97.0
 ##  [12]  97.6  99.0  97.1  98.9  98.6  98.9  97.2  98.0  99.4  98.8  98.5
 ##  [23]  99.6  97.3  96.5  97.8  98.3  98.1  98.8  97.7  98.3  97.7  99.1
@@ -555,10 +553,10 @@ H_{1}:\mu_d&lt; \mu_h
 ## [100]  98.6  98.7  98.7  98.8  98.8  98.8  98.9  99.0  99.0  99.0  99.1
 ## [111]  99.2  99.3  99.4  99.5</code></pre>
 <p>Bé, cream els vectors <span class="math inline">\(X_d\)</span> (dones) i <span class="math inline">\(X_h\)</span> (homes)</p>
-<pre class="sourceCode r"><code class="sourceCode r">X_d=BT[BT<span class="op">$</span>Gender<span class="op">==</span><span class="st">&quot;F&quot;</span>,<span class="st">&quot;Temperature&quot;</span>]  <span class="co">#temperatures de dones</span>
-X_h=BT[BT<span class="op">$</span>Gender<span class="op">==</span><span class="st">&quot;M&quot;</span>,<span class="st">&quot;Temperature&quot;</span>]  <span class="co">#temperatures d&#39;homes</span></code></pre>
+<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb196-1" data-line-number="1">X_d=BT[BT<span class="op">$</span>Gender<span class="op">==</span><span class="st">&quot;F&quot;</span>,<span class="st">&quot;Temperature&quot;</span>]  <span class="co">#temperatures de dones</span></a>
+<a class="sourceLine" id="cb196-2" data-line-number="2">X_h=BT[BT<span class="op">$</span>Gender<span class="op">==</span><span class="st">&quot;M&quot;</span>,<span class="st">&quot;Temperature&quot;</span>]  <span class="co">#temperatures d&#39;homes</span></a></code></pre></div>
 <p>Per portar a terme un test t per comparar dues mitjanes, aplicam la funció <code>t.test</code> als vectors <code>X_d</code>i <code>X_h</code> amb paràmetre <code>alternative=&quot;less&quot;</code> per indicar que el test és unilateral: la hipòtesi alternativa és que la mitjana de la primera població (dones) és més petita que la de la segona (homes). En aquest exemple, a més, especificarem que les mostres són independents amb <code>paired=FALSE</code> (no caldria, ja que és el valor per defecte) i a més hem d’especificar si les variàncies poblacionals són iguals (<code>var.equal=TRUE</code>) o diferents (<code>var.equal=FALSE</code>). El que farem aquí serà provar els dos casos: amb les variàncies iguals i amb les variàncies diferents. Si les dues conclusions són la mateixa, aquesta serà la conclusió que prendrem. Si dóna diferent, haurem de realitzar un contrast previ per decidir si hem de suposar que les variàncies són iguals o diferents.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">t.test</span>(X_d, X_h, <span class="dt">alternative=</span><span class="st">&quot;less&quot;</span>,<span class="dt">paired=</span><span class="ot">FALSE</span>, <span class="dt">var.equal=</span><span class="ot">TRUE</span>)</code></pre>
+<div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb197-1" data-line-number="1"><span class="kw">t.test</span>(X_d, X_h, <span class="dt">alternative=</span><span class="st">&quot;less&quot;</span>,<span class="dt">paired=</span><span class="ot">FALSE</span>, <span class="dt">var.equal=</span><span class="ot">TRUE</span>)</a></code></pre></div>
 <pre><code>## 
 ##  Two Sample t-test
 ## 
@@ -570,7 +568,7 @@ X_h=BT[BT<span class="op">$</span>Gender<span class="op">==</span><span class="s
 ## sample estimates:
 ## mean of x mean of y 
 ##  98.42155  98.14474</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">t.test</span>(X_d, X_h, <span class="dt">alternative=</span><span class="st">&quot;less&quot;</span>,<span class="dt">paired=</span><span class="ot">FALSE</span>, <span class="dt">var.equal=</span><span class="ot">FALSE</span>)</code></pre>
+<div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb199-1" data-line-number="1"><span class="kw">t.test</span>(X_d, X_h, <span class="dt">alternative=</span><span class="st">&quot;less&quot;</span>,<span class="dt">paired=</span><span class="ot">FALSE</span>, <span class="dt">var.equal=</span><span class="ot">FALSE</span>)</a></code></pre></div>
 <pre><code>## 
 ##  Welch Two Sample t-test
 ## 
@@ -590,7 +588,7 @@ Vegem, si <span class="math inline">\(\overline{X_d}=98.42\)</span> i <span clas
 </div>
 
 <p>Si, per exemple, haguéssim dibuixat abans del contrast un diagrama de caixes de les temperatures separades per sexe, hauríem vist que era impossible obtenir evidència que les dones tenen temperatura mitjana inferior als homes, i no hauria fet falta continuar.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">boxplot</span>(Temperature<span class="op">~</span>Gender,<span class="dt">data=</span>BT,<span class="dt">names=</span><span class="kw">c</span>(<span class="st">&quot;Dones&quot;</span>,<span class="st">&quot;Homes&quot;</span>),<span class="dt">xlab=</span><span class="st">&quot;&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;Temperatura&quot;</span>)</code></pre>
+<div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb201-1" data-line-number="1"><span class="kw">boxplot</span>(Temperature<span class="op">~</span>Gender,<span class="dt">data=</span>BT,<span class="dt">names=</span><span class="kw">c</span>(<span class="st">&quot;Dones&quot;</span>,<span class="st">&quot;Homes&quot;</span>),<span class="dt">xlab=</span><span class="st">&quot;&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;Temperatura&quot;</span>)</a></code></pre></div>
 <p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-276-1.png" width="60%" style="display: block; margin: auto;" /></p>
 <p><strong>Exercici</strong>: Emprant les mateixes dades, trobau evidència que <span class="math inline">\(\mu_h&lt;\mu_d\)</span>? I que <span class="math inline">\(\mu_h\neq \mu_d\)</span>? Spoiler:</p>
 <p><img src="Bioestadistica-II_files/figure-html/tempcorp3.png" width="50%" style="display: block; margin: auto;" /></p>
@@ -616,8 +614,8 @@ H_{1}:\mu_{ob}&lt; \mu_{cf}
 \right.
 \]</span></p>
 <p>Carregam la taula de dades, que prèviament hem guardat en el directori de treball de R, en un dataframe al que anomenam <code>OBR</code> i consultam la seva estructura:</p>
-<pre class="sourceCode r"><code class="sourceCode r">OBR=<span class="kw">read.table</span>(<span class="st">&quot;oatbran.txt&quot;</span>,<span class="dt">header=</span><span class="ot">TRUE</span>)
-<span class="kw">head</span>(OBR)</code></pre>
+<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb202-1" data-line-number="1">OBR=<span class="kw">read.table</span>(<span class="st">&quot;oatbran.txt&quot;</span>,<span class="dt">header=</span><span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb202-2" data-line-number="2"><span class="kw">head</span>(OBR)</a></code></pre></div>
 <pre><code>##   CORNFLK OATBRAN
 ## 1    4.61    3.94
 ## 2    6.42    5.57
@@ -625,41 +623,41 @@ H_{1}:\mu_{ob}&lt; \mu_{cf}
 ## 4    4.54    4.80
 ## 5    3.98    3.68
 ## 6    3.82    2.96</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(OBR)</code></pre>
+<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb204-1" data-line-number="1"><span class="kw">str</span>(OBR)</a></code></pre></div>
 <pre><code>## &#39;data.frame&#39;:    14 obs. of  2 variables:
 ##  $ CORNFLK: num  4.61 6.42 5.4 4.54 3.98 3.82 5.01 4.34 3.8 4.56 ...
 ##  $ OATBRAN: num  3.94 5.57 5.85 4.8 3.68 2.96 4.41 3.72 3.49 3.94 ...</code></pre>
 <p>N’extraiem les dues variables en forma de vectors:</p>
-<pre class="sourceCode r"><code class="sourceCode r">OAT=OBR<span class="op">$</span>OATBRAN
-CFL=OBR<span class="op">$</span>CORNFLK</code></pre>
+<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb206-1" data-line-number="1">OAT=OBR<span class="op">$</span>OATBRAN</a>
+<a class="sourceLine" id="cb206-2" data-line-number="2">CFL=OBR<span class="op">$</span>CORNFLK</a></code></pre></div>
 <p>Com que 14 dades són poques, si volem aplicar un test t necessitam que provinguin d’una distribució normal. Per decidir si és veritat o no, més endavant explicarem contrastos de bondat d’ajust, amb hipòtesi nul·la “Aquesta mostra prové d’una variable aleatòria amb tal distribució” i hipòtesi alternativa “No és veritat que aquesta mostra provengui d’una variable aleatòria amb tal distribució”. Per ara ens conformarem amb decidir-ho a partir d’un gràfic.</p>
 <p>A Matemàtiques I us explicàvem que podeu dibuixar un histograma d’una mostra afegint-hi la densitat estimada, a partir de la mostra, de la variable poblacional i la densitat d’una distribució normal amb mitjana i desviació típica les de la mostra, i mirar si sembla que les dades segueixen aquesta distribució normal. Però amb poques dades això és mal de veure:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">hist</span>(OAT,<span class="dt">freq=</span><span class="ot">FALSE</span>, <span class="dt">breaks=</span><span class="dv">4</span>,<span class="dt">col=</span><span class="st">&quot;light blue&quot;</span>,<span class="dt">xlab=</span><span class="st">&quot;Colesterol&quot;</span>,
-     <span class="dt">ylab=</span><span class="st">&quot;Densitat&quot;</span>, <span class="dt">main=</span><span class="st">&quot;Histograma de OATBRAN&quot;</span>,<span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="kw">max</span>(<span class="kw">density</span>(OAT)<span class="op">$</span>y)))
-<span class="kw">lines</span>(<span class="kw">density</span>(OAT),<span class="dt">lty=</span><span class="dv">2</span>,<span class="dt">lwd=</span><span class="dv">2</span>)
-<span class="kw">curve</span>(<span class="kw">dnorm</span>(x,<span class="kw">mean</span>(OAT),<span class="kw">sd</span>(OAT)),<span class="dt">col=</span><span class="st">&quot;red&quot;</span>,<span class="dt">lwd=</span><span class="dv">2</span>,<span class="dt">add=</span><span class="ot">TRUE</span>)
-<span class="kw">legend</span>(<span class="st">&quot;topright&quot;</span>,<span class="dt">legend=</span><span class="kw">c</span>(<span class="st">&quot;Densitat estimada&quot;</span>,<span class="st">&quot;Normal&quot;</span>),
-       <span class="dt">col=</span><span class="kw">c</span>(<span class="st">&quot;black&quot;</span>,<span class="st">&quot;red&quot;</span>),<span class="dt">lty=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">1</span>),<span class="dt">cex=</span><span class="fl">0.75</span>)
-<span class="co">#</span>
-<span class="kw">hist</span>(CFL,<span class="dt">freq=</span><span class="ot">FALSE</span>, <span class="dt">breaks=</span><span class="dv">4</span>,<span class="dt">col=</span><span class="st">&quot;light blue&quot;</span>,<span class="dt">xlab=</span><span class="st">&quot;Colesterol&quot;</span>,
-     <span class="dt">ylab=</span><span class="st">&quot;Densitat&quot;</span>, <span class="dt">main=</span><span class="st">&quot;Histograma de CORNFLK&quot;</span>,,<span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="kw">max</span>(<span class="kw">density</span>(CFL)<span class="op">$</span>y)))
-<span class="kw">curve</span>(<span class="kw">dnorm</span>(x,<span class="kw">mean</span>(CFL),<span class="kw">sd</span>(CFL)),<span class="dt">col=</span><span class="st">&quot;red&quot;</span>,<span class="dt">lwd=</span><span class="dv">2</span>,<span class="dt">add=</span><span class="ot">TRUE</span>)
-<span class="kw">lines</span>(<span class="kw">density</span>(CFL),<span class="dt">lty=</span><span class="dv">2</span>,<span class="dt">lwd=</span><span class="dv">2</span>)
-<span class="kw">legend</span>(<span class="st">&quot;topright&quot;</span>,<span class="dt">legend=</span><span class="kw">c</span>(<span class="st">&quot;Densitat estimada&quot;</span>,<span class="st">&quot;Normal&quot;</span>),
-       <span class="dt">col=</span><span class="kw">c</span>(<span class="st">&quot;black&quot;</span>,<span class="st">&quot;red&quot;</span>),<span class="dt">lty=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">1</span>),<span class="dt">cex=</span><span class="fl">0.75</span>)</code></pre>
+<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb207-1" data-line-number="1"><span class="kw">hist</span>(OAT,<span class="dt">freq=</span><span class="ot">FALSE</span>, <span class="dt">breaks=</span><span class="dv">4</span>,<span class="dt">col=</span><span class="st">&quot;light blue&quot;</span>,<span class="dt">xlab=</span><span class="st">&quot;Colesterol&quot;</span>,</a>
+<a class="sourceLine" id="cb207-2" data-line-number="2">     <span class="dt">ylab=</span><span class="st">&quot;Densitat&quot;</span>, <span class="dt">main=</span><span class="st">&quot;Histograma de OATBRAN&quot;</span>,<span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="kw">max</span>(<span class="kw">density</span>(OAT)<span class="op">$</span>y)))</a>
+<a class="sourceLine" id="cb207-3" data-line-number="3"><span class="kw">lines</span>(<span class="kw">density</span>(OAT),<span class="dt">lty=</span><span class="dv">2</span>,<span class="dt">lwd=</span><span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb207-4" data-line-number="4"><span class="kw">curve</span>(<span class="kw">dnorm</span>(x,<span class="kw">mean</span>(OAT),<span class="kw">sd</span>(OAT)),<span class="dt">col=</span><span class="st">&quot;red&quot;</span>,<span class="dt">lwd=</span><span class="dv">2</span>,<span class="dt">add=</span><span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb207-5" data-line-number="5"><span class="kw">legend</span>(<span class="st">&quot;topright&quot;</span>,<span class="dt">legend=</span><span class="kw">c</span>(<span class="st">&quot;Densitat estimada&quot;</span>,<span class="st">&quot;Normal&quot;</span>),</a>
+<a class="sourceLine" id="cb207-6" data-line-number="6">       <span class="dt">col=</span><span class="kw">c</span>(<span class="st">&quot;black&quot;</span>,<span class="st">&quot;red&quot;</span>),<span class="dt">lty=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">1</span>),<span class="dt">cex=</span><span class="fl">0.75</span>)</a>
+<a class="sourceLine" id="cb207-7" data-line-number="7"><span class="co">#</span></a>
+<a class="sourceLine" id="cb207-8" data-line-number="8"><span class="kw">hist</span>(CFL,<span class="dt">freq=</span><span class="ot">FALSE</span>, <span class="dt">breaks=</span><span class="dv">4</span>,<span class="dt">col=</span><span class="st">&quot;light blue&quot;</span>,<span class="dt">xlab=</span><span class="st">&quot;Colesterol&quot;</span>,</a>
+<a class="sourceLine" id="cb207-9" data-line-number="9">     <span class="dt">ylab=</span><span class="st">&quot;Densitat&quot;</span>, <span class="dt">main=</span><span class="st">&quot;Histograma de CORNFLK&quot;</span>,,<span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="kw">max</span>(<span class="kw">density</span>(CFL)<span class="op">$</span>y)))</a>
+<a class="sourceLine" id="cb207-10" data-line-number="10"><span class="kw">curve</span>(<span class="kw">dnorm</span>(x,<span class="kw">mean</span>(CFL),<span class="kw">sd</span>(CFL)),<span class="dt">col=</span><span class="st">&quot;red&quot;</span>,<span class="dt">lwd=</span><span class="dv">2</span>,<span class="dt">add=</span><span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb207-11" data-line-number="11"><span class="kw">lines</span>(<span class="kw">density</span>(CFL),<span class="dt">lty=</span><span class="dv">2</span>,<span class="dt">lwd=</span><span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb207-12" data-line-number="12"><span class="kw">legend</span>(<span class="st">&quot;topright&quot;</span>,<span class="dt">legend=</span><span class="kw">c</span>(<span class="st">&quot;Densitat estimada&quot;</span>,<span class="st">&quot;Normal&quot;</span>),</a>
+<a class="sourceLine" id="cb207-13" data-line-number="13">       <span class="dt">col=</span><span class="kw">c</span>(<span class="st">&quot;black&quot;</span>,<span class="st">&quot;red&quot;</span>),<span class="dt">lty=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">1</span>),<span class="dt">cex=</span><span class="fl">0.75</span>)</a></code></pre></div>
 <p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-281-1.png" width="90%" style="display: block; margin: auto;" /></p>
 <p>En aquest cas, una opció millor és dibuixar un <em>q-q-plot</em>. Un <strong>q-q-plot</strong> d’una mostra i una distribució teòrica és el gràfic dels <strong>q-q-punts</strong>: els punts de la forma <em>(q-quantil de la distribució, q-quantil de la mostra)</em>, per a tots els valors de q que tengui sentit donada la mida de la mostra. Quan la distribució amb la que comparam la mostra és una normal, se’n diu un <strong>normal-plot</strong>.</p>
 <p>Si la mostra prové de la distribució emprada en el q-q-plot, és d’esperar que el q-quantil de la mostra sigui aproximadament igual al q-quantil de la distribució i per tant que aquests q-q-punts estiguin prop de la diagonal principal <span class="math inline">\(y=x\)</span>.</p>
 <p>La funció <code>qqPlot</code> del paquet <strong>car</strong> produeix uns <em>q-q-plots</em> que contenen una regió de confiança del 95% que especifica què vol dir això que “els q-q-punts estiguin prop de la diagonal principal <span class="math inline">\(y=x\)</span>”, amb el significat usual de nivell de confiança. L’explicam amb detall a la <a href="https://aprender-uib.github.io/AprendeR2/chap-bondad.html">lliçó de R sobre Contrastos de Bondat d’Ajust</a>.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(car)
-<span class="kw">qqPlot</span>(OAT, <span class="dt">distribution=</span><span class="st">&quot;norm&quot;</span>, <span class="dt">mean=</span><span class="kw">mean</span>(OAT), <span class="dt">sd=</span><span class="kw">sd</span>(OAT),
-        <span class="dt">ylab=</span><span class="st">&quot;Quantils de OATBRAN&quot;</span>, <span class="dt">xlab=</span><span class="st">&quot;Quantils de normal&quot;</span>, <span class="dt">pch=</span><span class="dv">20</span>, <span class="dt">id=</span><span class="ot">FALSE</span>)
-<span class="kw">qqPlot</span>(CFL, <span class="dt">distribution=</span><span class="st">&quot;norm&quot;</span>, <span class="dt">mean=</span><span class="kw">mean</span>(CFL),<span class="dt">sd=</span><span class="kw">sd</span>(CFL),
-       <span class="dt">ylab=</span><span class="st">&quot;Quantils de CORNFLK&quot;</span>, <span class="dt">xlab=</span><span class="st">&quot;Quantils de normal&quot;</span>, <span class="dt">pch=</span><span class="dv">20</span>, <span class="dt">id=</span><span class="ot">FALSE</span>)</code></pre>
+<div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb208-1" data-line-number="1"><span class="kw">library</span>(car)</a>
+<a class="sourceLine" id="cb208-2" data-line-number="2"><span class="kw">qqPlot</span>(OAT, <span class="dt">distribution=</span><span class="st">&quot;norm&quot;</span>, <span class="dt">mean=</span><span class="kw">mean</span>(OAT), <span class="dt">sd=</span><span class="kw">sd</span>(OAT),</a>
+<a class="sourceLine" id="cb208-3" data-line-number="3">        <span class="dt">ylab=</span><span class="st">&quot;Quantils de OATBRAN&quot;</span>, <span class="dt">xlab=</span><span class="st">&quot;Quantils de normal&quot;</span>, <span class="dt">pch=</span><span class="dv">20</span>, <span class="dt">id=</span><span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb208-4" data-line-number="4"><span class="kw">qqPlot</span>(CFL, <span class="dt">distribution=</span><span class="st">&quot;norm&quot;</span>, <span class="dt">mean=</span><span class="kw">mean</span>(CFL),<span class="dt">sd=</span><span class="kw">sd</span>(CFL),</a>
+<a class="sourceLine" id="cb208-5" data-line-number="5">       <span class="dt">ylab=</span><span class="st">&quot;Quantils de CORNFLK&quot;</span>, <span class="dt">xlab=</span><span class="st">&quot;Quantils de normal&quot;</span>, <span class="dt">pch=</span><span class="dv">20</span>, <span class="dt">id=</span><span class="ot">FALSE</span>)</a></code></pre></div>
 <p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-283-1.png" width="90%" style="display: block; margin: auto;" /></p>
 <p>Aceptarem per tant que les nostres dades provenen de dues distribucions normals: podem fer servir la funció <code>t.test</code>.</p>
 <p>En aquest cas, el test t és de mostres aparellades (hem mesurat les dues variable aleatòries sobre els mateixos individus), per la qual cosa hem d’especificar <code>paired=TRUE</code> i no hem d’especificar el paràmetre <code>var.equal</code>. Emprarem el paràmetre <code>alternative=&quot;less&quot;</code> per indicar que el test és unilateral: la hipòtesi alternativa és que la mitjana de la primera població és més petita que la de la segona.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">t.test</span>(OAT,CFL,<span class="dt">alternative=</span><span class="st">&quot;less&quot;</span>, <span class="dt">paired=</span><span class="ot">TRUE</span>)</code></pre>
+<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb209-1" data-line-number="1"><span class="kw">t.test</span>(OAT,CFL,<span class="dt">alternative=</span><span class="st">&quot;less&quot;</span>, <span class="dt">paired=</span><span class="ot">TRUE</span>)</a></code></pre></div>
 <pre><code>## 
 ##  Paired t-test
 ## 
@@ -692,8 +690,8 @@ H_{1}:\mu_{cu}&lt; \mu_{ds}
 \right.
 \]</span></p>
 <p>Carregam la taula de dades, que prèviament hem guardat en el directori de treball de R, en un dataframe al que anomenam <code>TGN</code> i consultam la seva estructura:</p>
-<pre class="sourceCode r"><code class="sourceCode r">TGN=<span class="kw">read.table</span>(<span class="st">&quot;trignadons.txt&quot;</span>,<span class="dt">header=</span><span class="ot">TRUE</span>)
-<span class="kw">head</span>(TGN)</code></pre>
+<div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb211-1" data-line-number="1">TGN=<span class="kw">read.table</span>(<span class="st">&quot;trignadons.txt&quot;</span>,<span class="dt">header=</span><span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb211-2" data-line-number="2"><span class="kw">head</span>(TGN)</a></code></pre></div>
 <pre><code>##   Nin CU DS
 ## 1   1 45 80
 ## 2   2 30 68
@@ -701,48 +699,48 @@ H_{1}:\mu_{cu}&lt; \mu_{ds}
 ## 4   4 30 78
 ## 5   5 31 79
 ## 6   6 27 78</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(TGN)</code></pre>
+<div class="sourceCode" id="cb213"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb213-1" data-line-number="1"><span class="kw">str</span>(TGN)</a></code></pre></div>
 <pre><code>## &#39;data.frame&#39;:    25 obs. of  3 variables:
 ##  $ Nin: int  1 2 3 4 5 6 7 8 9 10 ...
 ##  $ CU : int  45 30 30 30 31 27 27 30 33 32 ...
 ##  $ DS : int  80 68 83 78 79 78 89 78 72 75 ...</code></pre>
 <p>Com que 25 dades són poques, miram si segueixen distribucions normals amb els seus normal-plots:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">qqPlot</span>(TGN<span class="op">$</span>CU, <span class="dt">distribution=</span><span class="st">&quot;norm&quot;</span>, <span class="dt">mean=</span><span class="kw">mean</span>(TGN<span class="op">$</span>CU), <span class="dt">sd=</span><span class="kw">sd</span>(TGN<span class="op">$</span>CU),
-        <span class="dt">ylab=</span><span class="st">&quot;Quantils de la mostra&quot;</span>, <span class="dt">xlab=</span><span class="st">&quot;Quantils de normal&quot;</span>, 
-       <span class="dt">pch=</span><span class="dv">20</span>, <span class="dt">id=</span><span class="ot">FALSE</span>)
-<span class="kw">qqPlot</span>(TGN<span class="op">$</span>DS,  <span class="dt">distribution=</span><span class="st">&quot;norm&quot;</span>, <span class="dt">mean=</span><span class="kw">mean</span>(TGN<span class="op">$</span>DS), <span class="dt">sd=</span><span class="kw">sd</span>(TGN<span class="op">$</span>DS),
-       <span class="dt">ylab=</span><span class="st">&quot;Quantils de la mostra&quot;</span>, <span class="dt">xlab=</span><span class="st">&quot;Quantils de normal&quot;</span>, 
-       <span class="dt">pch=</span><span class="dv">20</span>,<span class="dt">id=</span><span class="ot">FALSE</span>)</code></pre>
+<div class="sourceCode" id="cb215"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb215-1" data-line-number="1"><span class="kw">qqPlot</span>(TGN<span class="op">$</span>CU, <span class="dt">distribution=</span><span class="st">&quot;norm&quot;</span>, <span class="dt">mean=</span><span class="kw">mean</span>(TGN<span class="op">$</span>CU), <span class="dt">sd=</span><span class="kw">sd</span>(TGN<span class="op">$</span>CU),</a>
+<a class="sourceLine" id="cb215-2" data-line-number="2">        <span class="dt">ylab=</span><span class="st">&quot;Quantils de la mostra&quot;</span>, <span class="dt">xlab=</span><span class="st">&quot;Quantils de normal&quot;</span>, </a>
+<a class="sourceLine" id="cb215-3" data-line-number="3">       <span class="dt">pch=</span><span class="dv">20</span>, <span class="dt">id=</span><span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb215-4" data-line-number="4"><span class="kw">qqPlot</span>(TGN<span class="op">$</span>DS,  <span class="dt">distribution=</span><span class="st">&quot;norm&quot;</span>, <span class="dt">mean=</span><span class="kw">mean</span>(TGN<span class="op">$</span>DS), <span class="dt">sd=</span><span class="kw">sd</span>(TGN<span class="op">$</span>DS),</a>
+<a class="sourceLine" id="cb215-5" data-line-number="5">       <span class="dt">ylab=</span><span class="st">&quot;Quantils de la mostra&quot;</span>, <span class="dt">xlab=</span><span class="st">&quot;Quantils de normal&quot;</span>, </a>
+<a class="sourceLine" id="cb215-6" data-line-number="6">       <span class="dt">pch=</span><span class="dv">20</span>,<span class="dt">id=</span><span class="ot">FALSE</span>)</a></code></pre></div>
 <p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-287-1.png" width="90%" style="display: block; margin: auto;" /></p>
 <p>Vaja, no sembla que segueixin una distribució normal. Vegem els seus histogrames</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">hist</span>(TGN<span class="op">$</span>CU, <span class="dt">freq=</span><span class="ot">FALSE</span>, <span class="dt">main=</span><span class="st">&quot;Histograma de TGN$CU&quot;</span>, 
-     <span class="dt">xlab=</span><span class="st">&quot;&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;&quot;</span>,<span class="dt">col=</span><span class="st">&quot;light blue&quot;</span>)
-<span class="kw">lines</span>(<span class="kw">density</span>(TGN<span class="op">$</span>CU),<span class="dt">lty=</span><span class="dv">2</span>,<span class="dt">lwd=</span><span class="dv">2</span>)
-<span class="kw">curve</span>(<span class="kw">dnorm</span>(x,<span class="kw">mean</span>(TGN<span class="op">$</span>CU),<span class="kw">sd</span>(TGN<span class="op">$</span>CU)),<span class="dt">col=</span><span class="st">&quot;red&quot;</span>,<span class="dt">lwd=</span><span class="dv">2</span>,<span class="dt">add=</span><span class="ot">TRUE</span>)
-<span class="kw">legend</span>(<span class="st">&quot;topright&quot;</span>,<span class="dt">legend=</span><span class="kw">c</span>(<span class="st">&quot;Densitat estimada&quot;</span>,<span class="st">&quot;Normal&quot;</span>),<span class="dt">col=</span><span class="kw">c</span>(<span class="st">&quot;black&quot;</span>,<span class="st">&quot;red&quot;</span>),
-       <span class="dt">lty=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">1</span>),<span class="dt">cex=</span><span class="fl">0.5</span>)
-<span class="co">#</span>
-<span class="kw">hist</span>(TGN<span class="op">$</span>DS, <span class="dt">freq=</span><span class="ot">FALSE</span>, <span class="dt">main=</span><span class="st">&quot;Histograma de TGN$DS&quot;</span>, 
-     <span class="dt">xlab=</span><span class="st">&quot;&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;&quot;</span>,<span class="dt">col=</span><span class="st">&quot;light blue&quot;</span>)
-<span class="kw">lines</span>(<span class="kw">density</span>(TGN<span class="op">$</span>DS),<span class="dt">lty=</span><span class="dv">2</span>,<span class="dt">lwd=</span><span class="dv">2</span>)
-<span class="kw">curve</span>(<span class="kw">dnorm</span>(x,<span class="kw">mean</span>(TGN<span class="op">$</span>DS),<span class="kw">sd</span>(TGN<span class="op">$</span>DS)),<span class="dt">col=</span><span class="st">&quot;red&quot;</span>,<span class="dt">lwd=</span><span class="dv">2</span>,<span class="dt">add=</span><span class="ot">TRUE</span>)
-<span class="kw">legend</span>(<span class="st">&quot;topright&quot;</span>,<span class="dt">legend=</span><span class="kw">c</span>(<span class="st">&quot;Densitat estimada&quot;</span>,<span class="st">&quot;Normal&quot;</span>),<span class="dt">col=</span><span class="kw">c</span>(<span class="st">&quot;black&quot;</span>,<span class="st">&quot;red&quot;</span>),
-       <span class="dt">lty=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">1</span>),<span class="dt">cex=</span><span class="fl">0.5</span>)</code></pre>
+<div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb216-1" data-line-number="1"><span class="kw">hist</span>(TGN<span class="op">$</span>CU, <span class="dt">freq=</span><span class="ot">FALSE</span>, <span class="dt">main=</span><span class="st">&quot;Histograma de TGN$CU&quot;</span>, </a>
+<a class="sourceLine" id="cb216-2" data-line-number="2">     <span class="dt">xlab=</span><span class="st">&quot;&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;&quot;</span>,<span class="dt">col=</span><span class="st">&quot;light blue&quot;</span>)</a>
+<a class="sourceLine" id="cb216-3" data-line-number="3"><span class="kw">lines</span>(<span class="kw">density</span>(TGN<span class="op">$</span>CU),<span class="dt">lty=</span><span class="dv">2</span>,<span class="dt">lwd=</span><span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb216-4" data-line-number="4"><span class="kw">curve</span>(<span class="kw">dnorm</span>(x,<span class="kw">mean</span>(TGN<span class="op">$</span>CU),<span class="kw">sd</span>(TGN<span class="op">$</span>CU)),<span class="dt">col=</span><span class="st">&quot;red&quot;</span>,<span class="dt">lwd=</span><span class="dv">2</span>,<span class="dt">add=</span><span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb216-5" data-line-number="5"><span class="kw">legend</span>(<span class="st">&quot;topright&quot;</span>,<span class="dt">legend=</span><span class="kw">c</span>(<span class="st">&quot;Densitat estimada&quot;</span>,<span class="st">&quot;Normal&quot;</span>),<span class="dt">col=</span><span class="kw">c</span>(<span class="st">&quot;black&quot;</span>,<span class="st">&quot;red&quot;</span>),</a>
+<a class="sourceLine" id="cb216-6" data-line-number="6">       <span class="dt">lty=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">1</span>),<span class="dt">cex=</span><span class="fl">0.5</span>)</a>
+<a class="sourceLine" id="cb216-7" data-line-number="7"><span class="co">#</span></a>
+<a class="sourceLine" id="cb216-8" data-line-number="8"><span class="kw">hist</span>(TGN<span class="op">$</span>DS, <span class="dt">freq=</span><span class="ot">FALSE</span>, <span class="dt">main=</span><span class="st">&quot;Histograma de TGN$DS&quot;</span>, </a>
+<a class="sourceLine" id="cb216-9" data-line-number="9">     <span class="dt">xlab=</span><span class="st">&quot;&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;&quot;</span>,<span class="dt">col=</span><span class="st">&quot;light blue&quot;</span>)</a>
+<a class="sourceLine" id="cb216-10" data-line-number="10"><span class="kw">lines</span>(<span class="kw">density</span>(TGN<span class="op">$</span>DS),<span class="dt">lty=</span><span class="dv">2</span>,<span class="dt">lwd=</span><span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb216-11" data-line-number="11"><span class="kw">curve</span>(<span class="kw">dnorm</span>(x,<span class="kw">mean</span>(TGN<span class="op">$</span>DS),<span class="kw">sd</span>(TGN<span class="op">$</span>DS)),<span class="dt">col=</span><span class="st">&quot;red&quot;</span>,<span class="dt">lwd=</span><span class="dv">2</span>,<span class="dt">add=</span><span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb216-12" data-line-number="12"><span class="kw">legend</span>(<span class="st">&quot;topright&quot;</span>,<span class="dt">legend=</span><span class="kw">c</span>(<span class="st">&quot;Densitat estimada&quot;</span>,<span class="st">&quot;Normal&quot;</span>),<span class="dt">col=</span><span class="kw">c</span>(<span class="st">&quot;black&quot;</span>,<span class="st">&quot;red&quot;</span>),</a>
+<a class="sourceLine" id="cb216-13" data-line-number="13">       <span class="dt">lty=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">1</span>),<span class="dt">cex=</span><span class="fl">0.5</span>)</a></code></pre></div>
 <p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-289-1.png" width="90%" style="display: block; margin: auto;" /></p>
 <p>Les dues mostres presenten una cua a la dreta, com podem veure als diagrames de caixa:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))
-<span class="kw">boxplot</span>(TGN<span class="op">$</span>CU,TGN<span class="op">$</span>DS,<span class="dt">names=</span><span class="kw">c</span>(<span class="st">&quot;CU&quot;</span>,<span class="st">&quot;DS&quot;</span>),<span class="dt">xlab=</span><span class="st">&quot;&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;Nivell triglicèrids&quot;</span>)</code></pre>
+<div class="sourceCode" id="cb217"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb217-1" data-line-number="1"><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))</a>
+<a class="sourceLine" id="cb217-2" data-line-number="2"><span class="kw">boxplot</span>(TGN<span class="op">$</span>CU,TGN<span class="op">$</span>DS,<span class="dt">names=</span><span class="kw">c</span>(<span class="st">&quot;CU&quot;</span>,<span class="st">&quot;DS&quot;</span>),<span class="dt">xlab=</span><span class="st">&quot;&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;Nivell triglicèrids&quot;</span>)</a></code></pre></div>
 <p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-290-1.png" width="60%" style="display: block; margin: auto;" /></p>
 <p>En casos així, <strong>de vegades els logaritmes seguexen aproximadament una distribució normal</strong>. Vegem si hi ha sort.</p>
-<pre class="sourceCode r"><code class="sourceCode r">LogCU=<span class="kw">log</span>(TGN<span class="op">$</span>CU)
-<span class="kw">qqPlot</span>(LogCU, <span class="dt">distribution=</span><span class="st">&quot;norm&quot;</span>, <span class="dt">mean=</span><span class="kw">mean</span>(LogCU), <span class="dt">sd=</span><span class="kw">sd</span>(LogCU),
-        <span class="dt">ylab=</span><span class="st">&quot;Quantils dels logaritmes&quot;</span>, <span class="dt">xlab=</span><span class="st">&quot;Quantils de normal&quot;</span>, 
-       <span class="dt">pch=</span><span class="dv">20</span>, <span class="dt">id=</span><span class="ot">FALSE</span>)
-<span class="co">#</span>
-LogDS=<span class="kw">log</span>(TGN<span class="op">$</span>DS)
-<span class="kw">qqPlot</span>(LogDS, <span class="dt">distribution=</span><span class="st">&quot;norm&quot;</span>, <span class="dt">mean=</span><span class="kw">mean</span>(LogDS), <span class="dt">sd=</span><span class="kw">sd</span>(LogCU),
-        <span class="dt">ylab=</span><span class="st">&quot;Quantils dels logaritmes&quot;</span>, <span class="dt">xlab=</span><span class="st">&quot;Quantils de normal&quot;</span>, 
-       <span class="dt">pch=</span><span class="dv">20</span>, <span class="dt">id=</span><span class="ot">FALSE</span>)</code></pre>
+<div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb218-1" data-line-number="1">LogCU=<span class="kw">log</span>(TGN<span class="op">$</span>CU)</a>
+<a class="sourceLine" id="cb218-2" data-line-number="2"><span class="kw">qqPlot</span>(LogCU, <span class="dt">distribution=</span><span class="st">&quot;norm&quot;</span>, <span class="dt">mean=</span><span class="kw">mean</span>(LogCU), <span class="dt">sd=</span><span class="kw">sd</span>(LogCU),</a>
+<a class="sourceLine" id="cb218-3" data-line-number="3">        <span class="dt">ylab=</span><span class="st">&quot;Quantils dels logaritmes&quot;</span>, <span class="dt">xlab=</span><span class="st">&quot;Quantils de normal&quot;</span>, </a>
+<a class="sourceLine" id="cb218-4" data-line-number="4">       <span class="dt">pch=</span><span class="dv">20</span>, <span class="dt">id=</span><span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb218-5" data-line-number="5"><span class="co">#</span></a>
+<a class="sourceLine" id="cb218-6" data-line-number="6">LogDS=<span class="kw">log</span>(TGN<span class="op">$</span>DS)</a>
+<a class="sourceLine" id="cb218-7" data-line-number="7"><span class="kw">qqPlot</span>(LogDS, <span class="dt">distribution=</span><span class="st">&quot;norm&quot;</span>, <span class="dt">mean=</span><span class="kw">mean</span>(LogDS), <span class="dt">sd=</span><span class="kw">sd</span>(LogCU),</a>
+<a class="sourceLine" id="cb218-8" data-line-number="8">        <span class="dt">ylab=</span><span class="st">&quot;Quantils dels logaritmes&quot;</span>, <span class="dt">xlab=</span><span class="st">&quot;Quantils de normal&quot;</span>, </a>
+<a class="sourceLine" id="cb218-9" data-line-number="9">       <span class="dt">pch=</span><span class="dv">20</span>, <span class="dt">id=</span><span class="ot">FALSE</span>)</a></code></pre></div>
 <p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-292-1.png" width="90%" style="display: block; margin: auto;" /></p>
 <p>Aquests logaritmes ja poden passar per normals. Per tant, el que farem serà, en lloc de comparar les mitjanes dels nivells de triglicèrids, comparar les mitjanes dels seus logaritmes.</p>
 
@@ -770,7 +768,7 @@ H_{1}:\mu_{logcu}&lt; \mu_{logds}
 \right.
 \]</span></p>
 <p>Prenem com a mostres de <span class="math inline">\(\log(X_{cu})\)</span> i <span class="math inline">\(\log(X_{ds})\)</span> els vectors de logaritmes <code>LogCU</code> i <code>LogDS</code> de la nostra mostra original, que podem acceptar que provenen de distribucions normals, i els aplicam la funció <code>t.test</code> amb <code>paired=TRUE</code>, perquè són mostres aparellades, i <code>alternative=&quot;less&quot;</code>.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">t.test</span>(LogCU, LogDS, <span class="dt">paired=</span><span class="ot">TRUE</span>, <span class="dt">alternative=</span><span class="st">&quot;less&quot;</span>)</code></pre>
+<div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb219-1" data-line-number="1"><span class="kw">t.test</span>(LogCU, LogDS, <span class="dt">paired=</span><span class="ot">TRUE</span>, <span class="dt">alternative=</span><span class="st">&quot;less&quot;</span>)</a></code></pre></div>
 <pre><code>## 
 ##  Paired t-test
 ## 
@@ -795,8 +793,8 @@ H_{1}:\mu_{logcu}&lt; \mu_{logds}
 <li><p><strong>Test de Mann-Whitney</strong> per a dues mitjanes usant mostres independents</p></li>
 </ul>
 <p>Tots tres es calculen amb R amb la funció</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">wilcox.test</span>(x, y, <span class="dt">mu=</span>..., <span class="dt">alternative=</span>..., <span class="dt">paired=</span>...,
-            <span class="dt">conf.level=</span>...)</code></pre>
+<div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb221-1" data-line-number="1"><span class="kw">wilcox.test</span>(x, y, <span class="dt">mu=</span>..., <span class="dt">alternative=</span>..., <span class="dt">paired=</span>...,</a>
+<a class="sourceLine" id="cb221-2" data-line-number="2">            <span class="dt">conf.level=</span>...)</a></code></pre></div>
 <p>amb sintaxi idèntica a la de <code>t.test</code> (excepte que no s’hi empra el <code>var.equal</code>).</p>
 
 <div class="rmdimportant">
@@ -832,7 +830,7 @@ H_{1}:\mu \neq \mu_0 \text{ o }\mu &gt;\mu_0\text{ o }\mu&lt;\mu_0
 <p><span id="exm:dietaratolins" class="example"><strong>Exemple 5.6  </strong></span>Alimentàrem amb una dieta especial 13 ratolins des del naixement fins a la setmana 12. Els augments de pes (en grams) varen ser els del vector següent</p>
 </div>
 
-<pre class="sourceCode r"><code class="sourceCode r">pesos=<span class="kw">c</span>(<span class="dv">69</span>,<span class="dv">61</span>,<span class="dv">69</span>,<span class="dv">65</span>,<span class="dv">70</span>,<span class="dv">68</span>,<span class="dv">69</span>,<span class="dv">68</span>,<span class="dv">72</span>,<span class="dv">67</span>,<span class="dv">74</span>,<span class="dv">69</span>,<span class="dv">76</span>)</code></pre>
+<div class="sourceCode" id="cb222"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb222-1" data-line-number="1">pesos=<span class="kw">c</span>(<span class="dv">69</span>,<span class="dv">61</span>,<span class="dv">69</span>,<span class="dv">65</span>,<span class="dv">70</span>,<span class="dv">68</span>,<span class="dv">69</span>,<span class="dv">68</span>,<span class="dv">72</span>,<span class="dv">67</span>,<span class="dv">74</span>,<span class="dv">69</span>,<span class="dv">76</span>)</a></code></pre></div>
 <p>Podem conclure que l’augment mitjà de pes en aquestes condicions és de menys de 70 g?</p>
 <p><em>Variable aleatòria d’interès</em>: <span class="math inline">\(X\)</span>: “Prenem un ratolí alimentat amb aquesta dieta especial i mesuram el seu augment de pes en grams durant les seves primeres 12 setmanes de vida”, amb mitjana <span class="math inline">\(\mu\)</span>.</p>
 <p><em>Contrast</em>:
@@ -844,9 +842,9 @@ H_{1}:\mu &lt;70
 \right.
 \]</span></p>
 <p>Si miram la mostra, veurem que no té pinta de venir d’una distribució normal però sí simètrica:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">qqPlot</span>(pesos, <span class="dt">distribution=</span><span class="st">&quot;norm&quot;</span>, <span class="dt">mean=</span><span class="kw">mean</span>(pesos), <span class="dt">sd=</span><span class="kw">sd</span>(pesos),
-        <span class="dt">ylab=</span><span class="st">&quot;Quantils de la mostra&quot;</span>, <span class="dt">xlab=</span><span class="st">&quot;Quantils de normal&quot;</span>, <span class="dt">pch=</span><span class="dv">20</span>, <span class="dt">id=</span><span class="ot">FALSE</span>)
-<span class="kw">boxplot</span>(pesos)</code></pre>
+<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb223-1" data-line-number="1"><span class="kw">qqPlot</span>(pesos, <span class="dt">distribution=</span><span class="st">&quot;norm&quot;</span>, <span class="dt">mean=</span><span class="kw">mean</span>(pesos), <span class="dt">sd=</span><span class="kw">sd</span>(pesos),</a>
+<a class="sourceLine" id="cb223-2" data-line-number="2">        <span class="dt">ylab=</span><span class="st">&quot;Quantils de la mostra&quot;</span>, <span class="dt">xlab=</span><span class="st">&quot;Quantils de normal&quot;</span>, <span class="dt">pch=</span><span class="dv">20</span>, <span class="dt">id=</span><span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb223-3" data-line-number="3"><span class="kw">boxplot</span>(pesos)</a></code></pre></div>
 <p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-300-1.png" width="90%" style="display: block; margin: auto;" /></p>
 <p>Per tant, emprarem un test de Wilcoxon. Vegem com aniria a mà.</p>
 <ol style="list-style-type: decimal">
@@ -910,7 +908,7 @@ T_-=2.5+ 12 + 2.5 + 10 + 6   + 2.5  + 6   +  8 +  2.5=52
 <li><p>I ara miraríem si <span class="math inline">\(T_+\)</span> és prou més petit que <span class="math inline">\(T_-\)</span> per que sigui evidència estadísticament significativa de que <span class="math inline">\(\mu &lt;\mu_0\)</span>. Això ja no ho podem fer a mà.</p></li>
 </ol>
 <p>Amb R, simplement entraríem</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">wilcox.test</span>(pesos,<span class="dt">mu=</span><span class="dv">70</span>,<span class="dt">alternative=</span><span class="st">&quot;less&quot;</span>)</code></pre>
+<div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb224-1" data-line-number="1"><span class="kw">wilcox.test</span>(pesos,<span class="dt">mu=</span><span class="dv">70</span>,<span class="dt">alternative=</span><span class="st">&quot;less&quot;</span>)</a></code></pre></div>
 <pre><code>## 
 ##  Wilcoxon signed rank test with continuity correction
 ## 
@@ -956,7 +954,7 @@ però hem de tenir present que la hipòtesi nul·la en realitat significa que la
 <blockquote>
 <p>Més de la meitat dels nadons tenen el nivell de triglicèrids en la sang del cordó umbilical més petit que el seu nivell de triglicèrids en sang al cap de dues setmanes.</p>
 </blockquote>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">wilcox.test</span>(TGN<span class="op">$</span>CU,TGN<span class="op">$</span>DS,<span class="dt">alternative=</span><span class="st">&quot;less&quot;</span>,<span class="dt">paired=</span><span class="ot">TRUE</span>)</code></pre>
+<div class="sourceCode" id="cb226"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb226-1" data-line-number="1"><span class="kw">wilcox.test</span>(TGN<span class="op">$</span>CU,TGN<span class="op">$</span>DS,<span class="dt">alternative=</span><span class="st">&quot;less&quot;</span>,<span class="dt">paired=</span><span class="ot">TRUE</span>)</a></code></pre></div>
 <pre><code>## 
 ##  Wilcoxon signed rank test with continuity correction
 ## 
@@ -1052,8 +1050,8 @@ Amb nivell de confiança <span class="math inline">\(\alpha=0.05\)</span>, no po
 <p><span id="exm:unnamed-chunk-306" class="example"><strong>Exemple 5.9  </strong></span>S’ha analitzat el líquid amniòtic d’una mostra aleatòria de 15 embarassades de 3er trimestre, i s’han obtingut les mesures següents de proteïnes totals (en grams per 100 ml):</p>
 </div>
 
-<pre class="sourceCode r"><code class="sourceCode r">amnio=<span class="kw">c</span>(<span class="fl">0.69</span>,<span class="fl">1.04</span>,<span class="fl">0.39</span>,<span class="fl">0.37</span>,<span class="fl">0.64</span>,<span class="fl">0.73</span>,<span class="fl">0.69</span>,<span class="fl">1.04</span>,<span class="fl">0.83</span>,<span class="fl">1.01</span>,
-        <span class="fl">0.19</span>,<span class="fl">0.61</span>,<span class="fl">0.42</span>,<span class="fl">0.25</span>,<span class="fl">0.79</span>)</code></pre>
+<div class="sourceCode" id="cb228"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb228-1" data-line-number="1">amnio=<span class="kw">c</span>(<span class="fl">0.69</span>,<span class="fl">1.04</span>,<span class="fl">0.39</span>,<span class="fl">0.37</span>,<span class="fl">0.64</span>,<span class="fl">0.73</span>,<span class="fl">0.69</span>,<span class="fl">1.04</span>,<span class="fl">0.83</span>,<span class="fl">1.01</span>,</a>
+<a class="sourceLine" id="cb228-2" data-line-number="2">        <span class="fl">0.19</span>,<span class="fl">0.61</span>,<span class="fl">0.42</span>,<span class="fl">0.25</span>,<span class="fl">0.79</span>)</a></code></pre></div>
 <p>Podem concloure a partir d’aquestes dades, amb un nivell de significació del 5%, que la desviació típica poblacional (és a dir, la desviació típica de la quantitat de proteïna total en el líquid amniòtic de les embarassades de 3er trimestre expressada en grams per 100 ml) és diferent de 0.25?</p>
 <p><em>Variable aleatòria d’interès</em>: <span class="math inline">\(X\)</span>: “Prenem una embarassada i li mesuram la quantitat de proteïna total en …”, amb desviació típica <span class="math inline">\(\sigma\)</span>.</p>
 <p><em>Contrast</em>:
@@ -1066,9 +1064,9 @@ H_{1}:\sigma\neq 0.25
 \]</span>
 amb <span class="math inline">\(\alpha=0.05\)</span></p>
 <p>Per poder aplicar el test <span class="math inline">\(\chi^2\)</span>, cal que <span class="math inline">\(X\)</span> sigui normal. Vegem el normal-plot:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">qqPlot</span>(amnio, <span class="dt">distribution=</span><span class="st">&quot;norm&quot;</span>, <span class="dt">mean=</span><span class="kw">mean</span>(amnio), <span class="dt">sd=</span><span class="kw">sd</span>(amnio),
-        <span class="dt">ylab=</span><span class="st">&quot;Quantils de la mostra&quot;</span>, <span class="dt">xlab=</span><span class="st">&quot;Quantils de normal&quot;</span>, 
-       <span class="dt">pch=</span><span class="dv">20</span>, <span class="dt">id=</span><span class="ot">FALSE</span>)</code></pre>
+<div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb229-1" data-line-number="1"><span class="kw">qqPlot</span>(amnio, <span class="dt">distribution=</span><span class="st">&quot;norm&quot;</span>, <span class="dt">mean=</span><span class="kw">mean</span>(amnio), <span class="dt">sd=</span><span class="kw">sd</span>(amnio),</a>
+<a class="sourceLine" id="cb229-2" data-line-number="2">        <span class="dt">ylab=</span><span class="st">&quot;Quantils de la mostra&quot;</span>, <span class="dt">xlab=</span><span class="st">&quot;Quantils de normal&quot;</span>, </a>
+<a class="sourceLine" id="cb229-3" data-line-number="3">       <span class="dt">pch=</span><span class="dv">20</span>, <span class="dt">id=</span><span class="ot">FALSE</span>)</a></code></pre></div>
 <p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-309-1.png" width="60%" style="display: block; margin: auto;" /></p>
 <p>Acceptarem que <span class="math inline">\(X\)</span> és normal.</p>
 <p><em>Estadístic de contrast</em>:
@@ -1077,13 +1075,13 @@ amb <span class="math inline">\(\alpha=0.05\)</span></p>
 \]</span>
 que segueix una llei <span class="math inline">\(\chi^2_{n-1}\)</span> si <span class="math inline">\(H_0\)</span> és certa.</p>
 <p><em>Valor de l’estadístic de contrast</em>, <span class="math inline">\(\chi^2_0\)</span>:</p>
-<pre class="sourceCode r"><code class="sourceCode r">n=<span class="kw">length</span>(amnio)
-n</code></pre>
+<div class="sourceCode" id="cb230"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb230-1" data-line-number="1">n=<span class="kw">length</span>(amnio)</a>
+<a class="sourceLine" id="cb230-2" data-line-number="2">n</a></code></pre></div>
 <pre><code>## [1] 15</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">var</span>(amnio)</code></pre>
+<div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb232-1" data-line-number="1"><span class="kw">var</span>(amnio)</a></code></pre></div>
 <pre><code>## [1] 0.07624</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r">khi0=(n<span class="dv">-1</span>)<span class="op">*</span><span class="kw">var</span>(amnio)<span class="op">/</span><span class="fl">0.25</span><span class="op">^</span><span class="dv">2</span>
-<span class="kw">round</span>(khi0,<span class="dv">2</span>)</code></pre>
+<div class="sourceCode" id="cb234"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb234-1" data-line-number="1">khi0=(n<span class="dv">-1</span>)<span class="op">*</span><span class="kw">var</span>(amnio)<span class="op">/</span><span class="fl">0.25</span><span class="op">^</span><span class="dv">2</span></a>
+<a class="sourceLine" id="cb234-2" data-line-number="2"><span class="kw">round</span>(khi0,<span class="dv">2</span>)</a></code></pre></div>
 <pre><code>## [1] 17.08</code></pre>
 <p><em>p-valor</em>:
 <span class="math display">\[
@@ -1114,8 +1112,8 @@ on <span class="math inline">\(\chi_{n-1,0.975}^2\)</span>=<code>qchisq(0.975,14
 i conté el valor 0.25 que contrastàvem.</p>
 <p><em>Conclusió</em>: No hem obtingut evidència estadísticament significativa que la desviació típica (de la quantitat de proteïna total …) sigui diferent de 0.25 (test <span class="math inline">\(\chi^2\)</span>, p-valor 0.504, IC 95% de 0.202 a 0.435).</p>
 <p>Aquest test <span class="math inline">\(\chi^2\)</span> d’una variància està implementat en la funció <code>sigma.test</code> del paquet <strong>TeachingDemos</strong>. La seva sintaxi és similar a la de <code>t.test</code> per a una mitjana, canviant la <code>mu</code> per <code>sigma</code> si contrastam la desviació típica o <code>sigmasq</code> si contrastam la variància. Per exemple, per realitzar aquest darrer contrast, simplement entraríem</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(TeachingDemos)
-<span class="kw">sigma.test</span>(amnio,<span class="dt">sigma=</span><span class="fl">0.25</span>,<span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>)</code></pre>
+<div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb236-1" data-line-number="1"><span class="kw">library</span>(TeachingDemos)</a>
+<a class="sourceLine" id="cb236-2" data-line-number="2"><span class="kw">sigma.test</span>(amnio,<span class="dt">sigma=</span><span class="fl">0.25</span>,<span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
 <pre><code>## 
 ##  One sample Chi-squared test for variance
 ## 
@@ -1199,8 +1197,8 @@ F=\widetilde{S}_d^2/\widetilde{S}_h^2
 <ul>
 <li><em>Valor de l’estadístic de contrast</em> a la nostra mostra, <span class="math inline">\(F_0\)</span>:</li>
 </ul>
-<pre class="sourceCode r"><code class="sourceCode r">F0=<span class="kw">var</span>(X_d)<span class="op">/</span><span class="kw">var</span>(X_h)
-<span class="kw">round</span>(F0,<span class="dv">4</span>)</code></pre>
+<div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb238-1" data-line-number="1">F0=<span class="kw">var</span>(X_d)<span class="op">/</span><span class="kw">var</span>(X_h)</a>
+<a class="sourceLine" id="cb238-2" data-line-number="2"><span class="kw">round</span>(F0,<span class="dv">4</span>)</a></code></pre></div>
 <pre><code>## [1] 0.8322</code></pre>
 <p>Recordem que les mides de les nostres mostres eren <span class="math inline">\(n_d=116\)</span> i <span class="math inline">\(n_h=114\)</span></p>
 <p><em>p-valor</em>:
@@ -1215,7 +1213,7 @@ F=\widetilde{S}_d^2/\widetilde{S}_h^2
 \]</span></p>
 <p><em>Conclusió</em>: No hem trobat evidència estadísticament significativa que les variables <span class="math inline">\(X_h\)</span> i <span class="math inline">\(X_d\)</span> tenguin variància diferent (test F, p-valor 0.33). Acceptarem que tenen la mateixa variància.</p>
 <p>Amb R entraríem:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">var.test</span>(X_d, X_h)</code></pre>
+<div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb240-1" data-line-number="1"><span class="kw">var.test</span>(X_d, X_h)</a></code></pre></div>
 <pre><code>## 
 ##  F test to compare two variances
 ## 
@@ -1232,27 +1230,27 @@ F=\widetilde{S}_d^2/\widetilde{S}_h^2
 <p>Per tant, si els tests t amb <code>var.equal=TRUE</code> i <code>var.equal=FALSE</code> de l’Exemple <a href="contrastos-dhipotesis-dun-i-dos-parametres.html#exm:temphomesdones">5.3</a> haguessin donat conclusions diferents, prendríem la corresponent a variàncies iguals.</p>
 <p>Hem emprat un test F per comparar aquestes variàncies, i <strong>per que la conclusió sigui fiable, cal que les variables poblacionals siguin normals, no és suficient que les mostres siguin grans</strong>; de fet, la seva validesa no depèn per res de la mida de les mostres. Podem suposar que efectivament les variables <span class="math inline">\(X_d\)</span> i <span class="math inline">\(X_h\)</span> són normals?</p>
 <p>Vegem els histogrames:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">hist</span>(X_d,<span class="dt">freq=</span><span class="ot">FALSE</span>, <span class="dt">breaks=</span><span class="dv">4</span>,<span class="dt">col=</span><span class="st">&quot;light blue&quot;</span>,<span class="dt">xlab=</span><span class="st">&quot;Temperatures&quot;</span>,
-     <span class="dt">ylab=</span><span class="st">&quot;Densitat&quot;</span>,<span class="dt">main=</span><span class="st">&quot;Histograma de temperatures de dones&quot;</span>,<span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="kw">max</span>(<span class="kw">density</span>(X_d)<span class="op">$</span>y)))
-<span class="kw">lines</span>(<span class="kw">density</span>(X_d),<span class="dt">lty=</span><span class="dv">2</span>,<span class="dt">lwd=</span><span class="dv">2</span>)
-<span class="kw">curve</span>(<span class="kw">dnorm</span>(x,<span class="kw">mean</span>(X_d),<span class="kw">sd</span>(X_d)),<span class="dt">col=</span><span class="st">&quot;red&quot;</span>,<span class="dt">lwd=</span><span class="dv">2</span>,<span class="dt">add=</span><span class="ot">TRUE</span>)
-<span class="kw">legend</span>(<span class="st">&quot;topright&quot;</span>,<span class="dt">legend=</span><span class="kw">c</span>(<span class="st">&quot;Densitat estimada&quot;</span>,<span class="st">&quot;Normal&quot;</span>),
-       <span class="dt">col=</span><span class="kw">c</span>(<span class="st">&quot;black&quot;</span>,<span class="st">&quot;red&quot;</span>),<span class="dt">lty=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">1</span>),<span class="dt">cex=</span><span class="fl">0.5</span>)
-<span class="co">#</span>
-<span class="kw">hist</span>(X_h,<span class="dt">freq=</span><span class="ot">FALSE</span>, <span class="dt">breaks=</span><span class="dv">4</span>,<span class="dt">col=</span><span class="st">&quot;light blue&quot;</span>,<span class="dt">xlab=</span><span class="st">&quot;Temperatures&quot;</span>,
-     <span class="dt">ylab=</span><span class="st">&quot;Densitat&quot;</span>,<span class="dt">main=</span><span class="st">&quot;Histograma de temperatures d&#39;homes&quot;</span>,<span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="kw">dnorm</span>(<span class="kw">mean</span>(X_h),<span class="kw">mean</span>(X_h),<span class="kw">sd</span>(X_h))))
-<span class="kw">lines</span>(<span class="kw">density</span>(X_h),<span class="dt">lty=</span><span class="dv">2</span>,<span class="dt">lwd=</span><span class="dv">2</span>)
-<span class="kw">curve</span>(<span class="kw">dnorm</span>(x,<span class="kw">mean</span>(X_h),<span class="kw">sd</span>(X_h)),<span class="dt">col=</span><span class="st">&quot;red&quot;</span>,<span class="dt">lwd=</span><span class="dv">2</span>,<span class="dt">add=</span><span class="ot">TRUE</span>)
-<span class="kw">legend</span>(<span class="st">&quot;topright&quot;</span>,<span class="dt">legend=</span><span class="kw">c</span>(<span class="st">&quot;Densitat estimada&quot;</span>,<span class="st">&quot;Normal&quot;</span>),
-       <span class="dt">col=</span><span class="kw">c</span>(<span class="st">&quot;black&quot;</span>,<span class="st">&quot;red&quot;</span>),<span class="dt">lty=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">1</span>),<span class="dt">cex=</span><span class="fl">0.5</span>)</code></pre>
+<div class="sourceCode" id="cb242"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb242-1" data-line-number="1"><span class="kw">hist</span>(X_d,<span class="dt">freq=</span><span class="ot">FALSE</span>, <span class="dt">breaks=</span><span class="dv">4</span>,<span class="dt">col=</span><span class="st">&quot;light blue&quot;</span>,<span class="dt">xlab=</span><span class="st">&quot;Temperatures&quot;</span>,</a>
+<a class="sourceLine" id="cb242-2" data-line-number="2">     <span class="dt">ylab=</span><span class="st">&quot;Densitat&quot;</span>,<span class="dt">main=</span><span class="st">&quot;Histograma de temperatures de dones&quot;</span>,<span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="kw">max</span>(<span class="kw">density</span>(X_d)<span class="op">$</span>y)))</a>
+<a class="sourceLine" id="cb242-3" data-line-number="3"><span class="kw">lines</span>(<span class="kw">density</span>(X_d),<span class="dt">lty=</span><span class="dv">2</span>,<span class="dt">lwd=</span><span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb242-4" data-line-number="4"><span class="kw">curve</span>(<span class="kw">dnorm</span>(x,<span class="kw">mean</span>(X_d),<span class="kw">sd</span>(X_d)),<span class="dt">col=</span><span class="st">&quot;red&quot;</span>,<span class="dt">lwd=</span><span class="dv">2</span>,<span class="dt">add=</span><span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb242-5" data-line-number="5"><span class="kw">legend</span>(<span class="st">&quot;topright&quot;</span>,<span class="dt">legend=</span><span class="kw">c</span>(<span class="st">&quot;Densitat estimada&quot;</span>,<span class="st">&quot;Normal&quot;</span>),</a>
+<a class="sourceLine" id="cb242-6" data-line-number="6">       <span class="dt">col=</span><span class="kw">c</span>(<span class="st">&quot;black&quot;</span>,<span class="st">&quot;red&quot;</span>),<span class="dt">lty=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">1</span>),<span class="dt">cex=</span><span class="fl">0.5</span>)</a>
+<a class="sourceLine" id="cb242-7" data-line-number="7"><span class="co">#</span></a>
+<a class="sourceLine" id="cb242-8" data-line-number="8"><span class="kw">hist</span>(X_h,<span class="dt">freq=</span><span class="ot">FALSE</span>, <span class="dt">breaks=</span><span class="dv">4</span>,<span class="dt">col=</span><span class="st">&quot;light blue&quot;</span>,<span class="dt">xlab=</span><span class="st">&quot;Temperatures&quot;</span>,</a>
+<a class="sourceLine" id="cb242-9" data-line-number="9">     <span class="dt">ylab=</span><span class="st">&quot;Densitat&quot;</span>,<span class="dt">main=</span><span class="st">&quot;Histograma de temperatures d&#39;homes&quot;</span>,<span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="kw">dnorm</span>(<span class="kw">mean</span>(X_h),<span class="kw">mean</span>(X_h),<span class="kw">sd</span>(X_h))))</a>
+<a class="sourceLine" id="cb242-10" data-line-number="10"><span class="kw">lines</span>(<span class="kw">density</span>(X_h),<span class="dt">lty=</span><span class="dv">2</span>,<span class="dt">lwd=</span><span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb242-11" data-line-number="11"><span class="kw">curve</span>(<span class="kw">dnorm</span>(x,<span class="kw">mean</span>(X_h),<span class="kw">sd</span>(X_h)),<span class="dt">col=</span><span class="st">&quot;red&quot;</span>,<span class="dt">lwd=</span><span class="dv">2</span>,<span class="dt">add=</span><span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb242-12" data-line-number="12"><span class="kw">legend</span>(<span class="st">&quot;topright&quot;</span>,<span class="dt">legend=</span><span class="kw">c</span>(<span class="st">&quot;Densitat estimada&quot;</span>,<span class="st">&quot;Normal&quot;</span>),</a>
+<a class="sourceLine" id="cb242-13" data-line-number="13">       <span class="dt">col=</span><span class="kw">c</span>(<span class="st">&quot;black&quot;</span>,<span class="st">&quot;red&quot;</span>),<span class="dt">lty=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">1</span>),<span class="dt">cex=</span><span class="fl">0.5</span>)</a></code></pre></div>
 <p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-319-1.png" width="90%" style="display: block; margin: auto;" /></p>
 <p>i els normal-plot:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">qqPlot</span>(X_d, <span class="dt">distribution=</span><span class="st">&quot;norm&quot;</span>, <span class="dt">mean=</span><span class="kw">mean</span>(X_d), <span class="dt">sd=</span><span class="kw">sd</span>(X_d),
-       <span class="dt">ylab=</span><span class="st">&quot;Quantils de la mostra de dones&quot;</span>, <span class="dt">xlab=</span><span class="st">&quot;Quantils de normal&quot;</span>, 
-       <span class="dt">pch=</span><span class="dv">20</span>, <span class="dt">id=</span><span class="ot">FALSE</span>)
-<span class="kw">qqPlot</span>(X_h, <span class="dt">distribution=</span><span class="st">&quot;norm&quot;</span>, <span class="dt">mean=</span><span class="kw">mean</span>(X_h), <span class="dt">sd=</span><span class="kw">sd</span>(X_h),
-       <span class="dt">ylab=</span><span class="st">&quot;Quantils de la mostra d&#39;homes&quot;</span>, <span class="dt">xlab=</span><span class="st">&quot;Quantils de normal&quot;</span>, 
-       <span class="dt">pch=</span><span class="dv">20</span>, <span class="dt">id=</span><span class="ot">FALSE</span>)</code></pre>
+<div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb243-1" data-line-number="1"><span class="kw">qqPlot</span>(X_d, <span class="dt">distribution=</span><span class="st">&quot;norm&quot;</span>, <span class="dt">mean=</span><span class="kw">mean</span>(X_d), <span class="dt">sd=</span><span class="kw">sd</span>(X_d),</a>
+<a class="sourceLine" id="cb243-2" data-line-number="2">       <span class="dt">ylab=</span><span class="st">&quot;Quantils de la mostra de dones&quot;</span>, <span class="dt">xlab=</span><span class="st">&quot;Quantils de normal&quot;</span>, </a>
+<a class="sourceLine" id="cb243-3" data-line-number="3">       <span class="dt">pch=</span><span class="dv">20</span>, <span class="dt">id=</span><span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb243-4" data-line-number="4"><span class="kw">qqPlot</span>(X_h, <span class="dt">distribution=</span><span class="st">&quot;norm&quot;</span>, <span class="dt">mean=</span><span class="kw">mean</span>(X_h), <span class="dt">sd=</span><span class="kw">sd</span>(X_h),</a>
+<a class="sourceLine" id="cb243-5" data-line-number="5">       <span class="dt">ylab=</span><span class="st">&quot;Quantils de la mostra d&#39;homes&quot;</span>, <span class="dt">xlab=</span><span class="st">&quot;Quantils de normal&quot;</span>, </a>
+<a class="sourceLine" id="cb243-6" data-line-number="6">       <span class="dt">pch=</span><span class="dv">20</span>, <span class="dt">id=</span><span class="ot">FALSE</span>)</a></code></pre></div>
 <p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-321-1.png" width="90%" style="display: block; margin: auto;" /></p>
 <p>Seria millor haver emprat un test no paramètric, per més seguretat.</p>
 </div>
@@ -1262,7 +1260,7 @@ F=\widetilde{S}_d^2/\widetilde{S}_h^2
 <p>En aquest cas, us recomanam emprar el <strong>test de Fligner-Killeen</strong>, implementat en R en la funció <code>fligner.test</code>, que en la pràctica ha mostrat ser més exacte per a variables aleatòries molt diferents de normals.
 <strong>Aquest test només serveix per a contrastos bilaterals</strong>, que en realitat són els únics interessants, i està implementat en la funció <code>fligner.test</code> de R. S’aplica a una <code>list</code> formada per les dues mostres o a una fórmula que separi una variable numèrica en dos grups.</p>
 <p>Per exemple, per emprar-lo en el contrast bilateral de variàncies de l’exemple anterior, entraríem:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">fligner.test</span>(<span class="kw">list</span>(X_h,X_d))</code></pre>
+<div class="sourceCode" id="cb244"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb244-1" data-line-number="1"><span class="kw">fligner.test</span>(<span class="kw">list</span>(X_h,X_d))</a></code></pre></div>
 <pre><code>## 
 ##  Fligner-Killeen test of homogeneity of variances
 ## 
@@ -1310,7 +1308,7 @@ Una distribució binomial <span class="math inline">\(B(n,p_0)\)</span> només �
 </div>
 
 <p>Aquest test binomial exacte està implementat en R en la funció <code>binom.test</code></p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">binom.test</span>(S, n, <span class="dt">p=</span>..., <span class="dt">alternative=</span>..., <span class="dt">conf.level=</span>...)</code></pre>
+<div class="sourceCode" id="cb246"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb246-1" data-line-number="1"><span class="kw">binom.test</span>(S, n, <span class="dt">p=</span>..., <span class="dt">alternative=</span>..., <span class="dt">conf.level=</span>...)</a></code></pre></div>
 <p>on <code>S</code> indica al nombre d’èxits a la mostra, <code>n</code> la mida de la mostra, <code>p</code> la probablitat que es contrasta, i els altres dos paràmetres signifiquen el mateix que a les altres funcions explicades fins ara. L’interval de confiança que dóna en els contrastos bilaterals és el de Clopper-Pearson.</p>
 
 <div class="example">
@@ -1348,11 +1346,11 @@ Hem dit que el p-valor també es pot calcular com a
 Vegem-ho. Direm <code>PB</code> al vector que dóna els valors de la densitat de <span class="math inline">\(S\)</span> sobre <span class="math inline">\(k=0,\ldots,30\)</span>, que són tots els possibles valors de <span class="math inline">\(k\)</span>. Aleshores, els <span class="math inline">\(k\)</span> tals que <span class="math inline">\(P(S=k)\leqslant P(S=S_0)\)</span> són els que satisfan <code>PB&lt;=dbinom(1,30,0.1)</code> (o també <code>PB&lt;=PB[2]</code>, perquè <span class="math inline">\(P(S=1)\)</span> és la segona entrada del vector <code>PB</code>; la primera és <span class="math inline">\(P(S=0)\)</span>). Per tant, la suma de les seves probabilitats és:
 </div>
 
-<pre class="sourceCode r"><code class="sourceCode r">PB=<span class="kw">dbinom</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">30</span>,<span class="dv">30</span>,<span class="fl">0.1</span>)
-<span class="kw">sum</span>(PB[PB<span class="op">&lt;=</span><span class="kw">dbinom</span>(<span class="dv">1</span>,<span class="dv">30</span>,<span class="fl">0.1</span>)])</code></pre>
+<div class="sourceCode" id="cb247"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb247-1" data-line-number="1">PB=<span class="kw">dbinom</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">30</span>,<span class="dv">30</span>,<span class="fl">0.1</span>)</a>
+<a class="sourceLine" id="cb247-2" data-line-number="2"><span class="kw">sum</span>(PB[PB<span class="op">&lt;=</span><span class="kw">dbinom</span>(<span class="dv">1</span>,<span class="dv">30</span>,<span class="fl">0.1</span>)])</a></code></pre></div>
 <pre><code>## [1] 0.3591899</code></pre>
 <p>Amb R, entraríem:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">binom.test</span>(<span class="dv">1</span>, <span class="dv">30</span>, <span class="dt">p=</span><span class="fl">0.1</span>, <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>)</code></pre>
+<div class="sourceCode" id="cb249"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb249-1" data-line-number="1"><span class="kw">binom.test</span>(<span class="dv">1</span>, <span class="dv">30</span>, <span class="dt">p=</span><span class="fl">0.1</span>, <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
 <pre><code>## 
 ##  Exact binomial test
 ## 
@@ -1380,8 +1378,8 @@ Z=\frac{\widehat{p}_X-p_0}{\sqrt{\frac{p_0(1-p_0)}{n}}}
 <li><p>Quan <span class="math inline">\(H_{1}:p\neq p_{0}\)</span>, el p-valor és <span class="math inline">\(2P(Z\geqslant|z_0|)\)</span> (recordau que <span class="math inline">\(Z\)</span> és simètrica)</p></li>
 </ul>
 <p>Amb R, està implementat en la funció</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">prop.test</span>(x, n, <span class="dt">p=</span>...,<span class="dt">alternative=</span>..., <span class="dt">conf.level=</span>..., 
-          <span class="dt">correct=</span>...)</code></pre>
+<div class="sourceCode" id="cb251"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb251-1" data-line-number="1"><span class="kw">prop.test</span>(x, n, <span class="dt">p=</span>...,<span class="dt">alternative=</span>..., <span class="dt">conf.level=</span>..., </a>
+<a class="sourceLine" id="cb251-2" data-line-number="2">          <span class="dt">correct=</span>...)</a></code></pre></div>
 <p>on els paràmetres tenen el mateix significat que a <code>binom.test</code> excepte <code>correct</code>, que serveix per especificar si volem que s’apliqui una correcció de continuïtat com la que explicàvem al <a href="https://aprender-uib.github.io/MatesIIAD/repas-de-la-distribucio-normal.html">Tema de Repàs de la Distribució Normal</a> (que és recomanable quan s’aproxima una variable discreta per una contínua però que nosaltres no aplicarem en realitzar contrastos “a mà” per no complicar-los) que millora els resultats. El seu valor per defecte és <code>TRUE</code>, i és el que us recomanan que empreu; el que hem explicat aquí correspon a <code>correct=FALSE</code>. L’interval de confiança que dóna aquesta funció en un contrast bilateral és el de Wilson (amb o sense correcció de continuïtat, segons el que valgui <code>correct</code>).</p>
 
 <div class="example">
@@ -1400,7 +1398,7 @@ z_0=\frac{\frac{1}{30}-0.1}{\sqrt{\frac{0.1(1-0.1)}{30}}}=-1.22
 <p><em>p-valor</em>: <span class="math inline">\(2P(Z\geqslant|-1.22|)=\texttt{2*(1-pnorm(1.22))}=0.222\)</span></p>
 <p><em>Conclusió</em>: Un altre cop, no obtenim evidència estadísticament significativa que el percentatge d’esquerrans a la UIB sigui diferent del 10% (prop-test, p-valor 0.22).</p>
 <p>Amb R, entraríem:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">prop.test</span>(<span class="dv">1</span>, <span class="dv">30</span>, <span class="dt">p=</span><span class="fl">0.1</span>, <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>)</code></pre>
+<div class="sourceCode" id="cb252"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb252-1" data-line-number="1"><span class="kw">prop.test</span>(<span class="dv">1</span>, <span class="dv">30</span>, <span class="dt">p=</span><span class="fl">0.1</span>, <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
 <pre><code>## Warning in prop.test(1, 30, p = 0.1, alternative = &quot;two.sided&quot;): Chi-
 ## squared approximation may be incorrect</code></pre>
 <pre><code>## 
@@ -1415,7 +1413,7 @@ z_0=\frac{\frac{1}{30}-0.1}{\sqrt{\frac{0.1(1-0.1)}{30}}}=-1.22
 ##          p 
 ## 0.03333333</code></pre>
 <p>No dóna el mateix p-valor que abans, perquè, com hem explicat, el nostre test correspon a <code>correct=FALSE</code>:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">prop.test</span>(<span class="dv">1</span>, <span class="dv">30</span>, <span class="dt">p=</span><span class="fl">0.1</span>, <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>, <span class="dt">correct=</span><span class="ot">FALSE</span>)</code></pre>
+<div class="sourceCode" id="cb255"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb255-1" data-line-number="1"><span class="kw">prop.test</span>(<span class="dv">1</span>, <span class="dv">30</span>, <span class="dt">p=</span><span class="fl">0.1</span>, <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>, <span class="dt">correct=</span><span class="ot">FALSE</span>)</a></code></pre></div>
 <pre><code>## Warning in prop.test(1, 30, p = 0.1, alternative = &quot;two.sided&quot;, correct =
 ## FALSE): Chi-squared approximation may be incorrect</code></pre>
 <pre><code>## 
@@ -1445,11 +1443,11 @@ El missatge d’advertència que ens ha donat R en aquestes dues execucions de l
 </div>
 
 <p>Emprarem les funcions del paquet <strong>pwr</strong> per calcular-la; per més informació sobre les funcions d’aquest paquet, consultau la <a href="https://aprender-uib.github.io/AprendeR2/chap-contrastes.html#calculo-de-la-potencia-de-un-contraste">secció corresponent del manual de R</a>. Primer calculam la mida de l’efecte observat amb la funció <code>ES.h</code> aplicada a la proporció poblacional contrastada i a la proporció mostral:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(pwr)
-<span class="kw">ES.h</span>(<span class="fl">0.1</span>,<span class="fl">0.03</span>)</code></pre>
+<div class="sourceCode" id="cb258"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb258-1" data-line-number="1"><span class="kw">library</span>(pwr)</a>
+<a class="sourceLine" id="cb258-2" data-line-number="2"><span class="kw">ES.h</span>(<span class="fl">0.1</span>,<span class="fl">0.03</span>)</a></code></pre></div>
 <pre><code>## [1] 0.2953351</code></pre>
 <p>I ara aplicam la funció <code>pwr.p.test</code> a la mida de l’efecte observat, <code>h</code>, la mida de la mostra, <code>n</code>, el nivell de significació, <code>sig.level</code>, i el tipus de contrast, <code>alternative</code>, i ens donarà la potència:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pwr.p.test</span>(<span class="dt">h=</span><span class="fl">0.3</span>, <span class="dt">n=</span><span class="dv">30</span>, <span class="dt">sig.level=</span><span class="fl">0.05</span>, <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>)</code></pre>
+<div class="sourceCode" id="cb260"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb260-1" data-line-number="1"><span class="kw">pwr.p.test</span>(<span class="dt">h=</span><span class="fl">0.3</span>, <span class="dt">n=</span><span class="dv">30</span>, <span class="dt">sig.level=</span><span class="fl">0.05</span>, <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
 <pre><code>## 
 ##      proportion power calculation for binomial distribution (arcsine transformation) 
 ## 
@@ -1459,7 +1457,7 @@ El missatge d’advertència que ens ha donat R en aquestes dues execucions de l
 ##           power = 0.3758563
 ##     alternative = two.sided</code></pre>
 <p>Què hagués passat si, en lloc d’1 esquerrà en una mostra de 30, haguéssim trobat 5 esquerrans en una mostra (aleatòria simple) de 150 estudiants, de manera que la proporció mostral fos la mateixa?</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">prop.test</span>(<span class="dv">5</span>, <span class="dv">150</span>, <span class="dt">p=</span><span class="fl">0.1</span>)</code></pre>
+<div class="sourceCode" id="cb262"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb262-1" data-line-number="1"><span class="kw">prop.test</span>(<span class="dv">5</span>, <span class="dv">150</span>, <span class="dt">p=</span><span class="fl">0.1</span>)</a></code></pre></div>
 <pre><code>## 
 ##  1-sample proportions test with continuity correction
 ## 
@@ -1472,7 +1470,7 @@ El missatge d’advertència que ens ha donat R en aquestes dues execucions de l
 ##          p 
 ## 0.03333333</code></pre>
 <p>Ara podríem rebutjar amb un nivell de significació del 5% que la proporció d’esquerrans a la UIB és del 10%. Quina ha estat la potència d’aquest test?</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pwr.p.test</span>(<span class="dt">h=</span><span class="fl">0.3</span>, <span class="dt">n=</span><span class="dv">150</span>, <span class="dt">sig.level=</span><span class="fl">0.05</span>, <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>)</code></pre>
+<div class="sourceCode" id="cb264"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb264-1" data-line-number="1"><span class="kw">pwr.p.test</span>(<span class="dt">h=</span><span class="fl">0.3</span>, <span class="dt">n=</span><span class="dv">150</span>, <span class="dt">sig.level=</span><span class="fl">0.05</span>, <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
 <pre><code>## 
 ##      proportion power calculation for binomial distribution (arcsine transformation) 
 ## 
@@ -1492,7 +1490,7 @@ Amb una mostra més gran, la potència és més gran, és més fàcil detectar q
 </div>
 
 <p>Per determinar el valor d’un “efecte petit” entram</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">cohen.ES</span>(<span class="dt">test=</span><span class="st">&quot;p&quot;</span>,<span class="dt">size=</span><span class="st">&quot;small&quot;</span>)</code></pre>
+<div class="sourceCode" id="cb266"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb266-1" data-line-number="1"><span class="kw">cohen.ES</span>(<span class="dt">test=</span><span class="st">&quot;p&quot;</span>,<span class="dt">size=</span><span class="st">&quot;small&quot;</span>)</a></code></pre></div>
 <pre><code>## 
 ##      Conventional effect size from Cohen (1982) 
 ## 
@@ -1500,7 +1498,7 @@ Amb una mostra més gran, la potència és més gran, és més fàcil detectar q
 ##            size = small
 ##     effect.size = 0.2</code></pre>
 <p>i ara, a l’argument <code>pwr.p.test</code>, en lloc d’entrar-hi la mida de la mostra <code>n</code>, hi entram la potència desitjada i ens donarà la mida necessària per assolir-la:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pwr.p.test</span>(<span class="dt">h=</span><span class="fl">0.2</span>, <span class="dt">power=</span><span class="fl">0.9</span>, <span class="dt">sig.level=</span><span class="fl">0.05</span>, <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>)</code></pre>
+<div class="sourceCode" id="cb268"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb268-1" data-line-number="1"><span class="kw">pwr.p.test</span>(<span class="dt">h=</span><span class="fl">0.2</span>, <span class="dt">power=</span><span class="fl">0.9</span>, <span class="dt">sig.level=</span><span class="fl">0.05</span>, <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
 <pre><code>## 
 ##      proportion power calculation for binomial distribution (arcsine transformation) 
 ## 
@@ -1556,8 +1554,8 @@ Z=\frac{\widehat{p}_1 -\widehat{p}_2}{
 \]</span>
 (on <span class="math inline">\(E=n_1 \widehat{p}_1 +n_2 \widehat{p}_2\)</span> és el nombre total d’èxits a les dues mostres) té distribució aproximadament normal estàndard, la qual cosa es pot emprar com sempre per calcular p-valors i intervals de confiança.</p>
 <p>Aquest test està implementat en la funció de R</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">prop.test</span>(<span class="kw">c</span>(x1,x2), <span class="kw">c</span>(n1,n2), <span class="dt">alternative=</span>..., <span class="dt">correct=</span>...,
-          <span class="dt">conf.level=</span>...,)</code></pre>
+<div class="sourceCode" id="cb270"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb270-1" data-line-number="1"><span class="kw">prop.test</span>(<span class="kw">c</span>(x1,x2), <span class="kw">c</span>(n1,n2), <span class="dt">alternative=</span>..., <span class="dt">correct=</span>...,</a>
+<a class="sourceLine" id="cb270-2" data-line-number="2">          <span class="dt">conf.level=</span>...,)</a></code></pre></div>
 <p>on <code>x1</code> i <code>x2</code> són els nombres d’èxits a les dues mostres i <code>n1</code>, <code>n2</code> les seves mides. Com al cas d’una proporció, la versió que hem explicat correspon a <code>correct=FALSE</code>, però és més recomanable emprar el valor per defecte de <code>correct</code>, que és TRUE i fa que s’hi apliqui una correcció de continuïtat.</p>
 
 <div class="rmdnote">
@@ -1614,7 +1612,7 @@ z_0=\frac{0.2 -0.24}{
 <p><em>p-valor</em>: <span class="math inline">\(2\cdot P(Z\geqslant|-0.5637|)=0.573\)</span></p>
 <p><em>Conclusió</em>: No hem trobat evidència estadísticament significativa que les proporcions de mallorquins i menorquins amb aquest al·lel siguin diferents (test <span class="math inline">\(\chi^2\)</span>, p-valor 0.57).</p>
 <p>Amb R, entraríem</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">prop.test</span>(<span class="kw">c</span>(<span class="dv">20</span>,<span class="dv">12</span>), <span class="kw">c</span>(<span class="dv">100</span>,<span class="dv">50</span>), <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>)</code></pre>
+<div class="sourceCode" id="cb271"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb271-1" data-line-number="1"><span class="kw">prop.test</span>(<span class="kw">c</span>(<span class="dv">20</span>,<span class="dv">12</span>), <span class="kw">c</span>(<span class="dv">100</span>,<span class="dv">50</span>), <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
 <pre><code>## 
 ##  2-sample test for equality of proportions with continuity
 ##  correction
@@ -1628,7 +1626,7 @@ z_0=\frac{0.2 -0.24}{
 ## prop 1 prop 2 
 ##   0.20   0.24</code></pre>
 <p>Bé, no exactament: com hem explicat, nosaltres hem fet la versió <code>correct=FALSE</code>.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">prop.test</span>(<span class="kw">c</span>(<span class="dv">20</span>,<span class="dv">12</span>), <span class="kw">c</span>(<span class="dv">100</span>,<span class="dv">50</span>), <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>, <span class="dt">correct=</span><span class="ot">FALSE</span>)</code></pre>
+<div class="sourceCode" id="cb273"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb273-1" data-line-number="1"><span class="kw">prop.test</span>(<span class="kw">c</span>(<span class="dv">20</span>,<span class="dv">12</span>), <span class="kw">c</span>(<span class="dv">100</span>,<span class="dv">50</span>), <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>, <span class="dt">correct=</span><span class="ot">FALSE</span>)</a></code></pre></div>
 <pre><code>## 
 ##  2-sample test for equality of proportions without continuity
 ##  correction
@@ -1714,11 +1712,11 @@ P(H(58,3,24)\leqslant 23) =\texttt{phyper(23,58,3,24)}=0.7841
 \]</span></p>
 <p><em>Conclusió</em>: No hem obtingut evidència estadísticament significativa que la SIDS tengui un component genètic (test de Fisher, p-valor 0.78).</p>
 <p>Amb R el test de Fisher està implementat en la funció</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">fisher.test</span>(M,<span class="dt">alternative=</span>...,<span class="dt">conf.level=</span>...)</code></pre>
+<div class="sourceCode" id="cb275"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb275-1" data-line-number="1"><span class="kw">fisher.test</span>(M,<span class="dt">alternative=</span>...,<span class="dt">conf.level=</span>...)</a></code></pre></div>
 <p>on <code>M</code> és la matriu de freqüències de la mostra tal i com l’hem donada: fileres Èxits i Fracassos (en aquest ordre) i columnes <span class="math inline">\(X_1\)</span> i <span class="math inline">\(X_2\)</span>.</p>
 <p>En el nostre exemple, entraríem</p>
-<pre class="sourceCode r"><code class="sourceCode r">M=<span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">23</span>,<span class="dv">35</span>,<span class="dv">1</span>,<span class="dv">2</span>), <span class="dt">nrow=</span><span class="dv">2</span>, <span class="dt">byrow=</span><span class="ot">TRUE</span>)
-<span class="kw">fisher.test</span>(M,<span class="dt">alternative=</span><span class="st">&quot;less&quot;</span>)</code></pre>
+<div class="sourceCode" id="cb276"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb276-1" data-line-number="1">M=<span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">23</span>,<span class="dv">35</span>,<span class="dv">1</span>,<span class="dv">2</span>), <span class="dt">nrow=</span><span class="dv">2</span>, <span class="dt">byrow=</span><span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb276-2" data-line-number="2"><span class="kw">fisher.test</span>(M,<span class="dt">alternative=</span><span class="st">&quot;less&quot;</span>)</a></code></pre></div>
 <pre><code>## 
 ##  Fisher&#39;s Exact Test for Count Data
 ## 
@@ -1824,7 +1822,7 @@ i per tant <span class="math inline">\(\text{Odds}(A)=1.5\cdot \text{Odds}(B)\)<
 <p><span id="exm:unnamed-chunk-356" class="example"><strong>Exemple 5.18  </strong></span>Si realitzam el contrast de l’Exemple <a href="contrastos-dhipotesis-dun-i-dos-parametres.html#exm:allel1">5.15</a> amb el test <span class="math inline">\(\chi^2\)</span>, obtenim</p>
 </div>
 
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">prop.test</span>(<span class="kw">c</span>(<span class="dv">20</span>,<span class="dv">12</span>),<span class="kw">c</span>(<span class="dv">100</span>,<span class="dv">50</span>),<span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>,<span class="dt">correct=</span><span class="ot">FALSE</span>)</code></pre>
+<div class="sourceCode" id="cb278"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb278-1" data-line-number="1"><span class="kw">prop.test</span>(<span class="kw">c</span>(<span class="dv">20</span>,<span class="dv">12</span>),<span class="kw">c</span>(<span class="dv">100</span>,<span class="dv">50</span>),<span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>,<span class="dt">correct=</span><span class="ot">FALSE</span>)</a></code></pre></div>
 <pre><code>## 
 ##  2-sample test for equality of proportions without continuity
 ##  correction
@@ -1843,8 +1841,8 @@ i per tant <span class="math inline">\(\text{Odds}(A)=1.5\cdot \text{Odds}(B)\)<
 <li><p>La diferència de proporcions mostrals <span class="math inline">\(p_1-p_2\)</span> ha estat <span class="math inline">\(0.2-0.24=-0.04\)</span>: la proporció de menorquins amb l’al·lel a la nostra mostra ha estat 4 punts percentuals més gran que la dels mallorquins</p></li>
 </ul>
 <p>Si ara l’efectuam amb el test de Fisher:</p>
-<pre class="sourceCode r"><code class="sourceCode r">M.A=<span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">20</span>,<span class="dv">12</span>,<span class="dv">80</span>,<span class="dv">38</span>), <span class="dt">nrow=</span><span class="dv">2</span>, <span class="dt">byrow=</span><span class="ot">TRUE</span>)
-<span class="kw">fisher.test</span>(M.A,<span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>)</code></pre>
+<div class="sourceCode" id="cb280"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb280-1" data-line-number="1">M.A=<span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">20</span>,<span class="dv">12</span>,<span class="dv">80</span>,<span class="dv">38</span>), <span class="dt">nrow=</span><span class="dv">2</span>, <span class="dt">byrow=</span><span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb280-2" data-line-number="2"><span class="kw">fisher.test</span>(M.A,<span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
 <pre><code>## 
 ##  Fisher&#39;s Exact Test for Count Data
 ## 
@@ -1883,7 +1881,7 @@ P(|N_{1,1}-21.333|\geqslant 1.333)=P(N_{1,1}\leqslant 20\text{ o }N_{1,1}\geqsla
 i
 </div>
 
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">fisher.test</span>(M.A,<span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>)<span class="op">$</span>p.value</code></pre>
+<div class="sourceCode" id="cb282"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb282-1" data-line-number="1"><span class="kw">fisher.test</span>(M.A,<span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>)<span class="op">$</span>p.value</a></code></pre></div>
 <pre><code>## [1] 0.6729552</code></pre>
 <ul>
 <li><p>L’IC 95% per a la <strong>odds ratio</strong> (per al quocient de les <em>odds</em>) va de 0.33 a 1.97: com que conté l’1, no podem rebutjar amb aquest nivell de confiança que la <em>odds ratio</em> sigui 1; és a dir, no podem rebutjar que les <em>odds</em> siguin iguals; és a dir, no podem rebutjar que les proporcions siguin iguals</p></li>
@@ -1969,15 +1967,15 @@ que segueix una distribució aproximadament <span class="math inline">\(\chi_1^2
 <p><em>Conclusió</em>: Hem obtingut evidència estadísticament significativa que la taxa d’efectivitat del placebo i del fàrmac són diferents (test de McNemar, p-valor 0.0045).</p>
 <p>I ara, com que la taxa d’efectivitat del fàrmac ha estat superior a la del placebo (191/500 contra 169/500), faríem la petita trampa de concloure que la diferència entre aquestes taxes d’efectivitat és perquè el fàrmac es més efectiu.</p>
 <p>Amb R, entraríem</p>
-<pre class="sourceCode r"><code class="sourceCode r">Dades.M=<span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">150</span>,<span class="dv">41</span>,<span class="dv">19</span>,<span class="dv">285</span>), <span class="dt">nrow=</span><span class="dv">2</span>, <span class="dt">byrow=</span><span class="ot">TRUE</span>)
-<span class="kw">mcnemar.test</span>(Dades.M)</code></pre>
+<div class="sourceCode" id="cb284"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb284-1" data-line-number="1">Dades.M=<span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">150</span>,<span class="dv">41</span>,<span class="dv">19</span>,<span class="dv">285</span>), <span class="dt">nrow=</span><span class="dv">2</span>, <span class="dt">byrow=</span><span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb284-2" data-line-number="2"><span class="kw">mcnemar.test</span>(Dades.M)</a></code></pre></div>
 <pre><code>## 
 ##  McNemar&#39;s Chi-squared test with continuity correction
 ## 
 ## data:  Dades.M
 ## McNemar&#39;s chi-squared = 7.35, df = 1, p-value = 0.006706</code></pre>
 <p>Ups! No ha donat el mateix estadístic ni el mateix p-valor. Això passa perquè R també aplica per defecte una correcció de continuïtat al test de McNemar. El que nosaltres hem explicat correspon a</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mcnemar.test</span>(Dades.M,<span class="dt">correct=</span><span class="ot">FALSE</span>)</code></pre>
+<div class="sourceCode" id="cb286"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb286-1" data-line-number="1"><span class="kw">mcnemar.test</span>(Dades.M,<span class="dt">correct=</span><span class="ot">FALSE</span>)</a></code></pre></div>
 <pre><code>## 
 ##  McNemar&#39;s Chi-squared test
 ## 
@@ -2089,7 +2087,7 @@ H_1:p&gt; 0.5
 \end{array}
 \]</span></p>
 <p>I per tant al contrast sobre <span class="math inline">\(p\)</span> emprarem la mostra de 60 casos discordants on 41 són Èxits. Ho fen directament amb R:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">binom.test</span>(<span class="dv">41</span>, <span class="dv">60</span>, <span class="dt">p=</span><span class="fl">0.5</span>, <span class="dt">alternative=</span><span class="st">&quot;greater&quot;</span>)</code></pre>
+<div class="sourceCode" id="cb288"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb288-1" data-line-number="1"><span class="kw">binom.test</span>(<span class="dv">41</span>, <span class="dv">60</span>, <span class="dt">p=</span><span class="fl">0.5</span>, <span class="dt">alternative=</span><span class="st">&quot;greater&quot;</span>)</a></code></pre></div>
 <pre><code>## 
 ##  Exact binomial test
 ## 

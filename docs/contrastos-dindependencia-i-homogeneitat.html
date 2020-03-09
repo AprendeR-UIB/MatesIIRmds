@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html >
-
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Tema 7 Contrastos d’independència i homogeneïtat | Matemàtiques II</title>
-  <meta name="description" content="Apunts Matemàtiques II bookdown::gitbook.">
-  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+  <meta name="description" content="Apunts Matemàtiques II bookdown::gitbook." />
+  <meta name="generator" content="bookdown 0.12 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Tema 7 Contrastos d’independència i homogeneïtat | Matemàtiques II" />
   <meta property="og:type" content="book" />
@@ -24,11 +23,11 @@
 
 
 
-<meta name="date" content="2020-03-08">
+<meta name="date" content="2020-03-09" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
 <link rel="prev" href="contrastos-de-bondat-dajust.html">
@@ -55,7 +54,6 @@ a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
 a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
@@ -459,12 +457,12 @@ Operant:
 <p><em>p-valor</em>: <span class="math inline">\(P(\chi^2_2\geqslant 64.24)=\texttt{1-pchisq(64.24,2)}=1.1\cdot 10^{-14}\)</span></p>
 <p><em>Conclusió</em>: Hem trobat evidència estadísticament significativa que hi ha associació entre l’estatus de fumador d’un nin i que pateixi tos nocturna (test <span class="math inline">\(\chi^2\)</span>, p-valor 10<sup>-14</sup>).</p>
 <p>Podem efectuar un test <span class="math inline">\(\chi^2\)</span> d’independència aplicant la funció <code>chisq.test</code> a la taula de freqüències absolutes:</p>
-<pre class="sourceCode r"><code class="sourceCode r">Taula=<span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">266</span>,<span class="dv">395</span>,<span class="dv">80</span>,<span class="dv">1037</span>,<span class="dv">977</span>,<span class="dv">92</span>),<span class="dt">nrow=</span><span class="dv">2</span>,<span class="dt">byrow=</span><span class="ot">TRUE</span>)
-Taula</code></pre>
+<div class="sourceCode" id="cb336"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb336-1" data-line-number="1">Taula=<span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">266</span>,<span class="dv">395</span>,<span class="dv">80</span>,<span class="dv">1037</span>,<span class="dv">977</span>,<span class="dv">92</span>),<span class="dt">nrow=</span><span class="dv">2</span>,<span class="dt">byrow=</span><span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb336-2" data-line-number="2">Taula</a></code></pre></div>
 <pre><code>##      [,1] [,2] [,3]
 ## [1,]  266  395   80
 ## [2,] 1037  977   92</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">chisq.test</span>(Taula)</code></pre>
+<div class="sourceCode" id="cb338"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb338-1" data-line-number="1"><span class="kw">chisq.test</span>(Taula)</a></code></pre></div>
 <pre><code>## 
 ##  Pearson&#39;s Chi-squared test
 ## 
@@ -503,9 +501,9 @@ H_1: \mbox{Hi ha associació entre $X$ i $Y$}
 \right.
 \]</span></p>
 <p>Fem un test <span class="math inline">\(\chi^2\)</span> amb R:</p>
-<pre class="sourceCode r"><code class="sourceCode r">TaulaCCV=<span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">38</span>,<span class="dv">76</span>,<span class="dv">79</span>,<span class="dv">2</span>,<span class="dv">41</span>,<span class="dv">92</span>,<span class="dv">2</span>,<span class="dv">21</span>,<span class="dv">50</span>,<span class="dv">0</span>,<span class="dv">12</span>,<span class="dv">31</span>), 
-                <span class="dt">nrow=</span><span class="dv">4</span>, <span class="dt">byrow=</span><span class="ot">TRUE</span>)
-<span class="kw">chisq.test</span>(TaulaCCV)</code></pre>
+<div class="sourceCode" id="cb340"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb340-1" data-line-number="1">TaulaCCV=<span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">38</span>,<span class="dv">76</span>,<span class="dv">79</span>,<span class="dv">2</span>,<span class="dv">41</span>,<span class="dv">92</span>,<span class="dv">2</span>,<span class="dv">21</span>,<span class="dv">50</span>,<span class="dv">0</span>,<span class="dv">12</span>,<span class="dv">31</span>), </a>
+<a class="sourceLine" id="cb340-2" data-line-number="2">                <span class="dt">nrow=</span><span class="dv">4</span>, <span class="dt">byrow=</span><span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb340-3" data-line-number="3"><span class="kw">chisq.test</span>(TaulaCCV)</a></code></pre></div>
 <pre><code>## Warning in chisq.test(TaulaCCV): Chi-squared approximation may be incorrect</code></pre>
 <pre><code>## 
 ##  Pearson&#39;s Chi-squared test
@@ -516,14 +514,14 @@ H_1: \mbox{Hi ha associació entre $X$ i $Y$}
 <ul>
 <li>Les <span class="math inline">\(n_{i\bullet}\)</span> són les sumes de les fileres:</li>
 </ul>
-<pre class="sourceCode r"><code class="sourceCode r">Freq.CCV=<span class="kw">rowSums</span>(TaulaCCV)
-Freq.CCV</code></pre>
+<div class="sourceCode" id="cb343"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb343-1" data-line-number="1">Freq.CCV=<span class="kw">rowSums</span>(TaulaCCV)</a>
+<a class="sourceLine" id="cb343-2" data-line-number="2">Freq.CCV</a></code></pre></div>
 <pre><code>## [1] 193 135  73  43</code></pre>
 <ul>
 <li>Les <span class="math inline">\(n_{\bullet j}\)</span> són les sumes de les columnes:</li>
 </ul>
-<pre class="sourceCode r"><code class="sourceCode r">Freq.NSC=<span class="kw">colSums</span>(TaulaCCV)
-Freq.NSC</code></pre>
+<div class="sourceCode" id="cb345"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb345-1" data-line-number="1">Freq.NSC=<span class="kw">colSums</span>(TaulaCCV)</a>
+<a class="sourceLine" id="cb345-2" data-line-number="2">Freq.NSC</a></code></pre></div>
 <pre><code>## [1]  42 150 252</code></pre>
 <ul>
 <li>La matriu de les <span class="math inline">\((n_{i\bullet}n_{\bullet j}/n)\)</span> s’obté fent el producte matricial
@@ -549,8 +547,8 @@ n_{s\bullet}
 \end{array}
 \]</span></li>
 </ul>
-<pre class="sourceCode r"><code class="sourceCode r">Freqs.Esp=(<span class="dv">1</span><span class="op">/</span><span class="kw">sum</span>(TaulaCCV))<span class="op">*</span>Freq.CCV<span class="op">%*%</span><span class="kw">t</span>(Freq.NSC)
-Freqs.Esp</code></pre>
+<div class="sourceCode" id="cb347"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb347-1" data-line-number="1">Freqs.Esp=(<span class="dv">1</span><span class="op">/</span><span class="kw">sum</span>(TaulaCCV))<span class="op">*</span>Freq.CCV<span class="op">%*%</span><span class="kw">t</span>(Freq.NSC)</a>
+<a class="sourceLine" id="cb347-2" data-line-number="2">Freqs.Esp</a></code></pre></div>
 <pre><code>##           [,1]     [,2]      [,3]
 ## [1,] 18.256757 65.20270 109.54054
 ## [2,] 12.770270 45.60811  76.62162
@@ -558,8 +556,8 @@ Freqs.Esp</code></pre>
 ## [4,]  4.067568 14.52703  24.40541</code></pre>
 <p>Efectivament, l’entrada (4,1) és menor que 5.</p>
 <p>Farem servir el mètode de Montecarlo:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">42</span>)
-<span class="kw">chisq.test</span>(TaulaCCV,<span class="dt">simulate.p.value=</span><span class="ot">TRUE</span>,<span class="dt">B=</span><span class="dv">5000</span>)</code></pre>
+<div class="sourceCode" id="cb349"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb349-1" data-line-number="1"><span class="kw">set.seed</span>(<span class="dv">42</span>)</a>
+<a class="sourceLine" id="cb349-2" data-line-number="2"><span class="kw">chisq.test</span>(TaulaCCV,<span class="dt">simulate.p.value=</span><span class="ot">TRUE</span>,<span class="dt">B=</span><span class="dv">5000</span>)</a></code></pre></div>
 <pre><code>## 
 ##  Pearson&#39;s Chi-squared test with simulated p-value (based on 5000
 ##  replicates)
@@ -642,12 +640,12 @@ H_1: \mbox{No és veritat que $p_A=p_B=p_C$}
 <ul>
 <li>Emprarem un test <span class="math inline">\(\chi^2\)</span>:</li>
 </ul>
-<pre class="sourceCode r"><code class="sourceCode r">TaulaC=<span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">43</span>,<span class="dv">61</span>,<span class="dv">53</span>,<span class="dv">57</span>,<span class="dv">39</span>,<span class="dv">47</span>), <span class="dt">nrow=</span><span class="dv">2</span> ,<span class="dt">byrow=</span><span class="ot">TRUE</span>)
-TaulaC</code></pre>
+<div class="sourceCode" id="cb351"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb351-1" data-line-number="1">TaulaC=<span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">43</span>,<span class="dv">61</span>,<span class="dv">53</span>,<span class="dv">57</span>,<span class="dv">39</span>,<span class="dv">47</span>), <span class="dt">nrow=</span><span class="dv">2</span> ,<span class="dt">byrow=</span><span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb351-2" data-line-number="2">TaulaC</a></code></pre></div>
 <pre><code>##      [,1] [,2] [,3]
 ## [1,]   43   61   53
 ## [2,]   57   39   47</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">chisq.test</span>(TaulaC)</code></pre>
+<div class="sourceCode" id="cb353"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb353-1" data-line-number="1"><span class="kw">chisq.test</span>(TaulaC)</a></code></pre></div>
 <pre><code>## 
 ##  Pearson&#39;s Chi-squared test
 ## 
@@ -691,13 +689,13 @@ H_1: \mbox{Alguna d&#39;aquestes igualtats és falsa}
 \end{array}\right.
 \]</span></p>
 <p>És un test d’homogeneïtat, farem servir un test <span class="math inline">\(\chi^2\)</span>:</p>
-<pre class="sourceCode r"><code class="sourceCode r">TaulaC2=<span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">12</span>,<span class="dv">21</span>,<span class="dv">13</span>,<span class="dv">31</span>,<span class="dv">40</span>,<span class="dv">40</span>,<span class="dv">57</span>,<span class="dv">39</span>,<span class="dv">47</span>), <span class="dt">nrow=</span><span class="dv">3</span>, <span class="dt">byrow=</span><span class="ot">TRUE</span>)
-TaulaC2</code></pre>
+<div class="sourceCode" id="cb355"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb355-1" data-line-number="1">TaulaC2=<span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">12</span>,<span class="dv">21</span>,<span class="dv">13</span>,<span class="dv">31</span>,<span class="dv">40</span>,<span class="dv">40</span>,<span class="dv">57</span>,<span class="dv">39</span>,<span class="dv">47</span>), <span class="dt">nrow=</span><span class="dv">3</span>, <span class="dt">byrow=</span><span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb355-2" data-line-number="2">TaulaC2</a></code></pre></div>
 <pre><code>##      [,1] [,2] [,3]
 ## [1,]   12   21   13
 ## [2,]   31   40   40
 ## [3,]   57   39   47</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">chisq.test</span>(TaulaC2)</code></pre>
+<div class="sourceCode" id="cb357"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb357-1" data-line-number="1"><span class="kw">chisq.test</span>(TaulaC2)</a></code></pre></div>
 <pre><code>## 
 ##  Pearson&#39;s Chi-squared test
 ## 
@@ -766,9 +764,9 @@ H_1: \text{ $p_N\leqslant p_O  \leqslant p_R$ i $p_N&lt;p_R$}
 </div>
 
 <p>Emprarem un test <span class="math inline">\(\chi^2\)</span> de tendència:</p>
-<pre class="sourceCode r"><code class="sourceCode r">Tos=<span class="kw">c</span>(<span class="dv">266</span>,<span class="dv">395</span>,<span class="dv">80</span>)
-Fum=<span class="kw">c</span>(<span class="dv">1303</span>,<span class="dv">1372</span>,<span class="dv">172</span>)
-<span class="kw">prop.trend.test</span>(Tos,Fum)</code></pre>
+<div class="sourceCode" id="cb359"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb359-1" data-line-number="1">Tos=<span class="kw">c</span>(<span class="dv">266</span>,<span class="dv">395</span>,<span class="dv">80</span>)</a>
+<a class="sourceLine" id="cb359-2" data-line-number="2">Fum=<span class="kw">c</span>(<span class="dv">1303</span>,<span class="dv">1372</span>,<span class="dv">172</span>)</a>
+<a class="sourceLine" id="cb359-3" data-line-number="3"><span class="kw">prop.trend.test</span>(Tos,Fum)</a></code></pre></div>
 <pre><code>## 
 ##  Chi-squared Test for Trend in Proportions
 ## 

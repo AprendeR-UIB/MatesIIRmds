@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html >
-
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Tema 2 Estimació puntual | Matemàtiques II</title>
-  <meta name="description" content="Apunts Matemàtiques II bookdown::gitbook.">
-  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+  <meta name="description" content="Apunts Matemàtiques II bookdown::gitbook." />
+  <meta name="generator" content="bookdown 0.12 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Tema 2 Estimació puntual | Matemàtiques II" />
   <meta property="og:type" content="book" />
@@ -24,11 +23,11 @@
 
 
 
-<meta name="date" content="2020-03-08">
+<meta name="date" content="2020-03-09" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
 <link rel="prev" href="repas-de-la-distribucio-normal.html">
@@ -55,7 +54,6 @@ a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
 a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
@@ -350,16 +348,16 @@ Més d’una de cada 3 mostres aleatòries simples de 10 individus d’una pobla
 <p><span id="exm:uib2" class="example"><strong>Exemple 2.4  </strong></span>La UIB té uns 12000 estudiants. El gràfic següent mostra la probabilitat que si prenem una mostra aleatòria simple de <span class="math inline">\(n\)</span> estudiants d’una població de 12000 individus, com ara la UIB, siguin tots diferents, en funció de <span class="math inline">\(n\)</span>:</p>
 </div>
 
-<pre class="sourceCode r"><code class="sourceCode r">f=<span class="cf">function</span>(N,i){<span class="kw">prod</span>((N<span class="op">:</span>(N<span class="op">-</span>i<span class="op">+</span><span class="dv">1</span>))<span class="op">/</span>N)}
-prob=<span class="kw">sapply</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">200</span>,f,<span class="dt">N=</span><span class="dv">1200</span>)
-<span class="kw">plot</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">200</span>, prob, <span class="dt">type=</span><span class="st">&quot;l&quot;</span>, <span class="dt">lwd=</span><span class="dv">2</span>, <span class="dt">xlab=</span><span class="st">&quot;n&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;probabilitat&quot;</span>,
-     <span class="dt">xaxp=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">200</span>,<span class="dv">20</span>),<span class="dt">yaxp=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">10</span>))</code></pre>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb25-1" data-line-number="1">f=<span class="cf">function</span>(N,i){<span class="kw">prod</span>((N<span class="op">:</span>(N<span class="op">-</span>i<span class="op">+</span><span class="dv">1</span>))<span class="op">/</span>N)}</a>
+<a class="sourceLine" id="cb25-2" data-line-number="2">prob=<span class="kw">sapply</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">200</span>,f,<span class="dt">N=</span><span class="dv">1200</span>)</a>
+<a class="sourceLine" id="cb25-3" data-line-number="3"><span class="kw">plot</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">200</span>, prob, <span class="dt">type=</span><span class="st">&quot;l&quot;</span>, <span class="dt">lwd=</span><span class="dv">2</span>, <span class="dt">xlab=</span><span class="st">&quot;n&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;probabilitat&quot;</span>,</a>
+<a class="sourceLine" id="cb25-4" data-line-number="4">     <span class="dt">xaxp=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">200</span>,<span class="dv">20</span>),<span class="dt">yaxp=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">10</span>))</a></code></pre></div>
 <p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-55-1.png" width="60%" style="display: block; margin: auto;" /></p>
 <p>El gràfic següent mostra la mida màxima <span class="math inline">\(n\)</span> d’una mostra aleatòria simple extreta d’una població de mida <span class="math inline">\(N\)</span> per que la probabilitat de repeticions sigui menor que 0.05, en funció de <span class="math inline">\(N\)</span>:</p>
-<pre class="sourceCode r"><code class="sourceCode r">h=<span class="cf">function</span>(n){<span class="kw">max</span>(<span class="kw">which</span>(<span class="kw">sapply</span>(<span class="dv">1</span><span class="op">:</span>(n<span class="op">/</span><span class="dv">50</span>),f,<span class="dt">N=</span>n)<span class="op">&gt;</span><span class="fl">0.95</span>))}
-fites=<span class="kw">sapply</span>(<span class="dv">500</span><span class="op">+</span><span class="dv">100</span><span class="op">*</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">150</span>),h)
-<span class="kw">plot</span>(<span class="dv">500</span><span class="op">+</span><span class="dv">100</span><span class="op">*</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">150</span>), fites, <span class="dt">pch=</span><span class="dv">20</span>, <span class="dt">xlab=</span><span class="st">&quot;N&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;n&quot;</span>,
-     <span class="dt">xaxp=</span><span class="kw">c</span>(<span class="dv">500</span>,<span class="dv">15500</span>,<span class="dv">30</span>))</code></pre>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb26-1" data-line-number="1">h=<span class="cf">function</span>(n){<span class="kw">max</span>(<span class="kw">which</span>(<span class="kw">sapply</span>(<span class="dv">1</span><span class="op">:</span>(n<span class="op">/</span><span class="dv">50</span>),f,<span class="dt">N=</span>n)<span class="op">&gt;</span><span class="fl">0.95</span>))}</a>
+<a class="sourceLine" id="cb26-2" data-line-number="2">fites=<span class="kw">sapply</span>(<span class="dv">500</span><span class="op">+</span><span class="dv">100</span><span class="op">*</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">150</span>),h)</a>
+<a class="sourceLine" id="cb26-3" data-line-number="3"><span class="kw">plot</span>(<span class="dv">500</span><span class="op">+</span><span class="dv">100</span><span class="op">*</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">150</span>), fites, <span class="dt">pch=</span><span class="dv">20</span>, <span class="dt">xlab=</span><span class="st">&quot;N&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;n&quot;</span>,</a>
+<a class="sourceLine" id="cb26-4" data-line-number="4">     <span class="dt">xaxp=</span><span class="kw">c</span>(<span class="dv">500</span>,<span class="dv">15500</span>,<span class="dv">30</span>))</a></code></pre></div>
 <p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-56-1.png" width="60%" style="display: block; margin: auto;" /></p>
 <p>En resum:</p>
 
@@ -428,43 +426,43 @@ i, si <span class="math inline">\(X_1,\ldots,X_n\)</span> són independents,
 <p><span id="exm:experimentTCL1" class="example"><strong>Exemple 2.5  </strong></span>El fitxer <strong>tests.txt</strong> que trobareu a l’url <a href="https://raw.githubusercontent.com/AprendeR-UIB/MatesII/master/Dades/tests.txt" class="uri">https://raw.githubusercontent.com/AprendeR-UIB/MatesII/master/Dades/tests.txt</a> conté les notes (sobre 100) de tests dels estudiants de Matemàtiques I de fa uns cursos. El guardam en un vector anomenat <code>tests</code>:</p>
 </div>
 
-<pre class="sourceCode r"><code class="sourceCode r">tests=<span class="kw">scan</span>(<span class="st">&quot;https://raw.githubusercontent.com/AprendeR-UIB/MatesII/master/Dades/tests.txt&quot;</span>)
-<span class="kw">head</span>(tests)</code></pre>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb27-1" data-line-number="1">tests=<span class="kw">scan</span>(<span class="st">&quot;https://raw.githubusercontent.com/AprendeR-UIB/MatesII/master/Dades/tests.txt&quot;</span>)</a>
+<a class="sourceLine" id="cb27-2" data-line-number="2"><span class="kw">head</span>(tests)</a></code></pre></div>
 <pre><code>## [1] 70 44 90 64 76 68</code></pre>
 <p>la mida de la població és</p>
-<pre class="sourceCode r"><code class="sourceCode r">N=<span class="kw">length</span>(tests)
-N</code></pre>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb29-1" data-line-number="1">N=<span class="kw">length</span>(tests)</a>
+<a class="sourceLine" id="cb29-2" data-line-number="2">N</a></code></pre></div>
 <pre><code>## [1] 185</code></pre>
 <p>La seva mitjana, que és la mitjana poblacional, és</p>
-<pre class="sourceCode r"><code class="sourceCode r">mu=<span class="kw">mean</span>(tests)
-mu</code></pre>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb31-1" data-line-number="1">mu=<span class="kw">mean</span>(tests)</a>
+<a class="sourceLine" id="cb31-2" data-line-number="2">mu</a></code></pre></div>
 <pre><code>## [1] 55.43243</code></pre>
 <p>Si en prenem una mostra aleatòria simple, per exemple de mida <span class="math inline">\(n=40\)</span>, la seva mitjana mostral no té per què coincidir amb la mitjana poblacional:</p>
-<pre class="sourceCode r"><code class="sourceCode r">n=<span class="dv">40</span>
-MAS=<span class="kw">sample</span>(tests,n,<span class="dt">replace=</span><span class="ot">TRUE</span>) <span class="co"># Una mostra aelatòria simple</span>
-x.barra=<span class="kw">mean</span>(MAS) <span class="co"># La mitjana mostral</span>
-x.barra</code></pre>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb33-1" data-line-number="1">n=<span class="dv">40</span></a>
+<a class="sourceLine" id="cb33-2" data-line-number="2">MAS=<span class="kw">sample</span>(tests,n,<span class="dt">replace=</span><span class="ot">TRUE</span>) <span class="co"># Una mostra aelatòria simple</span></a>
+<a class="sourceLine" id="cb33-3" data-line-number="3">x.barra=<span class="kw">mean</span>(MAS) <span class="co"># La mitjana mostral</span></a>
+<a class="sourceLine" id="cb33-4" data-line-number="4">x.barra</a></code></pre></div>
 <pre><code>## [1] 53.5</code></pre>
 <p>Però si prenem <em>moltes</em> mostres aleatòries simples, la mitjana de les seves mitjanes és molt probable que sí que s’acosti a la mitjana poblacional. Vegem si tenim sort:</p>
-<pre class="sourceCode r"><code class="sourceCode r">mitjanes=<span class="kw">replicate</span>(<span class="dv">10</span><span class="op">^</span><span class="dv">5</span>,<span class="kw">mean</span>(<span class="kw">sample</span>(tests,n,<span class="dt">replace=</span><span class="ot">TRUE</span>)))
-<span class="kw">mean</span>(mitjanes)</code></pre>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb35-1" data-line-number="1">mitjanes=<span class="kw">replicate</span>(<span class="dv">10</span><span class="op">^</span><span class="dv">5</span>,<span class="kw">mean</span>(<span class="kw">sample</span>(tests,n,<span class="dt">replace=</span><span class="ot">TRUE</span>)))</a>
+<a class="sourceLine" id="cb35-2" data-line-number="2"><span class="kw">mean</span>(mitjanes)</a></code></pre></div>
 <pre><code>## [1] 55.4187</code></pre>
 <p>Vegem ara que la desviació típica d’aquesta mostra de mitjanes s’acosta a l’error típic de la mitjana mostral, no a la desviació típica de la població:</p>
 <ul>
 <li>La desviació típica poblacional:</li>
 </ul>
-<pre class="sourceCode r"><code class="sourceCode r">sigma=<span class="kw">sd</span>(tests)
-sigma</code></pre>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb37-1" data-line-number="1">sigma=<span class="kw">sd</span>(tests)</a>
+<a class="sourceLine" id="cb37-2" data-line-number="2">sigma</a></code></pre></div>
 <pre><code>## [1] 21.44044</code></pre>
 <ul>
 <li>La desviació típica de la mostra de mitjanes:</li>
 </ul>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sd</span>(mitjanes)</code></pre>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb39-1" data-line-number="1"><span class="kw">sd</span>(mitjanes)</a></code></pre></div>
 <pre><code>## [1] 3.384683</code></pre>
 <ul>
 <li>L’error típic de la mitjana mostral:</li>
 </ul>
-<pre class="sourceCode r"><code class="sourceCode r">sigma<span class="op">/</span><span class="kw">sqrt</span>(n)</code></pre>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb41-1" data-line-number="1">sigma<span class="op">/</span><span class="kw">sqrt</span>(n)</a></code></pre></div>
 <pre><code>## [1] 3.390031</code></pre>
 <p>Recordau del Teorema <a href="repas-de-la-distribucio-normal.html#thm:combnormal">1.2</a> que una combinació lineal de variables aleatòries normals independents torna a ser normal. Com que la mitjana mostral d’una mostra aleatòria simple és una combinació lineal de variables aleatòries independents, obtenim el resultat següent:</p>
 
@@ -515,16 +513,16 @@ N\Big(3,\frac{0.2}{\sqrt{100}}\Big)=N(3,0.02)
 <p><span id="exm:experimentTCL2" class="example"><strong>Exemple 2.7  </strong></span>Tornem a la situació de l’Exemple <a href="estimacio-puntual.html#exm:experimentTCL1">2.5</a>. Teníem les notes guardades en un vector anomenat <strong>tests</strong>. Amb l’histograma següent podem veure que aquestes notes no tenen pinta de seguir una distribució normal.</p>
 </div>
 
-<pre class="sourceCode r"><code class="sourceCode r">fact.trans=<span class="kw">hist</span>(tests,<span class="dt">plot=</span><span class="ot">FALSE</span>)<span class="op">$</span>counts[<span class="dv">1</span>]<span class="op">/</span><span class="kw">hist</span>(tests,<span class="dt">plot=</span><span class="ot">FALSE</span>)<span class="op">$</span>density[<span class="dv">1</span>]
-<span class="kw">hist</span>(tests,<span class="dt">col=</span><span class="st">&quot;light blue&quot;</span>,<span class="dt">xlab=</span><span class="st">&quot;Notes dels tests&quot;</span>,
-     <span class="dt">ylab=</span><span class="st">&quot;Freqüències&quot;</span>,<span class="dt">main=</span><span class="st">&quot;Histograma de notes de tests&quot;</span>)
-<span class="kw">curve</span>(fact.trans<span class="op">*</span><span class="kw">dnorm</span>(x,<span class="kw">mean</span>(tests),<span class="kw">sd</span>(tests)),<span class="dt">col=</span><span class="st">&quot;red&quot;</span>,<span class="dt">lwd=</span><span class="dv">2</span>,<span class="dt">add=</span><span class="ot">TRUE</span>)</code></pre>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb43-1" data-line-number="1">fact.trans=<span class="kw">hist</span>(tests,<span class="dt">plot=</span><span class="ot">FALSE</span>)<span class="op">$</span>counts[<span class="dv">1</span>]<span class="op">/</span><span class="kw">hist</span>(tests,<span class="dt">plot=</span><span class="ot">FALSE</span>)<span class="op">$</span>density[<span class="dv">1</span>]</a>
+<a class="sourceLine" id="cb43-2" data-line-number="2"><span class="kw">hist</span>(tests,<span class="dt">col=</span><span class="st">&quot;light blue&quot;</span>,<span class="dt">xlab=</span><span class="st">&quot;Notes dels tests&quot;</span>,</a>
+<a class="sourceLine" id="cb43-3" data-line-number="3">     <span class="dt">ylab=</span><span class="st">&quot;Freqüències&quot;</span>,<span class="dt">main=</span><span class="st">&quot;Histograma de notes de tests&quot;</span>)</a>
+<a class="sourceLine" id="cb43-4" data-line-number="4"><span class="kw">curve</span>(fact.trans<span class="op">*</span><span class="kw">dnorm</span>(x,<span class="kw">mean</span>(tests),<span class="kw">sd</span>(tests)),<span class="dt">col=</span><span class="st">&quot;red&quot;</span>,<span class="dt">lwd=</span><span class="dv">2</span>,<span class="dt">add=</span><span class="ot">TRUE</span>)</a></code></pre></div>
 <p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-74-1.png" width="60%" style="display: block; margin: auto;" /></p>
 <p>A l’Exemple <a href="estimacio-puntual.html#exm:experimentTCL1">2.5</a> també hem construit un vector anomenat <strong>mitjanes</strong> format per 10<sup>5</sup> mitjanes mostrals de mostres aleatòries simples de notes de mida 40. Pel Teorema Central del Límit, aquestes mitjanes mostrals haurien de seguir aproximadament una distribució normal, malgrat que la “població original” (les notes dels tests) no sigui normal. Vegem-ho amb un histograma, on hem afegit la densitat de la normal <span class="math inline">\(N(\mu_X,\sigma_X/\sqrt{n})\)</span> predita pel Teorema Central del Límit.</p>
-<pre class="sourceCode r"><code class="sourceCode r">fact.trans.m=<span class="kw">hist</span>(mitjanes,<span class="dt">plot=</span><span class="ot">FALSE</span>)<span class="op">$</span>counts[<span class="dv">1</span>]<span class="op">/</span><span class="kw">hist</span>(mitjanes,<span class="dt">plot=</span><span class="ot">FALSE</span>)<span class="op">$</span>density[<span class="dv">1</span>]
-<span class="kw">hist</span>(mitjanes,<span class="dt">col=</span><span class="st">&quot;light blue&quot;</span>,<span class="dt">xlab=</span><span class="st">&quot;Mitjanes&quot;</span>,
-     <span class="dt">ylab=</span><span class="st">&quot;Freqüències&quot;</span>,<span class="dt">main=</span><span class="st">&quot;Histograma de la mostra de mitjanes&quot;</span>)
-<span class="kw">curve</span>(fact.trans.m<span class="op">*</span><span class="kw">dnorm</span>(x,mu,sigma<span class="op">/</span><span class="kw">sqrt</span>(n)),<span class="dt">col=</span><span class="st">&quot;red&quot;</span>,<span class="dt">lwd=</span><span class="dv">2</span>,<span class="dt">add=</span><span class="ot">TRUE</span>)</code></pre>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb44-1" data-line-number="1">fact.trans.m=<span class="kw">hist</span>(mitjanes,<span class="dt">plot=</span><span class="ot">FALSE</span>)<span class="op">$</span>counts[<span class="dv">1</span>]<span class="op">/</span><span class="kw">hist</span>(mitjanes,<span class="dt">plot=</span><span class="ot">FALSE</span>)<span class="op">$</span>density[<span class="dv">1</span>]</a>
+<a class="sourceLine" id="cb44-2" data-line-number="2"><span class="kw">hist</span>(mitjanes,<span class="dt">col=</span><span class="st">&quot;light blue&quot;</span>,<span class="dt">xlab=</span><span class="st">&quot;Mitjanes&quot;</span>,</a>
+<a class="sourceLine" id="cb44-3" data-line-number="3">     <span class="dt">ylab=</span><span class="st">&quot;Freqüències&quot;</span>,<span class="dt">main=</span><span class="st">&quot;Histograma de la mostra de mitjanes&quot;</span>)</a>
+<a class="sourceLine" id="cb44-4" data-line-number="4"><span class="kw">curve</span>(fact.trans.m<span class="op">*</span><span class="kw">dnorm</span>(x,mu,sigma<span class="op">/</span><span class="kw">sqrt</span>(n)),<span class="dt">col=</span><span class="st">&quot;red&quot;</span>,<span class="dt">lwd=</span><span class="dv">2</span>,<span class="dt">add=</span><span class="ot">TRUE</span>)</a></code></pre></div>
 <p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-75-1.png" width="60%" style="display: block; margin: auto;" /></p>
 <p>L’exemple següent és un tipus de pregunta que més endavant ens preocuparà molt.</p>
 
@@ -537,7 +535,7 @@ N\Big(3,\frac{0.2}{\sqrt{100}}\Big)=N(3,0.02)
 P(\overline{X}&lt; 110)
 \]</span>
 que podem calcular amb</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">round</span>(<span class="kw">pnorm</span>(<span class="dv">110</span>,<span class="dv">115</span>,<span class="fl">2.5</span>),<span class="dv">4</span>)</code></pre>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb45-1" data-line-number="1"><span class="kw">round</span>(<span class="kw">pnorm</span>(<span class="dv">110</span>,<span class="dv">115</span>,<span class="fl">2.5</span>),<span class="dv">4</span>)</a></code></pre></div>
 <pre><code>## [1] 0.0228</code></pre>
 <p>Un 2.28% de les mostra aleatòries simples de 100 matolls d’aquesta espècie tenen la mitjana de les alçades més petita que 110 cm.</p>
 <p>Sigui ara <span class="math inline">\(X_1,\ldots, X_n\)</span> una mostra aleatòria <strong>sense reposició</strong> de mida <span class="math inline">\(n\)</span> d’una variable aleatòria <span class="math inline">\(X\)</span> d’esperança <span class="math inline">\(\mu_X\)</span> i desviació típica <span class="math inline">\(\sigma_X\)</span>. Si <span class="math inline">\(n\)</span> és molt petit en relació a la mida <span class="math inline">\(N\)</span> de la població, ja hem explicat que podem suposar que aquesta mostra aleatòria és simple i per tant tot funciona com fins ara; en particular, en aquest cas entendrem que els tres teoremes anteriors són vertaders.</p>
@@ -581,16 +579,16 @@ Què passa si prenem les mostres aleatòries de notes de tests sense reposició?
 </div>
 
 <p>Prenguem ara 10<sup>5</sup> mostres aleatòries sense reposició de 40 notes de tests.</p>
-<pre class="sourceCode r"><code class="sourceCode r">mitjanes.norep=<span class="kw">replicate</span>(<span class="dv">10</span><span class="op">^</span><span class="dv">5</span>,<span class="kw">mean</span>(<span class="kw">sample</span>(tests,<span class="dv">40</span>)))</code></pre>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb47-1" data-line-number="1">mitjanes.norep=<span class="kw">replicate</span>(<span class="dv">10</span><span class="op">^</span><span class="dv">5</span>,<span class="kw">mean</span>(<span class="kw">sample</span>(tests,<span class="dv">40</span>)))</a></code></pre></div>
 <p>Un altre cop, la mitjana d’aquest vector de mitjanes hauria de ser propera a la mitjana de la població original, que era 55.43:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">round</span>(<span class="kw">mean</span>(mitjanes.norep),<span class="dv">2</span>)</code></pre>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb48-1" data-line-number="1"><span class="kw">round</span>(<span class="kw">mean</span>(mitjanes.norep),<span class="dv">2</span>)</a></code></pre></div>
 <pre><code>## [1] 55.42</code></pre>
 <p>Calculem ara la desviació típica d’aquest vector de mitjanes:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">round</span>(<span class="kw">sd</span>(mitjanes.norep),<span class="dv">2</span>)</code></pre>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb50-1" data-line-number="1"><span class="kw">round</span>(<span class="kw">sd</span>(mitjanes.norep),<span class="dv">2</span>)</a></code></pre></div>
 <pre><code>## [1] 3</code></pre>
 <p>Aquesta desviació típica no s’apropa a la desviació típica de la població partida per l’arrel quadrada de la mida de les mostres, que hem calculat abans i era 3.39.</p>
 <p>Pel que acabam d’explicar, la desviació típica d’aquest vector de mitjanes de mostres sense reposició hauria de ser molt propera a la desviació típica de la població partida per l’arrel quadrada de la mida de les mostres <em>i tot multiplicat pel factor de població finita</em> <span class="math inline">\(\sqrt{(N-n)/(N-1)}\)</span>, on <span class="math inline">\(N\)</span> és la mida de la població, és a dir, la longitud del vector <code>tests</code>, i <span class="math inline">\(n\)</span> la mida de les mostres. Vegem si és veritat:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">round</span>((<span class="kw">sd</span>(tests)<span class="op">/</span><span class="kw">sqrt</span>(n))<span class="op">*</span><span class="kw">sqrt</span>((N<span class="op">-</span>n)<span class="op">/</span>(N<span class="dv">-1</span>)),<span class="dv">2</span>)</code></pre>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb52-1" data-line-number="1"><span class="kw">round</span>((<span class="kw">sd</span>(tests)<span class="op">/</span><span class="kw">sqrt</span>(n))<span class="op">*</span><span class="kw">sqrt</span>((N<span class="op">-</span>n)<span class="op">/</span>(N<span class="dv">-1</span>)),<span class="dv">2</span>)</a></code></pre></div>
 <pre><code>## [1] 3.01</code></pre>
 <p>Això ja s’acosta més a la desviació típica del vector de mitjanes de mostres sense reposició, que ha valgut 3.</p>
 </div>
@@ -636,7 +634,7 @@ i per tant
 <li><p>En particular, <span class="math inline">\(\widehat{p}_X\)</span> serveix per estimar <span class="math inline">\(p_X\)</span></p></li>
 <li><p><span class="math inline">\(\sigma_{\widehat{p}_X}= \sqrt{{p_X(1-p_X)}/{n}}\)</span>: la variabilitat dels resultats de <span class="math inline">\(\widehat{p}_X\)</span> decreix amb <span class="math inline">\(n\)</span> i tendeix a 0 quan <span class="math inline">\(n\to \infty\)</span>. Pel que fa a la dependència de <span class="math inline">\(\sigma_{\widehat{p}_X}\)</span> respecte de <span class="math inline">\(p_X\)</span> si la <span class="math inline">\(n\)</span> és fixada, observau al gràfic següent que <span class="math inline">\(\sqrt{p_X(1-p_X)}\)</span> creix entre 0 i 0.5 i decreix entre 0.5 i 1, assolint el valor màxim a <span class="math inline">\(p_X=0.5\)</span>.</p></li>
 </ul>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">curve</span>(<span class="kw">sqrt</span>(x<span class="op">*</span>(<span class="dv">1</span><span class="op">-</span>x)),<span class="dt">xlab=</span><span class="st">&quot;p&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;sqrt(p*(1-p))&quot;</span>,<span class="dt">lwd=</span><span class="dv">2</span>)</code></pre>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb54-1" data-line-number="1"><span class="kw">curve</span>(<span class="kw">sqrt</span>(x<span class="op">*</span>(<span class="dv">1</span><span class="op">-</span>x)),<span class="dt">xlab=</span><span class="st">&quot;p&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;sqrt(p*(1-p))&quot;</span>,<span class="dt">lwd=</span><span class="dv">2</span>)</a></code></pre></div>
 <p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-85-1.png" width="60%" style="display: block; margin: auto;" /></p>
 <ul>
 <li><p><span class="math inline">\(\sqrt{{p_X(1-p_X)}/{n}}\)</span> és l’<strong>error típic</strong> de <span class="math inline">\(\widehat{p}_X\)</span>. L’estimam amb l’<strong>error típic de l’estimació</strong> <span class="math inline">\(\sqrt{{\widehat{p}_X(1-\widehat{p}_X)}/{n}}\)</span>.</p></li>
@@ -647,38 +645,38 @@ i per tant
 <p><span id="exm:unnamed-chunk-86" class="example"><strong>Exemple 2.10  </strong></span>Tornem una altra vegada a la situació dels Exemples <a href="estimacio-puntual.html#exm:experimentTCL1">2.5</a> i <a href="estimacio-puntual.html#exm:experimentTCL2">2.7</a>. Vaig a traduir el fitxer de notes de tests en un vector binari: 0 per suspens (haver tret menys de 50) i 1 per aprovat (haver tret 50 o més):</p>
 </div>
 
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Iniciam totes les notes a 1</span>
-aprovs=<span class="kw">rep</span>(<span class="dv">1</span>,<span class="kw">length</span>(tests))
-<span class="co"># Posam 0 on la nota del test és suspesa</span>
-aprovs[<span class="kw">which</span>(tests<span class="op">&lt;</span><span class="dv">50</span>)]=<span class="dv">0</span></code></pre>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb55-1" data-line-number="1"><span class="co"># Iniciam totes les notes a 1</span></a>
+<a class="sourceLine" id="cb55-2" data-line-number="2">aprovs=<span class="kw">rep</span>(<span class="dv">1</span>,<span class="kw">length</span>(tests))</a>
+<a class="sourceLine" id="cb55-3" data-line-number="3"><span class="co"># Posam 0 on la nota del test és suspesa</span></a>
+<a class="sourceLine" id="cb55-4" data-line-number="4">aprovs[<span class="kw">which</span>(tests<span class="op">&lt;</span><span class="dv">50</span>)]=<span class="dv">0</span></a></code></pre></div>
 <p>Aquest vector <code>aprovs</code> el podem entendre com una població de Bernoulli de probabilitat poblacional d’èxit (aprovat) <span class="math inline">\(p_X\)</span>.
 Les proporcions de suspesos i aprovats són:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">round</span>(<span class="kw">prop.table</span>(<span class="kw">table</span>(aprovs)),<span class="dv">4</span>) </code></pre>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb56-1" data-line-number="1"><span class="kw">round</span>(<span class="kw">prop.table</span>(<span class="kw">table</span>(aprovs)),<span class="dv">4</span>) </a></code></pre></div>
 <pre><code>## aprovs
 ##      0      1 
 ## 0.4054 0.5946</code></pre>
 <p>Per tant, <span class="math inline">\(p_X\)</span> és:</p>
-<pre class="sourceCode r"><code class="sourceCode r">p_X=<span class="kw">as.numeric</span>(<span class="kw">prop.table</span>(<span class="kw">table</span>(aprovs))[<span class="dv">2</span>])
-<span class="kw">round</span>(p_X,<span class="dv">4</span>)</code></pre>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb58-1" data-line-number="1">p_X=<span class="kw">as.numeric</span>(<span class="kw">prop.table</span>(<span class="kw">table</span>(aprovs))[<span class="dv">2</span>])</a>
+<a class="sourceLine" id="cb58-2" data-line-number="2"><span class="kw">round</span>(p_X,<span class="dv">4</span>)</a></code></pre></div>
 <pre><code>## [1] 0.5946</code></pre>
 <p>Ara n’extreurem 10<sup>5</sup> mostres aleatòries simples de mida 40, en calcularem les proporcions mostrals d’aprovats i comprovarem si es confirmen les conclusions del teorema anterior.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">100</span>)
-props.mostrals=<span class="kw">replicate</span>(<span class="dv">10</span><span class="op">^</span><span class="dv">5</span>,<span class="kw">mean</span>(<span class="kw">sample</span>(aprovs,<span class="dv">40</span>,<span class="dt">rep=</span><span class="ot">TRUE</span>)))</code></pre>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb60-1" data-line-number="1"><span class="kw">set.seed</span>(<span class="dv">100</span>)</a>
+<a class="sourceLine" id="cb60-2" data-line-number="2">props.mostrals=<span class="kw">replicate</span>(<span class="dv">10</span><span class="op">^</span><span class="dv">5</span>,<span class="kw">mean</span>(<span class="kw">sample</span>(aprovs,<span class="dv">40</span>,<span class="dt">rep=</span><span class="ot">TRUE</span>)))</a></code></pre></div>
 <p>La mitjana d’aquest vector de proporcions hauria de ser propera a la proporció poblacional d’aprovats <span class="math inline">\(p_X=0.5946\)</span>.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">round</span>(<span class="kw">mean</span>(props.mostrals),<span class="dv">4</span>)</code></pre>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb61-1" data-line-number="1"><span class="kw">round</span>(<span class="kw">mean</span>(props.mostrals),<span class="dv">4</span>)</a></code></pre></div>
 <pre><code>## [1] 0.5942</code></pre>
 <p>Vegem ara la seva desviació típica:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">round</span>(<span class="kw">sd</span>(props.mostrals),<span class="dv">4</span>)</code></pre>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb63-1" data-line-number="1"><span class="kw">round</span>(<span class="kw">sd</span>(props.mostrals),<span class="dv">4</span>)</a></code></pre></div>
 <pre><code>## [1] 0.0774</code></pre>
 <p>Pel Teorema <a href="estimacio-puntual.html#thm:pX">2.4</a>, sabem que això hauria de ser proper a <span class="math inline">\(\sqrt{p_X(1-p_X)/n}\)</span></p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">round</span>(<span class="kw">sqrt</span>(p_X<span class="op">*</span>(<span class="dv">1</span><span class="op">-</span>p_X)<span class="op">/</span><span class="dv">40</span>),<span class="dv">4</span>)</code></pre>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb65-1" data-line-number="1"><span class="kw">round</span>(<span class="kw">sqrt</span>(p_X<span class="op">*</span>(<span class="dv">1</span><span class="op">-</span>p_X)<span class="op">/</span><span class="dv">40</span>),<span class="dv">4</span>)</a></code></pre></div>
 <pre><code>## [1] 0.0776</code></pre>
 <p>I pel Teorema Central del Límit, aquestes proporcions mostrals haurien de seguir aproximadament una distribució normal $N(p_X,). Vegem-ho amb un histograma:</p>
-<pre class="sourceCode r"><code class="sourceCode r">fact.trans.p=<span class="kw">hist</span>(props.mostrals,<span class="dt">plot=</span><span class="ot">FALSE</span>)<span class="op">$</span>counts[<span class="dv">1</span>]<span class="op">/</span><span class="kw">hist</span>(props.mostrals,<span class="dt">plot=</span><span class="ot">FALSE</span>)<span class="op">$</span>density[<span class="dv">1</span>]
-<span class="kw">hist</span>(props.mostrals,<span class="dt">col=</span><span class="st">&quot;light blue&quot;</span>,<span class="dt">xlab=</span><span class="st">&quot;Proporcions mostrals&quot;</span>,
-     <span class="dt">ylab=</span><span class="st">&quot;Freqüències&quot;</span>,<span class="dt">main=</span><span class="st">&quot;Histograma de la mostra de proporcions&quot;</span>)
-<span class="kw">curve</span>(fact.trans.p<span class="op">*</span><span class="kw">dnorm</span>(x,p_X,<span class="kw">sqrt</span>(p_X<span class="op">*</span>(<span class="dv">1</span><span class="op">-</span>p_X)<span class="op">/</span><span class="dv">40</span>)),
-      <span class="dt">col=</span><span class="st">&quot;red&quot;</span>,<span class="dt">lwd=</span><span class="dv">2</span>,<span class="dt">add=</span><span class="ot">TRUE</span>)</code></pre>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb67-1" data-line-number="1">fact.trans.p=<span class="kw">hist</span>(props.mostrals,<span class="dt">plot=</span><span class="ot">FALSE</span>)<span class="op">$</span>counts[<span class="dv">1</span>]<span class="op">/</span><span class="kw">hist</span>(props.mostrals,<span class="dt">plot=</span><span class="ot">FALSE</span>)<span class="op">$</span>density[<span class="dv">1</span>]</a>
+<a class="sourceLine" id="cb67-2" data-line-number="2"><span class="kw">hist</span>(props.mostrals,<span class="dt">col=</span><span class="st">&quot;light blue&quot;</span>,<span class="dt">xlab=</span><span class="st">&quot;Proporcions mostrals&quot;</span>,</a>
+<a class="sourceLine" id="cb67-3" data-line-number="3">     <span class="dt">ylab=</span><span class="st">&quot;Freqüències&quot;</span>,<span class="dt">main=</span><span class="st">&quot;Histograma de la mostra de proporcions&quot;</span>)</a>
+<a class="sourceLine" id="cb67-4" data-line-number="4"><span class="kw">curve</span>(fact.trans.p<span class="op">*</span><span class="kw">dnorm</span>(x,p_X,<span class="kw">sqrt</span>(p_X<span class="op">*</span>(<span class="dv">1</span><span class="op">-</span>p_X)<span class="op">/</span><span class="dv">40</span>)),</a>
+<a class="sourceLine" id="cb67-5" data-line-number="5">      <span class="dt">col=</span><span class="st">&quot;red&quot;</span>,<span class="dt">lwd=</span><span class="dv">2</span>,<span class="dt">add=</span><span class="ot">TRUE</span>)</a></code></pre></div>
 <p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-94-1.png" width="60%" style="display: block; margin: auto;" /></p>
 <p>I això que la mida de les mostres, 40, no és especialment gran.</p>
 
@@ -695,11 +693,11 @@ props.mostrals=<span class="kw">replicate</span>(<span class="dv">10</span><span
 \sigma=\sqrt{\dfrac{0.591(1-0.591)}{60}}=0.0635
 \]</span>
 Per tant, la probabilitat que <span class="math inline">\(\widehat{p}_X\geqslant 0.6667\)</span> és (recordau, aproximadament)</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">round</span>(<span class="dv">1</span><span class="op">-</span><span class="kw">pnorm</span>(<span class="fl">0.6667</span>,<span class="fl">0.591</span>,<span class="fl">0.0635</span>),<span class="dv">4</span>)</code></pre>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb68-1" data-line-number="1"><span class="kw">round</span>(<span class="dv">1</span><span class="op">-</span><span class="kw">pnorm</span>(<span class="fl">0.6667</span>,<span class="fl">0.591</span>,<span class="fl">0.0635</span>),<span class="dv">4</span>)</a></code></pre></div>
 <pre><code>## [1] 0.1166</code></pre>
 <p>Això ens diu que, de mitjana, aproximadament 1 de cada 9 mostres aleatòries simples de 60 estudiants de la UIB conté almenys 40 dones.</p>
 <p>Naturalment, si tenim R o qualsevol altra manera de calcular probabilitats, també podem fer servir la distribució binomial per calcular aquesta probabilitat, i de fet és més correcte, ja que la probabilitat anterior ha emprat una aproximació de la distribució de <span class="math inline">\(\widehat{p}_X\)</span> i en canvi sabem que el nombre <span class="math inline">\(S_{60}\)</span> de dones en mostres aleatòries simples de 60 estudiants de la UIB segueix de manera exacta una distribució binomial <span class="math inline">\(B(60,0.591)\)</span>. Com que el 66.67% de la pregunta en realitat representa 40 dones, la probabilitat exacta demanada és</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">round</span>(<span class="dv">1</span><span class="op">-</span><span class="kw">pbinom</span>(<span class="dv">39</span>,<span class="dv">60</span>,<span class="fl">0.591</span>),<span class="dv">4</span>)</code></pre>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb70-1" data-line-number="1"><span class="kw">round</span>(<span class="dv">1</span><span class="op">-</span><span class="kw">pbinom</span>(<span class="dv">39</span>,<span class="dv">60</span>,<span class="fl">0.591</span>),<span class="dv">4</span>)</a></code></pre></div>
 <pre><code>## [1] 0.1441</code></pre>
 
 <div class="rmdcaution">
@@ -771,19 +769,19 @@ té distribució <span class="math inline">\(\chi_n^2\)</span>.</p></li>
 <li><p>Si <span class="math inline">\(X\)</span> és una variable aleatòria amb distribució <span class="math inline">\(\chi_n^2\)</span>, aleshores <span class="math inline">\(\mu_X=n\)</span> i <span class="math inline">\(\sigma_X^2=2 n\)</span></p></li>
 <li><p>Per a <span class="math inline">\(n\)</span> petits, la distribució d’una <span class="math inline">\(\chi_{n}^2\)</span> presenta una cua a la dreta, i a mida que <span class="math inline">\(n\)</span> creix, pel Teorema Central del Límit, es va aproximant a una distribució normal <span class="math inline">\(N(n,\sqrt{2n})\)</span>, com podeu veure als gràfics següents</p></li>
 </ul>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">curve</span>(<span class="kw">dchisq</span>(x,<span class="dv">1</span>),<span class="dt">col=</span><span class="dv">1</span>,<span class="dt">lwd=</span><span class="dv">2</span>,<span class="dt">xlim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">20</span>),<span class="dt">xlab=</span><span class="st">&quot;&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;&quot;</span>,<span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="fl">0.3</span>),<span class="dt">main=</span><span class="st">&quot;Algunes khi quadrat&quot;</span>)
-<span class="kw">curve</span>(<span class="kw">dchisq</span>(x,<span class="dv">2</span>),<span class="dt">col=</span><span class="dv">2</span>,<span class="dt">lwd=</span><span class="dv">2</span>,<span class="dt">add=</span><span class="ot">TRUE</span>)
-<span class="kw">curve</span>(<span class="kw">dchisq</span>(x,<span class="dv">3</span>),<span class="dt">col=</span><span class="dv">3</span>,<span class="dt">lwd=</span><span class="dv">2</span>,<span class="dt">add=</span><span class="ot">TRUE</span>)
-<span class="kw">curve</span>(<span class="kw">dchisq</span>(x,<span class="dv">4</span>),<span class="dt">col=</span><span class="dv">4</span>,<span class="dt">lwd=</span><span class="dv">2</span>,<span class="dt">add=</span><span class="ot">TRUE</span>)
-<span class="kw">curve</span>(<span class="kw">dchisq</span>(x,<span class="dv">5</span>),<span class="dt">col=</span><span class="dv">5</span>,<span class="dt">lwd=</span><span class="dv">2</span>,<span class="dt">add=</span><span class="ot">TRUE</span>)
-<span class="kw">curve</span>(<span class="kw">dchisq</span>(x,<span class="dv">10</span>),<span class="dt">col=</span><span class="dv">6</span>,<span class="dt">lwd=</span><span class="dv">2</span>,<span class="dt">add=</span><span class="ot">TRUE</span>)
-<span class="kw">legend</span>(<span class="st">&quot;topright&quot;</span>,<span class="dt">col=</span><span class="dv">1</span><span class="op">:</span><span class="dv">6</span>,<span class="dt">lty=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>),
-       <span class="dt">lwd=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">2</span>),<span class="dt">legend=</span><span class="kw">paste</span>(<span class="st">&quot;n=&quot;</span>,<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>,<span class="dv">10</span>),<span class="dt">sep=</span><span class="st">&quot;&quot;</span>),<span class="dt">cex=</span><span class="fl">0.8</span>)</code></pre>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb72-1" data-line-number="1"><span class="kw">curve</span>(<span class="kw">dchisq</span>(x,<span class="dv">1</span>),<span class="dt">col=</span><span class="dv">1</span>,<span class="dt">lwd=</span><span class="dv">2</span>,<span class="dt">xlim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">20</span>),<span class="dt">xlab=</span><span class="st">&quot;&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;&quot;</span>,<span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="fl">0.3</span>),<span class="dt">main=</span><span class="st">&quot;Algunes khi quadrat&quot;</span>)</a>
+<a class="sourceLine" id="cb72-2" data-line-number="2"><span class="kw">curve</span>(<span class="kw">dchisq</span>(x,<span class="dv">2</span>),<span class="dt">col=</span><span class="dv">2</span>,<span class="dt">lwd=</span><span class="dv">2</span>,<span class="dt">add=</span><span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb72-3" data-line-number="3"><span class="kw">curve</span>(<span class="kw">dchisq</span>(x,<span class="dv">3</span>),<span class="dt">col=</span><span class="dv">3</span>,<span class="dt">lwd=</span><span class="dv">2</span>,<span class="dt">add=</span><span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb72-4" data-line-number="4"><span class="kw">curve</span>(<span class="kw">dchisq</span>(x,<span class="dv">4</span>),<span class="dt">col=</span><span class="dv">4</span>,<span class="dt">lwd=</span><span class="dv">2</span>,<span class="dt">add=</span><span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb72-5" data-line-number="5"><span class="kw">curve</span>(<span class="kw">dchisq</span>(x,<span class="dv">5</span>),<span class="dt">col=</span><span class="dv">5</span>,<span class="dt">lwd=</span><span class="dv">2</span>,<span class="dt">add=</span><span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb72-6" data-line-number="6"><span class="kw">curve</span>(<span class="kw">dchisq</span>(x,<span class="dv">10</span>),<span class="dt">col=</span><span class="dv">6</span>,<span class="dt">lwd=</span><span class="dv">2</span>,<span class="dt">add=</span><span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb72-7" data-line-number="7"><span class="kw">legend</span>(<span class="st">&quot;topright&quot;</span>,<span class="dt">col=</span><span class="dv">1</span><span class="op">:</span><span class="dv">6</span>,<span class="dt">lty=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>),</a>
+<a class="sourceLine" id="cb72-8" data-line-number="8">       <span class="dt">lwd=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">2</span>),<span class="dt">legend=</span><span class="kw">paste</span>(<span class="st">&quot;n=&quot;</span>,<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>,<span class="dv">10</span>),<span class="dt">sep=</span><span class="st">&quot;&quot;</span>),<span class="dt">cex=</span><span class="fl">0.8</span>)</a></code></pre></div>
 <p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-102-1.png" width="60%" style="display: block; margin: auto;" /></p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">curve</span>(<span class="kw">dchisq</span>(x,<span class="dv">300</span>),<span class="dt">xlim=</span><span class="kw">c</span>(<span class="dv">150</span>,<span class="dv">450</span>),<span class="dt">lwd=</span><span class="dv">2</span>,<span class="dt">xlab=</span><span class="st">&quot;&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;&quot;</span>,<span class="dt">main=</span><span class="st">&quot;Khi quadrat vs Normal&quot;</span>)
-<span class="kw">curve</span>(<span class="kw">dnorm</span>(x,<span class="dv">300</span>,<span class="kw">sqrt</span>(<span class="dv">600</span>)),<span class="dt">lwd=</span><span class="dv">2</span>,<span class="dt">col=</span><span class="st">&quot;red&quot;</span>,<span class="dt">add=</span><span class="ot">TRUE</span>)
-<span class="kw">legend</span>(<span class="st">&quot;topleft&quot;</span>,<span class="dt">col=</span><span class="kw">c</span>(<span class="st">&quot;black&quot;</span>,<span class="st">&quot;red&quot;</span>),<span class="dt">lty=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>),
-       <span class="dt">lwd=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">2</span>),<span class="dt">legend=</span><span class="kw">c</span>(<span class="st">&quot;Khi quadrat amb n=300&quot;</span>,<span class="st">&quot;Normal&quot;</span>),<span class="dt">cex=</span><span class="fl">0.7</span>)</code></pre>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb73-1" data-line-number="1"><span class="kw">curve</span>(<span class="kw">dchisq</span>(x,<span class="dv">300</span>),<span class="dt">xlim=</span><span class="kw">c</span>(<span class="dv">150</span>,<span class="dv">450</span>),<span class="dt">lwd=</span><span class="dv">2</span>,<span class="dt">xlab=</span><span class="st">&quot;&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;&quot;</span>,<span class="dt">main=</span><span class="st">&quot;Khi quadrat vs Normal&quot;</span>)</a>
+<a class="sourceLine" id="cb73-2" data-line-number="2"><span class="kw">curve</span>(<span class="kw">dnorm</span>(x,<span class="dv">300</span>,<span class="kw">sqrt</span>(<span class="dv">600</span>)),<span class="dt">lwd=</span><span class="dv">2</span>,<span class="dt">col=</span><span class="st">&quot;red&quot;</span>,<span class="dt">add=</span><span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb73-3" data-line-number="3"><span class="kw">legend</span>(<span class="st">&quot;topleft&quot;</span>,<span class="dt">col=</span><span class="kw">c</span>(<span class="st">&quot;black&quot;</span>,<span class="st">&quot;red&quot;</span>),<span class="dt">lty=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>),</a>
+<a class="sourceLine" id="cb73-4" data-line-number="4">       <span class="dt">lwd=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">2</span>),<span class="dt">legend=</span><span class="kw">c</span>(<span class="st">&quot;Khi quadrat amb n=300&quot;</span>,<span class="st">&quot;Normal&quot;</span>),<span class="dt">cex=</span><span class="fl">0.7</span>)</a></code></pre></div>
 <p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-103-1.png" width="60%" style="display: block; margin: auto;" /></p>
 <p>Tornem un instant a això dels <em>graus de llibertat</em>. Per què diem que la variància (mostral o a seques) té <span class="math inline">\(n-1\)</span> graus de llibertat?</p>
 <p>Doncs perquè si volem construir un conjunt de <span class="math inline">\(n\)</span> nombres <span class="math inline">\(x_1,\ldots,x_n\)</span> que tenguin variància un valor donat, posem <span class="math inline">\(y_0\)</span>, aleshores en principi podem escollir <span class="math inline">\(n-1\)</span> d’ells, <span class="math inline">\(x_1,\ldots,x_{n-1}\)</span>, com volguem i aleshores el darrer, <span class="math inline">\(x_n\)</span>, queda bastant fixat. En matemàtiques això se sol expressar dient que “tenim <span class="math inline">\(n-1\)</span> graus de llibertat a l’hora d’escollir <span class="math inline">\(x_1,\ldots,x_n\)</span> amb variància fixada <span class="math inline">\(y_0\)</span>”.</p>
@@ -844,21 +842,21 @@ P(T_{n}\leqslant-x)=P(T_{n}\geqslant x)=1-P(T_{n}\leqslant x)
 \]</span></p></li>
 <li><p>Si <span class="math inline">\(n\)</span> és gran, la distribució d’una variable <span class="math inline">\(T_{n}\)</span> amb distribució <span class="math inline">\(t_{n}\)</span> és aproximadament la d’una <span class="math inline">\(N(0,1)\)</span> (però amb més variància: un poc més aplatada), com podeu veure als gràfics següents:</p></li>
 </ul>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">curve</span>(<span class="kw">dnorm</span>(x),<span class="dt">col=</span><span class="dv">1</span>,<span class="dt">lwd=</span><span class="dv">2</span>,<span class="dt">xlim=</span><span class="kw">c</span>(<span class="op">-</span><span class="dv">4</span>,<span class="dv">4</span>),<span class="dt">xlab=</span><span class="st">&quot;&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;&quot;</span>,<span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="fl">0.4</span>),
-      <span class="dt">main=</span><span class="st">&quot;Algunes t de Student&quot;</span>)
-<span class="kw">curve</span>(<span class="kw">dt</span>(x,<span class="dv">2</span>),<span class="dt">col=</span><span class="dv">2</span>,<span class="dt">lwd=</span><span class="dv">2</span>,<span class="dt">add=</span><span class="ot">TRUE</span>)
-<span class="kw">curve</span>(<span class="kw">dt</span>(x,<span class="dv">3</span>),<span class="dt">col=</span><span class="dv">3</span>,<span class="dt">lwd=</span><span class="dv">2</span>,<span class="dt">add=</span><span class="ot">TRUE</span>)
-<span class="kw">curve</span>(<span class="kw">dt</span>(x,<span class="dv">4</span>),<span class="dt">col=</span><span class="dv">4</span>,<span class="dt">lwd=</span><span class="dv">2</span>,<span class="dt">add=</span><span class="ot">TRUE</span>)
-<span class="kw">curve</span>(<span class="kw">dt</span>(x,<span class="dv">5</span>),<span class="dt">col=</span><span class="dv">5</span>,<span class="dt">lwd=</span><span class="dv">2</span>,<span class="dt">add=</span><span class="ot">TRUE</span>)
-<span class="kw">curve</span>(<span class="kw">dt</span>(x,<span class="dv">10</span>),<span class="dt">col=</span><span class="dv">6</span>,<span class="dt">lwd=</span><span class="dv">2</span>,<span class="dt">add=</span><span class="ot">TRUE</span>)
-<span class="kw">legend</span>(<span class="st">&quot;topleft&quot;</span>,<span class="dt">col=</span><span class="dv">1</span><span class="op">:</span><span class="dv">6</span>,<span class="dt">lty=</span><span class="kw">rep</span>(<span class="dv">1</span>,<span class="dv">6</span>), <span class="dt">lwd=</span><span class="kw">rep</span>(<span class="dv">2</span>,<span class="dv">6</span>),
-<span class="dt">legend=</span><span class="kw">c</span>(<span class="st">&quot;Normal estàndard&quot;</span>, <span class="kw">paste</span>(<span class="st">&quot;Student amb g.l.=&quot;</span>,<span class="kw">c</span>(<span class="dv">2</span><span class="op">:</span><span class="dv">5</span>,<span class="dv">10</span>),<span class="dt">sep=</span><span class="st">&quot;&quot;</span>)),<span class="dt">cex=</span><span class="fl">0.7</span>)</code></pre>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb74-1" data-line-number="1"><span class="kw">curve</span>(<span class="kw">dnorm</span>(x),<span class="dt">col=</span><span class="dv">1</span>,<span class="dt">lwd=</span><span class="dv">2</span>,<span class="dt">xlim=</span><span class="kw">c</span>(<span class="op">-</span><span class="dv">4</span>,<span class="dv">4</span>),<span class="dt">xlab=</span><span class="st">&quot;&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;&quot;</span>,<span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="fl">0.4</span>),</a>
+<a class="sourceLine" id="cb74-2" data-line-number="2">      <span class="dt">main=</span><span class="st">&quot;Algunes t de Student&quot;</span>)</a>
+<a class="sourceLine" id="cb74-3" data-line-number="3"><span class="kw">curve</span>(<span class="kw">dt</span>(x,<span class="dv">2</span>),<span class="dt">col=</span><span class="dv">2</span>,<span class="dt">lwd=</span><span class="dv">2</span>,<span class="dt">add=</span><span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb74-4" data-line-number="4"><span class="kw">curve</span>(<span class="kw">dt</span>(x,<span class="dv">3</span>),<span class="dt">col=</span><span class="dv">3</span>,<span class="dt">lwd=</span><span class="dv">2</span>,<span class="dt">add=</span><span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb74-5" data-line-number="5"><span class="kw">curve</span>(<span class="kw">dt</span>(x,<span class="dv">4</span>),<span class="dt">col=</span><span class="dv">4</span>,<span class="dt">lwd=</span><span class="dv">2</span>,<span class="dt">add=</span><span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb74-6" data-line-number="6"><span class="kw">curve</span>(<span class="kw">dt</span>(x,<span class="dv">5</span>),<span class="dt">col=</span><span class="dv">5</span>,<span class="dt">lwd=</span><span class="dv">2</span>,<span class="dt">add=</span><span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb74-7" data-line-number="7"><span class="kw">curve</span>(<span class="kw">dt</span>(x,<span class="dv">10</span>),<span class="dt">col=</span><span class="dv">6</span>,<span class="dt">lwd=</span><span class="dv">2</span>,<span class="dt">add=</span><span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb74-8" data-line-number="8"><span class="kw">legend</span>(<span class="st">&quot;topleft&quot;</span>,<span class="dt">col=</span><span class="dv">1</span><span class="op">:</span><span class="dv">6</span>,<span class="dt">lty=</span><span class="kw">rep</span>(<span class="dv">1</span>,<span class="dv">6</span>), <span class="dt">lwd=</span><span class="kw">rep</span>(<span class="dv">2</span>,<span class="dv">6</span>),</a>
+<a class="sourceLine" id="cb74-9" data-line-number="9"><span class="dt">legend=</span><span class="kw">c</span>(<span class="st">&quot;Normal estàndard&quot;</span>, <span class="kw">paste</span>(<span class="st">&quot;Student amb g.l.=&quot;</span>,<span class="kw">c</span>(<span class="dv">2</span><span class="op">:</span><span class="dv">5</span>,<span class="dv">10</span>),<span class="dt">sep=</span><span class="st">&quot;&quot;</span>)),<span class="dt">cex=</span><span class="fl">0.7</span>)</a></code></pre></div>
 <p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-107-1.png" width="60%" style="display: block; margin: auto;" /></p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">curve</span>(<span class="kw">dnorm</span>(x),<span class="dt">col=</span><span class="dv">1</span>,<span class="dt">lwd=</span><span class="dv">2</span>,<span class="dt">xlim=</span><span class="kw">c</span>(<span class="op">-</span><span class="dv">4</span>,<span class="dv">4</span>),<span class="dt">xlab=</span><span class="st">&quot;&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;&quot;</span>,<span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="fl">0.4</span>),
-      <span class="dt">main=</span><span class="st">&quot;t vs Normal estàndard&quot;</span>)
-<span class="kw">curve</span>(<span class="kw">dt</span>(x,<span class="dv">50</span>),<span class="dt">col=</span><span class="dv">2</span>,<span class="dt">lwd=</span><span class="dv">2</span>,<span class="dt">add=</span><span class="ot">TRUE</span>)
-<span class="kw">legend</span>(<span class="st">&quot;topleft&quot;</span>,<span class="dt">col=</span><span class="dv">1</span><span class="op">:</span><span class="dv">2</span>,<span class="dt">lty=</span><span class="kw">rep</span>(<span class="dv">1</span>,<span class="dv">2</span>), <span class="dt">lwd=</span><span class="kw">rep</span>(<span class="dv">2</span>,<span class="dv">2</span>),
-       <span class="dt">legend=</span><span class="kw">c</span>(<span class="st">&quot;Normal estàndard&quot;</span>, <span class="st">&quot;Student amb g.l.=50&quot;</span>),<span class="dt">cex=</span><span class="fl">0.7</span>)</code></pre>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb75-1" data-line-number="1"><span class="kw">curve</span>(<span class="kw">dnorm</span>(x),<span class="dt">col=</span><span class="dv">1</span>,<span class="dt">lwd=</span><span class="dv">2</span>,<span class="dt">xlim=</span><span class="kw">c</span>(<span class="op">-</span><span class="dv">4</span>,<span class="dv">4</span>),<span class="dt">xlab=</span><span class="st">&quot;&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;&quot;</span>,<span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="fl">0.4</span>),</a>
+<a class="sourceLine" id="cb75-2" data-line-number="2">      <span class="dt">main=</span><span class="st">&quot;t vs Normal estàndard&quot;</span>)</a>
+<a class="sourceLine" id="cb75-3" data-line-number="3"><span class="kw">curve</span>(<span class="kw">dt</span>(x,<span class="dv">50</span>),<span class="dt">col=</span><span class="dv">2</span>,<span class="dt">lwd=</span><span class="dv">2</span>,<span class="dt">add=</span><span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb75-4" data-line-number="4"><span class="kw">legend</span>(<span class="st">&quot;topleft&quot;</span>,<span class="dt">col=</span><span class="dv">1</span><span class="op">:</span><span class="dv">2</span>,<span class="dt">lty=</span><span class="kw">rep</span>(<span class="dv">1</span>,<span class="dv">2</span>), <span class="dt">lwd=</span><span class="kw">rep</span>(<span class="dv">2</span>,<span class="dv">2</span>),</a>
+<a class="sourceLine" id="cb75-5" data-line-number="5">       <span class="dt">legend=</span><span class="kw">c</span>(<span class="st">&quot;Normal estàndard&quot;</span>, <span class="st">&quot;Student amb g.l.=50&quot;</span>),<span class="dt">cex=</span><span class="fl">0.7</span>)</a></code></pre></div>
 <p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-108-1.png" width="60%" style="display: block; margin: auto;" /></p>
 <p>El fet que una t de Student sigui més aplatada que una normal estàndard <span class="math inline">\(Z\)</span> implica que les cues de la t tenen major probabilitat que les de <span class="math inline">\(Z\)</span> (fixau-vos que als gràfics anteriors els extrems de les densitats de les t estan per damunt dels de la de <span class="math inline">\(Z\)</span>), la qual cosa es tradueix en el fet que és més probable obtenir valors lluny del 0 amb una t de Student que amb una <span class="math inline">\(N(0,1)\)</span>.</p>
 <p>Indicarem amb <span class="math inline">\(t_{n,q}\)</span> el <span class="math inline">\(q\)</span>-quantil d’una variable aleatòria <span class="math inline">\(T_{n}\)</span> que segueix una distribució <span class="math inline">\(t_n\)</span>. És a dir, <span class="math inline">\(t_{n,q}\)</span> és el valor tal que
@@ -874,9 +872,9 @@ t_{n,q}=-t_{n,1-q}.
 <ul>
 <li><span class="math inline">\(t_{n ,q}\approx z_{q}\)</span> si <span class="math inline">\(n\)</span> és molt gran, posem <span class="math inline">\(n \geqslant 200\)</span>. Per exemple</li>
 </ul>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">qt</span>(<span class="fl">0.975</span>,<span class="dv">300</span>) <span class="co"># t_{300,0.975}</span></code></pre>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb76-1" data-line-number="1"><span class="kw">qt</span>(<span class="fl">0.975</span>,<span class="dv">300</span>) <span class="co"># t_{300,0.975}</span></a></code></pre></div>
 <pre><code>## [1] 1.967903</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">qnorm</span>(<span class="fl">0.975</span>)  <span class="co"># z_0.975</span></code></pre>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb78-1" data-line-number="1"><span class="kw">qnorm</span>(<span class="fl">0.975</span>)  <span class="co"># z_0.975</span></a></code></pre></div>
 <pre><code>## [1] 1.959964</code></pre>
 <ul>
 <li><p><span class="math inline">\(t_{n,0.95}\)</span> (per a <span class="math inline">\(10\leqslant n\leqslant 200\)</span>) està entre 1.65 i 1.8; ho podeu aproximar <span class="math inline">\(t_{n,0.95}\approx 1.7\)</span></p></li>
@@ -1030,9 +1028,9 @@ D’això darrer no en sabem trobar el màxim sense alguna hipòtesi sobre la di
 Per fer-ho, assegut en un bar del Passeig Marítim vaig apuntar les llicències dels 40 primers taxis que passaren. Els entraré directament en un vector de R.</p>
 </div>
 
-<pre class="sourceCode r"><code class="sourceCode r">taxis=<span class="kw">c</span>(<span class="dv">1217</span>,<span class="dv">600</span>,<span class="dv">883</span>,<span class="dv">1026</span>,<span class="dv">150</span>,<span class="dv">715</span>,<span class="dv">297</span>,<span class="dv">137</span>,<span class="dv">508</span>,<span class="dv">134</span>,<span class="dv">38</span>,<span class="dv">961</span>,<span class="dv">538</span>,<span class="dv">1154</span>,<span class="dv">314</span>,<span class="dv">1121</span>,<span class="dv">823</span>,<span class="dv">158</span>,<span class="dv">940</span>,<span class="dv">99</span>,
-  <span class="dv">977</span>,<span class="dv">286</span>,<span class="dv">1006</span>,<span class="dv">1207</span>,<span class="dv">264</span>,<span class="dv">1183</span>,<span class="dv">1120</span>,<span class="dv">498</span>,<span class="dv">606</span>,<span class="dv">566</span>,<span class="dv">1239</span>,<span class="dv">860</span>,<span class="dv">114</span>,<span class="dv">701</span>,<span class="dv">381</span>,<span class="dv">836</span>,<span class="dv">561</span>,<span class="dv">494</span>,<span class="dv">858</span>,<span class="dv">187</span>)
-<span class="kw">sort</span>(taxis)</code></pre>
+<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb80-1" data-line-number="1">taxis=<span class="kw">c</span>(<span class="dv">1217</span>,<span class="dv">600</span>,<span class="dv">883</span>,<span class="dv">1026</span>,<span class="dv">150</span>,<span class="dv">715</span>,<span class="dv">297</span>,<span class="dv">137</span>,<span class="dv">508</span>,<span class="dv">134</span>,<span class="dv">38</span>,<span class="dv">961</span>,<span class="dv">538</span>,<span class="dv">1154</span>,<span class="dv">314</span>,<span class="dv">1121</span>,<span class="dv">823</span>,<span class="dv">158</span>,<span class="dv">940</span>,<span class="dv">99</span>,</a>
+<a class="sourceLine" id="cb80-2" data-line-number="2">  <span class="dv">977</span>,<span class="dv">286</span>,<span class="dv">1006</span>,<span class="dv">1207</span>,<span class="dv">264</span>,<span class="dv">1183</span>,<span class="dv">1120</span>,<span class="dv">498</span>,<span class="dv">606</span>,<span class="dv">566</span>,<span class="dv">1239</span>,<span class="dv">860</span>,<span class="dv">114</span>,<span class="dv">701</span>,<span class="dv">381</span>,<span class="dv">836</span>,<span class="dv">561</span>,<span class="dv">494</span>,<span class="dv">858</span>,<span class="dv">187</span>)</a>
+<a class="sourceLine" id="cb80-3" data-line-number="3"><span class="kw">sort</span>(taxis)</a></code></pre></div>
 <pre><code>##  [1]   38   99  114  134  137  150  158  187  264  286  297  314  381  494
 ## [15]  498  508  538  561  566  600  606  701  715  823  836  858  860  883
 ## [29]  940  961  977 1006 1026 1120 1121 1154 1183 1207 1217 1239</code></pre>
@@ -1063,7 +1061,7 @@ i el que fa l’estimador <span class="math inline">\(\widehat{N}\)</span> és s
 <p><span id="exm:unnamed-chunk-123" class="example"><strong>Exemple 2.15  </strong></span>Continuem amb l’Exemple <a href="estimacio-puntual.html#exm:taxi1">2.14</a>. Emprant la fórmula anterior, obtenim</p>
 </div>
 
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">max</span>(taxis)<span class="op">+</span>(<span class="kw">max</span>(taxis)<span class="op">-</span><span class="kw">length</span>(taxis))<span class="op">/</span><span class="kw">length</span>(taxis)</code></pre>
+<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb82-1" data-line-number="1"><span class="kw">max</span>(taxis)<span class="op">+</span>(<span class="kw">max</span>(taxis)<span class="op">-</span><span class="kw">length</span>(taxis))<span class="op">/</span><span class="kw">length</span>(taxis)</a></code></pre></div>
 <pre><code>## [1] 1268.975</code></pre>
 <p>la qual cosa ens permet estimar que hi havia 1269 taxis a Palma.
 En realitat, consultant la web de l’Ajuntament, després vaig saber que en aquell moment n’hi havia 1246.</p>
@@ -1073,21 +1071,21 @@ En realitat, consultant la web de l’Ajuntament, després vaig saber que en aqu
 </div>
 
 <p>Perquè l’experiment sigui reproductible, fixarem la llavor d’aleatorietat, però perquè no cregueu que fem trampes amb aquesta llavor, el que farem serà generar a l’atzar la llavor d’aleatorietat amb la funció <code>sample</code>.</p>
-<pre class="sourceCode r"><code class="sourceCode r">Llavor=<span class="kw">sample</span>(<span class="dv">10000</span>,<span class="dv">1</span>)
-Llavor</code></pre>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb84-1" data-line-number="1">Llavor=<span class="kw">sample</span>(<span class="dv">10000</span>,<span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb84-2" data-line-number="2">Llavor</a></code></pre></div>
 <pre><code>## [1] 6283</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(Llavor)</code></pre>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb86-1" data-line-number="1"><span class="kw">set.seed</span>(Llavor)</a></code></pre></div>
 <p>Ara generam la mida N de la població com un nombre a l’atzar entre 5000 i 10000.</p>
-<pre class="sourceCode r"><code class="sourceCode r">N=<span class="kw">sample</span>(<span class="dv">5000</span><span class="op">:</span><span class="dv">10000</span>,<span class="dv">1</span>)</code></pre>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb87-1" data-line-number="1">N=<span class="kw">sample</span>(<span class="dv">5000</span><span class="op">:</span><span class="dv">10000</span>,<span class="dv">1</span>)</a></code></pre></div>
 <p>Suposarem per tant que hi ha N individus a la nostra població, numerats de l’1 a l’N. Ara generarem 100 mostres aleatòries sense reposició d’aquesta població, i ens quedarem amb la mida i el valor màxim de cada una d’elles, que és l’únic que necessitam saber. Les mides les generarem a l’atzar entre, posem, 25 i 75:</p>
-<pre class="sourceCode r"><code class="sourceCode r">Mostra=<span class="cf">function</span>(a,b,P){
-  <span class="co">#a i b: mides màxima i mínima de la mostra; P: mida de la població</span>
-  n=<span class="kw">sample</span>(a<span class="op">:</span>b,<span class="dv">1</span>)  <span class="co">#Mida de la mostra</span>
-  X=<span class="kw">sample</span>(P,n,<span class="dt">rep=</span><span class="ot">FALSE</span>)  <span class="co"># Mostra aleatòria </span>
-  <span class="kw">c</span>(n,<span class="kw">max</span>(X)) <span class="co">#Parell (mida, màxim)</span>
-}
-Mostres=<span class="kw">replicate</span>(<span class="dv">100</span>,<span class="kw">Mostra</span>(<span class="dv">25</span>,<span class="dv">75</span>,N))
-Mostres</code></pre>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb88-1" data-line-number="1">Mostra=<span class="cf">function</span>(a,b,P){</a>
+<a class="sourceLine" id="cb88-2" data-line-number="2">  <span class="co">#a i b: mides màxima i mínima de la mostra; P: mida de la població</span></a>
+<a class="sourceLine" id="cb88-3" data-line-number="3">  n=<span class="kw">sample</span>(a<span class="op">:</span>b,<span class="dv">1</span>)  <span class="co">#Mida de la mostra</span></a>
+<a class="sourceLine" id="cb88-4" data-line-number="4">  X=<span class="kw">sample</span>(P,n,<span class="dt">rep=</span><span class="ot">FALSE</span>)  <span class="co"># Mostra aleatòria </span></a>
+<a class="sourceLine" id="cb88-5" data-line-number="5">  <span class="kw">c</span>(n,<span class="kw">max</span>(X)) <span class="co">#Parell (mida, màxim)</span></a>
+<a class="sourceLine" id="cb88-6" data-line-number="6">}</a>
+<a class="sourceLine" id="cb88-7" data-line-number="7">Mostres=<span class="kw">replicate</span>(<span class="dv">100</span>,<span class="kw">Mostra</span>(<span class="dv">25</span>,<span class="dv">75</span>,N))</a>
+<a class="sourceLine" id="cb88-8" data-line-number="8">Mostres</a></code></pre></div>
 <pre><code>##      [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10] [,11] [,12] [,13]
 ## [1,]   67   42   75   67   39   69   26   30   30    46    34    50    59
 ## [2,] 6442 6320 6346 6403 5805 6410 6326 6398 6365  6354  6337  6371  5932
@@ -1116,8 +1114,8 @@ Mostres</code></pre>
 ## [1,]    37    39    63    65    66    68    64    36    55     32
 ## [2,]  6335  6285  6426  6437  6438  6403  6406  5954  6271   5993</code></pre>
 <p>En aquesta matriu <code>Mostres</code>, cada columna correspon a una mostra aleatòria: la primera filera és la seva mida <span class="math inline">\(n\)</span> i la segona filera el màxim <span class="math inline">\(m\)</span>. Ara, amb cada una d’aquestes mostres, podem estimar la mida N de la població per mitjà de la fórmula <span class="math inline">\(m+(m-n)/n\)</span>. Donarem aquestes estimacions ordenades de menor a major.</p>
-<pre class="sourceCode r"><code class="sourceCode r">Estimacions=Mostres[<span class="dv">2</span>,]<span class="op">+</span>(Mostres[<span class="dv">2</span>,]<span class="op">-</span>Mostres[<span class="dv">1</span>,])<span class="op">/</span>Mostres[<span class="dv">1</span>,]
-<span class="kw">round</span>(<span class="kw">sort</span>(Estimacions),<span class="dv">1</span>)</code></pre>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb90-1" data-line-number="1">Estimacions=Mostres[<span class="dv">2</span>,]<span class="op">+</span>(Mostres[<span class="dv">2</span>,]<span class="op">-</span>Mostres[<span class="dv">1</span>,])<span class="op">/</span>Mostres[<span class="dv">1</span>,]</a>
+<a class="sourceLine" id="cb90-2" data-line-number="2"><span class="kw">round</span>(<span class="kw">sort</span>(Estimacions),<span class="dv">1</span>)</a></code></pre></div>
 <pre><code>##   [1] 5794.2 5898.9 5935.3 5952.8 6020.1 6031.5 6118.4 6124.2 6130.2 6148.0
 ##  [11] 6179.3 6199.1 6215.4 6220.5 6294.4 6320.5 6325.5 6327.1 6327.6 6337.6
 ##  [21] 6356.6 6366.7 6372.0 6372.5 6377.9 6384.0 6387.1 6387.2 6387.3 6387.8
@@ -1128,13 +1126,13 @@ Mostres</code></pre>
 ##  [71] 6505.1 6505.2 6509.0 6511.7 6511.8 6520.4 6522.4 6524.5 6525.2 6527.0
 ##  [81] 6527.6 6528.6 6531.1 6533.1 6534.5 6535.0 6537.1 6537.1 6542.9 6547.4
 ##  [91] 6549.0 6559.6 6568.3 6575.4 6576.2 6606.2 6610.3 6619.7 6639.2 6648.8</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">hist</span>(Estimacions, <span class="dt">breaks=</span><span class="dv">20</span>,<span class="dt">col=</span><span class="st">&quot;light blue&quot;</span>,<span class="dt">xlab=</span><span class="st">&quot;Estimacions de N&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;Freqüències&quot;</span>,<span class="dt">main=</span><span class="st">&quot;&quot;</span>)</code></pre>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb92-1" data-line-number="1"><span class="kw">hist</span>(Estimacions, <span class="dt">breaks=</span><span class="dv">20</span>,<span class="dt">col=</span><span class="st">&quot;light blue&quot;</span>,<span class="dt">xlab=</span><span class="st">&quot;Estimacions de N&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;Freqüències&quot;</span>,<span class="dt">main=</span><span class="st">&quot;&quot;</span>)</a></code></pre></div>
 <p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-128-1.png" width="60%" style="display: block; margin: auto;" />
 Com veieu, obtenim estimacions que van de 5794.2 a 6648.8. La mitjana d’aquestes estimacions és</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">round</span>(<span class="kw">mean</span>(Estimacions),<span class="dv">1</span>)</code></pre>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb93-1" data-line-number="1"><span class="kw">round</span>(<span class="kw">mean</span>(Estimacions),<span class="dv">1</span>)</a></code></pre></div>
 <pre><code>## [1] 6415.9</code></pre>
 <p>És hora de descobrir el valor de N, per veure si ens hi hem fet a prop:</p>
-<pre class="sourceCode r"><code class="sourceCode r">N</code></pre>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb95-1" data-line-number="1">N</a></code></pre></div>
 <pre><code>## [1] 6442</code></pre>
 <p>No hem fet molt enfora, com veieu.</p>
 </div>
@@ -1167,14 +1165,14 @@ maximitza la probabilitat d’obtenir <span class="math inline">\(k\)</span> ind
 \]</span>
 Per tant, estimam que hi haurà entre 37 i 38 peixos al llac.</p>
 <p>En aquest cas podem comprovar la màxima versemblança d’aquesta estimació, calculant la probabilitat d’obtenir 4 individus marcats en una mostra aleatòria de 10 individus d’una població de <span class="math inline">\(N\)</span> individus on n’hi ha 15 de marcats i trobant la <span class="math inline">\(N\)</span> que maximitza aquesta probabilitat. Per fer-ho, recordem que si una població està formada per <span class="math inline">\(K\)</span> subjectes marcats i <span class="math inline">\(N-K\)</span> subjectes no marcats, el nombre de subjectes marcats en mostres aleatòries sense reposició de mida <span class="math inline">\(n\)</span> segueix una distribució hipergeomètrica <span class="math inline">\(H(K, N-K,n)\)</span>. Per tant, per a cada possible <span class="math inline">\(N\)</span>, la probabilitat que en una mostra de 10 peixos del nostre llac n’hi hagi 4 de marcats serà <code>dhyper(4,15,N-15,10)</code>.</p>
-<pre class="sourceCode r"><code class="sourceCode r">N=<span class="dv">15</span><span class="op">:</span><span class="dv">1000</span>  <span class="co">#Rang de possibles valors de N</span>
-p=<span class="kw">dhyper</span>(<span class="dv">4</span>,<span class="dv">15</span>,N<span class="dv">-15</span>,<span class="dv">10</span>)  <span class="co">#Probabilitats de 4 marcats en 10</span>
-Nmax=N[<span class="kw">which</span>(p<span class="op">==</span><span class="kw">max</span>(p))] <span class="co"># N que maximitza la probabilitat</span>
-Nmax</code></pre>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb97-1" data-line-number="1">N=<span class="dv">15</span><span class="op">:</span><span class="dv">1000</span>  <span class="co">#Rang de possibles valors de N</span></a>
+<a class="sourceLine" id="cb97-2" data-line-number="2">p=<span class="kw">dhyper</span>(<span class="dv">4</span>,<span class="dv">15</span>,N<span class="dv">-15</span>,<span class="dv">10</span>)  <span class="co">#Probabilitats de 4 marcats en 10</span></a>
+<a class="sourceLine" id="cb97-3" data-line-number="3">Nmax=N[<span class="kw">which</span>(p<span class="op">==</span><span class="kw">max</span>(p))] <span class="co"># N que maximitza la probabilitat</span></a>
+<a class="sourceLine" id="cb97-4" data-line-number="4">Nmax</a></code></pre></div>
 <pre><code>## [1] 37</code></pre>
 <p>Aquest <code>Nmax</code> és la <span class="math inline">\(N\)</span> que fa màxima la probabilitat que en una mostra de 10 peixos del nostre llac n’hi hagi 4 de marcats. Vegem-ho amb un gràfic:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(N[<span class="dv">1</span><span class="op">:</span><span class="dv">86</span>],p[<span class="dv">1</span><span class="op">:</span><span class="dv">86</span>],<span class="dt">type=</span><span class="st">&quot;h&quot;</span>,<span class="dt">xaxp=</span><span class="kw">c</span>(<span class="dv">15</span>,<span class="dv">100</span>,<span class="dv">17</span>),<span class="dt">xlab=</span><span class="st">&quot;N&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;p&quot;</span>)
-<span class="kw">points</span>(Nmax,<span class="kw">dhyper</span>(<span class="dv">4</span>,<span class="dv">15</span>,Nmax<span class="dv">-15</span>,<span class="dv">10</span>),<span class="dt">type=</span><span class="st">&quot;h&quot;</span>,<span class="dt">col=</span><span class="st">&quot;red&quot;</span>,<span class="dt">lwd=</span><span class="fl">1.5</span>)</code></pre>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb99-1" data-line-number="1"><span class="kw">plot</span>(N[<span class="dv">1</span><span class="op">:</span><span class="dv">86</span>],p[<span class="dv">1</span><span class="op">:</span><span class="dv">86</span>],<span class="dt">type=</span><span class="st">&quot;h&quot;</span>,<span class="dt">xaxp=</span><span class="kw">c</span>(<span class="dv">15</span>,<span class="dv">100</span>,<span class="dv">17</span>),<span class="dt">xlab=</span><span class="st">&quot;N&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;p&quot;</span>)</a>
+<a class="sourceLine" id="cb99-2" data-line-number="2"><span class="kw">points</span>(Nmax,<span class="kw">dhyper</span>(<span class="dv">4</span>,<span class="dv">15</span>,Nmax<span class="dv">-15</span>,<span class="dv">10</span>),<span class="dt">type=</span><span class="st">&quot;h&quot;</span>,<span class="dt">col=</span><span class="st">&quot;red&quot;</span>,<span class="dt">lwd=</span><span class="fl">1.5</span>)</a></code></pre></div>
 <p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-132-1.png" width="60%" style="display: block; margin: auto;" /></p>
 <p>Un altre estimador per a <span class="math inline">\(N\)</span> a partir de <span class="math inline">\(K\)</span>, <span class="math inline">\(n\)</span> i <span class="math inline">\(k\)</span> és l’<strong>estimador de Chapman</strong>:
 <span class="math display">\[
@@ -1201,24 +1199,24 @@ Quina de les dues estimacions s’acosta més a la realitat? Ni idea, no ho pode
 <p><span id="exm:simulpeixos" class="example"><strong>Exemple 2.18  </strong></span>Fem un experiment similar al de l’Exemple <a href="estimacio-puntual.html#exm:simultancs">2.16</a>. Generarem a l’atzar una mida N d’una població grandeta i en marcarem una certa quantitat K. A continuació, prendrem 50 mostres aleaòries sense reposició de la nostra població i amb cada una d’aquestes mostres estimarem la N emprant els dos estimadors que hem explicat en aquesta subsecció. Al final, calcularem les mitjanes d’aquestes estimacions i les compararem amb el valor real de N, que no descobrirem fins el final. Com a l’Exemple <a href="estimacio-puntual.html#exm:simultancs">2.16</a>, fixarem la llavor d’aleatorietat a l’atzar.</p>
 </div>
 
-<pre class="sourceCode r"><code class="sourceCode r">Llavor2=<span class="kw">sample</span>(<span class="dv">10000</span>,<span class="dv">1</span>)
-Llavor2</code></pre>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb100-1" data-line-number="1">Llavor2=<span class="kw">sample</span>(<span class="dv">10000</span>,<span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb100-2" data-line-number="2">Llavor2</a></code></pre></div>
 <pre><code>## [1] 6244</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(Llavor2)</code></pre>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb102-1" data-line-number="1"><span class="kw">set.seed</span>(Llavor2)</a></code></pre></div>
 <p>Ara generam la mida N de la població com un nombre a l’atzar entre 5000 i 10000.</p>
-<pre class="sourceCode r"><code class="sourceCode r">N=<span class="kw">sample</span>(<span class="dv">5000</span><span class="op">:</span><span class="dv">10000</span>,<span class="dv">1</span>)</code></pre>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb103-1" data-line-number="1">N=<span class="kw">sample</span>(<span class="dv">5000</span><span class="op">:</span><span class="dv">10000</span>,<span class="dv">1</span>)</a></code></pre></div>
 <p>Ara en capturam i marcam K; per fixar idees, prendrem K=200.</p>
-<pre class="sourceCode r"><code class="sourceCode r">K=<span class="dv">200</span></code></pre>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb104-1" data-line-number="1">K=<span class="dv">200</span></a></code></pre></div>
 <p>Per simplificar, suposarem que els N individus de la nostra població estan numerats de l’1 a l’N i que els marcats són els K primers. Ara generarem 100 mostres aleatòries sense reposició d’aquesta població, i ens quedarem amb la mida i el nombre d’individus marcats (és a dir, el nombre de valors menor o iguals a K=100 en la mostra). Les mides les generarem a l’atzar entre, posem, 50 i 150:</p>
-<pre class="sourceCode r"><code class="sourceCode r">Mostra=<span class="cf">function</span>(a,b,P,M){
-  <span class="co">#a i b: mides màxima i mínima de la mostra; P: mida de la població;</span>
-  <span class="co">#M: nombre de marcats</span>
-  n=<span class="kw">sample</span>(a<span class="op">:</span>b,<span class="dv">1</span>)  <span class="co">#Mida de la mostra</span>
-  X=<span class="kw">sample</span>(P,n,<span class="dt">rep=</span><span class="ot">FALSE</span>)  <span class="co"># Mostra aleatòria </span>
-  <span class="kw">c</span>(n,<span class="kw">length</span>(<span class="kw">which</span>(X<span class="op">&lt;=</span>M))) <span class="co">#Parell (mida, nombre de marcats)</span>
-}
-Mostres=<span class="kw">replicate</span>(<span class="dv">100</span>,<span class="kw">Mostra</span>(<span class="dv">50</span>,<span class="dv">150</span>,N,K))
-Mostres</code></pre>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb105-1" data-line-number="1">Mostra=<span class="cf">function</span>(a,b,P,M){</a>
+<a class="sourceLine" id="cb105-2" data-line-number="2">  <span class="co">#a i b: mides màxima i mínima de la mostra; P: mida de la població;</span></a>
+<a class="sourceLine" id="cb105-3" data-line-number="3">  <span class="co">#M: nombre de marcats</span></a>
+<a class="sourceLine" id="cb105-4" data-line-number="4">  n=<span class="kw">sample</span>(a<span class="op">:</span>b,<span class="dv">1</span>)  <span class="co">#Mida de la mostra</span></a>
+<a class="sourceLine" id="cb105-5" data-line-number="5">  X=<span class="kw">sample</span>(P,n,<span class="dt">rep=</span><span class="ot">FALSE</span>)  <span class="co"># Mostra aleatòria </span></a>
+<a class="sourceLine" id="cb105-6" data-line-number="6">  <span class="kw">c</span>(n,<span class="kw">length</span>(<span class="kw">which</span>(X<span class="op">&lt;=</span>M))) <span class="co">#Parell (mida, nombre de marcats)</span></a>
+<a class="sourceLine" id="cb105-7" data-line-number="7">}</a>
+<a class="sourceLine" id="cb105-8" data-line-number="8">Mostres=<span class="kw">replicate</span>(<span class="dv">100</span>,<span class="kw">Mostra</span>(<span class="dv">50</span>,<span class="dv">150</span>,N,K))</a>
+<a class="sourceLine" id="cb105-9" data-line-number="9">Mostres</a></code></pre></div>
 <pre><code>##      [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10] [,11] [,12] [,13]
 ## [1,]   79   94  110  116  128  127   68   59  144   135   147    86    89
 ## [2,]    2    2    1    2    1    3    2    1    4     2    10     8     4
@@ -1247,8 +1245,8 @@ Mostres</code></pre>
 ## [1,]   130    70    70    54   103    77   115   133    75    100
 ## [2,]     4     1     1     2     3     3     1     5     1      3</code></pre>
 <p>En aquesta matriu <code>Mostres</code>, cada columna correspon a una mostra aleatòria: la primera filera és la seva mida <span class="math inline">\(n\)</span> i la segona filera el nombre d’individus marcats a la mostra. Ara, amb cada una d’aquestes mostres, podem estimar la mida N de la població per mitjà de l’estimador de Lincoln-Petersen.</p>
-<pre class="sourceCode r"><code class="sourceCode r">EstimacionsLP=Mostres[<span class="dv">1</span>,]<span class="op">*</span>K<span class="op">/</span>Mostres[<span class="dv">2</span>,]
-<span class="kw">round</span>(<span class="kw">sort</span>(EstimacionsLP),<span class="dv">1</span>)</code></pre>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb107-1" data-line-number="1">EstimacionsLP=Mostres[<span class="dv">1</span>,]<span class="op">*</span>K<span class="op">/</span>Mostres[<span class="dv">2</span>,]</a>
+<a class="sourceLine" id="cb107-2" data-line-number="2"><span class="kw">round</span>(<span class="kw">sort</span>(EstimacionsLP),<span class="dv">1</span>)</a></code></pre></div>
 <pre><code>##   [1]  1822.2  2150.0  2600.0  2940.0  3000.0  3066.7  3433.3  3733.3
 ##   [9]  4333.3  4333.3  4366.7  4440.0  4450.0  4560.0  4700.0  4733.3
 ##  [17]  4750.0  5000.0  5000.0  5100.0  5100.0  5133.3  5200.0  5266.7
@@ -1262,14 +1260,14 @@ Mostres</code></pre>
 ##  [81] 16400.0 17400.0 18400.0 21200.0 22000.0 22400.0 23000.0 24000.0
 ##  [89] 24600.0 25600.0 26000.0 26400.0     Inf     Inf     Inf     Inf
 ##  [97]     Inf     Inf     Inf     Inf</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">hist</span>(EstimacionsLP, <span class="dt">breaks=</span><span class="dv">20</span>,<span class="dt">col=</span><span class="st">&quot;light blue&quot;</span>,<span class="dt">xlab=</span><span class="st">&quot;Estimacions de N&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;Freqüències&quot;</span>,<span class="dt">main=</span><span class="st">&quot;Estimador de Lincoln-Petersen&quot;</span>)</code></pre>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb109-1" data-line-number="1"><span class="kw">hist</span>(EstimacionsLP, <span class="dt">breaks=</span><span class="dv">20</span>,<span class="dt">col=</span><span class="st">&quot;light blue&quot;</span>,<span class="dt">xlab=</span><span class="st">&quot;Estimacions de N&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;Freqüències&quot;</span>,<span class="dt">main=</span><span class="st">&quot;Estimador de Lincoln-Petersen&quot;</span>)</a></code></pre></div>
 <p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-138-1.png" width="60%" style="display: block; margin: auto;" />
 Com veieu, obtenim estimacions que van de 1822.2 a <span class="math inline">\(\infty\)</span>, que corresponen a mostres on no ens ha sortit cap individu marcat. La mitjana de les estimacions finites és</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">round</span>(<span class="kw">mean</span>(EstimacionsLP[<span class="kw">is.finite</span>(EstimacionsLP)]),<span class="dv">1</span>)</code></pre>
+<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb110-1" data-line-number="1"><span class="kw">round</span>(<span class="kw">mean</span>(EstimacionsLP[<span class="kw">is.finite</span>(EstimacionsLP)]),<span class="dv">1</span>)</a></code></pre></div>
 <pre><code>## [1] 9261.2</code></pre>
 <p>També podem emprar l’estimador de Chapman:</p>
-<pre class="sourceCode r"><code class="sourceCode r">EstimacionsCh=(Mostres[<span class="dv">1</span>,]<span class="op">+</span><span class="dv">1</span>)<span class="op">*</span>(K<span class="op">+</span><span class="dv">1</span>)<span class="op">/</span>(Mostres[<span class="dv">2</span>,]<span class="op">+</span><span class="dv">1</span>)<span class="op">-</span><span class="dv">1</span>
-<span class="kw">round</span>(<span class="kw">sort</span>(EstimacionsCh),<span class="dv">1</span>)</code></pre>
+<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb112-1" data-line-number="1">EstimacionsCh=(Mostres[<span class="dv">1</span>,]<span class="op">+</span><span class="dv">1</span>)<span class="op">*</span>(K<span class="op">+</span><span class="dv">1</span>)<span class="op">/</span>(Mostres[<span class="dv">2</span>,]<span class="op">+</span><span class="dv">1</span>)<span class="op">-</span><span class="dv">1</span></a>
+<a class="sourceLine" id="cb112-2" data-line-number="2"><span class="kw">round</span>(<span class="kw">sort</span>(EstimacionsCh),<span class="dv">1</span>)</a></code></pre></div>
 <pre><code>##   [1]  1667.3  1942.0  2267.4  2451.2  2669.4  2703.4  2863.2  2985.3
 ##   [9]  3315.5  3315.5  3416.0  3483.0  3550.0  3617.0  3617.0  3684.0
 ##  [17]  3684.0  3684.0  3751.0  3789.3  3851.5  3858.2  3918.5  4019.0
@@ -1283,13 +1281,13 @@ Com veieu, obtenim estimacions que van de 1822.2 a <span class="math inline">\(\
 ##  [81]  9111.0  9312.0  9345.5 10250.0 10451.0 10752.5 11154.5 11355.5
 ##  [89] 11657.0 11657.0 12159.5 12461.0 12963.5 13164.5 13365.5 13667.0
 ##  [97] 14672.0 14873.0 20702.0 22913.0</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">hist</span>(EstimacionsCh, <span class="dt">breaks=</span><span class="dv">20</span>,<span class="dt">col=</span><span class="st">&quot;light blue&quot;</span>,<span class="dt">xlab=</span><span class="st">&quot;Estimacions de N&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;Freqüències&quot;</span>,<span class="dt">main=</span><span class="st">&quot;Estimador de Chapman&quot;</span>)</code></pre>
+<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb114-1" data-line-number="1"><span class="kw">hist</span>(EstimacionsCh, <span class="dt">breaks=</span><span class="dv">20</span>,<span class="dt">col=</span><span class="st">&quot;light blue&quot;</span>,<span class="dt">xlab=</span><span class="st">&quot;Estimacions de N&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;Freqüències&quot;</span>,<span class="dt">main=</span><span class="st">&quot;Estimador de Chapman&quot;</span>)</a></code></pre></div>
 <p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-140-1.png" width="60%" style="display: block; margin: auto;" />
 Com veieu, obtenim estimacions que van de 1667.3 a 22913; per construcció, no hi ha estimacions infinites. La mitjana d’aquestes estimacions és</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">round</span>(<span class="kw">mean</span>(EstimacionsCh),<span class="dv">1</span>)</code></pre>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb115-1" data-line-number="1"><span class="kw">round</span>(<span class="kw">mean</span>(EstimacionsCh),<span class="dv">1</span>)</a></code></pre></div>
 <pre><code>## [1] 6618.6</code></pre>
 <p>És hora de descobrir el valor de N, per veure si ens hi hem fet a prop:</p>
-<pre class="sourceCode r"><code class="sourceCode r">N</code></pre>
+<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb117-1" data-line-number="1">N</a></code></pre></div>
 <pre><code>## [1] 7134</code></pre>
 
 </div>
