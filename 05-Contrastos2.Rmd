@@ -1233,6 +1233,7 @@ car::qqPlot(X_d, distribution="norm", mean=mean(X_d), sd=sd(X_d),
         ylab="Quantils de la mostra de dones", xlab="Quantils de normal", pch=20, id=FALSE)
 car::qqPlot(X_h, distribution="norm", mean=mean(X_h), sd=sd(X_h),
         ylab="Quantils de la mostra d'homes", xlab="Quantils de normal", pch=20, id=FALSE)
+par(mfrow=c(1,1))
 ```
 
 Seria millor haver emprat un test no paramètric, per més seguretat.
