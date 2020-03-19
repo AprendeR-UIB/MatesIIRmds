@@ -24,7 +24,7 @@
 
 
 
-<meta name="date" content="2020-03-08">
+<meta name="date" content="2020-03-19">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -231,6 +231,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.3" data-path="introduccio-a-lestadistica-multidimensional.html"><a href="introduccio-a-lestadistica-multidimensional.html#correlacio-de-spearman"><i class="fa fa-check"></i><b>8.3</b> Correlació de Spearman</a></li>
 <li class="chapter" data-level="8.4" data-path="introduccio-a-lestadistica-multidimensional.html"><a href="introduccio-a-lestadistica-multidimensional.html#contrastos-de-correlacio"><i class="fa fa-check"></i><b>8.4</b> Contrastos de correlació</a></li>
 </ul></li>
+<li class="chapter" data-level="9" data-path="anova.html"><a href="anova.html"><i class="fa fa-check"></i><b>9</b> ANOVA</a><ul>
+<li class="chapter" data-level="9.1" data-path="anova.html"><a href="anova.html#nocions-basiques"><i class="fa fa-check"></i><b>9.1</b> Nocions bàsiques</a></li>
+<li class="chapter" data-level="9.2" data-path="anova.html"><a href="anova.html#anova-d1-via"><i class="fa fa-check"></i><b>9.2</b> ANOVA d’1 via</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="anova.html"><a href="anova.html#contrast-basic"><i class="fa fa-check"></i><b>9.2.1</b> Contrast bàsic</a></li>
+<li class="chapter" data-level="9.2.2" data-path="anova.html"><a href="anova.html#amb-r-2"><i class="fa fa-check"></i><b>9.2.2</b> Amb R</a></li>
+<li class="chapter" data-level="9.2.3" data-path="anova.html"><a href="anova.html#comparacions-posteriors-per-parelles"><i class="fa fa-check"></i><b>9.2.3</b> Comparacions posteriors per parelles</a></li>
+<li class="chapter" data-level="9.2.4" data-path="anova.html"><a href="anova.html#verificacio-de-les-condicions"><i class="fa fa-check"></i><b>9.2.4</b> Verificació de les condicions</a></li>
+<li class="chapter" data-level="9.2.5" data-path="anova.html"><a href="anova.html#test-no-parametric"><i class="fa fa-check"></i><b>9.2.5</b> Test no paramètric</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="anova.html"><a href="anova.html#anova-de-blocs"><i class="fa fa-check"></i><b>9.3</b> ANOVA de blocs</a><ul>
+<li class="chapter" data-level="9.3.1" data-path="anova.html"><a href="anova.html#contrast-basic-1"><i class="fa fa-check"></i><b>9.3.1</b> Contrast bàsic</a></li>
+<li class="chapter" data-level="9.3.2" data-path="anova.html"><a href="anova.html#amb-r-3"><i class="fa fa-check"></i><b>9.3.2</b> Amb R</a></li>
+<li class="chapter" data-level="9.3.3" data-path="anova.html"><a href="anova.html#comparacions-posteriors-per-parelles-1"><i class="fa fa-check"></i><b>9.3.3</b> Comparacions posteriors per parelles</a></li>
+<li class="chapter" data-level="9.3.4" data-path="anova.html"><a href="anova.html#contrast-no-parametric"><i class="fa fa-check"></i><b>9.3.4</b> Contrast no paramètric</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="anova.html"><a href="anova.html#anova-de-2-vies"><i class="fa fa-check"></i><b>9.4</b> ANOVA de 2 vies</a><ul>
+<li class="chapter" data-level="9.4.1" data-path="anova.html"><a href="anova.html#contrast-basic-2"><i class="fa fa-check"></i><b>9.4.1</b> Contrast bàsic</a></li>
+<li class="chapter" data-level="9.4.2" data-path="anova.html"><a href="anova.html#amb-r-4"><i class="fa fa-check"></i><b>9.4.2</b> Amb R</a></li>
+</ul></li>
+</ul></li>
 </ul>
 
       </nav>
@@ -260,7 +280,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>Podem acceptar que la mitjana poblacional és igual de 2?</p></li>
 <li><p>Podem acceptar que la proporció poblacional d’èxits és del 10%?</p></li>
 </ul>
-<p>Als contrastos de bondat d’ajust anam una passa més enllà, i ens demanam si podem acceptar que la variable poblacional té una distribució concreta, o si per contra seria molt estrany que la nostra mostra hagués estat produïda per una variable amb aquella distribució:</p>
+<p>Als contrastos de bondat d’ajust anam una passa més enllà, i ens demanam si podem acceptar que la variable poblacional té una distribució concreta, o si per contra seria molt estrany que la nostra mostra hagués estat produïda per una variable amb aquella distribució. Per exemple:</p>
 <ul>
 <li><p>Llençam un dau en l’aire moltes vegades, apuntam els resultats, i ens demanam si podem acceptar que el dau és honrat (és a dir, que tots els resultats són equiprobables) o si per contra hi ha evidència que està trucat.</p></li>
 <li><p>Anotam els ingressos diaris per una determinada malaltia en un hospital i ens demanam si podem acceptar que segueixen una distribució de Poisson o si per contra hi ha evidència que no és el cas, la qual cosa seria senyal que hi ha un brot estrany de la malaltia.</p></li>
@@ -326,7 +346,8 @@ I, com sempre,</p>
 <div id="el-test-basic" class="section level3">
 <h3><span class="header-section-number">6.2.1</span> El test bàsic</h3>
 <p>El test més popular per a variables aleatòries qualitatives, ordinals i quantitatives discretes (o contínues agrupades) és el <strong>test <span class="math inline">\(\chi^2\)</span> de Pearson</strong>.</p>
-<p>Suposem que tenim una mostra aleatòria simple de mida <span class="math inline">\(n\)</span>. Agrupam tots els resultats possibles en <span class="math inline">\(k\)</span> <strong>classes</strong>, <span class="math inline">\(C_1,\ldots,C_k\)</span> (poden ser tots els resultats individuals possibles, si només n’hi ha un conjunt finit). Volem contrastar si les observacions segueixen una <em>distribució totalment coneguda</em>, per a la qual coneixem la probabilitat que una observació caigui dins cada una de les classes.</p>
+<p>Suposem que tenim una mostra aleatòria simple de mida <span class="math inline">\(n\)</span>. Agrupam tots els resultats possibles en <span class="math inline">\(k\)</span> <strong>classes</strong>, <span class="math inline">\(C_1,\ldots,C_k\)</span> (poden ser tots els resultats individuals possibles, si només n’hi ha un conjunt finit). Així, al nostre exemple de les terminacions de la loteria, hi tenim 10 classes, definides pels 10 valors possibles de la darrera xifra: <span class="math inline">\(C_1=\{0\}\)</span>, <span class="math inline">\(C_2=\{1\}\)</span>,…, <span class="math inline">\(C_{10}=\{9\}\)</span>.</p>
+<p>Volem contrastar si les observacions segueixen una <em>distribució totalment coneguda</em>, per a la qual coneixem la probabilitat que una observació caigui dins cada una de les classes.</p>
 <p>El contrast és, recordem,
 <span class="math display">\[
 \left\{\begin{array}{l}
@@ -337,9 +358,9 @@ H_{1}: \text{La població no té aquesta distribució}
 \]</span></p>
 <p>Per a cada classe <span class="math inline">\(C_i\)</span>, diguem</p>
 <ul>
-<li><p><span class="math inline">\(obs_i\)</span>: la freqüència absoluta <strong>observada</strong> d’aquesta classe</p></li>
-<li><p><span class="math inline">\(p_i\)</span>: la probabilitat <strong>teòrica</strong> que una observació pertanyi a aquesta classe si <span class="math inline">\(H_0\)</span> és vertadera</p></li>
-<li><p><span class="math inline">\(esp_i\)</span>: la freqüència absoluta <strong>esperada</strong>, o <strong>teòrica</strong>, d’aquesta classe si <span class="math inline">\(H_0\)</span> és vertadera: <span class="math inline">\(esp_i=p_i\cdot n\)</span></p></li>
+<li><p><span class="math inline">\(obs_i\)</span>: la freqüència absoluta <strong>observada</strong> d’aquesta classe. Per exemple, en el nostre exemple de la loteria, <span class="math inline">\(obs_1\)</span> és el nombre de vegades que la Grossa ha acabat en 0: 21; <span class="math inline">\(obs_2\)</span> és el nombre de vegades que la Grossa ha acabat en 1: 8; etc.</p></li>
+<li><p><span class="math inline">\(p_i\)</span>: la probabilitat <strong>teòrica</strong> que una observació pertanyi a aquesta classe si <span class="math inline">\(H_0\)</span> és vertadera. En el nostre exemple de la loteria, totes les probabilitats <span class="math inline">\(p_i\)</span> valen el mateix, 1/10.</p></li>
+<li><p><span class="math inline">\(esp_i\)</span>: la freqüència absoluta <strong>esperada</strong>, o <strong>teòrica</strong>, d’aquesta classe si <span class="math inline">\(H_0\)</span> és vertadera: <span class="math inline">\(esp_i=p_i\cdot n\)</span>. En el nostre exemple de la loteria, totes aquestes freqüències absolutes <span class="math inline">\(esp_i\)</span> valen el mateix, 211/10=21.1.</p></li>
 </ul>
 <p>Rebutjarem <span class="math inline">\(H_0\)</span> si les <span class="math inline">\(obs_i\)</span> són prou diferents de les <span class="math inline">\(esp_i\)</span>. Per mesurar-ho, empram el teorema següent:</p>
 
@@ -447,10 +468,15 @@ X2sim=<span class="kw">replicate</span>(<span class="dv">10000</span>,<span clas
 <p>Només un 1.6% de les 10000 simulacions han donat un valor de <span class="math inline">\(\chi^2\)</span> més gran o igual que el de la mostra de Grosses de Nadal. Per tant, el valor de la <span class="math inline">\(\chi^2\)</span> de la mostra de Grosses de Nadal és anormalment gran si les darreres xifres tenen totes la mateixa probabilitat d’aparèixer. Naturalment, anormal no vol dir impossible, però…</p>
 <p>La funció per realitzar un test <span class="math inline">\(\chi^2\)</span> amb R és</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">chisq.test</span>(obs, <span class="dt">p=</span>...)</code></pre>
-<p>on <code>obs</code> és el vector de les freqüències observades de les classes, <span class="math inline">\((obs_i)_i\)</span> i <code>p</code> s’ha d’igualar al vector de les probabilitats teòriques de les classes, <span class="math inline">\((p_i)_i\)</span>. Si no s’especifica, s’entén que totes les probabilitats són iguals.</p>
+<p>on <code>obs</code> és el vector de les freqüències observades de les classes, <span class="math inline">\((obs_i)_i\)</span> i <code>p</code> s’ha d’igualar al vector de les probabilitats teòriques de les classes, <span class="math inline">\((p_i)_i\)</span>.</p>
 
 <div class="rmdcaution">
-La suma de les probabilitats entrades a <code>p</code> ha de ser igual a 1.
+Si no s’especifica aquest paràmetre <code>p</code>, R entén que totes les probabilitats són iguals.
+</div>
+
+
+<div class="rmdcaution">
+La suma de les probabilitats entrades a <code>p</code> ha de ser igual a 1. Recordau que les classes han de cobrir tots els casos possibles.
 </div>
 
 <p>Al nostre exemple de la Grossa de Nadal, entraríem simplement</p>
@@ -636,6 +662,7 @@ La funció <code>chisq.test</code> també permet usar el mètode de Montecarlo, 
 ## data:  freq.obs
 ## X-squared = 8.1337, df = NA, p-value = 0.2206</code></pre>
 <p><em>Conclusió</em>: Podem acceptar que els augments de temperatures observats segueixen una llei normal <span class="math inline">\(N(3.5,0.7)\)</span> (test <span class="math inline">\(\chi^2\)</span> de Montercarlo, p-valor=0.22).</p>
+<p>Arribam, doncs, a la mateixa conclusió que amb el test <span class="math inline">\(\chi^2\)</span> aplicat a les dades agrupades.</p>
 </div>
 <div id="test-chi2-amb-parametres-poblacionals-desconeguts" class="section level3">
 <h3><span class="header-section-number">6.2.3</span> Test <span class="math inline">\(\chi^2\)</span> amb paràmetres poblacionals desconeguts</h3>
@@ -792,10 +819,10 @@ No havíem quedat que el nombre de graus de llibertat era 3? R n’ha emprat 4, 
 </div>
 <div id="test-de-kolmogorov-smirnov" class="section level2">
 <h2><span class="header-section-number">6.3</span> Test de Kolmogorov-Smirnov</h2>
-<p>El <strong>test de Kolgomorov-Smirnov</strong> (<strong>test K-S</strong>, per abreviar) és el test més popular per contrastar si una mostra segueix o no una distribució contínua concreta, sense restriccions sobre la mida de la mostra. Es pot emprar amb tota distribució contínua sempre que estigui completament especificada.</p>
+<p>El <strong>test de Kolgomorov-Smirnov</strong> (<strong>test K-S</strong>, per abreviar) és el test més popular per contrastar si una mostra segueix o no una distribució contínua concreta, <strong>sense restriccions sobre la mida de la mostra</strong>. Es pot emprar amb tota distribució contínua sempre que estigui completament especificada.</p>
 
 <div class="rmdnote">
-Per a distribucions concretes, mides de mostres dins marges concrets o quan estimam els paràmetres, existeixen tests específics millors que el K-S, però no els veurem aquí (estan a la lliçó de R).
+Per a distribucions concretes, mides de mostres dins marges concrets o quan estimam els paràmetres, existeixen tests específics millors que el K-S, però no els veurem aquí. Estan a la <a href="https://aprender-uib.github.io/AprendeR2/chap-bondad.html#tests-de-normalidad">lliçó corresponent de R</a> i potser que les hàgiu d’emprar als tallers.
 </div>
 
 <p>Tot seguit explicam com funciona aquest test.</p>
@@ -845,7 +872,7 @@ El gràfic d’aquesta distribució és el següent:</p></li>
 </ol>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(<span class="kw">c</span>(<span class="dv">1</span>,valors,<span class="dv">7</span>), <span class="kw">c</span>(<span class="dv">0</span>,(<span class="dv">0</span><span class="op">:</span><span class="dv">5</span>)<span class="op">/</span><span class="dv">5</span>,<span class="dv">1</span>), <span class="dt">type=</span><span class="st">&quot;s&quot;</span>, <span class="dt">lwd=</span><span class="fl">1.5</span>, 
      <span class="dt">xlab=</span><span class="st">&quot;&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;&quot;</span>)</code></pre>
-<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-395-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-396-1.png" width="60%" style="display: block; margin: auto;" /></p>
 <ol start="3" style="list-style-type: decimal">
 <li>Comparam <span class="math inline">\(F_n(x)\)</span> amb <span class="math inline">\(F_X(x)\)</span>. Si són molt diferents, rebutjarem que la mostra s’ha produït amb distribució <span class="math inline">\(F_X\)</span>.</li>
 </ol>
@@ -853,7 +880,7 @@ El gràfic d’aquesta distribució és el següent:</p></li>
 <span class="kw">curve</span>(<span class="kw">pnorm</span>(x,<span class="dv">3</span>,<span class="fl">1.5</span>),<span class="dt">col=</span><span class="st">&quot;red&quot;</span>,<span class="dt">lwd=</span><span class="fl">1.5</span>,<span class="dt">add=</span><span class="ot">TRUE</span>)
 <span class="kw">legend</span>(<span class="st">&quot;topleft&quot;</span>,<span class="dt">col=</span><span class="kw">c</span>(<span class="st">&quot;black&quot;</span>,<span class="st">&quot;red&quot;</span>),<span class="dt">lty=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>),
        <span class="dt">legend=</span><span class="kw">c</span>(<span class="kw">expression</span>(F[<span class="dv">6</span>]),<span class="st">&quot;N(3,1.5)&quot;</span>),<span class="dt">cex=</span><span class="fl">0.7</span>)</code></pre>
-<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-396-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-397-1.png" width="60%" style="display: block; margin: auto;" /></p>
 <p>Per comparar <span class="math inline">\(F_n(x)\)</span> amb <span class="math inline">\(F_X(x)\)</span>, calcularem
 <span class="math display">\[
 \max\{|F_n(x)-F_X(x)|\mid x\in \mathbb{R}\}

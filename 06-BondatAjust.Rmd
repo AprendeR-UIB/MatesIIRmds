@@ -12,7 +12,7 @@ Però també podem entendre que hi cercàvem  si podem acceptar que el paràmetr
 
 * Podem acceptar que la proporció poblacional d'èxits és del 10%?
 
-Als contrastos de bondat d'ajust anam una passa més enllà, i ens demanam si podem acceptar que la variable poblacional té una distribució concreta, o si per contra seria molt estrany que la nostra mostra hagués estat produïda per una variable amb aquella distribució:
+Als contrastos de bondat d'ajust anam una passa més enllà, i ens demanam si podem acceptar que la variable poblacional té una distribució concreta, o si per contra seria molt estrany que la nostra mostra hagués estat produïda per una variable amb aquella distribució. Per exemple:
 
 * Llençam un dau en l'aire moltes vegades, apuntam els resultats, i ens demanam si podem acceptar que el dau és honrat (és a dir, que tots els resultats són equiprobables) o si per contra hi ha evidència que està trucat.
 
@@ -104,7 +104,9 @@ Les desviacions observades respecte d'aquest valor, representat per la línia ve
 
 El test més popular per a variables aleatòries qualitatives, ordinals i quantitatives discretes (o contínues agrupades) és el **test $\chi^2$ de Pearson**.
 
-Suposem que tenim una mostra aleatòria simple de mida $n$. Agrupam tots els resultats possibles en $k$ **classes**,  $C_1,\ldots,C_k$ (poden ser tots els resultats individuals possibles, si només n'hi ha un conjunt finit). Volem contrastar si les observacions segueixen una *distribució totalment coneguda*, per a la qual coneixem la probabilitat  que una observació caigui dins cada una de les classes.
+Suposem que tenim una mostra aleatòria simple de mida $n$. Agrupam tots els resultats possibles en $k$ **classes**,  $C_1,\ldots,C_k$ (poden ser tots els resultats individuals possibles, si només n'hi ha un conjunt finit). Així, al nostre exemple de les terminacions de la loteria, hi tenim 10 classes, definides pels 10 valors possibles de la darrera xifra: $C_1=\{0\}$, $C_2=\{1\}$,..., $C_{10}=\{9\}$.
+
+Volem contrastar si les observacions segueixen una *distribució totalment coneguda*, per a la qual coneixem la probabilitat  que una observació caigui dins cada una de les classes.
 
 
 El contrast és, recordem, 
@@ -118,13 +120,12 @@ $$
 
 Per a cada classe $C_i$, diguem
 
-* $obs_i$: la freqüència absoluta **observada** d'aquesta classe
+* $obs_i$: la freqüència absoluta **observada** d'aquesta classe. Per exemple, en el nostre exemple de la loteria, $obs_1$ és el nombre de vegades que la Grossa ha acabat en 0: 21; $obs_2$ és el nombre de vegades que la Grossa ha acabat en 1: 8; etc.
 
 
-* $p_i$: la probabilitat **teòrica** que una observació pertanyi a aquesta classe si $H_0$ és vertadera
+* $p_i$: la probabilitat **teòrica** que una observació pertanyi a aquesta classe si $H_0$ és vertadera. En el nostre exemple de la loteria, totes les probabilitats $p_i$ valen el mateix, 1/10.
 
-
-* $esp_i$: la freqüència absoluta **esperada**, o **teòrica**, d'aquesta classe  si $H_0$ és vertadera: $esp_i=p_i\cdot n$
+* $esp_i$: la freqüència absoluta **esperada**, o **teòrica**, d'aquesta classe  si $H_0$ és vertadera: $esp_i=p_i\cdot n$. En el nostre exemple de la loteria, totes aquestes freqüències absolutes $esp_i$ valen el mateix, 211/10=21.1.
 
 Rebutjarem $H_0$ si les $obs_i$ són prou diferents de les $esp_i$. Per mesurar-ho, empram el teorema següent:
 
@@ -259,10 +260,14 @@ La funció per realitzar un test $\chi^2$ amb R és
 ```{r,eval=FALSE}
 chisq.test(obs, p=...)
 ``` 
-on `obs` és el vector de les freqüències observades de les classes, $(obs_i)_i$ i `p` s'ha d'igualar al vector de les probabilitats teòriques de les classes, $(p_i)_i$. Si no s'especifica, s'entén que totes les probabilitats són iguals.
+on `obs` és el vector de les freqüències observades de les classes, $(obs_i)_i$ i `p` s'ha d'igualar al vector de les probabilitats teòriques de les classes, $(p_i)_i$. 
 
 ```{block2,type="rmdcaution"}
-La suma de les probabilitats entrades a `p` ha de ser igual a 1.
+Si no s'especifica aquest paràmetre `p`, R entén que totes les probabilitats són iguals. 
+```
+
+```{block2,type="rmdcaution"}
+La suma de les probabilitats entrades a `p` ha de ser igual a 1. Recordau que les classes han de cobrir tots els casos possibles.
 ```
 
 Al nostre exemple de la Grossa de Nadal, entraríem simplement
@@ -465,7 +470,7 @@ chisq.test(freq.obs, p=prob.esp, simulate.p.value=TRUE, B=5000)
 
 *Conclusió*: Podem acceptar que els augments de temperatures observats segueixen una llei normal $N(3.5,0.7)$ (test $\chi^2$ de Montercarlo, p-valor=0.22).
 
-
+Arribam, doncs, a la mateixa conclusió que amb el test $\chi^2$ aplicat a les dades agrupades.
 
 
 
@@ -659,10 +664,10 @@ Ara ja tenim el mateix p-valor que abans.
 
 ## Test de Kolmogorov-Smirnov
 
-El **test de Kolgomorov-Smirnov** (**test K-S**, per abreviar) és el test més popular per contrastar si una mostra segueix o no una distribució contínua concreta, sense restriccions sobre la mida de la mostra. Es pot emprar amb tota distribució contínua sempre que estigui completament especificada.
+El **test de Kolgomorov-Smirnov** (**test K-S**, per abreviar) és el test més popular per contrastar si una mostra segueix o no una distribució contínua concreta, **sense restriccions sobre la mida de la mostra**. Es pot emprar amb tota distribució contínua sempre que estigui completament especificada.
 
 ```{block2,type="rmdnote"}
-Per a distribucions concretes, mides de mostres dins marges concrets o quan estimam els paràmetres, existeixen tests específics millors que el K-S, però no els veurem aquí (estan a la lliçó de R).
+Per a distribucions concretes, mides de mostres dins marges concrets o quan estimam els paràmetres, existeixen tests específics millors que el K-S, però no els veurem aquí. Estan a la [lliçó corresponent de R](https://aprender-uib.github.io/AprendeR2/chap-bondad.html#tests-de-normalidad) i potser que les hàgiu d'emprar als tallers.
 ```
 
 Tot seguit explicam com funciona aquest test.

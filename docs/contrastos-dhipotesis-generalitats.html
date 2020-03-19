@@ -24,7 +24,7 @@
 
 
 
-<meta name="date" content="2020-03-08">
+<meta name="date" content="2020-03-19">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -230,6 +230,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="8.3" data-path="introduccio-a-lestadistica-multidimensional.html"><a href="introduccio-a-lestadistica-multidimensional.html#correlacio-de-spearman"><i class="fa fa-check"></i><b>8.3</b> Correlació de Spearman</a></li>
 <li class="chapter" data-level="8.4" data-path="introduccio-a-lestadistica-multidimensional.html"><a href="introduccio-a-lestadistica-multidimensional.html#contrastos-de-correlacio"><i class="fa fa-check"></i><b>8.4</b> Contrastos de correlació</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="anova.html"><a href="anova.html"><i class="fa fa-check"></i><b>9</b> ANOVA</a><ul>
+<li class="chapter" data-level="9.1" data-path="anova.html"><a href="anova.html#nocions-basiques"><i class="fa fa-check"></i><b>9.1</b> Nocions bàsiques</a></li>
+<li class="chapter" data-level="9.2" data-path="anova.html"><a href="anova.html#anova-d1-via"><i class="fa fa-check"></i><b>9.2</b> ANOVA d’1 via</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="anova.html"><a href="anova.html#contrast-basic"><i class="fa fa-check"></i><b>9.2.1</b> Contrast bàsic</a></li>
+<li class="chapter" data-level="9.2.2" data-path="anova.html"><a href="anova.html#amb-r-2"><i class="fa fa-check"></i><b>9.2.2</b> Amb R</a></li>
+<li class="chapter" data-level="9.2.3" data-path="anova.html"><a href="anova.html#comparacions-posteriors-per-parelles"><i class="fa fa-check"></i><b>9.2.3</b> Comparacions posteriors per parelles</a></li>
+<li class="chapter" data-level="9.2.4" data-path="anova.html"><a href="anova.html#verificacio-de-les-condicions"><i class="fa fa-check"></i><b>9.2.4</b> Verificació de les condicions</a></li>
+<li class="chapter" data-level="9.2.5" data-path="anova.html"><a href="anova.html#test-no-parametric"><i class="fa fa-check"></i><b>9.2.5</b> Test no paramètric</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="anova.html"><a href="anova.html#anova-de-blocs"><i class="fa fa-check"></i><b>9.3</b> ANOVA de blocs</a><ul>
+<li class="chapter" data-level="9.3.1" data-path="anova.html"><a href="anova.html#contrast-basic-1"><i class="fa fa-check"></i><b>9.3.1</b> Contrast bàsic</a></li>
+<li class="chapter" data-level="9.3.2" data-path="anova.html"><a href="anova.html#amb-r-3"><i class="fa fa-check"></i><b>9.3.2</b> Amb R</a></li>
+<li class="chapter" data-level="9.3.3" data-path="anova.html"><a href="anova.html#comparacions-posteriors-per-parelles-1"><i class="fa fa-check"></i><b>9.3.3</b> Comparacions posteriors per parelles</a></li>
+<li class="chapter" data-level="9.3.4" data-path="anova.html"><a href="anova.html#contrast-no-parametric"><i class="fa fa-check"></i><b>9.3.4</b> Contrast no paramètric</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="anova.html"><a href="anova.html#anova-de-2-vies"><i class="fa fa-check"></i><b>9.4</b> ANOVA de 2 vies</a><ul>
+<li class="chapter" data-level="9.4.1" data-path="anova.html"><a href="anova.html#contrast-basic-2"><i class="fa fa-check"></i><b>9.4.1</b> Contrast bàsic</a></li>
+<li class="chapter" data-level="9.4.2" data-path="anova.html"><a href="anova.html#amb-r-4"><i class="fa fa-check"></i><b>9.4.2</b> Amb R</a></li>
+</ul></li>
 </ul></li>
 </ul>
 
@@ -499,7 +519,7 @@ H_{1}:p_{\mathit{Cara}}&gt; 0.5
 \]</span></p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-218" class="example"><strong>Exemple 4.4  </strong></span>Suposem que llenç la moneda en l’aire 3 vegades i obtenc 3 cares. És evidència suficient que està trucada?</p>
+<p><span id="exm:unnamed-chunk-219" class="example"><strong>Exemple 4.4  </strong></span>Suposem que llenç la moneda en l’aire 3 vegades i obtenc 3 cares. És evidència suficient que està trucada?</p>
 </div>
 
 <p>Diguem <span class="math inline">\(S_3\)</span> a la variable aleatòria “Nombre de cares en 3 llençaments d’aquesta moneda.”</p>
@@ -515,7 +535,7 @@ D’aquest tipus de procediment, emprant la distribució binomial del nombre d�
 
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-220" class="example"><strong>Exemple 4.5  </strong></span>Suposem que ara llenç la moneda en l’aire 10 vegades i obtenc 10 cares. És evidència suficient que està trucada?</p>
+<p><span id="exm:unnamed-chunk-221" class="example"><strong>Exemple 4.5  </strong></span>Suposem que ara llenç la moneda en l’aire 10 vegades i obtenc 10 cares. És evidència suficient que està trucada?</p>
 </div>
 
 <p>Diguem ara <span class="math inline">\(S_{10}\)</span> a la variable aleatòria “Nombre de cares en 10 llençaments.”</p>
@@ -563,7 +583,7 @@ En realitat, a (5) es calcula la probabilitat que, si <span class="math inline">
 <p>En els dos exemples anteriors concrets, on obteníem 3 cares en 3 llençaments i 10 cares en 10 llençaments, és el mateix demanar que el nombre de cares sigui igual a l’obtingut i demanar que el nombre de cares sigui més gran o igual que l’obtingut, perquè en els dos experiments hem obtingut el nombre màxim possible de cares; per exemple, treure 3 o més cares en 3 llençaments és exactament el mateix que treure 3 cares en 3 llençaments. Però en general no serà el cas.</p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-222" class="example"><strong>Exemple 4.6  </strong></span>Tornem al nostre contrast
+<p><span id="exm:unnamed-chunk-223" class="example"><strong>Exemple 4.6  </strong></span>Tornem al nostre contrast
 <span class="math display">\[
 \left\{\begin{array}{ll} 
 H_{0}:p_{\mathit{Cara}}= 0.5\\ 
@@ -583,7 +603,7 @@ Per tant
 Un resultat tan extrem o més que l’obtingut no és molt improbable si la moneda no està trucada: passaria 1 de cada 6 vegades. Per tant, com que és bastant compatible amb el fet que la moneda sigui honrada, no ho podem considerar evidència que estigui trucada a favor de cara.</p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-223" class="example"><strong>Exemple 4.7  </strong></span>Tenc una moneda, i ara crec que està trucada a favor de creu. Vull contrastar-ho. Plantejat en termes de <span class="math inline">\(p_{\mathit{Cara}}\)</span>, el contrast que vull realitzar és
+<p><span id="exm:unnamed-chunk-224" class="example"><strong>Exemple 4.7  </strong></span>Tenc una moneda, i ara crec que està trucada a favor de creu. Vull contrastar-ho. Plantejat en termes de <span class="math inline">\(p_{\mathit{Cara}}\)</span>, el contrast que vull realitzar és
 <span class="math display">\[
 \left\{\begin{array}{ll} 
 H_{0}:p_{\mathit{Cara}}= 0.5\\ 
@@ -614,7 +634,7 @@ Un resultat tan extrem o més que l’obtingut és molt improbable si <span clas
 </ul>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-224" class="example"><strong>Exemple 4.8  </strong></span>Suposem que al contrast de les mitjanes d’hores setmanals d’esport d’homes i dones de l’Exemple <a href="contrastos-dhipotesis-generalitats.html#exm:esport1">4.3</a> empram com a estadístic de contrast la diferència entre les mitjanes mostrals <span class="math inline">\(\overline{X}_d-\overline{X}_h\)</span> (<strong>que no serà el cas: només és un exemple!</strong>) i que hem pres mostres de 50 dones i de 50 homes. Aleshores, el p-valor del contrast és</p>
+<p><span id="exm:unnamed-chunk-225" class="example"><strong>Exemple 4.8  </strong></span>Suposem que al contrast de les mitjanes d’hores setmanals d’esport d’homes i dones de l’Exemple <a href="contrastos-dhipotesis-generalitats.html#exm:esport1">4.3</a> empram com a estadístic de contrast la diferència entre les mitjanes mostrals <span class="math inline">\(\overline{X}_d-\overline{X}_h\)</span> (<strong>que no serà el cas: només és un exemple!</strong>) i que hem pres mostres de 50 dones i de 50 homes. Aleshores, el p-valor del contrast és</p>
 </div>
 
 <ul>
@@ -666,7 +686,7 @@ En un contrast d’hipòtesis no obtenim cap informació directa sobre la probab
 
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-227" class="example"><strong>Exemple 4.9  </strong></span>Tenc una moneda i crec que està trucada; a favor de cara o a favor de creu, no ho sé, només sospit que està trucada. Vull contrastar-ho.</p>
+<p><span id="exm:unnamed-chunk-228" class="example"><strong>Exemple 4.9  </strong></span>Tenc una moneda i crec que està trucada; a favor de cara o a favor de creu, no ho sé, només sospit que està trucada. Vull contrastar-ho.</p>
 </div>
 
 <p>Plantejat en termes de la probabilitat de treure cara <span class="math inline">\(p_{\mathit{Cara}}\)</span>, el contrast que vull realitzar ara és
@@ -754,7 +774,7 @@ P(S_{10}\geqslant 8\text{ o }S_{10}\leqslant 2) =P(S_{10}\geqslant 8) + P(S_{10}
 </ul>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-230" class="example"><strong>Exemple 4.10  </strong></span>En un test d’embaraç, el contrast que es realitza és:
+<p><span id="exm:unnamed-chunk-231" class="example"><strong>Exemple 4.10  </strong></span>En un test d’embaraç, el contrast que es realitza és:
 <span class="math display">\[
 \left\{\begin{array}{ll} 
 H_{0}:\text{No estàs embaraçada}\\ 
@@ -767,7 +787,7 @@ H_{1}:\text{Estàs embaraçada}
 <p><img src="Bioestadistica-II_files/figure-html/types.png" width="60%" style="display: block; margin: auto;" /></p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-232" class="example"><strong>Exemple 4.11  </strong></span>En un judici, on s’ha de declarar un acusat innocent o culpable, el contrast era
+<p><span id="exm:unnamed-chunk-233" class="example"><strong>Exemple 4.11  </strong></span>En un judici, on s’ha de declarar un acusat innocent o culpable, el contrast era
 <span class="math display">\[
 \left\{\begin{array}{ll} 
 H_{0}:\text{L&#39;acusat és innocent}\\ 
@@ -785,7 +805,7 @@ H_{1}:\text{L&#39;acusat és culpable}
 <p>És pitjor l’error de tipus I, convé minimitzar-lo. Per això només es declara qualcú culpable quan les proves ho demostren més enllà de qualsevol dubte raonable</p>
 
 <div class="example">
-<span id="exm:unnamed-chunk-233" class="example"><strong>Exemple 4.12  </strong></span>En un examen, el contrast era
+<span id="exm:unnamed-chunk-234" class="example"><strong>Exemple 4.12  </strong></span>En un examen, el contrast era
 <span class="math display">\[
 \left\{\begin{array}{ll} 
 H_{0}:\text{L&#39;estudiant no sap la matèria}\\ 
@@ -821,7 +841,7 @@ El problema és que quan fem disminuir <span class="math inline">\(\alpha\)</spa
 Si efectuam molts contrastos, augmenta la probabilitat de “trobar qualque cosa” encara que no hi hagi res que trobar, i acabar dient que les gominoles verdes curen l’acné:
 </div>
 
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-237"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-238"></span>
 <img src="http://imgs.xkcd.com/comics/significant.png" alt="&quot;Significant&quot; (https://xkcd.com/882/ (CC-BY-NC 2.5))" width="60%" />
 <p class="caption">
 Figura 4.1: “Significant” (<a href="https://xkcd.com/882/" class="uri">https://xkcd.com/882/</a> (CC-BY-NC 2.5))
@@ -878,7 +898,7 @@ En Biologia i Bioquímica usualment es pren <span class="math inline">\(\alpha=0
 L_0= t_{n-1,1-\alpha}
 \end{array}
 \]</span></p>
-<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-239-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-240-1.png" width="60%" style="display: block; margin: auto;" /></p>
 <p>Per tant, a fi que el nivell de significació del contrast sigui <span class="math inline">\(\alpha\)</span>,</p>
 <blockquote>
 <p>Rebutjarem <span class="math inline">\(H_0\)</span> si <span class="math inline">\(T_0&gt;t_{n-1,1-\alpha}\)</span></p>
@@ -897,7 +917,7 @@ Si <span class="math inline">\(\alpha=0.05\)</span> i <span class="math inline">
 <span class="math display">\[
 T_0=\frac{3.2-2.5}{1.5/\sqrt{20}}=2.09
 \]</span></p>
-<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-240-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-241-1.png" width="60%" style="display: block; margin: auto;" /></p>
 <p>Com que <span class="math inline">\(2.09&gt;1.73\)</span>, <em>concloem amb un nivell de significació de 0.05 que el nivell mitjà de calci en sang en els joves diabètics és més gran que en els joves sans.</em></p>
 <p>Anem a veure com entra en joc el p-valor. Recordem que rebutjarem <span class="math inline">\(H_0\)</span> quan <span class="math inline">\(T_0&gt;t_{n-1,1-\alpha}\)</span>:
 <span class="math display">\[
@@ -1085,7 +1105,7 @@ P(T\geqslant 1.944)=\texttt{1-pt(1.944,24)}=0.032
 </ul>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-253" class="example"><strong>Exemple 4.14  </strong></span>Sigui <span class="math inline">\(X\)</span> una població normal. Volem fer el contrast
+<p><span id="exm:unnamed-chunk-254" class="example"><strong>Exemple 4.14  </strong></span>Sigui <span class="math inline">\(X\)</span> una població normal. Volem fer el contrast
 <span class="math display">\[
 \left\{\begin{array}{l}
 H_{0}:\mu=20\\ H_{1}:\mu&gt;20
@@ -1145,11 +1165,10 @@ amb un nivell de significació de 0.05. Amb la mateixa m.a.s. dels exemples ante
 \]</span></p>
 <p>Com que el p-valor és més gran que <span class="math inline">\(\alpha\)</span>, no podem rebutjar <span class="math inline">\(H_0\)</span>: no podem afirmar amb <span class="math inline">\(\alpha=0.05\)</span> que <span class="math inline">\(\mu\neq 20\)</span>.</p>
 
-<div class="rmdcaution">
+<div class="rmdromans">
 Com pot ser que amb la mateixa mostra i mateix nivell de significació poguem concloure que <span class="math inline">\(\mu&gt; 20\)</span> però no poguem concloure que <span class="math inline">\(\mu\neq 20\)</span>? O és que <span class="math inline">\(\mu&gt; 20\)</span> no implica que <span class="math inline">\(\mu\neq 20\)</span>?
 </div>
 
-<p><img src="Bioestadistica-II_files/figure-html/romanos.png" width="40%" style="display: block; margin: auto;" /></p>
 <p>Vegem, si haguéssim demostrat que segur que <span class="math inline">\(\mu&gt; 20\)</span>, està clar que això implicaria que <span class="math inline">\(\mu\neq 20\)</span>. Però hem arribat a la conclusió <span class="math inline">\(\mu&gt; 20\)</span> assumint un cert marge d’error, una probabilitat d’error de tipus I de 0.05, i ens demanam si <span class="math inline">\(\mu\neq 20\)</span> assumint el mateix marge d’error. En aquesta situació les regles de la lògica aristotèlica ja no funcionen.</p>
 <p>Fixau-vos que, en realitat, el que passa és que trobarem evidència que <span class="math inline">\(\mu\neq 20\)</span> si <span class="math inline">\(T\)</span> és molt gran o molt petit, i per tant al contrast bilateral hi tenim dues fonts d’error de tipus I: que per pur atzar <span class="math inline">\(T\)</span> ens surti molt gran o que ens surti molt petit.
 En canvi, només trobarem evidència que <span class="math inline">\(\mu&gt; 20\)</span> si <span class="math inline">\(T\)</span> és molt gran, i per tant hi tenim una sola font d’error de tipus I. Aleshores, per garantir una mateixa probabilitat d’error de tipus I, hem de ser molt més exigents al contrast bilateral, on ens podem equivocar de dues maneres diferents, que a l’unilateral.</p>

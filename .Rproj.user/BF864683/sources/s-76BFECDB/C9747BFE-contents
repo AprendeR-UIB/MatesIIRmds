@@ -1,0 +1,61 @@
+---
+title: "Matemàtiques II. Taller 4"
+output:
+  html_document: default
+---
+
+**INSTRUCCIONS**: 
+
+* *Heu d'entregar els fitxers .Rmd i .html.*
+* *En aquesta entrega els blocs de codi s'han de veure, per tant no els afegiu opcions que els amaguin.*
+* *Les respostes a cada pregunta les heu de donar en forma d'un paràgraf ben redactat on, quan demanem valors de coses com a resposta, R vagi cridant, mitjançant blocs de codi en línia, aquests valors, que heu d'haver calculat abans en un bloc de codi a part. No es considerarà correcte copiar i aferrar en aquests paràgrafs els resutats de R.*
+
+**Noms**:
+
+1. 
+2. 
+3.
+
+
+*La taula de dades "Tips.txt" que trobareu a l'url https://raw.githubusercontent.com/AprendeR-UIB/MatesIIAD/master/dades/tips.txt conté informació sobre el comportament d'una mostra de clients d'un bar de Des Moines (Iowa, USA) en un cap de setmana. Suposarem que aquesta mostra es una mostra aleatòria simple (es podien repetir els clients; qui no ha anate més d'una vegada al mateix bar un cap de setmana?) dels habitants de Des Moines. Les seves variables que ens interessen en aquest taller són les tres primeres:*
+
+* **TotBill**: *El total del tíquet de caixa de la consumició (en dólars), sense tenir en compte la propina*
+* **Tip**: *La propina que va deixar el que pagà la consumició*
+* **Sex**: *El sexe del client	que pagà la consumició ("F" per dona, "M" per home)*
+
+*Carregau-lo en un data frame i comprovau que l'heu carregat correctament.*
+
+**(1)** *Quina proporció de dones hi ha en aquesta mostra?*
+
+**(2)** *Afegiu al dataframe una nova variable* **Percent** *que doni a cada filera el percentatge del* **TotBill** *que representa la* **Tip**. *Per abreviar, en direm "el percentatge de propina". Comprovau que ho heu fet bé.*
+
+**(3)** *Dibuixau un diagrama de caixes horitzontal dels percentatges de propina que deixaren els individus d'aquesta mostra.  Conté valors anormalment grans o petits? Mirant aquest diagrama, i sense calcular res, com creieu que és la mitjana d'aquest conjunt de dades, més gran, igual, o més petita que la mediana? Raonau-ho, i després calculau la mitjana i la mediana, a veure si l'heu encertat. Sigau honrats, ja sabeu que no compta per nota... en aquest taller.*
+
+**(4)** *Calculau (amb una funció de R) un interval de confiança del 95% per al percentatge mitjà de propina que deixen els habitants de Des Moines quan van al bar. Donau:*
+
+* *Variable aleatòria d'interès:*
+
+* *Paràmetre d'interès:*
+
+* *Quina fórmula (basta la funció de R) emprareu i per què la podeu fer servir:*
+
+* *L'interval de confiança demanat:*
+
+* *La norma de cortesia als EEUU és deixar almenys un 15% de propina. A la vista de l'interval de confiança obtingut, teniu evidència que els habitants d'Iowa són de mitjana més generosos, o menys generosos, del que marca aquesta norma de cortesia?*
+
+
+**(5)** *Quedau-vos ara amb només les fileres on* **TotBill** *és més gran o igual que 25 dólars. Quantes fileres són? Quin percentatge del total de consumicions representen? Quantes d'aquestes consumicions de 25 dólars o més varen ser pagades per dones? Quin percentatge d'aquestes consumicions de 25 dólars o més varen ser pagades per dones?*
+
+**(6)** *Calculau a partir d'aquesta mostra (amb una funció de R) un interval de confiança del 95% per a la proporció de consumicions de 25 dólars o més que són pagades per dones. Emprau la fórmula que vulgueu per calcular-lo, sempre que sigui correcte emprar-la. Donau:*
+
+
+* *Variable aleatòria d'interès:*
+
+* *Paràmetre d'interès:*
+
+* *Quina fórmula (basta la funció de R) emprareu i per què la podeu fer servir:*
+
+* *L'interval de confiança demanat:*
+
+* *Si no hi hagués cap biaix sexista, la proporció de consumicions de 25 dólars o més pagades per dones hauria de ser del 50%, o almenys similar a la de dones que pagaren consumicions en aquesta taula. Amb l'interval calculat, obteniu evidència que hi hagi qualque biaix sexista en aquest sentit a Iowa?*
+

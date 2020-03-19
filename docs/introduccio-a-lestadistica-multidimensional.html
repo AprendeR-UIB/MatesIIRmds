@@ -24,7 +24,7 @@
 
 
 
-<meta name="date" content="2020-03-08">
+<meta name="date" content="2020-03-19">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -32,7 +32,7 @@
   
   
 <link rel="prev" href="contrastos-dindependencia-i-homogeneitat.html">
-
+<link rel="next" href="anova.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -231,6 +231,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.3" data-path="introduccio-a-lestadistica-multidimensional.html"><a href="introduccio-a-lestadistica-multidimensional.html#correlacio-de-spearman"><i class="fa fa-check"></i><b>8.3</b> Correlació de Spearman</a></li>
 <li class="chapter" data-level="8.4" data-path="introduccio-a-lestadistica-multidimensional.html"><a href="introduccio-a-lestadistica-multidimensional.html#contrastos-de-correlacio"><i class="fa fa-check"></i><b>8.4</b> Contrastos de correlació</a></li>
 </ul></li>
+<li class="chapter" data-level="9" data-path="anova.html"><a href="anova.html"><i class="fa fa-check"></i><b>9</b> ANOVA</a><ul>
+<li class="chapter" data-level="9.1" data-path="anova.html"><a href="anova.html#nocions-basiques"><i class="fa fa-check"></i><b>9.1</b> Nocions bàsiques</a></li>
+<li class="chapter" data-level="9.2" data-path="anova.html"><a href="anova.html#anova-d1-via"><i class="fa fa-check"></i><b>9.2</b> ANOVA d’1 via</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="anova.html"><a href="anova.html#contrast-basic"><i class="fa fa-check"></i><b>9.2.1</b> Contrast bàsic</a></li>
+<li class="chapter" data-level="9.2.2" data-path="anova.html"><a href="anova.html#amb-r-2"><i class="fa fa-check"></i><b>9.2.2</b> Amb R</a></li>
+<li class="chapter" data-level="9.2.3" data-path="anova.html"><a href="anova.html#comparacions-posteriors-per-parelles"><i class="fa fa-check"></i><b>9.2.3</b> Comparacions posteriors per parelles</a></li>
+<li class="chapter" data-level="9.2.4" data-path="anova.html"><a href="anova.html#verificacio-de-les-condicions"><i class="fa fa-check"></i><b>9.2.4</b> Verificació de les condicions</a></li>
+<li class="chapter" data-level="9.2.5" data-path="anova.html"><a href="anova.html#test-no-parametric"><i class="fa fa-check"></i><b>9.2.5</b> Test no paramètric</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="anova.html"><a href="anova.html#anova-de-blocs"><i class="fa fa-check"></i><b>9.3</b> ANOVA de blocs</a><ul>
+<li class="chapter" data-level="9.3.1" data-path="anova.html"><a href="anova.html#contrast-basic-1"><i class="fa fa-check"></i><b>9.3.1</b> Contrast bàsic</a></li>
+<li class="chapter" data-level="9.3.2" data-path="anova.html"><a href="anova.html#amb-r-3"><i class="fa fa-check"></i><b>9.3.2</b> Amb R</a></li>
+<li class="chapter" data-level="9.3.3" data-path="anova.html"><a href="anova.html#comparacions-posteriors-per-parelles-1"><i class="fa fa-check"></i><b>9.3.3</b> Comparacions posteriors per parelles</a></li>
+<li class="chapter" data-level="9.3.4" data-path="anova.html"><a href="anova.html#contrast-no-parametric"><i class="fa fa-check"></i><b>9.3.4</b> Contrast no paramètric</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="anova.html"><a href="anova.html#anova-de-2-vies"><i class="fa fa-check"></i><b>9.4</b> ANOVA de 2 vies</a><ul>
+<li class="chapter" data-level="9.4.1" data-path="anova.html"><a href="anova.html#contrast-basic-2"><i class="fa fa-check"></i><b>9.4.1</b> Contrast bàsic</a></li>
+<li class="chapter" data-level="9.4.2" data-path="anova.html"><a href="anova.html#amb-r-4"><i class="fa fa-check"></i><b>9.4.2</b> Amb R</a></li>
+</ul></li>
+</ul></li>
 </ul>
 
       </nav>
@@ -259,7 +279,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 \]</span></p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-418" class="example"><strong>Exemple 8.1  </strong></span>Si diem <span class="math inline">\(\textit{BMI}\)</span> a la variable aleatòria que dóna l’Índex de Massa Corporal (BMI) d’una persona, <span class="math inline">\(C\)</span> a la variable aleatòria que dóna el nivell de colesterol en mg/dl d’una persona i <span class="math inline">\(E\)</span> a la variable aleatòria que dóna l’edat d’una persona en anys, llavors
+<p><span id="exm:unnamed-chunk-419" class="example"><strong>Exemple 8.1  </strong></span>Si diem <span class="math inline">\(\textit{BMI}\)</span> a la variable aleatòria que dóna l’Índex de Massa Corporal (BMI) d’una persona, <span class="math inline">\(C\)</span> a la variable aleatòria que dóna el nivell de colesterol en mg/dl d’una persona i <span class="math inline">\(E\)</span> a la variable aleatòria que dóna l’edat d’una persona en anys, llavors
 <span class="math display">\[
 \underline{X}=(\textit{BMI},C,E)
 \]</span>
@@ -645,7 +665,7 @@ Per cert, amb R els rangs es calculen amb la funció <code>rank</code>:
 <p>Amb R, la correlació de Spearman es calcula directament amb la funció <code>cor</code> entrant-li el paràmetre <code>method=&quot;spearman&quot;</code>. (El valor per defecte del paràmetre <code>method</code> és <code>&quot;pearson&quot;</code> i per això no l’indicam quan calculam la correlació de Pearson.)</p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-434" class="example"><strong>Exemple 8.6  </strong></span>Calculem a mà la correlació de Spearman dels vectors <code>BMI</code> i <code>Chol</code>. El primer que farem serà calcular els rangs dels valors</p>
+<p><span id="exm:unnamed-chunk-435" class="example"><strong>Exemple 8.6  </strong></span>Calculem a mà la correlació de Spearman dels vectors <code>BMI</code> i <code>Chol</code>. El primer que farem serà calcular els rangs dels valors</p>
 </div>
 
 <p><span class="math display">\[
@@ -693,7 +713,7 @@ Si en un contrast de correlació rebutjam la hipòtesi nul·la, en particular co
 <p>No explicarem com es fa a mà aquest contrast ni quines hipòtesis han de satisfer les variables poblacionals per que el resultat sigui fiable. Simplement heu de saber que s’efectua amb la funció <code>cor.test</code>.</p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-437" class="example"><strong>Exemple 8.7  </strong></span>Volem contrastar si hi ha correlació positiva entre el BMI i el nivell de colesterol d’un adult sa, amb un nivell de significació del 5%.</p>
+<p><span id="exm:unnamed-chunk-438" class="example"><strong>Exemple 8.7  </strong></span>Volem contrastar si hi ha correlació positiva entre el BMI i el nivell de colesterol d’un adult sa, amb un nivell de significació del 5%.</p>
 </div>
 
 <p><em>Variables poblacionals d’interès</em>:</p>
@@ -731,8 +751,8 @@ H_1: &amp; \rho_{\textit{BMI,Chol}}&gt;0
           </div>
         </div>
       </div>
-<a href="contrastos-dindependencia-i-homogeneitat.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="contrastos-dindependencia-i-homogeneitat.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="anova.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

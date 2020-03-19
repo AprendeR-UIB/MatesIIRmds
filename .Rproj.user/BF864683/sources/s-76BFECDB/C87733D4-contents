@@ -1,0 +1,26 @@
+
+\emph{Expressió matemàtica} del model a estudiar en aquest cas:
+  $$
+  \begin{array}{l}
+\red{X_{ijk} = \mu + \alpha_i + \beta_j + (\alpha\beta)_{ij}+E_{ijk}},\\
+\qquad\qquad \red{i=1,\ldots,a,\ j=1,\ldots,b,\ k=1,\ldots,n}
+\end{array}
+$$
+  on
+\begin{itemize}
+* \red{$\mu$}: mitjana global
+
+
+* $\red{\alpha_i} =\mu_{i\bullet\bullet}-\mu$: efecte per pertànyer al nivell  $i$-èsim del factor A
+
+
+* $\red{\beta_j} =\mu_{\bullet j\bullet}-\mu$: efecte per pertànyer al nivell  $j$-èsim del factor B
+
+
+* $\red{(\alpha\beta)_{ij}}=\mu_{ij\bullet}-\mu_{i\bullet\bullet}-\mu_{\bullet
+  j\bullet}+\mu$: efecte de la interacció entre el  nivell $i$-èsim del factor A i
+el  nivell  $j$-èsim del factor B
+
+
+* $\red{E_{ijk}}=X_{ijk}-\mu_{ij\bullet}$: error residual o aleatori
+\end{itemize}

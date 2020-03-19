@@ -24,7 +24,7 @@
 
 
 
-<meta name="date" content="2020-03-08">
+<meta name="date" content="2020-03-19">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -231,6 +231,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.3" data-path="introduccio-a-lestadistica-multidimensional.html"><a href="introduccio-a-lestadistica-multidimensional.html#correlacio-de-spearman"><i class="fa fa-check"></i><b>8.3</b> Correlació de Spearman</a></li>
 <li class="chapter" data-level="8.4" data-path="introduccio-a-lestadistica-multidimensional.html"><a href="introduccio-a-lestadistica-multidimensional.html#contrastos-de-correlacio"><i class="fa fa-check"></i><b>8.4</b> Contrastos de correlació</a></li>
 </ul></li>
+<li class="chapter" data-level="9" data-path="anova.html"><a href="anova.html"><i class="fa fa-check"></i><b>9</b> ANOVA</a><ul>
+<li class="chapter" data-level="9.1" data-path="anova.html"><a href="anova.html#nocions-basiques"><i class="fa fa-check"></i><b>9.1</b> Nocions bàsiques</a></li>
+<li class="chapter" data-level="9.2" data-path="anova.html"><a href="anova.html#anova-d1-via"><i class="fa fa-check"></i><b>9.2</b> ANOVA d’1 via</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="anova.html"><a href="anova.html#contrast-basic"><i class="fa fa-check"></i><b>9.2.1</b> Contrast bàsic</a></li>
+<li class="chapter" data-level="9.2.2" data-path="anova.html"><a href="anova.html#amb-r-2"><i class="fa fa-check"></i><b>9.2.2</b> Amb R</a></li>
+<li class="chapter" data-level="9.2.3" data-path="anova.html"><a href="anova.html#comparacions-posteriors-per-parelles"><i class="fa fa-check"></i><b>9.2.3</b> Comparacions posteriors per parelles</a></li>
+<li class="chapter" data-level="9.2.4" data-path="anova.html"><a href="anova.html#verificacio-de-les-condicions"><i class="fa fa-check"></i><b>9.2.4</b> Verificació de les condicions</a></li>
+<li class="chapter" data-level="9.2.5" data-path="anova.html"><a href="anova.html#test-no-parametric"><i class="fa fa-check"></i><b>9.2.5</b> Test no paramètric</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="anova.html"><a href="anova.html#anova-de-blocs"><i class="fa fa-check"></i><b>9.3</b> ANOVA de blocs</a><ul>
+<li class="chapter" data-level="9.3.1" data-path="anova.html"><a href="anova.html#contrast-basic-1"><i class="fa fa-check"></i><b>9.3.1</b> Contrast bàsic</a></li>
+<li class="chapter" data-level="9.3.2" data-path="anova.html"><a href="anova.html#amb-r-3"><i class="fa fa-check"></i><b>9.3.2</b> Amb R</a></li>
+<li class="chapter" data-level="9.3.3" data-path="anova.html"><a href="anova.html#comparacions-posteriors-per-parelles-1"><i class="fa fa-check"></i><b>9.3.3</b> Comparacions posteriors per parelles</a></li>
+<li class="chapter" data-level="9.3.4" data-path="anova.html"><a href="anova.html#contrast-no-parametric"><i class="fa fa-check"></i><b>9.3.4</b> Contrast no paramètric</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="anova.html"><a href="anova.html#anova-de-2-vies"><i class="fa fa-check"></i><b>9.4</b> ANOVA de 2 vies</a><ul>
+<li class="chapter" data-level="9.4.1" data-path="anova.html"><a href="anova.html#contrast-basic-2"><i class="fa fa-check"></i><b>9.4.1</b> Contrast bàsic</a></li>
+<li class="chapter" data-level="9.4.2" data-path="anova.html"><a href="anova.html#amb-r-4"><i class="fa fa-check"></i><b>9.4.2</b> Amb R</a></li>
+</ul></li>
+</ul></li>
 </ul>
 
       </nav>
@@ -261,7 +281,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>Una variable aleatòria normal és <strong>típica</strong> (o <strong>estàndard</strong>) quan <span class="math inline">\(\mu=0\)</span> i <span class="math inline">\(\sigma=1\)</span>; la indicarem usualment amb <span class="math inline">\(Z\)</span>. Per tant, si <span class="math inline">\(Z\sim N(0,1)\)</span>, <span class="math inline">\(E(Z)=0\)</span> i <span class="math inline">\(\sigma_Z=1\)</span>.</p>
 <p>La gràfica de la densitat d’una variable aleatòria normal és la famosa <strong>campana de Gauss</strong>:</p>
-<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-10-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-11-1.png" width="60%" style="display: block; margin: auto;" /></p>
 <p>La gràfica de la densitat d’una variable aleatòria normal és també la menys famosa <strong>gràfica del capell del gendarme</strong>:</p>
 <p><img src="Bioestadistica-II_files/figure-html/gendarme.png" width="40%" style="display: block; margin: auto;" /></p>
 <p>La distribució normal és una distribució teòrica, no la trobareu exacta en la pràctica. I malgrat el seu nom, no és més “normal” que les altres distribucions que estudiarem.</p>
@@ -274,11 +294,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>Si <span class="math inline">\(X\)</span> és una variable aleatòria binomial <em>B(n,p)</em>, amb <span class="math inline">\(n\)</span> gran, alehores <span class="math inline">\(X\)</span> és aproximadament <span class="math inline">\(N(np,\sqrt{np(1-p)})\)</span>, en el sentit que les dues funcions de densitat (salvant la diferència pel fet que la binomial és discreta i la normal contínua) són semblants:</li>
 </ul>
-<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-13-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-14-1.png" width="60%" style="display: block; margin: auto;" /></p>
 <ul>
 <li>Si <span class="math inline">\(X\)</span> és una variable aleatòria de Poisson <span class="math inline">\(Po(\lambda)\)</span> i <span class="math inline">\(\lambda\)</span> és gran, aleshores <span class="math inline">\(X\)</span> és aproximadament <span class="math inline">\(N(\lambda,\sqrt{\lambda})\)</span></li>
 </ul>
-<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-14-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-15-1.png" width="60%" style="display: block; margin: auto;" /></p>
 
 <div class="rmdcaution">
 <p>Quan s’aproxima una variable binomial o Poisson <span class="math inline">\(X\)</span> per mitjà d’una variable normal <span class="math inline">\(Y\)</span>, és convenient aplicar l’anomenada <strong>correcció de continuïtat</strong>: per a cada <span class="math inline">\(n\in \mathbb{N}\)</span>, interpretar <span class="math inline">\(P(X\leqslant n)\)</span> com <span class="math inline">\(P(X&lt; n+1/2)\)</span> i aleshores aproximar:</p>
@@ -299,7 +319,7 @@ f_{X}(\mu-x)=f_{X}(\mu+x),
 i té el màxim en <span class="math inline">\(x=\mu\)</span>.
 </div>
 
-<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-17-1.png" width="80%" style="display: block; margin: auto;" /></p>
+<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-18-1.png" width="80%" style="display: block; margin: auto;" /></p>
 <p>Diem aleshores que <span class="math inline">\(\mu\)</span> és la <strong>moda</strong> de <span class="math inline">\(X\)</span>.</p>
 
 <div class="rmdnote">
@@ -308,19 +328,19 @@ Recordem que no té sentit definir la moda d’una variable contínua <span clas
 
 <p>En particular, si <span class="math inline">\(Z\sim N(0,1)\)</span>, llavors <span class="math inline">\(f_{Z}\)</span> és simètrica al voltant de <span class="math inline">\(x=0\)</span>, és a dir, <span class="math inline">\(f_{Z}(-x)=f_{Z}(x)\)</span>, i la moda de <span class="math inline">\(Z\)</span> és 0.</p>
 <p>Si la <span class="math inline">\(\mu\)</span> creix, el màxim es desplaça a la dreta, i amb ell tota la corba de manera rígida.</p>
-<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-19-1.png" width="80%" style="display: block; margin: auto;" /></p>
-<p>Si la <span class="math inline">\(\sigma\)</span> creix, la corba s’aplata: en augmentar la desviació típica, els valors s’allunyen més del valor mitjà.</p>
 <p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-20-1.png" width="80%" style="display: block; margin: auto;" /></p>
-<p>Vegem l’efecte combinat:</p>
+<p>Si la <span class="math inline">\(\sigma\)</span> creix, la corba s’aplata: en augmentar la desviació típica, els valors s’allunyen més del valor mitjà.</p>
 <p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-21-1.png" width="80%" style="display: block; margin: auto;" /></p>
+<p>Vegem l’efecte combinat:</p>
+<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-22-1.png" width="80%" style="display: block; margin: auto;" /></p>
 <p>Recordem que la funció de distribució d’una variable aleatòria contínua <span class="math inline">\(X\)</span>
 <span class="math display">\[
 F_X(x)=P(X\leqslant x)
 \]</span>
 és l’àrea compresa entre la corba definida per la densitat <span class="math inline">\(y=f_X(x)\)</span> i l’eix d’abscisses a l’esquerra de <span class="math inline">\(x\)</span>.</p>
-<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-22-1.png" width="80%" style="display: block; margin: auto;" /></p>
-<p>La simetria de <span class="math inline">\(f_X\)</span> fa que les àrees a l’esquerra de <span class="math inline">\(\mu-x\)</span> i a la dreta de <span class="math inline">\(\mu+x\)</span> siguin iguals.</p>
 <p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-23-1.png" width="80%" style="display: block; margin: auto;" /></p>
+<p>La simetria de <span class="math inline">\(f_X\)</span> fa que les àrees a l’esquerra de <span class="math inline">\(\mu-x\)</span> i a la dreta de <span class="math inline">\(\mu+x\)</span> siguin iguals.</p>
+<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-24-1.png" width="80%" style="display: block; margin: auto;" /></p>
 <p>És a dir,
 <span class="math display">\[
 P(X\leqslant\mu-x) = P(X\geqslant\mu+x)=1-P(X\leqslant\mu+x)
@@ -518,7 +538,7 @@ Quan es parla d’un <strong>interval de referència</strong> sense donar-ne la 
 <p>Quan <span class="math inline">\(X\sim N(\mu,\sigma)\)</span>, aquests intervals de referència es prenen <em>sempre centrats en la mitjana</em> <span class="math inline">\(\mu\)</span>, és a dir, de la forma <span class="math inline">\([\mu-x,\mu+x]\)</span>. Per calcular-los fàcilment, podem emprar el resultat següent:</p>
 
 <div class="theorem">
-<p><span id="thm:unnamed-chunk-42" class="theorem"><strong>Teorema 1.4  </strong></span>Si <span class="math inline">\(X\sim N(\mu,\sigma)\)</span>, un interval de referència del <span class="math inline">\(100q\%\)</span> és
+<p><span id="thm:unnamed-chunk-43" class="theorem"><strong>Teorema 1.4  </strong></span>Si <span class="math inline">\(X\sim N(\mu,\sigma)\)</span>, un interval de referència del <span class="math inline">\(100q\%\)</span> és
 <span class="math display">\[
 [\mu- z_{(1+q)/2}\cdot \sigma, \mu+ z_{(1+q)/2}\cdot \sigma]
 \]</span>
@@ -562,7 +582,7 @@ Això diu, bàsicament, que</p>
 </blockquote>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-44" class="example"><strong>Exemple 1.2  </strong></span>Segons l’OMS, les alçades de les dones europees de 18 anys segueixen una llei <span class="math inline">\(N(163.1,18.53)\)</span>. Vull trobar un interval d’alçades centrat en la mitjana que contengui les de la meitat de les europees de 18 anys. És, a dir, vull trobar l’interval de referència del 50% per a la variable aleatòria <span class="math inline">\(X\)</span> definida per les alçades de les dones europees de 18 anys.</p>
+<p><span id="exm:unnamed-chunk-45" class="example"><strong>Exemple 1.2  </strong></span>Segons l’OMS, les alçades de les dones europees de 18 anys segueixen una llei <span class="math inline">\(N(163.1,18.53)\)</span>. Vull trobar un interval d’alçades centrat en la mitjana que contengui les de la meitat de les europees de 18 anys. És, a dir, vull trobar l’interval de referència del 50% per a la variable aleatòria <span class="math inline">\(X\)</span> definida per les alçades de les dones europees de 18 anys.</p>
 <p>Com que <span class="math inline">\(X\sim N(163.1,18.53)\)</span> i si <span class="math inline">\(q=0.5\)</span>, aleshores <span class="math inline">\((1+q)/2=0.75\)</span>, aquest interval és</p>
 </div>
 
@@ -572,7 +592,7 @@ Això diu, bàsicament, que</p>
 1.51 m i 1.76 m d’alçada.</p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-46" class="example"><strong>Exemple 1.3  </strong></span>Quin és l’interval de referència per a les alçades de les dones europees de 18 anys?</p>
+<p><span id="exm:unnamed-chunk-47" class="example"><strong>Exemple 1.3  </strong></span>Quin és l’interval de referència per a les alçades de les dones europees de 18 anys?</p>
 </div>
 
 <p>Com que sobreentenem que es tracta de l’interval de referència del 95%, és
@@ -590,7 +610,7 @@ Això diu, bàsicament, que</p>
 <p>Si la variable poblacional és normal, com més gran és el valor absolut del z-score de <span class="math inline">\(x_0\)</span>, més “rar” és <span class="math inline">\(x_0\)</span>; el signe ens diu si és més gran o més petit que el valor esperat <span class="math inline">\(\mu\)</span>.</p>
 
 <div class="example">
-<span id="exm:unnamed-chunk-47" class="example"><strong>Exemple 1.4  </strong></span>Recordau que, segons l’OMS, les altures de les dones europees de 18 anys segueixen una llei <span class="math inline">\(N(163.1,18.53)\)</span>. Quin és el z-score d’una jugadora de bàsket de 18 anys que faci 191 cm?
+<span id="exm:unnamed-chunk-48" class="example"><strong>Exemple 1.4  </strong></span>Recordau que, segons l’OMS, les altures de les dones europees de 18 anys segueixen una llei <span class="math inline">\(N(163.1,18.53)\)</span>. Quin és el z-score d’una jugadora de bàsket de 18 anys que faci 191 cm?
 </div>
 
 <p>Serà:

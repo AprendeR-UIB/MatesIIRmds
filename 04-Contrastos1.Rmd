@@ -1141,14 +1141,10 @@ $$
 
 Com que el p-valor és més gran que $\alpha$, no podem rebutjar $H_0$: no podem afirmar amb $\alpha=0.05$ que $\mu\neq 20$.
 
-```{block2,type="rmdcaution"}
+```{block2,type="rmdromans"}
 Com pot ser que amb la mateixa mostra i mateix nivell de significació poguem concloure que $\mu> 20$ però no poguem concloure que $\mu\neq 20$? O és que $\mu> 20$ no implica que $\mu\neq 20$?
 ```
 
-```{r, echo=FALSE,out.width="40%"}
-knitr::include_graphics("Bioestadistica-II_files/figure-html/romanos.png")
-```
-  
 Vegem, si haguéssim demostrat que segur que $\mu> 20$, està clar que això implicaria que $\mu\neq 20$. Però hem arribat a la conclusió $\mu> 20$ assumint un cert marge d'error, una probabilitat d'error de tipus I de 0.05, i ens demanam si $\mu\neq 20$ assumint el mateix marge d'error. En aquesta situació les regles de la lògica aristotèlica ja no funcionen.
 
 Fixau-vos que, en realitat, el que passa és que trobarem evidència que $\mu\neq 20$ si $T$ és molt gran o molt petit, i per tant al contrast bilateral hi tenim dues fonts d'error de tipus I: que per pur atzar $T$ ens surti molt gran o que ens surti molt petit. 

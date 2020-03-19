@@ -935,7 +935,7 @@ $$
 ````
 
 ```{block2,type="rmdcaution"}
-Fixau-vos que aquest interval de confiança per $\sigma^2$ no està centrat en $\widetilde{S}_{X}^2$. A més, com que  $\chi_{n-1}^2$ no és simètrica, s'han de calcular els dos quantils  $\chi_{n-1,(1-q)/2}^2$ i $\chi_{n-1,(1+q)/2}^2$, perquè no hi ha cap relació entre ells que doni el valor d'un d'ells a partir del de l'altre.
+Fixau-vos que aquest interval de confiança per $\sigma^2$ no està centrat en $\widetilde{S}_{X}^2$ ni en ${S}_{X}^2$. A més, com que  $\chi_{n-1}^2$ no és simètrica, s'han de calcular els dos quantils  $\chi_{n-1,(1-q)/2}^2$ i $\chi_{n-1,(1+q)/2}^2$, perquè no hi ha cap relació entre ells que doni el valor d'un d'ells a partir del de l'altre.
 ```
 
 ```{example}
