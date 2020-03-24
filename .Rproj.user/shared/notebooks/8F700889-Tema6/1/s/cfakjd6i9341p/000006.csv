@@ -1,0 +1,6 @@
+"0","summary(lm(dino$y~dino$x))$r.squared"
+"1","[1]"
+"1"," 0.0039641"
+"1","
+"
+"0","plot(star,pch=20)"
