@@ -1438,7 +1438,7 @@ Desconfiau dels treballs on això no es faci. Podria ser que la potència fos mo
 
 
 
-### El risc de  positiu fals {-}
+### El risc de  positiu fals  (Opcional) {-}
 
 El paquet **statcheck** de R permet revisar de manera automàtica tots els càlculs d'un article escrit en un format concret en psicologia i comprovar-ne els p-valors. Els autors van analitzar 30,000 articles  i varen concloure que (*Behavior research methods* 48 (2016), 1205-1226):
 

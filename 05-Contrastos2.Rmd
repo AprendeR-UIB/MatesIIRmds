@@ -1937,7 +1937,7 @@ En aquest cas tenim dues opcions:
 
 #### Test de McNemar {-}
 
-Quan el test és **bilateral**, si  $n$ és prou gran (posem, a partir de 100) i si el nombre de **casos discordants** ($b+c$ en la taula anterior) és grandet (posem, més gran o igual que 20), es pot emprar el **test de McNemar**, que empra l'estadístic de contrast
+Quan el test és **bilateral**, si  el nombre de **casos discordants** ($b+c$ en la taula anterior) és prou gran (posem, més gran o igual que 25), es pot emprar el **test de McNemar**, que empra l'estadístic de contrast
 $$
 Z^2=\frac{(b-c)^2}{b+c}
 $$
@@ -2043,61 +2043,7 @@ $$
 $$
 
 
-Això permet traduir un contrast sobre $p_1$ i $p_2$ en el mateix  contrast sobre $p_{01}$ i $p_{10}$, i al final en un contrast d'una proporció.
-
-Per exemple:
-$$
-\left\{\begin{array}{l}
-H_0: p_1=p_2\\
-H_1: p_1< p_2
-\end{array}\right. 
-$$
-és equivalent a
-$$
-\left\{\begin{array}{l}
-H_0: p_{10}=p_{01}\\
-H_1: p_{10}<p_{01}
-\end{array}\right.
-$$
-i això és equivalent a
-$$
-\left\{\begin{array}{l}
-H_0: \dfrac{p_{10}}{p_{10}+p_{01}}=0.5\\
-H_1:  \dfrac{p_{10}}{p_{10}+p_{01}}<0.5
-\end{array}\right.
-$$
-
-
-Ara fixau-vos que
-$$
-\frac{p_{10}}{p_{10}+p_{01}}
-$$
-és la proporció poblacional de parelles (Èxit,Fracàs) dins la població de casos discordants.
-
-En general, el contrast
-$$
-\left\{\begin{array}{l}
-H_0: p_1=p_2\\
-H_1: p_1< p_2\text{ o }p_1> p_2\text{ o }p_1\neq p_2
-\end{array}\right. 
-$$
-es tradueix en el contrast
-$$
-\left\{\begin{array}{l}
-H_0: \dfrac{p_{10}}{p_{10}+p_{01}}=0.5\\
-H_1:  \dfrac{p_{10}}{p_{10}+p_{01}}<0.5\text{ o }\dfrac{p_{10}}{p_{10}+p_{01}}>0.5\text{ o }\dfrac{p_{10}}{p_{10}+p_{01}}\neq 0.5
-\end{array}\right.
-$$
-i el podem efectuar amb un test binomial exacte prenent:
-
-
-* Com a mostra, els casos discordants, de mida $b+c$
-
-* Com a èxits, tenir Èxit a $X_1$ i Fracàs a $X_2$: a la mostra n'hi ha $b$
-
-* Com a proporció a contrastar:  $p=0.5$
-
-L'inconvenient d'aquest test és  que l'interval de confiança que donarà és per a $p_{10}/(p_{10}+p_{01})$, i no té res a veure amb $p_1-p_2$ o $p_1/p_2$. Per tant només ens hi podem fixar en el p-valor.
+Això permet traduir un contrast sobre $p_1$ i $p_2$ pbinom{27,71,0.5)
 
 ```{example}
 Tornem a la situació de l'Exemple \@ref(exm:migranya). Ara volem fer el contrast que realment ens interessa, que és si la taxa d'efectivitat del fàrmac és més gran que la del placebo:
