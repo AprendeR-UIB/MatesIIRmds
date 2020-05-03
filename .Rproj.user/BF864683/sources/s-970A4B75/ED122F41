@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1588419943191.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "ED122F41",
+    "lastKnownWriteTime" : 1588495159,
+    "last_content_update" : 1588495159043,
+    "path" : "~/Documents/GitHub/MatesIIRmds/09-Anova.Rmd",
+    "project_path" : "09-Anova.Rmd",
+    "properties" : {
+        "cursorPosition" : "138,133",
+        "scrollLine" : "133"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}
