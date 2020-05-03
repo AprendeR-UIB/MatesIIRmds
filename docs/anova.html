@@ -462,24 +462,24 @@ Si és vertadera, aleshores en realitat passarà que
 \mu_1=\cdots=\mu_k=\mu
 \]</span>
 perquè si totes les subpoblacions tenen la mateixa mitjana, aquesta mitjana comuna serà la mitjana de tota la població.</p>
-<p>En aquest tema és el primer cop que tenim ocasió de parlar de <strong>models estadístics</strong>. Informalment, un <strong>model</strong> no és res més que una descripció matemàtica del comportament d’una o vàries variables aleatòries sobre una població. De vegades, com és el cas de l’ANOVA d’1 via, són models tautològics en el sentit que són vertaders per a tota població. En altres casos, com passarà a l’ANOVA de blocs o als temes següents sobre regressió lineal o <em>clustering</em>, inclou assumpcions sobre la població que poden ser veritat o no, i que si no ho són aleshores les conclusions de l’anàlisi estadística que fem basant-nos en aquest model no tendran cap sentit.</p>
+<p>En aquest tema és el primer cop que tenim ocasió de parlar de <strong>models estadístics</strong>. Informalment, un <strong>model</strong> no és res més que una descripció matemàtica del comportament d’una o vàries variables aleatòries sobre una població. Aquests models inclouen assumpcions sobre la població que poden ser veritat o no, i que si no ho són aleshores les conclusions de l’anàlisi estadística que fem basant-nos en aquest model no tendran cap sentit.</p>
 <p>En concret, l’ANOVA d’1 via es basa en el <strong>model</strong> següent: per a cada <span class="math inline">\(i=1,\ldots,k\)</span>,
 <span class="math display">\[
-X_i-\mu=(\mu_i-\mu)+(X_i-\mu_i)
+X_i=\mu+(\mu_i-\mu)+(X_i-\mu_i)
 \]</span>
 on:</p>
 <ul>
-<li><p><span class="math inline">\(X_i-\mu\)</span> representa la desviació respecte de la mitjana global <span class="math inline">\(\mu\)</span> de la variable <span class="math inline">\(X\)</span> sobre un individu del nivell <span class="math inline">\(i\)</span>-èssim</p></li>
-<li><p><span class="math inline">\(\mu_i-\mu\)</span> representa la desviació respecte de la mitjana global <span class="math inline">\(\mu\)</span> de la mitjana de <span class="math inline">\(X\)</span> en el nivell <span class="math inline">\(i\)</span>-èssim</p></li>
-<li><p><span class="math inline">\(X_i-\mu_i\)</span> representa la desviació de la variable <span class="math inline">\(X\)</span> sobre un individu del nivell <span class="math inline">\(i\)</span>-èssim respecte de la mitjana d’aquest nivell, <span class="math inline">\(\mu_i\)</span></p></li>
+<li><p><span class="math inline">\(X_i\)</span> representa el valor de la variable <span class="math inline">\(X\)</span> sobre un individu del nivell <span class="math inline">\(i\)</span>-èssim</p></li>
+<li><p><span class="math inline">\(\mu_i-\mu\)</span> representa la desviació respecte de la mitjana global <span class="math inline">\(\mu\)</span> de la mitjana de <span class="math inline">\(X\)</span> en el nivell <span class="math inline">\(i\)</span>-èssim; en direm l’<strong>efecte del tractament <span class="math inline">\(i\)</span>-èssim</strong> i representa la contribució a <span class="math inline">\(X_i\)</span> del fet de pertànyer a aquest nivell</p></li>
+<li><p><span class="math inline">\(X_i-\mu_i\)</span>, la desviació de la variable <span class="math inline">\(X\)</span> sobre un individu del nivell <span class="math inline">\(i\)</span>-èssim respecte de la mitjana d’aquest nivell, <span class="math inline">\(\mu_i\)</span>, representa el component aleatori en una medició concreta de <span class="math inline">\(X\)</span> sobre un individu del nivell <span class="math inline">\(i\)</span>-èssim, és a dir, “la part de la diferència entre <span class="math inline">\(X_{i}\)</span> i <span class="math inline">\(\mu\)</span> que no explica el tractament”; en diem l’<strong>error aleatori</strong>, o el <strong>residu</strong>.</p></li>
 </ul>
-<p>Fixau-vos que la fórmula que descriu aquest model és sempre veritat (podeu simplificar les <span class="math inline">\(\mu_i\)</span> de la dreta), i bàsicament diu que
-el valor de <span class="math inline">\(X\)</span> sobre un individu de la subpoblació <span class="math inline">\(i\)</span> té tres components:</p>
+<p>Fixau-vos que la fórmula que descriu aquest model és sempre veritat (podeu simplificar les <span class="math inline">\(\mu_i\)</span> i les <span class="math inline">\(\mu\)</span> de la dreta), i bàsicament diu que el valor de <span class="math inline">\(X\)</span> sobre un individu és la suma de tres components:</p>
 <ul>
-<li>La mitjana global <span class="math inline">\(\mu\)</span> de <span class="math inline">\(X\)</span> sobre tota la població</li>
-<li>La diferència <span class="math inline">\(\mu_i-\mu\)</span> entre la mitjana de <span class="math inline">\(X\)</span> a la seva subpoblació i la mitjana global</li>
-<li>El <strong>residu</strong>, o <strong>error</strong>, <span class="math inline">\(X_i-\mu_i\)</span></li>
+<li>La mitjana global</li>
+<li>L’efecte del tractament</li>
+<li>L’error aleatori</li>
 </ul>
+<p>i en particular que res més no influeix en el valor de <span class="math inline">\(X\)</span> sobre un individu. Per tant, si això no és veritat, és a dir, si aquest valor pot dependre d’altres efectes que no tinguem en compte, el model no és vàlid, i les conclusions de l’ANOVA tampoc.</p>
 <p>Passem ara a la mostra amb la que volem realitzar el contrast. Siguin:</p>
 <ul>
 <li><p><span class="math inline">\(\overline{X}_{i}\)</span>: Mitjana mostral de la mostra del tractament <span class="math inline">\(i\)</span>-èsim:
@@ -1278,9 +1278,9 @@ H_1 : \text{Hi ha } i,j \text{ tals que }  \mu_{i} \not=\mu_{j}
 <li><p>La variable aleatòria és l’energia consumida (en Kcal) per una persona en recórrer un km</p></li>
 <li><p>Els tractaments són els tres tipus de desplaçament</p></li>
 <li><p>Prenem 8 persones de manera raonablement aleatòria i interpretam cada una com un bloc</p></li>
-<li><p>Assignam a cada persona el tres tractaments en un ordre escollit a l’atzar per a cada un d’elles</p></li>
+<li><p>Assignam a cada persona el tres tractaments en un ordre escollit a l’atzar per a cada una d’elles</p></li>
 </ul>
-<p>La filosofia del contrast serà similar a la de l’ANOVA d’1 via, comparant variabilitats.</p>
+<p>La filosofia del contrast serà similar a la de l’ANOVA d’1 via, comparant variabilitats: si la variabilitat de les mitjanes de les mostres és molt més gran que la variabilitat dels “errors”, rebutjarem la igualtat de totes les mitjanes poblacionals.</p>
 <p>En una ANOVA de blocs, les dades se solen representar en forma d’una taula com la següent
 <span class="math display">\[
 \begin{array}{c}
@@ -1301,9 +1301,9 @@ H_1 : \text{Hi ha } i,j \text{ tals que }  \mu_{i} \not=\mu_{j}
 <div class="example">
 <p><span id="exm:unnamed-chunk-82" class="example"><strong>Exemple 1.12  </strong></span>Tornant al nostre Exemple <a href="anova.html#exm:esports">1.11</a> inicial, els blocs són els 8 individus (<span class="math inline">\(b=8\)</span>) i els tractaments, les diferents activitats (<span class="math inline">\(k=3\)</span>). Si</p>
 <ul>
-<li><span class="math inline">\(\mu_{1}\)</span> representa el nombre mitjà de Kca que es consumeixen corrent 1 km</li>
-<li><span class="math inline">\(\mu_{2}\)</span> representa el nombre mitjà de Kca que es consumeixen caminant 1 km</li>
-<li><span class="math inline">\(\mu_{3}\)</span> representa el nombre mitjà de Kca que es consumeixen pedalant 1 km</li>
+<li><span class="math inline">\(\mu_{1}\)</span> representa el nombre mitjà de Kcal que es consumeixen corrent 1 km</li>
+<li><span class="math inline">\(\mu_{2}\)</span> representa el nombre mitjà de Kcal que es consumeixen caminant 1 km</li>
+<li><span class="math inline">\(\mu_{3}\)</span> representa el nombre mitjà de Kcal que es consumeixen pedalant 1 km</li>
 </ul>
 <p>el contrast que volem realitzar és
 <span class="math display">\[
@@ -1324,17 +1324,16 @@ H_1 : \mu_{1} \neq \mu_{2}\text{ o } \mu_{1} \neq \mu_{3}\text{ o } \mu_{2} \neq
 la diferència entre les mitjanes poblacionals de cada parella concreta de tractaments és la mateixa a cada bloc
 <span class="math display">\[
 \mu_{i_1j_1}-\mu_{i_2j_1}=\mu_{i_1j_2}-\mu_{i_2j_2}
-\]</span>
-on aquí <span class="math inline">\(j_1\)</span> i <span class="math inline">\(j_2\)</span> no indiquen només blocs de la nostra mostra, sinó possibles blocs que haguéssim pogut escollir.</p>
+\]</span></p>
 <p>Per exemple, que no hi hagi interacció entre els blocs i els tractaments a l’Exemple <a href="anova.html#exm:esports">1.11</a> significa que:</p>
 <ul>
-<li>La diferència entre el consum energètic mitjà en córrer i en caminar és la mateixa a cada individu (del món mundial, no de la mostra)</li>
-<li>La diferència entre el consum energètic mitjà en córrer i en pedalar és la mateixa a cada individu</li>
-<li>La diferència entre el consum energètic mitjà en caminar i en pedalar és la mateixa a cada individu</li>
+<li>La diferència entre el consum energètic mitjà en córrer i en caminar és la mateixa a cada individu de la mostra</li>
+<li>La diferència entre el consum energètic mitjà en córrer i en pedalar és la mateixa a cada individu de la mostra</li>
+<li>La diferència entre el consum energètic mitjà en caminar i en pedalar és la mateixa a cada individu de la mostra</li>
 </ul></li>
 </ul>
 <p>En canvi, hi hauria interacció si, per exemple, la diferència entre el consum energètic mitjà en córrer i en caminar depengués de l’individu: si en uns la diferència fos més gran que en d’altres.</p>
-<p>Amb un sol valor per cada parell (tractament,bloc), cap d’aquestes condicions necessàries per poder realitzar una ANOVA de blocs no es pot contrastar i per tant l’experimentador ha de decidir si se satisfan o no segons la seva experiència</p>
+<p>Amb un sol valor per cada parell (tractament,bloc), cap d’aquestes condicions necessàries per poder realitzar una ANOVA de blocs no es pot contrastar i per tant l’experimentador ha de decidir si se satisfan o no segons la seva experiència.</p>
 
 <div class="rmdnote">
 <p>Què significa això de la interacció entre dues variables?</p>
@@ -1365,6 +1364,26 @@ Fixau-vos que això no és exactament equivalent al fet que un analgèsic sigui 
 <li>Direm <span class="math inline">\(\mu\)</span> a la mitjana de la variable d’interès sobre el total de la població, sense distingir tractaments</li>
 <li>Direm <span class="math inline">\(\mu_{\bullet j}\)</span> a la mitjana de la variable d’interès sobre el bloc <span class="math inline">\(j\)</span>-èssim</li>
 </ul>
+<p>L’ANOVA de blocs se basa en el <strong>model</strong> següent: per a tots <span class="math inline">\(i=1,\ldots,k\)</span> i <span class="math inline">\(j=1,\ldots,b\)</span>
+<span class="math display">\[
+X_{ij}=\mu+ (\mu_{i}-\mu) +(\mu_{\bullet j}-\mu) + E_{ij}
+\]</span>
+on:</p>
+<ul>
+<li><p><span class="math inline">\(X_{ij}\)</span> indica el valor de la variable <span class="math inline">\(X\)</span> per al tractament <span class="math inline">\(i\)</span>-èsim en el bloc <span class="math inline">\(j\)</span>-èsim</p></li>
+<li><p><span class="math inline">\(\mu_i-\mu\)</span> representa la desviació respecte de la mitjana global <span class="math inline">\(\mu\)</span> de la mitjana de <span class="math inline">\(X\)</span>
+en el nivell <span class="math inline">\(i\)</span>-èssim (l’<strong>efecte del tractament <span class="math inline">\(i\)</span>-èssim</strong>)</p></li>
+<li><p><span class="math inline">\(\mu_{\bullet j}-\mu\)</span> representa la desviació respecte de la mitjana global <span class="math inline">\(\mu\)</span> de la mitjana de <span class="math inline">\(X\)</span> en el bloc <span class="math inline">\(j\)</span>-èssim (l’<strong>efecte del bloc <span class="math inline">\(j\)</span>-èssim</strong>)</p></li>
+<li><p><span class="math inline">\(E_{ij}\)</span> (<span class="math inline">\(=X_{ij}-\mu_{i\bullet}-\mu_{\bullet j}+\mu\)</span>) representa la part de la diferència entre <span class="math inline">\(X_{ij}\)</span> i <span class="math inline">\(\mu\)</span> que no explica ni el tractament ni el bloc; en diem l’<strong>error aleatori</strong>, o el <strong>residu</strong>.</p></li>
+</ul>
+<p>Aquest model diu bàsicament que el valor de <span class="math inline">\(X\)</span> sobre un individu és la suma de quatre components:</p>
+<ul>
+<li>La mitjana global <span class="math inline">\(\mu\)</span> de <span class="math inline">\(X\)</span> sobre tota la població</li>
+<li>L’efecte del tractament</li>
+<li>L’efecte del bloc</li>
+<li>L’error aleatori</li>
+</ul>
+<p>i per tant hi pressuposam que res més no influeix en el valor de <span class="math inline">\(X\)</span>, i en particular que l’efecte del bloc i el del tractament se sumen, sense que hi hagi interacció entre ells. Si això no és veritat, és a dir, si aquest valor pot dependre d’altres efectes que no tinguem en compte o si hi ha interacció entre els blocs i els tractaments, el model no és vàlid, i les conclusions de l’ANOVA tampoc.</p>
 <p>Pel que fa a la nostra mostra:</p>
 <ul>
 <li><p><span class="math inline">\(\overline{X}_{i}\)</span> és la mitjana mostral de la mostra del tractament <span class="math inline">\(i\)</span>-èsim
@@ -1508,23 +1527,11 @@ on</p>
 </ul>
 
 <div class="rmdnote">
-<p>Fixau-vos que podeu escriure
+<p>Al model de l’ANOVA de blocs, l’error aleatori és
 <span class="math display">\[
-X_{ij}=\mu+ (\mu_{i}-\mu) +(\mu_{\bullet j}-\mu) + (X_{ij}-\mu_{i}-\mu_{\bullet j}+\mu)
+E_{ij}=X_{ij}-\mu_{i}-\mu_{\bullet j}+\mu
 \]</span>
-Aquesta igualtat diu que la diferència entre cada <span class="math inline">\(X_{ij}\)</span> i la mitjana global <span class="math inline">\(\mu\)</span> és la suma de tres contribucions:</p>
-<ul>
-<li><p>La diferència entre la mitjana del tractament <span class="math inline">\(i\)</span> i la mitjana global; aquesta és la part de la diferència entre <span class="math inline">\(X_{ij}\)</span> i <span class="math inline">\(\mu\)</span> deguda a que <span class="math inline">\(X_{ij}\)</span> és una mesura sota el tractament <span class="math inline">\(i\)</span>, i per tant representa la contribució d’aquest tractament a <span class="math inline">\(X_{ij}\)</span></p></li>
-<li><p>La diferència entre la mitjana del bloc <span class="math inline">\(j\)</span> i la mitjana global; aquesta és la part de la diferència entre <span class="math inline">\(X_{ij}\)</span> i <span class="math inline">\(\mu\)</span> deguda a que <span class="math inline">\(X_{ij}\)</span> és una mesura sobre el bloc <span class="math inline">\(j\)</span>, i per tant representa la contribució a <span class="math inline">\(X_{ij}\)</span> del fet d’haver estat mesurat sobre aquest bloc</p></li>
-<li><p><span class="math inline">\(X_{ij}-\mu_{i}-\mu_{\bullet j}+\mu\)</span>, que és “la part de la diferència entre <span class="math inline">\(X_{ij}\)</span> i <span class="math inline">\(\mu\)</span> que no explica ni el tractament ni el bloc”; en diem el <strong>residu</strong>, o l’<strong>error</strong></p></li>
-</ul>
-<p>Doncs bé,</p>
-<ul>
-<li><p><span class="math inline">\(SS_{Total}\)</span> és la suma dels quadrats de les estimacions de les diferències <span class="math inline">\(X_{ij}-\mu\)</span></p></li>
-<li><p><span class="math inline">\(SS_{Tr}\)</span> és la suma dels quadrats de les estimacions de les diferències <span class="math inline">\(\mu_{i}-\mu\)</span></p></li>
-<li><p><span class="math inline">\(SS_{Tr}\)</span> és la suma dels quadrats de les estimacions de les diferències <span class="math inline">\(\mu_{\bullet j}-\mu\)</span></p></li>
-<li><p><span class="math inline">\(SS_E\)</span> és la suma dels quadrats de les estimacions del residus</p></li>
-</ul>
+i <span class="math inline">\(SS_E\)</span> és la suma dels quadrats de les estimacions d’aquests errors aleatoris per als individus de la nostra mostra.</p>
 </div>
 
 <p>Per tant

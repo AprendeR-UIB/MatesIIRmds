@@ -395,27 +395,27 @@ $$
 $$
 perquè si totes les subpoblacions tenen la mateixa mitjana, aquesta mitjana comuna serà la mitjana de tota la població.
 
-En aquest tema és el primer cop que tenim ocasió de parlar de **models estadístics**. Informalment, un **model** no és res més que una descripció matemàtica del comportament d'una o vàries variables aleatòries sobre una població. De vegades, com és el cas de l'ANOVA d'1 via, són models tautològics en el sentit que són  vertaders per a tota població. En altres casos, com passarà a l'ANOVA de blocs o als temes  següents sobre regressió lineal o *clustering*, inclou assumpcions sobre la població que poden ser veritat o no, i que si no ho són aleshores les conclusions de l'anàlisi estadística que fem basant-nos en aquest model no tendran cap sentit.
+En aquest tema és el primer cop que tenim ocasió de parlar de **models estadístics**. Informalment, un **model** no és res més que una descripció matemàtica del comportament d'una o vàries variables aleatòries sobre una població. Aquests models inclouen assumpcions sobre la població que poden ser veritat o no, i que si no ho són aleshores les conclusions de l'anàlisi estadística que fem basant-nos en aquest model no tendran cap sentit.
 
 En concret, l'ANOVA d'1 via es basa en el **model** següent: per a cada $i=1,\ldots,k$,
 $$
-X_i-\mu=(\mu_i-\mu)+(X_i-\mu_i)
+X_i=\mu+(\mu_i-\mu)+(X_i-\mu_i)
 $$
 on:
 
-* $X_i-\mu$ representa la desviació respecte de la mitjana global $\mu$ de la variable $X$ sobre un individu del nivell $i$-èssim 
+* $X_i$ representa el valor de la variable $X$ sobre un individu del nivell $i$-èssim 
 
-* $\mu_i-\mu$ representa la desviació respecte de la mitjana global $\mu$ de la mitjana de $X$ en el nivell $i$-èssim
+* $\mu_i-\mu$ representa la desviació respecte de la mitjana global $\mu$ de la mitjana de $X$ en el nivell $i$-èssim; en direm l'**efecte del tractament $i$-èssim** i representa la contribució a $X_i$ del fet de pertànyer a aquest nivell 
 
-* $X_i-\mu_i$ representa la desviació  de la variable $X$ sobre un individu del nivell $i$-èssim respecte de la mitjana d'aquest nivell, $\mu_i$
+* $X_i-\mu_i$, la desviació  de la variable $X$ sobre un individu del nivell $i$-èssim respecte de la mitjana d'aquest nivell, $\mu_i$, representa el component aleatori en una medició concreta de $X$ sobre un individu del nivell $i$-èssim, és a dir, "la part de la diferència entre  $X_{i}$ i  $\mu$ que no explica el tractament"; en diem  l'**error aleatori**, o el **residu**.
 
-Fixau-vos que la fórmula que descriu aquest model és sempre veritat (podeu simplificar les $\mu_i$ de la dreta), i bàsicament diu que 
-el valor de $X$ sobre un individu de la subpoblació $i$ té tres components:
+Fixau-vos que la fórmula que descriu aquest model és sempre veritat (podeu simplificar les $\mu_i$ i les $\mu$ de la dreta), i bàsicament diu que  el valor de $X$ sobre un individu és la suma de tres components:
 
-* La mitjana global $\mu$ de $X$ sobre tota la població
-* La diferència $\mu_i-\mu$ entre la mitjana de $X$ a la seva subpoblació i la mitjana global
-* El **residu**, o **error**, $X_i-\mu_i$
+* La mitjana global 
+* L'efecte del tractament
+* L'error aleatori
 
+i en particular que res més no influeix en el valor de $X$ sobre un individu. Per tant, si això no és veritat, és a dir, si aquest valor pot dependre d'altres efectes que no tinguem en compte, el model no és vàlid, i les conclusions de l'ANOVA tampoc.
 
 Passem ara a la mostra amb la que volem realitzar el contrast. Siguin:
 
@@ -1245,6 +1245,7 @@ $$
 
 En un **experiment de disseny d'ANOVA de blocs**:
 
+
 1. Escollim una mostra aleatòria de $b$ **blocs**: conjunts de $k$ subjectes aparellats  (per exemple, escollim $b$ subjectes i entenem cada bloc com a format per $k$ còpies del mateix subjecte), on fixau-vos que $k$ és el nombre de tractaments.
 
 2. Dins cada bloc, assignam aleatòriament a cada subjecte un tractament, de manera que cada tractament s'empri exactament un cop dins  cada bloc.
@@ -1257,9 +1258,9 @@ Així, el disseny de l'Exemple \@ref(exm:esports) és d'una ANOVA de blocs:
 
 * Prenem 8 persones de manera raonablement aleatòria i interpretam cada una com un bloc
 
-* Assignam a cada persona el tres tractaments en un ordre escollit a l'atzar per a cada un d'elles
+* Assignam a cada persona el tres tractaments en un ordre escollit a l'atzar per a cada una d'elles
 
-La filosofia del contrast serà similar a la de l'ANOVA d'1 via, comparant variabilitats.
+La filosofia del contrast serà similar a la de l'ANOVA d'1 via, comparant variabilitats: si la variabilitat de les mitjanes de les mostres és molt més gran que la variabilitat dels "errors", rebutjarem la igualtat de totes les mitjanes poblacionals.
 
 En una ANOVA de blocs, les dades se solen representar en forma d'una taula com la següent
 $$
@@ -1284,9 +1285,9 @@ on cada $X_{ij}$ és el valor del tractament $i$-èsim en l'individu corresponen
 ```{example}
 Tornant al nostre Exemple \@ref(exm:esports) inicial, els blocs són els 8 individus ($b=8$) i els tractaments, les diferents activitats ($k=3$). Si
 
-* $\mu_{1}$ representa el nombre mitjà de Kca que es consumeixen corrent 1 km
-* $\mu_{2}$ representa el nombre mitjà de Kca  que es consumeixen caminant 1 km
-* $\mu_{3}$ representa el nombre mitjà de Kca  que es consumeixen pedalant 1 km
+* $\mu_{1}$ representa el nombre mitjà de Kcal que es consumeixen corrent 1 km
+* $\mu_{2}$ representa el nombre mitjà de Kcal  que es consumeixen caminant 1 km
+* $\mu_{3}$ representa el nombre mitjà de Kcal  que es consumeixen pedalant 1 km
 
 el contrast que volem realitzar és
 $$
@@ -1312,17 +1313,17 @@ la diferència entre les mitjanes poblacionals de cada parella concreta de tract
 $$
 \mu_{i_1j_1}-\mu_{i_2j_1}=\mu_{i_1j_2}-\mu_{i_2j_2}
 $$
-    on aquí $j_1$ i $j_2$ no indiquen només blocs de la nostra mostra, sinó possibles blocs que haguéssim pogut escollir.
+
     
     Per exemple, que no hi hagi interacció entre els blocs i els tractaments a l'Exemple \@ref(exm:esports) significa que:
 
-    * La diferència entre el consum energètic mitjà en córrer i en caminar és la mateixa a cada individu (del món mundial, no de la mostra)
-    * La diferència entre el consum energètic mitjà en córrer i en pedalar és la mateixa a cada individu 
-    * La diferència entre el consum energètic mitjà en caminar i en pedalar és la mateixa a cada individu 
+    * La diferència entre el consum energètic mitjà en córrer i en caminar és la mateixa a cada individu  de la mostra
+    * La diferència entre el consum energètic mitjà en córrer i en pedalar és la mateixa a cada individu  de la mostra
+    * La diferència entre el consum energètic mitjà en caminar i en pedalar és la mateixa a cada individu  de la mostra
   
 En canvi, hi hauria interacció si, per exemple, la diferència entre el consum energètic mitjà en córrer i en caminar depengués de l'individu: si en uns la diferència fos més gran que en d'altres. 
 
-Amb un sol valor per cada parell (tractament,bloc), cap d'aquestes condicions necessàries per poder realitzar una ANOVA de blocs no es pot contrastar i per tant l'experimentador ha de decidir si se satisfan o no segons la seva experiència
+Amb un sol valor per cada parell (tractament,bloc), cap d'aquestes condicions necessàries per poder realitzar una ANOVA de blocs no es pot contrastar i per tant l'experimentador ha de decidir si se satisfan o no segons la seva experiència. 
 
 
 ```{block2,type="rmdnote"}
@@ -1355,6 +1356,33 @@ Recordarem algunes notacions, i n'introduïm algunes altres. Pel que fa a la pob
 * Direm $\mu_i$ a la mitjana de la variable d'interès sobre la població definida pel tractament $i$-èssim
 * Direm $\mu$ a la mitjana de la variable d'interès sobre el total de la població, sense distingir tractaments
 * Direm $\mu_{\bullet j}$ a la mitjana de la variable d'interès sobre el bloc $j$-èssim
+
+
+L'ANOVA de blocs se basa en el **model** següent: per a tots $i=1,\ldots,k$ i $j=1,\ldots,b$
+$$
+X_{ij}=\mu+ (\mu_{i}-\mu) +(\mu_{\bullet j}-\mu) + E_{ij} 
+$$
+on:
+
+* $X_{ij}$ indica el valor de la variable $X$ per al tractament $i$-èsim en el bloc $j$-èsim 
+
+* $\mu_i-\mu$ representa la desviació respecte de la mitjana global $\mu$ de la mitjana de  $X$
+  en el nivell $i$-èssim (l'**efecte del tractament $i$-èssim**)
+
+* $\mu_{\bullet j}-\mu$ representa la desviació respecte de la mitjana global $\mu$ de la mitjana de  $X$ en el bloc $j$-èssim (l'**efecte del bloc $j$-èssim**)
+
+* $E_{ij}$  representa la part de la diferència entre  $X_{ij}$ i  $\mu$ que no explica ni el tractament ni el bloc; en diem  l'**error aleatori**, o el **residu**. 
+
+Aquest model  diu bàsicament  que el valor de $X$ sobre un individu és la suma de quatre components:
+
+* La mitjana global $\mu$ de $X$ sobre tota la població
+* L'efecte del tractament 
+* L'efecte del bloc
+* L'error aleatori
+
+i per tant hi pressuposam que res més no influeix en el valor de $X$, i en particular que l'efecte del bloc i el del tractament se sumen, sense que hi hagi interacció entre ells. Si això no és veritat, és a dir, si aquest valor pot dependre d'altres efectes que no tinguem en compte o si hi ha interacció entre els blocs i els tractaments, el model no és vàlid, i les conclusions de l'ANOVA tampoc.
+
+
 
 Pel que fa a la nostra mostra:
 
@@ -1500,27 +1528,15 @@ En aquesta identitat
 * $SS_E$ representa la "resta de la variabilitat"
 
 ```{block2,type="rmdnote"}
-Fixau-vos que podeu escriure
+Per a que el model de l'ANOVA de blocs
 $$
-X_{ij}=\mu+ (\mu_{i}-\mu) +(\mu_{\bullet j}-\mu) + (X_{ij}-\mu_{i}-\mu_{\bullet j}+\mu)
+X_{ij}=\mu+ (\mu_{i}-\mu) +(\mu_{\bullet j}-\mu) + E_{ij}  
 $$
-Aquesta igualtat diu que la diferència entre cada $X_{ij}$ i la mitjana global $\mu$ és la suma de tres contribucions:
-  
-* La diferència entre la mitjana del tractament $i$ i la mitjana global; aquesta és la part de la diferència entre $X_{ij}$ i $\mu$ deguda a que $X_{ij}$ és una mesura sota el tractament $i$, i per tant representa la contribució d'aquest tractament a $X_{ij}$
-
-* La diferència entre la mitjana del bloc $j$ i la mitjana global; aquesta és la part de la diferència entre $X_{ij}$ i $\mu$ deguda a que $X_{ij}$ és una mesura sobre el bloc $j$, i per tant representa la contribució a $X_{ij}$ del fet d'haver estat mesurat sobre aquest bloc
-
-* $X_{ij}-\mu_{i}-\mu_{\bullet j}+\mu$, que és "la part de la diferència entre  $X_{ij}$ i  $\mu$ que no explica ni el tractament ni el bloc"; en diem el **residu**, o l'**error**
-
-Doncs bé, 
-
-* $SS_{Total}$ és la suma dels quadrats de les estimacions de les diferències $X_{ij}-\mu$
-
-* $SS_{Tr}$ és la suma dels quadrats de les estimacions de les diferències $\mu_{i}-\mu$
-
-* $SS_{Tr}$ és la suma dels quadrats de les estimacions de les diferències $\mu_{\bullet j}-\mu$
-
-* $SS_E$ és la suma dels quadrats de les estimacions del residus
+ha de passar (aïllant) que
+$$
+E_{ij}=X_{ij}-\mu_{i}-\mu_{\bullet j}+\mu
+$$
+i aleshores $SS_E$ és la suma dels quadrats de les estimacions d'aquests errors aleatoris per als individus de la nostra mostra.
 
 
 ```
@@ -1607,7 +1623,7 @@ SS.Tr+SS.Bl+SSE
 ```
 
 
-A partir d'aquí, tot funciona com a l'ANOVA d'1 via. Per realitzar  el contrast 
+A partir d'aquí, tot funciona com a l'ANOVA d'1 via. Al contrast 
 $$
 \left\{
 \begin{array}{l}
@@ -1616,6 +1632,7 @@ H_1 : \text{Hi ha } i,j=1,\ldots ,k \text{ tals que }  \mu_{i}\neq \mu_{j}
 \end{array}
 \right.
 $$
+rebutjarem la hipòtesi nul·la si $SS_{Tr}$ és prou més gran que $SS_{E}$. Per mesurar-ho,
 emprarem els  estadístics següents:
 
 * **Quadrat mitjà dels tractaments**: 
@@ -1651,11 +1668,11 @@ Aleshores, com a l'ANOVA d'1 via, si $H_0:\mu_{1}=\cdots =\mu_{k}(=\mu)$ és cer
 $$
 \sum\limits_{i=1}^k (\mu_{i}-\mu)^2 = 0,
 $$
-mentre que si $H_0$ no és certa
+i per tant $E(MS_{Tr})=E(MS_E)$, mentre que si $H_0$ no és certa
 $$
 \sum\limits_{i=1}^k (\mu_{i}-\mu)^2 > 0
 $$
-
+cas en el qual $E(MS_{Tr})>E(MS_E)$.
 
 
 Aleshores prendrem com a **estadístic de contrast** el quocient 
@@ -1692,7 +1709,7 @@ $$
 
 * Si aquest p-valor és més petit que el nivell de significació $\alpha$,  rebutjam $H_0$ i concloem que no totes les mitjanes són iguals. En cas contrari, acceptam que totes les mitjanes són iguals.
 
-Totes aquestes dades se solen recollir en la taula següent:
+Totes aquestes dades se solen recollir en la **taula ANOVA** següent:
 $$
 \begin{array}{llllll}
 \hline
@@ -1734,7 +1751,7 @@ Aleshores:
 * p-valor: $P(F_{2,14}\geq 79.949)=2\cdot 10^{-8}$
 
 
-* *Conclusió*: Hem obtingut evidència estadísticament significativa que no és veritat que les tres activitats tenguin el mateix consum energètic mitjà per km (ANOVA de blocs, p-valor 2·10^-8^)
+* *Conclusió*: Hem obtingut evidència estadística que no és veritat que les tres activitats tenguin el mateix consum energètic mitjà per km (ANOVA de blocs, p-valor 2·10^-8^)
 
 La taula ANOVA d'aquest exemple és
 
