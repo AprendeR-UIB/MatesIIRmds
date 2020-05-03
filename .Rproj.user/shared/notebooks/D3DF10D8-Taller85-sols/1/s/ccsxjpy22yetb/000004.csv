@@ -1,3 +1,0 @@
-"0","Xuleta0=Casa2[Notes$Xuleta==0]"
-"0","car::qqPlot(Xuleta0, distribution=""norm"", mean=mean(Xuleta0,na.rm=TRUE), sd=sd(Xuleta0,na.rm=TRUE), main=""Notes de Casa 2 dels que NO entregaren xuleta"","
-"0","        ylab=""Quantils de la mostra"", xlab=""Quantils de normal"", pch=20, id=FALSE)"

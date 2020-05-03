@@ -198,7 +198,10 @@ La situació és la següent. Tenim una variable aleatòria $X$ i un (únic) fac
 
 En un **experiment de disseny d'ANOVA d'1 via** (en anglès, *1 way*; el motiu d'aquest nom és que empram una única "manera" de classificar la població, en anglès *one way* que també es tradueix per "una via", i així ha quedat el nom en les nostres llengües):
 
-* Es pren una m.a.s. de cada subpoblació,  de manera independent les unes de les altres, i les empram per realitzar el contrast
+* S'empra un factor amb $k>2$ nivells per classificar una població en subpoblacions
+
+* Es pren una m.a.s. de cada subpoblació,  de manera independent les unes de les altres, i es mesura sobre tots els subjectes de les mostres la variable d'interès $X$
+
 
 Per exemple, l'experiment del nostre Exemple \@ref(exm:CO2) té disseny d'ANOVA d'1 via:
 
@@ -324,11 +327,11 @@ Perquè es pugui realitzar un contrast ANOVA d'1 via, **s'han de satisfer les co
 
 * Les $k$ mostres han de ser m.a.s. independents extretes de $k$ poblacions específiques, amb mitjanes $\mu_1,\ldots,\mu_k$
 
-* $N\geq k+1$
+* $N\geq k+1$ (alguna mostra ha de tenir més d'un subjecte)
 
 * Cadascuna de les $k$ poblacions ha de seguir una llei normal
 
-* **Homocedasticitat**: Totes aquestes poblacions han de tenir la mateixa variància, que indicarem amb $\sigma^2$
+* **Homogeneïtat de les variàncies**, o **homocedasticitat**: Totes aquestes poblacions han de tenir la mateixa variància, que indicarem amb $\sigma^2$
 
 
 
@@ -337,7 +340,7 @@ Perquè es pugui realitzar un contrast ANOVA d'1 via, **s'han de satisfer les co
 ```
 
 
-Donades diverses variables, hi tenim **homocedasticitat** quan totes tenen la mateixa variància, i **heterocedasticitat** quan no totes tenen la mateixa variància. Per exemple, les tres mostres del gràfic de l'esquerra següent provenen de variables normals amb la mateixa variància, representades al gràfic de la dreta: hi ha homocedasticitat:
+Donades diverses variables, hi tenim **homocedasticitat** quan totes tenen la mateixa variància, i **heterocedasticitat** quan no totes tenen la mateixa variància. Fixau-vos que ens referim a les variàncies de les poblacions, no de les mostres. Per exemple, les tres mostres del gràfic de l'esquerra següent provenen de variables normals amb la mateixa variància, representades al gràfic de la dreta: hi ha homocedasticitat:
 
 ```{r,fig.width=10,out.width="90%", fig.asp=0.5, echo=FALSE}
 par(mfrow=c(1,2))
@@ -381,7 +384,7 @@ L'homocedasticitat **no és que les mostres dels tractaments tenguin la mateixa 
 
 
 
-Diguem $\mu$ a la mitjana poblacional de la població global (sense tenir la classificació donada pels tractaments).
+Diguem $\mu$ a la mitjana poblacional de la població global (sense tenir en compte la classificació donada pels tractaments).
 Recordau que la hipòtesi nul·la del contrast que volem realitzar és 
 $$
 H_0: \mu_1=\cdots=\mu_k
@@ -391,6 +394,28 @@ $$
 \mu_1=\cdots=\mu_k=\mu
 $$
 perquè si totes les subpoblacions tenen la mateixa mitjana, aquesta mitjana comuna serà la mitjana de tota la població.
+
+En aquest tema és el primer cop que tenim ocasió de parlar de **models estadístics**. Informalment, un **model** no és res més que una descripció matemàtica del comportament d'una o vàries variables aleatòries sobre una població. De vegades, com és el cas de l'ANOVA d'1 via, són models tautològics en el sentit que són  vertaders per a tota població. En altres casos, com passarà a l'ANOVA de blocs o als temes  següents sobre regressió lineal o *clustering*, inclou assumpcions sobre la població que poden ser veritat o no, i que si no ho són aleshores les conclusions de l'anàlisi estadística que fem basant-nos en aquest model no tendran cap sentit.
+
+En concret, l'ANOVA d'1 via es basa en el **model** següent: per a cada $i=1,\ldots,k$,
+$$
+X_i-\mu=(\mu_i-\mu)+(X_i-\mu_i)
+$$
+on:
+
+* $X_i-\mu$ representa la desviació respecte de la mitjana global $\mu$ de la variable $X$ sobre un individu del nivell $i$-èssim 
+
+* $\mu_i-\mu$ representa la desviació respecte de la mitjana global $\mu$ de la mitjana de $X$ en el nivell $i$-èssim
+
+* $X_i-\mu_i$ representa la desviació  de la variable $X$ sobre un individu del nivell $i$-èssim respecte de la mitjana d'aquest nivell, $\mu_i$
+
+Fixau-vos que la fórmula que descriu aquest model és sempre veritat (podeu simplificar les $\mu_i$ de la dreta), i bàsicament diu que 
+el valor de $X$ sobre un individu de la subpoblació $i$ té tres components:
+
+* La mitjana global $\mu$ de $X$ sobre tota la població
+* La diferència $\mu_i-\mu$ entre la mitjana de $X$ a la seva subpoblació i la mitjana global
+* El **residu**, o **error**, $X_i-\mu_i$
+
 
 Passem ara a la mostra amb la que volem realitzar el contrast. Siguin:
 
@@ -431,7 +456,11 @@ Fixau-vos que
 
 * $SS_E$ representa la suma de les variabilitats de les dades de la mostra de cada tractament: de fet, és la suma dels numeradors de les variàncies de les $k$ mostres dels diferents tractaments
 
-* $SS_{Total}=SS_{Tr}+SS_E$ diu que la variabilitat total de la mostra descompon en la suma de la suma de les variabilitats de les mosres de cada tractament més la variabilitat de les mitjanes 
+* $SS_{Total}=SS_{Tr}+SS_E$ diu que la variabilitat total de la mostra descompon en la suma de la variabilitat de les mitjanes i la suma de les variabilitats de les mostres de cada tractament  
+
+```{block2,type="rmdnote"}
+Fixau-vos que, amb la terminologia introduïda quan explicàvem el model de l'ANOVA d'1 via, cada $X_{ij}-\mu_i$ estima el **residu**, o **error**, sobre l'individu $j$-èssim del nivell $i$-èssim. Per això a $\displaystyle\sum_{i=1}^k\sum_{j=1}^{n_i} (X_{ij}-\overline{X}_{i})^2$ li diem la   *Suma de Quadrats dels Residus* o *dels Errors*.
+```
 
 
 ```{example}
@@ -567,7 +596,7 @@ Sota les condicions necessàries per poder realitzar una ANOVA i si $H_0:\mu_1=\
 Per tant, en una ANOVA **rebutjarem la hipòtesi nul·la si el valor $F_0$ de $F$ obtingut sobre la nostra mostra és molt gran**. Això ho traduirem en que rebutjarem la hipòtesi nul·la si la probabilitat que $F$ sigui més gran que $F_0$ és petita, i aquesta probabilitat serà el p-valor del contrast.
 
 ```{block2,type="rmdnote"}
-Si $k=2$, aquesta $F$ és igual al quadrat de l'estadístic del test t de 2 mostres independents i variàncies iguals. Per tant, efectuar ANOVA d'1 via amb només 2 tractaments és equivalent a efectuar un test t amb mostres independents i mateixa variància poblacional.
+Si $k=2$, aquesta $F$ és igual al quadrat de l'estadístic del test t de 2 mostres independents i variàncies iguals. Per tant, efectuar una ANOVA d'1 via amb només 2 tractaments és equivalent a efectuar un test t amb mostres independents i mateixa variància poblacional.
 ```
 
 ```{block2,type="rmdcorbes"}
@@ -678,14 +707,14 @@ F0
 ```
 
 
-*Conclusió*: Hem trobat evidència estadísticament significativa que el nivell de pressió de CO~2~ influeix en
+*Conclusió*: Hem trobat evidència estadística que el nivell de pressió de CO~2~ influeix en
 el creixement mitjà del microorganisme *Pseudomonas fragi* (ANOVA, p-valor `r 1-pf(F0,k-1,N-k)`).
 
 ```{block2,type="rmdcaution"}
-Per ara només concloem que no totes les mitjanes (dels percentatges d'increment de volum cel·lular)  són iguals: no concloem que totes aquestes mitjanes són diferents. **No és el mateix!** 
+Per ara només concloem que no totes les mitjanes (dels percentatges d'increment de volum cel·lular)  són iguals: no concloem que totes aquestes mitjanes siguin diferents. **No és el mateix!** 
 ```
 
-Un contrast ANOVA se sol resumir en la taula següent:
+Un contrast ANOVA d'1 via se sol resumir en la **taula ANOVA** següent:
 $$
 \begin{array}{llllll}
 \hline
@@ -697,7 +726,7 @@ $$
 $$
 
 
-En el nostre Exemple \@ref(exm:CO2), aquesta taula és
+Així, la taula de l'ANOVA de l'Exemple \@ref(exm:CO2)  és
 $$
 \begin{array}{llllll}
 \hline
@@ -707,6 +736,8 @@ $$
 \text{Residus} & 45 & 1248.04 & 27.73 & \\\hline
 \end{array}
 $$
+
+En aquesta taula, a banda de l'estadístic de contrast i el p-valor, ens pot interessar el valor del $MS_E$, que estima la variància comuna de tots els tractaments. En el nostre exemple,  (si se satisfan les condicions per poder efectuar una ANOVA d'1 via) estimam que les variables que ens donen  els percentatges d'increment en 1 hora de les poblacions de *P. fragi* sota les diferents pressions de CO~2~ considerades tenen totes variància (poblacional) 27.73.
 
 Vegem un altre exemple.
 
@@ -788,7 +819,7 @@ Per realitzar una ANOVA, s'aplica la funció
 ```{r,eval=FALSE}
 summary(aov( ))
 ```
-a la fórmula que separa les dades numèriques segons els nivells del factor (**ha de ser un factor**). Si la fórmula només especifica els noms de les variables, s'hi ha d'indicar el nom del *dataframe* amb el paràmetre `data`. 
+a la fórmula que separa les dades numèriques segons els nivells del factor (**ha de ser un factor** o, a partir de la versió 4.0 de R, **un vector de paraules**). Si la fórmula només especifica els noms de les variables, s'hi ha d'indicar el nom del *dataframe* amb el paràmetre `data`. 
 
 Per exemple, l'ANOVA de l'Exemple \@ref(exm:CO2) s'obté amb
 ```{r}
@@ -809,6 +840,7 @@ Per realitzar l'ANOVA de l'Exemple \@ref(exm:ANOVAterapgen), primer hem d'entrar
 Expr=c(96,93,70,78,99,90,90,87,100,75,84,57,104,80,76,66,84,90,78,76)
 Tract=rep(1:4,5)
 EG=data.frame(Expr,Tract)
+str(EG)
 summary(aov(Expr~Tract,data=EG))
 ```
  
@@ -884,7 +916,7 @@ Si es realitzen $c$ contrastos amb nivell de significació $\alpha$, la probabil
 ```
 
 
-Per exemple, a l'Exemple \@ref(exm:CO2), si realitzam els $c=\binom{5}{2}=10$ contrastos (totes les pressions contra totes les pressions) amb nivell de significació $\alpha =0.05$, la probabilitat de cometre almenys un Error de Tipus I a qualcun és  $1-(1-0.05)^{10} \approx 0.4$.
+Per exemple, a l'Exemple \@ref(exm:CO2), si realitzam els $c=\binom{5}{2}=10$ contrastos (totes les pressions contra totes les pressions) amb nivell de significació $\alpha =0.05$, la probabilitat de cometre almenys un Error de Tipus I a qualcun (si totes les mitjanes fossin iguales en la realitat) és  $1-(1-0.05)^{10} \approx 0.4$.
 
 Per tant, haurem de reduir el nivell de significació de cada contrast per que la probabilitat global de cometre **qualque** Error de Tipus I sigui $\alpha$. O, equivalentement, augmentar (s'en diu **ajustar**) el p-valor de cada contrast abans de comparar-lo amb l'$\alpha$ global fixat.
 
@@ -892,11 +924,11 @@ Tot seguit explicam dos d'aquests mètodes d'ajust de p-valors.
 
 #### Mètode de Bonferroni
 
-El mètode d'ajust de p-valors més popular és el **de Bonferroni**. Emprant que $1-(1-x)^c \approx c\cdot x$, si volem efectuar $c$ contrastos amb nivell de significació (global) $\alpha$, 
+El mètode d'ajust de p-valors més popular és el **de Bonferroni**. Emprant que $1-(1-x)^c \leq c\cdot x$, si volem efectuar $c$ contrastos amb nivell de significació (global) $\alpha$, 
 
 > realitzam cada contrast amb nivell de significació $\alpha/c$
 
-i així el nivell de significació  global serà aproximadament $c\cdot \alpha/c=\alpha$. O, equivalentment
+i així el nivell de significació  global segur que serà menor o igual que $c\cdot \alpha/c=\alpha$. O, equivalentment
 
 > multiplicam el p-valor de cada contrast per $c$ abans de comparar-lo amb el nivell de significació $\alpha$
 
@@ -905,8 +937,8 @@ $$
 p<\alpha/c \Longleftrightarrow c\cdot p<\alpha
 $$
 
-```{block2,type="rmdnote"}
-Bé, gairebé equivalents. Si quan multiplicau un dels p-valors per  $c$ us dóna un valor més gran que 1, heu de donar com a p-valor ajustat 1. Pensau que, ajustats o no, els p-valors són probabilitats, i per tant no poden ser més grans que 1.
+```{block2,type="rmdcaution"}
+Bé, gairebé equivalents. Si quan multiplicau un dels p-valors per  $c$ us dóna un valor més gran que 1, heu de donar com a p-valor ajustat 1. Pensau que, ajustats o no, els p-valors representen probabilitats, i per tant no poden ser més grans que 1.
 ```
 
 
@@ -917,7 +949,7 @@ A l'Exemple \@ref(exm:CO2), si realitzam els  10 contrastos per parelles, per ob
 
 o equivalentment 
 
-* Hem de multiplicar cada p-valor per **10**
+* Hem de multiplicar cada p-valor per **10** i comparar-los amb 0.05
 
 A l'Exemple 2, si realitzam els  6 contrastos de totes les parelles possibles, per obtenir un nivell de significació global  $\alpha =0.05$,
 
@@ -941,7 +973,7 @@ pairwise.t.test(variable numèrica, factor, p.adjust.method="none")
 
 
 
-* Per calcular tots els p-valors ajustats amb qualque mètode, s'ha d'especificar al paràmetre `p.adjust.method`. Per exemple, per ajustar-los amb el mètode de Bonferroni, s'hauria d'entrar `p.adjust.method="bonferroni"`.
+* Per calcular tots els p-valors ajustats amb qualque mètode, s'ha d'especificar al paràmetre `p.adjust.method`. Per exemple, per ajustar-los amb el mètode de Bonferroni, s'hauria d'entrar `p.adjust.method="bonferroni"` (fixau-vos que  `bonferroni` hi va entre cometes i començant amb minúscula).
 
 ```{example}
 Tornem a l'Exemple \@ref(exm:ANOVAterapgen).
@@ -960,7 +992,7 @@ pairwise.t.test(EG$Expr,EG$Tract, p.adjust.method="none")
 pairwise.t.test(EG$Expr,EG$Tract,p.adjust.method="bonferroni")
 ```
 
-Podeu comprovar que els p-valors d'aquest segon resultat són els del primer resultat multiplicats per 6 (llevat d'arrodoniments).
+Podeu comprovar que els p-valors d'aquest segon resultat són els del primer resultat multiplicats per 6 (llevat d'arrodoniments i dels 1 que poden representar resultats més grans  que 1).
 
 
 Suposem que fixam el nivell de significació global usual $\alpha=0.05$. En la primera execució de `pairwise.t.test`, els únics p-valors per davall de $0.05/6=0.0083$ han estat els dels parells (1,3) i (1,4). 
@@ -1059,7 +1091,7 @@ pairwise.t.test(CO2$Inc,CO2$Pre,p.adjust.method="holm")
 *Conclusió*: Hem trobat evidència estadísticament significativa que cada una de les diferents pressions de CO~2~ considerades dona lloc a un increments mitjà diferent del volum cel·lular de *P. fragi* al cap d'una hora (ANOVA d'1 via, test posterior de Holm, p-valors ajustats tots més petits que 0.0004).
 
 ```{block2, type="rmdcaution"}
-Ara sí que hem trobat evidència que **totes**les mitjanes són diferents. Amb l'ANOVA, només podíem concloure que **algunes** mitjanes són diferents, no sabem quines.
+Ara sí que hem trobat evidència que **totes** les mitjanes són diferents. Amb l'ANOVA, només podíem concloure que **algunes** mitjanes són diferents, però no quines.
 ```
 
 
@@ -1078,9 +1110,37 @@ Recordau que per a que la conclusió d'una ANOVA d'1 via tengui sentit:
 
 El punt (1) és responsabilitat de l'investigador, però (2) i (3) s'han de contrastar. Si fallen, sobretot si falla (3), no es pot usar una ANOVA: convé emprar un test no paramètric.
 
-La normalitat de les mostres s'ha de contrastar amb algun test de normalitat. A la [corresponent lliçó de R](https://aprender-uib.github.io/AprendeR2/chap-ANOVA.html#condiciones-del-anova) explicam com automatitzar el procés per fer-ho per totes les mostres de cop (*spoiler*: emprant la funció `aggregate`).
+La normalitat de les mostres s'ha de contrastar amb algun test de normalitat. A la [corresponent lliçó de R](https://aprender-uib.github.io/AprendeR2/chap-ANOVA.html#condiciones-del-anova) explicam com automatitzar el procés per fer-ho per totes les mostres de cop (*spoiler*: emprant la funció `aggregate`). Aquí ho farem de manera planera, variable a variable. Per exemple, emprarem el test de Shapiro-Wilkis per contrastar la normalitat dels nostres dos exemples:
 
-La manera més popular de contrastar l'homocedasticitat quan acceptam que les mostres provenen de distribucions normals és amb el **test de Bartlett**, implementat en R en la funció `bartlett.test`. S'aplica a una fórmula, exactament igual que `aov`. Per exemple, per contrastar l'homocedasticitat dels increments de volum cel·lular sota diferents pressions de CO~2~ de l'Exemple \@ref(exm:CO2), entraríem:
+* A l'exemple del CO~2~:
+```{r}
+shapiro.test(CO2$Inc[CO2$Pre=="0.0"])$p.value
+shapiro.test(CO2$Inc[CO2$Pre=="0.08"])$p.value
+shapiro.test(CO2$Inc[CO2$Pre=="0.29"])$p.value
+shapiro.test(CO2$Inc[CO2$Pre=="0.50"])$p.value
+shapiro.test(CO2$Inc[CO2$Pre=="0.86"])$p.value
+```
+
+* A l'exemple de l'expressió de gens:
+```{r}
+shapiro.test(EG$Expr[EG$Tract=="1"])$p.value
+shapiro.test(EG$Expr[EG$Tract=="2"])$p.value
+shapiro.test(EG$Expr[EG$Tract=="3"])$p.value
+shapiro.test(EG$Expr[EG$Tract=="4"])$p.value
+```
+
+En tots dos casos podem acceptar que totes les mostres provenen de variables normals.
+
+```{block2,type="rmdimportant"}
+Si efectuam $k$ contrastos de normalitat amb nivell de significació $\alpha$, tenim una probabilitat de cometre algun error de tipus I de $1-(1-\alpha)^k$. Per tant, com als contrastos posteriors per parelles, convé ajustar els p-valors a fi que el nivell de significació global sigui $\alpha$. En aquests dos exemple això no afecta les conclusions.
+```
+
+Pel que fa a contrastar l'homocedasticitat, els dos tests més populars són:
+
+* Si acceptam que les mostres provenen de distribucions normals, el **test de Bartlett**, implementat en R en la funció `bartlett.test`. 
+* Si **no** acceptam que les mostres provenen de distribucions normals, el **test de Fligner-Killeen**, implementat en R en la funció `fligner.test`. 
+
+En tots dos casos, la funció s'aplica a una fórmula, exactament igual que `aov`. Per exemple, per contrastar l'homocedasticitat dels increments de volum cel·lular sota diferents pressions de CO~2~ de l'Exemple \@ref(exm:CO2) amb un test de Bartlett, entraríem:
 
 ```{r}
 bartlett.test(CO2$Inc~CO2$Pre)
@@ -1088,13 +1148,12 @@ bartlett.test(CO2$Inc~CO2$Pre)
 
 Podem acceptar que les variàncies de les subpoblacions definides pels percentatges d'increment del volum cel·lular sota les diferents pressions de CO~2~  considerades són totes iguals.
 
-Ja que hi som, comprovem l'homocedasticitat de l'Exemple  \@ref(exm:ANOVAterapgen), emprant l'altra sintaix possible per que la vegeu
+Ja que hi som, comprovem l'homocedasticitat de l'Exemple  \@ref(exm:ANOVAterapgen), ara amb el test de Fligner-Killeen i emprant l'altra sintaxi possible per que la vegeu
 
 ```{r}
-bartlett.test(Expr~Tract, data=EG)
+fligner.test(Expr~Tract, data=EG)
 ```
 
-També podem acceptar que les variàncies poblacionals dels tractaments  són totes iguals.
 
 
 ### Test no paramètric
