@@ -194,7 +194,7 @@ La pregunta és ara com quantificam aquestes variabilitats i com definim què si
 
 ### Contrast bàsic
 
-La situació és la següent. Tenim una variable aleatòria $X$ i un (únic) factor, els $k$ nivells (o **tractaments**) del qual classifiquen la població en $k$ subpoblacions. Diguem $\mu_i$ a la mitjana de $X$ en els individus del nivell $i$-èssim. Volem comparar aquestes mitjanes $\mu_1$,...,$\mu_k$ i en concret decidir si són totes iguals o no.
+La situació és la següent. Tenim una variable aleatòria $X$ i un (únic) factor, els $k$ nivells (o **tractaments**) del qual classifiquen la població en $k$ subpoblacions. Diguem $\mu_i$ a la mitjana de $X$ en els individus del nivell $i$-èsim. Volem comparar aquestes mitjanes $\mu_1$,...,$\mu_k$ i en concret decidir si són totes iguals o no.
 
 En un **experiment de disseny d'ANOVA d'1 via** (en anglès, *1 way*; el motiu d'aquest nom és que empram una única "manera" de classificar la població, en anglès *one way* que també es tradueix per "una via", i així ha quedat el nom en les nostres llengües):
 
@@ -403,11 +403,11 @@ X_i=\mu+(\mu_i-\mu)+(X_i-\mu_i)
 $$
 on:
 
-* $X_i$ representa el valor de la variable $X$ sobre un individu del nivell $i$-èssim 
+* $X_i$ representa el valor de la variable $X$ sobre un individu del nivell $i$-èsim 
 
-* $\mu_i-\mu$ representa la desviació respecte de la mitjana global $\mu$ de la mitjana de $X$ en el nivell $i$-èssim; en direm l'**efecte del tractament $i$-èssim** i representa la contribució a $X_i$ del fet de pertànyer a aquest nivell 
+* $\mu_i-\mu$ representa la desviació de la mitjana de $X$ en el nivell $i$-èsim respecte de la mitjana global $\mu$; en direm l'**efecte del tractament $i$-èsim** i representa la contribució al valor de $X$ sobre un individu del nivell $i$-èsim del fet de pertànyer a aquest nivell 
 
-* $X_i-\mu_i$, la desviació  de la variable $X$ sobre un individu del nivell $i$-èssim respecte de la mitjana d'aquest nivell, $\mu_i$, representa el component aleatori en una medició concreta de $X$ sobre un individu del nivell $i$-èssim, és a dir, "la part de la diferència entre  $X_{i}$ i  $\mu$ que no explica el tractament"; en diem  l'**error aleatori**, o el **residu**.
+* $X_i-\mu_i$, la desviació  de la variable $X$ sobre un individu del nivell $i$-èsim respecte de la mitjana d'aquest nivell, $\mu_i$, representa el component aleatori en una medició concreta de $X$ sobre un individu del nivell $i$-èsim, és a dir, "la part de la diferència entre  $X_{i}$ i  $\mu$ que no explica el tractament"; en diem  l'**error aleatori**, o el **residu**.
 
 Fixau-vos que la fórmula que descriu aquest model és sempre veritat (podeu simplificar les $\mu_i$ i les $\mu$ de la dreta), i bàsicament diu que  el valor de $X$ sobre un individu és la suma de tres components:
 
@@ -459,7 +459,7 @@ Fixau-vos que
 * $SS_{Total}=SS_{Tr}+SS_E$ diu que la variabilitat total de la mostra descompon en la suma de la variabilitat de les mitjanes i la suma de les variabilitats de les mostres de cada tractament  
 
 ```{block2,type="rmdnote"}
-Fixau-vos que, amb la terminologia introduïda quan explicàvem el model de l'ANOVA d'1 via, cada $X_{ij}-\mu_i$ estima el **residu**, o **error**, sobre l'individu $j$-èssim del nivell $i$-èssim. Per això a $\displaystyle\sum_{i=1}^k\sum_{j=1}^{n_i} (X_{ij}-\overline{X}_{i})^2$ li diem la   *Suma de Quadrats dels Residus* o *dels Errors*.
+Fixau-vos que, amb la terminologia introduïda quan explicàvem el model de l'ANOVA d'1 via, cada $X_{ij}-\mu_i$ estima el **residu**, o **error**, sobre l'individu $j$-èsim del nivell $i$-èsim. Per això a $\displaystyle\sum_{i=1}^k\sum_{j=1}^{n_i} (X_{ij}-\overline{X}_{i})^2$ li diem la   *Suma de Quadrats dels Residus* o *dels Errors*.
 ```
 
 
@@ -1232,7 +1232,7 @@ En aquest estudi, fixau-vos que empram els nivells d'un factor (tipus de despla�
 
 L'**ANOVA de blocs** (**complets aleatoris**, però ometrem aquests adjectius perquè és l'únic que veurem)  generalitza el contrast de 2 mitjanes amb mostres aparellades a $k$ mitjanes  amb mostres aparellades. 
 
-La situació general és la següent. Tenim una variable aleatòria $X$ i un factor de $k$ nivells, o **tractaments**, que classifica la població en $k$ subpoblacions (a les que, recordau, identificam amb els tractaments). Diguem $\mu_i$ a la mitjana de $X$ en els individus del nivell $i$-èssim. Volem comparar aquestes mitjanes $\mu_1$,...,$\mu_k$ i en concret decidir si són totes iguals o no. És a dir, el contrast és
+La situació general és la següent. Tenim una variable aleatòria $X$ i un factor de $k$ nivells, o **tractaments**, que classifica la població en $k$ subpoblacions (a les que, recordau, identificam amb els tractaments). Diguem $\mu_i$ a la mitjana de $X$ en els individus del nivell $i$-èsim. Volem comparar aquestes mitjanes $\mu_1$,...,$\mu_k$ i en concret decidir si són totes iguals o no. És a dir, el contrast és
 $$
 \left\{
 \begin{array}{l}
@@ -1353,9 +1353,9 @@ Fixau-vos que això no és exactament equivalent al fet que un analgèsic sigui 
   
 Recordarem algunes notacions, i n'introduïm algunes altres. Pel que fa a la població:
 
-* Direm $\mu_i$ a la mitjana de la variable d'interès sobre la població definida pel tractament $i$-èssim
+* Direm $\mu_i$ a la mitjana de la variable d'interès sobre la població definida pel tractament $i$-èsim
 * Direm $\mu$ a la mitjana de la variable d'interès sobre el total de la població, sense distingir tractaments
-* Direm $\mu_{\bullet j}$ a la mitjana de la variable d'interès sobre el bloc $j$-èssim
+* Direm $\mu_{\bullet j}$ a la mitjana de la variable d'interès sobre el bloc $j$-èsim
 
 
 L'ANOVA de blocs se basa en el **model** següent: per a tots $i=1,\ldots,k$ i $j=1,\ldots,b$
@@ -1366,12 +1366,11 @@ on:
 
 * $X_{ij}$ indica el valor de la variable $X$ per al tractament $i$-èsim en el bloc $j$-èsim 
 
-* $\mu_i-\mu$ representa la desviació respecte de la mitjana global $\mu$ de la mitjana de  $X$
-  en el nivell $i$-èssim (l'**efecte del tractament $i$-èssim**)
+* $\mu_i-\mu$ representa la desviació de la mitjana de  $X$ en el nivell $i$-èsim  respecte de la mitjana global $\mu$ (l'**efecte del tractament $i$-èsim**)
 
-* $\mu_{\bullet j}-\mu$ representa la desviació respecte de la mitjana global $\mu$ de la mitjana de  $X$ en el bloc $j$-èssim (l'**efecte del bloc $j$-èssim**)
+* $\mu_{\bullet j}-\mu$ representa la desviació de la mitjana de  $X$ en el bloc $j$-èsim respecte de la mitjana global $\mu$ (l'**efecte del bloc $j$-èsim**)
 
-* $E_{ij}$  representa la part de la diferència entre  $X_{ij}$ i  $\mu$ que no explica ni el tractament ni el bloc; en diem  l'**error aleatori**, o el **residu**. 
+* $E_{ij}$  representa la part de la diferència entre  $X_{ij}$ i  $\mu$ que no expliquen ni el tractament ni el bloc; en diem  l'**error aleatori**, o el **residu**. 
 
 Aquest model  diu bàsicament  que el valor de $X$ sobre un individu és la suma de quatre components:
 
@@ -1838,12 +1837,12 @@ Per tant, en un experiment amb **disseny d'ANOVA de 2 vies**:
 Comencem amb un exemple.
 
 ```{example,gupis}
-S'havien observat diferències estacionals en el desenvolupament de les gònades d'una espècie de peixos que viuen als llacs africans, i es volia saber si això era conseqüència de la diferència entre estacions en hores de llum o en temperatura. Per decidir-ho, en un experiment s'intentà determinar l'efecte de la llum i la temperatura sobre l'índex gonadosomàtic o *GSI* (una  mesura de creixement de l'ovari) d'aquesta espècie de peixos. S'hi van utilitzar dos fotoperíodes (l'estival, 14 hores de llum i 10 hores de foscor; i l'hivernal, 9 hores de llum-15 hores de foscor) i dues  temperatures (l'estival, 27^o^ C, i l'hivernal, 16^o^ C). En concret, com diem, es volia determinar si el GSI mitjà depèn del fotoperíode, o de la temperatura, o de la combinació dels dos tractaments, i si a més hi ha interacció entre ells.
+S'havien observat diferències estacionals en el desenvolupament de les gònades d'una espècie de peixos que viuen als llacs africans, i es volia saber si això era conseqüència de la diferència entre estacions en hores de llum o en temperatura. Per decidir-ho, en un experiment s'intentà determinar l'efecte de la llum i la temperatura sobre l'índex gonadosomàtic o *GSI* (una  mesura de creixement de l'ovari) d'aquesta espècie de peixos. S'hi van utilitzar dos fotoperíodes (l'estival, 14 hores de llum i 10 hores de foscor; i l'hivernal, 9 hores de llum-15 hores de foscor) i dues  temperatures (l'estival, 27^o^ C, i l'hivernal, 16^o^ C). En concret, com diem, es volia determinar si el GSI mitjà depèn del fotoperíode, o de la temperatura, o de la combinació dels dos tractaments, i si a més hi ha interacció entre ells, en el sentit que en alguna combinació de nivells dels dos tractaments els dos efectes no s'acumulin, sinó que l'efecte final sigui més gran, o més petit, que la suma dels dos efectes per separat.
 
 ```
 
  
-L'experiment es va realitzar sobre 20 femelles. Es van dividir aleatòriament en 4 subgrups de  5 exemplars cadascun. Cada grup va rebre una combinació diferent de llum i temperatura. Als 3 mesos es mesuraren els GSI dels peixos
+L'experiment es va realitzar sobre 20 femelles. Es van dividir aleatòriament en 4 subgrups de  5 exemplars cadascun. Cada grup va rebre una combinació diferent de llum i temperatura. Als 3 mesos es mesuraren els seus GSI.
 
 Els resultats obtinguts varen ser:
 
@@ -1871,7 +1870,7 @@ $$
 
 El disseny experimental d'aquest estudi és d'ANOVA de 2 vies:
 
-* La variable aleatòria d'interés és el GSI d'un peix (femella) als 3 mesos
+* La variable aleatòria d'interés $X$ és el GSI d'un peix (femella) als 3 mesos
 
 * Classificam la població (els peixos) segons les combinacions dels nivells de dos factors (A: el fotoperíode; B: la temperatura)
 
@@ -1935,6 +1934,37 @@ Els paràmetres que intervindran en el contrast són:
 
 * $\mu_{ij}$: mitjana poblacional de la combinació $(i,j)$ de nivells d'A i B
 
+
+L'ANOVA de 2 vies se basa en el **model** següent: per a tots $i=1,\ldots,a$ i $j=1,\ldots,b$
+$$
+X_{ij}=\mu+ \alpha_i +\beta_j + (\alpha\beta)_{ij}+E_{ij} 
+$$
+on:
+
+* $X_{ij}$ indica el valor de la variable $X$ sobre un individu que pertany al nivell $i$-èsim del factor A i al nivell $j$-èsim del factor B
+
+* $\alpha_i=\mu_{i\bullet}-\mu$ representa la desviació de la mitjana de  $X$ en el nivell $i$-èsim del factor A respecte de la mitjana global $\mu$ (l'**efecte del tractament $i$-èsim del factor A**)
+
+* $\beta_j=\mu_{\bullet j}-\mu$ representa la desviació de la mitjana de  $X$ en el nivell $j$-èsim del factor B respecte de la mitjana global $\mu$ (l'**efecte del tractament $j$-èsim del factor B**)
+
+* $(\alpha\beta)_{ij}=\mu_{ij}-\mu_{i\bullet}-\mu_{\bullet j}+\mu$ representa l'**efecte de la interacció** entre el  nivell $i$-èsim del factor $A$ i el  nivell  $j$-èsim del factor $B$; si no hi hagués interacció, tendríem que
+$$
+\mu_{ij}-\mu=(\mu_{i\bullet}-\mu)+(\mu_{\bullet j}-\mu)
+$$
+(l'efecte dels dos tractaments se sumaria; la demostració la donam en un bloc de corbes perilloses més a baix) i aquesta contribució de la interacció seria 0.
+
+* $E_{ij}=X_{ij}-\mu_{ij}$  representa la part de la diferència entre  $X_{ij}$ i  $\mu$ que no expliquen ni el tractament ni el bloc ni la interacció; en diem  l'**error aleatori**, o el **residu**. 
+
+Aquest model  diu bàsicament  que el valor de $X$ sobre un individu és la suma de cinc components:
+
+* La mitjana global $\mu$ de $X$ sobre tota la població
+* L'efecte del tractament A
+* L'efecte del tractament B
+* L'efecte de la interacció
+* L'error aleatori
+
+
+
 Passem ara a la mostra amb la que volem realitzar el contrast. Siguin:
 
 *  $\overline{X}_{ij}=\dfrac{\sum_{k=1}^n X_{ijk}}{n}$: la mitjana mostral de la combinació $(i,j)$ de nivells d'A i B; estima $\mu_{ij}$
@@ -1986,7 +2016,7 @@ Anem a calcular-les. Organitzarem les dades en un dataframe  `peixos` amb 3 vari
 
 * **temp**, un factor que   contendrà el valor del nivell del  factor B (temperatura) per a cada peix
 
-Com a tots els ANOVA, els factors que s'empren per classificar la població han de ser això, factors, al *dataframe* si volem després emprar la funció `aov` per fer l'ANOVA.
+Com a tots els ANOVA, els factors que s'empren per classificar la població convé que siguin això, factors (o, almenys, vectors de paraules, no vectors numèrics), al *dataframe* si volem després emprar la funció `aov` per fer l'ANOVA.
 
 Entrarem les dades de la taula per fileres. Per tant el factor **llum** ha d'estar format per 10 còpies consecutives del vector (9,14) i el factor **temp** ha d'estar format per 10 còpies de "16" seguides de 10 còpies de "27".
 
@@ -2112,7 +2142,7 @@ En resum, si no hi hagués interacció entre els dos factors, tendríem que
 $$
 \begin{array}{l}
 \mu_{ij}-\mu_{i\bullet}-\mu_{\bullet j}+\mu=(\mu_{ij}-\mu_{i\bullet})-(\mu_{\bullet j}-\mu)\\
-\qquad\displaystyle \frac{1}{b}\sum_{j'=1}^b \delta_{jj'}-\frac{1}{b}\sum_{j'=1}^b \delta_{jj'}=0
+\qquad\displaystyle =\frac{1}{b}\sum_{j'=1}^b \delta_{jj'}-\frac{1}{b}\sum_{j'=1}^b \delta_{jj'}=0
 \end{array}
 $$
 i per tant, sobre la nostra mostra, esperaríem que
@@ -2120,6 +2150,12 @@ $$
 \overline{X}_{ij}-\overline{X}_{i\bullet}-\overline{X}_{\bullet j}+\overline{X}=0
 $$
 Aleshores, $SS_{AB}$ és la suma dels quadrats de les divergències, per a cada parell $(i,j)$, d'aquests valors a la nostra mostra respecte del que esperaríem si no hi hagués interacció.
+  
+A més, de $\mu_{ij}-\mu_{i\bullet}-\mu_{\bullet j}+\mu=0$ deduïm que
+$$
+\mu_{ij}-\mu=\mu_{i\bullet}+\mu_{\bullet j}-2\mu=(\mu_{i\bullet}-\mu)+(\mu_{\bullet j}-\mu)
+$$
+com afirmàvem en parlar del model de l'ANOVA de 2 vies.
 ```
 
 Observau que de
@@ -2134,7 +2170,7 @@ $$
 SS_{Total} = SS_A+SS_B+SS_{AB}+SS_E
 $$
 
-> La variabilitat total descompon en la suma de la variabilitat de les mitjanes del factor A més la variabilitat de les mitjanes del factor B més la variabilitat deguda a la interacció més la variabilitat de les mitjanes de les combinacions de tractaments, un de cada factor.
+> La variabilitat total descompon en la suma de la variabilitat de les mitjanes del factor A més la variabilitat de les mitjanes del factor B més la variabilitat deguda a la interacció més la variabilitat de les dades dins cada combinació de tractaments, un de cada factor.
 
 ```{example}
 Comprovem aquestes identitats amb les dades de l'Exemple \@ref(exm:gupis).
@@ -2143,7 +2179,7 @@ Comprovem aquestes identitats amb les dades de l'Exemple \@ref(exm:gupis).
 ```
 
 ```{block2,type="rmdexercici"}
-Procurau entendre com calculam les sumes de quadrats; hem donat els raonaments detallats als altres dos tipus d'ANOVA.
+Procurau entendre com calculam les sumes de quadrats; hem donat els raonaments detallats als altres dos tipus d'ANOVA, aquí ja no els donarem.
 ```
 
 ```{r}
@@ -2198,9 +2234,7 @@ SS.Tot
 SS.Tr+SS.E
 ```
 
-
-
-Emprarem els quadrats mitjans següents:
+Com als altres ANOVA, compararem la variabilitat de les mitjanes amb la variabilitat dels errors. Per això, emprarem els quadrats mitjans següents:
 
 *  **Quadrat mitjà del factor A**:
 $$
@@ -2231,7 +2265,7 @@ $$
 MS_E=\dfrac{SS_E}{ab (n-1)}
 $$
 
-Un altre cop, fixau-vos que els denominadors són diferents dels dels quadrats mitjans homònims en les altres ANOVA.
+Fixau-vos que els denominadors són diferents dels dels quadrats mitjans homònims en les altres ANOVA.
  
 ```{example}
 Al nostre Exemple \@ref(exm:gupis), on $n=5$ i $a=b=2$, hem obtingut les sumes de quadrats següents:
@@ -2340,6 +2374,8 @@ on $F_{x,y}$ representa la distribució $F$ de Fisher amb els graus de llibertat
 Com fins ara, els graus de llibertat de cada estadístic de contrast F són els denominadors emprats en les definicions dels quadrats mitjans del numerador i el denominados.
 ````
 
+
+
 Tota aquesta informació se recull en la taula ANOVA següent:
 
 $$
@@ -2377,7 +2413,7 @@ F_A=\dfrac{MS_{A}}{MS_E}=21.7\\
 \text{p-valor}_A=P(F_{1,16}\geq 21.7)=\texttt{1-pf(21.7,1,16)}=0.0003
 \end{array}
 $$
-    *Conclusió*: Hem trobat evidència estadísticament significativa que el GSI mitjà és diferent segons el fotoperíode (ANOVA de blocs, p-valor 0.0003)
+    *Conclusió*: Hem trobat evidència estadística que el GSI mitjà és diferent segons el fotoperíode (ANOVA de blocs, p-valor 0.0003)
 
 
 * Hi ha diferència en la mitjana del GSI segons la temperatura?
@@ -2387,7 +2423,7 @@ F_B=\dfrac{MS_{B}}{MS_E}=36.3\\
 \text{p-valor}_B=P(F_{1,16}\geq 36.3)=\texttt{1-pf(36.3,1,16)}=2\cdot 10^{-5}
 \end{array}
 $$
-    *Conclusió*: Hem trobat evidència estadísticament significativa que el  GSI mitjà és diferent segons la temperatura (ANOVA de blocs, p-valor 2·10^-5^)
+    *Conclusió*: Hem trobat evidència estadística que el  GSI mitjà és diferent segons la temperatura (ANOVA de blocs, p-valor 2·10^-5^)
 
 
 * Hi ha diferència en la mitjana del GSI segons les combinacions de fotoperíode i temperatura?
@@ -2397,7 +2433,7 @@ F_{Tr}=\dfrac{MS_{Tr}}{MS_E}=20.8\\
 \text{p-valor}_{Tr}=P(F_{3,16}\geq 20.8)=\texttt{1-pf(20.8,3,16)}=9\cdot 10^{-6}
 \end{array}
 $$
-    *Conclusió*: Hem trobat evidència estadísticament significativa que no tots els GSI mitjans per a les combinacions de fotoperíode i temperatura són iguals (ANOVA de blocs, p-valor 9·10^-6^)
+    *Conclusió*: Hem trobat evidència estadística que no tots els GSI mitjans per a les combinacions de fotoperíode i temperatura són iguals (ANOVA de blocs, p-valor 9·10^-6^)
 
 
 
@@ -2409,7 +2445,7 @@ F_{AB}=\dfrac{MS_{AB}}{MS_E}=4.437\\
 \text{p-valor}_{AB}=P(F_{1,16}\geq 4.437)=\texttt{1-pf(4.437,1,16)}=0.051
 \end{array}
 $$
-    *Conclusió*: No hem trobat evidència estadísticament significativa que hi hagi interacció entre el fotoperíode i la temperatura (ANOVA de blocs, p-valor 0.051)
+    *Conclusió*: No hem trobat evidència estadística  que hi hagi interacció entre el fotoperíode i la temperatura (ANOVA de blocs, p-valor 0.051)
 
 La taula ANOVA és
 
@@ -2430,7 +2466,7 @@ $$
 ```{block2,type="rmdromans"}
 Hem fet quatre contrastos. No hauríem d'ajustar els p-valors?
 
-No, perquè estam emprant les mateixes dades als quatre contrastos, no són contrastos independents. De fet, el canvi en els graus de llibertat de les F respecte de l'ANOVA d'1 via ja té en compte que estam emprant les mateixes dades per respondre quatre preguntes. 
+No, perquè estam emprant les mateixes dades als quatre contrastos, no són contrastos independents. És a dir, o la mostra ens ha sortit representativa i totes les conclusions són més o menys fiables, o la mostra ens ha sortit rareta i totes les conclusions són poc fiables.
 ```
 
 
