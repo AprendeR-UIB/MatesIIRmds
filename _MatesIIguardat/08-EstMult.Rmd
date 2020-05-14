@@ -1,4 +1,4 @@
-# Introducció  a l'estadística multidimensional
+# Introducció  a l'estadística multidimensional {#chap:ED}
 
 En general, les dades que es recullen en experiments són multidimensionals: mesuram diverses variables aleatòries sobre una mateixa mostra d'individus i organitzam aquesta informació en taules de dades on les fileres representen els individus observats i cada columna correspon a una variable diferent. És a dir, el que fem és avaluar un vector de variables aleatòries (en direm un **vector aleatori**) sobre els individus d'una població. En aquesta lliçó introduïm alguns conceptes nous sobre vectors de variables aleatòries i taules multidimensionals de dades quantitatives.
 
