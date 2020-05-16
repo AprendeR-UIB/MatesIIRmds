@@ -62,6 +62,7 @@ Aquests apunts no són autocontinguts pel que fa al R: suposam que l'estudiant v
 
 Aquests apunts estan en construcció. A la llista següent hi anirem anunciant les actualitzacions.
 
+* 16-05-2020: Pujat tema 10
 * 04-05-2020: Pujat tema 9
 * 24-03-2020: Pujats temes 7 i 8
 * 19-03-2020: Pujat tema 6
