@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Tema 2 Alguns conceptes bàsics | Matemàtiques II</title>
+  <meta name="description" content="Apunts Matemàtiques II bookdown::gitbook." />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Tema 2 Alguns conceptes bàsics | Matemàtiques II" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Apunts Matemàtiques II bookdown::gitbook." />
+  <meta name="github-repo" content="cescrossello/MatesII" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Tema 2 Alguns conceptes bàsics | Matemàtiques II" />
+  
+  <meta name="twitter:description" content="Apunts Matemàtiques II bookdown::gitbook." />
+  
+
+
+
+<meta name="date" content="2021-02-01" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="chap-varal.html"/>
+<link rel="next" href="estimació-puntual.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Bioestadística II</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Presentació</a></li>
+<li class="part"><span><b>Part 0: Preliminars</b></span></li>
+<li class="chapter" data-level="1" data-path="chap-varal.html"><a href="chap-varal.html"><i class="fa fa-check"></i><b>1</b> Variables aleatòries</a><ul>
+<li class="chapter" data-level="1.1" data-path="chap-varal.html"><a href="chap-varal.html#generalitats-sobre-variables-aleatòries"><i class="fa fa-check"></i><b>1.1</b> Generalitats sobre variables aleatòries</a></li>
+<li class="chapter" data-level="1.2" data-path="chap-varal.html"><a href="chap-varal.html#variables-aleatòries-discretes"><i class="fa fa-check"></i><b>1.2</b> Variables aleatòries discretes</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="chap-varal.html"><a href="chap-varal.html#densitat-i-distribució"><i class="fa fa-check"></i><b>1.2.1</b> Densitat i distribució</a></li>
+<li class="chapter" data-level="1.2.2" data-path="chap-varal.html"><a href="chap-varal.html#esperança"><i class="fa fa-check"></i><b>1.2.2</b> Esperança</a></li>
+<li class="chapter" data-level="1.2.3" data-path="chap-varal.html"><a href="chap-varal.html#variància-i-desviació-típica"><i class="fa fa-check"></i><b>1.2.3</b> Variància i desviació típica</a></li>
+<li class="chapter" data-level="1.2.4" data-path="chap-varal.html"><a href="chap-varal.html#quantils"><i class="fa fa-check"></i><b>1.2.4</b> Quantils</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="chap-varal.html"><a href="chap-varal.html#famílies-importants-de-variables-aleatòries-discretes"><i class="fa fa-check"></i><b>1.3</b> Famílies importants de variables aleatòries discretes</a><ul>
+<li class="chapter" data-level="1.3.1" data-path="chap-varal.html"><a href="chap-varal.html#variables-aleatòries-binomials"><i class="fa fa-check"></i><b>1.3.1</b> Variables aleatòries binomials</a></li>
+<li class="chapter" data-level="1.3.2" data-path="chap-varal.html"><a href="chap-varal.html#variables-aleatòries-hipergeomètriques"><i class="fa fa-check"></i><b>1.3.2</b> Variables aleatòries hipergeomètriques</a></li>
+<li class="chapter" data-level="1.3.3" data-path="chap-varal.html"><a href="chap-varal.html#variables-aleatòries-de-poisson"><i class="fa fa-check"></i><b>1.3.3</b> Variables aleatòries de Poisson</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="chap-varal.html"><a href="chap-varal.html#variables-aleatòries-contínues"><i class="fa fa-check"></i><b>1.4</b> Variables aleatòries contínues</a><ul>
+<li class="chapter" data-level="1.4.1" data-path="chap-varal.html"><a href="chap-varal.html#densitat-i-distribució-1"><i class="fa fa-check"></i><b>1.4.1</b> Densitat i distribució</a></li>
+<li class="chapter" data-level="1.4.2" data-path="chap-varal.html"><a href="chap-varal.html#esperança-variància-quantils"><i class="fa fa-check"></i><b>1.4.2</b> Esperança, variància, quantils…</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="chap-varal.html"><a href="chap-varal.html#sec:normal"><i class="fa fa-check"></i><b>1.5</b> Variables aleatòries normals</a><ul>
+<li class="chapter" data-level="1.5.1" data-path="chap-varal.html"><a href="chap-varal.html#amb-r"><i class="fa fa-check"></i><b>1.5.1</b> Amb R</a></li>
+<li class="chapter" data-level="1.5.2" data-path="chap-varal.html"><a href="chap-varal.html#propietats-bàsiques"><i class="fa fa-check"></i><b>1.5.2</b> Propietats bàsiques</a></li>
+<li class="chapter" data-level="1.5.3" data-path="chap-varal.html"><a href="chap-varal.html#intervals-de-referència"><i class="fa fa-check"></i><b>1.5.3</b> Intervals de referència</a></li>
+<li class="chapter" data-level="1.5.4" data-path="chap-varal.html"><a href="chap-varal.html#variables-log-normals"><i class="fa fa-check"></i><b>1.5.4</b> Variables log-normals</a></li>
+</ul></li>
+<li class="chapter" data-level="1.6" data-path="chap-varal.html"><a href="chap-varal.html#test-de-la-lliçó-1"><i class="fa fa-check"></i><b>1.6</b> Test de la lliçó 1</a><ul>
+<li class="chapter" data-level="1.6.1" data-path="chap-varal.html"><a href="chap-varal.html#variables-aleatòries-discretes-1"><i class="fa fa-check"></i><b>1.6.1</b> Variables aleatòries discretes</a></li>
+<li class="chapter" data-level="1.6.2" data-path="chap-varal.html"><a href="chap-varal.html#variables-aleatòries-contínues-1"><i class="fa fa-check"></i><b>1.6.2</b> Variables aleatòries contínues</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>Part I: Estadística inferencial</b></span></li>
+<li class="chapter" data-level="2" data-path="chap-conceptes.html"><a href="chap-conceptes.html"><i class="fa fa-check"></i><b>2</b> Alguns conceptes bàsics</a><ul>
+<li class="chapter" data-level="2.1" data-path="chap-conceptes.html"><a href="chap-conceptes.html#unitat-dobservació"><i class="fa fa-check"></i><b>2.1</b> Unitat d’observació</a></li>
+<li class="chapter" data-level="2.2" data-path="chap-conceptes.html"><a href="chap-conceptes.html#població"><i class="fa fa-check"></i><b>2.2</b> Població</a></li>
+<li class="chapter" data-level="2.3" data-path="chap-conceptes.html"><a href="chap-conceptes.html#variable-aleatòria"><i class="fa fa-check"></i><b>2.3</b> Variable aleatòria</a></li>
+<li class="chapter" data-level="2.4" data-path="chap-conceptes.html"><a href="chap-conceptes.html#mostra"><i class="fa fa-check"></i><b>2.4</b> Mostra</a></li>
+<li class="chapter" data-level="2.5" data-path="chap-conceptes.html"><a href="chap-conceptes.html#sec:mostreig"><i class="fa fa-check"></i><b>2.5</b> Mostreig aleatori</a></li>
+<li class="chapter" data-level="2.6" data-path="chap-conceptes.html"><a href="chap-conceptes.html#mostres-de-conveniència"><i class="fa fa-check"></i><b>2.6</b> Mostres de conveniència</a></li>
+<li class="chapter" data-level="2.7" data-path="chap-conceptes.html"><a href="chap-conceptes.html#test-de-la-lliçó-2"><i class="fa fa-check"></i><b>2.7</b> Test de la lliçó 2</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="estimació-puntual.html"><a href="estimació-puntual.html"><i class="fa fa-check"></i><b>3</b> Estimació puntual</a><ul>
+<li class="chapter" data-level="3.1" data-path="estimació-puntual.html"><a href="estimació-puntual.html#definicions-bàsiques"><i class="fa fa-check"></i><b>3.1</b> Definicions bàsiques</a></li>
+<li class="chapter" data-level="3.2" data-path="estimació-puntual.html"><a href="estimació-puntual.html#mitjana-mostral"><i class="fa fa-check"></i><b>3.2</b> Mitjana mostral</a></li>
+<li class="chapter" data-level="3.3" data-path="estimació-puntual.html"><a href="estimació-puntual.html#proporció-mostral"><i class="fa fa-check"></i><b>3.3</b> Proporció mostral</a></li>
+<li class="chapter" data-level="3.4" data-path="estimació-puntual.html"><a href="estimació-puntual.html#variància-mostral"><i class="fa fa-check"></i><b>3.4</b> Variància mostral</a></li>
+<li class="chapter" data-level="3.5" data-path="estimació-puntual.html"><a href="estimació-puntual.html#la-distribució-t-de-student"><i class="fa fa-check"></i><b>3.5</b> La distribució t de Student</a></li>
+<li class="chapter" data-level="3.6" data-path="estimació-puntual.html"><a href="estimació-puntual.html#bons-estimadors"><i class="fa fa-check"></i><b>3.6</b> “Bons” estimadors</a><ul>
+<li class="chapter" data-level="3.6.1" data-path="estimació-puntual.html"><a href="estimació-puntual.html#estimadors-no-esbiaixats"><i class="fa fa-check"></i><b>3.6.1</b> Estimadors no esbiaixats</a></li>
+<li class="chapter" data-level="3.6.2" data-path="estimació-puntual.html"><a href="estimació-puntual.html#estimadors-eficients"><i class="fa fa-check"></i><b>3.6.2</b> Estimadors eficients</a></li>
+<li class="chapter" data-level="3.6.3" data-path="estimació-puntual.html"><a href="estimació-puntual.html#estimadors-màxim-versemblants"><i class="fa fa-check"></i><b>3.6.3</b> Estimadors màxim versemblants</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="estimació-puntual.html"><a href="estimació-puntual.html#sec:pobl"><i class="fa fa-check"></i><b>3.7</b> Estimació de poblacions</a><ul>
+<li class="chapter" data-level="3.7.1" data-path="estimació-puntual.html"><a href="estimació-puntual.html#estimació-de-poblacions-numerades"><i class="fa fa-check"></i><b>3.7.1</b> Estimació de poblacions numerades</a></li>
+<li class="chapter" data-level="3.7.2" data-path="estimació-puntual.html"><a href="estimació-puntual.html#marca-recaptura"><i class="fa fa-check"></i><b>3.7.2</b> Marca-recaptura</a></li>
+</ul></li>
+<li class="chapter" data-level="3.8" data-path="estimació-puntual.html"><a href="estimació-puntual.html#test-de-la-lliçó-3"><i class="fa fa-check"></i><b>3.8</b> Test de la lliçó 3</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="intervals-de-confiança.html"><a href="intervals-de-confiança.html"><i class="fa fa-check"></i><b>4</b> Intervals de confiança</a><ul>
+<li class="chapter" data-level="4.1" data-path="estimació-puntual.html"><a href="estimació-puntual.html#definicions-bàsiques"><i class="fa fa-check"></i><b>4.1</b> Definicions bàsiques</a></li>
+<li class="chapter" data-level="4.2" data-path="intervals-de-confiança.html"><a href="intervals-de-confiança.html#exemple-interval-de-confiança-del-95-per-a-la-mitjana-duna-variable-aleatòria-normal"><i class="fa fa-check"></i><b>4.2</b> Exemple: Interval de confiança del 95% per a la mitjana d’una variable aleatòria normal</a></li>
+<li class="chapter" data-level="4.3" data-path="intervals-de-confiança.html"><a href="intervals-de-confiança.html#interval-de-confiança-per-a-la-mitjana-basat-en-la-t-de-student"><i class="fa fa-check"></i><b>4.3</b> Interval de confiança per a la mitjana basat en la t de Student</a><ul>
+<li class="chapter" data-level="" data-path="intervals-de-confiança.html"><a href="intervals-de-confiança.html#la-fórmula"><i class="fa fa-check"></i>La fórmula</a></li>
+<li class="chapter" data-level="" data-path="intervals-de-confiança.html"><a href="intervals-de-confiança.html#algunes-consideracions"><i class="fa fa-check"></i>Algunes consideracions</a></li>
+<li class="chapter" data-level="" data-path="chap-varal.html"><a href="chap-varal.html#amb-r"><i class="fa fa-check"></i>Amb R</a></li>
+<li class="chapter" data-level="" data-path="intervals-de-confiança.html"><a href="intervals-de-confiança.html#càlcul-de-la-mida-de-la-mostra-per-fixar-lerror"><i class="fa fa-check"></i>Càlcul de la mida de la mostra per fixar l’error</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="intervals-de-confiança.html"><a href="intervals-de-confiança.html#intervals-de-confiança-per-a-proporcions"><i class="fa fa-check"></i><b>4.4</b> Intervals de confiança per a proporcions</a><ul>
+<li class="chapter" data-level="" data-path="intervals-de-confiança.html"><a href="intervals-de-confiança.html#mètode-exacte-de-clopper-pearson"><i class="fa fa-check"></i>Mètode “exacte” de Clopper-Pearson</a></li>
+<li class="chapter" data-level="" data-path="intervals-de-confiança.html"><a href="intervals-de-confiança.html#mètode-de-wilson"><i class="fa fa-check"></i>Mètode de Wilson</a></li>
+<li class="chapter" data-level="" data-path="intervals-de-confiança.html"><a href="intervals-de-confiança.html#mètode-de-laplace"><i class="fa fa-check"></i>Mètode de Laplace</a></li>
+<li class="chapter" data-level="" data-path="intervals-de-confiança.html"><a href="intervals-de-confiança.html#més-exemples"><i class="fa fa-check"></i>Més exemples</a></li>
+<li class="chapter" data-level="" data-path="intervals-de-confiança.html"><a href="intervals-de-confiança.html#càlcul-de-la-mida-de-la-mostra-per-a-fixar-lerror"><i class="fa fa-check"></i>Càlcul de la mida de la mostra per a fixar l’error</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="intervals-de-confiança.html"><a href="intervals-de-confiança.html#intervals-de-confiança-per-a-la-variància-duna-variable-normal"><i class="fa fa-check"></i><b>4.5</b> Intervals de confiança per a la variància d’una variable normal</a></li>
+<li class="chapter" data-level="4.6" data-path="intervals-de-confiança.html"><a href="intervals-de-confiança.html#poblacions-finites"><i class="fa fa-check"></i><b>4.6</b> “Poblacions finites”</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Matemàtiques II</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="chap:conceptes" class="section level1">
+<h1><span class="header-section-number">Tema 2</span> Alguns conceptes bàsics</h1>
+<div id="unitat-dobservació" class="section level2">
+<h2><span class="header-section-number">2.1</span> Unitat d’observació</h2>
+<p>En un estudi estadístic, la <strong>unitat d’observació</strong> és, per entendre’ns, el tipus d’entitats que mesuram. En ciències de la vida solen ser éssers vius, però no sempre:</p>
+<ul>
+<li><p>Poden ser esdeveniments que els passin a éssers vius, de manera que un mateix subjecte pot ser mesurat diverses vegades: per exemple, embarassos, o les conseqüències de diferents accions sobre un subjecte.</p></li>
+<li><p>Poden ser parts d’éssers vius. Per exemple, si volem estudiar si l’ús del telèfon mòbil augmenta el risc de càncer de pell en les orelles, en els participants de l’estudi compararem l’orella dominant en aquest sentit amb l’altra, de manera que la unitat d’observació són les orelles de les persones, no les persones.</p></li>
+<li><p>Poden ser comunitats d’éssers vius, des de cultius de microorganismes a ecosistemes.</p></li>
+<li><p>Fins i tot poden ser altres estudis científics, en les <strong>revisions sistemàtiques</strong> on es resumeix tot el que s’ha publicat sobre un tema concret i s’analitzen conjuntament les dades recollides en totes aquestes publicacions.</p></li>
+</ul>
+</div>
+<div id="població" class="section level2">
+<h2><span class="header-section-number">2.2</span> Població</h2>
+<p>En general, una <strong>població</strong> és simplement un conjunt d’individus o objectes sobre els quals volem conèixer alguna informació.</p>
+<p>Una població pot estar perfectament definida en un lloc i temps: per exemple, els habitants d’Espanya just avui. Però normalment la seva definició serà difusa. Si, per exemple, volem estimar alguna cosa sobre una espècie de plantes, de qui estam parlant exactament? De les plantes que estan vives just ara? De totes les plantes d’aquesta espècie de la història del món? Incloem les que encara no han nascut?</p>
+<p>Tranquils, no ens trencarem gens el cap amb això. Però almenys heu de ser conscients que una població pot contenir objectes que en realitat no existeixen ni hagin existit ni vagin a existir, sinó simplement que “podrien existir”. Parlarem llavors d’una <strong>població virtual</strong> (en altres llocs la qualifiquen de <strong>població metafòrica</strong>).</p>
+<p>Per exemple, quan diem que</p>
+<blockquote>
+<p>“La probabilitat que surti cara en llançar una moneda equilibrada és 1/2”,</p>
+</blockquote>
+<p>el que significa és que</p>
+<blockquote>
+<p>“Si prenem la població formada per tots els possibles llançaments de totes les possibles monedes equilibrades, en la meitat dels seus membres el resultat és Cara.”</p>
+</blockquote>
+<p>Els membres d’aquesta població són tots els “possibles” llançaments de monedes equilibrades, els que s’han realitzat al llarg de la història, els que es realitzaran en el futur, i els que es podrien haver realitzat o es podrien realitzar en el futur però en realitat no s’han fet ni es faran mai.</p>
+</div>
+<div id="variable-aleatòria" class="section level2">
+<h2><span class="header-section-number">2.3</span> Variable aleatòria</h2>
+<p>Recordau que una <strong>variable aleatòria</strong> mesura una característica dels subjectes d’una població. És convenient que adquiriu la disciplina de descriure sempre les variables aleatòries mitjançant una plantilla de l’estil de</p>
+<blockquote>
+<p>“Prenem … i mesuram …”</p>
+</blockquote>
+<p>perquè us quedi clar quina és la població i què mesurau. A més, afegiu-hi les unitats si és necessari. Per exemple:</p>
+<ul>
+<li>“Prenem una persona de Mallorca i mesuram la seva alçada (en cm)”.</li>
+</ul>
+<p>Fixau-vos que aquesta variable aleatòria no és la mateixa que</p>
+<ul>
+<li>“Prenem una persona de Mallorca i mesuram la seva alçada (en m)”</li>
+</ul>
+<p>perquè, encara que totes dues mesuren el mateix sobre els mateixos subjectes, els assignen números diferents. I també és diferent de</p>
+<ul>
+<li>“Prenem una persona de Suècia i mesuram la seva alçada (en cm)”</li>
+</ul>
+<p>perquè ha canviat la població.</p>
+<p>En canvi a</p>
+<ul>
+<li>“Llançam una moneda 3 vegades i comptam les cares”</li>
+</ul>
+<p>no hi ha cap necessitat d’especificar unitats, tret que volgueu emprar una unitat inesperada (jo què sé, que compteu les cares en fraccions de dotzena).</p>
+<p>Per a més informació sobre variables aleatòries, consultau la Lliçó <a href="chap-varal.html#chap:varal">1</a>.</p>
+</div>
+<div id="mostra" class="section level2">
+<h2><span class="header-section-number">2.4</span> Mostra</h2>
+<p>En un estudi inferencial, volem deduir (<strong>inferir</strong>) informació sobre una o diverses variables aleatòries definides sobre una <strong>població</strong> a partir d’una <strong>mostra</strong>:</p>
+<ul>
+<li><p>La <strong>població objectiu</strong>, o <strong>d’interès</strong> és el conjunt de subjectes sobre les quals desitjam obtenir informació.</p></li>
+<li><p>La <strong>mostra</strong> de la població es el grup de subjectes concrets en els quals mesuram les característiques d’interès, usualment molt petit per comparació amb la població.</p></li>
+<li><p>Una <strong>mostra d’una variable aleatòria</strong> és el conjunt de valors obtinguts prenent una mostra de la població i mesurant la variable sobre aquests subjectes.</p></li>
+</ul>
+
+<div class="example">
+<p><span id="exm:brou" class="example"><strong>Exemple 2.1  </strong></span>Si volem saber si un brou és fat, no ens el bebem tot, perquè ens quedaríem sense brou i ja tant faria si era fat o salat. El que fem és tastar-ne només una cullerada. El brou és la població, la cullarada la mostra.</p>
+</div>
+
+
+<div class="example">
+<p><span id="exm:unnamed-chunk-115" class="example"><strong>Exemple 2.2  </strong></span>Una sèrie de 10 llançaments d’una moneda equilibrada concreta és una mostra de la població del “possibles llançaments de monedes equilibrades”.</p>
+</div>
+
+<p>Si podem mesurar tots els individus de la població, no ens fa falta emprar estadística inferencial per mirar d’endevinar el que volem saber sobre la població: ho mesuram i per avall. Però el més normal és que no poguem mesurar tots els seus individus de la població.</p>
+<ul>
+<li><p>La població pot ser massa gran: per exemple, si volem calcular l’alçada mitjana dels europeus que avui tenen 18 anys, és pràcticament impossible amidar-los tots.</p></li>
+<li><p>Com ja hem comentat, la població pot ser <strong>virtual</strong> o <strong>metafòrica</strong> en el sentit que pot contenir membres que en aquest moment ni existeixin: per exemple, si volem saber qualque cosa sobre els diabètics, això hauria d’incloure els passats, que ja són morts, els presents, que n’hi haurà molts que ni saben que ho són, i els futurs, que encara no ho són o per ventura no hagin ni nascut.</p></li>
+<li><p>Pot ser que per obtenir la informació d’un subjecte l’hàgim de sacrificar. En aquest cas, per mesurar tota la població l’hauríem d’exterminar.</p></li>
+<li><p>Pot ser simplement que sigui difícil accedir a tota la població: per exemple, els estudiants de la UIB són relativament pocs, uns 12000, però seria complicat aconseguir amidar-los tots.</p></li>
+</ul>
+
+<div class="example">
+<p><span id="exm:unnamed-chunk-116" class="example"><strong>Exemple 2.3  </strong></span>Vosaltres què sou: una població o una mostra? Doncs depèn:</p>
+<ul>
+<li><p>Sou una població quan el que interessa és saber qualque cosa sobre <strong>vosaltres</strong> i només vosaltres.</p></li>
+<li><p>Sou una mostra si a partir d’informació sobre vosaltres miram d’inferir informació sobre un grup més gran de subjectes: sobre els estudiants de primer curs de Biologia i Bioquímica d’Espanya, o sobre els estudiants de la UIB d’aquest curs, o sobre els joves europeus, o sobre els mamífers bípedes, o…</p></li>
+</ul>
+</div>
+
+
+<div class="rmdcaution">
+<p>Encara que emprem “mitjana”, “variància”, “quantils”, etc. tant per a variables aleatòries com per a mostres, no heu de confondre-les.</p>
+<ul>
+<li><p>Una <strong>variable aleatòria</strong> representa una característica numèrica dels subjectes d’una <strong>població</strong>:</p>
+<ul>
+<li><p>“Prenem un estudiant de la UIB i mesuram la seva alçada en m.”</p>
+<p>La <strong>mitjana</strong> i la <strong>variància</strong> d’aquesta variable són les de tota la població d’estudiants de la UIB i descriuen propietats de tota la població d’estudiants de la UIB.</p></li>
+</ul></li>
+<li><p>Una <strong>mostra</strong> d’una variable aleatòria són els valors de la variable sobre un <strong>subconjunt</strong> de la població.</p>
+<ul>
+<li><p>Mesuram les alçades (en m) de 50 estudiants de la UIB d’aquest curs.</p>
+<p>La <strong>mitjana</strong> i la <strong>variància</strong> d’aquesta mostra són només les d’aquestes 50 alçades, i poden servir per descriure aquest conjunt de 50 alçades o per estimar els valors de la mitjana i la variància de la població d’estudiants de la UIB</p></li>
+</ul></li>
+</ul>
+</div>
+
+<p>Quan volguem destacar que una mitjana, una variància etc. són les d’una variable aleatòria sobre tota una població, els qualificarem de <strong>poblacionals</strong>.</p>
+</div>
+<div id="sec:mostreig" class="section level2">
+<h2><span class="header-section-number">2.5</span> Mostreig aleatori</h2>
+<p>Com hem dit, en un estudi estadístic inferencial, es pren una <strong>mostra</strong> d’individus d’una <strong>població</strong> i s’estimen algunes característiques de la població a partir de les de la mostra. Perquè això tengui sentit, és necessari que la mostra sigui raonablement <strong>representativa</strong> de la població. Però, és clar, sense conèixer les característiques de la població, no podem saber si una mostra és representativa o no.</p>
+<p>Per sortir d’aquest atzucac, la solució acceptada és prendre una mostra <strong>aleatòria</strong>, és a dir, triant els seus subjectes a l’atzar. En fer-ho així:</p>
+<ul>
+<li><p>S’eviten preferències en l’elecció, per la qual cosa és més probable que la mostra sigui representativa de la població. Naturalment, això no està garantit: per pura mala sort ens pot sortir una mostra súper rara, és el que té l’atzar. Però almenys hem fet “el que tothom considera que és el que toca” per intentar que sigui representativa.</p></li>
+<li><p>Es poden usar tècniques estadístiques que permetran delimitar errors en l’estimació i la seva probabilitat; per exemple, podrem calcular la probabilitat que la nostra mostra sigui súper rara en algun sentit concret.</p></li>
+</ul>
+<p>Per exemple, per tastar el brou, abans de prendre’n una cullarada el remenam bé. D’aquesta manera esperam que les molècules del brou s’organitzin de manera aleatòria dins l’olla i que la cullerada que en prenguem sigui representativa del brou.</p>
+<p>Específicament, el <strong>mostreig aleatori</strong> consisteix a seleccionar una mostra de la població de manera que totes les mostres de la mateixa mida siguin <strong>equiprobables</strong>; és a dir, que si fixam el nombre de subjectes de la mostra, tots els conjunts d’aquest nombre de subjectes tenguin la mateixa probabilitat de ser seleccionats.</p>
+<p>Hi ha dos tipus bàsics de mostreig aleatori que hem de distingir: <strong>amb</strong> i <strong>sense reposició</strong>. Per fixar idees, suposem que disposam d’una població de la qual volem extreure una mostra de mida <span class="math inline">\(n\)</span>.</p>
+<p>Una manera de fer-ho seria repetir <span class="math inline">\(n\)</span> vegades el procés d’escollir un individu de la població, anotar qui és i “retornar-lo a la població”, de manera que pugui tornar a ser escollit dins la mateixa mostra. El tipus de mostra obtenguda d’aquesta manera rep el nom de mostra aleatòria <strong>amb reposició</strong>, o <strong>mostra aleatòria simple</strong>. Observau que amb aquest procediment un mateix individu pot aparèixer diverses vegades en una mostra, i que tots els subconjunts “amb possibles repeticions” (el seu nom tècnic és <strong>multiconjunts</strong>) de <span class="math inline">\(n\)</span> individus de la població tenen la mateixa probabilitat d’obtenir-se.</p>
+
+<div class="rmdimportant">
+El mostreig aleatori simple és l’<strong>estándard d’excel·lència</strong> entre els mètodes de mostreig, i gairebé tots els resultats que explicarem en aquest curs pressuposen que la mostra és aleatòria simple.
+</div>
+
+<p>Una altra manera d’extreure la nostra mostra seria repetir <span class="math inline">\(n\)</span> vegades el procés d’escollir un individu de la població, anotar qui és i “retirar-lo de la població”, de manera que ja no pugui tornar a ser escollit dins la mateixa mostra. Això és equivalent a extreure de cop <span class="math inline">\(n\)</span> individus diferents de la població. Aquestes mostres no tenen individus repetits, i qualsevol selecció de <span class="math inline">\(n\)</span> individus diferents té la mateixa probabilitat de ser l’obtinguda. En aquest cas es parla d’una mostra aleatòria <strong>sense reposició</strong>.</p>
+<p>Quan <strong>la mida de la població és MOLT gran per comparació amb la mostra</strong>, com sol ser el cas en ciències de la vida, la probabilitat que hi hagi repeticions en una mostra aleatòria simple és molt petita.</p>
+
+<div class="rmdnote">
+<p>Recordau que si una població té <span class="math inline">\(N\)</span> individus, la probabilitat que una mostra aleatòria simple de mida <span class="math inline">\(n\)</span> tingui tots els seus membres diferents és
+<span class="math display">\[
+\frac{N(N-1)\cdots (N-n+1)}{N^n}
+\]</span>
+i per tant la probabilitat que tengui qualque membre repetit és
+<span class="math display">\[
+1-\frac{N(N-1)\cdots (N-n+1)}{N^n}.
+\]</span>
+Amb R:</p>
+<ul>
+<li><p>La funció <code>pbirthday(n,N)</code> ens dóna la probabilitat que en una mostra aleatòria simple de mida <span class="math inline">\(n\)</span> d’una població de mida <span class="math inline">\(N\)</span> hi hagi algun element repetit.</p></li>
+<li><p>La funció <code>qbirthday(p,N)</code> ens dóna la mida mínima d’una mostra aleatòria simple d’una població de mida <span class="math inline">\(N\)</span> perquè la probabilitat que hi hagi algun element repetit sigui com a mínim <span class="math inline">\(p\)</span>.</p></li>
+</ul>
+<p>El nom <code>birthday</code> fa referència a la <strong>paradoxa de l’aniversari</strong>: el típic problema de calcular la probabilitat que dos estudiants d’una classe celebrin l’aniversari el mateix dia i sorprendre’s que en una classe de 50 estudiants hi hagi més d’un 95% de probabilitats que hi hagi algun aniversari repetit.</p>
+En efecte, podem entendre una classe de 50 estudiants com una mostra aleatòria simple de 50 dates de naixement, triades d’un conjunt de 366 possibles dates (els 366 dies d’un any de traspàs). La probabilitat que almenys 2 estudiants celebrin l’aniversari el mateix dia és la probabilitat que es doni almenys una repetició en aquesta mostra. R ho calcula amb:
+</div>
+
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="chap-conceptes.html#cb61-1"></a><span class="kw">pbirthday</span>(<span class="dv">50</span>,<span class="dv">366</span>)</span></code></pre></div>
+<pre><code>## [1] 0.970073</code></pre>
+
+<div class="rmdexercici">
+Quin és el nombre mínim d’estudiants que hi ha d’haver en una classe perquè la probabilitat que es repeteixi una data d’aniversari sigui del 95% o més?
+</div>
+
+<p>Per exemple, si triam 100 individus de les Balears (que tenen al voltant de 1,150,000 habitants) a l’atzar permetent repeticions, la probabilitat que surti qualque individu repetit és</p>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="chap-conceptes.html#cb63-1"></a><span class="kw">pbirthday</span>(<span class="dv">100</span>,<span class="dv">1150000</span>)</span></code></pre></div>
+<pre><code>## [1] 0.00429522</code></pre>
+<p>Només en 1 de cada 250 mostres de 100 individus de les Balears triats a l’atzar permetent repeticions hi hauria qualque repetició.</p>
+<p>En canvi, si triam 100 estudiants de la UIB (que té al voltant de 12000 estudiants) a l’atzar permetent repeticions, la probabilitat que surti qualque estudiant repetit és de</p>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="chap-conceptes.html#cb65-1"></a><span class="kw">pbirthday</span>(<span class="dv">100</span>,<span class="dv">12000</span>)</span></code></pre></div>
+<pre><code>## [1] 0.338764</code></pre>
+<p>En 1 de cada 3 mostres de 100 estudiants de la UIB triats a l’atzar permetent repeticions hi hauria qualque repetició.</p>
+<p>Però si triam <strong>10</strong> estudiants de la UIB a l’atzar permetent repeticions, la probabilitat que surti qualque estudiant repetit ja és</p>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="chap-conceptes.html#cb67-1"></a><span class="kw">pbirthday</span>(<span class="dv">10</span>,<span class="dv">12000</span>)</span></code></pre></div>
+<pre><code>## [1] 0.00374396</code></pre>
+
+<div class="example">
+<p><span id="exm:uib2" class="example"><strong>Exemple 2.4  </strong></span>El gràfic següent mostra la probabilitat que si prenem una mostra aleatòria simple de <span class="math inline">\(n\)</span> estudiants d’una població de 12000 individus, com ara els estudiants de la UIB, siguin tots diferents, en funció de <span class="math inline">\(n\)</span>:</p>
+</div>
+
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="chap-conceptes.html#cb69-1"></a>f=<span class="cf">function</span>(n,N){<span class="dv">1</span><span class="op">-</span><span class="kw">pbirthday</span>(n,N)}</span>
+<span id="cb69-2"><a href="chap-conceptes.html#cb69-2"></a>prob=<span class="kw">sapply</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">300</span>,f,<span class="dt">N=</span><span class="dv">12000</span>)</span>
+<span id="cb69-3"><a href="chap-conceptes.html#cb69-3"></a><span class="kw">plot</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">300</span>, prob, <span class="dt">type=</span><span class="st">&quot;l&quot;</span>, <span class="dt">lwd=</span><span class="dv">2</span>, <span class="dt">xlab=</span><span class="st">&quot;n&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;probabilitat&quot;</span>,</span>
+<span id="cb69-4"><a href="chap-conceptes.html#cb69-4"></a>     <span class="dt">xaxp=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">300</span>,<span class="dv">30</span>),<span class="dt">yaxp=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">10</span>))</span></code></pre></div>
+<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-125-1.png" width="50%" style="display: block; margin: auto;" /></p>
+<p>El gràfic següent mostra la mida màxima <span class="math inline">\(n\)</span> d’una mostra aleatòria simple extreta d’una població de mida <span class="math inline">\(N\)</span> perquè la probabilitat de repeticions sigui menor que 0.01 (és a dir, perquè més del 99% de les mostres aleatòries simples tenguin tots els seus elements diferents), en funció de <span class="math inline">\(N\)</span>:</p>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="chap-conceptes.html#cb70-1"></a>fites=<span class="kw">sapply</span>(<span class="dv">500</span><span class="op">+</span><span class="dv">100</span><span class="op">*</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">150</span>), qbirthday, <span class="dt">prob=</span><span class="fl">0.01</span>)</span>
+<span id="cb70-2"><a href="chap-conceptes.html#cb70-2"></a><span class="kw">plot</span>(<span class="dv">500</span><span class="op">+</span><span class="dv">100</span><span class="op">*</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">150</span>), fites, <span class="dt">pch=</span><span class="dv">20</span>, <span class="dt">xlab=</span><span class="st">&quot;N&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;n&quot;</span>, <span class="dt">cex=</span><span class="fl">0.5</span>,</span>
+<span id="cb70-3"><a href="chap-conceptes.html#cb70-3"></a>     <span class="dt">xaxp=</span><span class="kw">c</span>(<span class="dv">500</span>,<span class="dv">15500</span>,<span class="dv">30</span>),<span class="dt">yaxp=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">20</span>,<span class="dv">20</span>))</span></code></pre></div>
+<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-126-1.png" width="50%" style="display: block; margin: auto;" /></p>
+<p>Així doncs, si la mida de la població és molt gran en relació a la de la mostra, és molt probable que els elements d’una mostra aleatòria simple siguin tots diferents. Això implica que, quan la població és molt gran en relació a la mostra, els mostrejos aleatoris amb i sense reposició són aproximadament equivalents en el sentit següent: com que, si la població és molt, molt gran, un mostreig amb reposició donaria gairebé segur una mostra amb tots els seus elements diferents, podem prendre directament la mostra sense reposició i suposar que permetíem repeticions, però que no s’han donat, i que per tant la mostra és simple.</p>
+<ul>
+<li><p>Una mostra aleatòria de 100 individus diferents de les Balears, o de 10 estudiants diferents de la UIB, pot passar perfectament per una mostra presa permetent repeticions, perquè encara que les permetéssim, només obtendríem qualque repetició en 1 de cada 250 vegades.</p></li>
+<li><p>Però en canvi ja és més mal de creure que una mostra aleatòria de 100 estudiants diferents de la UIB hagi estat presa permetent repeticions, perquè si les permetem, en 1 de cada 3 vegades surt qualcú repetit.</p></li>
+</ul>
+<p>A més, si la mida de la població és molt més gran que <span class="math inline">\(n\)</span>, quan construïu una mostra aleatòria de mida <span class="math inline">\(n\)</span> escollint els individus un a un a l’atzar sense repeticions, la probabilitat a cada moment d’escollir un individu concret dels que quedin és gairebé la mateixa que si permetéssiu repeticions.</p>
+
+<div class="example">
+<p><span id="exm:unnamed-chunk-127" class="example"><strong>Exemple 2.5  </strong></span>Imaginau que teniu una població de 10<sup>6</sup> individus i en voleu extreure una mostra aleatòria de 10. Llavors, per exemple, quan ja portau 9 individus escollits, la probabilitat de triar un individu concret dels que queden és 1/999991=10<sup>-6</sup>+9·10<sup>-12</sup>, mentre que si permeteu que surti qualcun dels ja escollits és 1/10<sup>6</sup>=10<sup>-6</sup>.</p>
+</div>
+
+<p>En resum:</p>
+
+<div class="rmdimportant">
+<p>Si prenem una mostra aleatòria sense reposició de mida <span class="math inline">\(n\)</span> d’una població de mida <span class="math inline">\(N\)</span> MOLT més gran que n, la tractarem com si fos una mostra aleatòria simple (i direm sense manies que és una mostra aleatòria simple).</p>
+Per fixar una fita, en aquest curs entendrem que <span class="math inline">\(N\)</span> és <strong>prou MOLT més gran</strong> que <span class="math inline">\(n\)</span> com per poder aplicar aquesta regla quan <strong><span class="math inline">\(N\)</span> és com a mínim unes 1000 vegades més gran que <span class="math inline">\(n\)</span></strong>.
+</div>
+
+<p>Hi ha un tipus de mostreig aleatori que caldrà tenir present més endavant i volem esmentar ara. Es tracta del <strong>mostreig aleatori estratificat</strong>. S’utilitza quan la població està classificada en <strong>estrats</strong> que són d’interès per a la propietat estudiada. Aquests estrats seran grups d’individus definits per una característica concreta, de manera que individus del mateix estrat tenguin aquesta característica en comú i individus d’estrats diferents tenguin aquesta característica diferent. Per exemple: sexes, franges d’edat, províncies… En aquest cas, es pren una mostra aleatòria (amb o sense repetició) d’una mida prefixada de cada estrat i s’uneixen en una mostra global: el resultat és una <strong>mostra aleatòria</strong> (amb repetició o sense) <strong>estratificada</strong>.</p>
+<p>Pel que fa a les mides de les mostres de cada estrat, se sol optar per una de les dues estratègies següents:</p>
+<ul>
+<li><p>Imposar que la composició per estrats de la mostra global mantengui les proporcions de la població original, de manera que la mida de la mostra de cada estrat representi el mateix percentatge del total de la mostra que l’estrat corresponent en la població completa.</p></li>
+<li><p>Prendre les mides de manera que els estrats que representin una fracció molt petita de la població (tan petita que no esperaríem que tenguessin representació en una mostra aleatòria <strong>transversal</strong> de la població, és a dir, presa del total de la població sense tenir en compte la seva composició en estrats) tenguin una representació en la mostra molt més gran que la que els tocaria.</p></li>
+</ul>
+<p>Per exemple, els estrats podrien ser grups d’edat i podríem prendre la mostra de cada grup d’edat de mida proporcional a la fracció que representa aquest grup d’edat en la població total. O podrien ser els sexes i procuraríem que la nostra mostra estigués formada per un 50% d’homes i un 50% de dones. O, a les Illes Balears, els estrats podrien ser les illes, i llavors podríem imposar que el nombre de representants de cada illa en la mostra fos proporcional a la seva població relativa dins del conjunt total de la comunitat autònoma, o podríem triar la mateixa quantitat d’individus de cada illa, independentment de la seva població.</p>
+<p>L’avantatge del mostreig aleatori estratificat respecte del transversal és que, com que l’investigador pren una mostra de cada estrat de la mida que desitja:</p>
+<ul>
+<li><p>Permet estimar la informació d’interès per a cada estrat per separat, com si es tractàs d’estudis independents.</p></li>
+<li><p>Permet estimar la informació sobre subpoblaciones minoritàries que en una mostra aleatòria transversal apareixerien subrepresentades.</p></li>
+</ul>
+<p>L’inconvenient és que, òbviament, si preneu una mostra amb nombres prefixats i artificials de subjectes de cada estrat, amb aquesta mostra no podeu estimar la proporció de subjectes de cada estrat dins el total de la població. El que volem dir és que si, per exemple, construïu una mostra escollint a l’atzar 100 mallorquins, 100 menorquins i 100 pitiüsos, no la podeu emprar per estimar la proporció de mallorquins en el total de la població de les Balears.</p>
+
+<div class="rmdimportant">
+Gairebé mai és factible efectuar un mostreig aleatori. El motiu és que, per poder prendre una mostra aleatòria d’una població en el sentit d’aquest apartat, amb o sense reposició, és necessari disposar d’una llista completa de tots els seus individus per poder sortejar a qui seleccionarem. Això sol ser impossible, o almenys difícil d’aconseguir. Algú té la llista completa de, per exemple, tots els diabètics d’Espanya? Que inclogui els que no saben que ho són? Per tant, gairebe mai no podrem prendre mostres aleatòries en aquest sentit.
+</div>
+
+
+<div class="rmdexercici">
+<p>Tenim una població classificada en dos estrats, A i B. La subpoblació A representa un 20% de la població i la B el 80% restant. Hem pres una mostra aleatòria estratificada formada per 100 subjectes de cada subpoblació. Hem mesurat una certa característica X d’aquests subjectes. La mitjana dels valors de X dels subjectes d’A ha donat 5 i la mitjana dels valors de X dels subjectes de B ha donat 10.</p>
+<p><em>(a)</em> Què val la mitjana dels valors de X de tota la mostra de 200 subjectes?</p>
+<p><em>(b)</em> A partir d’aquestes dades, què estimau que val la mitjana de X en el total de la població?</p>
+</div>
+
+<p>Trobareu més tipus de tècniques de mostreig aleatori i les funcions de R relacionades amb mostrejos a <a href="https://aprender-uib.github.io/AprendeR2/chap-muestreo.html">la lliçó sobre mostreig del manual de R</a>.</p>
+</div>
+<div id="mostres-de-conveniència" class="section level2">
+<h2><span class="header-section-number">2.6</span> Mostres de conveniència</h2>
+<p>Malgrat tots els resultats que donarem seran per a mostres aleatòries, a la vida real les mostres gairebé mai no ho són, aleatòries: gairebé sempre ens hem de conformar amb els subjectes disponibles, que formen una <strong>mostra de conveniència</strong>. Per exemple, en la UIB, per estimar l’opinió que d’un professor tenen els alumnes d’una classe, només es té en compte les respostes dels estudiants que voluntàriament emplenen l’enquesta d’opinió, que de cap manera formen una mostra aleatòria: el perfil de l’estudiant que contesta voluntàriament una enquesta d’aquest tipus és molt específic i no ve determinat per l’atzar. En aquest cas es tractaria d’una mostra <strong>auto-seleccionada</strong>.</p>
+<p>Un altre tipus de mostres no aleatòries són les <strong>oportunistes</strong>. Aquest és el cas, per exemple, si per estimar l’opinió que d’un professor tenen els alumnes d’una assignatura es visita un dia la classe i es passa l’enquesta als estudiants que aquest dia van assistir a classe. De nou, pot ser que els alumnes presents no siguin representatius de l’alumnat de l’assignatura (poden ser els més aplicats, o els que no tenen el grip, o els no repetidors).</p>
+<p>Les tècniques d’estadística inferencial <strong>no es poden aplicar a mostres no aleatòries</strong>. Però normalment només podem aconseguir mostres no aleatòries. En aquest cas, el que s’ha de fer és descriure detalladament les característiques de la mostra per justificar que, malgrat no ser aleatòria, és raonablement representativa de la població i podria passar per aleatòria.</p>
+
+<div class="example">
+<p><span id="exm:unnamed-chunk-131" class="example"><strong>Exemple 2.6  </strong></span>No perquè sigui oportunista una mostra deixa forçosament de ser vàlida. El nostre exemple preferit és el d’<em>Abraham Wald i els forats que faltaven</em>.</p>
+</div>
+
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-132"></span>
+<img src="Bioestadistica-II_files/figure-html/wald.png" alt="Abraham Wald." width="40%" />
+<p class="caption">
+Figura 2.1: Abraham Wald.
+</p>
+</div>
+<p>Durant la Segona Guerra Mundial es va fer palesa la necessitat de reforçar el blindatge dels bombarders aliats, però un blindatge excessiu augmentaria el pes del bombarder i faria que consumís més carburant i perdés autonomia de vol o fins i tot que no pogués enlairar-se. Per tant calia blindar només les parts més delicades de l’avió. El problema es passà llavors al <em>Statistical Research Group</em> (<em>SRG</em>), un grup “secret” d’estadístics que assessorava els militars nordamericans i que molts historiadors comparen amb el projecte Manhattan (només que produïen equacions, i no bombes). Els militars els passaren gràfics dels bombarders que tornaven de missions per Europa amb les marques dels forats de bala que duien. Aquests impactes no estaven uniformement distribuïts pel fuselatge, com podeu veure a l’exemple de la Figura <a href="chap-conceptes.html#fig:avio">2.2</a> que recull els forats d’alguns avions que tornaren d’una missió concreta. La idea dels militars era reforçar les zones més castigades, i el que volien que el SRG els calculàs era quant reforç havien d’afegir a cada zona.</p>
+<div class="figure" style="text-align: center"><span id="fig:avio"></span>
+<img src="Bioestadistica-II_files/figure-html/bombers.png" alt="Diagrama dels impactes de projectil sobre el fuselatge d'un bombarder en tornar d'una missió." width="80%" />
+<p class="caption">
+Figura 2.2: Diagrama dels impactes de projectil sobre el fuselatge d’un bombarder en tornar d’una missió.
+</p>
+</div>
+<p>La resposta d’Abraham Wald, un dels estadístics més brillants del SRG, va ser</p>
+<blockquote>
+<p>“Gentlemen, you need to add armor-plate where the holes aren’t, because that’s where the holes were on the airplanes that didn’t return”</p>
+</blockquote>
+<p>Vaja, que no havien de reforçar les zones amb més impactes: havien de reforçar les zones amb molt pocs impactes. El seu raonament era que els avions rebien els impactes distribuïts de manera uniforme per tot el seu fuselatge. Si els avions que tornaven sans i estalvis eren els que no tenien impactes a determinades zones, o n’hi tenien molt pocs, era perquè els avions que rebien molt càstig en aquestes zones no havien tornat. En canvi, els impactes a les zones que mostraven més càstig no impedien que l’avió tornàs. Naturalment, tot això justificat amb un càlcul molt enginyós de la probabilitat que un avió fos derribat en funció del nombre d’impactes de bala rebuts a les diferents zones del fuselatge: enginyós, perquè només podia emprar la informació dels avions que <strong>no</strong> havien estat derribats. Si us interessen les butzes matemàtiques del seu treball, les trobareu en <a href="https://people.ucsc.edu/~msmangel/Wald.pdf">aquest article</a>.</p>
+<p>El que us volem vendre és que la mostra d’avions era oportunista: els que retornaven de les seves missions. Però fins i tot d’aquesta mostra es pogué obtenir informació amb les tècniques adients.</p>
+</div>
+<div id="test-de-la-lliçó-2" class="section level2">
+<h2><span class="header-section-number">2.7</span> Test de la lliçó 2</h2>
+<p><strong>(1)</strong> Què sou vosaltres? Marcau l’única resposta correcta.</p>
+<ol style="list-style-type: decimal">
+<li>Una mostra aleatòria simple dels estudiants de 1r curs d’algun grau de ciències d’Espanya.</li>
+<li>Una mostra aleatòria sense reposició dels estudiants de 1r curs d’algun grau de ciències d’Espanya.</li>
+<li>Una mostra de conveniència dels estudiants de 1r curs d’algun grau de ciències d’Espanya. </li>
+<li>Cap de les altres respostes és correcta.</li>
+</ol>
+<p><strong>(2)</strong> Quan diem que una mostra aleatòria d’una població és simple? Marcau una sola resposta.</p>
+<ol style="list-style-type: decimal">
+<li>Quan la prenem de cop.</li>
+<li>Quan és l’única mostra aleatòria que prenem.</li>
+<li>Quan la prenem de manera que els subjectes no es poden repetir.</li>
+<li>Quan la prenem de manera que els subjectes es poden repetir.</li>
+<li>Quan no conté subjectes repetits (encara que l’hàgim pres de manera que es puguin repetir).</li>
+<li>Cap de les altres respostes és correcta.</li>
+</ol>
+<p><strong>(3)</strong> En termes estadístics, una població (marcau totes les respostes correctes):</p>
+<ol style="list-style-type: decimal">
+<li>Està formada només per persones</li>
+<li>Pot ser finita</li>
+<li>Pot ser infinita</li>
+<li>Pot ser qualsevol conjunt de coses en les quals estiguem interessats</li>
+<li>Pot estar formada per coses que no existeixin<br />
+</li>
+<li>Les altres respostes són totes falses</li>
+</ol>
+<p><strong>(4)</strong> En un mostreig aleatori simple (marcau totes les respostes correctes):</p>
+<ol style="list-style-type: decimal">
+<li>Cada membre de la població té la mateixa probabilitat de ser triat</li>
+<li>Els membres adjacents de la població no han de ser triats</li>
+<li>No es pot estimar la probabilitat que la mostra triada sigui molt diferent del típic en la població<br />
+</li>
+<li>Cada mostra possible d’una grandària donada té la mateixa probabilitat de ser triada<br />
+</li>
+<li>La decisió d’incloure o no un individu en una mostra depèn només de les característiques de l’individu</li>
+<li>Les altres respostes són totes falses</li>
+</ol>
+<p><strong>(5)</strong> Els avantatges del mostreig aleatori inclouen (marcau totes les respostes correctes):</p>
+<ol style="list-style-type: decimal">
+<li>Que es pot aplicar a qualsevol població</li>
+<li>Que permet estimar la probabilitat que la mostra triada sigui molt diferent del típic en la població</li>
+<li>Que no hi ha cap subpoblació els subjectes de la qual tenguin major probabilitat de ser triats</li>
+<li>Que és fàcil de dur a terme</li>
+<li>Que garanteix que la mostra triada serà representativa de la població original</li>
+<li>Les altres respostes són totes falses</li>
+</ol>
+<p><strong>(6)</strong> En un estudi sobre pacients d’hospitals, 20 hospitals diferents van ser triats a l’atzar d’una llista de tots els hospitals d’un país. A continuació, en cadascun d’aquests 20 hospitals, es va triar a l’atzar <em>un 10% dels pacients</em> hospitalitzats en un dia concret. Quina, o quines, de les afirmacions següents són vertaderes en aquesta situació?</p>
+<ol style="list-style-type: decimal">
+<li>Tots els hospitals tenen la mateixa probabilitat de ser triats</li>
+<li>Tots els pacients hospitalitzats aquest dia tenien la mateixa probabilitat de ser triats</li>
+<li>Totes les possibles mostres de pacients hospitalitzats aquest dia tenien la mateixa probabilitat de ser triades</li>
+<li>La mostra de pacients és estratificada</li>
+<li>Les altres respostes són totes falses</li>
+</ol>
+<p><strong>(7)</strong> En un estudi sobre pacients d’hospitals, 20 hospitals diferents van ser triats a l’atzar d’una llista de tots els hospitals d’un país. A continuació, en cadascun d’aquests 20 hospitals, es va triar a l’atzar <em>10 pacients diferents</em> d’entre els hospitalitzats en un dia concret. Quina, o quines, de les afirmacions següents són vertaderes en aquesta situació?</p>
+<ol style="list-style-type: decimal">
+<li>Tots els hospitals tenen la mateixa probabilitat de ser triats<br />
+</li>
+<li>Tots els pacients hospitalitzats aquest dia tenien la mateixa probabilitat de ser triats des del principi<br />
+</li>
+<li>Totes les possibles mostres de 200 pacients hospitalitzats aquest dia tenien la mateixa probabilitat de ser triades<br />
+</li>
+<li>La mostra de pacients és estratificada</li>
+<li>Les altres respostes són totes falses</li>
+</ol>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="chap-varal.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="estimació-puntual.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection",
+"download": ["pdf", "epub"]
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
