@@ -12,7 +12,7 @@ Una **variable aleatòria** sobre una població $\Omega$ és simplement una func
 $$
 X: \Omega\to \mathbb{R}
 $$
-que assigna a cada subjecte d'$\Omega$ un nombre real. La idea intuïtiva que hi ha al darrera d'aquesta definició és que una variable aleatòria **mesura** una característica dels subjectes d'$\Omega$ que varia a l'atzar d'un subjecte a un altre. Per exemple:
+que assigna a cada subjecte de $\Omega$ un nombre real. La idea intuïtiva que hi ha al darrera d'aquesta definició és que una variable aleatòria **mesura** una característica dels subjectes de $\Omega$ que varia a l'atzar d'un subjecte a un altre. Per exemple:
 
 * Prenem una persona d'una població i mesuram el seu nivell de colesterol, o la seva alçada, o el seu nombre de fills... En aquest cas, $\Omega$ és la població sota estudi, de la qual prenem la persona que mesuram.
 
@@ -23,7 +23,7 @@ Procurau adquirir la disciplina de descriure sempre les variables aleatòries mi
 
 * $X$: "Prenem una persona de Mallorca i mesuram la seva alçada (en cm)".
 
-Fixau-vos en què aquesta variable aleatòria no és la mateixa que
+Fixau-vos que aquesta variable aleatòria no és la mateixa que
 
 * $Y$: "Prenem una persona de Mallorca i mesuram la seva alçada (en m)"
 
@@ -280,11 +280,11 @@ E(X)=\sum_{x\in D_X} x\cdot f_X(x)
 $$
 Sovint també la indicarem amb $\mu_X$.
 
-La interpretació natural de $E(X)$ és que és **la mitjana dels valors de la variable $X$ en el total de la població $\Omega$**. En efecte, com que $P(X=x)$ és la proporció de subjectes d'$\Omega$ en els quals $X$ val $x$, 
+La interpretació natural de $E(X)$ és que és **la mitjana dels valors de la variable $X$ en el total de la població $\Omega$**. En efecte, com que $P(X=x)$ és la proporció de subjectes de $\Omega$ en els quals $X$ val $x$, 
 $$
 E(X)=\sum_{x\in D_X} x\cdot P(X=x)
 $$
-és la mitjana del valor de $X$ sobre tots els subjectes d'$\Omega$. Comparau-ho amb l'exemple següent.
+és la mitjana del valor de $X$ sobre tots els subjectes de $\Omega$. Comparau-ho amb l'exemple següent.
 
 
 ```{example,notes1}
