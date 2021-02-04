@@ -33,7 +33,7 @@ knitr::opts_chunk$set(
 )
 knitr::opts_knit$set(global.par=TRUE)
 options(knitr.graphics.auto_pdf=TRUE)
-options(digits=6)
+options(digits=7)
 warning.length=100
 ```
 
