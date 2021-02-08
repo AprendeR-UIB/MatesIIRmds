@@ -1,18 +1,20 @@
 # Intervals de confiança
 
-L'estimació puntual ens dóna el valor d'una característica d'una població, però no ens indica l'error que es comet amb aquesta estimació.
-A la pràctica, el que se sol fer és complementar una estimació puntual amb un interval que mesuri la precisió de l'estimació. Aquesta precisió depèn:
+Amb l'estimació puntual intentam endevinar el valor d'un paràmetre d'una variable poblacional. Però hem de tenir clar que és molt difícil que amb una mostra poguem encertar exactament el valor del paràmetre. Les técniques de l'estadística inferencial ens permeten estimar aquest valor a partir d'una mostra amb un cert marge d'error, és a dir, amb una certa precisió, i una certa seguretat en el resultat. l'estimació a partir d'una sola no ens indica la precisió d'aquesta estimació. Això es fa complementant l'estimació puntual amb un interval al voltant d'aquesta estimació "on estam bastant segurs que cau el valor real del paràmetre".
 
-* De la variabilitat de la variable aleatòria  d'interès: $\sigma_X$
+```{r, echo=FALSE,fig.cap="elEconomista.es, 27/5/2019"}
+knitr::include_graphics("Bioestadistica-II_files/figure-html/ecoaula.png")
+```
 
-* De la mida de la mostra: $n$
 
-* De la variabilitat de l'estimador (que segurament depèn de les dues anteriors): $\sigma_{\overline{X}}$, $\sigma_{\widehat{p}_X}$...
+L'amplada d'aquest interval dependrà:
+
+* De la variabilitat de l'estimador: com menys variabilitat tingui, més precisa serà l'estimació. Normalment, la variabilitat de l'estimador creix amb la desviació típica de la variable poblacional i decreix amb la mida de les mostres.
 
 * Del **nivell de confiança**, o *seguretat*, de l'estimació: com de segurs volem estar que l'estimació és correcta
 
 
-```{r, echo=FALSE, fig.width=5}
+```{r, echo=FALSE, out.width="80%"}
 knitr::include_graphics("Bioestadistica-II_files/figure-html/Garfield.png")
 ```
 
@@ -21,25 +23,43 @@ knitr::include_graphics("Bioestadistica-II_files/figure-html/Garfield.png")
 Un **interval de confiança del Q%**  (abreviadament, un **IC Q%**) d'un paràmetre poblacional és un interval obtingut aplicant a una mostra aleatòria simple de mida $n$ una fórmula que satisfà la propietat següent: 
 
 ```{block2, type='rmdimportant'}
-L'interval obtingut conté el valor del paràmetre poblacional el Q% de les vegades que l'aplicam sobre mostres aleatòries simples de mida $n$ preses a l'atzar
+L'interval que s'obté amb aquesta fórmula conté el valor del paràmetre poblacional per al Q% de les mostres aleatòries simples de mida $n$.
 ```
 
-*Tenir una confiança del Q%* significa doncs que **empram una fórmula que encerta el Q% de les vegades**; o, per ser precisos, **el Q% de les vegades que l'aplicam bé**. Però assumim que un (100-Q)% de les vegades que l'aplicam ens equivocam, *i no sabem quin és el nostre cas*.
+És a dir:
+
+> Un Q% dels IC Q% contenen el valor real del paràmetre poblacional que es vol estimar.
+
+
+*Tenir una confiança del Q%* significa doncs que **empram una fórmula que encerta el Q% de les vegades**, en el sentit que si aplicàssim moltíssimes vegades aquesta fórmula a mostres aleatòries simples preses a l'atzar, un Q% dels intervals que obtendríem contendrien el valor real del paràmetre que volem estimar. Però **un (100-Q)% de les vegades s'equivoca**, és a dir,  un (100-Q)% dels intervals que obtendríem **no** contendrien el valor real del paràmetre que volem estimar. *I no sabem quin és el nostre cas*.
 
 
 ```{example}
 En un experiment hem mesurat el percentatge d'augment d'alcohol en sang a 40 persones després de prendre 4 canyes de cervesa. La mitjana i la desviació típica mostral d'aquests percentatges d'increment han estat $\overline{x}=41.2$ i $\widetilde{s}=2.1$. Com veurem a l'Exemple \@ref(exm:alcohol1), un IC 95%  per al percentatge d'augment mitjà d'alcohol en sang  d'una persona després de beure 4 canyes de cervesa és [40.53, 41.87].
 
-Això significa que estam *segurs al 95%* que l'augment mitjà d'alcohol en sang  d'una persona després de beure 4 canyes de cervesa està entre el 40.53% i el 41.87%, perquè aquest interval l'haurem calculat amb una fórmula que el 95% de les vegades que l'aplicam (bé) sobre mostres aleatòries de 40 persones dóna un interval que conté la mitjana poblacional que volem estimar. Nosaltres som optimistes i "confiam" estar dins aquest 95% d'encerts.
 
 ```
+
+Això significa que estam "*molt segurs*" que l'augment mitjà d'alcohol en sang  d'una persona després de beure 4 canyes de cervesa està entre el 40.53% i el 41.87%, perquè aquest interval l'haurem calculat amb una fórmula que el 95% de les vegades que s'aplica a una mostra aleatòria simple de mida 40 dóna un interval que conté la mitjana poblacional que volem estimar. Nosaltres som optimistes i "confiam" que el nostre interval pertany a aquest 95% d'intervals que l'encerten.
+
+Sovint això ho trobareu  expressat com :
+
+> Hi ha un 95% de probabilitat que l'interval [40.53, 41.87] contengui el valor real de l'augment mitjà d'alcohol en sang d'una persona després de beure 4 canyes de cervesa.
+
+Però cal entendre el que diu aquesta frase: 
+
+* Per definició, un 95% dels intervals de confiança del 95% per a l'augment mitjà d'alcohol etc. contenen el valor real d'aquest augment mitjà.
+
+* [40.53, 41.87] és **un** interval de confiança del 95% per a l'augment mitjà d'alcohol etc.
+
+* Aleshores, [40.53, 41.87] té una probabilitat del 95% de contenir el valor real de l'augment mitjà d'alcohol etc. en el mateix sentit que si un 95% de les persones tenen una determinada característica, i prenc una persona a l'atzar, aquesta persona té un 95% de probabilitat de tenir aquesta característica.
 
 ```{block2,  type='rmdcaution'}
 No confongueu: 
 
 * **Interval de referència del Q% per a una variable aleatòria**: Interval que conté *el valor de la variable aleatòria  en un individu* amb probabilitat Q%. 
 
-* **Interval de confiança del Q% per a un paràmetre**: Interval que conté *el valor poblacional del paràmetre de la variable aleatòria* "*amb probabilitat*" Q%, en el sentit que l'hem calculat amb una fórmula que dóna un interval que conté el paràmetre el Q% de les vegades que l'aplicam a una mostra aleatòria.
+* **Interval de confiança del Q% per a un paràmetre**: Interval que conté *el valor poblacional del paràmetre de la variable aleatòria* "*amb probabilitat*" Q%, en el sentit que l'hem calculat amb una fórmula que dóna un interval que conté el paràmetre el Q% de les vegades que l'aplicam a una mostra aleatòria simple.
 
 * **Interval de referència del Q% per a un estimador**: Interval que conté *el valor de l'estimador sobre una mostra aleatòria* amb probabilitat Q%.  
 
@@ -48,11 +68,41 @@ No confongueu:
 
 Per exemple:
 
-* Si diem que un *interval de referència del 95%* per a la concentració d'una proteïna en sèrum en individus sans mesurada en g/dl és [11,16], això significa significa que un 95% dels individus sans tenen una concentració d'aquesta proteïna en sèrum entre 11 i 16 g/dl, o, equivalentment, que un individu sa escollit a l'atzar té, amb un 95% de probabilitat, una concentració d'aquesta proteïna en sèrum entre 11 i 16 g/dl
+* Si diem que un *interval de referència del 95%* per a la concentració d'una proteïna en sèrum en individus sans mesurada en g/dl és [11,16], això significa que 
 
-* Si diem que un *interval de confiança del 95%* per a la concentració mitjana d'una proteïna en sèrum en individus sans mesurada en g/dl és [11,16], això significa que hem pres una mostra aleatòria de concentracions d'aquesta proteïna en sèrum en individus sans i a partir d'aquesta mostra hem estimat que, amb un 95% de confiança, la concentració mitjana d'aquesta proteïna en sèrum en individus sans està entre 11 i 16 g/dl (i tenim un 95% de confiança en aquest interval perquè l'hem calculat amb una fórmula que dóna un interval que conté la mitjana poblacional un 95% de les vegades que l'empram sobre mostres aleatòries de la mateixa mida que la nostra).
+    * un 95% dels individus sans tenen una concentració d'aquesta proteïna en sèrum d'entre 11 i 16 g/dl, 
+    
+    és a dir, que
+    
+    * un individu sa escollit a l'atzar té un 95% de probabilitat que la seva concentració d'aquesta proteïna en sèrum estigui entre 11 i 16 g/dl.
+
+* Si diem que un *interval de confiança del 95%* per a la concentració mitjana d'una proteïna en sèrum en individus sans mesurada en g/dl és [11,16], això significa que hem pres una mostra aleatòria simple de concentracions d'aquesta proteïna en sèrum en individus sans i a partir d'aquesta mostra:
+
+    * Hem estimat que la concentració mitjana d'aquesta proteïna en sèrum en individus sans està entre 11 i 16 g/dl 
+    * I tenim un "95% de confiança" en aquest interval perquè el 95% dels intervals que s'obtenen en aplicar aquesta fórmula a mostres aleatòries simples de la mateixa mida que la nostra contenen la mitjana poblacional.
 
 * Si diem que el 95% de les mostres de 100 concentracions d'una determinada proteïna en sèrum en individus sans tenen la mitjana mostral entre 11 i 16, això és un *interval de referència del 95% per a la mitjana mostral* de mostres de mida 100, no un interval de confiança per a la concentració mitjana poblacional ni un interval de referència per al valor de la concentració en un individu.
+
+```{block2,type="rmdcaution"}
+Sovint calculareu un interval de confiança del Q% per a un cert paràmetre $\theta$ d'una població, us donarà $[a,b]$, i amb el poc rigor amb el qual us soleu expressar, us serà igual dir 
+
+> "el valor real de $\theta$ té una probabilitat del Q% de pertànyer a $[a,b]$"
+
+que
+
+> "$[a,b]$ té una probabilitat del Q% de contenir el valor real de $\theta$"
+
+Però aquestes dues frases no diuen exactament el mateix, i de fet la primera és falsa i la segona la interpretam com a vertadera. Fixau-vos que a la primera frase parlam de la probabilitat que a $\theta$ li passi qualque cosa, i a la segona que sigui a $[a,b]$ a qui li passi qualque cosa.
+
+La primera frase diu que $\theta$ varia i un Q% dels seus valors pertanyen a $[a,b]$. Això és fals. "El valor real de $\theta$" és un número que no varia. Per a la nostra població val una cosa concreta, desconeguda però concreta, que pertanyerà o no a l'interval $[a,b]$.
+
+La segona frase en canvi es pot interpretar de la manera següent. L'interval $[a,b]$ forma part de tota la població d'intervals de confiança del Q% per a $\theta$ calculats a partir de mostres aleatòries simples d'una mida concreta de la nostra població. Un Q% d'aquests intervals conté el valor real de $\theta$. Per tant, podem dir que el nostre interval $[a,b]$ té una probabilitat del Q% de contenir el valor real de $\theta$. Aquesta interpretació és correcta.
+
+```
+
+```{block2,type="rmdrecordau"}
+Encara que el millor que podeu fer és no mesclar probabilitat amb confiança, i dir simplement que teniu un 95% de confiança, o un 95% de seguretat, en què $[a,b]$ conté el valor real de $\theta$. Així no us enganxau els dits.
+```
 
 
 Que un IC Q% per a un paràmetre $\theta$ sigui $[a,b]$ serveix:
@@ -61,7 +111,7 @@ Que un IC Q% per a un paràmetre $\theta$ sigui $[a,b]$ serveix:
 
 * Per poder comparar el valor poblacional  de $\theta$ amb un valor concret amb aquest marge de *confiança*: Estam bastant segurs que el valor real de $\theta$ no està ni per sota de $a$ ni per sobre de $b$ i per tant que és diferent de tots aquests valors
 
-**Per exemple:** si un IC 95% per a la **prevalència** $p$ d'una determinada característica en una població (la fracció d'individus que tenen aquesta característica) va de 0.025 a 0.047:
+**Per exemple:** si un IC 95% per a la **prevalença** $p$ d'una determinada característica en una població (la fracció d'individus que tenen aquesta característica) va de 0.025 a 0.047:
 
 * Estam molt ("un 95%") segurs que $p\in [0.025,0.047]$ (perquè la fórmula emprada per calcular aquest interval encerta en un 95% de les vegades)
 
@@ -70,24 +120,22 @@ Que un IC Q% per a un paràmetre $\theta$ sigui $[a,b]$ serveix:
 * Estam molt segurs que $p\neq 0.05$ (perquè  0.05 no pertany a l'interval on estam molt segurs que cau el valor real de $p$)
 
 * Però *no estam molt segurs* que $p=0.03$, per molt que $0.03\in [0.025,0.047]$: estam molt segurs que $p$ està entre 0.025 i 0.047, però no tenim cap seguretat que valgui un valor concret entre aquests límits, només que està entre aquests límits.
+En aquest cas, el que direm és que **no podem rebutjar** que $p$ sigui 0.03, perquè 0.03 pertany a l'interval on creiem que cau el valor real de $p$.
 
 
 Hi ha dos tipus de mètodes bàsics de càlcul d'intervals de confiança a partir d'una mostra aleatòria:
 
 
-* **Paramètrics**: Usant alguna fórmula basada en la distribució mostral de l'estimador
+* **Paramètrics**: Usant alguna fórmula basada en la distribució mostral de l'estimador. Es basen en teoremes i només serveixen si la variable aleatòria  $X$ i la mostra aleatòria satisfan (aproximadament) les hipòtesis del teorema.
 
-    * Es basen en teoremes
+* **No paramètrics**: Tots els altres. El nostre preferit és el **bootstrap**:
 
-    * Només serveixen si la variable aleatòria  $X$ i la mostra aleatòria satisfan (aproximadament) les hipòtesis del teorema
+    * De la mostra, es prenen a l'atzar moltes (milers) mostres aleatòries simples (és a dir, amb reposició) de la mateixa mida que la mostra.
+    * Es calcula l'estimador amb cada una d'aquestes mostres.
+    * S'usa el vector de resultats per estimar un interval de confiança. Per exemple, podríem prendre com a IC 95% l'interval entre els quantils 0.025 i 0.975 d'aquest vector.
 
-* **No paramètrics**: El més emprat és el **bootstrap**:
+    El *bootstrap* es pot usar sempre i funciona bé si la mostra és aleatòria, però es basa en un procés aleatori i per tant cada execució sobre una mateixa mostra pot donar un interval diferent.
 
-    * De la mostra, es prenen a l'atzar moltes (milers) mostres aleatòries simples de la mateixa mida que la mostra, es calcula l'estimador amb cada una d'aquestes mostres i s'usa el vector de resultats per estimar un interval de confiança (per exemple, podríem prendre com a IC 95% l'interval entre els quantils 0.025 i 0.975 d'aquest vector)
-
-    * Es pot usar sempre (si la mostra és aleatòria)
-
-    * Empra un procés aleatori: en cada execució sobre les mateixes dades pot donar un interval diferent
     
 ```{block2,type="rmdnote"}
 El *bootstrap* és una eina molt poderosa per calcular intervals de confiança i, en general, per estimar la distribució mostral d'un estadístic. Tant, que a la pràctica ja comença a substituir els mètodes paramètrics. Emperò no fa miracles: si la mostra és petita o molt poc representativa de la població, un IC calculat amb el bootstrap servei de tan poc com un de calculat amb un mètode paramètric.
