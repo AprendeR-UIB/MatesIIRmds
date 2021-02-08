@@ -16,12 +16,12 @@ El que més ens interessarà d'una variable aleatòria són les probabilitats de
 
 * El conjunt de les persones amb nivell de colesterol entre 200 i 240. L'indicarem amb
 $$
-200\leq X\leq 240
+200\leqslant X\leqslant 240
 $$
 
 * El conjunt de les persones amb nivell de colesterol més petit o igual que 200:
 $$
-X\leq 200
+X\leqslant 200
 $$
 
 * El conjunt de les persones amb nivell de colesterol més gran que 180:
@@ -38,21 +38,21 @@ $$
 
 Com dèiem, el que ens interessarà d'aquests esdeveniments  serà la seva probabilitat, i llavors emprarem notacions de l'estil de les següents:
 
-* $P(200\leq X\leq 240)$. Això indica la probabilitat que una persona tengui el nivell de colesterol entre 200 i 240. Per abreujar, ho llegirem la "probabilitat que $X$ estigui entre 200 i 240" i representa la **proporció** de persones (de la població $\Omega$ on hàgim definit la variable $X$) amb nivell de colesterol entre 200 i 240.
+* $P(200\leqslant X\leqslant 240)$. Això indica la probabilitat que una persona tengui el nivell de colesterol entre 200 i 240. Per abreujar, ho llegirem la "probabilitat que $X$ estigui entre 200 i 240" i representa la **proporció** de persones (de la població $\Omega$ on hàgim definit la variable $X$) amb nivell de colesterol entre 200 i 240.
 
-* $P(X\leq 200)$. Això indica la probabilitat que una persona tengui el nivell de colesterol més petit o igual que 200 (per abreujar, la probabilitat que "$X$ sigui més petit o igual que 200"). És a dir, la proporció de persones amb nivell de colesterol més petit o igual que 200.
+* $P(X\leqslant 200)$. Això indica la probabilitat que una persona tengui el nivell de colesterol més petit o igual que 200 (per abreujar, la probabilitat que "$X$ sigui més petit o igual que 200"). És a dir, la proporció de persones amb nivell de colesterol més petit o igual que 200.
 
 * Etc.
 
 En aquest context, indicarem normalment la **unió** amb una **o** i la **intersecció** amb una **coma**. Per exemple, si $X$ és la variable aleatòria "Llançam una moneda 6 vegades i comptam les cares":
 
-* $P(X\leq 2\text{ o }X\geq 5)$: Probabilitat de treure com a màxim 2 cares o com a mínim 5.
+* $P(X\leqslant 2\text{ o }X\geqslant 5)$: Probabilitat de treure com a màxim 2 cares o com a mínim 5.
 
-* $P(2\leq X, X< 5)$: Probabilitat de treure un nombre de cares que sigui més gran o igual que 2 i més petit que 5; és a dir, $P(2\leq X< 5)$.
+* $P(2\leqslant X, X< 5)$: Probabilitat de treure un nombre de cares que sigui més gran o igual que 2 i més petit que 5; és a dir, $P(2\leqslant X< 5)$.
 
 Dues variables aleatòries $X,Y$ són **independents** quan, per a tots els parells de valors $a,b\in \mathbb{R}$, els esdeveniments
 $$
-X\leq a, Y\leq b
+X\leqslant a, Y\leqslant b
 $$
 són independents. És a dir, quan el valor que pren $X$ sobre un subjecte no afecta per res el valor que hi pren $Y$, i viceversa.
 
@@ -66,19 +66,19 @@ Per exemple, si prenem una persona i:
 (segurament) $X$ i $Y$ són independents.
 
 ```{block2,type="rmdrecordau"}
-Recordau que els esdeveniments $X\leq a$ i $Y\leq b$ són independents quan satisfan les tres condicions equivalents següents:
+Recordau que els esdeveniments $X\leqslant a$ i $Y\leqslant b$ són independents quan satisfan les tres condicions equivalents següents:
 $$
 \begin{array}{l}
-P(X\leq a|Y\leq b)=P(X\leq a)\\
-P(Y\leq b|X\leq a)=P(Y\leq b)\\
-P(X\leq a, Y\leq b)=P(X\leq a)\cdot P(Y\leq b)
+P(X\leqslant a|Y\leqslant b)=P(X\leqslant a)\\
+P(Y\leqslant b|X\leqslant a)=P(Y\leqslant b)\\
+P(X\leqslant a, Y\leqslant b)=P(X\leqslant a)\cdot P(Y\leqslant b)
 \end{array}
 $$
 ```
 
 Més en general, unes variables aleatòries $X_1,X_2,\ldots,X_n$ són **independents** quan, per a tots $a_1,a_2,\ldots,a_n\in \mathbb{R}$, els esdeveniments
 $$
-X_1\leq a_1, X_2\leq a_2,\ldots, X_n\leq a_n
+X_1\leqslant a_1, X_2\leqslant a_2,\ldots, X_n\leqslant a_n
 $$
 són independents. És a dir, quan el valor que pren una d'aquestes variables sobre un subjecte no afecta per res els valors que hi prenen les altres.
 
@@ -106,9 +106,9 @@ $$
 
 * La seva **funció de distribució** és la funció $F_X:\mathbb{R}\to [0,1]$ que assigna a cada $x\in \mathbb{R}$ la probabilitat que  $X$ sigui més petit o igual que $x$:
 $$
-F_X(x)=P(X\leq x)
+F_X(x)=P(X\leqslant x)
 $$ 
-És a dir, $F_X(x)$ és la proporció de subjectes de la població en els quals $X$ pren un valor $\leq x$. 
+És a dir, $F_X(x)$ és la proporció de subjectes de la població en els quals $X$ pren un valor $\leqslant x$. 
 
     A la funció de distribució també se li sol dir **funció de probabilitat acumulada** per posar èmfasi en el fet que $F_X(x)$ mesura la "freqüència relativa acumulada" de $x$ en el total de la població.
 
@@ -150,27 +150,27 @@ Si $X$ és una variable aleatòria discreta, $P(X\in A)=0$ per a qualsevol subco
 ```
 
 
-* Vegem ara la seva **funció de distribució** $F_X$. Recordau que $F_X(x)=P(X\leq x)$ i que la nostra variable només pot prendre els valors 0, 1, 2 i 3.
+* Vegem ara la seva **funció de distribució** $F_X$. Recordau que $F_X(x)=P(X\leqslant x)$ i que la nostra variable només pot prendre els valors 0, 1, 2 i 3.
 
-    * Si $x<0$, $F_X(x)=P(X\leq x)=0$ perquè $X$ no pot prendre cap valor estrictament negatiu.
+    * Si $x<0$, $F_X(x)=P(X\leqslant x)=0$ perquè $X$ no pot prendre cap valor estrictament negatiu.
 
-    * Si $0\leq x<1$, $F_X(x)=P(X\leq x)=P(X=0)=f_X(0)=1/8$, perquè si $0\leq x<1$, l'únic valor $\leq x$ que pot prendre $X$ és el 0.
+    * Si $0\leqslant x<1$, $F_X(x)=P(X\leqslant x)=P(X=0)=f_X(0)=1/8$, perquè si $0\leqslant x<1$, l'únic valor $\leqslant x$ que pot prendre $X$ és el 0.
 
-    * Si $1\leq x<2$, $F_X(x)=P(X\leq x)=P(X=0\text{ o }X=1)$ $=f_X(0)+f_X(1)=4/8=1/2$, perquè si $1\leq x<2$, els únics valors $\leq x$ que pot prendre $X$ són 0 i 1.
+    * Si $1\leqslant x<2$, $F_X(x)=P(X\leqslant x)=P(X=0\text{ o }X=1)$ $=f_X(0)+f_X(1)=4/8=1/2$, perquè si $1\leqslant x<2$, els únics valors $\leqslant x$ que pot prendre $X$ són 0 i 1.
 
-    * Si $2\leq x<3$, $F_X(x)=P(X\leq x)=P(X=0\text{ o }X=1\text{ o }X=2)$ $=f_X(0)+f_X(1)+f_X(2)=7/8$, perquè si $2\leq x<3$, els únics valors $\leq x$ que pot prendre $X$ són 0, 1 i 2.
+    * Si $2\leqslant x<3$, $F_X(x)=P(X\leqslant x)=P(X=0\text{ o }X=1\text{ o }X=2)$ $=f_X(0)+f_X(1)+f_X(2)=7/8$, perquè si $2\leqslant x<3$, els únics valors $\leqslant x$ que pot prendre $X$ són 0, 1 i 2.
 
-    * Si $3\leq x$, $F_X(x)=P(X\leq x)=1$, perquè si $x\geq 3$, segur que obtenim un nombre de cares $\leq x$.
+    * Si $3\leqslant x$, $F_X(x)=P(X\leqslant x)=1$, perquè si $x\geqslant 3$, segur que obtenim un nombre de cares $\leqslant x$.
 
     Per tant, la funció $F_X$ és la funció
 $$
 F_X(x) =\left\{
 \begin{array}{ll}
 0 & \text{ si $x<0$}\\
-1/8 & \text{ si $0\leq x< 1$}\\ 
-4/8 & \text{ si $1\leq x< 2$}\\ 
-7/8 & \text{ si $2\leq x< 3$}\\ 
-1 & \text{ si $3\leq x$}
+1/8 & \text{ si $0\leqslant x< 1$}\\ 
+4/8 & \text{ si $1\leqslant x< 2$}\\ 
+7/8 & \text{ si $2\leqslant x< 3$}\\ 
+1 & \text{ si $3\leqslant x$}
 \end{array}
 \right.
 $$
@@ -187,30 +187,30 @@ Observau en aquest gràfic que aquesta funció de distribució $F_X$ és creixen
      * Si $x_0,y_0\in D_X$ i $x_0<y_0$, llavors $F_X(x_0)< F_X(y_0)$, perquè, com que $P(X=y_0)>0$,
 $$
 \begin{array}{rl}
-F_X(x_0)\!\!\!\!\! & =P(X\leq x_0)<P(X\leq x_0)+P(X=y_0)\\
-& =P(X\leq x_0\text{ o }X=y_0)\leq P(X\leq y_0)=F_X(y_0)
+F_X(x_0)\!\!\!\!\! & =P(X\leqslant x_0)<P(X\leqslant x_0)+P(X=y_0)\\
+& =P(X\leqslant x_0\text{ o }X=y_0)\leqslant P(X\leqslant y_0)=F_X(y_0)
 \end{array}
 $$
 
     * Si $x_0\in D_X$ i dins $(x_0,x]$ no hi ha cap element de $D_X$, aleshores $F_X(x_0)=F_X(x)$, perquè
 $$
 \begin{array}{rl}
-F_X(x)\!\!\!\!\! & =P(X\leq x)=P(X\leq x_0)+P(x_0<X\leq x)\\
-& =P(X\leq x_0)+0= P(X\leq x_0)=F_X(x_0)
+F_X(x)\!\!\!\!\! & =P(X\leqslant x)=P(X\leqslant x_0)+P(x_0<X\leqslant x)\\
+& =P(X\leqslant x_0)+0= P(X\leqslant x_0)=F_X(x_0)
 \end{array}
 $$
-perquè, com que  $(x_0,x]\cap D_X=\emptyset$, $P(x_0<X\leq x)=0$.
+perquè, com que  $(x_0,x]\cap D_X=\emptyset$, $P(x_0<X\leqslant x)=0$.
 
-    * Si $x_0\in D_X$, $P(X<x_0)<P(X\leq x_0)$, perquè 
+    * Si $x_0\in D_X$, $P(X<x_0)<P(X\leqslant x_0)$, perquè 
 $$
-P(X\leq x_0)=P(X<x_0)+P(X=x_0)>P(X<x_0)
+P(X\leqslant x_0)=P(X<x_0)+P(X=x_0)>P(X<x_0)
 $$
 
 
 
-* $F_X$ és **creixent**, perquè si $x\leq y$, tots els subjectes de $X\leq x$ també pertanyen a $X\leq y$, i per tant
+* $F_X$ és **creixent**, perquè si $x\leqslant y$, tots els subjectes de $X\leqslant x$ també pertanyen a $X\leqslant y$, i per tant
 $$
-P(X\leq x)\leq P(X\leq y).
+P(X\leqslant x)\leqslant P(X\leqslant y).
 $$
 
 
@@ -223,10 +223,12 @@ P(X\in A) =\sum_{x\in A} P(X=x) = \sum_{x\in A} f_X(x)
 $$
 En particular
 $$
-F_X(x_0)=P(X\leq x_0)=\sum_{x\leq x_0} f_X(x)
+F_X(x_0)=P(X\leqslant x_0)=\sum_{x\leqslant x_0} f_X(x)
 $$
 
 La **moda** d'una variable aleatòria discreta $X$ és el valor (o els valors) $x_0$ tal que $f_X(x_0)=P(X=x_0)$ és màxim. Per tant, la moda és el valor de $X$ **més probable** o **més freqüent**  en la població. Per exemple, per a la nostra variable aleatòria que compta el nombre de cares en 3 llançaments d'una moneda equilibrada, la moda són els valors 1 i 2.
+
+Una variable aleatòria discreta $X$ és **uniforme** quan el seu domini $D_X$ és finit i tots els seus elements tenen la mateixa probabilitat. És a dir, si $D_X$ té $m$ elements, aleshores $P(X=x)=1/m$ per a cada $x\in D_X$. Per exemple, el resultat de llançar un dau equilibrat és una variable aleatòria discreta. Com que tots els resultats del domini tenen la mateixa probabilitat, tots en són la moda (o cap no ho és, depèn de si veieu el tassó mig ple o mig buit).
 
 
 
@@ -328,6 +330,10 @@ En general, donades una variable aleatòria $X$ i una aplicació $g:\mathbb{R}\t
 
 ```
 
+
+
+
+
 L'esperança de les variables aleatòries discretes té les propietats següents, totes molt raonables si les interpretau en termes del valor mitjà de $X$ sobre la població:
 
 * Sigui $b$ una **variable aleatòria constant**, que sobre tots els individus de la població pren el mateix valor $b\in \mathbb{R}$. Aleshores, $E(b)=b$.
@@ -353,9 +359,13 @@ Sí, ja sabem que parlar de variables constants és un oxímoron, però de vegad
     E(a_1X_1+\cdots+a_nX_n+b)=a_1E(X_1)+\cdots+a_nE(X_n)+b
     $$
 
-* L'esperança és **monòtona creixent**: Si $X\leq Y$ (en el sentit que el valor de $X$ sobre cada subjecte de la població $\Omega$ és més petit o igual que el valor de $Y$ sobre ell), llavors $E(X)\leq E(Y)$.
+* L'esperança és **monòtona creixent**: Si $X\leqslant Y$ (en el sentit que el valor de $X$ sobre cada subjecte de la població $\Omega$ és més petit o igual que el valor de $Y$ sobre ell), llavors $E(X)\leqslant E(Y)$.
 
     Si tots traieu millor nota de Matemàtiques II que de Matemàtiques I, la nota mitjana de Matemàtiques II serà més gran que la de Matemàtiques I, no?
+    
+```{block2,type="rmdexercici"}
+Sigui $X$ una variable aleatòria discreta uniforme amb domini $D_X=\{1,\ldots,N\}$. Què val el seu valor esperat?
+```
 
 ### Variància i desviació típica
 
@@ -465,18 +475,24 @@ $$
 \end{array}
 $$
 
+
+```{block2,type="rmdexercici"}
+Sigui $X$ una variable aleatòria discreta uniforme amb domini $D_X=\{1,\ldots,N\}$. Què val la seva desviació típica?
+```
+
+
 ### Quantils
 
-Sigui $p\in [0,1]$. El **quantil d'ordre $p$** (o **$p$-quantil**) d'una variable aleatòria discreta $X$ és el valor $x_p\in D_X$ tal que $P(X\leq x_p)\geq p$ però $P(X< x_p)<p$. És a dir, el valor $x_p\in D_X$ més petit  tal que $P(X\leq x_p)\geq p$.
+Sigui $p\in [0,1]$. El **quantil d'ordre $p$** (o **$p$-quantil**) d'una variable aleatòria discreta $X$ és el valor $x_p\in D_X$ tal que $P(X\leqslant x_p)\geqslant p$ però $P(X< x_p)<p$. És a dir, el valor $x_p\in D_X$ més petit  tal que $P(X\leqslant x_p)\geqslant p$.
 
 
 Per exemple, que el 0.25-quantil d'una variable aleatòria discreta $X$ sigui, jo què sé, 8, significa que almenys un 25% de la població té un valor de $X$ més petit o igual que 8, però menys d'un 25% de la població té un valor de $X$ estrictament més petit que 8. És a dir, 8 és el valor més petit per al qual la probabilitat acumulada arriba al 25%.
 
 ```{block2,type="rmdnote"}
-Si existeix algun $x_p\in D_X$ tal que $P(X\leq x_p)=p$, llavors el $p$-quantil és aquest $x_p$, perquè, per a tot un altre $x\in D_x$:
+Si existeix algun $x_p\in D_X$ tal que $P(X\leqslant x_p)=p$, llavors el $p$-quantil és aquest $x_p$, perquè, per a tot un altre $x\in D_x$:
 
-* Si $x<x_p$, $P(X\leq x)<P(X\leq x_p)=F_X(x_p)=p$ i per tant $x$ no pot ser el $p$-quantil de $X$.
-* Si $x>x_p$, $p=P(X\leq x_p)\leq P(X<x)$, i per tant $x$ tampoc no pot ser el $p$-quantil de $X$.
+* Si $x<x_p$, $P(X\leqslant x)<P(X\leqslant x_p)=F_X(x_p)=p$ i per tant $x$ no pot ser el $p$-quantil de $X$.
+* Si $x>x_p$, $p=P(X\leqslant x_p)\leqslant P(X<x)$, i per tant $x$ tampoc no pot ser el $p$-quantil de $X$.
 
 ```
 
@@ -499,10 +515,10 @@ $$
 F_X(x)=\left\{
 \begin{array}{ll}
 0 & \text{ si $x<0$}\\
-0.125 & \text{ si $0\leq x<1$}\\
-0.5 & \text{ si $1\leq x<2$}\\
-0.875 & \text{ si $2\leq x<3$}\\
-1 & \text{ si $3\leq x $}
+0.125 & \text{ si $0\leqslant x<1$}\\
+0.5 & \text{ si $1\leqslant x<2$}\\
+0.875 & \text{ si $2\leqslant x<3$}\\
+1 & \text{ si $3\leqslant x $}
 \end{array}
 \right.
 $$
@@ -523,6 +539,10 @@ Llavors, per exemple:
 
 * El seu 0.75-quantil és 2
 
+
+```{block2,type="rmdexercici"}
+Sigui $X$ una variable aleatòria discreta uniforme amb domini $D_X=\{1,\ldots,N\}$. Què val la seva mediana?
+```
 
 ```{block2,type="rmdcaution"}
 Encara que emprem "mitjana", "variància", "quantils", etc. tant per a variables aleatòries com per a mostres, no heu de confondre-les.
@@ -627,7 +647,7 @@ $$
 ```{block2,type="rmdimportant"}
 Recordau que:
 
-* El **factorial** $m!$ d'un nombre natural $m$ és $m!=m(m-1)\cdots 2\cdot 1$ si $m\geq 1$. Si $m=0$, es pren $0!=1$.
+* El **factorial** $m!$ d'un nombre natural $m$ és $m!=m(m-1)\cdots 2\cdot 1$ si $m\geqslant 1$. Si $m=0$, es pren $0!=1$.
 
 * El **nombre combinatori** $\binom{n}{k}$ és
 $$
@@ -808,14 +828,14 @@ dbinom(5,20,1/6)
 
 * Si llançam 20 vegades un dau cúbic equilibrat, quina és la probabilitat de treure com a màxim 5 uns? 
 
-    Amb les notacions anteriors, ens demanen $P(X\leq 5)$, i aquesta probabilitat ens la dóna la funció de distribució de $X$. És $F_X(5)$:
+    Amb les notacions anteriors, ens demanen $P(X\leqslant 5)$, i aquesta probabilitat ens la dóna la funció de distribució de $X$. És $F_X(5)$:
 ```{r}
 pbinom(5,20,1/6)
 ```
 
 * Si llançam 20 vegades un dau cúbic equilibrat, quina és la probabilitat de treure menys de 5 uns? 
 
-    Amb les notacions anteriors, ens demanen $P(X< 5)$, és a dir, $P(X\leq 4)=F_X(4)$:
+    Amb les notacions anteriors, ens demanen $P(X< 5)$, és a dir, $P(X\leqslant 4)=F_X(4)$:
 ```{r}
 pbinom(4,20,1/6)
 ```
@@ -823,13 +843,13 @@ pbinom(4,20,1/6)
 
 * Si llançam 20 vegades un dau cúbic equilibrat, quina és la probabilitat de treure 8 uns o més? 
 
-    Amb les notacions anteriors, ens demanen $P(X\geq 8)$. Com que el contrari de treure 8 uns o més és treure 7 uns o menys, tenim que $P(X\geq 8)=1-P(X\leq 7)=1-F_X(7)$:
+    Amb les notacions anteriors, ens demanen $P(X\geqslant 8)$. Com que el contrari de treure 8 uns o més és treure 7 uns o menys, tenim que $P(X\geqslant 8)=1-P(X\leqslant 7)=1-F_X(7)$:
 ```{r}
 1-pbinom(7,20,1/6)
 ```
 
 
-* Si llançam 20 vegades un dau equilibrat, quin és el més petit nombre $N$ d'uns per al qual la probabilitat de treure com a màxim $N$ uns arriba al 25%? Ens demanen el més petit valor $N$ tal que $P(X\leq N)\geq 0.25$, i això per definició és el 0.25-quantil de $X$:
+* Si llançam 20 vegades un dau equilibrat, quin és el més petit nombre $N$ d'uns per al qual la probabilitat de treure com a màxim $N$ uns arriba al 25%? Ens demanen el més petit valor $N$ tal que $P(X\leqslant N)\geqslant 0.25$, i això per definició és el 0.25-quantil de $X$:
 ```{r}
 qbinom(0.25,20,1/6)
 ```
@@ -1044,7 +1064,7 @@ En aquest curs ens restringirem a variables aleatòries contínues $X: \Omega\to
 $$
 \begin{array}{rcl}
 F_X: \mathbb{R} & \to & [0,1]\\
-x &\mapsto &P(X\leq x)
+x &\mapsto &P(X\leqslant x)
 \end{array}
 $$ 
 és contínua. Totes les variables aleatòries contínues que us puguin interessar en algun moment satisfan aquesta propietat, així que no perdem res imposant-la. I el que hi guanyam és que:
@@ -1061,9 +1081,9 @@ $$
 Per si passa per aquí qualcú que en necessiti una demostració:
 $$
 \begin{array}{l}
-\displaystyle P(X=a) = P(X\leq a)-P(X<a)=P(X\leq a)-P\Big(\bigcup_{n\geq 1} \Big(X\leq a-\frac{1}{n}\Big)\Big)\\
-\displaystyle \qquad= P(X\leq a)-\lim_{n\geq 1}P\Big(X\leq a-\frac{1}{n}\Big)\\
-\displaystyle \qquad= F_X(a)-\lim_{n\geq 1}F_X\Big(a-\frac{1}{n}\Big)=0
+\displaystyle P(X=a) = P(X\leqslant a)-P(X<a)=P(X\leqslant a)-P\Big(\bigcup_{n\geqslant 1} \Big(X\leqslant a-\frac{1}{n}\Big)\Big)\\
+\displaystyle \qquad= P(X\leqslant a)-\lim_{n\geqslant 1}P\Big(X\leqslant a-\frac{1}{n}\Big)\\
+\displaystyle \qquad= F_X(a)-\lim_{n\geqslant 1}F_X\Big(a-\frac{1}{n}\Big)=0
 \end{array}
 $$
 perquè $F_X$ és  contínua.
@@ -1079,35 +1099,35 @@ Cada valor de $X$ té probabilitat 0, però si prenem un subjecte de la poblaci�
 
 De $P(X=a)=0$ es dedueix que la probabilitat d'un esdeveniment definit amb una desigualtat és exactament la mateixa que la de l'esdeveniment corresponent definit amb una desigualtat estricta. En particular, contràriament al que passava a les variables aleatòries discretes, per a una variable aleatòria contínua **sempre** tenim que 
 $$
-P(X\leq a)=P(X<a)
+P(X\leqslant a)=P(X<a)
 $$
 perquè 
 $$
-P(X\leq a)=P(X<a)+P(X=a)=P(X<a)+0=P(X<a).
+P(X\leqslant a)=P(X<a)+P(X=a)=P(X<a)+0=P(X<a).
 $$
 
 Més exemples:
 
-* $P(X\geq a)=P(X> a)+P(X=a)=P(X> a)$
-* $P(a \leq X\leq b)=P(a<X <b)+P(X=a)+P(X=b)$ $=P(a<X <b)$
+* $P(X\geqslant a)=P(X> a)+P(X=a)=P(X> a)$
+* $P(a \leqslant X\leqslant b)=P(a<X <b)+P(X=a)+P(X=b)$ $=P(a<X <b)$
 
 ### Densitat i distribució
 
 Sigui $X$ una variable aleatòria contínua. Com ja hem dit, la seva **funció de distribució** $F_X$ torna a ser
 $$
-x\mapsto F_X(x)=P(X\leq x)
+x\mapsto F_X(x)=P(X\leqslant x)
 $$
 
 Però com que ara tenim que $P(X=x)=0$ per a tot $x\in \mathbb{R}$, no podem definir la funció de densitat de $X$ com a $f_X(x)=P(X=x)$. Què podem fer?
 
 Recordau que, a les variables aleatòries discretes,
 $$
-F_X(a)=\sum_{x\leq a} f_X(x)
+F_X(a)=\sum_{x\leqslant a} f_X(x)
 $$
 
 En el context de matemàtiques "contínues", la suma $\sum$ es tradueix en una integral $\int$. Definim aleshores la **funció de densitat** d'una variable aleatòria contínua $X$ com la funció $f_X:\mathbb{R}\to \mathbb{R}$ tal que:
 
-* $f_X(x)\geq 0$, per a tot $x\in \mathbb{R}$
+* $f_X(x)\geqslant 0$, per a tot $x\in \mathbb{R}$
 
 * $\displaystyle F_X(a)=\int_{-\infty}^a f_{X}(x)\, dx$ per a tot $a \in \mathbb{R}$. 
 
@@ -1160,12 +1180,12 @@ Aquesta corba és precisament $y=f_X(x)$.
 La **funció de densitat** $f_X$ d'una variable aleatòria contínua $X$ és la funció límit dels polígons de freqüències d'histogrames de $X$ quan l'amplada de les classes tendeix a 0.
 ```
 
-Vegem algunes propietats que es dedueixen del fet que $F_X(a)=P(X\leq a)$ sigui igual a **l'àrea sota la corba** $y=f_X(x)$ a l'esquerra de $x=a$: 
+Vegem algunes propietats que es dedueixen del fet que $F_X(a)=P(X\leqslant a)$ sigui igual a **l'àrea sota la corba** $y=f_X(x)$ a l'esquerra de $x=a$: 
 
 
 * Com que $P(X<\infty)=P(\Omega)=1$, **l'àrea sota tota la corba $y=f_X(x)$ és 1.**
 
-* $P(a\leq X\leq b)=P(X\leq b)-P(X<a)$ és l'àrea sota la corba $y=f_X(x)$ a l'esquerra de $x=b$ **menys** l'àrea sota la corba $y=f_X(x)$ a l'esquerra de $x=a$. Per tant, $P(a\leq X\leq b)$ és igual a **l'àrea sota la corba $y=f_X(x)$ entre $x=a$ i $x=b$.**
+* $P(a\leqslant X\leqslant b)=P(X\leqslant b)-P(X<a)$ és l'àrea sota la corba $y=f_X(x)$ a l'esquerra de $x=b$ **menys** l'àrea sota la corba $y=f_X(x)$ a l'esquerra de $x=a$. Per tant, $P(a\leqslant X\leqslant b)$ és igual a **l'àrea sota la corba $y=f_X(x)$ entre $x=a$ i $x=b$.**
 
 ```{r echo=FALSE, out.width="60%"}
 knitr::include_graphics("Bioestadistica-II_files/figure-html/entreaib.png")
@@ -1174,7 +1194,7 @@ knitr::include_graphics("Bioestadistica-II_files/figure-html/entreaib.png")
 
 * Si $\varepsilon>0$ és molt, molt petit, l'àrea sota la corba $y=f_X(x)$ entre $a-\varepsilon$ i $a+\varepsilon$ és aproximadament igual a la del rectangle de base l'interval $[a-\varepsilon,a+\varepsilon]$ i alçada $f_X(a)$, és a dir, a $2\varepsilon\cdot f_X(a)$ (vegeu la Figura \@ref(fig:epsilon)). És a dir,
 $$
-P(a-\varepsilon\leq X\leq a+\varepsilon)\approx 2\varepsilon\cdot f_X(a).
+P(a-\varepsilon\leqslant X\leqslant a+\varepsilon)\approx 2\varepsilon\cdot f_X(a).
 $$
     
     Per tant, $f_X(a)$ ens dóna una indicació de la probabilitat que $X$ valgui aproximadament $a$ (però **no és** $P(X=a)$, que val 0). És a dir, per exemple, si $f_X(a)=0.1$ i $f_X(b)=0.5$, la probabilitat que $X$ prengui un valor al voltant de $b$ és 5 vegades més gran que la probabilitat que prengui un valor al voltant d'$a$. 
@@ -1192,10 +1212,10 @@ A les variables aleatòries discretes, definíem la moda com el valor (o els val
 
 Unes consideracions finals:
 
-* Ho hem dit en la definició, i ho hem emprat implícitament en tota la secció, però ho tornam a repetir: $f_X(x)\geq 0$ per a tot $x\in \mathbb{R}$.
+* Ho hem dit en la definició, i ho hem emprat implícitament en tota la secció, però ho tornam a repetir: $f_X(x)\geqslant 0$ per a tot $x\in \mathbb{R}$.
 
 ```{block2,type="rmdcorbes"}
-En realitat, que $f_X(x)$ sigui $\geq 0$ per a tot $x\in \mathbb{R}$ és conseqüència del fet que la funció $F_X(x)$ sigui positiva i creixent (les funcions de distribució són sempre creixents, perquè si $x<y$, $F_X(x)=P(X\leq x)\leq P(X\leq y)=F_X(y)$) i coincideixi amb $\int_{-\infty}^x f_X(x)\,dx$. Però és més senzill donar-ho com a part de la definició i així ens estalviam la demostració.
+En realitat, que $f_X(x)$ sigui $\geqslant 0$ per a tot $x\in \mathbb{R}$ és conseqüència del fet que la funció $F_X(x)$ sigui positiva i creixent (les funcions de distribució són sempre creixents, perquè si $x<y$, $F_X(x)=P(X\leqslant x)\leqslant P(X\leqslant y)=F_X(y)$) i coincideixi amb $\int_{-\infty}^x f_X(x)\,dx$. Però és més senzill donar-ho com a part de la definició i així ens estalviam la demostració.
 ```
 
 * $f_X(x)$ no és una probabilitat, i per tant pot ser més gran que 1. Per exemple, el gràfic següent mostra la densitat d'una variable normal $N(0,0.01)$ (vegeu la Secció \@ref(sec:normal)), que arriba a valer gairebé 40.
@@ -1258,7 +1278,7 @@ $$
 E(a_1X_1+\cdots+a_nX_n+b)=a_1E(X_1)+\cdots+a_nE(X_n)+b
 $$
 
-* Si $X\leq Y$, aleshores $E(X)\leq E(Y)$.
+* Si $X\leqslant Y$, aleshores $E(X)\leqslant E(Y)$.
 
 * Si $a,b\in \mathbb{R}$, $\sigma(aX+b)^2=a^2 \sigma(X)^2$ i $\sigma(aX+b)=|a|\cdot \sigma(X)$.
 
@@ -1274,7 +1294,7 @@ Si no són independents, aquestes igualtats  poden ser falses.
 
 El **quantil d'ordre $p$** (o **$p$-quantil**) d'una variable aleatòria contínua $X$ és el valor $x_p\in \mathbb{R}$ més petit tal que 
 $$
-F_X(x_p)=P(X\leq x_p)=p
+F_X(x_p)=P(X\leqslant x_p)=p
 $$
 
 ```{block2,type="rmdcorbes"}
@@ -1300,7 +1320,7 @@ knitr::include_graphics("Bioestadistica-II_files/figure-html/censored.png")
 
 Però sí que heu de saber que:
 
-* Una variable aleatòria normal $X$ és contínua, i per tant $P(X=x)=0$, $P(X\leq x)=P(X<x)$ etc.
+* Una variable aleatòria normal $X$ és contínua, i per tant $P(X=x)=0$, $P(X\leqslant x)=P(X<x)$ etc.
 
 * Si $X$ és normal, la seva funció de distribució $F_X$ és **injectiva i creixent**: si $x<y$, $F_X(x)<F_X(y)$.
 
@@ -1368,7 +1388,7 @@ legend("topleft",legend=c("Normal","Poisson"),col=c("blue","red"),
 ```{block2,type="rmdcaution"}
 Quan s'aproxima una variable discreta $X$ que només pot prendre com a valors nombres naturals, com ara una binomial o  una Poisson, per mitjà d'una variable normal $Y$, és convenient aplicar l'anomenada **correcció de continuïtat**: per a cada $n\in \mathbb{N}$, aproximar:
 
-* $P(X\leq n)$ per mitjà de $P(Y< n+1/2)$
+* $P(X\leqslant n)$ per mitjà de $P(Y< n+1/2)$
 
 * $P(X=n)$ per mitjà de $P(n-1/2< Y< n+1/2)$
 
@@ -1388,7 +1408,7 @@ O podeu usar R, per a qui la normal és `norm`.  Per tant, si $X\sim N(\mu,\sigm
 
 * `dnorm(x,mu,sigma)` dóna el valor de la densitat $f_X(x)$
 
-* `pnorm(x,mu,sigma)` dóna el valor de la distribució $F_X(x)=P(X\leq x)$
+* `pnorm(x,mu,sigma)` dóna el valor de la distribució $F_X(x)=P(X\leqslant x)$
 
 * `qnorm(q,mu,sigma)` dóna el $q$-quantil de $X$
 
@@ -1396,12 +1416,12 @@ O podeu usar R, per a qui la normal és `norm`.  Per tant, si $X\sim N(\mu,\sigm
 
 Així, per exemple, si $X$ és $N(1,2)$
 
-* $P(X\leq 1.5)$ és
+* $P(X\leqslant 1.5)$ és
 ```{r}
 pnorm(1.5,1,2)
 ```
 
-* El 0.4-quantil de $X$, és a dir, el valor $q$ tal que $P(X\leq q)=0.4$ és
+* El 0.4-quantil de $X$, és a dir, el valor $q$ tal que $P(X\leqslant q)=0.4$ és
 ```{r}
 qnorm(0.4,1,2)
 ```
@@ -1418,7 +1438,7 @@ No! Com que $X$ és contínua, $P(X=1.5)=0$. El que us dóna `dnorm(1.5,1,2)` é
 
 Si la normal és estàndard, no fa falta entrar la $\mu=0$ i la $\sigma=1$ (són els valors per defecte d'aquests paràmetres per a `norm`). Així, si $Z$ és $N(0,1)$:
 
-* $P(Z\leq 1.5)$ és
+* $P(Z\leqslant 1.5)$ és
 ```{r}
 pnorm(1.5)
 ```
@@ -1428,7 +1448,7 @@ pnorm(1.5)
 qnorm(0.95)
 ```
 
-* Què val $P(-1\leq Z\leq 1)$?  Com que $P(-1\leq Z\leq 1)=P(Z\leq 1)-P(Z\leq -1)$,  és
+* Què val $P(-1\leqslant Z\leqslant 1)$?  Com que $P(-1\leqslant Z\leqslant 1)=P(Z\leqslant 1)-P(Z\leqslant -1)$,  és
 
 ```{r}
 pnorm(1)-pnorm(-1)
@@ -1442,17 +1462,17 @@ A la secció anterior, us hem dit que una variable binomial $B(n,p)$ amb $n$ gra
 ```
 
 
-* $F_X(70)=P(X\leq 70)$:
+* $F_X(70)=P(X\leqslant 70)$:
 ```{r}
 pbinom(70,400,0.2)
 ```
 
-* $F_Y(70)=P(Y\leq 70)$:
+* $F_Y(70)=P(Y\leqslant 70)$:
 ```{r}
 pnorm(70,80,8)
 ```
 
-* La correcció de continuïtat ens diu que és millor aproximar $P(X\leq 70)$ per mitjà de $P(Y< 70+1/2)$:
+* La correcció de continuïtat ens diu que és millor aproximar $P(X\leqslant 70)$ per mitjà de $P(Y< 70+1/2)$:
 ```{r}
 pnorm(70.5,80,8)
 ```
@@ -1570,7 +1590,7 @@ En particular, si $Z$ és $N(0,1)$, llavors $f_Z$ és simètrica al voltant de 0
 
 Recordau que la funció de distribució d'una variable aleatòria contínua $X$,
 $$
-F_X(x)=P(X\leq x)
+F_X(x)=P(X\leqslant x)
 $$ 
 és l'àrea compresa entre la densitat $y=f_X(x)$ i l'eix d'abscisses a l'esquerra de $x$.
 
@@ -1592,7 +1612,7 @@ arrows(-0,0.1,-2.5,0.3,lwd=2)
 text(-2.5,0.32,expression(F[X](x)== P(X<=x) ) )
 ```
 
-Llavors, la simetria de $f_X$ fa que, per a tot $x\geq 0$, les àrees a l'esquerra de $\mu-x$ i a la dreta de $\mu+x$ siguin iguals.
+Llavors, la simetria de $f_X$ fa que, per a tot $x\geqslant 0$, les àrees a l'esquerra de $\mu-x$ i a la dreta de $\mu+x$ siguin iguals.
 
 
 ```{r, echo=FALSE, out.width="80%", fig.width=8, fig.asp = 0.5}
@@ -1620,12 +1640,12 @@ abline(v=0,lty=2)
 
 És a dir,
 $$
-P(X\leq \mu-x)=P(X\geq \mu+x)=1-P(X\leq \mu+x)
+P(X\leqslant \mu-x)=P(X\geqslant \mu+x)=1-P(X\leqslant \mu+x)
 $$
 
 En particular (prenent $x=0$)
 $$
-P(X\leq \mu)=1-P(X\leq \mu)\Rightarrow P(X\leq \mu)=0.5
+P(X\leqslant \mu)=1-P(X\leqslant \mu)\Rightarrow P(X\leqslant \mu)=0.5
 $$
 i per tant, $\mu$ és també la **mediana** de $X$.
 
@@ -1633,9 +1653,9 @@ i per tant, $\mu$ és també la **mediana** de $X$.
 Si $X$ és $N(\mu,\sigma)$, $\mu$ és la mitjana, la mediana i la moda de $X$.
 ```
 
-En el cas concret de la normal estàndard $Z$, per a qualsevol $z\geq 0$ es té que les àrees a l'esquerra de $-z$ i a la dreta de $z$ són iguals
+En el cas concret de la normal estàndard $Z$, per a qualsevol $z\geqslant 0$ es té que les àrees a l'esquerra de $-z$ i a la dreta de $z$ són iguals
 $$
-P(Z\leq -z)=P(Z\geq z)=1-P(Z\leq z)
+P(Z\leqslant -z)=P(Z\geqslant z)=1-P(Z\leqslant z)
 $$
 i la mediana de $Z$ és 0.
 
@@ -1710,19 +1730,19 @@ text(-1.5,0.32,expression(N(mu[1],sigma[1])),col="red")
 text(3.5,0.25,expression(N(mu[2],sigma[2])),col="blue")
 ```
 
-Indicarem amb $z_q$ el **$q$-quantil** d'una variable normal estàndard $Z$. És a dir, $z_q$ és el valor tal que $P(Z\leq z_q)=q$. 
+Indicarem amb $z_q$ el **$q$-quantil** d'una variable normal estàndard $Z$. És a dir, $z_q$ és el valor tal que $P(Z\leqslant z_q)=q$. 
 
 A banda del fet que $z_{0.5}=0$ (la mediana de $Z$ és 0), hi ha dos quantils més de la normal estàndard $Z$ que hauríeu de recordar:
 
-* $z_{0.95}=1.64$; és a dir, $P(Z\leq 1.64)=0.95$ i per tant $P(Z\leq -1.64)=P(Z\geq 1.64)=0.05$ (és a dir, $z_{0.05}=-1.64$) i
+* $z_{0.95}=1.64$; és a dir, $P(Z\leqslant 1.64)=0.95$ i per tant $P(Z\leqslant -1.64)=P(Z\geqslant 1.64)=0.05$ (és a dir, $z_{0.05}=-1.64$) i
 $$
-P(-1.64\leq Z\leq 1.64)=0.9.
+P(-1.64\leqslant Z\leqslant 1.64)=0.9.
 $$
 
 
-* $z_{0.975}=1.96$; és a dir, $P(Z\leq 1.96)=0.975$ i per tant $P(Z\leq -1.96)=P(Z\geq 1.96)=0.025$ (és a dir, $z_{0.025}=-1.96$) i
+* $z_{0.975}=1.96$; és a dir, $P(Z\leqslant 1.96)=0.975$ i per tant $P(Z\leqslant -1.96)=P(Z\geqslant 1.96)=0.025$ (és a dir, $z_{0.025}=-1.96$) i
 $$
-P(-1.96\leq Z\leq 1.96)=0.95.
+P(-1.96\leqslant Z\leqslant 1.96)=0.95.
 $$
 
 ```{block2, type='rmdmercifulgod'}
@@ -1764,7 +1784,7 @@ Que tota combinació lineal de variables normals torni a ser del mateix tipus, �
 Les probabilitats de la normal tipificada determinen les de la normal original, perquè si $X$ és $N(\mu,\sigma)$:
 $$
 \begin{array}{rl}
-P(a\leq X\leq b)\!\!\!\!\! & \displaystyle =P\Big( \frac{a-\mu}{\sigma}\leq \frac{X-\mu}{\sigma}\leq \frac{b-\mu}{\sigma}\Big)\\ & \displaystyle =P\Big(\frac{a-\mu}{\sigma}\leq Z\leq \frac{b-\mu}{\sigma}\Big)
+P(a\leqslant X\leqslant b)\!\!\!\!\! & \displaystyle =P\Big( \frac{a-\mu}{\sigma}\leqslant \frac{X-\mu}{\sigma}\leqslant \frac{b-\mu}{\sigma}\Big)\\ & \displaystyle =P\Big(\frac{a-\mu}{\sigma}\leqslant Z\leqslant \frac{b-\mu}{\sigma}\Big)
 \end{array}
 $$
 Això serveix per deduir fórmules o resoldre problemes com el següent, i els vostres pares ho empraven per calcular probabilitats de normals (amb taules de probabilitats de la normal estàndard); ara és més còmode usar una apli.
@@ -1783,7 +1803,7 @@ Ens diuen que
 $$
 P(X< 1.55)=0.1,\ P(X< 1.60)=0.305
 $$
-i amb això volem calcular la $h$ tal que $P(X\leq h)=0.95$, és a dir, el 0.95-quantil de $X$. El que farem serà, tipificant la $X$,  traduir la informació que ens han donat a quantils d'una normal estàndard $Z$:
+i amb això volem calcular la $h$ tal que $P(X\leqslant h)=0.95$, és a dir, el 0.95-quantil de $X$. El que farem serà, tipificant la $X$,  traduir la informació que ens han donat a quantils d'una normal estàndard $Z$:
 $$
 \begin{array}{l}
 \displaystyle  0.1=P(X< 1.55)=P\Big(\frac{X-\mu}{\sigma}<\frac{1.55-\mu}{\sigma}\Big)=P\Big(Z<\frac{1.55-\mu}{\sigma}\Big)\\
@@ -1823,7 +1843,7 @@ Concloem que un 95% de les nord americanes de 20 anys fan menys de 1.74 m.
 
 Un **interval de referència** del $100q\%$ per a una variable aleatòria $X$ és un interval $[a,b]$ tal que 
 $$
-P(a\leq X\leq b)=q.
+P(a\leqslant X\leqslant b)=q.
 $$
 És a dir, un interval de referència del $100q\%$ per a $X$ és un interval que conté els valors de $X$ del $100q\%$ dels subjectes de la població.
 
@@ -1831,7 +1851,7 @@ Per exemple, hem vist en la secció anterior que [-1.64,1.64] i [-1.96,1.96] só
 
 Els més comuns són els intervals de referència del 95% ($q=0.95$), que satisfan que
 $$
-P(a\leq X\leq b)=0.95
+P(a\leqslant X\leqslant b)=0.95
 $$
 i són els, que per exemple, us donen com a valors de referència en les analítiques:
 
@@ -1867,14 +1887,14 @@ $$
 La demostració és un exemple d'ús de la tipificació de la normal:
 $$
 \begin{array}{l}
-P(\mu-x\leq X\leq \mu+x)=q\\
-\qquad \Longleftrightarrow \displaystyle P\Big(\frac{\mu-x-\mu}{\sigma}\leq \frac{X-\mu}{\sigma}\leq \frac{\mu+x-\mu}{\sigma}\Big)=q\\
-\qquad \Longleftrightarrow \displaystyle P(-x/{\sigma}\leq Z\leq {x}/{\sigma})=q\\
-\qquad \Longleftrightarrow \displaystyle P(Z\leq {x}/{\sigma})-P(Z\leq -{x}/{\sigma})=q\\
-\qquad \Longleftrightarrow \displaystyle P(Z\leq {x}/{\sigma})-(1-P(Z\leq {x}/{\sigma}))=q\\
+P(\mu-x\leqslant X\leqslant \mu+x)=q\\
+\qquad \Longleftrightarrow \displaystyle P\Big(\frac{\mu-x-\mu}{\sigma}\leqslant \frac{X-\mu}{\sigma}\leqslant \frac{\mu+x-\mu}{\sigma}\Big)=q\\
+\qquad \Longleftrightarrow \displaystyle P(-x/{\sigma}\leqslant Z\leqslant {x}/{\sigma})=q\\
+\qquad \Longleftrightarrow \displaystyle P(Z\leqslant {x}/{\sigma})-P(Z\leqslant -{x}/{\sigma})=q\\
+\qquad \Longleftrightarrow \displaystyle P(Z\leqslant {x}/{\sigma})-(1-P(Z\leqslant {x}/{\sigma}))=q\\
 \qquad \text{(per la simetria de $f_Z$ al voltant de 0)}\\
-\qquad \Longleftrightarrow \displaystyle 2P(Z\leq {x}/{\sigma})=q+1\\
-\qquad \Longleftrightarrow P(Z\leq {x}/{\sigma})=(1+q)/2\\
+\qquad \Longleftrightarrow \displaystyle 2P(Z\leqslant {x}/{\sigma})=q+1\\
+\qquad \Longleftrightarrow P(Z\leqslant {x}/{\sigma})=(1+q)/2\\
 \qquad \Longleftrightarrow x/\sigma=
 z_{(1+q)/2}\\
 \qquad \Longleftrightarrow x=z_{(1+q)/2}\cdot \sigma
@@ -1955,32 +1975,32 @@ Amb R, la distribució log-normal és `lnorm`. Els paràmetres que s'empren per 
 
 
 ```{example}  
-La dosi letal $Y$ de la digitalina en ratolins (és la dir, la variable aleatòria que dóna la quantitat de digitalina que cal administrar a un ratolí per matar-lo) té distribució log-normal. Se sap que una injecció de 1cc de digitalina mata un 10% dels ratolins (és a dir, que la probabilitat que una dosi de 1cc o menys mati un ratolí és de 0.1: $P(Y\leq 1)=0.1$) i que una injecció de 2cc mata  un 75% dels ratolins ($P(Y\leq 2)=0.75$). 
+La dosi letal $Y$ de la digitalina en ratolins (és la dir, la variable aleatòria que dóna la quantitat de digitalina que cal administrar a un ratolí per matar-lo) té distribució log-normal. Se sap que una injecció de 1cc de digitalina mata un 10% dels ratolins (és a dir, que la probabilitat que una dosi de 1cc o menys mati un ratolí és de 0.1: $P(Y\leqslant 1)=0.1$) i que una injecció de 2cc mata  un 75% dels ratolins ($P(Y\leqslant 2)=0.75$). 
 
 ```
 
 Volem saber la dosi de digitalina (en cc) que és letal per al 95% dels ratolins. Aquest tipus d'experiments és la base de l'anomenat **mètode probit** per determinar la letalitat de substàncies.
 
-Així doncs, volem calcular el valor $a$ tal que $P(Y\leq a)=0.95$, que no és res més que el 0.95-quantil de $Y$. 
+Així doncs, volem calcular el valor $a$ tal que $P(Y\leqslant a)=0.95$, que no és res més que el 0.95-quantil de $Y$. 
 
-Com que el logaritme és injectiu, $P(Y\leq x)=P(\ln(Y)\leq \ln(x))$. Per tant el pla és trobar el 0.95-quantil de $\ln(Y)$, diguem-li $b$, i aleshores tendrem $a=e^b$. 
+Com que el logaritme és injectiu, $P(Y\leqslant x)=P(\ln(Y)\leqslant \ln(x))$. Per tant el pla és trobar el 0.95-quantil de $\ln(Y)$, diguem-li $b$, i aleshores tendrem $a=e^b$. 
 
 Per simplificar, diguem $X$ a $\ln(Y)$.  Sabem que $X$ és normal, per tant només ens cal saber la seva $\mu$ i la seva $\sigma$ i podrem calcular el seu 0.95-quantil.
 
 El que sabem és que 
 $$
 \begin{array}{l}
-0.1=P(Y\leq 1)=P(X\leq \ln(1))=P(X\leq 0)\\
-0.75=P(Y\leq 2)=P(X\leq \ln(2))
+0.1=P(Y\leqslant 1)=P(X\leqslant \ln(1))=P(X\leqslant 0)\\
+0.75=P(Y\leqslant 2)=P(X\leqslant \ln(2))
 \end{array}
 $$
 Com podem determinar la $\mu$ i la $\sigma$ de $X$ a partir d'aquests dos valors? Ja ens hem trobat en una situació semblant a l'Exemple \@ref(exm:percentalcades). El que fem és traduir aquesta informació en termes de quantils de la normal estàndard.
 
 $$
 \begin{array}{l}
-\displaystyle 0.1=P(X\leq 0)=P\Big(\frac{X-\mu}{\sigma}\leq \frac{-\mu}{\sigma}\Big)=P\Big(Z\leq -\frac{\mu}{\sigma}\Big)\\
+\displaystyle 0.1=P(X\leqslant 0)=P\Big(\frac{X-\mu}{\sigma}\leqslant \frac{-\mu}{\sigma}\Big)=P\Big(Z\leqslant -\frac{\mu}{\sigma}\Big)\\
 \displaystyle\qquad \Longrightarrow -\frac{\mu}{\sigma}=z_{0.1}=\texttt{qnorm(0.1)}=-1.2816\\
-\displaystyle 0.75=P(X\leq \ln(2))=P\Big(\frac{X-\mu}{\sigma}\leq \frac{\ln(2)-\mu}{\sigma}\Big)=P\Big(Z\leq \frac{\ln(2)-\mu}{\sigma}\Big)\\
+\displaystyle 0.75=P(X\leqslant \ln(2))=P\Big(\frac{X-\mu}{\sigma}\leqslant \frac{\ln(2)-\mu}{\sigma}\Big)=P\Big(Z\leqslant \frac{\ln(2)-\mu}{\sigma}\Big)\\
 \displaystyle\qquad \Longrightarrow \frac{\ln(2)-\mu}{\sigma}=z_{0.75}=\texttt{qnorm(0.75)}=0.6745
 \end{array}
 $$
@@ -2003,8 +2023,8 @@ Ara podem calcular el 0.95-quantil de $X$:
 qnorm(0.95,0.4541,0.3544)
 ```
 
-Per tant $P(X\leq 1.037)=0.95$. Per tant
-$P(Y\leq e^{1.037})=0.95$. Com que $e^{1.037}=2.82$, concloem que  2.82 cc de digitalina són suficients per matar el 95% dels ratolins.
+Per tant $P(X\leqslant 1.037)=0.95$. Per tant
+$P(Y\leqslant e^{1.037})=0.95$. Com que $e^{1.037}=2.82$, concloem que  2.82 cc de digitalina són suficients per matar el 95% dels ratolins.
 
 Ho podem comprovar (amb R, no escabetxant ratolins, malpensats!):
 ```{r}
@@ -2071,7 +2091,7 @@ plnorm(2.82,0.4541,0.3544)
 $$
 f_X(x)=\left\{\begin{array}{ll}
 0 & \mbox{si $x<0$}\\
-\frac{2\sqrt{2}}{\sqrt{\pi}} e^{-2x^2} & \mbox{si $x\geq 0$}
+\frac{2\sqrt{2}}{\sqrt{\pi}} e^{-2x^2} & \mbox{si $x\geqslant 0$}
 \end{array}
 \right.
 $$
@@ -2195,13 +2215,9 @@ $$
 **(19)** Quina de les tres afirmacions és vertadera per a les tres distribucions normals de la figura inferior? ($\sigma_1$, $\sigma_2$ i $\sigma_3$ indiquen les desviacions típiques de les corbes 1, 2 i 3, respectivament).
 
 1.  $\sigma_1> \sigma_2> \sigma_3$
-
 1.  $\sigma_1< \sigma_2< \sigma_3$ 
-
 1.  $\sigma_1= \sigma_2= \sigma_3$
-
 1.  Del gràfic no es pot deduir la relació entre les tres desviacions típiques
-
 1.  Cap de les altres afirmacions és veritable.
 
 ```{r,echo=FALSE}
@@ -2235,10 +2251,16 @@ legend("topleft",lty=c(1,1,1),col=c("black","red","blue"),legend=1:3,cex=0.75)
 1. Que la probabilitat que la concentració mitjana de creatinina en sèrum estigui entre 0.66 i 1.09 mg/dl és del 95%.
 
 1. Que si prenem una mostra aleatòria d'individus i calculam la mitjana de les seves concentracions de creatinina, en un 95% de les ocasions aquesta mitjana estarà entre 0.66 i 1.09 mg/dl. 
-
 1. Que un 5% dels individus tenen una concentració de creatinina en sèrum superior a 1.09 mg/dl. 
-
 1. Que un 95% dels individus tenen una concentració de creatinina en sèrum entre 0.66 i 1.09 mg/dl.  
-
 1. Que si prenem una mostra aleatòria d'individus, en un 95% de les ocasions tots els valors estaran entre 0.66 i 1.09 mg/dl.
+1. Cap de les altres respostes és correcta.
+
+**(24)** Quin és l'efecte sobre la mitjana, la desviació típica i la mediana d'una variable aleatòria si sumam 1 al seu valor sobre tots els individus de la població? 
+
+1. Cap d'aquests paràmetres varia.
+1. La mitjana i la mediana canvien, la desviació típica no.  
+1. La mitjana varia, la resta no.
+1. La mitjana no varia, la resta sí.
+1. Tots tres paràmetres varien.
 1. Cap de les altres respostes és correcta.
