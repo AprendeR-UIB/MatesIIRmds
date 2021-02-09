@@ -1,6 +1,6 @@
 # Intervals de confiança
 
-Amb l'estimació puntual intentam endevinar el valor d'un paràmetre d'una variable poblacional. Però hem de tenir clar que és molt difícil que amb una mostra poguem encertar exactament el valor del paràmetre. Les técniques de l'estadística inferencial ens permeten estimar aquest valor a partir d'una mostra amb un cert marge d'error, és a dir, amb una certa precisió, i una certa seguretat en el resultat. l'estimació a partir d'una sola no ens indica la precisió d'aquesta estimació. Això es fa complementant l'estimació puntual amb un interval al voltant d'aquesta estimació "on estam bastant segurs que cau el valor real del paràmetre".
+Amb l'estimació puntual intentam endevinar el valor d'un paràmetre d'una variable poblacional. Però hem de tenir clar que és molt difícil que amb una mostra poguem encertar exactament el valor del paràmetre. Les técniques de l'estadística inferencial ens permeten aleshores quantificar la precisió d'aquesta estimació. Això es fa complementant l'estimació puntual amb un interval al voltant d'aquesta estimació "on estam bastant segurs que cau el valor real del paràmetre".
 
 ```{r, echo=FALSE,fig.cap="elEconomista.es, 27/5/2019"}
 knitr::include_graphics("Bioestadistica-II_files/figure-html/ecoaula.png")
@@ -23,15 +23,15 @@ knitr::include_graphics("Bioestadistica-II_files/figure-html/Garfield.png")
 Un **interval de confiança del Q%**  (abreviadament, un **IC Q%**) d'un paràmetre poblacional és un interval obtingut aplicant a una mostra aleatòria simple de mida $n$ una fórmula que satisfà la propietat següent: 
 
 ```{block2, type='rmdimportant'}
-L'interval que s'obté amb aquesta fórmula conté el valor del paràmetre poblacional per al Q% de les mostres aleatòries simples de mida $n$.
+El Q% dels intervals obtinguts aplicant aquesta fórmula a mostres aleatòries simples de mida $n$ contenen el valor real del paràmetre poblacional que es vol estimar.
 ```
 
 És a dir:
 
-> Un Q% dels IC Q% contenen el valor real del paràmetre poblacional que es vol estimar.
+> Un Q% dels IC Q% contenen el valor real del paràmetre poblacional.
 
 
-*Tenir una confiança del Q%* significa doncs que **empram una fórmula que encerta el Q% de les vegades**, en el sentit que si aplicàssim moltíssimes vegades aquesta fórmula a mostres aleatòries simples preses a l'atzar, un Q% dels intervals que obtendríem contendrien el valor real del paràmetre que volem estimar. Però **un (100-Q)% de les vegades s'equivoca**, és a dir,  un (100-Q)% dels intervals que obtendríem **no** contendrien el valor real del paràmetre que volem estimar. *I no sabem quin és el nostre cas*.
+*Tenir una confiança del Q%* significa doncs que l'hem calculat amb una fórmula **que encerta el Q% de les vegades**, en el sentit que en Q de cada 100 vegades que aplicàssim aquesta fórmula a mostres aleatòries simples, els intervals que obtendríem contendrien el valor real del paràmetre que volem estimar. Però **un (100-Q)% de les vegades s'equivoca**, és a dir, (100-Q) de cada 100 intervals obtinguts aplicant  aquesta fórmula a mostres aleatòries simples  **no** contenen el valor real del paràmetre que volem estimar. *I no sabem quin és el nostre cas*.
 
 
 ```{example}
@@ -40,7 +40,7 @@ En un experiment hem mesurat el percentatge d'augment d'alcohol en sang a 40 per
 
 ```
 
-Això significa que estam "*molt segurs*" que l'augment mitjà d'alcohol en sang  d'una persona després de beure 4 canyes de cervesa està entre el 40.53% i el 41.87%, perquè aquest interval l'haurem calculat amb una fórmula que el 95% de les vegades que s'aplica a una mostra aleatòria simple de mida 40 dóna un interval que conté la mitjana poblacional que volem estimar. Nosaltres som optimistes i "confiam" que el nostre interval pertany a aquest 95% d'intervals que l'encerten.
+Això significa que estam "*molt segurs*" que l'augment mitjà d'alcohol en sang  d'una persona després de beure 4 canyes de cervesa està entre el 40.53% i el 41.87%, perquè aquest interval l'haurem calculat amb una fórmula que el 95% de les vegades que l'aplicàssim a una mostra aleatòria simple de mida 40 donaria un interval que conté la mitjana poblacional que volem estimar. Nosaltres som optimistes i "confiam" que el nostre interval pertany a aquest 95% d'intervals que l'encerten.
 
 Sovint això ho trobareu  expressat com :
 
