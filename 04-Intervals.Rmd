@@ -1,24 +1,28 @@
-# Intervals de confiança
+# Intervals de confiança {#chap:IC}
 
 Amb l'estimació puntual intentam endevinar el valor d'un paràmetre d'una variable poblacional. Però hem de tenir clar que és molt difícil que amb una mostra poguem encertar exactament el valor del paràmetre. Les técniques de l'estadística inferencial ens permeten aleshores quantificar la precisió d'aquesta estimació. Això es fa complementant l'estimació puntual amb un interval al voltant d'aquesta estimació "on estam bastant segurs que cau el valor real del paràmetre".
+
 
 ```{r, echo=FALSE,fig.cap="elEconomista.es, 27/5/2019"}
 knitr::include_graphics("Bioestadistica-II_files/figure-html/ecoaula.png")
 ```
 
 
-L'amplada d'aquest interval dependrà:
-
-* De la variabilitat de l'estimador: com menys variabilitat tingui, més precisa serà l'estimació. Normalment, la variabilitat de l'estimador creix amb la desviació típica de la variable poblacional i decreix amb la mida de les mostres.
-
-* Del **nivell de confiança**, o *seguretat*, de l'estimació: com de segurs volem estar que l'estimació és correcta
+Naturalment, és fàcil donar un interval on estiguem *completament segurs* que cau el valor real del paràmetre. Basta donar un interval prou ample com per contenir tots els  valors raonables del paràmetre:
 
 
 ```{r, echo=FALSE, out.width="80%"}
 knitr::include_graphics("Bioestadistica-II_files/figure-html/Garfield.png")
 ```
 
-## Definicions bàsiques
+Del que es tracta és de donar un interval **el més estret possible** on estiguem bastant segurs que cau el valor real del paràmetre. Aleshores, l'amplada d'aquest interval dependrà:
+
+* De la variabilitat de l'estimador: com menys variabilitat tingui, més precisa serà l'estimació. Normalment, la variabilitat de l'estimador creix amb la desviació típica de la variable poblacional i decreix amb la mida de les mostres.
+
+* Del **nivell de confiança**, o *seguretat*, de l'estimació: com de segurs volem estar que l'estimació és correcta
+
+
+## Definició d'interval de confiança
 
 Un **interval de confiança del Q%**  (abreviadament, un **IC Q%**) d'un paràmetre poblacional és un interval obtingut aplicant a una mostra aleatòria simple de mida $n$ una fórmula que satisfà la propietat següent: 
 
@@ -31,7 +35,7 @@ El Q% dels intervals obtinguts aplicant aquesta fórmula a mostres aleatòries s
 > Un Q% dels IC Q% contenen el valor real del paràmetre poblacional.
 
 
-*Tenir una confiança del Q%* significa doncs que l'hem calculat amb una fórmula **que encerta el Q% de les vegades**, en el sentit que en Q de cada 100 vegades que aplicàssim aquesta fórmula a mostres aleatòries simples, els intervals que obtendríem contendrien el valor real del paràmetre que volem estimar. Però **un (100-Q)% de les vegades s'equivoca**, és a dir, (100-Q) de cada 100 intervals obtinguts aplicant  aquesta fórmula a mostres aleatòries simples  **no** contenen el valor real del paràmetre que volem estimar. *I no sabem quin és el nostre cas*.
+*Tenir una confiança del Q%* significa doncs que hem calculat l'interval amb una fórmula **que encerta el Q% de les vegades**, en el sentit que en Q de cada 100 vegades que aplicàssim aquesta fórmula a mostres aleatòries simples, els intervals que obtendríem contendrien el valor real del paràmetre que volem estimar.  Però aquesta fórmula **s'equivoca el (100-Q)% de les vegades**, és a dir, 100-Q de cada 100 intervals obtinguts aplicant  aquesta fórmula a mostres aleatòries simples  **no** contenen el valor real del paràmetre que volem estimar. *I no sabem quin és el nostre cas*. Però si una fórmula encerta, diguem, el 95% de les vegades, nosaltres **confiam** que hagi encertat en la nostra aplicació.
 
 
 ```{example}

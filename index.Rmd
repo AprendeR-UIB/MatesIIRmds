@@ -1,5 +1,5 @@
 --- 
-title: "Matemàtiques II"
+title: "Matemàtiques II v.2021"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 output: 
@@ -16,8 +16,8 @@ description: "Apunts Matemàtiques II bookdown::gitbook."
 
 ```{r global_options,  include=FALSE}
 library(knitr)
-#library(xtable)
-#library(printr)
+library(kableExtra)
+library(pander)
 knitr::opts_chunk$set(
   fig.width=5, 
   out.width="50%",

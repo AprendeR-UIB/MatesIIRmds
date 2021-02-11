@@ -1,5 +1,4 @@
-
-# Estimació puntual
+# Estimació puntual {#chap:estim}
 
 L'objectiu principal de la **inferència estadística** és obtenir informació sobre tota una població a partir de només una mostra, com quan volem saber si un brou és fat o salat tastant-ne només una cullerada. El primer tipus d'informació que ens sol interessar és què val qualque paràmetre d'alguna variable aleatòria poblacional (una proporció, una mitjana...), per exemple per poder escriure un titular com el següent:
 
@@ -17,14 +16,10 @@ En aquest curs, sempre suposarem que empram mostres aleatòries i gairebé sempr
 
 
 
-## Definicions bàsiques
+## Estimadors
 
 Per estimar el valor d'un paràmetre d'una variable aleatòria poblacional, en prenem una mostra (aleatòria simple) i calculam qualque cosa amb els valors que la formen. Què calculam? Doncs un **estimador**: alguna funció adequada aplicada als valors de la mostra, i que dependrà del que volguem estimar. 
 
-
-```{r, echo=FALSE,out.width="60%",fig.cap="Població *versus* mostra"}
-knitr::include_graphics("Bioestadistica-II_files/figure-html/poblaciomostra.png")
-```
 
 
 Per exemple:
@@ -64,11 +59,6 @@ Com ja us hem dit, i com que no hi ha necessitat de filar tan prim, d'ara endava
 
 Com ja hem comentat a la Secció \@ref(sec:mostreig), si la mida $N$ de la població és MOLT més gran que la mida $n$ de la mostra (per fixar idees, hem dit que si $N\geqslant 1000n$),  els resultats per a mostres aleatòries simples valen (aproximadament) per a mostres aleatòries sense reposició, perquè les  variables aleatòries que formen la mostra sense reposició són gairebé idèntiques i independents i les repeticions són improbables.
 
-
-```{block2, type='rmdcaution'}
-Els estimadors tenen sempre sentit per a mostres en general, però gairebé tots els  teoremes que estableixen les seves propietats són vertaders només sota determinades restriccions (mostra aleatòria simple, condicions extra sobre $X$, ...),  per la qual cosa les seves conseqüències tan sols són segures sota aquestes restriccions.
-
-```
 
 
 ## Mitjana mostral
@@ -135,9 +125,9 @@ Per tant:
 
 * $\sigma(\overline{X})= \sigma_X/\sqrt{n}$ indica que la dispersió de les mitjanes mostrals creix amb la dispersió de $X$ i decreix amb la mida  $n$ de la mostra, tendint a 0 quan $n\to\infty$.
 
-     L'efecte de la mida de les mostres sobre la variabilitat de $\overline{X}$ és raonable. Quan prenem mostres aleatòries d'una variable i en calculam la mitjana, el més normal és que dins cada mostra els valors més petits se compensin amb els més grans, i que com a conseqüència les mitjanes siguin més homogènies que els valors de la variable.
+     L'efecte de la mida de les mostres sobre la variabilitat de $\overline{X}$ és raonable. Quan prenem mostres aleatòries grans d'una variable i en calculam la mitjana, el més normal és que dins cada mostra els valors més petits se compensin amb els més grans, i que com a conseqüència les mitjanes siguin més homogènies que els valors de la variable.
      
-     Vaja: si triam una persona a l'atzar, no és molt improbable que faci, jo què sé, 2.10 m. Però si prenem una mostra aleatòria de 50 persones, és molt més difícil que la mitjana de les seves alçades sigui 2.10 m. El que hi esperaríem és que les alçades dels més alts s'hi compensin amb les alçades dels més baixos i tot plegat doni una mitjana més "típica".
+     Vaja: si triam una persona a l'atzar, no és molt improbable que faci, jo què sé, 2.10 m. Però si prenem una mostra aleatòria de 50 persones, és molt més difícil que la mitjana de les seves alçades sigui 2.10 m. El que hi esperaríem és que les alçades dels més alts s'hi compensin amb les alçades dels més baixos i tot plegat doni una mitjana més "mitjana".
 
 ```{block2,type="rmdimportant"}
 A la desviació típica de $\overline{X}$ li diem 
@@ -236,7 +226,6 @@ Normalment aplicarem el Teorema Central del Límit de la manera següent:
 Siguin $X$ una variable aleatòria *qualsevol* d'esperança $\mu_X$ i desviació típica $\sigma_X$.  Si la mida $n$ de les mostres (aleatòries simples) és gran, la mitjana mostral $\overline{X}$ és aproximadament normal $N(\mu_X,\sigma_X/\sqrt{n})$. 
 
 Per fixar una fita, en aquest curs entendrem que $n$ és prou gran com per poder aplicar aquest "resultat" quan és més gran o igual que 40, potser menys com més se sembli $X$ a una normal i potser més si la $X$ és molt diferent d'una normal.
-
 ```
 
 ```{block2,type="rmdcaution"}
@@ -370,7 +359,7 @@ Això ja s'acosta més a la desviació típica del vector de mitjanes de mostres
 
 ## Proporció mostral
 
-Quan volem estimar la proporció de subjectes d'una població que tenen una determinada característica, en prenem una mostra i hi calculam la proporció de subjectes amb aquesta característica. Aquesta serà la **proporció mostral** de subjectes amb aquesta característica en la nostra mostra.
+Quan volem estimar la proporció d'individus d'una població que tenen una determinada característica, en prenem una mostra i hi calculam la proporció de membres amb aquesta característica. Aquesta serà la **proporció mostral** de subjectes amb aquesta característica en la nostra mostra.
 
 Sigui  $X$ una variable aleatòria poblacional de Bernoulli amb **probabilitat d'èxit** $p_X$. És a dir, $X$ pren els valors 1 (èxit) o 0 (fracàs) i $p_X$ és la proporció de subjectes de la població en els quals val 1. Recordau que $E(X)=p_X$ i $\sigma_X=\sqrt{p_X(1-p_X)}$.
 
@@ -379,7 +368,7 @@ La **proporció mostral** (de mostres aleatòries simples) **de mida $n$** de $X
 
 Formalment, sigui $X_1,\ldots,X_n$ una mostra aleatòria simple de mida $n$ de $X$. Sigui $S_n=\sum_{i=1}^n X_i$, que és la variable aleatòria que compta  el nombre d'èxits en una mostra aleatòria simple de mida $n$. Aleshores, la **proporció mostral** de mida $n$ de $X$ és 
 $$
-\widehat{p}_X=\frac{S_n}{n}=\frac{\sum_{i=1}^n X_i}{n}.
+\widehat{p}_X=\frac{S_n}{n}=\frac{X_1+\cdots+X_n}{n}.
 $$
 
 
@@ -435,7 +424,7 @@ Alguns comentaris:
 
     Pel que fa a la dependència de $\sigma(\widehat{p}_X)$ respecte de $p_X$ si la $n$ és fixada, observau a la Figura \@ref(fig:sqrtp) que $\sqrt{p_X(1-p_X)}$ creix entre 0 i 0.5 i decreix entre 0.5 i 1, assolint el valor màxim a $p_X=0.5$.
 
-```{r sqrtp, fig.cap="Gràfica de $\\sqrt{p(1-p)}$"}
+```{r sqrtp, echo=FALSE, fig.cap="Gràfica de $\\sqrt{p(1-p)}$"}
 curve(sqrt(x*(1-x)),xlab="p",ylab="",lwd=2)
 ```
 
@@ -511,7 +500,7 @@ Aquesta pregunta, que serà molt típica d'aquí a pocs temes, la traduïm en la
   
 > Si prenem una mostra aleatòria simple de 60 estudiants, quina és la probabilitat que la proporció mostral de dones sigui més gran o igual que 2/3?
 
-La manera més correcta de respondre aquesta qüestió és emprar que el nombre $S_{60}$ de dones en mostres aleatòries simples de 60 estudiants de la UIB segueix de manera exacta una distribució binomial $B(60,0.591)$. Com que el 66.67% de la pregunta en realitat representa 40 dones, la probabilitat demanada és exactament
+La manera més correcta de respondre aquesta qüestió és emprar que el nombre $S_{60}$ de dones en mostres aleatòries simples de 60 estudiants de la UIB segueix de manera exacta una distribució binomial $B(60,0.591)$. Com que el 2/3 de la pregunta en realitat representa 40 dones, la probabilitat demanada és exactament
 ```{r}
 round(1-pbinom(39,60,0.591),4)
 ```
@@ -527,7 +516,7 @@ Una altra opció seria  aprofitar el Teorema Central del Límit, segons el qual 
 $$
 \sigma=\sqrt{\dfrac{0.591(1-0.591)}{60}}=0.0635
 $$
-Per tant, la probabilitat que $\widehat{p}_X\geqslant 2/3$ és (recordau, aproximadament)
+Per tant, la probabilitat que $\widehat{p}_X\geqslant 2/3$ és (ara, aproximadament)
 ```{r}
 round(1-pnorm(2/3,0.591,sqrt(0.591*(1-0.591)/60)),4)
 ```
@@ -614,12 +603,16 @@ $$
 \widetilde{S}_{X}^2=\frac{\sum_{i=1}^n (X_{i}-\overline{X})^2}{n-1},\quad 
 \widetilde{S}_{X}=+\sqrt{\widetilde{S}_{X}^2}
 $$
-A més, de tant en tant també farem servir la **variància** i la **desviació típica** **"a seques"**:
+A més, de tant en tant també farem servir la variància i la desviació típica "a seques":
+
+* La **variància** (de mostres aleatòries simples) **de mida $n$**, $S_{X}^2$, és la variable aleatòria que consisteix a prendre una mostra aleatòria simple de mida $n$ de $X$ i calcular la variància dels seus valors:
 $$
-\begin{array}{l}
-\displaystyle S^2_{X}=\frac{\sum_{i=1}^n (X_{i}-\overline{X})^2}{n}=\frac{(n-1)}{n}\widetilde{S}^2_{X}\\
-\displaystyle S_X=+\sqrt{S_X^2}
-\end{array}
+S^2_{X}=\frac{\sum_{i=1}^n (X_{i}-\overline{X})^2}{n}=\frac{(n-1)}{n}\widetilde{S}^2_{X}
+$$
+
+* La **desviació típica** (de mostres aleatòries simples) **de mida $n$**, ${S}_{X}$, és la variable aleatòria que consisteix a prendre una mostra aleatòria simple de mida $n$ de $X$ i calcular la desviació típica dels seus valors:
+$$
+S_X=+\sqrt{S_X^2}
 $$
 
 La variància (a seques) admet la  expressió senzilla següent:
@@ -702,7 +695,7 @@ té distribució $\chi_\nu^2$.
 
 * Per tant, és una distribució contínua
 
-* La $\nu$ és el paràmetre del que depèn la seva densitat
+* El nombre de graus de llibertat $\nu$ és el paràmetre del que depèn la seva densitat
 
 * Amb R és `chisq`
 
@@ -731,13 +724,13 @@ legend("topright",col=1:6,lty=c(1,1),
 curve(dchisq(x,300),xlim=c(150,450),lwd=2,xlab="",ylab="")
 curve(dnorm(x,300,sqrt(600)),lwd=2,col="red",add=TRUE)
 legend("topleft",col=c("black","red"),lty=c(1,1),
-       lwd=c(2,2),legend=c("Khi quadrat amb n=300","Normal"),cex=0.7)
+       lwd=c(2,2),legend=c("Khi quadrat amb n=300","Normal"),cex=0.6)
 ```
 
 
 Tornem un instant a això dels *graus de llibertat*. Per què diem que la variància (mostral o a seques) té $n-1$ graus de llibertat? 
 
-Doncs perquè si volem construir un conjunt de $n$ nombres $x_1,\ldots,x_n$ que tenguin variància un valor donat, posem $y_0$, aleshores en principi podem escollir $n-1$ d'ells, $x_1,\ldots,x_{n-1}$, com volguem i aleshores el darrer, $x_n$, queda bastant fixat. En matemàtiques això se sol expressar dient que "tenim $n-1$ graus de llibertat a l'hora d'escollir $x_1,\ldots,x_n$ amb variància fixada $y_0$".
+Doncs perquè si volem construir un conjunt de $n$ nombres $x_1,\ldots,x_n$ que tenguin variància un valor donat, posem $y_0$, en principi podem escollir com volguem $n-1$ d'ells, $x_1,\ldots,x_{n-1}$,  i aleshores el darrer, $x_n$, queda bastant fixat. En matemàtiques això se sol expressar dient que "tenim $n-1$ graus de llibertat a l'hora d'escollir $x_1,\ldots,x_n$ amb variància fixada $y_0$".
 
 ```{block2, type='rmdcorbes'}
 En efecte, si fixam el valor $y_0\geqslant 0$ de la variància i volem trobar $x_1,\ldots,x_{n}$ 
@@ -857,9 +850,9 @@ De la distribució t de Student amb $\nu$ graus de llibertat, $t_{\nu}$, heu de 
 
 * Amb R és `t`
 
-* El **nombre de graus de llibertat** $\nu$ és un paràmetre del que depèn la seva distribució
+* El nombre de graus de llibertat $\nu$ és el paràmetre del que depèn la seva densitat
 
-* Si $T_{\nu}$ és una variable amb distribució $t_{\nu}$, aleshores  $\mu_{T_{\nu}}=0$  i $\sigma_{T_{\nu}}^2=\nu/(\nu-2)$ (en realitat això només és veritat si $\nu\geqslant 3$, però no fa falta recordar-ho).
+* Si $T_{\nu}$ és una variable amb distribució $t_{\nu}$, aleshores  $\mu_{T_{\nu}}=0$  i $\sigma_{T_{\nu}}^2=\nu/(\nu-2)$ (en realitat aquestes dues igualtats només són  veritat si $\nu\geqslant 3$, però no fa falta recordar-ho).
 
 * La funció de densitat d'una variable $T_{\nu}$ és simètrica al voltant de 0 (com la d'una $N(0,1)$):
 $$
@@ -954,16 +947,32 @@ Abans de tancar aquesta secció, recordau que, donada una variable aleatòria $X
 
 ```
 
-## "Bons" estimadors
+## Biaix i precisió
+
+En una primera aproximació, la bondat d'un estimador es descriu en termes de dues propietats: la seva exactitud i la seva precisió.
+
+* L'**exactitud** d'un estimador refereix al fet que el seu valor esperat sigui el valor real del paràmetre que es vol estimar.
+
+* La **precisió** d'un estimador refereix al fet que els seus valors estiguin molt concentrats.
+
+Per tant, un estimador serà **exacte** i **precís** quan els seus valors es concentrin molt al voltant del valor real del paràmetre. La combinació d'exactitud i precisió disminueix la probabilitat que una estimació caigui enfora del valor real que volem estimar.
+
+Aquests dos conceptes se solen il·lustrar amb una diana, així que nosaltres també ho farem:
+
+
+```{r, echo=FALSE, out.width="80%"}
+knitr::include_graphics("Bioestadistica-II_files/figure-html/exactprecis.png")
+```
+
+
 
 ### Estimadors no esbiaixats
 
-Un estimador puntual $\widehat{\theta}$ d'un paràmetre poblacional $\theta$ és  **no esbiaixat** (**insesgado**, en castellà) quan el seu valor esperat és precisament el valor poblacional del paràmetre, és a dir, quan
+Un estimador puntual $\widehat{\theta}$ d'un paràmetre poblacional $\theta$ és **exacte**, o **no esbiaixat** (**insesgado**, en castellà), quan el seu valor esperat és precisament el valor poblacional del paràmetre, és a dir, quan
 $$
 E(\widehat{\theta})=\theta
 $$ 
-El  **biaix** d'un estimador $\widehat{\theta}$ d'un paràmetre $\theta$ és la diferència $E(\widehat{\theta})-\theta$
-
+El  **biaix** d'un estimador $\widehat{\theta}$ d'un paràmetre $\theta$ és la diferència $E(\widehat{\theta})-\theta$. L'**exactitud** de l'estimador també es mesura amb aquesta diferència $E(\widehat{\theta})-\theta$, però hem de tenir en compte a l'hora d'expressar-nos que, com més petit sigui el valor absolut d'aquesta diferència, $|E(\widehat{\theta})-\theta|$, **menys esbiaixat** i **més exacte** és l'estimador. Per tant, "augmentar l'exactitud" és reduir el valor absolut del biaix.
 
 **Exemples:** Ja hem vist a les seccions anteriors que
 
@@ -982,7 +991,7 @@ $$
 \mu_{{S}_{X}^2}-\sigma_X^2=\dfrac{n-1}{n}\sigma_X^2-\sigma_X^2=-\dfrac{\sigma_X^2}{n}\ \mathop{\longrightarrow}_{\scriptscriptstyle
 n\to\infty}\ 0
 $$
-    Diem en aquest cas que **el biaix tendeix a 0**.
+    En aquest cas diem que el seu **biaix tendeix a 0**.
 
 
 * $E(\widetilde{S}_{X}), E({S}_{X})\neq \sigma_X$ ni tan sols quan $X$ és normal. Per tant,  $\widetilde{S}_{X}$ i ${S}_{X}$ són estimadors  **esbiaixats** de $\sigma_X$. Quan $X$ és normal, el seu biaix tendeix a 0.
@@ -995,7 +1004,7 @@ Recordau que, en general, $E(X^2)\neq E(X)^2$. Per tant, no hauríem d'esperar q
 ```{block2,type="rmdcorbes"}
 Per si qualque dia us cal saber-ho, si $X$ és normal
 $$
-E(\widetilde{S}_n)=\left\{\begin{array}{ll}
+E(\widetilde{S}_X)=\left\{\begin{array}{ll}
 \sigma_X\sqrt{\dfrac{2}{(n-1)\pi}}\cdot \dfrac{2^{n-2}(\frac{n}{2}-1)!^2}{(n-2)!} & \text{ si $n$ és parell}\\ 
 \sigma_X\sqrt{\dfrac{2\pi}{n-1}}\cdot \dfrac{(n-2)!}{2^{n-2}(\frac{n-1}{2}-1)!^2} & \text{ si $n$ és imparell}
 \end{array}\right.
@@ -1005,16 +1014,17 @@ Per tant, per obtenir un estimador no esbiaixat per a $\sigma_X$ només heu de d
 
 
 
-### Estimadors eficients
+### Estimadors precisos
 
-Donats dos estimadors $\widehat{\theta}_1$, $\widehat{\theta}_2$ del mateix paràmetre $\theta$, direm que  $\widehat{\theta}_1$ és **més eficient**, o **més precís**, que $\widehat{\theta}_2$ quan l'error típic de $\widehat{\theta}_1$ és més petit que el de $\widehat{\theta}_2$:
+Donats dos estimadors $\widehat{\theta}_1$, $\widehat{\theta}_2$ del mateix paràmetre $\theta$, direm que  $\widehat{\theta}_1$ és **més eficient**, o **més precís**, que $\widehat{\theta}_2$ quan la desviació típica de $\widehat{\theta}_1$ és més petita que la de $\widehat{\theta}_2$:
 $$
 \sigma(\widehat{\theta}_1)< \sigma(\widehat{\theta}_2).
 $$  
+Quan $\widehat{\theta}_1$ i $\widehat{\theta}_2$ són no esbiaixats, que $\widehat{\theta}_1$ sigui més eficient que $\widehat{\theta}_2$ significa que els seus valors es concentren més al voltant del paràmetre $\theta$ que volem estimar.
 
 
 
-Normalment, només comparam l'eficiència de dos estimadors quan són no esbiaixats (o, com a molt, quan el seu biaix tendeix a 0). En aquest cas, que $\widehat{\theta}_1$ sigui més eficient que $\widehat{\theta}_2$ significa que la seva variabilitat és més petita i que per tant les estimacions són **més precises** amb $\widehat{\theta}_1$:  es concentren més al voltant del paràmetre $\theta$ que volem estimar.
+Normalment, només comparam l'eficiència de dos estimadors quan són no esbiaixats o amb el biaix que tendeixi a 0. De res ens serveix tenir un estimador molt precís però que sistemàticament dóna un valor llunyà del valor real del paràmetre.
 
 
 **Exemples:**
@@ -1058,18 +1068,18 @@ $$
 $$   
 però és un estimador esbiaixat de $\sigma_X^2$, amb biaix que tendeix a 0.
 
-Si $n$ és petit, és millor fer servir la variància mostral $\widetilde{S}_X^2$ per estimar la variància, ja que el biaix pot desplaçar substancialment l'estimació, però si $n$ és gran, el biaix de $S_X^2$ ja és petit i es pot fer servir $S_X^2$: de fet, si $n$ és molt gran, dividir per $n$ o per $n-1$ no varia gaire el resultat i per tant $\widetilde{S}_X^2$ i $S_X^2$ donen valors molt semblants.
+Si $n$ és petit, és millor fer servir la variància mostral $\widetilde{S}_X^2$ per estimar la variància, ja que el biaix pot desplaçar substancialment l'estimació, però si $n$ és gran, el biaix de $S_X^2$ ja és petit i es pot fer servir $S_X^2$. De totes formes, si $n$ és molt gran, dividir per $n$ o per $n-1$ no varia gaire el resultat i per tant $\widetilde{S}_X^2$ i $S_X^2$ donen valors molt semblants.
 
 ```
 
-### Estimadors màxim versemblants
+## Estimadors màxim versemblants
 
 Un estimador d'un paràmetre és **màxim versemblant**  quan, aplicat a una mostra aleatòria simple,  dóna el valor del paràmetre que fa màxima la probabilitat d'obtenir aquesta mostra.
 
 ```{block2,type="rmdcorbes"}
 En realitat, l'estimació màxim versemblant d'un paràmetre el que fa màxim  és el producte dels valors de la funció densitat de la variable aleatòria poblacional aplicada als elements de la mostra. Quan la variable aleatòria és discreta, això coincideix amb el que hem dit, perquè la probabilitat d'obtenir un valor concret és la funció densitat aplicada a aquest valor. Però quan la variable aleatòria poblacional és contínua, la probabilitat d'obtenir una mostra concreta és sempre 0 i no té sentit parlar de maximitzar aquest 0. Per això es pren la funció densitat.
 
-En aquest curs no ens complicarem la vida i entendrem que el que maximitzam és la probabilitat d'obtenir la mostra.
+Aquí no ens complicarem la vida i entendrem que el que maximitzam és la probabilitat d'obtenir la mostra.
 ```
 
 
@@ -1087,7 +1097,15 @@ sigui el màxim possible.
 
 ```
 
-Quin creieu que és l'estimador màxim versemblant de $p_X$? Doncs sí, la proporció mostral $\widehat{p}_X$.
+Quin creieu que és l'estimador màxim versemblant de $p_X$? Un exemple concret. Suposau en 20 llançaments d'una moneda obtenim 5 cares. Quina creieu que és la probabilitat d'obtenir cara amb aquesta moneda que fa màxima la probabilitat que en 20 llançaments obtinguem 5 cares? La intuïció ens diu que hauria de ser la proporció mostral $\widehat{p}_X=5/20=0.25$, no? Confirmem-ho amb el gràfic  de la probabilitat que una binomial $B(20,p)$ doni 5 en funció de $p$:
+
+```{r,fig.cap="Probabilitat que una B(20,p) valgui 5"}
+plot((0:200)/200,dbinom(5,20,(0:200)/200),type="h",xlab="p",ylab="",xaxp=c(0,1,20))
+points(0.25,dbinom(5,20,0.25),type="h",col="red")
+```
+
+El resultat següent mostra que això sempre és així.
+
 
 ```{theorem}
 El valor de $p$ per al qual $P(x_1,\ldots,x_n\mid p_X=p)$ és màxim és $\widehat{p}_x$.
@@ -1120,7 +1138,7 @@ Alguns altres estimadors màxim versemblants:
 * $\overline{X}$  és l'estimador màxim versemblant de la mitjana $\mu_X$ d'una variable aleatòria normal
 
 
-* $S_X^2$ i $S_X$ (la variància i desviació típica a seques, no les mostrals!) són els estimadors màxim versemblants de la variància $\sigma_X^2$ i la desviació típica $\sigma_X$ d'una variable aleatòria normal
+* $S_X^2$ i $S_X$ (la variància i desviació típica **a seques**, no les mostrals!) són els estimadors màxim versemblants de la variància $\sigma_X^2$ i la desviació típica $\sigma_X$ d'una variable aleatòria normal
 
 
 ## Estimació de poblacions {#sec:pobl}
@@ -1154,12 +1172,11 @@ $$
 
 
 ```{block2, type='rmdcorbes'}
-Suposau que teniu $x_1,\ldots,x_n$ ordenats en ordre creixent,
-$x_1<\cdots<x_n$, de manera que $x_n=m$. Calculem la longitud mitjana dels "forats" a l'esquerra de cada valor $x_i$.
+Vegem la idea intuïtiva que hi ha al darrere d'aquesta fórmula. Suposau que teniu $x_1,\ldots,x_n$ ordenats en ordre creixent, $x_1<\cdots<x_n$, de manera que $x_n=m$. Calculem la longitud mitjana dels "forats" a l'esquerra de cada valor $x_i$.
 
 * A l'esquerra de $x_1$ hi "falten" els nombres $1,2,\ldots,x_1-1$, per tant hi ha un forat de $x_1-1$ nombres.
 * Entre $x_1$ i $x_2$ hi "falten" els nombres $x_1+1,\ldots,x_2-1$, per tant hi ha un forat de $x_2-x_1-1$ nombres.
-* En general, entre cada $x_{i-1}$ i $x_{i}$ hi ha un forat de $x_{i}-x_{i-1}-1$ nombres (hi "falten" els nombres $x_{i-1}+1,\ldots,x_i-1$)
+* En general, entre cada $x_{i-1}$ i $x_{i}$ hi ha un forat de $x_{i}-x_{i-1}-1$ nombres (hi "falten" els nombres $x_{i-1}+1,\ldots,x_i-1$).
 
 
 Per tant, la mitjana de les longituds d'aquests "forats" és
@@ -1187,7 +1204,7 @@ la qual cosa em permeté estimar que hi havia `r round(max(taxis)+(max(taxis)-le
 En realitat, consultant la web de l'Ajuntament, després vaig saber que en aquell moment n'hi havia 1246.
 
 ```{example,simultancs}
-Fem un experiment. Generarem a l'atzar una mida N d'una població  grandeta, i suposarem que els individus de la població estan numerats d'1 a N. A continuació, prendrem 100 mostres aleaòries sense reposició de la nostra població i amb cada una d'aquestes mostres estimarem la N emprant la fórmula que hem donat. Al final, calcularem la mitjana d'aquestes estimacions i la compararem amb el valor real de N, que no descobrirem fins el final. 
+Fem un experiment. Generarem a l'atzar una mida N d'una població  grandeta, i suposarem que els individus de la població estan numerats de l'1 al N. A continuació, prendrem 100 mostres aleaòries sense reposició de la nostra població i amb cada una d'aquestes mostres estimarem la N emprant la fórmula que hem donat. Al final, calcularem la mitjana d'aquestes estimacions i la compararem amb el valor real de N, que no descobrirem fins el final. 
 
 
 ```
@@ -1206,24 +1223,24 @@ Ara generam la mida N de la població com un nombre a l'atzar entre 5000 i 10000
 N=sample(5000:10000,1)
 ```
 
-Suposarem per tant que hi ha N individus a la nostra població, numerats de l'1 a l'N. Ara generarem 100 mostres aleatòries sense reposició d'aquesta població, i ens quedarem amb la mida i el valor màxim de cada una d'elles, que és l'únic que necessitam saber. Les mides les generarem a l'atzar entre, posem, 25 i 75:
+Suposarem per tant que hi ha N individus a la nostra població, numerats de l'1 al N. Ara generarem 100 mostres aleatòries sense reposició d'aquesta població, i ens quedarem amb la mida i el valor màxim de cada una d'elles, que és l'únic que necessitam saber. Les mides les generarem a l'atzar entre, posem, 25 i 75:
 
 ```{r}
 Mostra=function(a,b,P){
   # a i b: mides màxima i mínima de la mostra; P: mida de la població
   n=sample(a:b,1)  # Mida de la mostra
-  X=sample(P,n,rep=FALSE)  # Mostra aleatòria 
+  X=sample(P,n)  # Mostra aleatòria de mida n
   c(n,max(X)) # Parell (mida, màxim)
 }
 Mostres=replicate(100,Mostra(25,75,N))
 Mostres
 ```
 
-En aquesta matriu `Mostres`, cada columna correspon a una mostra aleatòria: la primera filera és la seva mida $n$ i la segona filera el màxim $m$. Ara, amb cada una d'aquestes mostres, podem estimar la mida N de la població per mitjà de la fórmula $m+(m-n)/n$. Donarem aquestes estimacions ordenades de menor a major.
+En aquesta matriu `Mostres`, cada columna correspon a una mostra aleatòria: la primera filera és la seva mida $n$ i la segona filera el màxim $m$. Ara, amb cada una d'aquestes mostres, podem estimar la mida N de la població per mitjà de la fórmula $m+(m-n)/n$. Dibuixarem un histograma d'aquestes estimacions, per veure què ens ha sortit.
 
 ```{r}
 Estimacions=Mostres[2,]+(Mostres[2,]-Mostres[1,])/Mostres[1,]
-round(sort(Estimacions),1)
+round(range(Estimacions),1) # Estimacions mínima i màxima
 hist(Estimacions, breaks=20,col="light blue",
      xlab="Estimacions de N",ylab="Freqüències",main="")
 ```
@@ -1303,7 +1320,7 @@ $$
 \widehat{N}=\frac{(n+1)\cdot (K+1)}{k+1}-1
 $$
 
-La idea és que afegim a la població un individu extra i marcat, que suposam que també capturam a la segona mostra. Llavors, aplicam l'estimador anterior i finalment restam 1, per descomptar l'individu marcat extra que realment no pertany a la població que volem estimar. D'aquesta manera ja no tenim el problema de dividir per 0 si $k$ ens dóna 0.
+La idea és que afegim a la població un individu extra i marcat, que suposam que també capturam a la segona mostra. Llavors, aplicam l'estimador de Lincoln-Petersen i finalment restam 1, per descomptar l'individu marcat extra que realment no pertany a la població que volem estimar. D'aquesta manera ja no tenim el problema de dividir per 0 si $k$ ens dóna 0.
 
 
 En la situació de l'Exemple \@ref(exm:MR), aquest estimador dóna
@@ -1349,7 +1366,7 @@ Ara en capturam i marcam K; per fixar idees, prendrem K=200.
 K=200
 ```
 
-Per simplificar, suposarem que els N individus de la nostra població estan numerats de l'1 a l'N i que els marcats són els K primers. Ara generarem 100 mostres aleatòries sense reposició d'aquesta població, i ens quedarem amb la mida i el nombre d'individus marcats (és a dir, el nombre de valors menor o iguals a K=200 en la mostra). Les mides les generarem a l'atzar entre, posem, 100 i 150:
+Per simplificar, suposarem que els N individus de la nostra població estan numerats de l'1 a l'N i que els marcats són els K primers. Ara generarem 100 mostres aleatòries sense reposició d'aquesta població, i ens quedarem amb la mida de la mostra i el nombre d'individus marcats (és a dir, el nombre de valors $\leq K=200$ en la mostra). Les mides les generarem a l'atzar entre, posem, 100 i 150:
 
 ```{r}
 Mostra=function(a,b,P,M){
@@ -1367,8 +1384,10 @@ En aquesta matriu `Mostres`, cada columna correspon a una mostra aleatòria: la 
 
 ```{r}
 EstimacionsLP=Mostres[1,]*K/Mostres[2,]
-round(sort(EstimacionsLP),1)
-hist(EstimacionsLP, breaks=20,col="light blue",xlab="Estimacions de N",ylab="Freqüències",main="Estimador de Lincoln-Petersen")
+round(range(EstimacionsLP),1)
+hist(EstimacionsLP, breaks=20,col="light blue",
+     xlab="Estimacions de N",ylab="Freqüències",
+     main="Estimador de Lincoln-Petersen")
 ```
 Com veieu, obtenim estimacions que van de `r round(min(EstimacionsLP),1)`  a 30000. La mitjana de les estimacions  és
 ```{r}
@@ -1378,7 +1397,7 @@ round(mean(EstimacionsLP),1)
 També podem emprar l'estimador de Chapman:
 ```{r}
 EstimacionsCh=(Mostres[1,]+1)*(K+1)/(Mostres[2,]+1)-1
-round(sort(EstimacionsCh),1)
+round(range(EstimacionsCh),1)
 hist(EstimacionsCh, breaks=20,col="light blue",xlab="Estimacions de N",ylab="Freqüències",main="Estimador de Chapman")
 ```
 Com veieu, obtenim estimacions que van de `r round(min(EstimacionsCh),1)`  a `r as.integer(round(max(EstimacionsCh),1))`. La mitjana d'aquestes estimacions   és
@@ -1393,7 +1412,7 @@ round(mean(EstimacionsCh),1)
 N
 ```
 
-Com veieu, amb l'estimador de Chapman ens hem fet més a prop del valor real de $N$ que amb el màxim versemblant.
+Com veieu, amb l'estimador de Chapman ens hem fet més a prop del valor real de $N$ que amb el màxim versemblant. Però amb cap d'ells ens hi hem fet molt a prop. 
 
 
 ## Test de la lliçó 3
