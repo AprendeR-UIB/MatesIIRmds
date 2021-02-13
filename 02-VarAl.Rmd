@@ -485,8 +485,8 @@ $$
 * Més en general, si $X_1,\ldots,X_n$ són variables aleatòries **independents** (i, en principi, només en aquest cas) i $a_1,\ldots,a_n,b\in \mathbb{R}$,
 $$
 \begin{array}{l}
-\sigma(a_1X_1+\cdots+a_nX_n+b)^2=a_1\cdot\sigma(X_1)^2+\cdots+a_n\cdot\sigma(X_n)^2\\
-\sigma(a_1X_1+\cdots+a_nX_n+b)=\sqrt{a_1\cdot\sigma(X_1)^2+\cdots+a_n\cdot\sigma(X_n)^2}
+\sigma(a_1X_1+\cdots+a_nX_n+b)^2=a_1^2\cdot\sigma(X_1)^2+\cdots+a_n^2\cdot\sigma(X_n)^2\\
+\sigma(a_1X_1+\cdots+a_nX_n+b)=\sqrt{a_1^2\cdot\sigma(X_1)^2+\cdots+a_n^2\cdot\sigma(X_n)^2}
 \end{array}
 $$
 
@@ -1312,8 +1312,8 @@ $$
 * Si $X_1,\ldots,X_n$ són variables aleatòries **independents** (i, en principi, només en aquest cas) i $a_1,\ldots,a_n,b\in \mathbb{R}$,
 $$
 \begin{array}{l}
-\sigma(a_1X_1+\cdots+a_nX_n+b)^2=a_1\cdot\sigma(X_1)^2+\cdots+a_n\cdot\sigma(X_n)^2\\
-\sigma(a_1X_1+\cdots+a_nX_n+b)=\sqrt{a_1\cdot\sigma(X_1)^2+\cdots+a_n\cdot\sigma(X_n)^2}
+\sigma(a_1X_1+\cdots+a_nX_n+b)^2=a_1^2\cdot\sigma(X_1)^2+\cdots+a_n^2\cdot\sigma(X_n)^2\\
+\sigma(a_1X_1+\cdots+a_nX_n+b)=\sqrt{a_1^2\cdot\sigma(X_1)^2+\cdots+a_n^2\cdot\sigma(X_n)^2}
 \end{array}
 $$
 Si no són independents, aquestes igualtats  poden ser falses.
