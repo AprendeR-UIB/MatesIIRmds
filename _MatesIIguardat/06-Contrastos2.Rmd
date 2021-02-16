@@ -2089,3 +2089,158 @@ binom.test(41, 60, p=0.5, alternative="greater")
 *Conclusió*: Hem obtingut evidència estadísticament significativa que el fàrmac té una taxa d'efectivitat més gran que el placebo (test binomial, p-valor 0.003).  
 
 
+## Test de la lliçó 6 
+
+
+**()** En un contrast bilateral de dues mitjanes emprant dues mostres independents grans i utilitzant un test t (marcau totes les afirmacions vertaderes):
+ 
+1. La hipòtesi nul·la és que les mitjanes mostrals són iguals. 
+1. La hipòtesi nul·la és que les mitjanes mostrals no són significativament diferents. 
+1. La hipòtesi nul·la és que les mitjanes poblacionals són iguals.
+1. La hipòtesi nul·la és que les mitjanes poblacionals són diferents.
+1. Les variàncies de les poblacions han de ser iguals.
+1. Les mides de les mostres han de ser iguals.
+1. Totes les altres respostes són incorrectes. 
+
+\coment{El contrast és sobre les mitjanes poblacionals, no les mostrals. La hipòtesi nul·la ha de ser equivalent a ``no hi ha diferència''. No fa falta per res que les variàncies poblacionals siguin iguals: si són diferents, tan sols  cal canviar l'estadístic i el nombre de graus de llibertat de la seva distribució. I tampoc fa cap falta que les mides de les mostres siguin iguals.}
+
+
+
+**()** En analitzar els resultats d'un experiment on es comparaven dos tractaments, es va concloure que l'efectivitat dels dos tractaments estudiats és diferent, amb p=0.034. Això significa (marcau l'única resposta correcta):
+ 
+1. Que hi ha un 3.4\% de probabilitats que, si es repeteix l'estudi, no es trobin diferències significatives.
+1. Que hi ha un 3.4\% de probabilitats que els tractaments estudiats tenguin la mateixa efectivitat.
+1. Que hi ha un 3.4\% de diferència, o més, en l'efectivitat dels tractaments estudiats.
+1. Que hi ha hagut un 3.4\% de diferència, o més, en l'efectivitat dels tractaments en les nostres mostres.
+1. Que hi ha un 3.4\% de probabilitats que la diferència observada entre les efectivitats, o una encara més gran, s'hagi degut a l'atzar.
+
+\coment{La definició de p-valor és ``la probabilitat d'obtenir una diferència tan o més extrema que l'obtinguda si `al món real' les dues efectivitats són iguals''. És a dir, la probabilitat que la diferència observada (o una major) s'hagi degut al pur atzar en prendre les mostres, i no a la diferència real en les efectivitats. La resta de les afirmacions no tenen res a veure amb que el p-valor sigui 0.034}
+
+
+**()** Es realitzà un estudi per comparar dos aparells per amidar una determinada mesura, amb l'objectiu de contrastar si  les mesures preses amb els dos aparells són, de mitjana, iguals. En aquest estudi, 6 de 17 subjectes van tenir lectures més altes amb l'aparell A, 10 van tenir lectures més altes amb l'aparell B i un va tenir la mateixa lectura amb els dos aparells. Marcau totes les afirmacions correctes:
+ 
+1. L'estadístic de contrast és el nombre de subjectes que van tenir lectura més alta amb  l'aparell  A. 
+1. Segur que és correcte emprar un test t sobre les dades obtingudes. 
+1. La hipòtesi nul·la és que tots dos  aparells  donen, de mitjana, els mateixos valors.\VV
+1. El contrast hauria de ser unilateral. 
+1. El contrast realitzat és de mostres independents. 
+1. Totes les altres respostes són incorrectes. 
+
+\coment{No fa falta saber quin és l'estadístic de contrast per concloure, emprant només el sentit comú, que no pot ser només ``el nombre de subjectes que van tenir lectura més alta amb  l'aparell  A''; segur que almenys ha de tenir en compte la mida de la mostra, no? No serà el mateix 10 de 10 que de 10 de 1000. Si encara digués ``la proporció'', podria ser, però ``el nombre'' segur que no. Per tant (a) és fals. Com que només comparam si els dos aparells donen de mitjana el mateix o no, no si un dóna de mitjana un valor superior a l'altre, el contrast és bilateral: (d) és fals.
+Com que mesuram els mateixos subjectes amb tots dos aparells, el contrast és de mostres aparellades: (e) és fals. Com la mostra és de 17 individus, només podem emprar un test t si les distribucions dels valors amb els dos aparells (o almenys la seva diferència) segueixen una llei normal: (b) és falsa. I (c) és vertadera, per que la hipòtesi nul·la és ``Les mitjanes de les mesures preses amb els dos aparells són iguals''.}
+
+**()** Sobre l'error de tipus I quan es contrasta la diferència de dues mitjanes (marcau totes les respostes correctes):
+ 
+1. U menys la seva probabilitat és igual a la potència del contrast. 
+1. U menys la seva probabilitat és igual al nivell de confiança del contrast. 
+1. Porta a concloure que hi ha una diferència, quan en realitat no n'hi ha.
+1. Porta a concloure que no hi ha cap diferència, quan en realitat sí que n'hi ha.
+1. Significa que la hipòtesi alternativa és falsa. 
+1. Totes les altres respostes són incorrectes. 
+
+\coment{(c) és la definició de l'error de tipus I i (b) la definició de nivell de confiança del contrast. La probabilitat d'error de tipus II és la que és u menys la potència.}
+
+
+**()** En un experiment, a una sèrie de ratolins modificats genèticament se'ls tractà amb un compost per estudiar si, en un període de temps després d'administrar-lo, el nivell d'un cert metabolit en sang havia disminuït. S'accepta que la distribució de la quantitat d'aquest metabolit en sang és normal. Quina és la prova estadística més adient per realitzar el contrast? (marcau la resposta correcta):
+ 
+1. t de Student per a mostres aparellades.
+1. t de Student per a mostres independents. 
+1. Test de Wilcoxon. 
+1. Test de Mann-Whitney. 
+1. Prova exacta de Fisher.
+
+\coment{Es tracta de comparar dues mitjanes de variables que segueixen una distribució normal, per la qual cosa l'adequat és un test t. Com que comparam els nivells del metabolit abans i després del tractament sobre els mateixos ratolins, és de mostres aparellades.} 
+
+
+
+
+**()** La prova per comparar dues mitjanes usant mostres aparellades basada en la t de Student (marcau les respostes correctes):
+ 
+1. Només es pot emprar sobre mostres grans. 
+1. És adequada sempre que les mostres siguin petites. 
+1. També es pot emprar amb mostres independents. 
+1. Només es pot emprar si les poblacions tenen distribucions normals. 
+1. Depèn de si la variàncies de les dues mostres són iguals o diferents.
+1. Totes les altres respostes són incorrectes.
+
+\coment{La prova per comparar dues mitjanes emprant mostres aparellades basada en la t de Student és adequada si les dues mostres provenen de variables poblacionals normals o si les dues mostres són grans (i llavors no fa falta que les distribucions siguin normals), i en cap altre cas. A més, no es pot emprar amb mostres independents (seria una altra prova específica) i no depèn de la igualtat de les variàncies (això és la prova per a mostres independents).}
+
+**()** Quines de les  condicions següents són tals que elles totes soles ja permeten emprar un test t per comparar dues mitjanes? (Marcau totes les respostes correctes)
+ 
+1. Si el nombre d'observacions és el mateix a les dues mostres. 
+1. Si les observacions provenen de distribucions aproximadament normals.
+1. Si les desviacions estàndard són aproximadament les mateixes en les dues mostres.
+1. Si les mitjanes són aproximadament iguals en les dues mostres. 
+1. Si almenys una de les dues mostres és molt gran. 
+1. Totes les altres respostes són incorrectes. 
+
+\coment{Només podem emprar un test t  si les dues poblacions són normals o si les dues mostres són grans (no n'hi ha prou que una sigui molt gran si l'altra és petita).}
+
+**()** En un experiment, una de les mesures que es va estudiar va ser un cert temps de reacció que és molt asimètric a la dreta. Per contrastar la diferència entre les mitjanes d'aquest temps de reacció sota dues condicions diferents, els enfocaments possibles inclouen (marcau les respostes correctes):
+ 
+1. Un test t utilitzant les observacions si les dues mostres eren més grans que 100 cada una.
+1. Un test t utilitzant les observacions si alguna de les dues mostres era més gran  que 100.
+1. Com que es tracta d'un contrast de mitjanes amb mostres independents, podem emprar sempre un test t. 
+1. Com que les mesures d'aquest temps de reacció segueixen una llei normal, podem emprar un test t utilitzant les observacions encara que els grups siguin petits. 
+1. Un test no paramètric, essent conscients que en aquest cas compararem medianes i no mitjanes.
+1. La correlació entre els temps.
+1. Totes les altres respostes són incorrectes. 
+
+
+\coment{Com que el temps de reacció estudiat és molt asimètric a la dreta, no serà normal. Per tant, podem emprar un  test t  si les dues mostres són grans o un test no paramètric sempre. Calcular la correlació entre els temps aquí no té cap sentit, i fins i tot pot ser impossible si les dues mostres són de  mida diferent.}
+
+**()** En un test t de comparació de mitjanes planejam emprar dues mostres independents. Entre les dues mostres, observarem 500 subjectes. El fet que les distribucions poblacionals es desviïn molt d'una normal pot afectar seriosament la validesa del contrast (marcau totes les respostes correctes):
+ 
+1. Si les mides de les mostres no són iguals, però la diferència és inferior al 5\%. 
+1. Si una de les mostres és aproximadament 4 vegades més gran que l'altra. 
+1. Si una de les mostres és aproximadament 25 vegades més gran que l'altra.
+1. Si les mides de les mostres són iguals, però les distribucions poblacionals són molt diferents.
+1. Si les variàncies són molt diferents.
+1. Totes les altres respostes són incorrectes. 
+
+\coment{Si les dues mostres són prou grans, i això inclou 100 o més individus, sempre podem emprar un test t per comparar les mitjanes. Si una de les mostres és petita, i això inclou menys de 20 subjectes, no serà correcte emprar el test t si les distribucions poblacionals no són normals.}
+
+**()** Es pretén comparar l'eficàcia de dos mètodes d'encalentiment previs a un determinat exercici físic. Es va observar un 5\% d'estrabades amb un mètode i un 3\% amb l'altre, sent aquesta diferència estadísticament significativa (p=0.045). La interpretació correcta d'aquest resultat és (marcau l'única resposta correcta):
+ 
+1. Si els dos mètodes tinguessin la mateixa freqüència d'estrabades, la probabilitat de trobar una diferència igual o major a l'observada és 0.045.
+1. La probabilitat que els dos mètodes tinguin la mateixa freqüència d'estrabades és de 0.045.
+1. Si els dos mètodes tinguessin la mateixa freqüència d'estrabades, la probabilitat d'observar un 5\% o més d'estrabades en el que en va tenir una freqüència més gran és 0.045. 
+1. Si els dos mètodes tinguessin diferents freqüències d'estrabades, la probabilitat de trobar una diferència igual o més petita que l'observada és 0.955. 
+1. La probabilitat que els dos mètodes tinguin la mateixa freqüència d'estrabades és de 0.955. 
+
+\coment{(a) és la definició literal de p-valor. Si teniu dubtes sobre (c), recordau que el p-valor mesura la probabilitat d'observar diferències entre proporcions, no la d'observar proporcions concretes.}
+
+**()** En un estudi que compara l'eficàcia de dos fàrmacs mitjançant un test t no s'observa una diferència estadísticament significativa entre ells. Si en realitat aquests tractaments tinguessin eficàcies diferents, tots els  factors següents podrien explicar per què s'ha obtingut un resultat ``fals negatiu'', EXCEPTE un. Quin?
+ 
+1. Error de tipus I
+1. Error de tipus II 
+1. Les variables no tenen distribució normal
+1. Les mostres no són suficientment grans
+1. No s'ha tingut en compte si les mostres són independents o aparellades
+
+
+
+
+
+**()** En un estudi es va prendre un grup de 100 plantes afectades d'una certa infestació. D'aquestes plantes, se'n triaren 50 a l'atzar i se les administrà un tractament. Al cap de 15 dies es compararen algunes dades fisiològiques dels dos grups de plantes (les tractades i les sense tractar). Un dels nivells que es van mesurar en aquest estudi té una distribució asimètrica. Per contrastar si la mitjana d'aquest nivell és més gran en les plantes tractades que en les plantes sense tractar, es va emprar un test t. Quina de les afirmacions següents és correcta en aquesta situació?
+
+
+1. Per emprar un test t, primer s'havia de contrastar la igualtat de variàncies: si les variàncies poblacionals són diferents, no es podia emprar un test t
+1. Per emprar un test t, primer s'havien de calcular les variàncies de les dues mostres: si aquestes variàncies són diferents, no es podia emprar un test t
+1. Emprar un test t va ser correcte, perquè les dues mostres són prou grans. 
+1. Emprar un test t va ser correcte, perquè les variables poblacionals són normals.
+1. Emprar un test t va ser incorrecte, perquè les variables poblacionals no són normals.
+
+
+**()** En un estudi es va prendre un grup de 100 plantes afectades d'una certa infestació. Es mesurà la quantitat de nitrogen al terra al voltant de les seves arrels. A continuació, s'administrà a totes un tractament contra aquesta infestació, i al cap de 15 dies es tornà a mesurar la quantitat de nitrogen al terra al voltant de les seves arrels. Aquestes quantitats de nitrogen, tant abans com després, segueixen distribucions normals. Per contrastar si els continguts mitjans de nitrogens abans i després del tractament són iguals o diferents es va emprar un test t. Quina de les afirmacions següents és la correcta en aquesta situació?
+
+
+1. Com que les dues mostres són independents, el tipus concret de test t (l'estadístic concret i el seu nombre de graus de llibertat) que s'havia de fer servir depèn de si les mostres preses abans i després del tractament tenen la mateixa variància
+1. Com que les dues mostres són independents, el tipus concret de test t (l'estadístic concret i el seu nombre de graus de llibertat) que s'havia de fer servir depèn de si les quantitats de nitrogen al terra al voltant de les arrels abans i després del tractament tenen la mateixa variància
+1. Com que les dues mostres són independents, el tipus concret de test t (l'estadístic concret i el seu nombre de graus de llibertat) és únic, només depèn de la mida de les mostres.
+1. Com que les dues mostres són aparellades, el tipus concret de test t (l'estadístic concret i el seu nombre de graus de llibertat) que s'havia de fer servir depèn de si les mostres preses abans i després del tractament tenen la mateixa variància
+1. Com que les dues mostres són aparellades, el tipus concret de test t (l'estadístic concret i el seu nombre de graus de llibertat) que s'havia de fer servir depèn de si les quantitats de nitrogen al terra al voltant de les arrels abans i després del tractament tenen la mateixa variància
+1. Com que les dues mostres són aparellades, el tipus concret de test t (l'estadístic concret i el seu nombre de graus de llibertat) és únic, només depèn de la mida de les mostres. 
+1.  Com que el contrast és bilateral, el tipus concret de test t (l'estadístic concret i el seu nombre de graus de llibertat) és únic, només depèn de la mida de les mostres.
+
+

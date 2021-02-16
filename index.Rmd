@@ -45,13 +45,14 @@ par(cex.main=0.9,cex.axis=0.8,cex.lab=0.8)
 
 ```{r, paquets, include=FALSE}
 #install.packages("rmarkdown",dep=TRUE)
-#install.packages(c("bookdown","bookdownplus","latex2exp","epitools","car","nortest","kolmim","EnvStats"),dep=TRUE)
+#install.packages(c("bookdown","bookdownplus","latex2exp","epitools","car","nortest","kolmim","EnvStats","linguisticsdown"),dep=TRUE)
 library(latex2exp)
 library(epitools)
 library(car)
 library(nortest)
 library(kolmim)
 library(EnvStats)
+library(linguisticsdown)
 ```
 
 \renewcommand\chaptername{Tema}
