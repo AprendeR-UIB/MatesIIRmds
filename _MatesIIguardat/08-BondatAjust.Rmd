@@ -833,4 +833,17 @@ L'estadístic de contrast no val el mateix que abans, perquè ara la variable no
 $\mu=\texttt{mean(valors)}=3.187$ i $\sigma=\texttt{sd(valors)}=1.795$.
 ````
 
+```{example,tempsnormals}
+Podem acceptar que les variables $X_d$ i $X_h$ de l'Exemple \@ref(exm:temphomesdones) són normals?
 
+
+```
+
+Apliquem el test K-S-Lilliefors a les dues mostres:
+
+```{r}
+lillie.test(X_d)
+lillie.test(X_h)
+```
+
+Podem acceptar que les temperatures dels homes provenen d'una variable normal, però essent rigorosos amb nivell de significació 0.05 no podem acceptar que $X_d$ sigui normal.
