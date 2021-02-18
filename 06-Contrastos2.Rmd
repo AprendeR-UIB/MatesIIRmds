@@ -2175,7 +2175,7 @@ El problema d'aquest test és que l'interval de confiança que dóna és per a $
 ## Test de la lliçó 6 
 
 
-**()** En un contrast bilateral de dues mitjanes emprant dues mostres independents grans i utilitzant un test t (marcau totes les afirmacions vertaderes):
+**(1)** En un contrast bilateral de dues mitjanes emprant dues mostres independents grans i utilitzant un test t (marca totes les afirmacions vertaderes):
  
 1. La hipòtesi nul·la és que les mitjanes mostrals són iguals. 
 1. La hipòtesi nul·la és que les mitjanes mostrals no són significativament diferents. 
@@ -2186,7 +2186,7 @@ El problema d'aquest test és que l'interval de confiança que dóna és per a $
 1. Totes les altres respostes són incorrectes. 
 
 
-**()** En analitzar els resultats d'un experiment on es comparaven dos tractaments, es va concloure que l'efectivitat dels dos tractaments estudiats és diferent, amb p=0.034. Això significa (marcau l'única resposta correcta):
+**(2)** En analitzar els resultats d'un experiment on es comparaven dos tractaments, es va concloure que l'efectivitat dels dos tractaments estudiats és diferent, amb un p-valor de 0.034. Què significa aquest valor? 
  
 1. Que hi ha un 3.4% de probabilitats que, si es repeteix l'estudi, no es trobin diferències significatives.
 1. Que hi ha un 3.4% de probabilitats que els tractaments estudiats tenguin la mateixa efectivitat.
@@ -2195,21 +2195,13 @@ El problema d'aquest test és que l'interval de confiança que dóna és per a $
 1. Que hi ha un 3.4% de probabilitats que la diferència observada entre les efectivitats, o una encara més gran, s'hagi degut a l'atzar.
 
 
-**()** Es realitzà un estudi per comparar dos aparells per amidar una determinada mesura, amb l'objectiu de contrastar si  les mesures preses amb els dos aparells són, de mitjana, iguals. En aquest estudi, 6 de 17 subjectes van tenir lectures més altes amb l'aparell A, 10 van tenir lectures més altes amb l'aparell B i un va tenir la mateixa lectura amb els dos aparells. Marcau totes les afirmacions correctes:
+
+
+
+**(3)** Sobre l'error de tipus I quan es contrasta la diferència de dues mitjanes (marca totes les respostes correctes):
  
-1. L'estadístic de contrast és el nombre de subjectes que van tenir lectura més alta amb  l'aparell  A. 
-1. Segur que és correcte emprar un test t sobre les dades obtingudes. 
-1. La hipòtesi nul·la és que tots dos  aparells  donen, de mitjana, els mateixos valors.
-1. El contrast hauria de ser unilateral. 
-1. El contrast realitzat és de mostres independents. 
-1. Totes les altres respostes són incorrectes. 
-
-
-
-**()** Sobre l'error de tipus I quan es contrasta la diferència de dues mitjanes (marcau totes les respostes correctes):
- 
-1. U menys la seva probabilitat és igual a la potència del contrast. 
-1. U menys la seva probabilitat és igual al nivell de confiança del contrast. 
+1. 1 menys la seva probabilitat és igual a la potència del contrast. 
+1. 1 menys la seva probabilitat és igual al nivell de confiança del contrast. 
 1. Porta a concloure que hi ha una diferència, quan en realitat no n'hi ha.
 1. Porta a concloure que no hi ha cap diferència, quan en realitat sí que n'hi ha.
 1. Significa que la hipòtesi alternativa és falsa. 
@@ -2217,29 +2209,26 @@ El problema d'aquest test és que l'interval de confiança que dóna és per a $
 
 
 
-**()** En un experiment, a una sèrie de ratolins modificats genèticament se'ls tractà amb un compost per estudiar si, en un període de temps després d'administrar-lo, el nivell d'un cert metabolit en sang havia disminuït. S'accepta que la distribució de la quantitat d'aquest metabolit en sang és normal. Quina és la prova estadística més adient per realitzar el contrast? (marcau la resposta correcta):
+**(4)** En un experiment, a una sèrie de ratolins modificats genèticament se'ls tractà amb un compost per estudiar si, en un període de temps després d'administrar-lo, el nivell d'un cert metabolit en sang havia disminuït. S'accepta que la distribució de la quantitat d'aquest metabolit en sang és normal. Quina és la prova estadística més adient per realitzar el contrast?
  
-1. t de Student per a mostres aparellades.
-1. t de Student per a mostres independents. 
+1. Test t per a mostres aparellades.
+1. Test t per a mostres independents. 
 1. Test de Wilcoxon. 
 1. Test de Mann-Whitney. 
-1. Prova exacta de Fisher.
+1. Test exacte de Fisher.
 
 
-
-
-
-**()** La prova per comparar dues mitjanes emprant mostres aparellades basada en la t de Student (marcau les respostes correctes):
+**(5)** La prova per comparar dues mitjanes emprant mostres aparellades basada en la t de Student (marcau les respostes correctes):
  
 1. Només es pot emprar sobre mostres grans. 
-1. És adequada sempre que les mostres siguin petites. 
+1. No es pot emprar si les variables poblacionals són normals i les mostres grans. 
 1. També es pot emprar amb mostres independents. 
 1. Només es pot emprar si les poblacions tenen distribucions normals. 
 1. Depèn de si la variàncies de les dues mostres són iguals o diferents.
 1. Totes les altres respostes són incorrectes.
 
 
-**()** Quines de les  condicions següents són tals que elles totes soles ja permeten emprar un test t per comparar dues mitjanes? (Marcau totes les respostes correctes)
+**(6)** Quina o quines de les  condicions següents són tals que elles totes soles ja permeten emprar un test t per comparar dues mitjanes? 
  
 1. Si el nombre d'observacions és el mateix a les dues mostres. 
 1. Si les observacions provenen de distribucions aproximadament normals.
@@ -2249,18 +2238,18 @@ El problema d'aquest test és que l'interval de confiança que dóna és per a $
 1. Totes les altres respostes són incorrectes. 
 
 
-**()** En un experiment, una de les mesures que es va estudiar va ser un cert temps de reacció que és molt asimètric a la dreta. Per contrastar la diferència entre les mitjanes d'aquest temps de reacció sota dues condicions diferents, els enfocaments possibles inclouen (marcau les respostes correctes):
+**(7)** En un experiment, una de les mesures que es va estudiar va ser un cert temps de reacció que és molt asimètric a la dreta. Per contrastar la diferència entre les mitjanes d'aquest temps de reacció sota dues condicions diferents, els enfocaments possibles inclouen (marca totes les respostes correctes):
  
-1. Un test t utilitzant les observacions si les dues mostres eren més grans que 100 cada una.
-1. Un test t utilitzant les observacions si alguna de les dues mostres era més gran  que 100.
+1. Un test t si les dues mostres eren més grans que 100 cada una.
+1. Un test t si alguna de les dues mostres era més gran  que 100.
 1. Com que es tracta d'un contrast de mitjanes amb mostres independents, podem emprar sempre un test t. 
-1. Com que les mesures d'aquest temps de reacció segueixen una llei normal, podem emprar un test t utilitzant les observacions encara que els grups siguin petits. 
+1. Com que les mesures d'aquest temps de reacció segueixen una llei normal, podem emprar un test t encara que els grups siguin petits. 
 1. Un test no paramètric, essent conscients que en aquest cas compararem medianes i no mitjanes.
 1. La correlació entre els temps.
 1. Totes les altres respostes són incorrectes. 
 
 
-**()** En un test t de comparació de mitjanes planejam emprar dues mostres independents. Entre les dues mostres, observarem 500 subjectes. El fet que les distribucions poblacionals es desviïn molt d'una normal pot afectar seriosament la validesa del contrast (marcau totes les respostes correctes):
+**(8)** En un test t de comparació de mitjanes planejam emprar dues mostres independents. Entre les dues mostres, observarem 500 subjectes. El fet que les distribucions poblacionals es desviïn molt d'una normal pot afectar seriosament la validesa del contrast (marca totes les respostes correctes):
  
 1. Si les mides de les mostres no són iguals, però la diferència és inferior al 5%. 
 1. Si una de les mostres és aproximadament 4 vegades més gran que l'altra. 
@@ -2270,7 +2259,7 @@ El problema d'aquest test és que l'interval de confiança que dóna és per a $
 1. Totes les altres respostes són incorrectes. 
 
 
-**()** Es pretén comparar l'eficàcia de dos mètodes d'encalentiment previs a un determinat exercici físic. Es va observar un 5% d'estrabades amb un mètode i un 3% amb l'altre, sent aquesta diferència estadísticament significativa (p=0.045). La interpretació correcta d'aquest resultat és (marcau l'única resposta correcta):
+**(9)** Es pretén comparar l'eficàcia de dos mètodes d'encalentiment previs a un determinat exercici físic. Es va observar un 5% d'estrabades amb un mètode i un 3% amb l'altre, sent aquesta diferència estadísticament significativa (p-valor=0.045). Quina és la interpretació correcta d'aquest resultat?
  
 1. Si els dos mètodes tinguessin la mateixa freqüència d'estrabades, la probabilitat de trobar una diferència igual o major a l'observada és 0.045.
 1. La probabilitat que els dos mètodes tinguin la mateixa freqüència d'estrabades és de 0.045.
@@ -2278,7 +2267,7 @@ El problema d'aquest test és que l'interval de confiança que dóna és per a $
 1. Si els dos mètodes tinguessin diferents freqüències d'estrabades, la probabilitat de trobar una diferència igual o més petita que l'observada és 0.955. 
 1. La probabilitat que els dos mètodes tinguin la mateixa freqüència d'estrabades és de 0.955. 
 
-**()** En un estudi que compara l'eficàcia de dos fàrmacs mitjançant un test t no s'observa una diferència estadísticament significativa entre ells. Si en realitat aquests tractaments tinguessin eficàcies diferents, tots els  factors següents podrien explicar per què s'ha obtingut un resultat ``fals negatiu'', EXCEPTE un. Quin?
+**(10)** En un estudi que compara l'eficàcia de dos fàrmacs mitjançant un test t no s'observa una diferència estadísticament significativa entre ells. Si en realitat aquests tractaments tinguessin eficàcies diferents, tots els  factors següents podrien explicar per què s'ha obtingut un resultat fals negatiu, EXCEPTE un. Quin?
  
 1. Error de tipus I
 1. Error de tipus II 
@@ -2290,7 +2279,7 @@ El problema d'aquest test és que l'interval de confiança que dóna és per a $
 
 
 
-**()** En un estudi es va prendre un grup de 100 plantes afectades d'una certa infestació. D'aquestes plantes, se'n triaren 50 a l'atzar i se les administrà un tractament. Al cap de 15 dies es compararen algunes dades fisiològiques dels dos grups de plantes (les tractades i les sense tractar). Un dels nivells que es van mesurar en aquest estudi té una distribució asimètrica. Per contrastar si la mitjana d'aquest nivell és més gran en les plantes tractades que en les plantes sense tractar, es va emprar un test t. Quina de les afirmacions següents és correcta en aquesta situació?
+**(11)** En un estudi es va prendre un grup de 100 plantes afectades d'una certa infestació. D'aquestes plantes, se'n triaren 50 a l'atzar i se les administrà un tractament. Al cap de 15 dies es compararen algunes dades fisiològiques dels dos grups de plantes (les tractades i les sense tractar). Un dels nivells que es van mesurar en aquest estudi té una distribució asimètrica. Per contrastar si la mitjana d'aquest nivell és més gran en les plantes tractades que en les plantes sense tractar, es va emprar un test t. Quina de les afirmacions següents és correcta en aquesta situació?
 
 
 1. Per emprar un test t, primer s'havia de contrastar la igualtat de variàncies: si les variàncies poblacionals són diferents, no es podia emprar un test t
@@ -2300,7 +2289,7 @@ El problema d'aquest test és que l'interval de confiança que dóna és per a $
 1. Emprar un test t va ser incorrecte, perquè les variables poblacionals no són normals.
 
 
-**()** En un estudi es va prendre un grup de 100 plantes afectades d'una certa infestació. Es mesurà la quantitat de nitrogen al terra al voltant de les seves arrels. A continuació, s'administrà a totes un tractament contra aquesta infestació, i al cap de 15 dies es tornà a mesurar la quantitat de nitrogen al terra al voltant de les seves arrels. Aquestes quantitats de nitrogen, tant abans com després, segueixen distribucions normals. Per contrastar si els continguts mitjans de nitrogens abans i després del tractament són iguals o diferents es va emprar un test t. Quina de les afirmacions següents és la correcta en aquesta situació?
+**(12)** En un estudi es va prendre un grup de 100 plantes afectades d'una certa infestació. Es mesurà la quantitat de nitrogen al terra al voltant de les seves arrels. A continuació, s'administrà a totes un tractament contra aquesta infestació, i al cap de 15 dies es tornà a mesurar la quantitat de nitrogen al terra al voltant de les seves arrels. Aquestes quantitats de nitrogen, tant abans com després, segueixen distribucions normals. Per contrastar si els continguts mitjans de nitrogens abans i després del tractament són iguals o diferents es va emprar un test t. Quina de les afirmacions següents és la correcta en aquesta situació?
 
 
 1. Com que les dues mostres són independents, el tipus concret de test t (l'estadístic concret i el seu nombre de graus de llibertat) que s'havia de fer servir depèn de si les mostres preses abans i després del tractament tenen la mateixa variància
@@ -2311,13 +2300,13 @@ El problema d'aquest test és que l'interval de confiança que dóna és per a $
 1. Com que les dues mostres són aparellades, el tipus concret de test t (l'estadístic concret i el seu nombre de graus de llibertat) és únic, només depèn de la mida de les mostres. 
 1.  Com que el contrast és bilateral, el tipus concret de test t (l'estadístic concret i el seu nombre de graus de llibertat) és únic, només depèn de la mida de les mostres.
 
-**()** Hem efectuat un test t de dues mitjanes, amb hipòtesi alternativa $\mu_1\neq \mu_2$. És possible que hàgim obtingut un interval de confiança del contrast del 95% [2.1,3.2] i un p-valor 0.13?
+**(13)** Hem efectuat un test t de dues mitjanes, amb hipòtesi alternativa $\mu_1\neq \mu_2$. És possible que hàgim obtingut un interval de confiança del contrast del 95% [2.1,3.2] i un p-valor 0.13?
 
 1. Sí
 1. No
 
 
-**()** Quines de les afirmacions següents sobre el test F de Fisher són correctes?
+**(14)** Quines de les afirmacions següents sobre el test F són correctes?
 
 1. Només serveix per a contrastos bilaterals de dues variàncies o dues desviacions típiques
 1. Només es pot emprar si les dues variables aleatòries són normals
@@ -2327,7 +2316,7 @@ El problema d'aquest test és que l'interval de confiança que dóna és per a $
 1. S'empra en contrastos on la hipòtesi nul·la és que dues variàncies poblacionals, o dues desviacions típiques poblacionals, són iguals
 1. S'empra en contrastos on la hipòtesi nul·la és que dues variàncies mostrals, o dues desviacions típiques mostrals, són iguals
 
-**()** Vull comparar els nivells mitjans de LDL en pacients hipertensos i normotensos. Aquests nivells no seguexen una distribució normal. Per realitzar el contrast prenc una mostra de 40 individus normotensos i una altra de 20 individus hipertensos, a l'atzar i independents una de l'altra. Quina de les proves següents és la més adient per realitzar el contrast de les dues mitjanes?
+**(15)** Vull comparar els nivells mitjans de LDL en pacients hipertensos i normotensos. Aquests nivells no seguexen una distribució normal. Per realitzar el contrast prenc una mostra de 40 individus normotensos i una altra de 20 individus hipertensos, a l'atzar i independents una de l'altra. Quina de les proves següents és la més adient per realitzar el contrast de les dues mitjanes?
 
 1. Un test t
 1. Un test de Wilcoxon
@@ -2338,7 +2327,7 @@ El problema d'aquest test és que l'interval de confiança que dóna és per a $
 
 
 
-**()** Vull comparar els nivells mitjans de LDL en pacients hipertensos i normotensos. Aquests nivells no seguexen una distribució normal. Per realitzar el contrast prenc una mostra de 20 individus hipertensos  i una altra de 20 individus normotensos, a l'atzar però de manera que cada individu hipertens quedi aparellat amb un individu normotens per edat i sexe. Quina de les proves següents és la més adient per realitzar el contrast de les dues mitjanes?
+**(16)** Vull comparar els nivells mitjans de LDL en pacients hipertensos i normotensos. Aquests nivells no seguexen una distribució normal. Per realitzar el contrast prenc una mostra de 20 individus hipertensos  i una altra de 20 individus normotensos, a l'atzar però de manera que cada individu hipertens quedi aparellat amb un individu normotens per edat i sexe. Quina de les proves següents és la més adient per realitzar el contrast de les dues mitjanes?
 
 1. Un test t
 1. Un test de Wilcoxon
@@ -2347,7 +2336,7 @@ El problema d'aquest test és que l'interval de confiança que dóna és per a $
 1. Un test de Fligner
 
 
-**()** Quines de les afirmacions següents sobre el test de Wilcoxon d'una mitjana o dues mitjanes són vertaderes?
+**(17)** Quines de les afirmacions següents sobre el test de Wilcoxon d'una mitjana o dues mitjanes són vertaderes?
 
 1. Tot i que el fem servir per contrastar el valor de mitjanes, en realitat compara medianes
 1. Només el podem fer servir si les variables involucrades no són normals i les mostres no són totes dues grans
@@ -2356,7 +2345,7 @@ El problema d'aquest test és que l'interval de confiança que dóna és per a $
 1. Si les variables són normals, no es pot emprar
 1. Si les variables són normals, es pot emprar, però és millor emprar un test t
 
-**()** Suposem que hem realitzat un contrast $H_0: \mu=\mu_0$ contra $H_1: \mu\neq \mu_0$ amb $\alpha=0.05$. amb un test t sobre una determinada mostra. Què li passaria a l'interval de confiança del contrast obtingut amb aquesta mateixa mostra si augmentàssim el nivell de significació a $\alpha=0.1$?
+**(18)** Suposem que hem realitzat un contrast $H_0: \mu=\mu_0$ contra $H_1: \mu\neq \mu_0$ amb $\alpha=0.05$. amb un test t sobre una determinada mostra. Què li passaria a l'interval de confiança del contrast obtingut amb aquesta mateixa mostra si augmentàssim el nivell de significació a $\alpha=0.1$?
 
 1. Seria més ample
 1. Seria més estret
@@ -2366,26 +2355,30 @@ El problema d'aquest test és que l'interval de confiança que dóna és per a $
 
 
 
-**()** Hem efectuat un test t d'una mitjana, amb hipòtesi alternativa $\mu\neq 2$. És possible que hàgim obtingut un IC 95% [0.5,1.8] i un p-valor 0.15?
+**(19)** Hem efectuat un test t d'una mitjana, amb hipòtesi alternativa $\mu\neq 2$. És possible que hàgim obtingut un IC 95% [0.5,1.8] i un p-valor 0.15?
 
 1. Sí
 1. No
 
-**()** Hem efectuat un test t d'una mitjana, amb hipòtesi alternativa $\mu\neq 2$. És possible que hàgim obtingut un IC 95% [0.5,3.8] i un p-valor 0.15?
+**(20)** Hem efectuat un test t d'una mitjana, amb hipòtesi alternativa $\mu\neq 2$. És possible que hàgim obtingut un IC 95% [0.5,3.8] i un p-valor 0.15?
 
 1. Sí
 1. No
 
 
-**()** Hem efectuat un test t d'una mitjana, amb hipòtesi alternativa μ<2. És possible que hàgim obtingut un IC 95% [0.5,3.8] i un p-valor 0.15?
+**(21)** Hem efectuat un test t d'una mitjana, amb hipòtesi alternativa $\mu<2$. És possible que hàgim obtingut un IC 95% [0.5,3.8] i un p-valor 0.15?
 
-1. Per a què serveix un q-q-plot?
+1. Sí
+1. No
+
+**(22)** Per a què serveix un q-q-plot? Marca una sola resposta.
+
 1. Per estimar la q d'una mostra
 1. Per visualitzar si una mostra segueix una distribució donada
 1. Per visualitzar si els punts d'una mostra tendeixen a estar sobre una recta
 1. Per visualitzar si dues mostres són aparellades o independents
 
-**()** Quan podem emprar un test χ2 per contrastar una variància?
+**(23)** Quan podem emprar un test $\chi^2$ per contrastar una variància? Marca una sola resposta.
 
 1. Només si la variable poblacional és normal
 1. Només si la variància poblacional és normal o si la mostra és gran

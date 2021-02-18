@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Tema 1 Variables aleatòries | Matemàtiques II v.2021</title>
+  <title>Tema 2 Variables aleatòries | Matemàtiques II v.2021</title>
   <meta name="description" content="Apunts Matemàtiques II bookdown::gitbook." />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Tema 1 Variables aleatòries | Matemàtiques II v.2021" />
+  <meta property="og:title" content="Tema 2 Variables aleatòries | Matemàtiques II v.2021" />
   <meta property="og:type" content="book" />
   
   
@@ -16,22 +16,22 @@
   <meta name="github-repo" content="cescrossello/MatesII" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Tema 1 Variables aleatòries | Matemàtiques II v.2021" />
+  <meta name="twitter:title" content="Tema 2 Variables aleatòries | Matemàtiques II v.2021" />
   
   <meta name="twitter:description" content="Apunts Matemàtiques II bookdown::gitbook." />
   
 
 
 
-<meta name="date" content="2021-02-17" />
+<meta name="date" content="2021-02-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="index.html"/>
-<link rel="next" href="contrastos-dhipòtesis-dun-i-dos-paràmetres.html"/>
+<link rel="prev" href="chap-conceptes.html"/>
+<link rel="next" href="chap-estim.html"/>
 <script src="libs/header-attrs-2.6/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -50,6 +50,8 @@
 
 
 
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
 
 <style type="text/css">
@@ -133,59 +135,127 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Presentació</a></li>
-<li class="chapter" data-level="1" data-path="chap-varal.html"><a href="chap-varal.html"><i class="fa fa-check"></i><b>1</b> Variables aleatòries</a>
+<li class="chapter" data-level="1" data-path="chap-conceptes.html"><a href="chap-conceptes.html"><i class="fa fa-check"></i><b>1</b> Alguns conceptes bàsics</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="chap-varal.html"><a href="chap-varal.html#generalitats-sobre-variables-aleatòries"><i class="fa fa-check"></i><b>1.1</b> Generalitats sobre variables aleatòries</a></li>
-<li class="chapter" data-level="1.2" data-path="chap-varal.html"><a href="chap-varal.html#variables-aleatòries-discretes"><i class="fa fa-check"></i><b>1.2</b> Variables aleatòries discretes</a>
-<ul>
-<li class="chapter" data-level="1.2.1" data-path="chap-varal.html"><a href="chap-varal.html#densitat-i-distribució"><i class="fa fa-check"></i><b>1.2.1</b> Densitat i distribució</a></li>
-<li class="chapter" data-level="1.2.2" data-path="chap-varal.html"><a href="chap-varal.html#esperança"><i class="fa fa-check"></i><b>1.2.2</b> Esperança</a></li>
-<li class="chapter" data-level="1.2.3" data-path="chap-varal.html"><a href="chap-varal.html#variància-i-desviació-típica"><i class="fa fa-check"></i><b>1.2.3</b> Variància i desviació típica</a></li>
-<li class="chapter" data-level="1.2.4" data-path="chap-varal.html"><a href="chap-varal.html#quantils"><i class="fa fa-check"></i><b>1.2.4</b> Quantils</a></li>
+<li class="chapter" data-level="1.1" data-path="chap-conceptes.html"><a href="chap-conceptes.html#tipus-de-dades"><i class="fa fa-check"></i><b>1.1</b> Tipus de dades</a></li>
+<li class="chapter" data-level="1.2" data-path="chap-conceptes.html"><a href="chap-conceptes.html#població"><i class="fa fa-check"></i><b>1.2</b> Població</a></li>
+<li class="chapter" data-level="1.3" data-path="chap-conceptes.html"><a href="chap-conceptes.html#variable-aleatòria"><i class="fa fa-check"></i><b>1.3</b> Variable aleatòria</a></li>
+<li class="chapter" data-level="1.4" data-path="chap-conceptes.html"><a href="chap-conceptes.html#mostra"><i class="fa fa-check"></i><b>1.4</b> Mostra</a></li>
+<li class="chapter" data-level="1.5" data-path="chap-conceptes.html"><a href="chap-conceptes.html#sec:mostreig"><i class="fa fa-check"></i><b>1.5</b> Mostreig aleatori</a></li>
+<li class="chapter" data-level="1.6" data-path="chap-conceptes.html"><a href="chap-conceptes.html#mostres-de-conveniència"><i class="fa fa-check"></i><b>1.6</b> Mostres de conveniència</a></li>
+<li class="chapter" data-level="1.7" data-path="chap-conceptes.html"><a href="chap-conceptes.html#test-de-la-lliçó-1"><i class="fa fa-check"></i><b>1.7</b> Test de la lliçó 1</a></li>
 </ul></li>
-<li class="chapter" data-level="1.3" data-path="chap-varal.html"><a href="chap-varal.html#famílies-importants-de-variables-aleatòries-discretes"><i class="fa fa-check"></i><b>1.3</b> Famílies importants de variables aleatòries discretes</a>
+<li class="chapter" data-level="2" data-path="chap-varal.html"><a href="chap-varal.html"><i class="fa fa-check"></i><b>2</b> Variables aleatòries</a>
 <ul>
-<li class="chapter" data-level="1.3.1" data-path="chap-varal.html"><a href="chap-varal.html#variables-aleatòries-binomials"><i class="fa fa-check"></i><b>1.3.1</b> Variables aleatòries binomials</a></li>
-<li class="chapter" data-level="1.3.2" data-path="chap-varal.html"><a href="chap-varal.html#variables-aleatòries-hipergeomètriques"><i class="fa fa-check"></i><b>1.3.2</b> Variables aleatòries hipergeomètriques</a></li>
-<li class="chapter" data-level="1.3.3" data-path="chap-varal.html"><a href="chap-varal.html#variables-aleatòries-de-poisson"><i class="fa fa-check"></i><b>1.3.3</b> Variables aleatòries de Poisson</a></li>
-</ul></li>
-<li class="chapter" data-level="1.4" data-path="chap-varal.html"><a href="chap-varal.html#variables-aleatòries-contínues"><i class="fa fa-check"></i><b>1.4</b> Variables aleatòries contínues</a>
+<li class="chapter" data-level="2.1" data-path="chap-varal.html"><a href="chap-varal.html#generalitats-sobre-variables-aleatòries"><i class="fa fa-check"></i><b>2.1</b> Generalitats sobre variables aleatòries</a></li>
+<li class="chapter" data-level="2.2" data-path="chap-varal.html"><a href="chap-varal.html#variables-aleatòries-discretes"><i class="fa fa-check"></i><b>2.2</b> Variables aleatòries discretes</a>
 <ul>
-<li class="chapter" data-level="1.4.1" data-path="chap-varal.html"><a href="chap-varal.html#densitat-i-distribució-1"><i class="fa fa-check"></i><b>1.4.1</b> Densitat i distribució</a></li>
-<li class="chapter" data-level="1.4.2" data-path="chap-varal.html"><a href="chap-varal.html#esperança-variància-quantils"><i class="fa fa-check"></i><b>1.4.2</b> Esperança, variància, quantils…</a></li>
+<li class="chapter" data-level="2.2.1" data-path="chap-varal.html"><a href="chap-varal.html#densitat-i-distribució"><i class="fa fa-check"></i><b>2.2.1</b> Densitat i distribució</a></li>
+<li class="chapter" data-level="2.2.2" data-path="chap-varal.html"><a href="chap-varal.html#esperança"><i class="fa fa-check"></i><b>2.2.2</b> Esperança</a></li>
+<li class="chapter" data-level="2.2.3" data-path="chap-varal.html"><a href="chap-varal.html#variància-i-desviació-típica"><i class="fa fa-check"></i><b>2.2.3</b> Variància i desviació típica</a></li>
+<li class="chapter" data-level="2.2.4" data-path="chap-varal.html"><a href="chap-varal.html#quantils"><i class="fa fa-check"></i><b>2.2.4</b> Quantils</a></li>
 </ul></li>
-<li class="chapter" data-level="1.5" data-path="chap-varal.html"><a href="chap-varal.html#sec:normal"><i class="fa fa-check"></i><b>1.5</b> Variables aleatòries normals</a>
+<li class="chapter" data-level="2.3" data-path="chap-varal.html"><a href="chap-varal.html#famílies-importants-de-variables-aleatòries-discretes"><i class="fa fa-check"></i><b>2.3</b> Famílies importants de variables aleatòries discretes</a>
 <ul>
-<li class="chapter" data-level="1.5.1" data-path="chap-varal.html"><a href="chap-varal.html#amb-r"><i class="fa fa-check"></i><b>1.5.1</b> Amb R</a></li>
-<li class="chapter" data-level="1.5.2" data-path="chap-varal.html"><a href="chap-varal.html#propietats-bàsiques"><i class="fa fa-check"></i><b>1.5.2</b> Propietats bàsiques</a></li>
-<li class="chapter" data-level="1.5.3" data-path="chap-varal.html"><a href="chap-varal.html#intervals-de-referència"><i class="fa fa-check"></i><b>1.5.3</b> Intervals de referència</a></li>
-<li class="chapter" data-level="1.5.4" data-path="chap-varal.html"><a href="chap-varal.html#sec:lognormal"><i class="fa fa-check"></i><b>1.5.4</b> Variables log-normals</a></li>
+<li class="chapter" data-level="2.3.1" data-path="chap-varal.html"><a href="chap-varal.html#variables-aleatòries-binomials"><i class="fa fa-check"></i><b>2.3.1</b> Variables aleatòries binomials</a></li>
+<li class="chapter" data-level="2.3.2" data-path="chap-varal.html"><a href="chap-varal.html#variables-aleatòries-hipergeomètriques"><i class="fa fa-check"></i><b>2.3.2</b> Variables aleatòries hipergeomètriques</a></li>
+<li class="chapter" data-level="2.3.3" data-path="chap-varal.html"><a href="chap-varal.html#variables-aleatòries-de-poisson"><i class="fa fa-check"></i><b>2.3.3</b> Variables aleatòries de Poisson</a></li>
 </ul></li>
-<li class="chapter" data-level="1.6" data-path="chap-varal.html"><a href="chap-varal.html#test-de-la-lliçó-2"><i class="fa fa-check"></i><b>1.6</b> Test de la lliçó 2</a></li>
-</ul></li>
-<li class="chapter" data-level="2" data-path="contrastos-dhipòtesis-dun-i-dos-paràmetres.html"><a href="contrastos-dhipòtesis-dun-i-dos-paràmetres.html"><i class="fa fa-check"></i><b>2</b> Contrastos d’hipòtesis d’un i dos paràmetres</a>
+<li class="chapter" data-level="2.4" data-path="chap-varal.html"><a href="chap-varal.html#variables-aleatòries-contínues"><i class="fa fa-check"></i><b>2.4</b> Variables aleatòries contínues</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="contrastos-dhipòtesis-dun-i-dos-paràmetres.html"><a href="contrastos-dhipòtesis-dun-i-dos-paràmetres.html#contrastos-de-mitjanes"><i class="fa fa-check"></i><b>2.1</b> Contrastos de mitjanes</a>
-<ul>
-<li class="chapter" data-level="2.1.1" data-path="contrastos-dhipòtesis-dun-i-dos-paràmetres.html"><a href="contrastos-dhipòtesis-dun-i-dos-paràmetres.html#test-t-per-a-una-mitjana"><i class="fa fa-check"></i><b>2.1.1</b> Test t per a una mitjana</a></li>
-<li class="chapter" data-level="2.1.2" data-path="contrastos-dhipòtesis-dun-i-dos-paràmetres.html"><a href="contrastos-dhipòtesis-dun-i-dos-paràmetres.html#test-t-per-a-dues-mitjanes"><i class="fa fa-check"></i><b>2.1.2</b> Test t per a dues mitjanes</a></li>
-<li class="chapter" data-level="2.1.3" data-path="contrastos-dhipòtesis-dun-i-dos-paràmetres.html"><a href="contrastos-dhipòtesis-dun-i-dos-paràmetres.html#tests-t-amb-r"><i class="fa fa-check"></i><b>2.1.3</b> Tests t amb R</a></li>
-<li class="chapter" data-level="2.1.4" data-path="contrastos-dhipòtesis-dun-i-dos-paràmetres.html"><a href="contrastos-dhipòtesis-dun-i-dos-paràmetres.html#exemples"><i class="fa fa-check"></i><b>2.1.4</b> Exemples</a></li>
-<li class="chapter" data-level="2.1.5" data-path="contrastos-dhipòtesis-dun-i-dos-paràmetres.html"><a href="contrastos-dhipòtesis-dun-i-dos-paràmetres.html#tests-no-paramètrics"><i class="fa fa-check"></i><b>2.1.5</b> Tests no paramètrics</a></li>
+<li class="chapter" data-level="2.4.1" data-path="chap-varal.html"><a href="chap-varal.html#densitat-i-distribució-1"><i class="fa fa-check"></i><b>2.4.1</b> Densitat i distribució</a></li>
+<li class="chapter" data-level="2.4.2" data-path="chap-varal.html"><a href="chap-varal.html#esperança-variància-quantils"><i class="fa fa-check"></i><b>2.4.2</b> Esperança, variància, quantils…</a></li>
 </ul></li>
-<li class="chapter" data-level="2.2" data-path="contrastos-dhipòtesis-dun-i-dos-paràmetres.html"><a href="contrastos-dhipòtesis-dun-i-dos-paràmetres.html#sec:contrvar"><i class="fa fa-check"></i><b>2.2</b> Contrastos de variàncies</a>
+<li class="chapter" data-level="2.5" data-path="chap-varal.html"><a href="chap-varal.html#sec:normal"><i class="fa fa-check"></i><b>2.5</b> Variables aleatòries normals</a>
 <ul>
-<li class="chapter" data-level="2.2.1" data-path="contrastos-dhipòtesis-dun-i-dos-paràmetres.html"><a href="contrastos-dhipòtesis-dun-i-dos-paràmetres.html#test-chi2-duna-variància"><i class="fa fa-check"></i><b>2.2.1</b> Test <span class="math inline">\(\chi^2\)</span> d’una variància</a></li>
-<li class="chapter" data-level="2.2.2" data-path="contrastos-dhipòtesis-dun-i-dos-paràmetres.html"><a href="contrastos-dhipòtesis-dun-i-dos-paràmetres.html#test-f-per-a-dues-variàncies"><i class="fa fa-check"></i><b>2.2.2</b> Test F per a dues variàncies</a></li>
-<li class="chapter" data-level="2.2.3" data-path="contrastos-dhipòtesis-dun-i-dos-paràmetres.html"><a href="contrastos-dhipòtesis-dun-i-dos-paràmetres.html#tests-no-paramètrics-1"><i class="fa fa-check"></i><b>2.2.3</b> Tests no paramètrics</a></li>
+<li class="chapter" data-level="2.5.1" data-path="chap-varal.html"><a href="chap-varal.html#amb-r"><i class="fa fa-check"></i><b>2.5.1</b> Amb R</a></li>
+<li class="chapter" data-level="2.5.2" data-path="chap-varal.html"><a href="chap-varal.html#propietats-bàsiques"><i class="fa fa-check"></i><b>2.5.2</b> Propietats bàsiques</a></li>
+<li class="chapter" data-level="2.5.3" data-path="chap-varal.html"><a href="chap-varal.html#intervals-de-referència"><i class="fa fa-check"></i><b>2.5.3</b> Intervals de referència</a></li>
+<li class="chapter" data-level="2.5.4" data-path="chap-varal.html"><a href="chap-varal.html#sec:lognormal"><i class="fa fa-check"></i><b>2.5.4</b> Variables log-normals</a></li>
 </ul></li>
-<li class="chapter" data-level="2.3" data-path="contrastos-dhipòtesis-dun-i-dos-paràmetres.html"><a href="contrastos-dhipòtesis-dun-i-dos-paràmetres.html#contrastos-per-a-proporcions"><i class="fa fa-check"></i><b>2.3</b> Contrastos per a proporcions</a>
+<li class="chapter" data-level="2.6" data-path="chap-varal.html"><a href="chap-varal.html#test-de-la-lliçó-2"><i class="fa fa-check"></i><b>2.6</b> Test de la lliçó 2</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="chap-estim.html"><a href="chap-estim.html"><i class="fa fa-check"></i><b>3</b> Estimació puntual</a>
 <ul>
-<li class="chapter" data-level="2.3.1" data-path="contrastos-dhipòtesis-dun-i-dos-paràmetres.html"><a href="contrastos-dhipòtesis-dun-i-dos-paràmetres.html#contrastos-per-a-una-proporció"><i class="fa fa-check"></i><b>2.3.1</b> Contrastos per a una proporció</a></li>
-<li class="chapter" data-level="2.3.2" data-path="contrastos-dhipòtesis-dun-i-dos-paràmetres.html"><a href="contrastos-dhipòtesis-dun-i-dos-paràmetres.html#contrastos-per-a-2-proporcions-emprant-mostres-independents"><i class="fa fa-check"></i><b>2.3.2</b> Contrastos per a 2 proporcions emprant mostres independents</a></li>
-<li class="chapter" data-level="2.3.3" data-path="contrastos-dhipòtesis-dun-i-dos-paràmetres.html"><a href="contrastos-dhipòtesis-dun-i-dos-paràmetres.html#contrastos-per-a-2-proporcions-emprant-mostres-aparellades"><i class="fa fa-check"></i><b>2.3.3</b> Contrastos per a 2 proporcions emprant mostres aparellades</a></li>
+<li class="chapter" data-level="3.1" data-path="chap-estim.html"><a href="chap-estim.html#estimadors"><i class="fa fa-check"></i><b>3.1</b> Estimadors</a></li>
+<li class="chapter" data-level="3.2" data-path="chap-estim.html"><a href="chap-estim.html#mitjana-mostral"><i class="fa fa-check"></i><b>3.2</b> Mitjana mostral</a></li>
+<li class="chapter" data-level="3.3" data-path="chap-estim.html"><a href="chap-estim.html#proporció-mostral"><i class="fa fa-check"></i><b>3.3</b> Proporció mostral</a></li>
+<li class="chapter" data-level="3.4" data-path="chap-estim.html"><a href="chap-estim.html#variància-mostral"><i class="fa fa-check"></i><b>3.4</b> Variància mostral</a></li>
+<li class="chapter" data-level="3.5" data-path="chap-estim.html"><a href="chap-estim.html#la-distribució-t-de-student"><i class="fa fa-check"></i><b>3.5</b> La distribució t de Student</a></li>
+<li class="chapter" data-level="3.6" data-path="chap-estim.html"><a href="chap-estim.html#biaix-i-precisió"><i class="fa fa-check"></i><b>3.6</b> Biaix i precisió</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="chap-estim.html"><a href="chap-estim.html#estimadors-no-esbiaixats"><i class="fa fa-check"></i><b>3.6.1</b> Estimadors no esbiaixats</a></li>
+<li class="chapter" data-level="3.6.2" data-path="chap-estim.html"><a href="chap-estim.html#estimadors-precisos"><i class="fa fa-check"></i><b>3.6.2</b> Estimadors precisos</a></li>
 </ul></li>
-<li class="chapter" data-level="2.4" data-path="contrastos-dhipòtesis-dun-i-dos-paràmetres.html"><a href="contrastos-dhipòtesis-dun-i-dos-paràmetres.html#test-de-la-lliçó-6"><i class="fa fa-check"></i><b>2.4</b> Test de la lliçó 6</a></li>
+<li class="chapter" data-level="3.7" data-path="chap-estim.html"><a href="chap-estim.html#estimadors-màxim-versemblants"><i class="fa fa-check"></i><b>3.7</b> Estimadors màxim versemblants</a></li>
+<li class="chapter" data-level="3.8" data-path="chap-estim.html"><a href="chap-estim.html#sec:pobl"><i class="fa fa-check"></i><b>3.8</b> Estimació de poblacions</a>
+<ul>
+<li class="chapter" data-level="3.8.1" data-path="chap-estim.html"><a href="chap-estim.html#estimació-de-poblacions-numerades"><i class="fa fa-check"></i><b>3.8.1</b> Estimació de poblacions numerades</a></li>
+<li class="chapter" data-level="3.8.2" data-path="chap-estim.html"><a href="chap-estim.html#marca-recaptura"><i class="fa fa-check"></i><b>3.8.2</b> Marca-recaptura</a></li>
+</ul></li>
+<li class="chapter" data-level="3.9" data-path="chap-estim.html"><a href="chap-estim.html#test-de-la-lliçó-3"><i class="fa fa-check"></i><b>3.9</b> Test de la lliçó 3</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="chap-IC.html"><a href="chap-IC.html"><i class="fa fa-check"></i><b>4</b> Intervals de confiança</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="chap-IC.html"><a href="chap-IC.html#definició-dinterval-de-confiança"><i class="fa fa-check"></i><b>4.1</b> Definició d’interval de confiança</a></li>
+<li class="chapter" data-level="4.2" data-path="chap-IC.html"><a href="chap-IC.html#exemple-interval-de-confiança-del-95-per-a-la-mitjana-duna-variable-aleatòria-normal"><i class="fa fa-check"></i><b>4.2</b> Exemple: Interval de confiança del 95% per a la mitjana d’una variable aleatòria normal</a></li>
+<li class="chapter" data-level="4.3" data-path="chap-IC.html"><a href="chap-IC.html#interval-de-confiança-per-a-la-mitjana-basat-en-la-t-de-student"><i class="fa fa-check"></i><b>4.3</b> Interval de confiança per a la mitjana basat en la t de Student</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-IC.html"><a href="chap-IC.html#la-fórmula"><i class="fa fa-check"></i>La fórmula</a></li>
+<li class="chapter" data-level="" data-path="chap-IC.html"><a href="chap-IC.html#algunes-consideracions"><i class="fa fa-check"></i>Algunes consideracions</a></li>
+<li class="chapter" data-level="" data-path="chap-varal.html"><a href="chap-varal.html#amb-r"><i class="fa fa-check"></i>Amb R</a></li>
+<li class="chapter" data-level="" data-path="chap-IC.html"><a href="chap-IC.html#càlcul-de-la-mida-de-la-mostra-per-fixar-lerror"><i class="fa fa-check"></i>Càlcul de la mida de la mostra per fixar l’error</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="chap-IC.html"><a href="chap-IC.html#intervals-de-confiança-per-a-proporcions"><i class="fa fa-check"></i><b>4.4</b> Intervals de confiança per a proporcions</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-IC.html"><a href="chap-IC.html#mètode-exacte-de-clopper-pearson"><i class="fa fa-check"></i>Mètode “exacte” de Clopper-Pearson</a></li>
+<li class="chapter" data-level="" data-path="chap-IC.html"><a href="chap-IC.html#mètode-de-wilson"><i class="fa fa-check"></i>Mètode de Wilson</a></li>
+<li class="chapter" data-level="" data-path="chap-IC.html"><a href="chap-IC.html#mètode-de-laplace"><i class="fa fa-check"></i>Mètode de Laplace</a></li>
+<li><a href="chap-IC.html#quan-podem-calcular-més-dun-interval-per-a-p_x-quin-calculam">Quan podem calcular més d’un interval per a <span class="math inline">\(p_X\)</span>, quin calculam?</a></li>
+<li class="chapter" data-level="" data-path="chap-IC.html"><a href="chap-IC.html#càlcul-de-la-mida-de-la-mostra-per-a-fixar-lerror"><i class="fa fa-check"></i>Càlcul de la mida de la mostra per a fixar l’error</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="chap-IC.html"><a href="chap-IC.html#intervals-de-confiança-per-a-la-variància-i-la-desviació-típica-duna-variable-normal"><i class="fa fa-check"></i><b>4.5</b> Intervals de confiança per a la variància i la desviació típica d’una variable normal</a></li>
+<li class="chapter" data-level="4.6" data-path="chap-IC.html"><a href="chap-IC.html#poblacions-finites"><i class="fa fa-check"></i><b>4.6</b> “Poblacions finites”</a></li>
+<li class="chapter" data-level="4.7" data-path="chap-IC.html"><a href="chap-IC.html#test-de-la-lliçó-4"><i class="fa fa-check"></i><b>4.7</b> Test de la lliçó 4</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="chap-chgen.html"><a href="chap-chgen.html"><i class="fa fa-check"></i><b>5</b> Contrastos d’hipòtesis: Generalitats</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="chap-chgen.html"><a href="chap-chgen.html#les-hipòtesis-nulla-i-alternativa"><i class="fa fa-check"></i><b>5.1</b> Les hipòtesis nul·la i alternativa</a></li>
+<li class="chapter" data-level="5.2" data-path="chap-chgen.html"><a href="chap-chgen.html#sec:moneda"><i class="fa fa-check"></i><b>5.2</b> Un exemple</a></li>
+<li class="chapter" data-level="5.3" data-path="chap-chgen.html"><a href="chap-chgen.html#sec:pval"><i class="fa fa-check"></i><b>5.3</b> El p-valor</a></li>
+<li class="chapter" data-level="5.4" data-path="chap-chgen.html"><a href="chap-chgen.html#tipus-derrors"><i class="fa fa-check"></i><b>5.4</b> Tipus d’errors</a></li>
+<li class="chapter" data-level="5.5" data-path="chap-chgen.html"><a href="chap-chgen.html#sec:exttest"><i class="fa fa-check"></i><b>5.5</b> Exemple: El test t</a></li>
+<li class="chapter" data-level="5.6" data-path="chap-chgen.html"><a href="chap-chgen.html#recapitulació"><i class="fa fa-check"></i><b>5.6</b> Recapitulació</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-chgen.html"><a href="chap-chgen.html#interval-de-confiança-dun-contrast"><i class="fa fa-check"></i>Interval de confiança d’un contrast</a></li>
+<li class="chapter" data-level="" data-path="chap-chgen.html"><a href="chap-chgen.html#la-potència"><i class="fa fa-check"></i>La potència</a></li>
+<li class="chapter" data-level="" data-path="chap-chgen.html"><a href="chap-chgen.html#el-risc-de-positiu-fals-opcional"><i class="fa fa-check"></i>El risc de positiu fals (Opcional)</a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="chap-chgen.html"><a href="chap-chgen.html#test-de-la-lliçó-5"><i class="fa fa-check"></i><b>5.7</b> Test de la lliçó 5</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="contrastos-dhipòtesis-dun-i-dos-paràmetres.html"><a href="contrastos-dhipòtesis-dun-i-dos-paràmetres.html"><i class="fa fa-check"></i><b>6</b> Contrastos d’hipòtesis d’un i dos paràmetres</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="contrastos-dhipòtesis-dun-i-dos-paràmetres.html"><a href="contrastos-dhipòtesis-dun-i-dos-paràmetres.html#contrastos-de-mitjanes"><i class="fa fa-check"></i><b>6.1</b> Contrastos de mitjanes</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="contrastos-dhipòtesis-dun-i-dos-paràmetres.html"><a href="contrastos-dhipòtesis-dun-i-dos-paràmetres.html#test-t-per-a-una-mitjana"><i class="fa fa-check"></i><b>6.1.1</b> Test t per a una mitjana</a></li>
+<li class="chapter" data-level="6.1.2" data-path="contrastos-dhipòtesis-dun-i-dos-paràmetres.html"><a href="contrastos-dhipòtesis-dun-i-dos-paràmetres.html#test-t-per-a-dues-mitjanes"><i class="fa fa-check"></i><b>6.1.2</b> Test t per a dues mitjanes</a></li>
+<li class="chapter" data-level="6.1.3" data-path="contrastos-dhipòtesis-dun-i-dos-paràmetres.html"><a href="contrastos-dhipòtesis-dun-i-dos-paràmetres.html#tests-t-amb-r"><i class="fa fa-check"></i><b>6.1.3</b> Tests t amb R</a></li>
+<li class="chapter" data-level="6.1.4" data-path="contrastos-dhipòtesis-dun-i-dos-paràmetres.html"><a href="contrastos-dhipòtesis-dun-i-dos-paràmetres.html#exemples"><i class="fa fa-check"></i><b>6.1.4</b> Exemples</a></li>
+<li class="chapter" data-level="6.1.5" data-path="contrastos-dhipòtesis-dun-i-dos-paràmetres.html"><a href="contrastos-dhipòtesis-dun-i-dos-paràmetres.html#tests-no-paramètrics"><i class="fa fa-check"></i><b>6.1.5</b> Tests no paramètrics</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="contrastos-dhipòtesis-dun-i-dos-paràmetres.html"><a href="contrastos-dhipòtesis-dun-i-dos-paràmetres.html#sec:contrvar"><i class="fa fa-check"></i><b>6.2</b> Contrastos de variàncies</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="contrastos-dhipòtesis-dun-i-dos-paràmetres.html"><a href="contrastos-dhipòtesis-dun-i-dos-paràmetres.html#test-chi2-duna-variància"><i class="fa fa-check"></i><b>6.2.1</b> Test <span class="math inline">\(\chi^2\)</span> d’una variància</a></li>
+<li class="chapter" data-level="6.2.2" data-path="contrastos-dhipòtesis-dun-i-dos-paràmetres.html"><a href="contrastos-dhipòtesis-dun-i-dos-paràmetres.html#test-f-per-a-dues-variàncies"><i class="fa fa-check"></i><b>6.2.2</b> Test F per a dues variàncies</a></li>
+<li class="chapter" data-level="6.2.3" data-path="contrastos-dhipòtesis-dun-i-dos-paràmetres.html"><a href="contrastos-dhipòtesis-dun-i-dos-paràmetres.html#tests-no-paramètrics-1"><i class="fa fa-check"></i><b>6.2.3</b> Tests no paramètrics</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="contrastos-dhipòtesis-dun-i-dos-paràmetres.html"><a href="contrastos-dhipòtesis-dun-i-dos-paràmetres.html#contrastos-per-a-proporcions"><i class="fa fa-check"></i><b>6.3</b> Contrastos per a proporcions</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="contrastos-dhipòtesis-dun-i-dos-paràmetres.html"><a href="contrastos-dhipòtesis-dun-i-dos-paràmetres.html#contrastos-per-a-una-proporció"><i class="fa fa-check"></i><b>6.3.1</b> Contrastos per a una proporció</a></li>
+<li class="chapter" data-level="6.3.2" data-path="contrastos-dhipòtesis-dun-i-dos-paràmetres.html"><a href="contrastos-dhipòtesis-dun-i-dos-paràmetres.html#contrastos-per-a-2-proporcions-emprant-mostres-independents"><i class="fa fa-check"></i><b>6.3.2</b> Contrastos per a 2 proporcions emprant mostres independents</a></li>
+<li class="chapter" data-level="6.3.3" data-path="contrastos-dhipòtesis-dun-i-dos-paràmetres.html"><a href="contrastos-dhipòtesis-dun-i-dos-paràmetres.html#contrastos-per-a-2-proporcions-emprant-mostres-aparellades"><i class="fa fa-check"></i><b>6.3.3</b> Contrastos per a 2 proporcions emprant mostres aparellades</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="contrastos-dhipòtesis-dun-i-dos-paràmetres.html"><a href="contrastos-dhipòtesis-dun-i-dos-paràmetres.html#test-de-la-lliçó-6"><i class="fa fa-check"></i><b>6.4</b> Test de la lliçó 6</a></li>
 </ul></li>
 </ul>
 
@@ -204,10 +274,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="chap:varal" class="section level1" number="1">
-<h1><span class="header-section-number">Tema 1</span> Variables aleatòries</h1>
-<div id="generalitats-sobre-variables-aleatòries" class="section level2" number="1.1">
-<h2><span class="header-section-number">1.1</span> Generalitats sobre variables aleatòries</h2>
+<div id="chap:varal" class="section level1" number="2">
+<h1><span class="header-section-number">Tema 2</span> Variables aleatòries</h1>
+<div id="generalitats-sobre-variables-aleatòries" class="section level2" number="2.1">
+<h2><span class="header-section-number">2.1</span> Generalitats sobre variables aleatòries</h2>
 <p>Una <strong>variable aleatòria</strong> definida sobre una població <span class="math inline">\(\Omega\)</span> és simplement una funció
 <span class="math display">\[
 X: \Omega\to \mathbb{R}
@@ -276,16 +346,16 @@ X_1\leqslant a_1, X_2\leqslant a_2,\ldots, X_n\leqslant a_n
 \]</span>
 són independents. És a dir, quan el valor que pren una d’aquestes variables sobre un subjecte no afecta per res els valors que hi prenen les altres.</p>
 </div>
-<div id="variables-aleatòries-discretes" class="section level2" number="1.2">
-<h2><span class="header-section-number">1.2</span> Variables aleatòries discretes</h2>
+<div id="variables-aleatòries-discretes" class="section level2" number="2.2">
+<h2><span class="header-section-number">2.2</span> Variables aleatòries discretes</h2>
 <p>Una variable aleatòria és <strong>discreta</strong> quan els seus possibles valors són dades quantitatives discretes. Per exemple,</p>
 <ul>
 <li>Nombre de cares en 3 llançaments d’una moneda</li>
 <li>Nombre de fills d’una dona</li>
 <li>Nombre de casos nous de COVID-19 en un dia a Mallorca</li>
 </ul>
-<div id="densitat-i-distribució" class="section level3" number="1.2.1">
-<h3><span class="header-section-number">1.2.1</span> Densitat i distribució</h3>
+<div id="densitat-i-distribució" class="section level3" number="2.2.1">
+<h3><span class="header-section-number">2.2.1</span> Densitat i distribució</h3>
 <p>Sigui <span class="math inline">\(X: \Omega\to \mathbb{R}\)</span> una <strong>variable aleatòria discreta</strong>.</p>
 <ul>
 <li><p>El seu <strong>domini</strong> <span class="math inline">\(D_X\)</span> és el conjunt dels valors que pot prendre: més concretament, és el conjunt dels <span class="math inline">\(x\in \mathbb{R}\)</span> tals que <span class="math inline">\(P(X=x)&gt;0\)</span>.</p></li>
@@ -303,7 +373,7 @@ F_X(x)=P(X\leqslant x)
 </ul>
 
 <div class="example">
-<p><span id="exm:cars" class="example"><strong>Exemple 1.1  </strong></span>Sigui <span class="math inline">\(X\)</span> la variable aleatòria “Llançam 3 vegades una moneda equilibrada i comptam les cares”. Aleshores:</p>
+<p><span id="exm:cars" class="example"><strong>Exemple 2.1  </strong></span>Sigui <span class="math inline">\(X\)</span> la variable aleatòria “Llançam 3 vegades una moneda equilibrada i comptam les cares”. Aleshores:</p>
 </div>
 <ul>
 <li><p>El seu <strong>domini</strong> és el conjunt dels seus possibles valors: <span class="math inline">\(D_X=\{0,1,2,3\}\)</span>.</p></li>
@@ -331,7 +401,7 @@ f_X(x) =\left\{
 <div class="figure" style="text-align: center"><span id="fig:densicares"></span>
 <img src="Bioestadistica-II_files/figure-html/densicares-1.png" alt="Funció de densitat de la variable aleatòria que compta el nombre de cares en 3 llançaments" width="60%" />
 <p class="caption">
-Figura 1.1: Funció de densitat de la variable aleatòria que compta el nombre de cares en 3 llançaments
+Figura 2.1: Funció de densitat de la variable aleatòria que compta el nombre de cares en 3 llançaments
 </p>
 </div>
 
@@ -364,7 +434,7 @@ El seu gràfic és el següent:</p></li>
 <div class="figure" style="text-align: center"><span id="fig:districares"></span>
 <img src="Bioestadistica-II_files/figure-html/districares-1.png" alt="Funció de distribució de la variable aleatòria que compta el nombre de cares en 3 llançaments" width="60%" />
 <p class="caption">
-Figura 1.2: Funció de distribució de la variable aleatòria que compta el nombre de cares en 3 llançaments
+Figura 2.2: Funció de distribució de la variable aleatòria que compta el nombre de cares en 3 llançaments
 </p>
 </div>
 <p>Observau en aquest gràfic que aquesta funció de distribució <span class="math inline">\(F_X\)</span> és creixent i escalonada. Això és general. Si <span class="math inline">\(X\)</span> és una variable aleatòria discreta:</p>
@@ -408,7 +478,7 @@ F_X(x_0)=P(X\leqslant x_0)=\sum_{x\leqslant x_0} f_X(x)
 <p>La <strong>moda</strong> d’una variable aleatòria discreta <span class="math inline">\(X\)</span> és el valor (o els valors) <span class="math inline">\(x_0\)</span> tal que <span class="math inline">\(f_X(x_0)=P(X=x_0)\)</span> és màxim. Per tant, la moda és el valor de <span class="math inline">\(X\)</span> <strong>més probable</strong> o <strong>més freqüent</strong> en la població. Per exemple, per a la nostra variable aleatòria que compta el nombre de cares en 3 llançaments d’una moneda equilibrada, la moda són els valors 1 i 2.</p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-12" class="example"><strong>Exemple 1.2  </strong></span>Una variable aleatòria discreta <span class="math inline">\(X\)</span> és <strong>uniforme</strong> quan el seu domini <span class="math inline">\(D_X\)</span> és finit i tots els seus elements tenen la mateixa probabilitat. És a dir, si <span class="math inline">\(D_X\)</span> té <span class="math inline">\(m\)</span> elements, aleshores <span class="math inline">\(P(X=x)=1/m\)</span> per a cada <span class="math inline">\(x\in D_X\)</span>. Per exemple, el resultat de llançar un dau equilibrat és una variable aleatòria discreta.</p>
+<p><span id="exm:unnamed-chunk-36" class="example"><strong>Exemple 2.2  </strong></span>Una variable aleatòria discreta <span class="math inline">\(X\)</span> és <strong>uniforme</strong> quan el seu domini <span class="math inline">\(D_X\)</span> és finit i tots els seus elements tenen la mateixa probabilitat. És a dir, si <span class="math inline">\(D_X\)</span> té <span class="math inline">\(m\)</span> elements, aleshores <span class="math inline">\(P(X=x)=1/m\)</span> per a cada <span class="math inline">\(x\in D_X\)</span>. Per exemple, el resultat de llançar un dau equilibrat és una variable aleatòria discreta.</p>
 <p>Com que tots els resultats del domini d’una variable aleatòria discreta uniforme tenen la mateixa probabilitat, tots en són la moda (o cap no ho és, depèn de si veieu el tassó mig ple o mig buit).</p>
 </div>
 
@@ -422,8 +492,8 @@ F_X(x_0)=P(X\leqslant x_0)=\sum_{x\leqslant x_0} f_X(x)
 </ol>
 </div>
 </div>
-<div id="esperança" class="section level3" number="1.2.2">
-<h3><span class="header-section-number">1.2.2</span> Esperança</h3>
+<div id="esperança" class="section level3" number="2.2.2">
+<h3><span class="header-section-number">2.2.2</span> Esperança</h3>
 <p>Quan prenem una mostra d’una variable aleatòria <span class="math inline">\(X\)</span> definida sobre una població, podem calcular la mitjana i la desviació típica dels seus valors a fi i efecte d’obtenir una idea de quin és el valor central de la mostra i si els seus valors estan tots molt a prop d’aquest valor central o no. Naturalment, també ens podem preguntar per aquesta mena d’informació per al total de la població: Quin és el “valor mitjà” de <span class="math inline">\(X\)</span> sobre tota la població? Aquesta variable, pren valors molt dispersos, o més aviat els pren concentrats al voltant del seu valor mitjà? La primera pregunta la responem amb la <strong>mitjana</strong>, o <strong>esperança</strong>, de <span class="math inline">\(X\)</span>, i la segona amb la seva <strong>variància</strong> i la seva <strong>desviació típica</strong>. Comencem amb la primera.</p>
 <p>La <strong>mitjana</strong>, o <strong>esperança</strong> (o <strong>valor esperat</strong>, <strong>valor mitjà</strong>…), d’una variable aleatòria discreta <span class="math inline">\(X\)</span> amb densitat <span class="math inline">\(f_X:D_X\to [0,1]\)</span> és
 <span class="math display">\[
@@ -437,7 +507,7 @@ E(X)=\sum_{x\in D_X} x\cdot P(X=x)
 és la mitjana del valor de <span class="math inline">\(X\)</span> sobre tots els subjectes de <span class="math inline">\(\Omega\)</span>. Comparau-ho amb l’exemple següent.</p>
 
 <div class="example">
-<p><span id="exm:notes1" class="example"><strong>Exemple 1.3  </strong></span>Si, en una classe, un 10% dels estudiants han tret un 4 en un examen, un 20% un 6, un 50% un 8 i un 20% un 10, quina ha estat la nota mitjana obtinguda?</p>
+<p><span id="exm:notes1" class="example"><strong>Exemple 2.3  </strong></span>Si, en una classe, un 10% dels estudiants han tret un 4 en un examen, un 20% un 6, un 50% un 8 i un 20% un 10, quina ha estat la nota mitjana obtinguda?</p>
 </div>
 <p>Segurament calcularíeu aquesta mitjana de la manera següent:
 <span class="math display">\[
@@ -457,7 +527,7 @@ E(X)\!\!\!\!\! &amp;=4\cdot P(X=4)+6\cdot P(X=6)+8\cdot P(X=8)+10\cdot P(X=10)\\
 <p>És a dir: si mesuràssim <span class="math inline">\(X\)</span> sobre <strong>molts</strong> subjectes triats a l’atzar i calculàssim la mitjana dels valors obtinguts, és <strong>gairebé segur</strong> que obtendríem un valor <strong>molt proper</strong> a <span class="math inline">\(E(X)\)</span>.</p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-14" class="example"><strong>Exemple 1.4  </strong></span>Seguim amb la variable aleatòria <span class="math inline">\(X\)</span> “Llançam una moneda equilibrada 3 vegades i comptam les cares”. La seva esperança és
+<p><span id="exm:unnamed-chunk-38" class="example"><strong>Exemple 2.4  </strong></span>Seguim amb la variable aleatòria <span class="math inline">\(X\)</span> “Llançam una moneda equilibrada 3 vegades i comptam les cares”. La seva esperança és
 <span class="math display">\[
 E(X)= 0\cdot \frac{1}{8}+1\cdot \frac{3}{8}+2\cdot \frac{3}{8}+3\cdot \frac{1}{8}=1.5
 \]</span></p>
@@ -474,7 +544,7 @@ E(g(X))=\sum_{x\in D_X} g(x)\cdot f_X(x).
 Un altre cop, la interpretació natural d’aquest valor és que és la mitjana de <span class="math inline">\(g(X)\)</span> sobre la població, i també que és el valor “esperat” de <span class="math inline">\(g(X)\)</span> en el sentit anterior.</p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-15" class="example"><strong>Exemple 1.5  </strong></span>Si llançam una moneda equilibrada 3 vegades, comptam les cares i elevam aquest nombre de cares al quadrat, quin valor esperam obtenir?</p>
+<p><span id="exm:unnamed-chunk-39" class="example"><strong>Exemple 2.5  </strong></span>Si llançam una moneda equilibrada 3 vegades, comptam les cares i elevam aquest nombre de cares al quadrat, quin valor esperam obtenir?</p>
 </div>
 <p>Serà l’esperança de <span class="math inline">\(X^2\)</span>, on <span class="math inline">\(X\)</span> és la variable aleatòria “Llançam una moneda equilibrada 3 vegades i comptam les cares” (és a dir, aquesta <span class="math inline">\(X^2\)</span> és la variable aleatòria “Llançam una moneda equilibrada 3 vegades, comptam les cares i elevam aquest número al quadrat”):</p>
 <p><span class="math display">\[
@@ -514,8 +584,8 @@ Sí, ja sabem que parlar de variables constants és un oxímoron, però de vegad
 Siguin <span class="math inline">\(N\)</span> un nombre natural estrictament positiu i <span class="math inline">\(X\)</span> una variable aleatòria discreta uniforme amb domini <span class="math inline">\(D_X=\{1,\ldots,N\}\)</span>. Què val el seu valor esperat?
 </div>
 </div>
-<div id="variància-i-desviació-típica" class="section level3" number="1.2.3">
-<h3><span class="header-section-number">1.2.3</span> Variància i desviació típica</h3>
+<div id="variància-i-desviació-típica" class="section level3" number="2.2.3">
+<h3><span class="header-section-number">2.2.3</span> Variància i desviació típica</h3>
 <p>La <strong>variància</strong> d’una variable aleatòria discreta <span class="math inline">\(X\)</span> és
 <span class="math display">\[
 \sigma(X)^2 =E((X-\mu_X)^2) =\sum_{x\in D_X} (x-\mu_X)^2\cdot f_X(x)
@@ -525,7 +595,7 @@ Siguin <span class="math inline">\(N\)</span> un nombre natural estrictament pos
 <p>La identitat següent vos pot ser útil.</p>
 
 <div class="theorem">
-<p><span id="thm:unnamed-chunk-19" class="theorem"><strong>Teorema 1.1  </strong></span><span class="math inline">\(\sigma(X)^2=E(X^2)-\mu_X^2\)</span>.</p>
+<p><span id="thm:unnamed-chunk-43" class="theorem"><strong>Teorema 2.1  </strong></span><span class="math inline">\(\sigma(X)^2=E(X^2)-\mu_X^2\)</span>.</p>
 </div>
 
 <div class="rmdcorbes">
@@ -551,7 +621,7 @@ En el context de les variables aleatòries, no hi ha “variància” i “vari�
 <p>El motiu per introduir la variància <strong>i</strong> la desviació típica per mesurar la dispersió dels valors de <span class="math inline">\(X\)</span> és la mateixa que en estadística descriptiva: la variància és més fàcil de manejar (no involucra arrels quadrades) però les seves unitats són les de <span class="math inline">\(X\)</span> al quadrat, mentre que les unitats de la desviació típica són les de <span class="math inline">\(X\)</span>, i per tant el seu valor és més fàcil d’interpretar.</p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-22" class="example"><strong>Exemple 1.6  </strong></span>Seguim amb la variable aleatòria <span class="math inline">\(X\)</span> “Llançam una moneda equilibrada 3 vegades i comptam les cares”. Recordem que <span class="math inline">\(\mu_X=E(X)=1.5\)</span>. Aleshores, la seva variància és:</p>
+<p><span id="exm:unnamed-chunk-46" class="example"><strong>Exemple 2.6  </strong></span>Seguim amb la variable aleatòria <span class="math inline">\(X\)</span> “Llançam una moneda equilibrada 3 vegades i comptam les cares”. Recordem que <span class="math inline">\(\mu_X=E(X)=1.5\)</span>. Aleshores, la seva variància és:</p>
 </div>
 <p><span class="math display">\[
 \begin{array}{rl}
@@ -615,8 +685,8 @@ Si no són independents, en general aquesta igualtat és falsa. Per posar un exe
 \]</span></p></li>
 </ul>
 </div>
-<div id="quantils" class="section level3" number="1.2.4">
-<h3><span class="header-section-number">1.2.4</span> Quantils</h3>
+<div id="quantils" class="section level3" number="2.2.4">
+<h3><span class="header-section-number">2.2.4</span> Quantils</h3>
 <p>Sigui <span class="math inline">\(p\in [0,1]\)</span>. El <strong>quantil d’ordre <span class="math inline">\(p\)</span></strong> (o <strong><span class="math inline">\(p\)</span>-quantil</strong>) d’una variable aleatòria discreta <span class="math inline">\(X\)</span> és el valor <span class="math inline">\(x_p\in D_X\)</span> tal que <span class="math inline">\(P(X\leqslant x_p)\geqslant p\)</span> però <span class="math inline">\(P(X&lt; x_p)&lt;p\)</span>. És a dir, el valor <span class="math inline">\(x_p\in D_X\)</span> més petit tal que <span class="math inline">\(P(X\leqslant x_p)\geqslant p\)</span>.</p>
 <p>Per exemple, que el 0.25-quantil d’una variable aleatòria discreta <span class="math inline">\(X\)</span> sigui, jo què sé, 8, significa que almenys un 25% de la població té un valor de <span class="math inline">\(X\)</span> més petit o igual que 8, però menys d’un 25% de la població té un valor de <span class="math inline">\(X\)</span> estrictament més petit que 8. És a dir, 8 és el valor més petit per al qual la probabilitat acumulada arriba al 25%.</p>
 
@@ -635,7 +705,7 @@ Si no són independents, en general aquesta igualtat és falsa. Per posar un exe
 </ul>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-25" class="example"><strong>Exemple 1.7  </strong></span>Seguim amb la variable aleatòria <span class="math inline">\(X\)</span> “Llançam una moneda equilibrada 3 vegades i comptam les cares”. Recordem que la seva funció de distribució és</p>
+<p><span id="exm:unnamed-chunk-49" class="example"><strong>Exemple 2.7  </strong></span>Seguim amb la variable aleatòria <span class="math inline">\(X\)</span> “Llançam una moneda equilibrada 3 vegades i comptam les cares”. Recordem que la seva funció de distribució és</p>
 </div>
 <p><span class="math display">\[
 F_X(x)=\left\{
@@ -648,7 +718,7 @@ F_X(x)=\left\{
 \end{array}
 \right.
 \]</span></p>
-<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-26-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-50-1.png" width="60%" style="display: block; margin: auto;" /></p>
 <p>Llavors, per exemple:</p>
 <ul>
 <li><p>El seu 0.125-quantil és 0</p></li>
@@ -679,8 +749,8 @@ Siguin <span class="math inline">\(N\)</span> un nombre natural estrictament pos
 <p>Quan volguem destacar que una mitjana, una variància etc. són les d’una variable aleatòria sobre tota una població, les qualificarem de <strong>poblacionals</strong>.</p>
 </div>
 </div>
-<div id="famílies-importants-de-variables-aleatòries-discretes" class="section level2" number="1.3">
-<h2><span class="header-section-number">1.3</span> Famílies importants de variables aleatòries discretes</h2>
+<div id="famílies-importants-de-variables-aleatòries-discretes" class="section level2" number="2.3">
+<h2><span class="header-section-number">2.3</span> Famílies importants de variables aleatòries discretes</h2>
 <p>En aquesta secció descriurem tres famílies de variables aleatòries “distingides” que heu de conèixer:</p>
 <ul>
 <li>Binomial</li>
@@ -694,8 +764,8 @@ Siguin <span class="math inline">\(N\)</span> un nombre natural estrictament pos
 <li>Les seves propietats bàsiques, com ara quins són els seus paràmetres, quin és el seu valor esperat i si la seva densitat és simètrica o té una cua a qualque costat.</li>
 <li>Emprar R per calcular coses quan sigui necessari.</li>
 </ul>
-<div id="variables-aleatòries-binomials" class="section level3" number="1.3.1">
-<h3><span class="header-section-number">1.3.1</span> Variables aleatòries binomials</h3>
+<div id="variables-aleatòries-binomials" class="section level3" number="2.3.1">
+<h3><span class="header-section-number">2.3.1</span> Variables aleatòries binomials</h3>
 <p>Un <strong>experiment de Bernoulli</strong> és una acció amb només dos resultats possibles, que identificam amb “Èxit” (<span class="math inline">\(E\)</span>) i “Fracàs” (<span class="math inline">\(F\)</span>), i de la qual, en principi, no podem predir el seu resultat per mor de la influència de l’atzar. Per exemple, llançar un dau cúbic i mirar si ha sortit un 6 (<span class="math inline">\(E\)</span>: treure un 6; <span class="math inline">\(F\)</span>: no treure un 6).</p>
 <p>La <strong>probabilitat d’èxit</strong> <span class="math inline">\(p\)</span> d’un experiment de Bernoulli és la probabilitat d’obtenir un èxit <span class="math inline">\(E\)</span>. És a dir, <span class="math inline">\(P(E)=p\)</span>. Naturalment, llavors, <span class="math inline">\(P(F)=1-p\)</span>. A l’exemple del llançament d’un dau, on <span class="math inline">\(E\)</span> és treure un 6, <span class="math inline">\(p=1/6\)</span>.</p>
 <p>Més exemples d’experiments de Bernoulli:</p>
@@ -732,7 +802,7 @@ Tenim un subconjunt <span class="math inline">\(A\)</span> d’una població <sp
 <p>Tenim el resultat següent.</p>
 
 <div class="theorem">
-<p><span id="thm:unnamed-chunk-31" class="theorem"><strong>Teorema 1.2  </strong></span>Si <span class="math inline">\(X\)</span> és una variable <span class="math inline">\(B(n,p)\)</span>:</p>
+<p><span id="thm:unnamed-chunk-55" class="theorem"><strong>Teorema 2.2  </strong></span>Si <span class="math inline">\(X\)</span> és una variable <span class="math inline">\(B(n,p)\)</span>:</p>
 <ul>
 <li><p>El seu domini és <span class="math inline">\(D_X=\{0,1,\ldots,n\}\)</span></p></li>
 <li><p>La seva funció de densitat és
@@ -824,12 +894,12 @@ Saber coses estalvia temps.
 <p>En aquest cas farem la trampa de considerar-la binomial.</p></li>
 </ul>
 <p>Vegem alguns gràfics de la funció de densitat de variables aleatòries binomials. Primer, per a <span class="math inline">\(n=10\)</span> i diferents valors de <span class="math inline">\(p\)</span>.</p>
-<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-37-1.png" width="90%" style="display: block; margin: auto;" /></p>
+<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-61-1.png" width="90%" style="display: block; margin: auto;" /></p>
 <p>Ara per a <span class="math inline">\(n=100\)</span>:</p>
-<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-38-1.png" width="90%" style="display: block; margin: auto;" /></p>
+<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-62-1.png" width="90%" style="display: block; margin: auto;" /></p>
 <p>Com podeu veure, la moda d’una binomial <span class="math inline">\(B(n,p)\)</span> és la seva mitjana <span class="math inline">\(np\)</span> o, si aquest nombre no és enter, un dels dos enters que l’envolten.</p>
 <p>Si <span class="math inline">\(p=0.5\)</span>, la funció de densitat és simètrica respecte de <span class="math inline">\(n/2\)</span>: com que <span class="math inline">\(E\)</span> i <span class="math inline">\(F\)</span> tenen la mateixa probabilitat, 0.5, la probabilitat de treure <span class="math inline">\(k\)</span> <span class="math inline">\(E\)</span>’s és la mateixa que la de treure <span class="math inline">\(k\)</span> <span class="math inline">\(F\)</span>’s, és a dir, la de treure <span class="math inline">\(n-k\)</span> <span class="math inline">\(E\)</span>’s.</p>
-<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-39-1.png" width="90%" style="display: block; margin: auto;" /></p>
+<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-63-1.png" width="90%" style="display: block; margin: auto;" /></p>
 <p>En canvi, si <span class="math inline">\(p\neq 0.5\)</span>, la funció de densitat no és simètrica, com podeu veure als gràfics de més a dalt.</p>
 
 <div class="rmdexercici">
@@ -840,10 +910,10 @@ Saber coses estalvia temps.
 <div id="com-efectuar-càlculs-amb-una-variable-aleatòria-duna-família-donada" class="section level4 unnumbered">
 <h4>Com efectuar càlculs amb una variable aleatòria d’una família donada?</h4>
 <p>Una possibilitat és usar una aplicació de mòbil o tauleta. La nostra preferida és <em>Probability distributions</em>, disponible tant per a Android com per a iOS.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-41"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-65"></span>
 <img src="Bioestadistica-II_files/figure-html/appprobdistr.png" alt="L'apli *Probability Distributions*." width="80%" />
 <p class="caption">
-Figura 1.3: L’apli <em>Probability Distributions</em>.
+Figura 2.3: L’apli <em>Probability Distributions</em>.
 </p>
 </div>
 <p>Una altra possibilitat és usar R. R coneix totes la distribucions de variables aleatòries importants; per exemple, per a R la binomial és <code>binom</code>. Aleshores</p>
@@ -859,65 +929,65 @@ Figura 1.3: L’apli <em>Probability Distributions</em>.
 <li><p>Si llançam 20 vegades un dau cúbic equilibrat, quina és la probabilitat de treure exactament 5 uns?</p>
 <p>Diguem <span class="math inline">\(X\)</span> a la variable aleatòria que compta el nombre d’uns en seqüències de 20 llançaments d’un dau equilibrat. És una variable binomial <span class="math inline">\(B(20,1/6)\)</span>. Ens demanen <span class="math inline">\(P(X=5)\)</span>, i aquesta probabilitat ens la dóna la funció de densitat de <span class="math inline">\(X\)</span>. És <span class="math inline">\(f_X(5)\)</span>:</p></li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="chap-varal.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dbinom</span>(<span class="dv">5</span>,<span class="dv">20</span>,<span class="dv">1</span><span class="sc">/</span><span class="dv">6</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="chap-varal.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dbinom</span>(<span class="dv">5</span>,<span class="dv">20</span>,<span class="dv">1</span><span class="sc">/</span><span class="dv">6</span>)</span></code></pre></div>
 <pre><code>## [1] 0.1294103</code></pre>
 <ul>
 <li><p>Si llançam 20 vegades un dau cúbic equilibrat, quina és la probabilitat de treure com a màxim 5 uns?</p>
 <p>Amb les notacions anteriors, ens demanen <span class="math inline">\(P(X\leqslant 5)\)</span>, i aquesta probabilitat ens la dóna la funció de distribució de <span class="math inline">\(X\)</span>. És <span class="math inline">\(F_X(5)\)</span>:</p></li>
 </ul>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="chap-varal.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pbinom</span>(<span class="dv">5</span>,<span class="dv">20</span>,<span class="dv">1</span><span class="sc">/</span><span class="dv">6</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="chap-varal.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pbinom</span>(<span class="dv">5</span>,<span class="dv">20</span>,<span class="dv">1</span><span class="sc">/</span><span class="dv">6</span>)</span></code></pre></div>
 <pre><code>## [1] 0.8981595</code></pre>
 <ul>
 <li><p>Si llançam 20 vegades un dau cúbic equilibrat, quina és la probabilitat de treure menys de 5 uns?</p>
 <p>Amb les notacions anteriors, ens demanen <span class="math inline">\(P(X&lt; 5)\)</span>, és a dir, <span class="math inline">\(P(X\leqslant 4)=F_X(4)\)</span>:</p></li>
 </ul>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="chap-varal.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pbinom</span>(<span class="dv">4</span>,<span class="dv">20</span>,<span class="dv">1</span><span class="sc">/</span><span class="dv">6</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="chap-varal.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pbinom</span>(<span class="dv">4</span>,<span class="dv">20</span>,<span class="dv">1</span><span class="sc">/</span><span class="dv">6</span>)</span></code></pre></div>
 <pre><code>## [1] 0.7687492</code></pre>
 <ul>
 <li><p>Si llançam 20 vegades un dau cúbic equilibrat, quina és la probabilitat de treure 8 uns o més?</p>
 <p>Amb les notacions anteriors, ens demanen <span class="math inline">\(P(X\geqslant 8)\)</span>. Com que el contrari de treure 8 uns o més és treure 7 uns o menys, tenim que <span class="math inline">\(P(X\geqslant 8)=1-P(X\leqslant 7)=1-F_X(7)\)</span>:</p></li>
 </ul>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="chap-varal.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">-</span><span class="fu">pbinom</span>(<span class="dv">7</span>,<span class="dv">20</span>,<span class="dv">1</span><span class="sc">/</span><span class="dv">6</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="chap-varal.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">-</span><span class="fu">pbinom</span>(<span class="dv">7</span>,<span class="dv">20</span>,<span class="dv">1</span><span class="sc">/</span><span class="dv">6</span>)</span></code></pre></div>
 <pre><code>## [1] 0.01125328</code></pre>
 <ul>
 <li>Si llançam 20 vegades un dau equilibrat, quin és el més petit nombre <span class="math inline">\(N\)</span> d’uns per al qual la probabilitat de treure com a màxim <span class="math inline">\(N\)</span> uns arriba al 25%? Ens demanen el més petit valor <span class="math inline">\(N\)</span> tal que <span class="math inline">\(P(X\leqslant N)\geqslant 0.25\)</span>, i això per definició és el 0.25-quantil de <span class="math inline">\(X\)</span>:</li>
 </ul>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="chap-varal.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qbinom</span>(<span class="fl">0.25</span>,<span class="dv">20</span>,<span class="dv">1</span><span class="sc">/</span><span class="dv">6</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="chap-varal.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qbinom</span>(<span class="fl">0.25</span>,<span class="dv">20</span>,<span class="dv">1</span><span class="sc">/</span><span class="dv">6</span>)</span></code></pre></div>
 <pre><code>## [1] 2</code></pre>
 <p>Vegem que en efecte <span class="math inline">\(N=2\)</span> compleix el demanat: la probabilitat de treure com a màxim 2 uns és</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="chap-varal.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pbinom</span>(<span class="dv">2</span>,<span class="dv">20</span>,<span class="dv">1</span><span class="sc">/</span><span class="dv">6</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="chap-varal.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pbinom</span>(<span class="dv">2</span>,<span class="dv">20</span>,<span class="dv">1</span><span class="sc">/</span><span class="dv">6</span>)</span></code></pre></div>
 <pre><code>## [1] 0.3286591</code></pre>
 <p>i la probabilitat de treure’n com a màxim 1 és</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="chap-varal.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pbinom</span>(<span class="dv">1</span>,<span class="dv">20</span>,<span class="dv">1</span><span class="sc">/</span><span class="dv">6</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="chap-varal.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pbinom</span>(<span class="dv">1</span>,<span class="dv">20</span>,<span class="dv">1</span><span class="sc">/</span><span class="dv">6</span>)</span></code></pre></div>
 <pre><code>## [1] 0.1304203</code></pre>
 <p>Veiem per tant que amb 1 no arribam al 25% de probabilitat i amb 2 sí.</p>
 <ul>
 <li>Volem simular 50 rondes de llançar 20 vegades un dau equilibrat i comptar els uns, és a dir, volem una mostra aleatòria de mida 50 de la nostra variable <span class="math inline">\(X\)</span>:</li>
 </ul>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="chap-varal.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rbinom</span>(<span class="dv">50</span>,<span class="dv">20</span>,<span class="dv">1</span><span class="sc">/</span><span class="dv">6</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="chap-varal.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rbinom</span>(<span class="dv">50</span>,<span class="dv">20</span>,<span class="dv">1</span><span class="sc">/</span><span class="dv">6</span>)</span></code></pre></div>
 <pre><code>##  [1] 2 5 1 6 2 3 5 5 7 4 3 4 4 2 3 5 3 1 3 4 3 3 4 2 5 4 4 3 6 2 7 4 2 2 6 3 8 4
 ## [39] 5 6 4 3 1 3 2 1 3 4 2 0</code></pre>
 <p>Cada vegada que repetim aquesta instrucció segurament obtendrem una mostra aleatòria nova:</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="chap-varal.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rbinom</span>(<span class="dv">50</span>,<span class="dv">20</span>,<span class="dv">1</span><span class="sc">/</span><span class="dv">6</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="chap-varal.html#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rbinom</span>(<span class="dv">50</span>,<span class="dv">20</span>,<span class="dv">1</span><span class="sc">/</span><span class="dv">6</span>)</span></code></pre></div>
 <pre><code>##  [1] 5 4 3 2 2 1 6 6 2 1 4 3 6 5 5 4 1 3 1 1 6 3 3 2 4 5 3 2 4 6 4 3 4 5 1 2 6 4
 ## [39] 4 3 3 5 2 1 3 5 5 4 0 1</code></pre>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="chap-varal.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rbinom</span>(<span class="dv">50</span>,<span class="dv">20</span>,<span class="dv">1</span><span class="sc">/</span><span class="dv">6</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="chap-varal.html#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rbinom</span>(<span class="dv">50</span>,<span class="dv">20</span>,<span class="dv">1</span><span class="sc">/</span><span class="dv">6</span>)</span></code></pre></div>
 <pre><code>##  [1] 1 2 3 4 5 4 3 5 3 0 4 5 3 2 3 2 2 2 0 3 1 2 1 2 5 6 4 4 4 4 8 3 1 3 2 5 6 3
 ## [39] 0 5 3 1 3 5 2 4 3 4 1 2</code></pre>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="chap-varal.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rbinom</span>(<span class="dv">50</span>,<span class="dv">20</span>,<span class="dv">1</span><span class="sc">/</span><span class="dv">6</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="chap-varal.html#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rbinom</span>(<span class="dv">50</span>,<span class="dv">20</span>,<span class="dv">1</span><span class="sc">/</span><span class="dv">6</span>)</span></code></pre></div>
 <pre><code>##  [1] 6 2 4 2 3 3 2 3 2 7 5 4 4 2 4 3 1 7 5 6 3 3 2 2 2 2 2 1 3 5 6 5 6 2 6 2 5 5
 ## [39] 3 2 4 4 2 2 4 8 4 5 4 4</code></pre>
 </div>
 </div>
-<div id="variables-aleatòries-hipergeomètriques" class="section level3" number="1.3.2">
-<h3><span class="header-section-number">1.3.2</span> Variables aleatòries hipergeomètriques</h3>
+<div id="variables-aleatòries-hipergeomètriques" class="section level3" number="2.3.2">
+<h3><span class="header-section-number">2.3.2</span> Variables aleatòries hipergeomètriques</h3>
 <p>Recordau que el paradigma de variable aleatòria binomial és: tenc una població amb una proporció <span class="math inline">\(p\)</span> de subjectes que satisfan una condició <span class="math inline">\(E\)</span>, en prenc una mostra aleatòria simple de mida <span class="math inline">\(n\)</span> i compt el nombre de subjectes <span class="math inline">\(E\)</span> en la meva mostra. Si canviam “mostra aleatòria simple” per “mostra aleatòria sense reposició”, la distribució de la variable aleatòria que obtenim és una altra: és <strong>hipergeomètrica</strong>.</p>
 <p>Una variable aleatòria és <strong>hipergeomètrica</strong> (o té <strong>distribució hipergeomètrica</strong>) <strong>de paràmetres <span class="math inline">\(N\)</span>, <span class="math inline">\(M\)</span> i <span class="math inline">\(n\)</span></strong> (abreujadament, <span class="math inline">\(H(N,M,n)\)</span>) quan es pot identificar amb el procés següent. Tenim una població formada per <span class="math inline">\(N\)</span> subjectes que satisfan una condició <span class="math inline">\(E\)</span> i <span class="math inline">\(M\)</span> subjectes que no la satisfan (per tant, en total, <span class="math inline">\(N+M\)</span> subjectes), prenem una mostra aleatòria <strong>sense reposició</strong> de mida <span class="math inline">\(n\)</span> i comptam el nombre de subjectes <span class="math inline">\(E\)</span> en aquesta mostra.</p>
 <p>Direm a <span class="math inline">\(N\)</span> el <strong>nombre poblacional d’èxits</strong>, a <span class="math inline">\(M\)</span> el <strong>nombre poblacional de fracassos</strong> i a <span class="math inline">\(n\)</span> la <strong>mida de les mostres</strong>. Fixau-vos llavors que <span class="math inline">\(N+M\)</span> és la <strong>mida total de la població</strong> i que <span class="math inline">\(N/(N+M)\)</span> és la <strong>probabilitat poblacional d’èxit</strong> (la fracció de subjectes que satisfan <span class="math inline">\(E\)</span> en el total de la població). Amb R, igual que la distribució binomial era <code>binom</code>, la distribució hipergeomètrica és <code>hyper</code>.</p>
 <p>Tenim el resultat següent:</p>
 
 <div class="theorem">
-<p><span id="thm:unnamed-chunk-51" class="theorem"><strong>Teorema 1.3  </strong></span>Si <span class="math inline">\(X\)</span> és una variable <span class="math inline">\(H(N,M,n)\)</span>:</p>
+<p><span id="thm:unnamed-chunk-75" class="theorem"><strong>Teorema 2.3  </strong></span>Si <span class="math inline">\(X\)</span> és una variable <span class="math inline">\(H(N,M,n)\)</span>:</p>
 <ul>
 <li><p>El seu domini és <span class="math inline">\(D_X=\{0,1,\ldots,\text{min}(N,n)\}\)</span></p></li>
 <li><p>La seva funció de densitat és
@@ -954,7 +1024,11 @@ E(X)=np.
 <span class="math display">\[
 \sigma(X)^2=n\cdot\dfrac{N}{N+M}\cdot\dfrac{M}{N+M}\cdot\frac{N+M-n}{N+M-1}=np(1-p)\cdot\dfrac{\mathbf{P}-n}{\mathbf{P}-1}
 \]</span>
-que és la variància d’una variable <span class="math inline">\(B(n,p)\)</span> multiplicada per un factor de correcció a causa del fet que ara prenem mostres sense repetició i la variància és més petita que si les prenem amb repetició. A aquest factor <span class="math inline">\((\mathbf{P}-n)/(\mathbf{P}-1)\)</span> se’n diu <strong>factor de població finita</strong>.</p>
+que és la variància d’una variable <span class="math inline">\(B(n,p)\)</span> multiplicada per un factor de correcció a causa del fet que ara prenem mostres sense repetició i la variància és més petita que si les prenem amb repetició. A l’arrel quadrada d’aquest factor
+<span class="math display">\[
+\sqrt{\frac{\mathbf{P}-n}{\mathbf{P}-1}}
+\]</span>
+se l’anomena <strong>factor de població finita</strong>.</p>
 <p>Fixau-vos que si <span class="math inline">\(\mathbf{P}\)</span> és molt més gran que <span class="math inline">\(n\)</span>, tendrem que <span class="math inline">\(\mathbf{P}-n\approx \mathbf{P}-1\)</span> i per tant <span class="math inline">\((\mathbf{P}-n)/(\mathbf{P}-1)\approx 1\)</span> i la variància de la hipergeomètrica serà aproximadament la de la binomial. Això és consistent amb el que ja hem comentat: si la població és molt més gran que la mostra, prendre les mostres amb o sense reposició no afecta massa a les mostres obtingudes, per la qual cosa la distribució de probabilitat ha de ser molt semblant.
 Recordau els exemples següents:</p>
 <ul>
@@ -972,10 +1046,10 @@ Pràcticament 1. En canvi:</p></li>
 No és correcte aproximar-la per una binomial <span class="math inline">\(B(10,0.1)\)</span>.</p></li>
 </ul>
 <p>El gràfic següent compara la funció de densitat d’una variable <span class="math inline">\(B(10,0.1)\)</span> amb les de variables hipergeomètriques <span class="math inline">\(H(5,45,10)\)</span>, <span class="math inline">\(H(50,450,10)\)</span> i <span class="math inline">\(H(5000,45000,10)\)</span> perquè vegeu com a mesura que la mida de la població creix (mantenint constant la proporció poblacional d’èxits), la distribució hipergeomètrica s’aproxima a la binomial.</p>
-<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-53-1.png" width="50%" style="display: block; margin: auto;" /></p>
+<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-77-1.png" width="50%" style="display: block; margin: auto;" /></p>
 </div>
-<div id="variables-aleatòries-de-poisson" class="section level3" number="1.3.3">
-<h3><span class="header-section-number">1.3.3</span> Variables aleatòries de Poisson</h3>
+<div id="variables-aleatòries-de-poisson" class="section level3" number="2.3.3">
+<h3><span class="header-section-number">2.3.3</span> Variables aleatòries de Poisson</h3>
 <p>Una variable aleatòria <span class="math inline">\(X\)</span> és <strong>de Poisson</strong> (o <strong>té distribució de Poisson</strong>) <strong>de paràmetre <span class="math inline">\(\lambda&gt;0\)</span></strong> (abreujadament, <span class="math inline">\(Po(\lambda)\)</span>) quan:</p>
 <ul>
 <li><p>El seu <strong>domini</strong> és <span class="math inline">\(D_X=\mathbb{N}\)</span>, el conjunt de tots els nombres naturals (és a dir, pot prendre com a valor qualsevol nombre natural).</p></li>
@@ -992,7 +1066,7 @@ e^{-\lambda}\cdot \dfrac{\lambda^k}{k!} &amp; \text{ si $k\in \mathbb{N}$}\\
 <p>Per a R, la distribució de Poisson és <code>pois</code>.</p>
 
 <div class="theorem">
-<p><span id="thm:unnamed-chunk-54" class="theorem"><strong>Teorema 1.4  </strong></span>Si <span class="math inline">\(X\)</span> és una variable <span class="math inline">\(Po(\lambda)\)</span>, aleshores <span class="math inline">\(E(X)= \sigma(X)^2= \lambda\)</span>.</p>
+<p><span id="thm:unnamed-chunk-78" class="theorem"><strong>Teorema 2.4  </strong></span>Si <span class="math inline">\(X\)</span> és una variable <span class="math inline">\(Po(\lambda)\)</span>, aleshores <span class="math inline">\(E(X)= \sigma(X)^2= \lambda\)</span>.</p>
 </div>
 <p>És a dir, el paràmetre <span class="math inline">\(\lambda\)</span> d’una variable de Poisson és el seu valor esperat, i coincideix amb la seva variància.</p>
 <p>Us deveu estar demanant: per a què ens serveix definir una variable de Poisson mitjançant la seva densitat, si el que ens interessa és poder classificar una variable com a Poisson (o binomial, o hipergeomètrica etc.) per a així saber “gratis” la seva densitat? La resposta és que la família de Poisson inclou un tipus de variables aleatòries molt freqüent que tot seguit descrivim.</p>
@@ -1021,7 +1095,7 @@ En aquesta situació, la variable <span class="math inline">\(X_t\)</span> que p
 </ul>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-56" class="example"><strong>Exemple 1.8  </strong></span>Observau la diferència entre les dues variables següents:</p>
+<p><span id="exm:unnamed-chunk-80" class="example"><strong>Exemple 2.8  </strong></span>Observau la diferència entre les dues variables següents:</p>
 <ul>
 <li><p>Nombres mensuals de defuncions per un tipus de càncer en un país. El moment exacte de les defuncions es produeix a l’atzar, segurament mai no es donen dues defuncions exactament en el mateix instant, si els poguéssim mesurar amb precisió infinita, i les defuncions es produeixen de manera independent. És de Poisson.</p></li>
 <li><p>Nombres mensuals de defuncions per una malatia infecciosa en un país. Un altre cop, el moment exacte de les defuncions es produeix a l’atzar i segurament mai no es donen dues defuncions exactament en el mateix instant, si els poguéssim mesurar amb precisió infinita. Però les infeccions no són independents, precisament perquè es tracta d’una malaltia infecciosa, i per tant les defuncions tampoc: com ens hem cansat d’observar amb la COVID-19, en un mateix <em>cluster</em> de la malaltia es poden produir diverses morts associades. No és de Poisson.</p></li>
@@ -1032,7 +1106,7 @@ En aquesta situació, la variable <span class="math inline">\(X_t\)</span> que p
 Com que les aparicions dels objectes que compta una variable de Poisson són aleatòries i independents, el nombre mitjà d’objectes és lineal en la mida de la regió. És a dir, per exemple, en un interval de dos dies esperam veure el doble d’objectes que en un dia, i en una setmana 7 vegades els d’un dia.
 </div>
 <p>Vegem alguns gràfics de la funció de densitat de variables aleatòries de Poisson.</p>
-<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-58-1.png" width="90%" style="display: block; margin: auto;" /></p>
+<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-82-1.png" width="90%" style="display: block; margin: auto;" /></p>
 <p>Com veieu, la densitat d’una variable Poisson és asimètrica, amb un màxim al voltant de <span class="math inline">\(\lambda\)</span> i una cua a la dreta, però a mida que <span class="math inline">\(\lambda\)</span> creix, l’asimetria va minvant.</p>
 
 <div class="rmdexercici">
@@ -1040,8 +1114,8 @@ El nombre d’estudiants que entren en el bar del vostre edifici al Campus en un
 </div>
 </div>
 </div>
-<div id="variables-aleatòries-contínues" class="section level2" number="1.4">
-<h2><span class="header-section-number">1.4</span> Variables aleatòries contínues</h2>
+<div id="variables-aleatòries-contínues" class="section level2" number="2.4">
+<h2><span class="header-section-number">2.4</span> Variables aleatòries contínues</h2>
 <p>Una variable aleatòria és <strong>contínua</strong> quan els seus possibles valors són dades quantitatives contínues. Per exemple:</p>
 <ul>
 <li>Pes</li>
@@ -1093,8 +1167,8 @@ P(X\leqslant a)=P(X&lt;a)+P(X=a)=P(X&lt;a)+0=P(X&lt;a).
 <li><span class="math inline">\(P(X\geqslant a)=P(X&gt; a)+P(X=a)=P(X&gt; a)\)</span></li>
 <li><span class="math inline">\(P(a \leqslant X\leqslant b)=P(a&lt;X &lt;b)+P(X=a)+P(X=b)\)</span> <span class="math inline">\(=P(a&lt;X &lt;b)\)</span></li>
 </ul>
-<div id="densitat-i-distribució-1" class="section level3" number="1.4.1">
-<h3><span class="header-section-number">1.4.1</span> Densitat i distribució</h3>
+<div id="densitat-i-distribució-1" class="section level3" number="2.4.1">
+<h3><span class="header-section-number">2.4.1</span> Densitat i distribució</h3>
 <p>Sigui <span class="math inline">\(X\)</span> una variable aleatòria contínua. Com ja hem dit, la seva <strong>funció de distribució</strong> <span class="math inline">\(F_X\)</span> torna a ser
 <span class="math display">\[
 x\mapsto F_X(x)=P(X\leqslant x)
@@ -1125,9 +1199,9 @@ F_X(a)=\sum_{x\leqslant a} f_X(x)
 <li>Si <span class="math inline">\(a\)</span> és un extrem d’una classe, la freqüència relativa acumulada fins <span class="math inline">\(a\)</span> (la <strong>probabilitat</strong> que <span class="math inline">\(X\leqslant a\)</span>) és la suma de les àrees de les barres a l’esquerra d’<span class="math inline">\(a\)</span>.</li>
 </ul>
 <p>Si dibuixam els histogrames de <span class="math inline">\(X\)</span> prenent classes cada vegada més estretes, els seus polígons de freqüències tendeixen a dibuixar una corba, que hem acolorit en vermell en el darrer histograma de la seqüència següent:</p>
-<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-65-1.png" width="100%" style="display: block; margin: auto;" /></p>
+<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-89-1.png" width="100%" style="display: block; margin: auto;" /></p>
 <p>Quan l’amplada de les classes tendeix a 0, obtenim una corba que és el límit d’aquests polígons de freqüències:</p>
-<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-66-1.png" width="50%" style="display: block; margin: auto;" /></p>
+<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-90-1.png" width="50%" style="display: block; margin: auto;" /></p>
 <p>En el límit, la probabilitat que <span class="math inline">\(X\leqslant a\)</span> serà el límit de les sumes de les àrees de les barres a l’esquerra d’<span class="math inline">\(a\)</span>, i per tant l’àrea sota aquesta corba límit a l’esquerra d’<span class="math inline">\(a\)</span>. Això ens diu que que aquesta corba és precisament la funció de densitat <span class="math inline">\(y=f_X(x)\)</span>.</p>
 
 <div class="rmdimportant">
@@ -1140,7 +1214,7 @@ La <strong>funció de densitat</strong> <span class="math inline">\(f_X\)</span>
 </ul>
 <p><img src="Bioestadistica-II_files/figure-html/entreaib.png" width="60%" style="display: block; margin: auto;" /></p>
 <ul>
-<li><p>Si <span class="math inline">\(\varepsilon&gt;0\)</span> és molt, molt petit, l’àrea sota la corba <span class="math inline">\(y=f_X(x)\)</span> entre <span class="math inline">\(a-\varepsilon\)</span> i <span class="math inline">\(a+\varepsilon\)</span> és aproximadament igual a la del rectangle de base l’interval <span class="math inline">\([a-\varepsilon,a+\varepsilon]\)</span> i alçada <span class="math inline">\(f_X(a)\)</span>, és a dir, a <span class="math inline">\(2\varepsilon\cdot f_X(a)\)</span> (vegeu la Figura <a href="chap-varal.html#fig:epsilon">1.4</a>). És a dir,
+<li><p>Si <span class="math inline">\(\varepsilon&gt;0\)</span> és molt, molt petit, l’àrea sota la corba <span class="math inline">\(y=f_X(x)\)</span> entre <span class="math inline">\(a-\varepsilon\)</span> i <span class="math inline">\(a+\varepsilon\)</span> és aproximadament igual a la del rectangle de base l’interval <span class="math inline">\([a-\varepsilon,a+\varepsilon]\)</span> i alçada <span class="math inline">\(f_X(a)\)</span>, és a dir, a <span class="math inline">\(2\varepsilon\cdot f_X(a)\)</span> (vegeu la Figura <a href="chap-varal.html#fig:epsilon">2.4</a>). És a dir,
 <span class="math display">\[
 P(a-\varepsilon\leqslant X\leqslant a+\varepsilon)\approx 2\varepsilon\cdot f_X(a).
 \]</span></p>
@@ -1149,7 +1223,7 @@ P(a-\varepsilon\leqslant X\leqslant a+\varepsilon)\approx 2\varepsilon\cdot f_X(
 <div class="figure" style="text-align: center"><span id="fig:epsilon"></span>
 <img src="Bioestadistica-II_files/figure-html/density.png" alt="L'àrea sota la corba al voltant d'$a$ és aproximadament igual a la del rectangle d'alçada f~X~(a)" width="60%" />
 <p class="caption">
-Figura 1.4: L’àrea sota la corba al voltant d’<span class="math inline">\(a\)</span> és aproximadament igual a la del rectangle d’alçada f<sub>X</sub>(a)
+Figura 2.4: L’àrea sota la corba al voltant d’<span class="math inline">\(a\)</span> és aproximadament igual a la del rectangle d’alçada f<sub>X</sub>(a)
 </p>
 </div>
 
@@ -1166,15 +1240,15 @@ Però <span class="math inline">\(P(X=a)=P(X=b)=0\)</span>, així que, per favor
 En realitat, que <span class="math inline">\(f_X(x)\)</span> sigui <span class="math inline">\(\geqslant 0\)</span> per a tot <span class="math inline">\(x\in \mathbb{R}\)</span> és conseqüència del fet que la funció <span class="math inline">\(F_X(x)\)</span> sigui positiva i creixent (les funcions de distribució són sempre creixents, perquè si <span class="math inline">\(x&lt;y\)</span>, <span class="math inline">\(F_X(x)=P(X\leqslant x)\leqslant P(X\leqslant y)=F_X(y)\)</span>) i coincideixi amb <span class="math inline">\(\int_{-\infty}^x f_X(x)\,dx\)</span>. Però és més senzill donar-ho com a part de la definició i així ens estalviam la demostració.
 </div>
 <ul>
-<li><span class="math inline">\(f_X(x)\)</span> no és una probabilitat, i per tant pot ser més gran que 1. Per exemple, el gràfic següent mostra la densitat d’una variable normal <span class="math inline">\(N(0,0.01)\)</span> (vegeu la Secció <a href="chap-varal.html#sec:normal">1.5</a>), que arriba a valer gairebé 40.</li>
+<li><span class="math inline">\(f_X(x)\)</span> no és una probabilitat, i per tant pot ser més gran que 1. Per exemple, el gràfic següent mostra la densitat d’una variable normal <span class="math inline">\(N(0,0.01)\)</span> (vegeu la Secció <a href="chap-varal.html#sec:normal">2.5</a>), que arriba a valer gairebé 40.</li>
 </ul>
-<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-71-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-95-1.png" width="60%" style="display: block; margin: auto;" /></p>
 <ul>
 <li>La funció de densitat <span class="math inline">\(f_X\)</span> no té per què ser contínua, malgrat la funció de distribució <span class="math inline">\(F_X\)</span> ho sigui.</li>
 </ul>
 </div>
-<div id="esperança-variància-quantils" class="section level3" number="1.4.2">
-<h3><span class="header-section-number">1.4.2</span> Esperança, variància, quantils…</h3>
+<div id="esperança-variància-quantils" class="section level3" number="2.4.2">
+<h3><span class="header-section-number">2.4.2</span> Esperança, variància, quantils…</h3>
 <p>L’esperança i la variància d’una variable aleatòria contínua <span class="math inline">\(X\)</span>, amb funció de densitat <span class="math inline">\(f_X\)</span>, es defineixen com en el cas discret, substituint la suma <span class="math inline">\(\sum_{x\in D_x}\)</span> per una integral, i tenen les mateixes propietats.</p>
 <p>La <strong>mitjana</strong>, o <strong>esperança</strong> (o <strong>valor mitjà</strong>, <strong>valor esperat</strong>…), de <span class="math inline">\(X\)</span> és
 <span class="math display">\[
@@ -1242,8 +1316,8 @@ Observau que, com que <span class="math inline">\(F_X(x)\)</span> tendeix a 0 (l
 <p>La <strong>mediana</strong> de <span class="math inline">\(X\)</span> és el seu 0.5-quantil, el <strong>primer</strong> i <strong>tercer quartils</strong> són el seu 0.25-quantil i el seu 0.75-quantil, etc.</p>
 </div>
 </div>
-<div id="sec:normal" class="section level2" number="1.5">
-<h2><span class="header-section-number">1.5</span> Variables aleatòries normals</h2>
+<div id="sec:normal" class="section level2" number="2.5">
+<h2><span class="header-section-number">2.5</span> Variables aleatòries normals</h2>
 <p>Una variable aleatòria contínua <span class="math inline">\(X\)</span> és <strong>normal</strong> (o <strong>té distribució normal</strong>) <strong>de paràmetres <span class="math inline">\(\mu\)</span> i <span class="math inline">\(\sigma\)</span></strong> (per abreujar, <span class="math inline">\(N(\mu,\sigma)\)</span>) quan la seva funció de densitat és
 <span class="math display">\[
 f_{X}(x)=\frac{1}{\sqrt{2\pi}\sigma} e^{{-(x-\mu)^2}/(2\sigma^{2})}
@@ -1258,10 +1332,10 @@ f_{X}(x)=\frac{1}{\sqrt{2\pi}\sigma} e^{{-(x-\mu)^2}/(2\sigma^{2})}
 </ul>
 <p>Una variable aleatòria normal diem que és <strong>estàndard</strong> (o <strong>típica</strong>) quan és <span class="math inline">\(N(0,1)\)</span>. Normalment indicarem les variables normals estàndard amb <span class="math inline">\(Z\)</span>. Observau, doncs, que si <span class="math inline">\(Z\)</span> és normal estàndard, <span class="math inline">\(\mu_Z=0\)</span> i <span class="math inline">\(\sigma_Z=1\)</span>.</p>
 <p>La gràfica de la densitat d’una variable aleatòria normal és la famosa <strong>campana de Gauss</strong>:</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-75"></span>
-<img src="Bioestadistica-II_files/figure-html/unnamed-chunk-75-1.png" alt="Densitat d'una variable normal estàndard" width="50%" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-99"></span>
+<img src="Bioestadistica-II_files/figure-html/unnamed-chunk-99-1.png" alt="Densitat d'una variable normal estàndard" width="50%" />
 <p class="caption">
-Figura 1.5: Densitat d’una variable normal estàndard
+Figura 2.5: Densitat d’una variable normal estàndard
 </p>
 </div>
 <p>La distribució normal és una distribució teòrica, no la trobareu exacta en la vida real. I malgrat el seu nom, no és més “normal” que altres distribucions contínues.</p>
@@ -1272,20 +1346,20 @@ Figura 1.5: Densitat d’una variable normal estàndard
 </blockquote>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-77" class="example"><strong>Exemple 1.9  </strong></span>Una variable binomial <span class="math inline">\(B(n,p)\)</span> s’obté prenent <span class="math inline">\(n\)</span> mesures independents d’una variable Bernoulli <span class="math inline">\(Be(p)\)</span> i sumant-les. Per tant, per la “regla” anterior, una <span class="math inline">\(B(n,p)\)</span> hauria de ser aproximadament normal si <span class="math inline">\(n\)</span> és gran. Doncs sí, si <span class="math inline">\(n\)</span> és gran (posem a partir de 40, encara que si <span class="math inline">\(p\)</span> és molt propera a 0 o 1, la mida de les mostres ha de ser més gran), una variable <span class="math inline">\(X\)</span> binomial <span class="math inline">\(B(n,p)\)</span> és aproximadament normal <span class="math inline">\(N(np,\sqrt{np(1-p)})\)</span>, on recordau que, si <span class="math inline">\(X\)</span> és <span class="math inline">\(B(n,p)\)</span>, aleshores <span class="math inline">\(\mu_X=np\)</span> i <span class="math inline">\(\sigma_X=\sqrt{np(1-p)}\)</span>. Aquest “aproximadament” significa que la densitat i la distribució de <span class="math inline">\(X\)</span> són aproximadament les de la normal.</p>
+<p><span id="exm:unnamed-chunk-101" class="example"><strong>Exemple 2.9  </strong></span>Una variable binomial <span class="math inline">\(B(n,p)\)</span> s’obté prenent <span class="math inline">\(n\)</span> mesures independents d’una variable Bernoulli <span class="math inline">\(Be(p)\)</span> i sumant-les. Per tant, per la “regla” anterior, una <span class="math inline">\(B(n,p)\)</span> hauria de ser aproximadament normal si <span class="math inline">\(n\)</span> és gran. Doncs sí, si <span class="math inline">\(n\)</span> és gran (posem a partir de 40, encara que si <span class="math inline">\(p\)</span> és molt propera a 0 o 1, la mida de les mostres ha de ser més gran), una variable <span class="math inline">\(X\)</span> binomial <span class="math inline">\(B(n,p)\)</span> és aproximadament normal <span class="math inline">\(N(np,\sqrt{np(1-p)})\)</span>, on recordau que, si <span class="math inline">\(X\)</span> és <span class="math inline">\(B(n,p)\)</span>, aleshores <span class="math inline">\(\mu_X=np\)</span> i <span class="math inline">\(\sigma_X=\sqrt{np(1-p)}\)</span>. Aquest “aproximadament” significa que la densitat i la distribució de <span class="math inline">\(X\)</span> són aproximadament les de la normal.</p>
 </div>
 <p>Per exemple, el gràfic següent compara les funcions de distribució d’una binomial <span class="math inline">\(B(40,0.3)\)</span> i una normal <span class="math inline">\(N(40\cdot 0.3,\sqrt{40\cdot 0.3\cdot 0.7})\)</span>.</p>
-<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-78-1.png" width="50%" style="display: block; margin: auto;" /></p>
+<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-102-1.png" width="50%" style="display: block; margin: auto;" /></p>
 
 <div class="rmdrecordau">
 En els propers temes emprarem sovint que una variable <span class="math inline">\(B(n,p)\)</span> amb <span class="math inline">\(n\)</span> és gran és aproximadament <span class="math inline">\(N(np,\sqrt{np(1-p)})\)</span>.
 </div>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-80" class="example"><strong>Exemple 1.10  </strong></span>Podem entendre que, amb una variable de Poisson, observam tots els punts d’un espai o tots els instants d’un període de temps i sumam tots els Èxits que hi trobam. Doncs, un altre cop, si <span class="math inline">\(X\)</span> és una variable aleatòria de Poisson <span class="math inline">\(Po(\lambda)\)</span> i <span class="math inline">\(\lambda\)</span> és gran, aleshores <span class="math inline">\(X\)</span> és aproximadament <span class="math inline">\(N(\lambda,\sqrt{\lambda})\)</span>.</p>
+<p><span id="exm:unnamed-chunk-104" class="example"><strong>Exemple 2.10  </strong></span>Podem entendre que, amb una variable de Poisson, observam tots els punts d’un espai o tots els instants d’un període de temps i sumam tots els Èxits que hi trobam. Doncs, un altre cop, si <span class="math inline">\(X\)</span> és una variable aleatòria de Poisson <span class="math inline">\(Po(\lambda)\)</span> i <span class="math inline">\(\lambda\)</span> és gran, aleshores <span class="math inline">\(X\)</span> és aproximadament <span class="math inline">\(N(\lambda,\sqrt{\lambda})\)</span>.</p>
 </div>
 <p>Per exemple, el gràfic següent compara les funcions de distribució d’una Poisson <span class="math inline">\(Po(70)\)</span> i una normal <span class="math inline">\(N(70,\sqrt{70})\)</span>.</p>
-<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-81-1.png" width="50%" style="display: block; margin: auto;" /></p>
+<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-105-1.png" width="50%" style="display: block; margin: auto;" /></p>
 
 <div class="rmdrecordau">
 <p>Quan s’aproxima per mitjà d’una variable normal <span class="math inline">\(Y\)</span> una variable discreta <span class="math inline">\(X\)</span> que només pot prendre com a valors nombres naturals, com ara una binomial o una Poisson, és convenient aplicar l’anomenada <strong>correcció de continuïtat</strong>: per a cada <span class="math inline">\(n\in \mathbb{N}\)</span>, aproximar:</p>
@@ -1293,10 +1367,10 @@ En els propers temes emprarem sovint que una variable <span class="math inline">
 <li><p><span class="math inline">\(P(X\leqslant n)\)</span> per mitjà de <span class="math inline">\(P(Y&lt; n+1/2)\)</span></p></li>
 <li><p><span class="math inline">\(P(X=n)\)</span> per mitjà de <span class="math inline">\(P(n-1/2&lt; Y&lt; n+1/2)\)</span></p></li>
 </ul>
-Vegeu l’Exemple <a href="chap-varal.html#exm:corrcont">1.11</a> més a baix.
+Vegeu l’Exemple <a href="chap-varal.html#exm:corrcont">2.11</a> més a baix.
 </div>
-<div id="amb-r" class="section level3" number="1.5.1">
-<h3><span class="header-section-number">1.5.1</span> Amb R</h3>
+<div id="amb-r" class="section level3" number="2.5.1">
+<h3><span class="header-section-number">2.5.1</span> Amb R</h3>
 <p>Per calcular probabilitats d’una <span class="math inline">\(N(\mu,\sigma)\)</span>, cal calcular les integrals a mà.</p>
 <p><img src="Bioestadistica-II_files/figure-html/emorisa.png" width="20%" style="display: block; margin: auto;" /></p>
 <p>O podeu emprar R, per a qui la normal és <code>norm</code>. Per tant, si <span class="math inline">\(X\sim N(\mu,\sigma)\)</span>:</p>
@@ -1310,17 +1384,17 @@ Vegeu l’Exemple <a href="chap-varal.html#exm:corrcont">1.11</a> més a baix.
 <ul>
 <li><span class="math inline">\(P(X\leqslant 1.5)\)</span> és</li>
 </ul>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="chap-varal.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="fl">1.5</span>,<span class="dv">1</span>,<span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="chap-varal.html#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="fl">1.5</span>,<span class="dv">1</span>,<span class="dv">2</span>)</span></code></pre></div>
 <pre><code>## [1] 0.5987063</code></pre>
 <ul>
 <li>El 0.4-quantil de <span class="math inline">\(X\)</span>, és a dir, el valor <span class="math inline">\(q\)</span> tal que <span class="math inline">\(P(X\leqslant q)=0.4\)</span> és</li>
 </ul>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="chap-varal.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qnorm</span>(<span class="fl">0.4</span>,<span class="dv">1</span>,<span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="chap-varal.html#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qnorm</span>(<span class="fl">0.4</span>,<span class="dv">1</span>,<span class="dv">2</span>)</span></code></pre></div>
 <pre><code>## [1] 0.4933058</code></pre>
 <ul>
 <li><span class="math inline">\(P(X=1.5)\)</span> és</li>
 </ul>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="chap-varal.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dnorm</span>(<span class="fl">1.5</span>,<span class="dv">1</span>,<span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="chap-varal.html#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dnorm</span>(<span class="fl">1.5</span>,<span class="dv">1</span>,<span class="dv">2</span>)</span></code></pre></div>
 <pre><code>## [1] 0.1933341</code></pre>
 
 <div class="rmderror">
@@ -1330,65 +1404,65 @@ No! Com que <span class="math inline">\(X\)</span> és contínua, <span class="m
 <ul>
 <li><span class="math inline">\(P(Z\leqslant 1.5)\)</span> és</li>
 </ul>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="chap-varal.html#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="fl">1.5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="chap-varal.html#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="fl">1.5</span>)</span></code></pre></div>
 <pre><code>## [1] 0.9331928</code></pre>
 <ul>
 <li>El seu 0.95-quantil és</li>
 </ul>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="chap-varal.html#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qnorm</span>(<span class="fl">0.95</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="chap-varal.html#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qnorm</span>(<span class="fl">0.95</span>)</span></code></pre></div>
 <pre><code>## [1] 1.644854</code></pre>
 <ul>
 <li>Què val <span class="math inline">\(P(-1\leqslant Z\leqslant 1)\)</span>? Com que <span class="math inline">\(P(-1\leqslant Z\leqslant 1)=P(Z\leqslant 1)-P(Z\leqslant -1)\)</span>, és</li>
 </ul>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="chap-varal.html#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="dv">1</span>)<span class="sc">-</span><span class="fu">pnorm</span>(<span class="sc">-</span><span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="chap-varal.html#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="dv">1</span>)<span class="sc">-</span><span class="fu">pnorm</span>(<span class="sc">-</span><span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## [1] 0.6826895</code></pre>
 
 <div class="example">
-<p><span id="exm:corrcont" class="example"><strong>Exemple 1.11  </strong></span>A la secció anterior, us hem dit que una variable binomial <span class="math inline">\(B(n,p)\)</span> amb <span class="math inline">\(n\)</span> gran s’aproxima per mitjà d’una variable normal <span class="math inline">\(N(np,\sqrt{np(1-p)})\)</span>. Així, per exemple, una variable <span class="math inline">\(X\)</span> binomial <span class="math inline">\(B(400,0.2)\)</span> s’aproxima per mitjà d’una variable <span class="math inline">\(Y\)</span> normal <span class="math inline">\(N(400\cdot 0.2,\sqrt{400\cdot 0.2\cdot 0.8})=N(80,8)\)</span>. Vegem amb alguns exemples que aquesta aproximació és millor aplicant-hi la correcció de continuïtat:</p>
+<p><span id="exm:corrcont" class="example"><strong>Exemple 2.11  </strong></span>A la secció anterior, us hem dit que una variable binomial <span class="math inline">\(B(n,p)\)</span> amb <span class="math inline">\(n\)</span> gran s’aproxima per mitjà d’una variable normal <span class="math inline">\(N(np,\sqrt{np(1-p)})\)</span>. Així, per exemple, una variable <span class="math inline">\(X\)</span> binomial <span class="math inline">\(B(400,0.2)\)</span> s’aproxima per mitjà d’una variable <span class="math inline">\(Y\)</span> normal <span class="math inline">\(N(400\cdot 0.2,\sqrt{400\cdot 0.2\cdot 0.8})=N(80,8)\)</span>. Vegem amb alguns exemples que aquesta aproximació és millor aplicant-hi la correcció de continuïtat:</p>
 </div>
 <ul>
 <li><span class="math inline">\(F_X(70)=P(X\leqslant 70)\)</span>:</li>
 </ul>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="chap-varal.html#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pbinom</span>(<span class="dv">70</span>,<span class="dv">400</span>,<span class="fl">0.2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="chap-varal.html#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pbinom</span>(<span class="dv">70</span>,<span class="dv">400</span>,<span class="fl">0.2</span>)</span></code></pre></div>
 <pre><code>## [1] 0.1163917</code></pre>
 <ul>
 <li><span class="math inline">\(F_Y(70)=P(Y\leqslant 70)\)</span>:</li>
 </ul>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="chap-varal.html#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="dv">70</span>,<span class="dv">80</span>,<span class="dv">8</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="chap-varal.html#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="dv">70</span>,<span class="dv">80</span>,<span class="dv">8</span>)</span></code></pre></div>
 <pre><code>## [1] 0.1056498</code></pre>
 <ul>
 <li>La correcció de continuïtat ens diu que és millor aproximar <span class="math inline">\(P(X\leqslant 70)\)</span> per mitjà de <span class="math inline">\(P(Y&lt; 70+1/2)\)</span>:</li>
 </ul>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="chap-varal.html#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="fl">70.5</span>,<span class="dv">80</span>,<span class="dv">8</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="chap-varal.html#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="fl">70.5</span>,<span class="dv">80</span>,<span class="dv">8</span>)</span></code></pre></div>
 <pre><code>## [1] 0.1175152</code></pre>
 <ul>
 <li><span class="math inline">\(f_X(70)=P(X=70)\)</span>:</li>
 </ul>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="chap-varal.html#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dbinom</span>(<span class="dv">70</span>,<span class="dv">400</span>,<span class="fl">0.2</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="chap-varal.html#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dbinom</span>(<span class="dv">70</span>,<span class="dv">400</span>,<span class="fl">0.2</span>) </span></code></pre></div>
 <pre><code>## [1] 0.02338443</code></pre>
 <ul>
 <li><span class="math inline">\(f_Y(70)\)</span> (que <strong>no és</strong> <span class="math inline">\(P(Y=70)\)</span>):</li>
 </ul>
-<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="chap-varal.html#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dnorm</span>(<span class="dv">70</span>,<span class="dv">80</span>,<span class="dv">8</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="chap-varal.html#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dnorm</span>(<span class="dv">70</span>,<span class="dv">80</span>,<span class="dv">8</span>) </span></code></pre></div>
 <pre><code>## [1] 0.02283114</code></pre>
 <ul>
 <li>La correcció de continuïtat ens diu que és millor aproximar <span class="math inline">\(P(X=70)\)</span> per mitjà de <span class="math inline">\(P(70-1/2&lt;Y&lt; 70+1/2)\)</span>:</li>
 </ul>
-<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="chap-varal.html#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="fl">70.5</span>,<span class="dv">80</span>,<span class="dv">8</span>) <span class="sc">-</span><span class="fu">pnorm</span>(<span class="fl">69.5</span>,<span class="dv">80</span>,<span class="dv">8</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="chap-varal.html#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="fl">70.5</span>,<span class="dv">80</span>,<span class="dv">8</span>) <span class="sc">-</span><span class="fu">pnorm</span>(<span class="fl">69.5</span>,<span class="dv">80</span>,<span class="dv">8</span>)</span></code></pre></div>
 <pre><code>## [1] 0.02283949</code></pre>
 
 <div class="example">
-<p><span id="exm:exhiperhipo" class="example"><strong>Exemple 1.12  </strong></span>La pressió sistòlica, mesurada en mm Hg, es distribueix com una variable normal amb valor mitjà i desviació típica que depenen del sexe i l’edat. Per a la franja d’edat 16-24 anys, aquests valors (s’estima que) són:</p>
+<p><span id="exm:exhiperhipo" class="example"><strong>Exemple 2.12  </strong></span>La pressió sistòlica, mesurada en mm Hg, es distribueix com una variable normal amb valor mitjà i desviació típica que depenen del sexe i l’edat. Per a la franja d’edat 16-24 anys, aquests valors (s’estima que) són:</p>
 <ul>
 <li>Per a homes, <span class="math inline">\(\mu=124\)</span> i <span class="math inline">\(\sigma=13.7\)</span></li>
 <li>Per a dones, <span class="math inline">\(\mu=117\)</span> i <span class="math inline">\(\sigma=13.7\)</span></li>
 </ul>
-<p>El model d’hipertensió-hipotensió acceptat és el descrit en la Figura <a href="chap-varal.html#fig:hiperhipo">1.6</a>. Volem calcular els límits de cada classe per a cada sexe en aquest grup d’edat.</p>
+<p>El model d’hipertensió-hipotensió acceptat és el descrit en la Figura <a href="chap-varal.html#fig:hiperhipo">2.6</a>. Volem calcular els límits de cada classe per a cada sexe en aquest grup d’edat.</p>
 </div>
 <div class="figure" style="text-align: center"><span id="fig:hiperhipo"></span>
 <img src="Bioestadistica-II_files/figure-html/hiperhipo.png" alt="Model d'hipertensió-hipotensió." width="80%" />
 <p class="caption">
-Figura 1.6: Model d’hipertensió-hipotensió.
+Figura 2.6: Model d’hipertensió-hipotensió.
 </p>
 </div>
 <p>Vegem:</p>
@@ -1402,27 +1476,27 @@ Figura 1.6: Model d’hipertensió-hipotensió.
 <ul>
 <li>El 0.05-quantil:</li>
 </ul>
-<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="chap-varal.html#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">qnorm</span>(<span class="fl">0.05</span>,<span class="dv">124</span>,<span class="fl">13.7</span>),<span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="chap-varal.html#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">qnorm</span>(<span class="fl">0.05</span>,<span class="dv">124</span>,<span class="fl">13.7</span>),<span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## [1] 101.5</code></pre>
 <ul>
 <li>El 0.1-quantil:</li>
 </ul>
-<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="chap-varal.html#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">qnorm</span>(<span class="fl">0.1</span>,<span class="dv">124</span>,<span class="fl">13.7</span>),<span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="chap-varal.html#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">qnorm</span>(<span class="fl">0.1</span>,<span class="dv">124</span>,<span class="fl">13.7</span>),<span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## [1] 106.4</code></pre>
 <ul>
 <li>El 0.9-quantil:</li>
 </ul>
-<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="chap-varal.html#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">qnorm</span>(<span class="fl">0.9</span>,<span class="dv">124</span>,<span class="fl">13.7</span>),<span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="chap-varal.html#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">qnorm</span>(<span class="fl">0.9</span>,<span class="dv">124</span>,<span class="fl">13.7</span>),<span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## [1] 141.6</code></pre>
 <ul>
 <li>El 0.95-quantil:</li>
 </ul>
-<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="chap-varal.html#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">qnorm</span>(<span class="fl">0.95</span>,<span class="dv">124</span>,<span class="fl">13.7</span>),<span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="chap-varal.html#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">qnorm</span>(<span class="fl">0.95</span>,<span class="dv">124</span>,<span class="fl">13.7</span>),<span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## [1] 146.5</code></pre>
-<p>En resum, per als homes de 16 a 24 anys tenim els límits de la Taula <a href="chap-varal.html#tab:tensio">1.1</a>.</p>
+<p>En resum, per als homes de 16 a 24 anys tenim els límits de la Taula <a href="chap-varal.html#tab:tensio">2.1</a>.</p>
 <table>
 <caption>
-<span id="tab:tensio">Taula 1.1: </span>Límits d’hipotensió-hipertensió en homes joves.
+<span id="tab:tensio">Taula 2.1: </span>Límits d’hipotensió-hipertensió en homes joves.
 </caption>
 <thead>
 <tr>
@@ -1482,8 +1556,8 @@ Hipertens
 Calculau els límits per a les dones.
 </div>
 </div>
-<div id="propietats-bàsiques" class="section level3" number="1.5.2">
-<h3><span class="header-section-number">1.5.2</span> Propietats bàsiques</h3>
+<div id="propietats-bàsiques" class="section level3" number="2.5.2">
+<h3><span class="header-section-number">2.5.2</span> Propietats bàsiques</h3>
 <p>Ja hem explicat el significat dels paràmetres <span class="math inline">\(\mu\)</span> i <span class="math inline">\(\sigma\)</span>, però el tornam a repetir:</p>
 
 <div class="rmdimportant">
@@ -1498,7 +1572,7 @@ f_{X}(\mu-x)=f_{X}(\mu+x),
 \]</span>
 i pren el valor màxim a <span class="math inline">\(x=\mu\)</span>. És a dir, <span class="math inline">\(\mu\)</span> és la <strong>moda</strong> de <span class="math inline">\(X\)</span>.
 </div>
-<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-105-1.png" width="80%" style="display: block; margin: auto;" /></p>
+<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-129-1.png" width="80%" style="display: block; margin: auto;" /></p>
 <p>Per tant, el valor al voltant del qual és més probable que una variable normal <span class="math inline">\(N(\mu,\sigma)\)</span> caigui és justament el seu valor esperat <span class="math inline">\(\mu\)</span>.</p>
 <p>En particular, si <span class="math inline">\(Z\)</span> és <span class="math inline">\(N(0,1)\)</span>, llavors <span class="math inline">\(f_Z\)</span> és simètrica al voltant de 0, és a dir, <span class="math inline">\(f_{Z}(-x)=f_{Z}(x)\)</span>, i la moda de <span class="math inline">\(Z\)</span> és <span class="math inline">\(x=0\)</span>.</p>
 <p>Recordau que la funció de distribució d’una variable aleatòria contínua <span class="math inline">\(X\)</span>,
@@ -1506,9 +1580,9 @@ i pren el valor màxim a <span class="math inline">\(x=\mu\)</span>. És a dir, 
 F_X(x)=P(X\leqslant x)
 \]</span>
 és l’àrea compresa entre la densitat <span class="math inline">\(y=f_X(x)\)</span> i l’eix d’abscisses a l’esquerra de <span class="math inline">\(x\)</span>.</p>
-<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-106-1.png" width="80%" style="display: block; margin: auto;" /></p>
+<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-130-1.png" width="80%" style="display: block; margin: auto;" /></p>
 <p>Llavors, la simetria de <span class="math inline">\(f_X\)</span> fa que, per a tot <span class="math inline">\(x\geqslant 0\)</span>, les àrees a l’esquerra de <span class="math inline">\(\mu-x\)</span> i a la dreta de <span class="math inline">\(\mu+x\)</span> siguin iguals.</p>
-<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-107-1.png" width="80%" style="display: block; margin: auto;" /></p>
+<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-131-1.png" width="80%" style="display: block; margin: auto;" /></p>
 <p>És a dir,
 <span class="math display">\[
 P(X\leqslant \mu-x)=P(X\geqslant \mu+x)=1-P(X\leqslant \mu+x)
@@ -1529,7 +1603,7 @@ P(Z\leqslant -z)=P(Z\geqslant z)=1-P(Z\leqslant z)
 i la mediana de <span class="math inline">\(Z\)</span> és 0.</p>
 
 <div class="rmdnote">
-<p>Ara que sabem més coses de la normal, a l’Exemple <a href="chap-varal.html#exm:exhiperhipo">1.12</a> ens haguéssim pogut estalviar la meitat de la feina. Diguem <span class="math inline">\(X\)</span> a la variable aleatòria la pressió arterial, en mm Hg, d’un home d’entre 16 i 24 anys. Ens diuen que <span class="math inline">\(X\)</span> és <span class="math inline">\(N(124,13.7)\)</span>.</p>
+<p>Ara que sabem més coses de la normal, a l’Exemple <a href="chap-varal.html#exm:exhiperhipo">2.12</a> ens haguéssim pogut estalviar la meitat de la feina. Diguem <span class="math inline">\(X\)</span> a la variable aleatòria la pressió arterial, en mm Hg, d’un home d’entre 16 i 24 anys. Ens diuen que <span class="math inline">\(X\)</span> és <span class="math inline">\(N(124,13.7)\)</span>.</p>
 <p>Per la simetria de <span class="math inline">\(X\)</span> al voltant de <span class="math inline">\(\mu=124\)</span>, si escrivim el 0.05-quantil com <span class="math inline">\(124-x\)</span>, aleshores <span class="math inline">\(P(X\geqslant 124+x)=P(X\leqslant 124-x)=0.05\)</span> i per tant <span class="math inline">\(P(X\leqslant 124+x)=1-P(X\geqslant 124+x)=0.95\)</span>, és a dir, <span class="math inline">\(124+x\)</span> serà el 0.95-quantil de <span class="math inline">\(X\)</span>.</p>
 <p>El 0.05-quantil ha estat 101.5. Escrivint <span class="math inline">\(101.5=124-x\)</span>, obtenim <span class="math inline">\(x=22.5\)</span>. Per tant, el 0.95-quantil ha de ser <span class="math inline">\(124+22.5=146.5\)</span>.</p>
 <p>El mateix passa amb el 0.9-quantil i el 0.1-quantil, raonau-ho i comprovau-ho.</p>
@@ -1538,13 +1612,13 @@ i la mediana de <span class="math inline">\(Z\)</span> és 0.</p>
 <div class="rmdrecordau">
 L’argument que hem desenvolupat a la nota anterior mostra en general que si <span class="math inline">\(X\)</span> és <span class="math inline">\(N(\mu,\sigma)\)</span> i el seu <span class="math inline">\(q\)</span>-quantil és <span class="math inline">\(\mu-x\)</span>, aleshores el seu <span class="math inline">\((1-q)\)</span>-quantil és <span class="math inline">\(\mu+x\)</span>.
 </div>
-<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-112-1.png" width="80%" style="display: block; margin: auto;" /></p>
+<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-136-1.png" width="80%" style="display: block; margin: auto;" /></p>
 <p>Si <span class="math inline">\(\mu\)</span> creix, desplaça a la dreta l’eix vertical de simetria de la densitat, i amb ell tota la corba.</p>
-<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-113-1.png" width="80%" style="display: block; margin: auto;" /></p>
+<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-137-1.png" width="80%" style="display: block; margin: auto;" /></p>
 <p>Si <span class="math inline">\(\sigma\)</span> creix, la corba s’aplana: en augmentar la desviació típica, els valors són més variats i augmenta la probabilitat que prenguin valors més llunyans de <span class="math inline">\(\mu\)</span>.</p>
-<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-114-1.png" width="80%" style="display: block; margin: auto;" /></p>
+<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-138-1.png" width="80%" style="display: block; margin: auto;" /></p>
 <p>El gràfic següent mostra l’efecte combinat:</p>
-<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-115-1.png" width="80%" style="display: block; margin: auto;" /></p>
+<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-139-1.png" width="80%" style="display: block; margin: auto;" /></p>
 <p>Indicarem amb <span class="math inline">\(z_q\)</span> el <strong><span class="math inline">\(q\)</span>-quantil</strong> d’una variable normal estàndard <span class="math inline">\(Z\)</span>. És a dir, <span class="math inline">\(z_q\)</span> és el valor tal que <span class="math inline">\(P(Z\leqslant z_q)=q\)</span>.</p>
 <p>A banda del fet que <span class="math inline">\(z_{0.5}=0\)</span> (la mediana de <span class="math inline">\(Z\)</span> és 0), hi ha dos quantils més de la normal estàndard <span class="math inline">\(Z\)</span> que hauríeu de recordar:</p>
 <ul>
@@ -1565,11 +1639,11 @@ Molt sovint el valor 1.96 de <span class="math inline">\(z_{0.975}\)</span> s’
 <div class="rmdrecordau">
 Pel que hem comentat fa un moment, la simetria de la normal estàndard implica que <span class="math inline">\(z_{1-q}=-z_{q}\)</span>, perquè si <span class="math inline">\(P(Z\leqslant z_{q})=q\)</span>, aleshores <span class="math inline">\(P(Z\geqslant -z_{q})=q\)</span> i per tant <span class="math inline">\(P(Z\leqslant -z_{q})=1-q\)</span>.
 </div>
-<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-118-1.png" width="80%" style="display: block; margin: auto;" /></p>
+<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-142-1.png" width="80%" style="display: block; margin: auto;" /></p>
 <p>Una de les propietats de la distribució normal que ens faciliten molt la vida és que <strong>tota combinació lineal de variables aleatòries normals independents és normal</strong>. En concret, tenim els dos resultats següents:</p>
 
 <div class="theorem">
-<p><span id="thm:comblinnormals" class="theorem"><strong>Teorema 1.5  </strong></span>Sigui <span class="math inline">\(X\)</span> una variable <span class="math inline">\(N(\mu,\sigma)\)</span>.</p>
+<p><span id="thm:comblinnormals" class="theorem"><strong>Teorema 2.5  </strong></span>Sigui <span class="math inline">\(X\)</span> una variable <span class="math inline">\(N(\mu,\sigma)\)</span>.</p>
 <ol style="list-style-type: decimal">
 <li><p>Per a tots <span class="math inline">\(a,b\in \mathbb{R}\)</span>, <span class="math inline">\(aX+b\)</span> és normal <span class="math inline">\(N(a\mu+b,|a|\cdot\sigma)\)</span>.</p></li>
 <li><p>En particular, la <strong>tipificada</strong> de <span class="math inline">\(X\)</span>
@@ -1582,7 +1656,7 @@ Z=\dfrac{X-\mu}{\sigma}
 <p>Més en general:</p>
 
 <div class="theorem">
-<span id="thm:comblinnormals2" class="theorem"><strong>Teorema 1.6  </strong></span>Si <span class="math inline">\(X_1,\ldots,X_n\)</span> són variables aleatòries normals <strong>independents</strong> i <span class="math inline">\(a_1,\ldots,a_n,b\in \mathbb{R}\)</span>, llavors <span class="math inline">\(a_1X_1+\cdots +a_nX_n+b\)</span> és <span class="math inline">\(N(\mu,\sigma)\)</span> amb
+<span id="thm:comblinnormals2" class="theorem"><strong>Teorema 2.6  </strong></span>Si <span class="math inline">\(X_1,\ldots,X_n\)</span> són variables aleatòries normals <strong>independents</strong> i <span class="math inline">\(a_1,\ldots,a_n,b\in \mathbb{R}\)</span>, llavors <span class="math inline">\(a_1X_1+\cdots +a_nX_n+b\)</span> és <span class="math inline">\(N(\mu,\sigma)\)</span> amb
 <span class="math display">\[
 \mu=a_1\mu_1+\cdots +a_n\mu_n+b,\ 
 \sigma=\sqrt{a_1^2\sigma^2_1+\cdots +a_n^2\sigma^2_n}
@@ -1601,7 +1675,7 @@ P(a\leqslant X\leqslant b)\!\!\!\!\! &amp; \displaystyle =P\Big( \frac{a-\mu}{\s
 Això serveix per deduir fórmules o resoldre problemes com el següent, i els vostres pares ho empraven per calcular probabilitats de normals (amb taules de probabilitats de la normal estàndard), però ara és més còmode usar una apli.</p>
 
 <div class="example">
-<span id="exm:percentalcades" class="example"><strong>Exemple 1.13  </strong></span>Les alçades de les nordamericanes de 20 anys segueixen una distribució normal. S’ha estimat que un 10% d’elles fan menys de 1.55 m, i un 30.5% fan menys de 1.60 m. Per a quina alçada <span class="math inline">\(h\)</span> es té que un 95% de les nordamericanes de 18 anys fan menys de <span class="math inline">\(h\)</span> metres?
+<span id="exm:percentalcades" class="example"><strong>Exemple 2.13  </strong></span>Les alçades de les nordamericanes de 20 anys segueixen una distribució normal. S’ha estimat que un 10% d’elles fan menys de 1.55 m, i un 30.5% fan menys de 1.60 m. Per a quina alçada <span class="math inline">\(h\)</span> es té que un 95% de les nordamericanes de 18 anys fan menys de <span class="math inline">\(h\)</span> metres?
 </div>
 <p>Diguem <span class="math inline">\(X\)</span> a la variable “Prenc una nord americana de 20 anys i mesur la seva alçada en m”. Sabem que és <span class="math inline">\(N(\mu,\sigma)\)</span>, però desconeixem <span class="math inline">\(\mu\)</span> i <span class="math inline">\(\sigma\)</span>.</p>
 <p>Ens diuen que
@@ -1618,9 +1692,9 @@ i amb això volem calcular la <span class="math inline">\(h\)</span> tal que <sp
 \end{array}
 \]</span>
 Ara podem calcular aquests dos quantils <span class="math inline">\(z_{0.1}\)</span> i <span class="math inline">\(z_{0.305}\)</span>:</p>
-<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="chap-varal.html#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qnorm</span>(<span class="fl">0.1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="chap-varal.html#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qnorm</span>(<span class="fl">0.1</span>)</span></code></pre></div>
 <pre><code>## [1] -1.281552</code></pre>
-<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="chap-varal.html#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qnorm</span>(<span class="fl">0.305</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="chap-varal.html#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qnorm</span>(<span class="fl">0.305</span>)</span></code></pre></div>
 <pre><code>## [1] -0.5100735</code></pre>
 <p>Obtenim d’aquesta manera el sistema d’equacions lineals
 <span class="math display">\[
@@ -1635,12 +1709,12 @@ El resolem i obtenim
 \mu=1.633,\ \sigma=0.065
 \]</span>
 I ara ja podem calcular la <span class="math inline">\(h\)</span> com el 0.95-quantil d’una <span class="math inline">\(N(1.633,0.065)\)</span>:</p>
-<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="chap-varal.html#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qnorm</span>(<span class="fl">0.95</span>,<span class="fl">1.633</span>,<span class="fl">0.065</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="chap-varal.html#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qnorm</span>(<span class="fl">0.95</span>,<span class="fl">1.633</span>,<span class="fl">0.065</span>)</span></code></pre></div>
 <pre><code>## [1] 1.739915</code></pre>
 <p>Concloem que un 95% de les nord americanes de 20 anys fan menys de 1.74 m.</p>
 </div>
-<div id="intervals-de-referència" class="section level3" number="1.5.3">
-<h3><span class="header-section-number">1.5.3</span> Intervals de referència</h3>
+<div id="intervals-de-referència" class="section level3" number="2.5.3">
+<h3><span class="header-section-number">2.5.3</span> Intervals de referència</h3>
 <p>Un <strong>interval de referència</strong> del Q% per a una variable aleatòria <span class="math inline">\(X\)</span> és un interval <span class="math inline">\([a,b]\)</span> tal que
 <span class="math display">\[
 P(a\leqslant X\leqslant b)=\frac{Q}{100}.
@@ -1664,7 +1738,7 @@ Quan es parla d’un <strong>interval de referència</strong> sense donar la pro
 Es calculen amb el resultat següent:</p>
 
 <div class="theorem">
-<p><span id="thm:unnamed-chunk-124" class="theorem"><strong>Teorema 1.7  </strong></span>Si <span class="math inline">\(X\)</span> és <span class="math inline">\(N(\mu,\sigma)\)</span>, un interval de referència del Q% per a <span class="math inline">\(X\)</span> és
+<p><span id="thm:unnamed-chunk-148" class="theorem"><strong>Teorema 2.7  </strong></span>Si <span class="math inline">\(X\)</span> és <span class="math inline">\(N(\mu,\sigma)\)</span>, un interval de referència del Q% per a <span class="math inline">\(X\)</span> és
 <span class="math display">\[
 [\mu- z_{(1+q)/2}\cdot \sigma, \mu+ z_{(1+q)/2}\cdot \sigma]
 \]</span>
@@ -1706,22 +1780,22 @@ Això diu, bàsicament, que</p>
 </blockquote>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-126" class="example"><strong>Exemple 1.14  </strong></span>Segons l’OMS, les altures (en cm) de les dones europees de 18 anys segueixen una llei <span class="math inline">\(N(163.1,18.53)\)</span>. Quin és l’interval d’altures centrat en la mitjana que conté a la meitat de les europees de 18 anys?</p>
+<p><span id="exm:unnamed-chunk-150" class="example"><strong>Exemple 2.14  </strong></span>Segons l’OMS, les altures (en cm) de les dones europees de 18 anys segueixen una llei <span class="math inline">\(N(163.1,18.53)\)</span>. Quin és l’interval d’altures centrat en la mitjana que conté a la meitat de les europees de 18 anys?</p>
 </div>
 <p>Fixau-vos que, si diem <span class="math inline">\(X\)</span> a la variable aleatòria “Altura d’una dona europea de 18 anys en cm”, el que volem saber és l’interval centrat en la seva mitjana, 163.1, tal que la probabilitat que l’alçada d’una europea de 18 anys triada a l’atzar pertanyi a aquest interval sigui 0.5. És a dir, l’interval de referència del 50% per a <span class="math inline">\(X\)</span>.</p>
 <p>Ens diuen que <span class="math inline">\(X\)</span> és <span class="math inline">\(N(163.1,18.53)\)</span>. Si <span class="math inline">\(q=0.5\)</span>, llavors <span class="math inline">\((1+q)/2=0.75\)</span>. El 0.75-quantil <span class="math inline">\(z_{0.75}\)</span> d’una normal estàndard és</p>
-<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="chap-varal.html#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qnorm</span>(<span class="fl">0.75</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="chap-varal.html#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qnorm</span>(<span class="fl">0.75</span>)</span></code></pre></div>
 <pre><code>## [1] 0.6744898</code></pre>
 <p>Per tant, l’interval de referència demanat és <span class="math inline">\(163.1\pm 0.6745\cdot 18.53\)</span>, és a dir, arrodonint a mm, <span class="math inline">\([150.6, 175.6]\)</span>. Això ens diu que la meitat de les dones europees de 18 anys fan entre 150.6 i 175.6 cm.</p>
 <p>El <strong>z-score</strong> d’un valor <span class="math inline">\(x_0\in \mathbb{R}\)</span> respecte d’una distribució <span class="math inline">\(N(\mu,\sigma)\)</span> és
 <span class="math display">\[
 \frac{x_0-\mu}{\sigma}
 \]</span></p>
-<p>És a dir, el z-score de <span class="math inline">\(x_0\)</span> és el resultat de “tipificar” <span class="math inline">\(x_0\)</span> en el sentit del Teorema <a href="chap-varal.html#thm:comblinnormals">1.5</a>.2.</p>
+<p>És a dir, el z-score de <span class="math inline">\(x_0\)</span> és el resultat de “tipificar” <span class="math inline">\(x_0\)</span> en el sentit del Teorema <a href="chap-varal.html#thm:comblinnormals">2.5</a>.2.</p>
 <p>Si la variable poblacional és normal, com més gran és el valor absolut del z-score de <span class="math inline">\(x_0\)</span>, més “rar” és <span class="math inline">\(x_0\)</span>; el signe ens diu si és més gran o més petit que el valor esperat <span class="math inline">\(\mu\)</span>.</p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-128" class="example"><strong>Exemple 1.15  </strong></span>Recordau que, segons l’OMS, les altures de les dones europees de 18 anys segueixen una llei <span class="math inline">\(N(163.1,18.53)\)</span>. Quin seria el z-score d’una jugadora de bàsquet de 18 anys que fes 191 cm?</p>
+<p><span id="exm:unnamed-chunk-152" class="example"><strong>Exemple 2.15  </strong></span>Recordau que, segons l’OMS, les altures de les dones europees de 18 anys segueixen una llei <span class="math inline">\(N(163.1,18.53)\)</span>. Quin seria el z-score d’una jugadora de bàsquet de 18 anys que fes 191 cm?</p>
 </div>
 <p>Seria
 <span class="math display">\[ 
@@ -1729,18 +1803,18 @@ Això diu, bàsicament, que</p>
 \]</span></p>
 <p>Això se sol llegir dient que l’alçada d’aquesta jugadora està <strong>1.5 sigmes per sobre de l’alçada mitjana</strong>.</p>
 </div>
-<div id="sec:lognormal" class="section level3" number="1.5.4">
-<h3><span class="header-section-number">1.5.4</span> Variables log-normals</h3>
+<div id="sec:lognormal" class="section level3" number="2.5.4">
+<h3><span class="header-section-number">2.5.4</span> Variables log-normals</h3>
 <p>Direm que <span class="math inline">\(X\)</span> és una variable <strong>log-normal</strong> quan el seu logaritme neperià <span class="math inline">\(\ln(X)\)</span> és una variable normal. O, si ho preferiu, quan és una variable de la forma <span class="math inline">\(e^Y\)</span> amb <span class="math inline">\(Y\)</span> normal. Moltes concentracions d’enzims o anticossos tenen distribucions aproximadament log-normals.</p>
 
 <div class="rmdnote">
-Si <span class="math inline">\(a&gt;1\)</span>, <span class="math inline">\(\log_a(X)=\ln(X)/\ln(a)\)</span> i per tant, pel Teorema <a href="chap-varal.html#thm:comblinnormals">1.5</a>.1, si <span class="math inline">\(X\)</span> és log-normal, el seu logaritme en qualsevol base <span class="math inline">\(a&gt;1\)</span> és normal.
+Si <span class="math inline">\(a&gt;1\)</span>, <span class="math inline">\(\log_a(X)=\ln(X)/\ln(a)\)</span> i per tant, pel Teorema <a href="chap-varal.html#thm:comblinnormals">2.5</a>.1, si <span class="math inline">\(X\)</span> és log-normal, el seu logaritme en qualsevol base <span class="math inline">\(a&gt;1\)</span> és normal.
 </div>
-<p>La densitat d’una variable log-normal és asimètrica, amb una cua a la dreta, com mostra la Figura <a href="chap-varal.html#fig:lognorm">1.7</a>.</p>
+<p>La densitat d’una variable log-normal és asimètrica, amb una cua a la dreta, com mostra la Figura <a href="chap-varal.html#fig:lognorm">2.7</a>.</p>
 <div class="figure" style="text-align: center"><span id="fig:lognorm"></span>
 <img src="Bioestadistica-II_files/figure-html/lognorm-1.png" alt="Densitat de $e^Z$ amb $Z$ normal estàndard." width="50%" />
 <p class="caption">
-Figura 1.7: Densitat de <span class="math inline">\(e^Z\)</span> amb <span class="math inline">\(Z\)</span> normal estàndard.
+Figura 2.7: Densitat de <span class="math inline">\(e^Z\)</span> amb <span class="math inline">\(Z\)</span> normal estàndard.
 </p>
 </div>
 <p>Recíprocament, molt sovint una variable la densitat de la qual mostri una pujada ràpida des del 0 a la moda i després una cua a la dreta, satisfà que el seu logaritme segueix una distribució aproximadament normal. Això ens serà útil més endavant.</p>
@@ -1751,7 +1825,7 @@ Figura 1.7: Densitat de <span class="math inline">\(e^Z\)</span> amb <span class
 </ul>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-130" class="example"><strong>Exemple 1.16  </strong></span>La dosi letal <span class="math inline">\(Y\)</span> de la digitalina en ratolins (és la dir, la variable aleatòria que dóna la quantitat de digitalina que cal administrar a un ratolí per matar-lo) té distribució log-normal. Se sap que una injecció de 1cc de digitalina mata un 10% dels ratolins (és a dir, que la probabilitat que una dosi de 1cc o menys mati un ratolí és de 0.1: <span class="math inline">\(P(Y\leqslant 1)=0.1\)</span>) i que una injecció de 2cc mata un 75% dels ratolins (<span class="math inline">\(P(Y\leqslant 2)=0.75\)</span>).</p>
+<p><span id="exm:unnamed-chunk-154" class="example"><strong>Exemple 2.16  </strong></span>La dosi letal <span class="math inline">\(Y\)</span> de la digitalina en ratolins (és la dir, la variable aleatòria que dóna la quantitat de digitalina que cal administrar a un ratolí per matar-lo) té distribució log-normal. Se sap que una injecció de 1cc de digitalina mata un 10% dels ratolins (és a dir, que la probabilitat que una dosi de 1cc o menys mati un ratolí és de 0.1: <span class="math inline">\(P(Y\leqslant 1)=0.1\)</span>) i que una injecció de 2cc mata un 75% dels ratolins (<span class="math inline">\(P(Y\leqslant 2)=0.75\)</span>).</p>
 </div>
 <p>Volem saber la dosi de digitalina (en cc) que és letal per al 95% dels ratolins. Aquest tipus d’experiments és la base de l’anomenat <strong>mètode probit</strong> per determinar la letalitat de substàncies.</p>
 <p>Així doncs, volem calcular el valor <span class="math inline">\(a\)</span> tal que <span class="math inline">\(P(Y\leqslant a)=0.95\)</span>, que no és res més que el 0.95-quantil de <span class="math inline">\(Y\)</span>.</p>
@@ -1764,7 +1838,7 @@ Figura 1.7: Densitat de <span class="math inline">\(e^Z\)</span> amb <span class
 0.75=P(Y\leqslant 2)=P(X\leqslant \ln(2))
 \end{array}
 \]</span>
-Com podem determinar la <span class="math inline">\(\mu\)</span> i la <span class="math inline">\(\sigma\)</span> de <span class="math inline">\(X\)</span> a partir d’aquests dos valors? Ja ens hem trobat en una situació semblant a l’Exemple <a href="chap-varal.html#exm:percentalcades">1.13</a>. El que fem és traduir aquesta informació en termes de quantils de la normal estàndard.</p>
+Com podem determinar la <span class="math inline">\(\mu\)</span> i la <span class="math inline">\(\sigma\)</span> de <span class="math inline">\(X\)</span> a partir d’aquests dos valors? Ja ens hem trobat en una situació semblant a l’Exemple <a href="chap-varal.html#exm:percentalcades">2.13</a>. El que fem és traduir aquesta informació en termes de quantils de la normal estàndard.</p>
 <p><span class="math display">\[
 \begin{array}{l}
 \displaystyle 0.1=P(X\leqslant 0)=P\Big(\frac{X-\mu}{\sigma}\leqslant \frac{-\mu}{\sigma}\Big)=P\Big(Z\leqslant -\frac{\mu}{\sigma}\Big)\\
@@ -1787,16 +1861,16 @@ i resolent-lo obtenim
 \mu=0.4541,\quad \sigma=0.3544
 \]</span></p>
 <p>Ara podem calcular el 0.95-quantil de <span class="math inline">\(X\)</span>:</p>
-<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="chap-varal.html#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qnorm</span>(<span class="fl">0.95</span>,<span class="fl">0.4541</span>,<span class="fl">0.3544</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="chap-varal.html#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qnorm</span>(<span class="fl">0.95</span>,<span class="fl">0.4541</span>,<span class="fl">0.3544</span>)</span></code></pre></div>
 <pre><code>## [1] 1.037036</code></pre>
 <p>Per tant <span class="math inline">\(P(X\leqslant 1.037)=0.95\)</span>. D’aquí deduïm que <span class="math inline">\(P(Y\leqslant e^{1.037})=0.95\)</span>. Com que <span class="math inline">\(e^{1.037}=2.82\)</span>, concloem que 2.82 cc de digitalina són suficients per matar el 95% dels ratolins.</p>
 <p>Ho podem comprovar (amb R, no escabetxant ratolins, malpensats!):</p>
-<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="chap-varal.html#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plnorm</span>(<span class="fl">2.82</span>,<span class="fl">0.4541</span>,<span class="fl">0.3544</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="chap-varal.html#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plnorm</span>(<span class="fl">2.82</span>,<span class="fl">0.4541</span>,<span class="fl">0.3544</span>)</span></code></pre></div>
 <pre><code>## [1] 0.9499129</code></pre>
 </div>
 </div>
-<div id="test-de-la-lliçó-2" class="section level2" number="1.6">
-<h2><span class="header-section-number">1.6</span> Test de la lliçó 2</h2>
+<div id="test-de-la-lliçó-2" class="section level2" number="2.6">
+<h2><span class="header-section-number">2.6</span> Test de la lliçó 2</h2>
 <p><strong>(1)</strong> Sigui <span class="math inline">\(X\)</span> una variable aleatòria de mitjana <span class="math inline">\(\mu\)</span> i desviació típica <span class="math inline">\(\sigma\)</span>. Quina o quines de les afirmacions següents són sempre vertaderes?</p>
 <ol style="list-style-type: decimal">
 <li><span class="math inline">\(E(X+2)=\mu+2\)</span>.</li>
@@ -1962,7 +2036,7 @@ f_X(x)=\left\{\begin{array}{ll}
 <li>Del gràfic no es pot deduir la relació entre les tres desviacions típiques</li>
 <li>Cap de les altres afirmacions és veritable.</li>
 </ol>
-<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-133-1.png" width="50%" style="display: block; margin: auto;" /></p>
+<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-157-1.png" width="50%" style="display: block; margin: auto;" /></p>
 <p><strong>(20)</strong> El pes mitjà d’una bossa de patates d’una determinada marca és de 150 grams amb una desviació típica de 5.6 grams. Quin és el z-score d’una bossa que pesa 147 grams (arrodonit a 2 xifres decimals)?</p>
 <ol style="list-style-type: decimal">
 <li>-0.54</li>
@@ -2007,8 +2081,8 @@ f_X(x)=\left\{\begin{array}{ll}
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="contrastos-dhipòtesis-dun-i-dos-paràmetres.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="chap-conceptes.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="chap-estim.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
