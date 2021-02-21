@@ -8,13 +8,13 @@ X: \Omega\to \mathbb{R}
 $$
 que assigna a cada subjecte de $\Omega$ un nombre real. La idea intuïtiva que hi ha al darrera d'aquesta definició és que una variable aleatòria **mesura** una característica dels subjectes de $\Omega$ que varia a l'atzar d'un subjecte a un altre. Per exemple:
 
-* Prenem una persona d'una població i mesuram el seu nivell de colesterol, o la seva alçada, o el seu nombre de fills... En aquest cas, $\Omega$ és la població sota estudi, de la qual prenem la persona que mesuram.
+* Prenem una persona d'una població i mesuram el seu nivell de colesterol, o la seva alçada, o el seu nombre de fills... En aquest cas, $\Omega$ és la població baix estudi, de la qual prenem la persona que mesuram.
 
 * Llançam una moneda equilibrada 3 vegades i comptam les cares que obtenim. En aquest cas, $\Omega$ és la població formada per totes les seqüències de 3 llançaments d'una moneda equilibrada passades, presents i futures.
 
-El que més ens interessarà d'una variable aleatòria són les probabilitats dels esdeveniments que defineix. I quin tipus d'esdeveniments són els que ens interessen quan mesuram característiques numèriques? Doncs bàsicament esdeveniments definits mitjançant igualtats i desigualtats. Per exemple, si $X$ és la variable aleatòria "Prenem una persona i mesuram el seu nivell de colesterol en plasma (en mg/dl)", ens poden interessar esdeveniments de l'estil de:
+El que més ens interessarà d'una variable aleatòria són les probabilitats dels esdeveniments que defineix. I quin tipus d'esdeveniments són els que més ens interessen quan mesuram característiques numèriques? Doncs bàsicament esdeveniments definits mitjançant igualtats i desigualtats. Per exemple, si $X$ és la variable aleatòria "Prenem una persona i mesuram el seu nivell de colesterol en plasma (en mg/dl)", ens poden interessar esdeveniments de l'estil de:
 
-* El conjunt de les persones amb nivell de colesterol entre 200 i 240. L'indicarem amb
+* El conjunt de les persones amb nivell de colesterol entre 200 i 240. la indicarem amb
 $$
 200\leqslant X\leqslant 240
 $$
@@ -44,7 +44,7 @@ Com dèiem, el que ens interessarà d'aquests esdeveniments  serà la seva proba
 
 * Etc.
 
-En aquest context, indicarem normalment la **unió** amb una **o** i la **intersecció** amb una **coma**. Per exemple, si $X$ és la variable aleatòria "Llançam una moneda 6 vegades i comptam les cares":
+En aquest context, indicarem normalment la **unió** amb una **o** i la **intersecció** amb una **coma**. Per exemple, si $X$ és la variable aleatòria "Llançam una moneda 6 vegades i comptam les cares que obtenim":
 
 * $P(X\leqslant 2\text{ o }X\geqslant 5)$: Probabilitat de treure com a màxim 2 cares o com a mínim 5.
 
@@ -113,7 +113,7 @@ $$
     A la funció de distribució també se li sol dir **funció de probabilitat acumulada** per posar èmfasi en el fet que $F_X(x)$ mesura la "freqüència relativa acumulada" de $x$ en el total de la població.
 
 ```{example,cars}
-Sigui $X$ la variable aleatòria "Llançam 3 vegades una moneda equilibrada i comptam les cares". Aleshores:
+Sigui $X$ la variable aleatòria "Llançam 3 vegades una moneda equilibrada i comptam les cares que obtenim". Aleshores:
 
 
 ```
@@ -152,7 +152,7 @@ Si $X$ és una variable aleatòria discreta, $P(X\in A)=0$ per a qualsevol subco
 
 * Vegem ara la seva **funció de distribució** $F_X$. Recordau que $F_X(x)=P(X\leqslant x)$ i que la nostra variable només pot prendre els valors 0, 1, 2 i 3.
 
-    * Si $x<0$, $F_X(x)=P(X\leqslant x)=0$ perquè $X$ no pot prendre cap valor estrictament negatiu.
+    * Si $x<0$, $F_X(x)=P(X\leqslant x)=0$, perquè $X$ no pot prendre cap valor estrictament negatiu.
 
     * Si $0\leqslant x<1$, $F_X(x)=P(X\leqslant x)=P(X=0)=f_X(0)=1/8$, perquè si $0\leqslant x<1$, l'únic valor $\leqslant x$ que pot prendre $X$ és el 0.
 
@@ -208,7 +208,7 @@ $$
 
 
 
-* $F_X$ és **creixent**, perquè si $x\leqslant y$, tots els subjectes de $X\leqslant x$ també pertanyen a $X\leqslant y$, i per tant
+* $F_X$ és **creixent**, perquè si $x\leqslant y$, tots els subjectes que compleixen que  $X\leqslant x$ també compleixen  que $X\leqslant y$, i per tant
 $$
 P(X\leqslant x)\leqslant P(X\leqslant y).
 $$
@@ -259,7 +259,7 @@ La **mitjana**, o **esperança** (o **valor esperat**, **valor mitjà**...), d'u
 $$
 E(X)=\sum_{x\in D_X} x\cdot f_X(x)
 $$
-Sovint també l'indicarem amb $\mu_X$.
+Sovint també la indicarem amb $\mu_X$.
 
 La interpretació natural de $E(X)$ és que és **la mitjana dels valors de la variable $X$ en el total de la població $\Omega$**. En efecte, com que $P(X=x)$ és la proporció de subjectes de $\Omega$ en els quals $X$ val $x$, 
 $$
@@ -269,7 +269,7 @@ $$
 
 
 ```{example,notes1}
-Si, en una classe, un 10% dels estudiants han tret un 4 en un examen, un 20% un 6, un 50% un 8 i un 20% un 10, quina ha estat la nota mitjana obtinguda?
+Si, en una classe, un 10% dels estudiants han tret un 4 en un examen, un 20% un 6, un 50% un 8 i un 20% un 10, quina ha estat la nota mitjana obtenguda?
 
 
 ```
@@ -289,14 +289,14 @@ $$
 
 A banda de la seva interpretació com a "la mitjana de $X$ en el total de la població", $E(X)$ és també el **valor esperat de $X$**, en el sentit següent:
 
-> Suposau que prenem a l'atzar una mostra de $n$ subjectes de la població, mesuram $X$ sobre ells i calculam la mitjana aritmètica dels $n$ valors obtinguts. Aleshores, quan la mida $n$ de la mostra tendeix a $\infty$, aquesta mitjana aritmètica tendeix a valer $E(X)$ "gairebé sempre", en el sentit que la probabilitat que el seu límit sigui $E(X)$ és 1.
+> Suposau que prenem a l'atzar una mostra de $n$ subjectes de la població, mesuram $X$ sobre ells i calculam la mitjana aritmètica dels $n$ valors obtenguts. Aleshores, quan la mida $n$ de la mostra tendeix a $\infty$, aquesta mitjana aritmètica tendeix a valer $E(X)$ "gairebé sempre", en el sentit que la probabilitat que el seu límit sigui $E(X)$ és 1.
 
 
-És a dir: si mesuràssim $X$ sobre **molts** subjectes triats a l'atzar i calculàssim la mitjana dels valors obtinguts, és **gairebé segur** que obtendríem un valor **molt proper** a $E(X)$.
+És a dir: si mesuràssim $X$ sobre **molts** subjectes triats a l'atzar i calculàssim la mitjana dels valors obtenguts, és **gairebé segur** que obtendríem un valor **molt proper** a $E(X)$.
 
 
 ```{example}
-Seguim amb la variable aleatòria $X$ "Llançam una moneda equilibrada 3 vegades i comptam les cares". La seva esperança és
+Seguim amb la variable aleatòria $X$ "Llançam una moneda equilibrada 3 vegades i comptam les cares que obtenim". La seva esperança és
 $$
 E(X)= 0\cdot \frac{1}{8}+1\cdot \frac{3}{8}+2\cdot \frac{3}{8}+3\cdot \frac{1}{8}=1.5
 $$
@@ -323,7 +323,7 @@ Si llançam una moneda equilibrada 3 vegades, comptam les cares i elevam aquest 
 
 ```
 
-Serà l'esperança de $X^2$, on $X$ és la variable aleatòria "Llançam una moneda equilibrada 3 vegades i comptam les cares" (és a dir, aquesta $X^2$ és la variable aleatòria "Llançam una moneda equilibrada 3 vegades, comptam les cares i elevam aquest número al quadrat"):
+Serà l'esperança de $X^2$, on $X$ és la variable aleatòria "Llançam una moneda equilibrada 3 vegades i comptam les cares que obtenim" (és a dir, aquesta $X^2$ és la variable aleatòria "Llançam una moneda equilibrada 3 vegades, comptam les cares i elevam aquest número al quadrat"):
 
 $$
 E(X^2)= 0\cdot \frac{1}{8}+1\cdot \frac{3}{8}+2^2\cdot \frac{3}{8}+3^2\cdot \frac{1}{8}=3
@@ -358,7 +358,7 @@ Sí, ja sabem que parlar de variables constants és un oxímoron, però de vegad
 
     * Si $X,Y$ són dues variables aleatòries, $E(X+Y)=E(X)+E(Y)$.
 
-         Si en una classe la mitjana de la part de qüestions d'un examen ha estat un 3.5 (sobre 5) i la de la part d'exercicis ha estat un 3 (sobre 5), la nota mitjana de l'examen serà un 3.5+3=6.5, no?
+         Si en una classe la mitjana de la part de qüestions d'un examen ha estat un 3.5  i la de la part d'exercicis ha estat un 3, i la nota de l'examen és la suma de les notes de les dues parts, la nota mitjana de l'examen serà un 3.5+3=6.5, no?
 
     * Combinant les dues propietats anteriors, si $X_1,\ldots,X_n$ són variables aleatòries i $a_1,\ldots,a_n,b\in \mathbb{R}$,
     $$
@@ -379,7 +379,7 @@ La **variància** d'una variable aleatòria discreta $X$ és
 $$
 \sigma(X)^2 =E((X-\mu_X)^2) =\sum_{x\in D_X} (x-\mu_X)^2\cdot f_X(x)
 $$
-És a dir, és la mitjana del quadrat de la diferència entre $X$ i la seva mitjana $\mu_X$. També l'indicarem amb $\sigma_X^2$.
+És a dir, és la mitjana del quadrat de la diferència entre $X$ i la seva mitjana $\mu_X$. També la indicarem amb $\sigma_X^2$.
 
 Fixau-vos que es tracta de la traducció "poblacional" de la definició de variància per a una mostra, i per tant serveix per mesurar el mateix que aquella: la dispersió dels resultats de $X$ respecte de la mitjana. Només que ara és per a tota la població, i no per a una mostra. 
 
@@ -408,7 +408,7 @@ La **desviació típica** (o **desviació estàndard**) d'una variable aleatòri
 $$
 \sigma(X)=+\sqrt{\sigma(X)^2}
 $$
-També mesura la dispersió dels valors de $X$ respecte de la mitjana. Sovint l'indicarem amb $\sigma_X$.
+També mesura la dispersió dels valors de $X$ respecte de la mitjana. Sovint la indicarem amb $\sigma_X$.
 
 ```{block2,type="rmdcaution"}
 En el context de les variables aleatòries, no hi ha "variància" i "variància mostral", només "variància". El mateix nom us hauria de donar la pista que la "variància mostral" està definida només per a mostres.
@@ -417,7 +417,7 @@ En el context de les variables aleatòries, no hi ha "variància" i "variància 
 El motiu per introduir la variància **i** la desviació típica per mesurar la dispersió dels valors de $X$ és la mateixa que en estadística descriptiva: la variància és més fàcil de manejar (no involucra arrels quadrades) però les seves unitats són les de $X$ al quadrat, mentre que les unitats de la desviació típica són les de $X$, i per tant el seu valor és més fàcil d'interpretar.
 
 ```{example}
-Seguim amb la variable aleatòria $X$ "Llançam una moneda equilibrada 3 vegades i comptam les cares". Recordem que $\mu_X=E(X)=1.5$. Aleshores, la seva variància és:
+Seguim amb la variable aleatòria $X$ "Llançam una moneda equilibrada 3 vegades i comptam les cares que obtenim". Recordem que $\mu_X=E(X)=1.5$. Aleshores, la seva variància és:
 
 ```
 
@@ -497,7 +497,7 @@ $$
 Sigui $p\in [0,1]$. El **quantil d'ordre $p$** (o **$p$-quantil**) d'una variable aleatòria discreta $X$ és el valor $x_p\in D_X$ tal que $P(X\leqslant x_p)\geqslant p$ però $P(X< x_p)<p$. És a dir, el valor $x_p\in D_X$ més petit  tal que $P(X\leqslant x_p)\geqslant p$.
 
 
-Per exemple, que el 0.25-quantil d'una variable aleatòria discreta $X$ sigui, jo què sé, 8, significa que almenys un 25% de la població té un valor de $X$ més petit o igual que 8, però menys d'un 25% de la població té un valor de $X$ estrictament més petit que 8. És a dir, 8 és el valor més petit per al qual la probabilitat acumulada arriba al 25%.
+Per exemple, que el 0.25-quantil d'una variable aleatòria discreta $X$ sigui, jo què sé, 8, significa que almanco un 25% de la població té un valor de $X$ més petit o igual que 8, però manco d'un 25% de la població té un valor de $X$ estrictament més petit que 8. És a dir, 8 és el valor més petit per al qual la probabilitat acumulada arriba al 25%.
 
 ```{block2,type="rmdnote"}
 Si existeix algun $x_p\in D_X$ tal que $P(X\leqslant x_p)=p$, llavors el $p$-quantil és aquest $x_p$, perquè, per a tot altre $x\in D_x$:
@@ -516,7 +516,7 @@ Com en estadística descriptiva, alguns quantils de variables aleatòries tenen 
 * Etc.
 
 ```{example}
-Seguim amb la variable aleatòria $X$ "Llançam una moneda equilibrada 3 vegades i comptam les cares". Recordem que la seva funció de distribució és
+Seguim amb la variable aleatòria $X$ "Llançam una moneda equilibrada 3 vegades i comptam les cares que obtenim". Recordem que la seva funció de distribució és
 
 ```
 
@@ -605,13 +605,14 @@ Més exemples d'experiments de Bernoulli:
     * $E$: donar cara
     * $p=1/2$
     
-* Realitzar un test PCR de COVID-19 a una persona i mirar si dóna positiu
+* Demanar a una persona si l'estadística l'avorreix.
 
-    * $E$: donar positiu
-    * $p$: la proporció de persones que donen positiu en el test a la població de la qual hem extret el nostre subjecte
+    * $E$: que l'estadística l'avorreixi
+    * $p$: la proporció de persones a qui  avorreix l'estadística
     
-```{block2,type="rmdcaution"}        
-No confongueu la proporció de persones que donen positiu en el test PCR de COVID-19 amb la proporció de persones que tenen la COVID-19.
+
+```{r, echo=FALSE,out.width="80%", fig.cap="Qui dels dos ets?"}
+knitr::include_graphics("Bioestadistica-II_files/figure-html/c88K3.png")
 ```
 
 
@@ -625,7 +626,7 @@ Per exemple:
 
 * Una variable de Bernoulli $Be(p)$ és una variable binomial $B(1,p)$.
 
-* Llançar una moneda equilibrada 10 vegades i comptar les cares és una variable binomial $B(10,0.5)$.
+* Llançar una moneda equilibrada 10 vegades i comptar les cares que surten és una variable binomial $B(10,0.5)$.
 
 * Triar 20 estudiants de la UIB a l'atzar, l'un rere l'altre, permetent repeticions i cada tria independent de les altres, i mirar si al primer semestre han aprovat totes les assignatures o no, és una variable binomial $B(20,p)$ amb $p$ la proporció d'estudiants de la UIB que han aprovat totes les assignatures del primer semestre.
 
@@ -672,13 +673,13 @@ i ens dóna el nombre de subconjunts de $k$ elements de $\{1,\ldots,n\}$. Si $k>
 
 
 ```{block2,type="rmdcorbes"}
-Suposem que efectuam $n$ repeticions consecutives i independents d'un experiment de Bernoulli de probabilitat d'èxit $p$ i comptam el nombre d'èxits $E$; direm $X$ a la variable aleatòria resultant. Per seguir la demostració, si no us sentiu molt còmodes amb el raonament amb enes i kas abstractes,  anau repetint-lo prenent, per exemple, $n=4$.
+Suposem que efectuam $n$ repeticions consecutives i independents d'un experiment de Bernoulli de probabilitat d'èxit $p$ i comptam el nombre d'$E$'s; direm $X$ a la variable aleatòria resultant. Per seguir la demostració, si no us sentiu molt còmodes amb el raonament amb enes i kas abstractes,  anau repetint-lo prenent, per exemple, $n=4$.
 
-Els possibles resultats són totes les paraules possibles de $n$ lletres formades per $E$'s i $F$'s. Com que els experiments successius són independents, la probabilitat de cadascuna d'aquestes paraules és el producte de les probabilitats dels seus resultats individuals. Per tant, si una paraula concreta té $k$ lletres $E$ i $n-k$ lletres $F$ (s'han obtingut $k$ èxits i $n-k$ fracassos), la seva probabilitat és $p^k(1-p)^{n-k}$, independentment de l'ordre en el qual hàgim obtingut els resultats.
+Els possibles resultats són totes les paraules possibles de $n$ lletres formades per $E$'s i $F$'s. Com que els experiments successius són independents, la probabilitat de cadascuna d'aquestes paraules és el producte de les probabilitats dels seus resultats individuals. Per tant, si una paraula concreta té $k$ lletres $E$ i $n-k$ lletres $F$ (s'han obtengut $k$ èxits i $n-k$ fracassos), la seva probabilitat és $p^k(1-p)^{n-k}$, independentment de l'ordre en el qual hàgim obtengut els resultats.
 
 Per calcular la probabilitat d'obtenir una seqüència amb $k$ èxits, sumarem les probabilitats d'obtenir cadascuna de les seqüències de $n$ lletres amb $k$ $E$'s. Com que totes tenen la mateixa probabilitat, el resultat serà la probabilitat d'una paraula amb $k$ $E$'s i $n-k$ $F$'s multiplicada pel nombre total de paraules diferents amb $k$ $E$'s i $n-k$ $F$'s.
 
-Ara, quantes paraules hi ha amb $k$ $E$'s i $n-k$ $F$'s? Cada una d'elles queda caracteritzada per les posicions de les $k$ $E$'s, per tant és el nombre de possibles eleccions de conjunts de $k$ posicions per a les $E$'s. Això darrer és el nombre de possibles subconjunts de $k$ elements (les posicions on hi haurà les $E$'s) de $\{1,\ldots,n\}$, que és el nombre combinatori $\binom{n}{k}$.
+Ara, quantes paraules hi ha amb $k$ $E$'s i $n-k$ $F$'s? Cada una d'elles queda caracteritzada per les posicions de les $k$ $E$'s, per tant hi ha tantes paraules d'aquestes com possibles eleccions de conjunts de $k$ posicions per a les $E$'s. El nombre d'això darrer és el de possibles subconjunts de $k$ elements (les posicions on hi haurà les $E$'s) de $\{1,\ldots,n\}$, que és el nombre combinatori $\binom{n}{k}$.
 Per tant ja tenim
 $$
 P(X=k)=\binom{n}{k}p^k(1-p)^{n-k}.
@@ -712,7 +713,7 @@ $$
 El tipus de teorema anterior és el que fa que ens interessi conèixer algunes famílies distingides freqüents de variables aleatòries. Si, per exemple, reconeixem que una variable aleatòria és binomial i coneixem els seus valors de $n$ i $p$ i sabem el teorema anterior, automàticament sabem la seva funció de densitat, i amb ella la seva funció de distribució, el seu valor esperat, la seva variància etc., sense necessitat de deduir tota aquesta informació cada vegada que trobem una variable d'aquestes.
 
 ```{block2,type="rmdrecordau"}
-Saber coses estalvia temps.
+El coneixement estalvia temps.
 ```
 
 Naturalment, conèixer les propietats de les variables aleatòries binomials només és útil si sabem reconèixer quan estam al davant d'una. Fixau-vos que en una variable aleatòria binomial:
@@ -741,7 +742,7 @@ Així, per exemple:
 
 * En una aula hi ha 5 homes i 45 dones. Triam 10 estudiants, un rere l'altre però cada estudiant pot ser triat més d'una vegada, per a fer-los una pregunta. Cada elecció és independent de les altres. Comptam quants homes hem interrogat. 
 
-    Ara sí que és una variable binomial $B(10,0.9)$.
+    Ara sí que és una variable binomial $B(10,0.9)$, ja que la probabilitat de triar un home no varia d'una ronda a la següent.
 
 * En una aula hi ha 5 homes i 45 dones. Triam estudiants un rere l'altre i cada estudiant pot ser triat més d'una vegada, per fer-los una pregunta. Cada elecció és independent de les altres. Comptam quants estudiants hem hagut de triar per arribar a interrogar 5 homes. 
 
@@ -753,12 +754,12 @@ Així, per exemple:
 
 * La probabilitat que un dia de novembre plogui és d'un 32%. Triam una setmana de novembre i comptam quants dies ha plogut. 
 
-    No és d'una variable binomial. Encara que *a priori* cada dia tengui la mateixa probabilitat de pluja, que plogui un dia no és independent que plogui l'anterior. Per què fos binomial, hauríem d'haver triat 7 dies de novembre a l'atzar, permetent que sortissin repetits.
+    No és d'una variable binomial. Encara que *a priori* cada dia tengui la mateixa probabilitat de pluja, que plogui un dia no és independent que plogui l'anterior. Perquè fos binomial, hauríem d'haver triat 7 dies de novembre a l'atzar, permetent que sortissin repetits.
 
 * A Espanya hi ha 46,700,000 persones, de les quals un 11.7% són diabètics. Triam 100 espanyols diferents a l'atzar (de manera independent els uns dels altres) i comptam quants són diabètics.
 
 
-     No és binomial, pel mateix motiu que no ho era quan elegíem estudiants sense permetre repeticions. Però **pràcticament** sí que ho és, perquè les probabilitats gairebé no varien d'una elecció a la següent. 
+     No és binomial, pel mateix motiu que no ho era quan escollíem estudiants sense permetre repeticions. Però **pràcticament** sí que ho és, perquè les probabilitats gairebé no varien d'una elecció a la següent. 
      
      Per exemple, quan ja duim 99 individus escollits, la probabilitat de triar un individu concret dels que queden és $1/(46700000-99)=2.141332\times 10^{-8}$ mentre que si permetem repeticions, aquesta probabilitat és $1/46700000=2.141328\times 10^{-8}$. Coincideixen fins la dotzena xifra decimal.
 
@@ -801,7 +802,7 @@ En canvi, si $p\neq 0.5$, la funció de densitat no és simètrica, com podeu ve
 
 
 ```{block2,type="rmdexercici"}
-Per agilitzar els tests de COVID-19, s'ha proposat l'estratègia següent (anomenada *pooled sample testing* o simplement *pooling*). Unim grups de 10 mostres en una sola mostra i l'analitzam. Si dóna negatiu, serà senyal que totes la mostres originals eren negatives. Declararem llavors negatius els 10 subjectes de les mostres originals. Si dóna positiu, serà perquè almenys una de les mostres originals era positiva. En aquest cas, analitzarem les 10 mostres per separat.
+Per agilitzar els tests de COVID-19, s'ha proposat l'estratègia següent (anomenada *pooled sample testing* o simplement *pooling*). Unim grups de 10 mostres en una sola mostra i l'analitzam. Si dóna negatiu, serà senyal que totes la mostres originals eren negatives. Declararem llavors negatius els 10 subjectes de les mostres originals. Si dóna positiu, serà perquè almanco una de les mostres originals era positiva. En aquest cas, analitzarem les 10 mostres per separat.
 
 Observau llavors que si les 10 mostres eren negatives, fem un sol test, mentre que si alguna mostra és positiva, en fem 11. Amb l'enfocament tradicional, un test per mostra i per avall, faríem sempre 10 tests.
 
@@ -814,7 +815,7 @@ Suposem que el test és exacte: dóna positiu sempre que ha de donar positiu i n
 Una possibilitat és usar una aplicació de mòbil o tauleta. La nostra preferida és *Probability distributions*, disponible tant per a Android com per a iOS.
 
 ```{r, echo=FALSE, out.width="80%",fig.cap="L'apli *Probability Distributions*."}
-include_graphics("Bioestadistica-II_files/figure-html/appprobdistr.png")
+knitr::include_graphics("Bioestadistica-II_files/figure-html/appprobdistr.png")
 ```
 
 Una altra possibilitat és usar R.  R coneix totes la distribucions de variables aleatòries importants; per exemple, per a R la binomial és `binom`. Aleshores
@@ -847,7 +848,7 @@ dbinom(5,20,1/6)
 pbinom(5,20,1/6)
 ```
 
-* Si llançam 20 vegades un dau cúbic equilibrat, quina és la probabilitat de treure menys de 5 uns? 
+* Si llançam 20 vegades un dau cúbic equilibrat, quina és la probabilitat de treure manco de 5 uns? 
 
     Amb les notacions anteriors, ens demanen $P(X< 5)$, és a dir, $P(X\leqslant 4)=F_X(4)$:
 ```{r}
@@ -857,7 +858,7 @@ pbinom(4,20,1/6)
 
 * Si llançam 20 vegades un dau cúbic equilibrat, quina és la probabilitat de treure 8 uns o més? 
 
-    Amb les notacions anteriors, ens demanen $P(X\geqslant 8)$. Com que el contrari de treure 8 uns o més és treure 7 uns o menys, tenim que $P(X\geqslant 8)=1-P(X\leqslant 7)=1-F_X(7)$:
+    Amb les notacions anteriors, ens demanen $P(X\geqslant 8)$. Com que el contrari de treure 8 uns o més és treure 7 uns o manco, tenim que $P(X\geqslant 8)=1-P(X\leqslant 7)=1-F_X(7)$:
 ```{r}
 1-pbinom(7,20,1/6)
 ```
@@ -923,7 +924,7 @@ $$
 ```
 
 ```{block2,type="rmdcorbes"}
-La demostració de la fórmula per a la densitat és senzilla, en termes de casos favorables partit per casos possibles. Vegem: $f_X(k)$ és la probabilitat que un subconjunt de $n$ subjectes (diferents) de la població contingui $k$ subjectes  $E$ i $n-k$ subjectes dels altres (en direm $F$).
+La demostració de la fórmula per a la densitat és senzilla, en termes de casos favorables partit per casos possibles. Vegem: $f_X(k)$ és la probabilitat que un subconjunt de $n$ subjectes (diferents) de la població contengui $k$ subjectes  $E$ i $n-k$ subjectes dels altres (en direm $F$).
 
 * Casos possibles: Tots els possibles subconjunts de $n$ elements de la població. El nombre de tots els subconjunts de $n$ elements d'una població de mida $N+M$ és $\binom{N+M}{n}$. Ja tenim el denominador.
 
@@ -951,12 +952,12 @@ $$
 $$ 
 se l'anomena **factor de població finita**. 
 
-Fixau-vos que si $\mathbf{P}$ és molt més gran que $n$, tendrem que $\mathbf{P}-n\approx \mathbf{P}-1$ i per tant $(\mathbf{P}-n)/(\mathbf{P}-1)\approx 1$ i la variància de la hipergeomètrica serà aproximadament la de la binomial. Això és consistent amb el que ja hem comentat: si la població és molt més gran que la mostra, prendre les mostres amb o sense reposició no afecta massa a les mostres obtingudes, per la qual cosa la distribució de probabilitat ha de ser molt semblant.
+Fixau-vos que si $\mathbf{P}$ és molt més gran que $n$, tendrem que $\mathbf{P}-n\approx \mathbf{P}-1$ i per tant $(\mathbf{P}-n)/(\mathbf{P}-1)\approx 1$ i la variància de la hipergeomètrica serà aproximadament la de la binomial. Això és consistent amb el que ja hem comentat: si la població és molt més gran que la mostra, prendre les mostres amb o sense reposició no afecta massa a les mostres obtengudes, per la qual cosa la distribució de probabilitat ha de ser molt semblant.
 Recordau els exemples següents:
 
 * A Espanya hi ha 46,700,000 persones, de les quals un 11.7% són diabètics. Triam 100 espanyols diferents i comptam quants són diabètics. 
 
-    Aquesta variable és, en realitat, hipergeomètrica amb $N=0.117\cdot 46700000=5463900$, $M=46700000-N=41236100$ i $n=100$, però en la pràctica la consideram binomial $B(100,0.117)$. El factor de població finita és
+    Aquesta variable és, en realitat, hipergeomètrica amb $N=0.117\cdot 46700000=5463900$, $M=46700000-N=41236100$ i $n=100$, però en la pràctica la consideram binomial $B(100,0.117)$. El quocient $(\mathbf{P}-n)/(\mathbf{P}-1)$ és
 $$
 \frac{46700000-100}{46700000-1}=0.9999979
 $$
@@ -964,7 +965,7 @@ $$
 
 * En una aula hi ha 5 homes i 45 dones. Triam 10 estudiants, un rere l'altre i sense repetir-los, per fer-los una pregunta. Cada elecció és independent de les altres. Comptam quants homes hem interrogat. 
 
-    Aquesta variable és $H(5,45,10)$. El factor de població finita en aquesta cas no és aproximadament 1: dóna
+    Aquesta variable és $H(5,45,10)$. El quocient $(\mathbf{P}-n)/(\mathbf{P}-1)$ en aquesta cas no és aproximadament 1: dóna
 $$
 \frac{50-10}{50-1}=0.8163
 $$
@@ -985,7 +986,7 @@ legend("topright",lty=c(1,1,1,1),col=c("black","red","blue","brown"),legend=c("B
 
 Una variable aleatòria $X$ és **de Poisson** (o **té distribució de Poisson**) **de paràmetre $\lambda>0$** (abreujadament, $Po(\lambda)$) quan: 
 
-* El seu **domini** és $D_X=\mathbb{N}$, el conjunt de tots els nombres naturals (és a dir, pot prendre com a valor qualsevol nombre natural).
+* El seu **domini** és $D_X=\mathbb{N}$, el conjunt de tots els nombres naturals.
 
 * La seva **funció de densitat** és
 $$
@@ -1015,7 +1016,7 @@ Suposem a més que les aparicions d'aquests objectes satisfan les propietats seg
 
 * Les aparicions dels objectes són **aleatòries**: en cada instant, un objecte es dóna, o no, a l'atzar, amb una probabilitat fixa i constant. 
 
-* Les aparicions dels objectes són **independents**: que es doni un objecte en un instant concret, no depèn per a res que s'hagi donat o no un objecte en un altre instant.
+* Les aparicions dels objectes són **independents**: que es doni un objecte en un instant concret, no depèn que s'hagi donat o no un objecte en un altre instant.
 
 * Les aparicions dels objectes no són **simultànies**: és pràcticament impossible que dos objectes d'aquests es donin en el mateix instant exacte, mesurat amb precisió infinita.
 
@@ -1042,9 +1043,9 @@ Fixau-vos que aquest tipus de coneixement ens serveix per a dues coses:
 ```{example}
 Observau la diferència entre les dues variables següents:
 
-* Nombres mensuals de defuncions per un tipus de càncer en un país. El moment exacte de les defuncions es produeix a l'atzar, segurament mai no es donen dues defuncions exactament en el mateix instant, si els poguéssim mesurar amb precisió infinita, i les defuncions es produeixen de manera independent. És de Poisson.
+* Nombres mensuals de defuncions per un tipus de càncer en un país. El moment exacte de les defuncions es produeix a l'atzar, segurament mai no es donen dues defuncions exactament en el mateix instant amb precisió infinita, i les defuncions es produeixen de manera independent. És de Poisson.
 
-* Nombres mensuals de defuncions per una malatia infecciosa en un país. Un altre cop, el moment exacte de les defuncions es produeix a l'atzar i segurament mai no es donen dues defuncions exactament en el mateix instant, si els poguéssim mesurar amb precisió infinita. Però les infeccions no són independents, precisament perquè es tracta d'una malaltia infecciosa, i per tant les defuncions tampoc: com ens hem cansat d'observar amb la COVID-19, en un mateix *cluster* de la malaltia es poden produir diverses morts associades. No és de Poisson.
+* Nombres mensuals de defuncions per una malatia infecciosa en un país. Un altre cop, el moment exacte de les defuncions es produeix a l'atzar i segurament mai no es donen dues defuncions exactament en el mateix instant amb precisió infinita. Però les infeccions no són independents, precisament perquè es tracta d'una malaltia infecciosa, i per tant les defuncions tampoc: com ens hem cansat d'observar amb la COVID-19, en un mateix *cluster* de la malaltia es poden produir diverses morts associades. No és de Poisson.
 
 
 ```
@@ -1157,7 +1158,7 @@ Recordau que la integral té una interpretació senzilla en termes d'àrees. En 
 $$
 \int_{-\infty}^a f(x)\, dx
 $$
-és igual a l'àrea de la regió compresa entre la corba $y=f(x)$ i l'eix d'abscisses $y=0$  a l'esquerra de la recta vertical $x=a$. Per tant, la funció de densitat $f_X$ de $X$ és la funció positiva tal que, per a tot $a\in \mathbb{R}$, $F_X(a)$ és igual a **l'àrea sota la corba** $y=f_X(x)$ (és a dir, entre aquesta corba i l'eix d'abscisses) a l'esquerra de $x=a$. 
+és igual a l'àrea de la regió compresa entre la corba $y=f(x)$ i l'eix d'abscisses $y=0$  a l'esquerra de la recta vertical $x=a$. Per tant, la funció de densitat $f_X$ de $X$ és la funció positiva tal que, per a tot $a\in \mathbb{R}$, $F_X(a)$ és igual a **l'àrea davall de la corba** $y=f_X(x)$ (és a dir, entre aquesta corba i l'eix d'abscisses) a l'esquerra de $x=a$. 
 
 
 ```{r echo=FALSE, out.width="60%"}
@@ -1173,7 +1174,7 @@ Recordau que, en un histograma de freqüències relatives:
 * Diem a l'alçada d'una barra la **densitat** de la classe (i per tant, qualque cosa tendrà a veure amb la densitat de $X$, no ho trobau?).  
 * Si $a$ és un extrem d'una classe, la freqüència relativa acumulada fins $a$ (la **probabilitat** que $X\leqslant a$) és la suma de les àrees de les barres a l'esquerra d'$a$.
 
-Si dibuixam els histogrames de $X$ prenent classes cada vegada més estretes, els seus polígons de freqüències tendeixen a dibuixar una corba, que hem acolorit en vermell en el darrer histograma de la seqüència següent:
+Si dibuixam els histogrames de $X$ prenent classes cada vegada més estretes, els seus polígons de freqüències (en vermell) tendeixen a dibuixar una corba:
 
 
 ```{r,echo=FALSE,out.width="100%",fig.asp=1.3,fig.width=10}
@@ -1181,13 +1182,18 @@ par(mfrow=c(3,2))
 set.seed(100)
 x=rf(10001000,2,4)
 x=x[x<20]
-hist(x,col="skyblue",freq=FALSE,xlab="",ylab="Densitat",main="", breaks=seq(0,20,length.out=10))
-hist(x,col="skyblue",freq=FALSE,xlab="",ylab="Densitat",main="", breaks=seq(0,20,length.out=20))
-hist(x,col="skyblue",freq=FALSE,xlab="",ylab="Densitat",main="", breaks=seq(0,20,length.out=50),ylim=c(0,0.8))
-hist(x,col="skyblue",freq=FALSE,xlab="",ylab="Densitat",main="", breaks=seq(0,20,length.out=100),ylim=c(0,0.9))
-hist(x,col="skyblue",freq=FALSE,xlab="",ylab="Densitat",main="", breaks=seq(0,20,length.out=200),ylim=c(0,0.9))
-H4=hist(x,col="skyblue",freq=FALSE,xlab="",ylab="Densitat",main="", breaks=seq(0,20,length.out=500),ylim=c(0,1))
+H0=hist(x,col="skyblue",freq=FALSE,xlab="",ylab="Densitat",main="", breaks=seq(0,20,length.out=10))
+lines(H0$mids,H0$density,col="red",lwd=1.5)
+H1=hist(x,col="skyblue",freq=FALSE,xlab="",ylab="Densitat",main="", breaks=seq(0,20,length.out=20))
+lines(H1$mids,H1$density,col="red",lwd=1.5)
+H2=hist(x,col="skyblue",freq=FALSE,xlab="",ylab="Densitat",main="", breaks=seq(0,20,length.out=50),ylim=c(0,0.8))
+lines(H2$mids,H2$density,col="red",lwd=1.5)
+H3=hist(x,col="skyblue",freq=FALSE,xlab="",ylab="Densitat",main="", breaks=seq(0,20,length.out=100),ylim=c(0,0.9))
+lines(H3$mids,H3$density,col="red",lwd=1.5)
+H4=hist(x,col="skyblue",freq=FALSE,xlab="",ylab="Densitat",main="", breaks=seq(0,20,length.out=200),ylim=c(0,0.9))
 lines(H4$mids,H4$density,col="red",lwd=1.5)
+H5=hist(x,col="skyblue",freq=FALSE,xlab="",ylab="Densitat",main="", breaks=seq(0,20,length.out=500),ylim=c(0,1))
+lines(H5$mids,H5$density,col="red",lwd=1.5)
 par(mfrow=c(1,1))
 ```
 
@@ -1199,32 +1205,32 @@ H5=hist(x,col="skyblue",freq=FALSE,xlab="",ylab="Densitat",main="", breaks=seq(0
 polygon(c(0,H5$mids),c(0,H5$density),col="skyblue",lwd=1.5,xlab="",ylab="Densitat")
 ```
 
-En el límit, la probabilitat que $X\leqslant a$ serà el límit de les sumes de les àrees de les barres a l'esquerra d'$a$, i per tant l'àrea sota aquesta corba límit a l'esquerra d'$a$. Això ens diu que que aquesta corba és precisament la funció de densitat $y=f_X(x)$. 
+En el límit, la probabilitat que $X\leqslant a$ serà el límit de les sumes de les àrees de les barres a l'esquerra d'$a$, i per tant l'àrea davall d'aquesta corba límit a l'esquerra d'$a$. Això ens diu que que aquesta corba és precisament la funció de densitat $y=f_X(x)$. 
 
 ```{block2,type="rmdimportant"}
 La **funció de densitat** $f_X$ d'una variable aleatòria contínua $X$ és la funció límit dels polígons de freqüències d'histogrames de $X$ quan l'amplada de les classes tendeix a 0.
 ```
 
-Vegem algunes propietats que es dedueixen del fet que $F_X(a)=P(X\leqslant a)$ sigui igual a **l'àrea sota la corba** $y=f_X(x)$ a l'esquerra de $x=a$: 
+Vegem algunes propietats que es dedueixen del fet que $F_X(a)=P(X\leqslant a)$ sigui igual a **l'àrea davall de la corba** $y=f_X(x)$ a l'esquerra de $x=a$: 
 
 
-* Com que $P(X<\infty)=P(\Omega)=1$, **l'àrea sota tota la corba $y=f_X(x)$ és 1.**
+* Com que $P(X<\infty)=P(\Omega)=1$, **l'àrea davall de tota la corba $y=f_X(x)$ és 1.**
 
-* $P(a\leqslant X\leqslant b)=P(X\leqslant b)-P(X<a)$ és l'àrea sota la corba $y=f_X(x)$ a l'esquerra de $x=b$ **menys** l'àrea sota la corba $y=f_X(x)$ a l'esquerra de $x=a$. Per tant, $P(a\leqslant X\leqslant b)$ és igual a **l'àrea sota la corba $y=f_X(x)$ entre $x=a$ i $x=b$.**
+* $P(a\leqslant X\leqslant b)=P(X\leqslant b)-P(X<a)$ és l'àrea davall de la corba $y=f_X(x)$ a l'esquerra de $x=b$ **manco** l'àrea davall de la corba $y=f_X(x)$ a l'esquerra de $x=a$. Per tant, $P(a\leqslant X\leqslant b)$ és igual a **l'àrea davall de la corba $y=f_X(x)$ entre $x=a$ i $x=b$.**
 
 ```{r echo=FALSE, out.width="60%"}
 knitr::include_graphics("Bioestadistica-II_files/figure-html/entreaib.png")
 ```
 
 
-* Si $\varepsilon>0$ és molt, molt petit, l'àrea sota la corba $y=f_X(x)$ entre $a-\varepsilon$ i $a+\varepsilon$ és aproximadament igual a la del rectangle de base l'interval $[a-\varepsilon,a+\varepsilon]$ i alçada $f_X(a)$, és a dir, a $2\varepsilon\cdot f_X(a)$ (vegeu la Figura \@ref(fig:epsilon)). És a dir,
+* Si $\varepsilon>0$ és molt, molt petit, l'àrea davall de la corba $y=f_X(x)$ entre $a-\varepsilon$ i $a+\varepsilon$ és aproximadament igual a la del rectangle de base l'interval $[a-\varepsilon,a+\varepsilon]$ i alçada $f_X(a)$, és a dir, a $2\varepsilon\cdot f_X(a)$ (vegeu la Figura \@ref(fig:epsilon)). És a dir,
 $$
 P(a-\varepsilon\leqslant X\leqslant a+\varepsilon)\approx 2\varepsilon\cdot f_X(a).
 $$
     
     Per tant, $f_X(a)$ ens dóna una indicació de la probabilitat que $X$ valgui aproximadament $a$ (però **no és** $P(X=a)$, que val 0). És a dir, per exemple, si $f_X(a)=0.1$ i $f_X(b)=0.5$, la probabilitat que $X$ prengui un valor proper a $b$ és 5 vegades més gran que la probabilitat que prengui un valor proper a $a$. 
 
-```{r epsilon, echo=FALSE, out.width="60%",fig.cap="L'àrea sota la corba al voltant d'$a$ és aproximadament igual a la del rectangle d'alçada f~X~(a)"}
+```{r epsilon, echo=FALSE, out.width="60%",fig.cap="L'àrea davall de la corba al voltant d'$a$ és aproximadament igual a la del rectangle d'alçada f~X~(a)"}
 knitr::include_graphics("Bioestadistica-II_files/figure-html/density.png")
 ```
 
@@ -1233,7 +1239,7 @@ knitr::include_graphics("Bioestadistica-II_files/figure-html/density.png")
 Però $P(X=a)=P(X=b)=0$, així que, per favor, evitau dir que "la probabilitat que $X$ valgui $b$ **és 5 vegades més gran** que la probabilitat que valgui $a$". Sí, ja sabem que $5\cdot 0=0$, però la frase és enganyosa: la probabilitat que $X$ valgui $b$ no més gran que la probabilitat que valgui $a$.
 ```
 
-A les variables aleatòries discretes, definíem la moda com el valor (o els valors) més probable. Però ara no té sentit definir la moda d'una variable contínua $X$ com el valor $x_0$ tal que $P(X=x_0)$ sigui màxim, perquè...  $P(X=x)=0$ per a tot $x\in \mathbb{R}$. Aleshores, es defineix la **moda** d'una variable aleatòria contínua $X$ com el valor (o els valors) $x_0$ tal que $f_X(x_0)$ és màxim. Com que $f_X(x_0)$ mesura la probabilitat que $X$ valgui "aproximadament" $x_0$, tenim que la moda de $X$ és el valor prop del qual és més probable que caigui el valor de $X$.
+A les variables aleatòries discretes, hi definíem la moda com el valor (o els valors) més probable. Però ara no té sentit definir la moda d'una variable contínua $X$ com el valor $x_0$ tal que $P(X=x_0)$ sigui màxim, perquè...  $P(X=x)=0$ per a tot $x\in \mathbb{R}$. Aleshores, es defineix la **moda** d'una variable aleatòria contínua $X$ com el valor (o els valors) $x_0$ tal que $f_X(x_0)$ és màxim. Com que $f_X(x_0)$ mesura la probabilitat que $X$ valgui "aproximadament" $x_0$, tenim que la moda de $X$ és el valor prop del qual és més probable que caigui el valor de $X$.
 
 Unes consideracions finals:
 
@@ -1261,7 +1267,7 @@ $$
 E(X)=\int_{-\infty}^{\infty}x \cdot f_{X}(x)\, dx
 $$
 És a dir, és l'àrea compresa entre l'eix d'abscisses i la corba $y=xf_X(x)$.
-Com en el cas discret, també l'indicarem de vegades amb $\mu_X$. 
+Com en el cas discret, també la indicarem de vegades amb $\mu_X$. 
 
 Aquest valor té la mateixa interpretació que en el cas discret: 
 
@@ -1282,17 +1288,17 @@ i es pot demostrar que és igual a
 $$
 \sigma(X)^2=E(X^2)-\mu_X^2.
 $$
-També l'indicarem de vegades amb $\sigma_X^2$.
+També la indicarem de vegades amb $\sigma_X^2$.
 
 
 La **desviació típica** de $X$ és 
 $$
 \sigma(X)=+\sqrt{\sigma(X)^2}
 $$
-i també l'indicarem de vegades amb $\sigma_X$.
+i també la indicarem de vegades amb $\sigma_X$.
 
 
-Com en el cas discret, la variància i la desviació típica quantifiquen la variabilitat dels resultats de $X$ respecte del seu valor mitjà $\mu_X$.
+Com en el cas discret, la variància i la desviació típica quantifiquen la variabilitat dels resultats de $X$.
 
 Aquests paràmetres de $X$ tenen les **mateixes propietats** en el cas continu que en el discret. Les recordam:
 
@@ -1301,7 +1307,7 @@ Aquests paràmetres de $X$ tenen les **mateixes propietats** en el cas continu q
 * Si $\sigma(X)^2=0$, $X$ és constant.
 
 ```{block2,type="rmdnote"}
-I és clar, si $X$ només pot prendre un valor, aleshores ja no és contínua, sino discreta. Per tant, per conveni, d'ara endavant suposarem que **les nostres variables aleatòries contínues tenen variància no nul·la**.
+I és clar, si $X$ només pot prendre un valor, aleshores ja no és contínua, sino discreta. Per tant, per conveni, d'ara endavant suposarem que **les nostres variables aleatòries contínues sempre tenen variància no nul·la**.
 ```
 
 * Si $X_1,\ldots,X_n$ són variables aleatòries i $a_1,\ldots,a_n,b\in \mathbb{R}$,
@@ -1353,7 +1359,7 @@ Però sí que heu de saber que:
 
 * Una variable aleatòria normal $X$ és contínua, i per tant $P(X=x)=0$, $P(X\leqslant x)=P(X<x)$ etc.
 
-* Si $X$ és normal, la seva funció de distribució $F_X$ és **injectiva i creixent**: si $x<y$, $F_X(x)<F_X(y)$.
+* Si $X$ és normal, la seva funció de distribució $F_X$ és **injectiva i estrictament creixent**: si $x<y$, $F_X(x)<F_X(y)$.
 
 * Si $X$ és $N(\mu,\sigma)$, aleshores $\mu_X=\mu$ i $\sigma_X=\sigma$.
 
@@ -1361,8 +1367,8 @@ Una variable aleatòria normal diem que és **estàndard** (o **típica**) quan 
 
 La gràfica de la densitat d'una variable aleatòria normal és la famosa **campana de Gauss**:
 
-```{r,echo=FALSE,fig.cap="Densitat d'una variable normal estàndard"}
-curve(dnorm(x),-4,4,col="blue",lwd=3,main="",xlab="",ylab="")
+```{r,echo=FALSE, out.width="80%", fig.width=8, fig.asp = 0.5, fig.cap="Densitat d'una variable normal estàndard"}
+curve(dnorm(x),-4,4,xaxp=c(-4,4,8),col="blue",lwd=3,main="",xlab="",ylab="")
 abline(v=0)
 ```
 
@@ -1373,13 +1379,13 @@ La distribució normal és una distribució teòrica, no la trobareu exacta en l
 knitr::include_graphics("Bioestadistica-II_files/figure-html/paranormal.png")
 ```
 
-Però és molt important, pel fet que moltes distribucions de la vida real són aproximadament normals. El motiu és que:
+Però és molt important perquè moltes distribucions de la vida real són aproximadament normals. El motiu és que:
 
 > Si una variable aleatòria consisteix a prendre un nombre **molt gran** $n$ de mesures independents d'una o diverses variables aleatòries i sumar-les, aleshores té distribució aproximadament normal, encara que les variables aleatòries de partida no ho siguin.
 
 
 ```{example}
-Una variable binomial $B(n,p)$ s'obté prenent $n$ mesures independents d'una variable Bernoulli $Be(p)$ i sumant-les. Per tant, per la "regla" anterior, una $B(n,p)$ hauria de ser aproximadament normal si $n$ és gran. Doncs sí, si $n$ és gran (posem a partir de 40, encara que si $p$ és molt propera a 0 o 1, la mida de les mostres ha de ser més gran), una variable $X$ binomial $B(n,p)$ és aproximadament normal $N(np,\sqrt{np(1-p)})$, on recordau que, si $X$ és $B(n,p)$, aleshores $\mu_X=np$ i $\sigma_X=\sqrt{np(1-p)}$.  Aquest "aproximadament" significa que la densitat i la distribució de $X$ són aproximadament les de la normal.
+Una variable binomial $B(n,p)$ s'obté prenent $n$ mesures independents d'una variable Bernoulli $Be(p)$ i sumant-les. Per tant, per la "regla" anterior, una $B(n,p)$ hauria de ser aproximadament normal si $n$ és gran. Doncs sí, si $n$ és gran (posem a partir de 40, encara que si $p$ és molt propera a 0 o 1, la mida de les mostres ha de ser més gran), una variable $X$ binomial $B(n,p)$ és aproximadament normal $N(np,\sqrt{np(1-p)})$;  recordau que, si $X$ és $B(n,p)$, aleshores $\mu_X=np$ i $\sigma_X=\sqrt{np(1-p)}$.  Aquest "aproximadament" significa que la densitat i la distribució de $X$ són aproximadament les de la normal.
 
 
 ```
@@ -1394,11 +1400,11 @@ legend("topleft",lty=c(1,1),col=c("blue","red"),legend=c("Normal","Binomial"),ce
 ```
 
 ```{block2,type="rmdrecordau"}
-En els propers temes emprarem sovint que una variable $B(n,p)$ amb $n$ és gran és aproximadament $N(np,\sqrt{np(1-p)})$.
+En els propers temes emprarem sovint que una variable $B(n,p)$ amb $n$ gran és aproximadament $N(np,\sqrt{np(1-p)})$.
 ```
 
 ```{example}
-Podem entendre que, amb una variable de Poisson, observam tots els punts d'un espai o tots els instants d'un període de temps i sumam tots els Èxits que hi trobam. Doncs, un altre cop, si  $X$ és una variable aleatòria de Poisson $Po(\lambda)$ i $\lambda$ és gran, aleshores $X$ és aproximadament $N(\lambda,\sqrt{\lambda})$. 
+Si  $X$ és una variable aleatòria de Poisson $Po(\lambda)$ i $\lambda$ és gran, aleshores $X$ també és aproximadament $N(\lambda,\sqrt{\lambda})$. 
 
 
 ```
@@ -1417,7 +1423,7 @@ legend("topleft",legend=c("Normal","Poisson"),col=c("blue","red"),
 
 
 ```{block2,type="rmdrecordau"}
-Quan s'aproxima per mitjà d'una variable normal $Y$ una variable discreta $X$ que només pot prendre com a valors nombres naturals, com ara una binomial o  una Poisson, és convenient aplicar l'anomenada **correcció de continuïtat**: per a cada $n\in \mathbb{N}$, aproximar:
+Quan s'aproxima per mitjà d'una variable normal $Y$ una variable discreta $X$ que només pot prendre com a valors nombres naturals, com ara una binomial o  una Poisson, és convenient aplicar alguna **correcció de continuïtat**. La més senzilla és, per a cada $n\in \mathbb{N}$, aproximar:
 
 * $P(X\leqslant n)$ per mitjà de $P(Y< n+1/2)$
 
@@ -1520,7 +1526,7 @@ dnorm(70,80,8)
 
 * La correcció de continuïtat ens diu que és millor aproximar $P(X=70)$ per mitjà de $P(70-1/2<Y< 70+1/2)$:
 ```{r}
-pnorm(70.5,80,8) -pnorm(69.5,80,8)
+pnorm(70.5,80,8)-pnorm(69.5,80,8)
 ```
 
 
@@ -1643,7 +1649,7 @@ arrows(-0,0.1,-2.5,0.3,lwd=2)
 text(-2.5,0.32,expression(F[X](x)== P(X<=x) ) )
 ```
 
-Llavors, la simetria de $f_X$ fa que, per a tot $x\geqslant 0$, les àrees a l'esquerra de $\mu-x$ i a la dreta de $\mu+x$ siguin iguals.
+Llavors, la simetria de $f_X$ fa que, per a tot $x\geqslant 0$, les àrees davall de la densitat a l'esquerra de $\mu-x$ i a la dreta de $\mu+x$ siguin iguals.
 
 
 ```{r, echo=FALSE, out.width="80%", fig.width=8, fig.asp = 0.5}
@@ -1684,7 +1690,7 @@ i per tant, $\mu$ és també la **mediana** de $X$.
 Si $X$ és $N(\mu,\sigma)$, $\mu$ és la mitjana, la mediana i la moda de $X$.
 ```
 
-En el cas concret de la normal estàndard $Z$, per a qualsevol $z\geqslant 0$ es té que les àrees a l'esquerra de $-z$ i a la dreta de $z$ són iguals
+En el cas concret de la normal estàndard $Z$, per a qualsevol $z\geqslant 0$ es té que les àrees davall de la densitat a l'esquerra de $-z$ i a la dreta de $z$ són iguals
 $$
 P(Z\leqslant -z)=P(Z\geqslant z)=1-P(Z\leqslant z)
 $$
@@ -1716,7 +1722,7 @@ abline(v=0,lty=2)
 
 
 ```{block2,type="rmdnote"}
-Ara que sabem més coses de la normal, a l'Exemple \@ref(exm:exhiperhipo) ens haguéssim pogut estalviar la meitat de la feina. Diguem $X$ a la variable aleatòria la pressió arterial, en mm Hg, d'un home d'entre 16 i 24 anys. Ens diuen que $X$ és $N(124,13.7)$. 
+Ara que sabem més coses de la normal, a l'Exemple \@ref(exm:exhiperhipo) ens haguéssim pogut estalviar la meitat de la feina. Diguem $X$ a la variable aleatòria que ens dóna la pressió arterial, en mm Hg, d'un home d'entre 16 i 24 anys. Ens diuen que $X$ és $N(124,13.7)$. 
 
 Per la simetria de $X$ al voltant de $\mu=124$, si escrivim el 0.05-quantil com $124-x$, aleshores $P(X\geqslant 124+x)=P(X\leqslant 124-x)=0.05$ i per tant $P(X\leqslant 124+x)=1-P(X\geqslant 124+x)=0.95$, és a dir, $124+x$ serà el 0.95-quantil de $X$. 
 
@@ -1732,7 +1738,7 @@ L'argument que hem desenvolupat a la nota anterior mostra en general que si $X$ 
 ```
 
 
-```{r, echo=FALSE,out.width="80%", fig.width=8, fig.asp = 0.5}
+```{r, echo=FALSE,out.width="80%", fig.width=8, fig.asp = 0.5,fig.cap="Quantils gratis!"}
 x <- seq(-4,4,.1)
 
 plot(x,dnorm(x),type="l",xlab="",ylab="",xaxs="i",yaxs="i",ylim=c(0,.4),bty="l",xaxt="n",yaxt="n",lwd=2)
@@ -1851,7 +1857,7 @@ text(1.5,dnorm(1.5)/2,labels="q")
 
 ```
 
-Una de les propietats de la distribució normal que ens faciliten molt la vida és que **tota combinació lineal de variables aleatòries normals independents és normal**. En concret, tenim els dos resultats següents:
+Una de les propietats més útils de la distribució normal és que **tota combinació lineal de variables aleatòries normals independents és normal**. En concret, tenim els dos resultats següents:
 
 ```{theorem,comblinnormals}
 Sigui $X$ una variable $N(\mu,\sigma)$.
@@ -1870,19 +1876,21 @@ Més en general:
 ```{theorem,comblinnormals2}
 Si $X_1,\ldots,X_n$ són variables aleatòries normals **independents** i $a_1,\ldots,a_n,b\in \mathbb{R}$, llavors $a_1X_1+\cdots +a_nX_n+b$ és $N(\mu,\sigma)$ amb
 $$
-\mu=a_1\mu_1+\cdots +a_n\mu_n+b,\ 
-\sigma=\sqrt{a_1^2\sigma^2_1+\cdots +a_n^2\sigma^2_n}
+\begin{array}{l}
+\mu=a_1\mu_{X_1}+\cdots +a_n\mu_{X_n}+b\\ 
+\sigma=\sqrt{a_1^2\sigma^2_{X_1}+\cdots +a_n^2\sigma^2_{X_n}}
+\end{array}
 $$
 ```
 
 
 
 ```{block2,type="rmdnote"}
-Que tota combinació lineal de variables normals torni a ser del mateix tipus, és a dir, normal, és una propietat molt útil de les variables normals que poques famílies de distribucions comparteixen. Per exemple, si $X$ és una variable binomial $B(n,p)$ amb $p\neq 0$, la variable $2X$ no és binomial, perquè només pren valors parells, mentre que una variable binomial $B(m,q)$ ha de poder prendre tots els valors entre 0 i $m$.
+Que tota combinació lineal de variables normals independents torni a ser del mateix tipus, és a dir, normal, és una propietat molt útil de les variables normals que poques famílies de distribucions comparteixen. Per exemple, si $X$ és una variable binomial $B(n,p)$ amb $p\neq 0$, la variable $2X$ no és binomial, perquè només pren valors parells, mentre que una variable binomial $B(m,q)$ ha de poder prendre tots els valors entre 0 i $m$.
 ```
 
 
-Les probabilitats de la normal tipificada determinen les de la normal original, perquè si $X$ és $N(\mu,\sigma)$:
+Les probabilitats de la normal tipificada $Z$ determinen les de la normal original, perquè si $X$ és $N(\mu,\sigma)$:
 $$
 \begin{array}{rl}
 P(a\leqslant X\leqslant b)\!\!\!\!\! & \displaystyle =P\Big( \frac{a-\mu}{\sigma}\leqslant \frac{X-\mu}{\sigma}\leqslant \frac{b-\mu}{\sigma}\Big)\\ & \displaystyle =P\Big(\frac{a-\mu}{\sigma}\leqslant Z\leqslant \frac{b-\mu}{\sigma}\Big)
@@ -1893,7 +1901,7 @@ Això serveix per deduir fórmules o resoldre problemes com el següent, i els v
 
 
 ```{example,percentalcades}
-Les alçades de les nordamericanes de 20 anys  segueixen una distribució normal. S'ha estimat que un 10% d'elles fan menys de 1.55 m, i un 30.5% fan menys de 1.60 m. Per a quina alçada $h$ es té que un 95% de les nordamericanes de 18 anys fan menys de $h$ metres?
+Les alçades de les nordamericanes de 20 anys  segueixen una distribució normal. S'ha estimat que un 10% d'elles fan manco de 1.55 m, i un 30.5% fan manco de 1.60 m. Per a quina alçada $h$ es té que un 95% de les nordamericanes de 18 anys fan manco de $h$ metres?
     
 ```
 
@@ -1935,13 +1943,13 @@ I ara ja podem calcular la $h$ com el 0.95-quantil d'una $N(1.633,0.065)$:
 qnorm(0.95,1.633,0.065)
 ```
 
-Concloem que un 95% de les nord americanes de 20 anys fan menys de 1.74 m.
+Concloem que un 95% de les nord americanes de 20 anys fan manco de 1.74 m.
 
 
 ### Intervals de referència 
 
 
-Un **interval de referència** del Q% per a una variable aleatòria $X$ és un interval $[a,b]$ tal que 
+Un **interval de referència** del Q% per a una variable aleatòria contínua $X$ és un interval $[a,b]$ tal que 
 $$
 P(a\leqslant X\leqslant b)=\frac{Q}{100}.
 $$
@@ -2014,7 +2022,7 @@ $$
 $$
 Això diu, bàsicament, que
 
-> Si una població segueix una distribució normal $N(\mu,\sigma)$, un 95% dels seus individus tenen el seu valor de $X$ a distància com a màxim $2\sigma$ ("a dues sigmes") de $\mu$.
+> Si una variable aleatòria definida sobre una població segueix una distribució normal $N(\mu,\sigma)$, un 95% dels seus individus tenen el seu valor de $X$ a distància com a màxim $2\sigma$ ("a dues sigmes") de $\mu$.
 
 
 ```{example}
@@ -2060,7 +2068,12 @@ Això se sol llegir dient que l'alçada d'aquesta jugadora està **1.5 sigmes pe
 Direm que $X$ és una variable **log-normal** quan el seu logaritme neperià $\ln(X)$ és una variable normal. O, si ho preferiu, quan és una variable de la forma $e^Y$ amb $Y$ normal. Moltes concentracions d'enzims o anticossos tenen distribucions aproximadament log-normals.
 
 ```{block2,type="rmdnote"}
-Si $a>1$, $\log_a(X)=\ln(X)/\ln(a)$ i per tant, pel Teorema \@ref(thm:comblinnormals).1, si $X$ és log-normal, el seu logaritme en qualsevol base $a>1$ és normal.
+Si $a>1$, $\log_a(X)=\ln(X)/\ln(a)$ i per tant, pel Teorema \@ref(thm:comblinnormals).1, les tres afirmacions següents són equivalents:
+
+1. $X$ és log-normal
+2. $\log_a(X)$ és normal, per a qualque base $a>1$.
+3. $\log_a(X)$ és normal  per a *tota* base $a>1$.
+
 ```
 
 La densitat d'una variable log-normal és asimètrica, amb una cua a la dreta, com mostra la Figura \@ref(fig:lognorm).
@@ -2079,7 +2092,7 @@ Amb R, la distribució log-normal és `lnorm`. Els paràmetres que s'empren per 
 
 
 ```{example}  
-La dosi letal $Y$ de la digitalina en ratolins (és la dir, la variable aleatòria que dóna la quantitat de digitalina que cal administrar a un ratolí per matar-lo) té distribució log-normal. Se sap que una injecció de 1cc de digitalina mata un 10% dels ratolins (és a dir, que la probabilitat que una dosi de 1cc o menys mati un ratolí és de 0.1: $P(Y\leqslant 1)=0.1$) i que una injecció de 2cc mata  un 75% dels ratolins ($P(Y\leqslant 2)=0.75$). 
+La dosi letal $Y$ de la digitalina en ratolins (és la dir, la variable aleatòria que dóna la quantitat de digitalina que cal administrar a un ratolí per matar-lo) té distribució log-normal. Se sap que una injecció de 1cc de digitalina mata un 10% dels ratolins (és a dir, que la probabilitat que una dosi de 1cc o manco mati un ratolí és de 0.1: $P(Y\leqslant 1)=0.1$) i que una injecció de 2cc mata  un 75% dels ratolins ($P(Y\leqslant 2)=0.75$). 
 
 ```
 
@@ -2155,7 +2168,7 @@ plnorm(2.82,0.4541,0.3544)
 
 1. La probabilitat d'obtenir el valor $x$.
 1. La probabilitat d'obtenir un valor entre $-x$ i $x$, tots dos extrems inclosos.
-1. La probabilitat d'obtenir un valor entre $0$ i $x$, tots dos extrems inclosos.
+1. La probabilitat d'obtenir un valor entre 0 i $x$, tots dos extrems inclosos.
 1. La probabilitat d'obtenir un valor més petit o igual que $x$. 
 1. La probabilitat d'obtenir un valor estrictament més petit que $x$.
 
@@ -2168,7 +2181,8 @@ plnorm(2.82,0.4541,0.3544)
 1. Triam un nombre de llançaments a l'atzar, llançam aquest nombre de vegades una moneda, i comptam el nombre de cares. 
 1. El nombre de glòbuls vermells en 1 mm^3^ de sang. 
 1. La proporció d'hipertensos en una mostra aleatòria de 50 individus. 
-1. Triam 10 estudiants diferents en una classe de 20, i comptam quantes dones han sortit. 
+1. Triam 10 estudiants diferents en una classe de 20, i comptam quantes dones han sortit.
+1. Triam un grup d'estudiants en una classe de 100, permetent repeticions, i comptam quantes dones han sortit. 
 1. Cap d'elles.
 
 
@@ -2258,7 +2272,7 @@ $$
 1. Cap al·lota d'11 anys té el FME superior a 360 l/min.
 
 
-**(13)** Se sap que una variable bioquímica té com a mitjana 90 i desviació típica 10. Si prenem una mostra d'individus sans, és raonable esperar que aproximadament el 95% d'ells tenguin un valor d'aquesta variable comprès entre 70 i 110? (marca totes les respostes correctes):
+**(13)** Se sap que una variable bioquímica té mitjana 90 i desviació típica 10. Si prenem una mostra d'individus sans, és raonable esperar que aproximadament el 95% d'ells tenguin un valor d'aquesta variable comprès entre 70 i 110? (marca totes les respostes correctes):
 
 1. Sí, sempre. 
 1. No, mai.
@@ -2295,7 +2309,7 @@ $$
 1.  Cap de les afirmacions anteriors és correcta.
 
 
-**(17)**  El temps que tarda a produir-se una determinada reacció bioquímica es distribueix segons una variable normal de mitjana 17 segons i desviació típica 3 segons. Quina és la probabilitat que tardi menys de 17 segons?
+**(17)**  El temps que tarda a produir-se una determinada reacció bioquímica es distribueix segons una variable normal de mitjana 17 segons i desviació típica 3 segons. Quina és la probabilitat que tardi manco de 17 segons?
 
 1.  0
 1.  0.5
@@ -2310,9 +2324,9 @@ $$
 1.  Si poguéssim mesurar els temps amb precisió infinita, observaríem que el temps que tarda més sovint és exactament 17 segons. 
 1.  Arrodonint a segons, el temps que tarda més sovint és 17 segons.
 1.  En un 95% de les ocasions tarda aproximadament entre 14 i 20 segons.
-1.  Tarda més de 20 segons amb la mateixa freqüència amb la qual tarda menys de 14 segons.
-1.  Tarda més de 20 segons amb la mateixa freqüència amb la qual tarda menys de 20 segons.
-1.  En un 95% de les ocasions tarda 23 segons o menys.
+1.  Tarda més de 20 segons amb la mateixa freqüència amb la qual tarda manco de 14 segons.
+1.  Tarda més de 20 segons amb la mateixa freqüència amb la qual tarda manco de 20 segons.
+1.  En un 95% de les ocasions tarda 23 segons o manco.
 
 
 **(19)** Quina de les tres afirmacions és vertadera per a les tres distribucions normals de la figura inferior? ($\sigma_1$, $\sigma_2$ i $\sigma_3$ indiquen les desviacions típiques de les corbes 1, 2 i 3, respectivament).
@@ -2367,3 +2381,35 @@ legend("topleft",lty=c(1,1,1),col=c("black","red","blue"),legend=1:3,cex=0.75)
 1. La mitjana no varia, la resta sí.
 1. Tots tres paràmetres varien.
 1. Cap de les altres respostes és correcta.
+
+
+**(25)** Sigui $X$ una variable aleatòria normal amb $\mu=0$ i $\sigma$ desconeguda. ¿Quina de les afirmacions següents segur que és FALSA?
+
+1.  $P(X\leqslant 0)=0.5$
+1.  $P(X< 0)=0.5$
+1.  $P(X\leq -1)=0.2$
+1.  $P(X\leq 1)=0.2$
+1.  $P(X\leq 1)=0.8$
+
+
+**(26)** Siguin $X$ i $Y$ dues variables aleatòries discretes. Quina o quines de les afirmacions següents són sempre vertaderes?
+
+1. Sempre és cert que $E(2X+3Y)=2E(X)+3E(Y)$
+1. No sempre és cert que $E(2X+3Y)=2E(X)+3E(Y)$, però sí que és cert si $X$ i $Y$ són independents
+1. Sempre és cert que $\sigma(2X+3Y)^2=2\sigma(X)^2+3\sigma(Y)^2$
+1. No sempre és cert que $\sigma(2X+3Y)^2=2\sigma(X)^2+3\sigma(Y)^2$, però sí que és cert si $X$ i $Y$ són independents
+1. Sempre és cert que $\sigma(2X+3Y)^2=4\sigma(X)^2+9\sigma(Y)^2$
+1. No sempre és cert que $\sigma(2X+3Y)^2=4\sigma(X)^2+9\sigma(Y)^2$, però sí que és cert si $X$ i $Y$ són independents
+1. Sempre és cert que $\sigma(2X+3Y)=2\sigma(X)+3\sigma(Y)$
+1. No sempre és cert que $\sigma(2X+3Y)=2\sigma(X)+3\sigma(Y)$, però sí que és cert si $X$ i $Y$ són independents
+1. Cap de les altres afirmacions és vertadera.
+
+**(27)** Teniu una població amb una proporció $0<p<1$ d'individus que tenen una certa malaltia. Preneu mostres aleatòries de mida $n$ de la població i hi comptau quants individus tenen aquesta malaltia. Quina o quines de les afirmacions següents són vertaderes?
+
+1. Si preneu les mostres sense permetre individus repetits, els resultats surten més variats que si les preneu permetent repeticions. 
+1. Si preneu les mostres sense permetre individus repetits, els resultats surten manco variats que si les preneu permetent repeticions. 
+1. Si preneu les mostres permetent que hi surtin individus repetits, com més grans preneu les mostres més variats surten els resultats.
+1. Si preneu les mostres permetent que hi surtin individus repetits, com més grans preneu les mostres manco variats surten els resultats.
+1. Si preneu les mostres sense permetre individus repetits, com més grans preneu les mostres més variats surten els resultats.
+1. Si preneu les mostres sense permetre individus repetits, com més grans preneu les mostres manco variats surten els resultats.
+1. Cap de les altres afirmacions és vertadera.

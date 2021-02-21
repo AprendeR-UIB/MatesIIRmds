@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="2.2 Variables aleatòries discretes | Matemàtiques II v.2021" />
+<meta property="og:type" content="book" />
+
+
+<meta property="og:description" content="Apunts Matemàtiques II bookdown::gitbook." />
+<meta name="github-repo" content="cescrossello/MatesII" />
+
+
+<meta name="date" content="2021-02-20" />
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<meta name="description" content="Apunts Matemàtiques II bookdown::gitbook.">
+
+<title>2.2 Variables aleatòries discretes | Matemàtiques II v.2021</title>
+
+<script src="libs/header-attrs-2.6/header-attrs.js"></script>
+<script src="libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="libs/navigation-1.1/tabsets.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+p.caption {
+  color: #777;
+  margin-top: 10px;
+}
+p code {
+  white-space: inherit;
+}
+pre {
+  word-break: normal;
+  word-wrap: normal;
+}
+pre code {
+  white-space: inherit;
+}
+.rmdcaution, .rmdimportant, .rmdnote, .rmdrecordau {
+  padding: 1em 1em 1em 4em;
+  margin-bottom: 10px;
+  background: #f5f5f5 5px center/3em no-repeat;
+}
+.rmdmercifulgod {
+  padding: 1em 1em 1em 6em;
+  margin-bottom: 10px;
+  background: #f5f5f5 5px center/5em no-repeat;
+}
+.rmdromans {
+  padding: 1em 1em 2em 6em;
+  margin-bottom: 10px;
+  background: #f5f5f5 5px center/5em no-repeat;
+}
+.rmdexercici {
+  padding: 1em 1em 1em 4em;
+  margin-bottom: 10px;
+  background: #f9f9f9 5px center/3em no-repeat;
+}
+.rmderror {
+  padding: 1em 1em 2em 7em;
+  margin-bottom: 10px;
+  background: #f5f5f5 5px center/6em no-repeat;
+}
+.rmderrorpetit {
+  padding: 1em 1em 2em 4em;
+  margin-bottom: 10px;
+  background: #f5f5f5 5px center/3em no-repeat;
+}
+.rmdcorbes {
+  padding: 1em 1em 1em 4em;
+  margin-bottom: 10px;
+  background: #f9f9f9  5px center/3em  no-repeat;
+}
+.rmdcaution {
+  background-image: url("Bioestadistica-II_files/figure-html/caution.png");
+}
+.rmdimportant {
+  background-image: url("Bioestadistica-II_files/figure-html/important.png");
+}
+.rmdnote {
+  background-image: url("Bioestadistica-II_files/figure-html/note.png");
+}
+.rmdcorbes {
+  background-image: url("Bioestadistica-II_files/figure-html/corbes.png");
+}
+.rmdrecordau {
+  background-image: url("Bioestadistica-II_files/figure-html/recordau.png");
+}
+.rmderror {
+  background-image: url("Bioestadistica-II_files/figure-html/error.png");
+}
+.rmderrorpetit{
+  background-image: url("Bioestadistica-II_files/figure-html/error.png");
+}
+.rmdmercifulgod {
+  background-image: url("Bioestadistica-II_files/figure-html/mercifulgod.png");
+}
+.rmdromans {
+  background-image: url("Bioestadistica-II_files/figure-html/romanos.png");
+}
+.rmdexercici {
+  background-image: url("Bioestadistica-II_files/figure-html/exercici.png");
+}
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container-fluid main-container">
+
+
+<div class="row">
+<div class="col-sm-12">
+<div id="TOC">
+<ul>
+<li><a href="index.html#presentació">Presentació</a></li>
+<li><a href="1-chap-conceptes.html#chap:conceptes"><span class="toc-section-number">1</span> Alguns conceptes bàsics</a>
+<ul>
+<li><a href="1-1-tipus-de-dades.html#tipus-de-dades"><span class="toc-section-number">1.1</span> Tipus de dades</a></li>
+<li><a href="1-2-població.html#població"><span class="toc-section-number">1.2</span> Població</a></li>
+<li><a href="1-3-variable-aleatòria.html#variable-aleatòria"><span class="toc-section-number">1.3</span> Variable aleatòria</a></li>
+<li><a href="1-4-mostra.html#mostra"><span class="toc-section-number">1.4</span> Mostra</a></li>
+<li><a href="1-5-sec-mostreig.html#sec:mostreig"><span class="toc-section-number">1.5</span> Mostreig aleatori</a></li>
+<li><a href="1-6-mostres-de-conveniència.html#mostres-de-conveniència"><span class="toc-section-number">1.6</span> Mostres de conveniència</a></li>
+<li><a href="1-7-test-de-la-lliçó-1.html#test-de-la-lliçó-1"><span class="toc-section-number">1.7</span> Test de la lliçó 1</a></li>
+</ul></li>
+<li><a href="2-chap-varal.html#chap:varal"><span class="toc-section-number">2</span> Variables aleatòries</a>
+<ul>
+<li><a href="2-1-generalitats-sobre-variables-aleatòries.html#generalitats-sobre-variables-aleatòries"><span class="toc-section-number">2.1</span> Generalitats sobre variables aleatòries</a></li>
+<li><a href="2-2-variables-aleatòries-discretes.html#variables-aleatòries-discretes"><span class="toc-section-number">2.2</span> Variables aleatòries discretes</a>
+<ul>
+<li><a href="2-2-variables-aleatòries-discretes.html#densitat-i-distribució"><span class="toc-section-number">2.2.1</span> Densitat i distribució</a></li>
+<li><a href="2-2-variables-aleatòries-discretes.html#esperança"><span class="toc-section-number">2.2.2</span> Esperança</a></li>
+<li><a href="2-2-variables-aleatòries-discretes.html#variància-i-desviació-típica"><span class="toc-section-number">2.2.3</span> Variància i desviació típica</a></li>
+<li><a href="2-2-variables-aleatòries-discretes.html#quantils"><span class="toc-section-number">2.2.4</span> Quantils</a></li>
+</ul></li>
+<li><a href="2-3-famílies-importants-de-variables-aleatòries-discretes.html#famílies-importants-de-variables-aleatòries-discretes"><span class="toc-section-number">2.3</span> Famílies importants de variables aleatòries discretes</a>
+<ul>
+<li><a href="2-3-famílies-importants-de-variables-aleatòries-discretes.html#variables-aleatòries-binomials"><span class="toc-section-number">2.3.1</span> Variables aleatòries binomials</a></li>
+<li><a href="2-3-famílies-importants-de-variables-aleatòries-discretes.html#variables-aleatòries-hipergeomètriques"><span class="toc-section-number">2.3.2</span> Variables aleatòries hipergeomètriques</a></li>
+<li><a href="2-3-famílies-importants-de-variables-aleatòries-discretes.html#variables-aleatòries-de-poisson"><span class="toc-section-number">2.3.3</span> Variables aleatòries de Poisson</a></li>
+</ul></li>
+<li><a href="2-4-variables-aleatòries-contínues.html#variables-aleatòries-contínues"><span class="toc-section-number">2.4</span> Variables aleatòries contínues</a>
+<ul>
+<li><a href="2-4-variables-aleatòries-contínues.html#densitat-i-distribució-1"><span class="toc-section-number">2.4.1</span> Densitat i distribució</a></li>
+<li><a href="2-4-variables-aleatòries-contínues.html#esperança-variància-quantils"><span class="toc-section-number">2.4.2</span> Esperança, variància, quantils…</a></li>
+</ul></li>
+<li><a href="2-5-sec-normal.html#sec:normal"><span class="toc-section-number">2.5</span> Variables aleatòries normals</a>
+<ul>
+<li><a href="2-5-sec-normal.html#amb-r"><span class="toc-section-number">2.5.1</span> Amb R</a></li>
+<li><a href="2-5-sec-normal.html#propietats-bàsiques"><span class="toc-section-number">2.5.2</span> Propietats bàsiques</a></li>
+<li><a href="2-5-sec-normal.html#intervals-de-referència"><span class="toc-section-number">2.5.3</span> Intervals de referència</a></li>
+<li><a href="2-5-sec-normal.html#sec:lognormal"><span class="toc-section-number">2.5.4</span> Variables log-normals</a></li>
+</ul></li>
+<li><a href="2-6-test-de-la-lliçó-2.html#test-de-la-lliçó-2"><span class="toc-section-number">2.6</span> Test de la lliçó 2</a></li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+<div id="variables-aleatòries-discretes" class="section level2" number="2.2">
+<h2><span class="header-section-number">2.2</span> Variables aleatòries discretes</h2>
+<p>Una variable aleatòria és <strong>discreta</strong> quan els seus possibles valors són dades quantitatives discretes. Per exemple,</p>
+<ul>
+<li>Nombre de cares en 3 llançaments d’una moneda</li>
+<li>Nombre de fills d’una dona</li>
+<li>Nombre de casos nous de COVID-19 en un dia a Mallorca</li>
+</ul>
+<div id="densitat-i-distribució" class="section level3" number="2.2.1">
+<h3><span class="header-section-number">2.2.1</span> Densitat i distribució</h3>
+<p>Sigui <span class="math inline">\(X: \Omega\to \mathbb{R}\)</span> una <strong>variable aleatòria discreta</strong>.</p>
+<ul>
+<li><p>El seu <strong>domini</strong> <span class="math inline">\(D_X\)</span> és el conjunt dels valors que pot prendre: més concretament, és el conjunt dels <span class="math inline">\(x\in \mathbb{R}\)</span> tals que <span class="math inline">\(P(X=x)&gt;0\)</span>.</p></li>
+<li><p>La seva <strong>funció de densitat</strong> és la funció <span class="math inline">\(f_X:\mathbb{R}\to [0,1]\)</span> que assigna a cada <span class="math inline">\(x\in \mathbb{R}\)</span> la probabilitat que <span class="math inline">\(X\)</span> valgui <span class="math inline">\(x\)</span>:
+<span class="math display">\[ 
+f_X(x)=P(X=x)
+\]</span>
+És a dir, <span class="math inline">\(f_X(x)\)</span> és la proporció de subjectes de la població en els quals <span class="math inline">\(X\)</span> val <span class="math inline">\(x\)</span>.</p></li>
+<li><p>La seva <strong>funció de distribució</strong> és la funció <span class="math inline">\(F_X:\mathbb{R}\to [0,1]\)</span> que assigna a cada <span class="math inline">\(x\in \mathbb{R}\)</span> la probabilitat que <span class="math inline">\(X\)</span> sigui més petit o igual que <span class="math inline">\(x\)</span>:
+<span class="math display">\[
+F_X(x)=P(X\leqslant x)
+\]</span>
+És a dir, <span class="math inline">\(F_X(x)\)</span> és la proporció de subjectes de la població en els quals <span class="math inline">\(X\)</span> pren un valor <span class="math inline">\(\leqslant x\)</span>.</p>
+<p>A la funció de distribució també se li sol dir <strong>funció de probabilitat acumulada</strong> per posar èmfasi en el fet que <span class="math inline">\(F_X(x)\)</span> mesura la “freqüència relativa acumulada” de <span class="math inline">\(x\)</span> en el total de la població.</p></li>
+</ul>
+
+<div class="example">
+<p><span id="exm:cars" class="example"><strong>Exemple 2.1  </strong></span>Sigui <span class="math inline">\(X\)</span> la variable aleatòria “Llançam 3 vegades una moneda equilibrada i comptam les cares que obtenim”. Aleshores:</p>
+</div>
+<ul>
+<li><p>El seu <strong>domini</strong> és el conjunt dels seus possibles valors: <span class="math inline">\(D_X=\{0,1,2,3\}\)</span>.</p></li>
+<li><p>La seva <strong>funció de densitat</strong> és definida per <span class="math inline">\(f_X(x)=P(X=x)\)</span>:</p>
+<ul>
+<li><span class="math inline">\(f_X(0)=P(X=0)=1/8\)</span> (la probabilitat de treure 0 cares en 3 llançaments)</li>
+<li><span class="math inline">\(f_X(1)=P(X=1)=3/8\)</span> (la probabilitat de treure 1 cara en 3 llançaments)</li>
+<li><span class="math inline">\(f_X(2)=P(X=2)=3/8\)</span> (la probabilitat de treure 2 cares en 3 llançaments)</li>
+<li><span class="math inline">\(f_X(3)=P(X=3)=1/8\)</span> (la probabilitat de treure 3 cares en 3 llançaments)</li>
+<li><span class="math inline">\(f_X(x)=P(X=x)=0\)</span> per a qualsevol altre valor de <span class="math inline">\(x\)</span> (si <span class="math inline">\(x\notin\{0,1,2,3\}\)</span>, la probabilitat de treure <span class="math inline">\(x\)</span> cares en 3 llançaments és 0)</li>
+</ul>
+<p>En resum, la funció de densitat de <span class="math inline">\(X\)</span> és
+<span class="math display">\[
+f_X(x) =\left\{
+\begin{array}{ll}
+1/8 &amp; \text{ si $x=0$}\\ 
+3/8 &amp; \text{ si $x=1$}\\ 
+3/8 &amp; \text{ si $x=2$}\\ 
+1/8 &amp; \text{ si $x=3$}\\
+0 &amp; \text{ si $x\neq 0,1,2,3$}
+\end{array}
+\right.
+\]</span></p></li>
+</ul>
+<div class="figure" style="text-align: center"><span id="fig:densicares"></span>
+<img src="Bioestadistica-II_files/figure-html/densicares-1.png" alt="Funció de densitat de la variable aleatòria que compta el nombre de cares en 3 llançaments" width="60%" />
+<p class="caption">
+Figura 2.1: Funció de densitat de la variable aleatòria que compta el nombre de cares en 3 llançaments
+</p>
+</div>
+
+<div class="rmdnote">
+Si <span class="math inline">\(X\)</span> és una variable aleatòria discreta, <span class="math inline">\(P(X\in A)=0\)</span> per a qualsevol subconjunt <span class="math inline">\(A\)</span> disjunt amb <span class="math inline">\(D_X\)</span>, perquè, per la definició del domini <span class="math inline">\(D_X\)</span>, <span class="math inline">\(X\)</span> no pot prendre cap valor fora de <span class="math inline">\(D_X\)</span>. Per exemple, quina és la probabilitat de treure entre 2.5 i 2.7 cares en llançar 3 vegades una moneda? 0. I la de treure <span class="math inline">\(\pi\)</span> cares? 0 un altre cop.
+</div>
+<ul>
+<li><p>Vegem ara la seva <strong>funció de distribució</strong> <span class="math inline">\(F_X\)</span>. Recordau que <span class="math inline">\(F_X(x)=P(X\leqslant x)\)</span> i que la nostra variable només pot prendre els valors 0, 1, 2 i 3.</p>
+<ul>
+<li><p>Si <span class="math inline">\(x&lt;0\)</span>, <span class="math inline">\(F_X(x)=P(X\leqslant x)=0\)</span>, perquè <span class="math inline">\(X\)</span> no pot prendre cap valor estrictament negatiu.</p></li>
+<li><p>Si <span class="math inline">\(0\leqslant x&lt;1\)</span>, <span class="math inline">\(F_X(x)=P(X\leqslant x)=P(X=0)=f_X(0)=1/8\)</span>, perquè si <span class="math inline">\(0\leqslant x&lt;1\)</span>, l’únic valor <span class="math inline">\(\leqslant x\)</span> que pot prendre <span class="math inline">\(X\)</span> és el 0.</p></li>
+<li><p>Si <span class="math inline">\(1\leqslant x&lt;2\)</span>, <span class="math inline">\(F_X(x)=P(X\leqslant x)=P(X=0\text{ o }X=1)\)</span> <span class="math inline">\(=f_X(0)+f_X(1)=4/8=1/2\)</span>, perquè si <span class="math inline">\(1\leqslant x&lt;2\)</span>, els únics valors <span class="math inline">\(\leqslant x\)</span> que pot prendre <span class="math inline">\(X\)</span> són 0 i 1.</p></li>
+<li><p>Si <span class="math inline">\(2\leqslant x&lt;3\)</span>, <span class="math inline">\(F_X(x)=P(X\leqslant x)=P(X=0\text{ o }X=1\text{ o }X=2)\)</span> <span class="math inline">\(=f_X(0)+f_X(1)+f_X(2)=7/8\)</span>, perquè si <span class="math inline">\(2\leqslant x&lt;3\)</span>, els únics valors <span class="math inline">\(\leqslant x\)</span> que pot prendre <span class="math inline">\(X\)</span> són 0, 1 i 2.</p></li>
+<li><p>Si <span class="math inline">\(3\leqslant x\)</span>, <span class="math inline">\(F_X(x)=P(X\leqslant x)=1\)</span>, perquè si <span class="math inline">\(x\geqslant 3\)</span>, segur que obtenim un nombre de cares <span class="math inline">\(\leqslant x\)</span>.</p></li>
+</ul>
+<p>Per tant, la funció <span class="math inline">\(F_X\)</span> és la funció
+<span class="math display">\[
+F_X(x) =\left\{
+\begin{array}{ll}
+0 &amp; \text{ si $x&lt;0$}\\
+1/8 &amp; \text{ si $0\leqslant x&lt; 1$}\\ 
+4/8 &amp; \text{ si $1\leqslant x&lt; 2$}\\ 
+7/8 &amp; \text{ si $2\leqslant x&lt; 3$}\\ 
+1 &amp; \text{ si $3\leqslant x$}
+\end{array}
+\right.
+\]</span>
+El seu gràfic és el següent:</p></li>
+</ul>
+<div class="figure" style="text-align: center"><span id="fig:districares"></span>
+<img src="Bioestadistica-II_files/figure-html/districares-1.png" alt="Funció de distribució de la variable aleatòria que compta el nombre de cares en 3 llançaments" width="60%" />
+<p class="caption">
+Figura 2.2: Funció de distribució de la variable aleatòria que compta el nombre de cares en 3 llançaments
+</p>
+</div>
+<p>Observau en aquest gràfic que aquesta funció de distribució <span class="math inline">\(F_X\)</span> és creixent i escalonada. Això és general. Si <span class="math inline">\(X\)</span> és una variable aleatòria discreta:</p>
+<ul>
+<li><p><span class="math inline">\(F_X\)</span> és una funció <strong>escalonada</strong>, amb bots en els valors de <span class="math inline">\(D_X\)</span>, que són els únics amb probabilitat estrictament més gran que 0 i per tant els únics que “sumen” probabilitat. Més en concret:</p>
+<ul>
+<li><p>Si <span class="math inline">\(x_0,y_0\in D_X\)</span> i <span class="math inline">\(x_0&lt;y_0\)</span>, llavors <span class="math inline">\(F_X(x_0)&lt; F_X(y_0)\)</span>, perquè, com que <span class="math inline">\(P(X=y_0)&gt;0\)</span>,
+<span class="math display">\[
+\begin{array}{rl}
+F_X(x_0)\!\!\!\!\! &amp; =P(X\leqslant x_0)&lt;P(X\leqslant x_0)+P(X=y_0)\\
+&amp; =P(X\leqslant x_0\text{ o }X=y_0)\leqslant P(X\leqslant y_0)=F_X(y_0)
+\end{array}
+\]</span></p></li>
+<li><p>Si <span class="math inline">\(x_0\in D_X\)</span> i dins <span class="math inline">\((x_0,x]\)</span> no hi ha cap element de <span class="math inline">\(D_X\)</span>, aleshores <span class="math inline">\(F_X(x_0)=F_X(x)\)</span>, perquè
+<span class="math display">\[
+\begin{array}{rl}
+F_X(x)\!\!\!\!\! &amp; =P(X\leqslant x)=P(X\leqslant x_0)+P(x_0&lt;X\leqslant x)\\
+&amp; =P(X\leqslant x_0)+0= P(X\leqslant x_0)=F_X(x_0)
+\end{array}
+\]</span>
+ja que, com que <span class="math inline">\((x_0,x]\cap D_X=\emptyset\)</span>, <span class="math inline">\(P(x_0&lt;X\leqslant x)=0\)</span>.</p></li>
+<li><p>Si <span class="math inline">\(x_0\in D_X\)</span>, <span class="math inline">\(P(X&lt;x_0)&lt;P(X\leqslant x_0)\)</span>, perquè
+<span class="math display">\[
+P(X\leqslant x_0)=P(X&lt;x_0)+P(X=x_0)&gt;P(X&lt;x_0)
+\]</span></p></li>
+</ul></li>
+<li><p><span class="math inline">\(F_X\)</span> és <strong>creixent</strong>, perquè si <span class="math inline">\(x\leqslant y\)</span>, tots els subjectes que compleixen que <span class="math inline">\(X\leqslant x\)</span> també compleixen que <span class="math inline">\(X\leqslant y\)</span>, i per tant
+<span class="math display">\[
+P(X\leqslant x)\leqslant P(X\leqslant y).
+\]</span></p></li>
+<li><p>Com que els valors que pren <span class="math inline">\(F_X\)</span> són probabilitats, no poden ser ni més petits que 0 ni més grans que 1.</p></li>
+</ul>
+<p>El coneixement de <span class="math inline">\(f_X\)</span>, més les regles del càlcul de probabilitats, permet calcular la probabilitat de qualsevol esdeveniment relacionat amb <span class="math inline">\(X\)</span>:
+<span class="math display">\[
+P(X\in A) =\sum_{x\in A} P(X=x) = \sum_{x\in A} f_X(x)
+\]</span>
+En particular
+<span class="math display">\[
+F_X(x_0)=P(X\leqslant x_0)=\sum_{x\leqslant x_0} f_X(x)
+\]</span></p>
+<p>La <strong>moda</strong> d’una variable aleatòria discreta <span class="math inline">\(X\)</span> és el valor (o els valors) <span class="math inline">\(x_0\)</span> tal que <span class="math inline">\(f_X(x_0)=P(X=x_0)\)</span> és màxim. Per tant, la moda és el valor de <span class="math inline">\(X\)</span> <strong>més probable</strong> o <strong>més freqüent</strong> en la població. Per exemple, per a la nostra variable aleatòria que compta el nombre de cares en 3 llançaments d’una moneda equilibrada, la moda són els valors 1 i 2.</p>
+
+<div class="example">
+<p><span id="exm:unnamed-chunk-36" class="example"><strong>Exemple 2.2  </strong></span>Una variable aleatòria discreta <span class="math inline">\(X\)</span> és <strong>uniforme</strong> quan el seu domini <span class="math inline">\(D_X\)</span> és finit i tots els seus elements tenen la mateixa probabilitat. És a dir, si <span class="math inline">\(D_X\)</span> té <span class="math inline">\(m\)</span> elements, aleshores <span class="math inline">\(P(X=x)=1/m\)</span> per a cada <span class="math inline">\(x\in D_X\)</span>. Per exemple, el resultat de llançar un dau equilibrat és una variable aleatòria discreta.</p>
+<p>Com que tots els resultats del domini d’una variable aleatòria discreta uniforme tenen la mateixa probabilitat, tots en són la moda (o cap no ho és, depèn de si veieu el tassó mig ple o mig buit).</p>
+</div>
+
+<div class="rmdexercici">
+<p>Considerau la variable aleatòria <span class="math inline">\(X\)</span> “Llançam una moneda equilibrada tantes vegades com sigui necessari fins que surti una cara per primera vegada, i comptam quantes vegades l’hem haguda de llançar”.</p>
+<ol style="list-style-type: decimal">
+<li>Quin és el seu domini?</li>
+<li>Quina és la seva funció de densitat?</li>
+<li>Quina és la seva moda? Què significa?</li>
+<li>Quina és la seva funció de distribució? (Indicació: Calculau primer <span class="math inline">\(P(X&gt;x)\)</span>, tenint en compte que <span class="math inline">\(X&gt;x\)</span> significa que en els primer <span class="math inline">\(x\)</span> llançaments ha sortit creu, i per això hem hagut de llançar la moneda més de <span class="math inline">\(x\)</span> vegades per obtenir una cara.)</li>
+</ol>
+</div>
+</div>
+<div id="esperança" class="section level3" number="2.2.2">
+<h3><span class="header-section-number">2.2.2</span> Esperança</h3>
+<p>Quan prenem una mostra d’una variable aleatòria <span class="math inline">\(X\)</span> definida sobre una població, podem calcular la mitjana i la desviació típica dels seus valors a fi i efecte d’obtenir una idea de quin és el valor central de la mostra i si els seus valors estan tots molt a prop d’aquest valor central o no. Naturalment, també ens podem preguntar per aquesta mena d’informació per al total de la població: Quin és el “valor mitjà” de <span class="math inline">\(X\)</span> sobre tota la població? Aquesta variable, pren valors molt dispersos, o més aviat els pren concentrats al voltant del seu valor mitjà? La primera pregunta la responem amb la <strong>mitjana</strong>, o <strong>esperança</strong>, de <span class="math inline">\(X\)</span>, i la segona amb la seva <strong>variància</strong> i la seva <strong>desviació típica</strong>. Comencem amb la primera.</p>
+<p>La <strong>mitjana</strong>, o <strong>esperança</strong> (o <strong>valor esperat</strong>, <strong>valor mitjà</strong>…), d’una variable aleatòria discreta <span class="math inline">\(X\)</span> amb densitat <span class="math inline">\(f_X:D_X\to [0,1]\)</span> és
+<span class="math display">\[
+E(X)=\sum_{x\in D_X} x\cdot f_X(x)
+\]</span>
+Sovint també la indicarem amb <span class="math inline">\(\mu_X\)</span>.</p>
+<p>La interpretació natural de <span class="math inline">\(E(X)\)</span> és que és <strong>la mitjana dels valors de la variable <span class="math inline">\(X\)</span> en el total de la població <span class="math inline">\(\Omega\)</span></strong>. En efecte, com que <span class="math inline">\(P(X=x)\)</span> és la proporció de subjectes de <span class="math inline">\(\Omega\)</span> en els quals <span class="math inline">\(X\)</span> val <span class="math inline">\(x\)</span>,
+<span class="math display">\[
+E(X)=\sum_{x\in D_X} x\cdot P(X=x)
+\]</span>
+és la mitjana del valor de <span class="math inline">\(X\)</span> sobre tots els subjectes de <span class="math inline">\(\Omega\)</span>. Comparau-ho amb l’exemple següent.</p>
+
+<div class="example">
+<p><span id="exm:notes1" class="example"><strong>Exemple 2.3  </strong></span>Si, en una classe, un 10% dels estudiants han tret un 4 en un examen, un 20% un 6, un 50% un 8 i un 20% un 10, quina ha estat la nota mitjana obtenguda?</p>
+</div>
+<p>Segurament calcularíeu aquesta mitjana de la manera següent:
+<span class="math display">\[
+4\cdot 0.1+6\cdot 0.2+8\cdot 0.5+10\cdot 0.2=7.6
+\]</span>
+Doncs aquest valor és la <strong>mitjana</strong> de la variable aleatòria <span class="math inline">\(X\)</span> “Prenc un estudiant d’aquesta classe i mir quina nota ha tret en aquest examen”:
+<span class="math display">\[
+\begin{array}{rl}
+E(X)\!\!\!\!\! &amp;=4\cdot P(X=4)+6\cdot P(X=6)+8\cdot P(X=8)+10\cdot P(X=10)\\
+&amp; = 4\cdot 0.1+6\cdot 0.2+8\cdot 0.5+10\cdot 0.2=7.6
+\end{array}
+\]</span></p>
+<p>A banda de la seva interpretació com a “la mitjana de <span class="math inline">\(X\)</span> en el total de la població”, <span class="math inline">\(E(X)\)</span> és també el <strong>valor esperat de <span class="math inline">\(X\)</span></strong>, en el sentit següent:</p>
+<blockquote>
+<p>Suposau que prenem a l’atzar una mostra de <span class="math inline">\(n\)</span> subjectes de la població, mesuram <span class="math inline">\(X\)</span> sobre ells i calculam la mitjana aritmètica dels <span class="math inline">\(n\)</span> valors obtenguts. Aleshores, quan la mida <span class="math inline">\(n\)</span> de la mostra tendeix a <span class="math inline">\(\infty\)</span>, aquesta mitjana aritmètica tendeix a valer <span class="math inline">\(E(X)\)</span> “gairebé sempre”, en el sentit que la probabilitat que el seu límit sigui <span class="math inline">\(E(X)\)</span> és 1.</p>
+</blockquote>
+<p>És a dir: si mesuràssim <span class="math inline">\(X\)</span> sobre <strong>molts</strong> subjectes triats a l’atzar i calculàssim la mitjana dels valors obtenguts, és <strong>gairebé segur</strong> que obtendríem un valor <strong>molt proper</strong> a <span class="math inline">\(E(X)\)</span>.</p>
+
+<div class="example">
+<p><span id="exm:unnamed-chunk-38" class="example"><strong>Exemple 2.4  </strong></span>Seguim amb la variable aleatòria <span class="math inline">\(X\)</span> “Llançam una moneda equilibrada 3 vegades i comptam les cares que obtenim”. La seva esperança és
+<span class="math display">\[
+E(X)= 0\cdot \frac{1}{8}+1\cdot \frac{3}{8}+2\cdot \frac{3}{8}+3\cdot \frac{1}{8}=1.5
+\]</span></p>
+</div>
+<p>Això ens diu que:</p>
+<ul>
+<li><p>La <strong>mitjana</strong> de <span class="math inline">\(X\)</span> és 1.5: El valor mitjà de la variable <span class="math inline">\(X\)</span> sobre tota la població de seqüències de 3 llançaments d’una moneda equilibrada és 1.5.</p></li>
+<li><p>El <strong>valor esperat</strong> de <span class="math inline">\(X\)</span> és 1.5: Si repetíssim moltes vegades l’experiment de llançar la moneda 3 vegades i comptar les cares, de mitjana obtendríem, molt probablement, un valor molt pròxim a 1.5. Abreujam això dient que si llançam la moneda 3 vegades, <strong>esperam treure 1.5 cares</strong>.</p></li>
+</ul>
+<p>Més en general, si <span class="math inline">\(X\)</span> és una variable aleatòria i <span class="math inline">\(g:\mathbb{R}\to \mathbb{R}\)</span> és una funció, l’<strong>esperança</strong> de <span class="math inline">\(g(X)\)</span> és
+<span class="math display">\[
+E(g(X))=\sum_{x\in D_X} g(x)\cdot f_X(x).
+\]</span>
+Un altre cop, la interpretació natural d’aquest valor és que és la mitjana de <span class="math inline">\(g(X)\)</span> sobre la població, i també que és el valor “esperat” de <span class="math inline">\(g(X)\)</span> en el sentit anterior.</p>
+
+<div class="example">
+<p><span id="exm:unnamed-chunk-39" class="example"><strong>Exemple 2.5  </strong></span>Si llançam una moneda equilibrada 3 vegades, comptam les cares i elevam aquest nombre de cares al quadrat, quin valor esperam obtenir?</p>
+</div>
+<p>Serà l’esperança de <span class="math inline">\(X^2\)</span>, on <span class="math inline">\(X\)</span> és la variable aleatòria “Llançam una moneda equilibrada 3 vegades i comptam les cares que obtenim” (és a dir, aquesta <span class="math inline">\(X^2\)</span> és la variable aleatòria “Llançam una moneda equilibrada 3 vegades, comptam les cares i elevam aquest número al quadrat”):</p>
+<p><span class="math display">\[
+E(X^2)= 0\cdot \frac{1}{8}+1\cdot \frac{3}{8}+2^2\cdot \frac{3}{8}+3^2\cdot \frac{1}{8}=3
+\]</span></p>
+
+<div class="rmdcaution">
+<p>Fixau-vos que <span class="math inline">\(E(X^2) \neq E(X)^2\)</span>. Per exemple, en els dos darrers exemples hem vist que si <span class="math inline">\(X\)</span> és la variable aleatòria que compta el nombre de cares en 3 llançaments d’una moneda equilibrada, <span class="math inline">\(E(X^2)=3\)</span> però <span class="math inline">\(E(X)^2=1.5^2=2.25\)</span>.</p>
+<p>En general, donades una variable aleatòria <span class="math inline">\(X\)</span> i una aplicació <span class="math inline">\(g:\mathbb{R}\to \mathbb{R}\)</span>, el més habitual és que <span class="math inline">\(E(g(X))\neq g(E(X))\)</span>.</p>
+</div>
+<p>L’esperança de les variables aleatòries discretes té les propietats següents, totes molt raonables si les interpretau en termes del valor mitjà de <span class="math inline">\(X\)</span> sobre la població:</p>
+<ul>
+<li><p>Sigui <span class="math inline">\(b\)</span> una <strong>variable aleatòria constant</strong>, que sobre tots els individus de la població pren el mateix valor <span class="math inline">\(b\in \mathbb{R}\)</span>. Aleshores, <span class="math inline">\(E(b)=b\)</span>.</p>
+<p>Si en una classe tothom treu un 8 d’un examen, la nota mitjana és un 8, no?</p></li>
+</ul>
+
+<div class="rmdromans">
+Sí, ja sabem que parlar de variables constants és un oxímoron, però de vegades una variable aleatòria pren el mateix valor sobre tots els subjectes d’una població. Per exemple “Prenc un estudiant de Biologia o Bioquímica del curs 2019/20 i compt el seu nombre de cames”.
+</div>
+<ul>
+<li><p>L’esperança és <strong>lineal</strong>:</p>
+<ul>
+<li><p>Si <span class="math inline">\(X\)</span> és una variable aleatòria i <span class="math inline">\(a,b\in \mathbb{R}\)</span>, <span class="math inline">\(E(aX+b)=aE(X)+b\)</span></p>
+<p>Si en una classe la mitjana d’un examen ha estat un 6 i decidim multiplicar per 1.2 totes les notes i sumar-les 1 punt, la mitjana de la nova nota serà 1.2·6+1=8.2, no?</p></li>
+<li><p>Si <span class="math inline">\(X,Y\)</span> són dues variables aleatòries, <span class="math inline">\(E(X+Y)=E(X)+E(Y)\)</span>.</p>
+<p>Si en una classe la mitjana de la part de qüestions d’un examen ha estat un 3.5 i la de la part d’exercicis ha estat un 3, i la nota de l’examen és la suma de les notes de les dues parts, la nota mitjana de l’examen serà un 3.5+3=6.5, no?</p></li>
+<li><p>Combinant les dues propietats anteriors, si <span class="math inline">\(X_1,\ldots,X_n\)</span> són variables aleatòries i <span class="math inline">\(a_1,\ldots,a_n,b\in \mathbb{R}\)</span>,
+<span class="math display">\[
+  E(a_1X_1+\cdots+a_nX_n+b)=a_1E(X_1)+\cdots+a_nE(X_n)+b
+  \]</span></p></li>
+</ul></li>
+<li><p>L’esperança és <strong>monòtona creixent</strong>: Si <span class="math inline">\(X\leqslant Y\)</span> (en el sentit que el valor de <span class="math inline">\(X\)</span> sobre cada subjecte de la població <span class="math inline">\(\Omega\)</span> és més petit o igual que el valor de <span class="math inline">\(Y\)</span> sobre ell), llavors <span class="math inline">\(E(X)\leqslant E(Y)\)</span>.</p>
+<p>Si tots traieu millor nota de Matemàtiques II que de Matemàtiques I, la nota mitjana de Matemàtiques II serà més gran que la de Matemàtiques I, no?</p></li>
+</ul>
+
+<div class="rmdexercici">
+Siguin <span class="math inline">\(N\)</span> un nombre natural estrictament positiu i <span class="math inline">\(X\)</span> una variable aleatòria discreta uniforme amb domini <span class="math inline">\(D_X=\{1,\ldots,N\}\)</span>. Què val el seu valor esperat?
+</div>
+</div>
+<div id="variància-i-desviació-típica" class="section level3" number="2.2.3">
+<h3><span class="header-section-number">2.2.3</span> Variància i desviació típica</h3>
+<p>La <strong>variància</strong> d’una variable aleatòria discreta <span class="math inline">\(X\)</span> és
+<span class="math display">\[
+\sigma(X)^2 =E((X-\mu_X)^2) =\sum_{x\in D_X} (x-\mu_X)^2\cdot f_X(x)
+\]</span>
+És a dir, és la mitjana del quadrat de la diferència entre <span class="math inline">\(X\)</span> i la seva mitjana <span class="math inline">\(\mu_X\)</span>. També la indicarem amb <span class="math inline">\(\sigma_X^2\)</span>.</p>
+<p>Fixau-vos que es tracta de la traducció “poblacional” de la definició de variància per a una mostra, i per tant serveix per mesurar el mateix que aquella: la dispersió dels resultats de <span class="math inline">\(X\)</span> respecte de la mitjana. Només que ara és per a tota la població, i no per a una mostra.</p>
+<p>La identitat següent vos pot ser útil.</p>
+
+<div class="theorem">
+<p><span id="thm:unnamed-chunk-43" class="theorem"><strong>Teorema 2.1  </strong></span><span class="math inline">\(\sigma(X)^2=E(X^2)-\mu_X^2\)</span>.</p>
+</div>
+
+<div class="rmdcorbes">
+Operem (i recordau que <span class="math inline">\(E(X)=\mu_X\)</span>)
+<span class="math display">\[
+\begin{array}{rl}
+\sigma(X)^2\!\!\!\!\! &amp; =E((X-\mu_X)^2)=E(X^2-2\mu_X\cdot X+\mu_X^2)\\
+&amp; = E(X^2)-2\mu_X\cdot E(X)+\mu_X^2\\
+&amp; \text{(per la linealitat d&#39;$E$)}\\
+&amp; = E(X^2)-2\mu_X^2+\mu_X^2=E(X^2)-\mu_X^2
+\end{array}
+\]</span>
+</div>
+<p>La <strong>desviació típica</strong> (o <strong>desviació estàndard</strong>) d’una variable aleatòria discreta <span class="math inline">\(X\)</span> és l’arrel quadrada positiva de la seva variància:
+<span class="math display">\[
+\sigma(X)=+\sqrt{\sigma(X)^2}
+\]</span>
+També mesura la dispersió dels valors de <span class="math inline">\(X\)</span> respecte de la mitjana. Sovint la indicarem amb <span class="math inline">\(\sigma_X\)</span>.</p>
+
+<div class="rmdcaution">
+En el context de les variables aleatòries, no hi ha “variància” i “variància mostral”, només “variància”. El mateix nom us hauria de donar la pista que la “variància mostral” està definida només per a mostres.
+</div>
+<p>El motiu per introduir la variància <strong>i</strong> la desviació típica per mesurar la dispersió dels valors de <span class="math inline">\(X\)</span> és la mateixa que en estadística descriptiva: la variància és més fàcil de manejar (no involucra arrels quadrades) però les seves unitats són les de <span class="math inline">\(X\)</span> al quadrat, mentre que les unitats de la desviació típica són les de <span class="math inline">\(X\)</span>, i per tant el seu valor és més fàcil d’interpretar.</p>
+
+<div class="example">
+<p><span id="exm:unnamed-chunk-46" class="example"><strong>Exemple 2.6  </strong></span>Seguim amb la variable aleatòria <span class="math inline">\(X\)</span> “Llançam una moneda equilibrada 3 vegades i comptam les cares que obtenim”. Recordem que <span class="math inline">\(\mu_X=E(X)=1.5\)</span>. Aleshores, la seva variància és:</p>
+</div>
+<p><span class="math display">\[
+\begin{array}{rl}
+\sigma(X)^2 \!\!\!\!\! &amp; \displaystyle=(0-1.5)^2\cdot \frac{1}{8}+(1-1.5)^2\cdot \frac{3}{8}\\ &amp;\displaystyle\qquad +(2-1.5)^2\cdot \frac{3}{8}+(3-1.5)^2\cdot \frac{1}{8}=0.75
+\end{array}
+\]</span>
+Si recordam que <span class="math inline">\(E(X^2)=3\)</span>, podem veure que
+<span class="math display">\[
+E(X^2)-\mu_X^2=3-1.5^2=0.75=\sigma(X)^2
+\]</span>
+La seva desviació típica és
+<span class="math display">\[
+\sigma(X) =\sqrt{\sigma(X)^2}=\sqrt{0.75}= 0.866
+\]</span></p>
+<p>Vegem algunes propietats de la variància i la desviació típica:</p>
+<ul>
+<li><p>Si <span class="math inline">\(b\)</span> és una variable aleatòria constant que sobre tots els individus de la població pren el valor <span class="math inline">\(b\in \mathbb{R}\)</span>, aleshores <span class="math inline">\(\sigma(b)^2=\sigma(b)=0\)</span>.</p>
+<p>Una variable aleatòria constant té zero dispersió.</p></li>
+<li><p>El recíproc també és cert: si <span class="math inline">\(\sigma(X)^2=0\)</span>, la variable <span class="math inline">\(X\)</span> és constant.</p>
+<p>En efecte, observau a
+<span class="math display">\[
+  \sigma(X)^2 =\sum_{x\in D_X} (x-\mu_X)^2\cdot f_X(x)
+  \]</span>
+que <span class="math inline">\(\sigma(X)^2\)</span> és una suma de nombres positius. Per tant, si és 0, tots els sumands <span class="math inline">\((x-\mu_X)^2\cdot f_X(x)\)</span> han de ser 0. Però <span class="math inline">\(f_X(x)&gt;0\)</span> per a cada <span class="math inline">\(x\in D_X\)</span>. Per tant, si <span class="math inline">\(\sigma(X)^2=0\)</span>, tots els <span class="math inline">\(x-\mu_X\)</span>, amb <span class="math inline">\(x\in D_X\)</span>, han de ser 0, és a dir, <span class="math inline">\(D_X=\{\mu_X\}\)</span>: <span class="math inline">\(X\)</span> només pot prendre un valor.</p></li>
+<li><p><span class="math inline">\(\sigma(aX+b)^2=a^2\cdot \sigma(X)^2\)</span>.</p></li>
+</ul>
+
+<div class="rmdcorbes">
+En efecte
+<span class="math display">\[
+\begin{array}{l}
+\sigma(aX+b)^2 =E((aX+b)^2)-E(aX+b)^2\\
+\quad = E(a^2X^2+2abX+b^2)-(aE(X)+b)^2\\
+\quad \text{(per la linealitat de $E$)}\\
+\quad = a^2E(X^2)+2abE(X)+b^2-a^2E(X)^2-2abE(X)-b^2\\
+\quad \text{(una altre cop, per la linealitat de $E$)}\\
+\quad = a^2(E(X^2)-E(X)^2)=a^2\sigma(X)^2
+\end{array}
+\]</span>
+</div>
+<ul>
+<li><p><span class="math inline">\(\sigma(aX+b)=|a|\cdot \sigma(X)\)</span> (recordau que la desviació típica és positiva, i <span class="math inline">\(+\sqrt{a^2}=|a|\)</span>).</p></li>
+<li><p>Si <span class="math inline">\(X,Y\)</span> són variables aleatòries <strong>independents</strong>,
+<span class="math display">\[
+\sigma(X+Y)^2=\sigma(X)^2+\sigma(Y)^2
+\]</span>
+i per tant
+<span class="math display">\[
+\sigma(X+Y)=\sqrt{\sigma(X)^2+\sigma(Y)^2}
+\]</span>
+Si no són independents, en general aquesta igualtat és falsa. Per posar un exemple extrem,
+<span class="math display">\[
+\sigma(X+X)^2=4\sigma(X)^2 \neq \sigma(X)^2+\sigma(X)^2.
+\]</span></p></li>
+<li><p>Més en general, si <span class="math inline">\(X_1,\ldots,X_n\)</span> són variables aleatòries <strong>independents</strong> (i, en principi, només en aquest cas) i <span class="math inline">\(a_1,\ldots,a_n,b\in \mathbb{R}\)</span>,
+<span class="math display">\[
+\begin{array}{l}
+\sigma(a_1X_1+\cdots+a_nX_n+b)^2=a_1^2\cdot\sigma(X_1)^2+\cdots+a_n^2\cdot\sigma(X_n)^2\\
+\sigma(a_1X_1+\cdots+a_nX_n+b)=\sqrt{a_1^2\cdot\sigma(X_1)^2+\cdots+a_n^2\cdot\sigma(X_n)^2}
+\end{array}
+\]</span></p></li>
+</ul>
+</div>
+<div id="quantils" class="section level3" number="2.2.4">
+<h3><span class="header-section-number">2.2.4</span> Quantils</h3>
+<p>Sigui <span class="math inline">\(p\in [0,1]\)</span>. El <strong>quantil d’ordre <span class="math inline">\(p\)</span></strong> (o <strong><span class="math inline">\(p\)</span>-quantil</strong>) d’una variable aleatòria discreta <span class="math inline">\(X\)</span> és el valor <span class="math inline">\(x_p\in D_X\)</span> tal que <span class="math inline">\(P(X\leqslant x_p)\geqslant p\)</span> però <span class="math inline">\(P(X&lt; x_p)&lt;p\)</span>. És a dir, el valor <span class="math inline">\(x_p\in D_X\)</span> més petit tal que <span class="math inline">\(P(X\leqslant x_p)\geqslant p\)</span>.</p>
+<p>Per exemple, que el 0.25-quantil d’una variable aleatòria discreta <span class="math inline">\(X\)</span> sigui, jo què sé, 8, significa que almanco un 25% de la població té un valor de <span class="math inline">\(X\)</span> més petit o igual que 8, però manco d’un 25% de la població té un valor de <span class="math inline">\(X\)</span> estrictament més petit que 8. És a dir, 8 és el valor més petit per al qual la probabilitat acumulada arriba al 25%.</p>
+
+<div class="rmdnote">
+<p>Si existeix algun <span class="math inline">\(x_p\in D_X\)</span> tal que <span class="math inline">\(P(X\leqslant x_p)=p\)</span>, llavors el <span class="math inline">\(p\)</span>-quantil és aquest <span class="math inline">\(x_p\)</span>, perquè, per a tot altre <span class="math inline">\(x\in D_x\)</span>:</p>
+<ul>
+<li>Si <span class="math inline">\(x&lt;x_p\)</span>, <span class="math inline">\(P(X\leqslant x)&lt;P(X\leqslant x_p)=F_X(x_p)=p\)</span> i per tant <span class="math inline">\(x\)</span> no pot ser el <span class="math inline">\(p\)</span>-quantil de <span class="math inline">\(X\)</span>.</li>
+<li>Si <span class="math inline">\(x&gt;x_p\)</span>, <span class="math inline">\(p=P(X\leqslant x_p)\leqslant P(X&lt;x)\)</span>, i per tant <span class="math inline">\(x\)</span> tampoc no pot ser el <span class="math inline">\(p\)</span>-quantil de <span class="math inline">\(X\)</span>.</li>
+</ul>
+</div>
+<p>Com en estadística descriptiva, alguns quantils de variables aleatòries tenen noms propis. Per exemple:</p>
+<ul>
+<li><p>La <strong>mediana</strong> de <span class="math inline">\(X\)</span> és el seu 0.5-quantil.</p></li>
+<li><p>El <strong>primer</strong> i el <strong>tercer quartils</strong> de <span class="math inline">\(X\)</span> són els seus <span class="math inline">\(0.25\)</span>-quantil i <span class="math inline">\(0.75\)</span>-quantil, respectivament.</p></li>
+<li><p>Etc.</p></li>
+</ul>
+
+<div class="example">
+<p><span id="exm:unnamed-chunk-49" class="example"><strong>Exemple 2.7  </strong></span>Seguim amb la variable aleatòria <span class="math inline">\(X\)</span> “Llançam una moneda equilibrada 3 vegades i comptam les cares que obtenim”. Recordem que la seva funció de distribució és</p>
+</div>
+<p><span class="math display">\[
+F_X(x)=\left\{
+\begin{array}{ll}
+0 &amp; \text{ si $x&lt;0$}\\
+0.125 &amp; \text{ si $0\leqslant x&lt;1$}\\
+0.5 &amp; \text{ si $1\leqslant x&lt;2$}\\
+0.875 &amp; \text{ si $2\leqslant x&lt;3$}\\
+1 &amp; \text{ si $3\leqslant x $}
+\end{array}
+\right.
+\]</span></p>
+<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-50-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p>Llavors, per exemple:</p>
+<ul>
+<li><p>El seu 0.125-quantil és 0</p></li>
+<li><p>El seu 0.25-quantil és 1</p></li>
+<li><p>La seva mediana és 1</p></li>
+<li><p>El seu 0.75-quantil és 2</p></li>
+</ul>
+
+<div class="rmdexercici">
+Siguin <span class="math inline">\(N\)</span> un nombre natural estrictament positiu i <span class="math inline">\(X\)</span> una variable aleatòria discreta uniforme amb domini <span class="math inline">\(D_X=\{1,\ldots,N\}\)</span>. Què val la seva mediana?
+</div>
+
+<div class="rmdcaution">
+<p>Encara que emprem “mitjana”, “variància”, “quantils”, etc. tant per a variables aleatòries com per a mostres, no heu de confondre-les.</p>
+<ul>
+<li><p>Una <strong>variable aleatòria</strong> representa una característica numèrica dels subjectes d’una <strong>població</strong>:</p>
+<ul>
+<li><p>“Prenem un estudiant de la UIB i mesuram la seva alçada en m.”</p>
+<p>La <strong>mitjana</strong> i la <strong>variància</strong> d’aquesta variable són les de tota la població d’estudiants de la UIB i descriuen propietats de tota la població d’estudiants de la UIB.</p></li>
+</ul></li>
+<li><p>Una <strong>mostra</strong> d’una variable aleatòria són els valors de la variable sobre un <strong>subconjunt</strong> de la població.</p>
+<ul>
+<li><p>Mesuram les alçades (en m) de 50 estudiants de la UIB d’aquest curs.</p>
+<p>La <strong>mitjana</strong> i la <strong>variància</strong> d’aquesta mostra són només les d’aquestes 50 alçades, i poden servir per descriure aquest conjunt de 50 alçades o per estimar els valors de la mitjana i la variància de la població d’estudiants de la UIB</p></li>
+</ul></li>
+</ul>
+</div>
+<p>Quan volguem destacar que una mitjana, una variància etc. són les d’una variable aleatòria sobre tota una població, les qualificarem de <strong>poblacionals</strong>.</p>
+</div>
+</div>
+<p style="text-align: center;">
+<a href="2-1-generalitats-sobre-variables-aleatòries.html"><button class="btn btn-default">Previous</button></a>
+<a href="2-3-famílies-importants-de-variables-aleatòries-discretes.html"><button class="btn btn-default">Next</button></a>
+</p>
+</div>
+</div>
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+$(document).ready(function () {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+});
+
+</script>
+
+</body>
+</html>

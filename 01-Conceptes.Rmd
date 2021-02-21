@@ -1,19 +1,6 @@
 # Alguns conceptes bàsics {#chap:conceptes} 
 
-<!--
-## Unitat d'observació
 
-
-En un estudi estadístic, la **unitat d'observació** és, per entendre'ns, el tipus d'entitats que mesuram. En ciències de la vida solen ser éssers vius, però no sempre:
-
-* Poden ser esdeveniments que els passin a éssers vius, de manera que un mateix subjecte pot ser mesurat diverses vegades: per exemple, embarassos, o les conseqüències de diferents accions sobre un subjecte.
-
-* Poden ser parts d'éssers vius. Per exemple, si volem estudiar si l'ús del telèfon mòbil augmenta el risc de càncer de pell en les orelles, en els participants de l'estudi compararem l'orella dominant en aquest sentit amb l'altra, de manera que la unitat d'observació són les orelles de les persones, no les persones.
-
-* Poden ser comunitats d'éssers vius, des de cultius de microorganismes a ecosistemes.
-
-* Fins i tot poden ser altres estudis científics, en les **revisions sistemàtiques** on es resumeix tot el que s'ha publicat sobre un tema concret i s'analitzen conjuntament les dades recollides en totes aquestes publicacions.
--->
 
 ## Tipus de dades
 
@@ -25,14 +12,14 @@ Els tipus bàsics de dades que consideram en aquest curs són els següents:
 
 * **Dades ordinals**. Són dades similars a les qualitatives, en el sentit que expressen una qualitat, però amb la diferència que les ordinals es poden **ordenar** de manera natural. Per exemple, els nivells de gravetat d'una malaltia (sa, lleu, greu, molt greu, ...) o les qualificacions en un examen (suspens, aprovat, notable, excel·lent) són dades ordinals. En canvi, no es poden ordenar de manera significativa les malalties de les persones o les espècies dels animals: per això són dades qualitatives, no ordinals. 
 
-* **Dades quantitatives**. Són mesures que són nombres genuïns, "de veritat", amb els quals té sentit operar, com ara edats, longituds, pesos, temps, nombres d'individus, etc. En distingim dos tipus:
+* **Dades quantitatives**. Són nombres genuïns, "de veritat", amb els quals té sentit operar, com ara edats, longituds, pesos, temps, nombres d'individus, etc. En distingim dos tipus:
 
     * **Discretes**: Prenen valors que avancen a salts i que podem identificar amb nombres naturals: nombre de germans d'una persona, nombre d'exemplars d'una espècie en una regió, nombre de fulles en una branca...
 
     * **Contínues**: Podrien prendre qualsevol valor real dins d'un interval si es poguessin mesurar amb precisió infinita: longituds, alçades, temperatures, temps...
 
 ```{example}
-Hem anotat algunes característiques d'un grup de nins i nines: el nom, l'alçada (en cm), el nombre de germans, el color dels cabells, i el nombre setmanal de refrescs que solen prendre. Hem recollit aquestes dades a la Taula \@ref(tab:tabla1), on cada filera representa un nin o una nina i cada columna recull una de les característiques que hem anotat:
+Hem anotat algunes característiques d'un grup de nins i nines: el nom, l'alçada (en cm), el nombre de germans, el color dels cabells i el nombre setmanal de refrescs que solen prendre. Hem recollit aquestes dades a la Taula \@ref(tab:tabla1), on cada filera representa un nin o una nina i cada columna recull una de les característiques que hem anotat:
   
   
 ```
@@ -76,7 +63,7 @@ Dos punts rellevants a tenir en compte:
 
     Observau, per exemple, la diferència entre l'alçada mesurada en cm i arrodonida a unitats i el nombre de germans tal i com les hem recollit a la Taula \@ref(tab:tabla1). Les dues dades es presenten com a nombres naturals, però els nombres de germans no admeten més precisió, mentre que les alçades les podríem mesurar, amb els aparells adequats, en mm, en µm, en nm.... Com que, a més,  les eines per a tractar dades contínues són molt més potents, consideram les alçades com a dades contínues, mentre que els nombres de germans no hi ha més remei que tractar-los com a discrets.
 
-    En concret, és convenient considerar en la pràctica com a dades contínues aquelles que donen lloc a **nombres naturals molt grans**, com per exemple el nombre de glòbuls vermells en un litre de sang, de bases nuclèiques en un genoma, o de persones d'un país: la diferència entre 10000000, 10000001, 10000002... pot considerar-se com a contínua: de fet, si prenem el milió com a unitat de mesura, la diferència entre aquests nombres està en la setena xifra decimal: 1.0000000, 1.0000001, 1.0000002.
+    En concret, és convenient considerar en la pràctica com a dades contínues aquelles que donen lloc a **nombres naturals molt grans**, com per exemple el nombre de glòbuls vermells en un litre de sang, de bases nuclèiques en un genoma, o de persones d'un país: la diferència entre 10000000, 10000001, 10000002... pot considerar-se com a contínua: de fet, si prenem el milió com a unitat de mesura, la diferència entre aquests nombres està en la sisena xifra decimal: 10.000000, 10.000001, 10.000002.
 
 ## Població
 
@@ -84,7 +71,7 @@ En general, una **població** és simplement un conjunt d'individus o objectes s
 
 Una població pot estar perfectament definida en un lloc i temps: per exemple, els habitants d'Espanya just avui. Però normalment la seva definició serà difusa. Si, per exemple, volem estimar alguna cosa sobre una espècie de plantes, de qui estam parlant exactament? De les plantes que estan vives just ara? De totes les plantes d'aquesta espècie de la història del món? Hi hem d'incloure les que encara no han nascut? 
 
-Tranquils, no ens trencarem gens el cap amb això. Però almenys heu de ser conscients que una població pot contenir objectes que en realitat no existeixen ni hagin existit ni vagin a existir, sinó simplement que "podrien existir". Parlarem llavors d'una **població virtual** (en altres llocs en diuen una **població metafòrica**).
+Tranquils, no ens trencarem gens el cap amb això. Però almanco heu de ser conscients que una població pot contenir objectes que en realitat no existeixen ni hagin existit ni vagin a existir, sinó simplement que "podrien existir". Parlarem llavors d'una **població virtual** (en altres llocs en diuen una **població metafòrica**).
 
 Per exemple, quan diem que 
 
@@ -132,7 +119,7 @@ En canvi a
 
 no hi ha necessitat d'especificar unitats, tret que volgueu emprar una unitat inesperada (jo què sé, que compteu les cares en fraccions de dotzena).
 
-Per a més informació sobre variables aleatòries, consultau la Lliçó \@ref(chap:varal).
+Per a més informació sobre variables aleatòries, consultau el Tema \@ref(chap:varal).
 
 
 
@@ -143,11 +130,11 @@ Per a més informació sobre variables aleatòries, consultau la Lliçó \@ref(c
 
 En un estudi inferencial, volem deduir (**inferir**) informació sobre una o diverses variables aleatòries definides sobre una **població** a partir d'una **mostra**:
 
-* La **població objectiu**, o **d'interès** és el conjunt de subjectes sobre les quals desitjam obtenir informació.
+* La **població objectiu**, o **d'interès** és el conjunt de subjectes sobre els quals desitjam obtenir informació.
 
 * La **mostra** de la població es el grup de subjectes concrets en els quals mesuram les característiques d'interès, usualment molt petit per comparació amb la població.
 
-* Una **mostra d'una variable aleatòria** és el conjunt de valors obtinguts prenent una mostra de la població i mesurant la variable sobre aquests subjectes.
+* Una **mostra d'una variable aleatòria** és el conjunt de valors obtenguts prenent una mostra de la població i mesurant la variable sobre aquests subjectes.
 
 ```{block2,type="rmdrecordau"}
 Procurau tenir sempre present que, per molta cura que posem en obtenir una mostra d'una població, sempre serà només una aproximació imperfecta d'aquesta.
@@ -161,7 +148,7 @@ knitr::include_graphics("Bioestadistica-II_files/figure-html/sampling.png")
 
 
 ```{example, brou}
-Si volem saber si un brou és fat, no ens el bebem tot, perquè ens quedaríem sense brou i ja tant faria si era fat o salat. El que fem és tastar-ne només una cullerada. El brou és la població, la cullarada la mostra. 
+Si volem saber si un brou és fat, no ens el bebem tot, perquè ens quedaríem sense brou i ja tant faria si era fat o salat. El que fem és tastar-ne només una cullerada. El brou és la població, la cullerada la mostra. 
  
 
 ````
@@ -186,7 +173,7 @@ Si podem mesurar tots els individus de la població, no ens fa falta emprar esta
 
 * La població pot ser massa gran. Per exemple, si volem calcular l'alçada mitjana dels europeus que avui tenen 18 anys, és pràcticament impossible amidar-los tots.
 
-* Com ja hem comentat, la població pot ser **virtual** o **metafòrica** en el sentit que pot contenir membres que en aquest moment ni existeixin. Per exemple, per saber si la llum artificial a la nit afecta els ocells cantors, els autors de la investigació citada a l'Exemple \@ref(exm:ferrericos) no podien accedir a tots els ocells cantors actuals, i molt menys als que ja no són entre nosaltres o als que encara no han nascut.
+* Com ja hem comentat, la població pot ser **virtual** o **metafòrica** en el sentit que pot contenir membres que en aquest moment ni existeixin. Per exemple, per saber si la llum artificial a la nit afecta els ocells cantors, els autors de la investigació citada a l'Exemple \@ref(exm:ferrericos) no podien accedir a tots els ocells cantors actuals, i molt manco als que ja no són entre nosaltres o als que encara no han nascut.
 
 * Pot ser que per obtenir la informació d'un subjecte l'hàgim de sacrificar. En aquest cas, per mesurar tota la població l'hauríem d'exterminar.
 
@@ -198,7 +185,7 @@ Vosaltres què sou: una població o una mostra? Doncs depèn:
   
 * Sou una població quan el que interessa és saber qualque cosa sobre **vosaltres** i només vosaltres. 
 
-* Sou una mostra si a partir d'informació sobre vosaltres miram d'inferir informació sobre **un grup més gran de subjectes**: sobre els estudiants de primer curs de Biologia i Bioquímica d'Espanya, o sobre els estudiants de la UIB d'aquest curs, o sobre els joves europeus, o sobre els mamífers bípedes, o...
+* Sou una mostra si a partir d'informació sobre vosaltres miram d'inferir informació sobre **un grup més gran de subjectes**: sobre els estudiants de primer curs de Biologia i Bioquímica d'Espanya, o sobre els estudiants de la UIB d'aquest curs, o sobre els joves europeus, o sobre els mamífers, o...
 
 
 ```
@@ -210,7 +197,7 @@ En aquest curs sobrecarregarem el terme **variable**, en el sentit que tendrà d
 
 * D'una banda, direm **variable** a una característica que pot prendre diferents valors sobre diferents individus; quan tengui aquest sentit, de vegades li afegirem l'adjectiu **poblacional**. Per exemple, l'alçada de les persones (de tot el món, d'un país, d'una ciutat...) és una variable poblacional.  
 
-* D'altra banda, també direm **variable** a un vector format per una  mostra d'una variable poblacional sobre una mostra concreta d'individus. Per exemple, les alçades recollides en la Taula \@ref(tab:tabla1) formen una variable en aquest sentit.
+* D'altra banda, també direm **variable** a un vector format pels valors d'una variable poblacional sobre una mostra concreta d'individus. Per exemple, les alçades recollides en la Taula \@ref(tab:tabla1) formen una variable en aquest sentit.
 
 ```
 
@@ -221,7 +208,7 @@ Com ja hem explicat, en un estudi estadístic inferencial, es pren una **mostra*
 
 Per sortir d'aquest atzucac, la solució acceptada és prendre una mostra **aleatòria**, és a dir, triant els seus subjectes a l'atzar i tots amb la mateixa probabilitat de ser escollits. En fer-ho així:
 
-* S'eviten preferències en l'elecció, per la qual cosa esperam que la mostra sigui representativa de la població. Naturalment, això no està garantit: per pura mala sort ens pot sortir una mostra súper rara, és el que té l'atzar. Però almenys hem fet "el que tothom considera que és el que toca" per intentar que sigui representativa.
+* S'eviten preferències en l'elecció, per la qual cosa esperam que la mostra sigui representativa de la població. Naturalment, això no està garantit: per pura mala sort ens pot sortir una mostra súper rara, és el que té l'atzar. Però almanco hem fet "el que tothom considera que és el que toca" per intentar que sigui representativa.
 
 
 ```{r, echo=FALSE, out.width="80%",fig.cap=" http://dilbert.com/strip/2001-10-25"}
@@ -248,15 +235,15 @@ El mostreig aleatori simple és l'**estándard d'excel·lència** entre els mèt
 ```
 
 ```{block2,type="rmdromans"}
-Sí, ja sabem que sembla contradictori que quan, per exemple, volgueu conèixer l'opinió de la població sobre un tema, el mètode recomanat per construir la mostra d'individus que entrevistar permeti  comptar més d'una vegada l'opinió d'un mateix subjecte.
+Sí, ja sabem que sembla contradictori que quan, per exemple, volgueu conèixer l'opinió de la població sobre un tema, el mètode recomanat per construir la mostra d'individus que entrevistareu permeti  comptar més d'una vegada l'opinió d'un mateix subjecte.
 ```
 
-Una altra manera d'extreure la nostra mostra seria repetir $n$ vegades el procés d'escollir, a l'atzar i de manera equiprobable, un individu de la població, anotar qui és i "retirar-lo de la població", de manera que ja no pugui tornar a ser triat dins la mateixa mostra. Això és equivalent a extreure de cop $n$ individus diferents de la població. Aquestes mostres no tenen individus repetits, i qualsevol selecció de $n$ individus diferents té la mateixa probabilitat de ser l'obtinguda. En aquest cas es parla d'una mostra aleatòria **sense reposició**. 
+Una altra manera d'extreure la nostra mostra seria repetir $n$ vegades el procés d'escollir, a l'atzar i de manera equiprobable, un individu de la població, anotar qui és i "retirar-lo de la població", de manera que ja no pugui tornar a ser triat dins la mateixa mostra. Això és equivalent a extreure de cop $n$ individus diferents de la població. Aquestes mostres no tenen individus repetits, i qualsevol selecció de $n$ individus diferents té la mateixa probabilitat de ser l'obtenguda. En aquest cas es parla d'una mostra aleatòria **sense reposició**. 
 
-Quan **la mida de la població és MOLT gran per comparació amb la mostra**, com sol ser el cas en ciències de la vida, la probabilitat que hi hagi repeticions en una mostra aleatòria simple és molt petita. 
+Quan **la mida de la població és MOLT gran per comparació amb la mostra**,  la probabilitat que hi hagi repeticions en una mostra aleatòria simple és molt petita. 
 
 ```{block2,type="rmdnote"}
-Recordau que si una població té $N$ individus, la probabilitat que una mostra aleatòria simple de mida $n$ tingui tots els seus membres diferents és
+Recordau que si una població té $N$ individus, la probabilitat que una mostra aleatòria simple de mida $n$ tengui tots els seus membres diferents és
 $$
 \frac{N(N-1)\cdots (N-n+1)}{N^n}
 $$
@@ -272,7 +259,7 @@ Amb R:
 
 El nom `birthday` fa referència a la **paradoxa de l'aniversari**: el típic problema de calcular la probabilitat que dos estudiants d'una classe celebrin l'aniversari el mateix dia i sorprendre's que en una classe de 50 estudiants hi hagi més d'un 95% de probabilitats que hi hagi algun aniversari repetit. 
 
-En efecte, podem entendre una classe de 50 estudiants com una mostra aleatòria simple de 50 dies de l'any (els aniversaris dels estudiants)  triats d'un conjunt de 366 possibles dies. La probabilitat que almenys 2 estudiants celebrin l'aniversari el mateix dia és la probabilitat que es doni almenys una repetició en aquesta mostra. Podem calcular-la amb R:
+En efecte, podem entendre una classe de 50 estudiants com una mostra aleatòria simple de 50 dies de l'any (els aniversaris dels estudiants)  triats d'un conjunt de 366 possibles dies. La probabilitat que almanco 2 estudiants celebrin l'aniversari el mateix dia és la probabilitat que es doni almanco una repetició en aquesta mostra. Podem calcular-la amb R:
 ```
 
 ```{r}
@@ -325,7 +312,7 @@ plot(500+100*(0:150), fites, pch=20, xlab="N", ylab="n", cex=0.5,
      xaxp=c(500,15500,30),yaxp=c(0,20,20))
 ```
 
-Així doncs, si la mida de la població és molt gran en relació a la de la mostra, és molt probable que els elements d'una mostra aleatòria simple siguin tots diferents. Això implica que, quan la població és molt gran en relació a la mostra, els mostrejos aleatoris amb i sense reposició són aproximadament equivalents en el sentit següent: 
+Així doncs, si la mida de la població és molt gran en relació a la de la mostra, és molt probable que els elements d'una mostra aleatòria simple siguin tots diferents. Això implica que, quan la població és molt gran en relació a la mostra, els mostrejos aleatoris amb i sense reposició són (aproximadament) equivalents en el sentit següent: 
 
 > Si la població és molt, molt gran, un mostreig amb reposició donaria gairebé segur una mostra amb tots els seus elements diferents. Per tant, podem prendre directament la mostra sense reposició i suposar que permetíem repeticions, però que no n'hi ha hagut, i que per tant la mostra és simple. 
 
@@ -374,7 +361,7 @@ L'avantatge del mostreig aleatori estratificat respecte del transversal és que,
 L'inconvenient és que, òbviament, si preneu una mostra amb nombres prefixats i artificials de subjectes de cada estrat, amb aquesta mostra no podeu estimar la proporció de subjectes de cada estrat dins el total de la població. El que volem dir és que si, per exemple,  construïu una mostra escollint a l'atzar 100 mallorquins, 100 menorquins i 100 pitiüsos, no la podeu emprar per estimar la proporció de mallorquins en el total de la població de les Balears.
 
 ```{block2,type="rmdimportant"}
-Gairebé mai és factible efectuar un mostreig aleatori. El motiu és que, per poder prendre una mostra aleatòria d'una població en el sentit d'aquest apartat, amb o sense reposició, és necessari disposar d'una llista completa de tots els seus individus per poder sortejar a qui seleccionarem. Això sol ser impossible, o almenys difícil d'aconseguir. Qualcú té la llista completa de, per exemple, tots els diabètics d'Espanya? Que inclogui els que no saben que ho són? I ja no en parlem si a més ha d'incloure tots els espanyols diabètics del passat i del futur... Per tant, gairebe mai no podrem  prendre mostres aleatòries en aquest sentit.
+Gairebé mai és factible efectuar un mostreig aleatori. El motiu és que, per poder prendre una mostra aleatòria d'una població en el sentit d'aquest apartat, amb o sense reposició, és necessari disposar d'una llista completa de tots els seus individus per poder sortejar a qui seleccionarem. Això sol ser impossible, o almanco difícil d'aconseguir. Qualcú té la llista completa de, per exemple, tots els diabètics d'Espanya? Que inclogui els que no saben que ho són? I ja no en parlem si a més ha d'incloure tots els espanyols diabètics del passat i del futur... Per tant, gairebe mai no podrem  prendre mostres aleatòries en aquest sentit.
 ```
 
 ```{block2,type="rmdexercici"}
@@ -391,9 +378,9 @@ Trobareu més tipus de tècniques de mostreig aleatori i les funcions de R relac
 
 ## Mostres de conveniència
  
-Malgrat que tots els resultats que donarem en aquest curs siguin per a mostres aleatòries i la gran majoria per a mostres aleatòries simples, a la vida real les mostres gairebé mai no ho són, aleatòries: normalment ens hem de conformar amb els subjectes disponibles, que formen una **mostra de conveniència**. Per exemple, a la UIB, per estimar l'opinió que d'un professor tenen els alumnes d'una classe, només es té en compte les respostes dels estudiants que voluntàriament emplenen l'enquesta d'opinió, que de cap manera formen una mostra aleatòria: el perfil de l'estudiant que contesta voluntàriament una enquesta d'aquest tipus és molt específic i no ve determinat per l'atzar. En aquest cas es tractaria d'una mostra **auto-seleccionada**. 
+Malgrat que tots els resultats que donarem en aquest curs siguin per a mostres aleatòries i la gran majoria per a mostres aleatòries simples, a la vida real les mostres gairebé mai no ho són, d'aleatòries: normalment ens hem de conformar amb els subjectes disponibles, que formen una **mostra de conveniència**. Per exemple, a la UIB, per estimar l'opinió que d'un professor tenen els alumnes d'una classe, només es té en compte les respostes dels estudiants que voluntàriament emplenen l'enquesta d'opinió, que de cap manera formen una mostra aleatòria, ni tan sols representativa: el perfil de l'estudiant que contesta voluntàriament una enquesta d'aquest tipus és molt específic i no ve determinat per l'atzar. En aquest cas es tractaria d'una mostra **auto-seleccionada**. 
 
-Un altre tipus de mostres no aleatòries són les **oportunistes**. Aquest és el cas, per exemple, si per estimar l'opinió que d'un professor tenen els alumnes d'una assignatura es visita un dia la classe i es passa l'enquesta als estudiants que aquest dia assistiren a classe. Un altre cop, pot ser que els alumnes presents no siguin representatius de l'alumnat de l'assignatura (poden ser els més aplicats, o els que no tenen el grip, o els no repetidors). 
+Un altre tipus de mostres no aleatòries són les **oportunistes**. Aquest és el cas, per exemple, si per estimar l'opinió que d'un professor tenen els alumnes d'una assignatura es visita un dia la classe i es passa l'enquesta als estudiants que aquest dia assistiren a classe. Un altre cop, pot ser que els alumnes presents no siguin representatius de l'alumnat de l'assignatura (poden ser els més aplicats, o els manco malaltissos, o els no repetidors). 
 
 Les tècniques d'estadística inferencial **no es poden aplicar a mostres no aleatòries**. Però normalment només podem aconseguir mostres de conveniència. En aquest cas, el que s'ha de fer és descriure detalladament les característiques de la mostra per justificar que, malgrat no ser aleatòria, és raonablement representativa de la població i podria passar per aleatòria. 
 
@@ -418,7 +405,7 @@ La resposta d'Abraham  Wald, un dels estadístics més brillants del SRG, va ser
 
 > "Senyors, on necessiten afegir blindatge és on no hi ha forats, perquè és aquí on eren els forats als avions que no tornaren"
 
-Vaja, que no havien de reforçar les zones amb més impactes: havien de reforçar les zones amb molt pocs impactes. El seu raonament era que els avions rebien els impactes distribuïts de manera uniforme per tot el seu fuselatge. Si els avions que tornaven de les missions eren els que no tenien impactes a determinades zones, o n'hi tenien molt pocs, era segurament perquè els avions que rebien molt càstig en aquestes zones no tornaven. En canvi, els impactes a les zones que mostraven més càstig en els avions que pogueren inspeccionar no impedien que l'avió tornàs. Naturalment, tot això justificat amb un càlcul molt enginyós de la probabilitat que un avió fos abatut en funció del nombre d'impactes de bala rebuts a les diferents zones del fuselatge: enginyós, perquè només podia emprar la informació dels avions que **no** havien estat abatuts. Si us interessen les butzes matemàtiques del seu treball, les trobareu explicades en [aquest article](https://people.ucsc.edu/~msmangel/Wald.pdf).
+Vaja, que no havien de reforçar les zones amb més impactes: havien de reforçar les zones amb molt pocs impactes. El seu raonament era que els avions rebien els impactes distribuïts de manera uniforme per tot el seu fuselatge. Si els avions que tornaven de les missions no tenien impactes a determinades zones, o n'hi tenien molt pocs, era segurament perquè els avions que rebien molt càstig en aquestes zones no tornaven. En canvi, els impactes a les zones que mostraven més càstig en els avions que pogueren inspeccionar no impedien que l'avió tornàs. Naturalment, tot això justificat amb un càlcul molt enginyós de la probabilitat que un avió fos abatut en funció del nombre d'impactes de bala rebuts a les diferents zones del fuselatge: enginyós, perquè només podia emprar la informació dels avions que **no** havien estat abatuts. Si us interessen les butzes matemàtiques del seu treball, les trobareu explicades en [aquest article](https://people.ucsc.edu/~msmangel/Wald.pdf).
 
 El que us volem vendre és que la mostra de bombarders era oportunista: els que retornaven de les seves missions. Però fins i tot d'aquesta mostra es pogué obtenir informació amb les tècniques adients.
 
@@ -453,8 +440,8 @@ El que us volem vendre és que la mostra de bombarders era oportunista: els que 
 
 **(4)** En un estudi es volgué determinar el percentatge  mitjà d'increment del temps de resposta a un estímul auditiu sota els efectes d'una intoxicació alcohòlica aguda. Per fer-ho, es reclutaren 6 voluntaris, es mesura el seu temps de resposta (en segons) a una sèrie d'estímuls auditius, a continuació se'ls administrà una quantitat alta d'alcohol i es tornà a mesurar  el seu temps de resposta als mateixos estímuls auditius. Quina és la variable aleatòria d'interès?
 
-1. Prenem una persona, l'intoxicam amb alcohol i mesuram el seu temps de resposta  a  un estímul auditiu
-1. Prenem una persona, l'intoxicam amb alcohol i mesuram el seu temps de resposta  a  un estímul auditiu (en segons)
+1. Prenem una persona, la intoxicam amb alcohol i mesuram el seu temps de resposta  a  un estímul auditiu
+1. Prenem una persona, la intoxicam amb alcohol i mesuram el seu temps de resposta  a  un estímul auditiu (en segons)
 1. Prenem una persona i calculam el seu percentatge d'increment del temps de resposta a un estímul auditiu sota els efectes d'una intoxicació alcohòlica aguda
 1. Prenem un grup de 6 persones i calculam la mitjana dels seus percentatges d'increment del temps de resposta a un estímul auditiu sota els efectes d'una intoxicació alcohòlica aguda
 1. Prenem una persona i calculam la diferència (en segons) entre el seu temps de resposta a un estímul auditiu abans i després d'una intoxicació alcohòlica aguda
@@ -480,26 +467,16 @@ El que us volem vendre és que la mostra de bombarders era oportunista: els que 
 1. Cap de les altres respostes és correcta.
 
 
-**(7)** En un mostreig aleatori simple (marcau totes les respostes correctes):
 
-1. Cada membre de la població té la mateixa probabilitat de ser triat 
-1. Si tenim els individus de la població ordenats en una llista, no es poden triar dos membres adjacents en aquesta llista
-1. No es pot estimar la probabilitat que la mostra triada sigui molt diferent del típic en la població  
-1. Cada mostra possible d'una mida donada té la mateixa probabilitat de ser triada  
-1. La decisió d'incloure o no un individu en una mostra depèn només de les característiques de l'individu 
-1. Les altres respostes són totes falses 
+**(7)** Els avantatges del mostreig aleatori inclouen  (marcau totes les respostes correctes):
 
-
-**(8)** Els avantatges del mostreig aleatori inclouen  (marcau totes les respostes correctes):
-
-1. Que es pot aplicar a qualsevol població 
-1. Que permet estimar la probabilitat que la mostra triada sigui molt diferent del típic en la població 
+1. Que sempre es pot aplicar a qualsevol població 
 1. Que no hi ha cap subpoblació els subjectes de la qual tenguin major probabilitat de ser triats
 1. Que és fàcil de dur a terme 
 1. Que garanteix que la mostra triada serà representativa de la població original 
 1. Les altres respostes són totes falses  
 
-**(9)** En un estudi sobre pacients d'hospitals, es va prendre una mostra aleatòria de 20 hospitals diferents a partir d'una llista de tots els hospitals d'un país. A continuació, es va triar a l'atzar *un 10% dels pacients* hospitalitzats  en un dia concret a cadascun d'aquests 20 hospitals. Quina, o quines, de les afirmacions següents són vertaderes en aquesta situació? 
+**(8)** En un estudi sobre pacients d'hospitals, es va prendre una mostra aleatòria de 20 hospitals diferents a partir d'una llista de tots els hospitals d'un país. A continuació, es va triar a l'atzar *un 10% dels pacients* hospitalitzats  en un dia concret a cadascun d'aquests 20 hospitals. Quina, o quines, de les afirmacions següents són vertaderes en aquesta situació? 
 
 1. Tots els hospitals tenen la mateixa probabilitat de ser triats 
 1. Tots els pacients hospitalitzats aquest dia tenien la mateixa probabilitat de ser triats 
@@ -508,7 +485,7 @@ El que us volem vendre és que la mostra de bombarders era oportunista: els que 
 1. Les altres respostes són totes falses 
 
 
-**(10)** En un estudi sobre pacients d'hospitals, es va prendre una mostra aleatòria de 20 hospitals diferents a partir d'una llista de tots els hospitals d'un país. A continuació, es va triar a l'atzar *10 pacients hospitalitzats diferents* en un dia concret a cadascun d'aquests 20 hospitals. Quina, o quines, de les afirmacions següents són vertaderes en aquesta situació? 
+**(9)** En un estudi sobre pacients d'hospitals, es va prendre una mostra aleatòria de 20 hospitals diferents a partir d'una llista de tots els hospitals d'un país. A continuació, es va triar a l'atzar *10 pacients hospitalitzats diferents* en un dia concret a cadascun d'aquests 20 hospitals. Quina, o quines, de les afirmacions següents són vertaderes en aquesta situació? 
 
 1. Tots els hospitals tenen la mateixa probabilitat de ser triats  
 1. Tots els pacients hospitalitzats aquest dia tenien la mateixa probabilitat de ser triats 
