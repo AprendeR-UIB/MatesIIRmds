@@ -964,7 +964,7 @@ Abans de tancar aquesta secció, recordau que, donada una variable aleatòria $X
 
 ```
 
-## Biaix i precisió
+## Biaix i precisió 
 
 En una primera aproximació, la bondat d'un estimador es descriu en termes de dues propietats: la seva exactitud i la seva precisió.
 
@@ -1031,15 +1031,13 @@ Per tant, per obtenir un estimador no esbiaixat per a la desviació típica $\si
 
 
 
-### Estimadors precisos
+### Estimadors precisos {#sec:precis}
 
 Donats dos estimadors $\widehat{\theta}_1$, $\widehat{\theta}_2$ del mateix paràmetre $\theta$, direm que  $\widehat{\theta}_1$ és **més eficient**, o **més precís**, que $\widehat{\theta}_2$ quan la desviació típica de $\widehat{\theta}_1$ és més petita que la de $\widehat{\theta}_2$:
 $$
 \sigma(\widehat{\theta}_1)< \sigma(\widehat{\theta}_2).
 $$  
 Quan $\widehat{\theta}_1$ i $\widehat{\theta}_2$ són no esbiaixats, que $\widehat{\theta}_1$ sigui més eficient que $\widehat{\theta}_2$ significa que els seus valors es concentren més al voltant del paràmetre $\theta$ que volem estimar.
-
-
 
 Normalment, només comparam l'eficiència de dos estimadors quan són no esbiaixats o amb el biaix que tendeixi a 0. De res ens serveix tenir un estimador molt precís però que sistemàticament dóna un valor llunyà del valor real del paràmetre.
 

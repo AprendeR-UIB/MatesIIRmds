@@ -29,7 +29,7 @@ DF=data.frame(Nom=c("Marta","Laura","Xavier","Joan","Maria","Maria"),
 Alçada=c(135,132,138,141,134,136),
 Germans=c(2,1,0,3,2,1),
 Cabell=c("ros","negre","negre","castany","vermell","castany"),
-Refrescos=c("2-3","2-3","0-1","4-5","0-1","5 o més"))
+Refrescos=c("2-3","2-3","0-1","4-5","0-1","6 o més"))
 kable(DF,
 caption='Una petita taula de dades',
 row.names=TRUE,
@@ -45,6 +45,13 @@ Aleshores:
 * Les dades de la columna "Germans" són quantitatives discretes.
 * Les dades de la columna "Cabell" són qualitatives.
 * Les dades de la columna "Refrescs setmanals" són ordinals.
+
+```{block2,type="rmdnote"}
+Els valors de la variable "Refrescs setmanals" no són nombres, sinó franges de nombres, per la qual cosa no són dades quantitatives. Però certament estan ordenats: na Marta en beu més que en Xavier. Per tant són dades ordinals.
+
+Si en lloc de donar com a valors les franges, donàssim el nombre de refrescos (0,1,2,3,4,5,6,...) sí que serien dades quantitatives, en aquest cas discretes.
+
+```
 
 
 L'anàlisi, tant descriptiva com inferencial, d'un conjunt de dades és diferent segons el seu tipus. Així, per a dades qualitatives només té interès estudiar i representar les freqüències amb què apareixen els seus diferents valors, mentre que l'anàlisi de dades quantitatives sol involucrar el càlcul de mesures estadístiques, com ara la mitjana o la desviació típica, que expressin numèricament les seves propietats. 
