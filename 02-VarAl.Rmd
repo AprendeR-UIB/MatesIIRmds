@@ -742,7 +742,7 @@ Així, per exemple:
 
 * En una aula hi ha 5 homes i 45 dones. Triam 10 estudiants, un rere l'altre però cada estudiant pot ser triat més d'una vegada, per a fer-los una pregunta. Cada elecció és independent de les altres. Comptam quants homes hem interrogat. 
 
-    Ara sí que és una variable binomial $B(10,0.9)$, ja que la probabilitat de triar un home no varia d'una ronda a la següent.
+    Ara sí que és una variable binomial $B(10,0.1)$, ja que la probabilitat de triar un home no varia d'una ronda a la següent.
 
 * En una aula hi ha 5 homes i 45 dones. Triam estudiants un rere l'altre i cada estudiant pot ser triat més d'una vegada, per fer-los una pregunta. Cada elecció és independent de les altres. Comptam quants estudiants hem hagut de triar per arribar a interrogar 5 homes. 
 
