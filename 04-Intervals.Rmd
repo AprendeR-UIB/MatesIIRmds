@@ -104,6 +104,13 @@ La segona frase en canvi es pot interpretar de la manera següent. L'interval $[
 
 ```
 
+```{r, echo=FALSE}
+knitr::include_graphics("Bioestadistica-II_files/figure-html/tirdanella.png")
+```
+
+
+
+
 ```{block2,type="rmdrecordau"}
 Encara que el millor que podeu fer és no mesclar probabilitat amb confiança, i dir simplement que teniu un 95% de confiança, o un 95% de seguretat, que $[a,b]$ conté el valor real de $\theta$. Així no us enganxau els dits.
 ```
