@@ -1,0 +1,818 @@
+# Contrastos d'independència i homogeneïtat
+
+En els **contrastos d'independència** de dues variables $X$ i $Y$, la hipòtesi nul·la és 
+
+> no hi ha cap relació entre $X$ i $Y$, 
+
+és a dir, que **són independents**. Quan traduïm la independència de dues variables en termes de
+
+>"la probabilitat de la intersecció és el producte de probabilitats", 
+
+resulta que un contrast d'independència és un tipus concret de contrast de bondat d'ajust.
+
+En els **contrastos d'homogeneïtat**  de dues variables $X$ i $Y$, la hipòtesi nul·la és 
+
+> la distribució de $Y$ condicionada  a cada un dels valors que pot prendre $X$ és sempre la mateixa, 
+
+que és una altra manera de dir que $X$ i $Y$ **són independents**. Per tant, els contrastos d'homogeneïtat són formalment contrastos d'independència, però difereixen en la forma com s'hi recull la mostra:
+
+* En un contrast d'independència, la mostra és **transversal**: es pren una mostra de la població on estan definides $X$ i $Y$ i es mesuren les dues variables sobre els individus de la mostra, surti el que surti.
+
+* En un contrast d'homogeneïtat, la mostra és **estratificada**: es classifica la població segons el seu valor de $X$, es pren una mostra independent de cada una d'aquestes classes definides pels valors de $X$, amb totes aquestes mostres de mides fixades d'antuvi, i es mesura $Y$ sobre tots aquests individus.
+
+
+## Test $\chi^2$ d'independència
+
+Suposem que tenim dues variables aleatòries $X$ i $Y$ que només poden prendre valors $X_{1},\ldots,X_{s}$ i $Y_{1},\ldots,Y_{t}$, respectivament. Les considerarem qualitatives  i direm a aquests $X_i$ i $Y_j$ els seus nivells, però poden ser ordinals o quantitatives discretes. L'important és que només poden prendre un conjunt finit de valors cadascuna.
+
+Volem contrastar si $X$ i $Y$ són independents, és a dir
+$$
+\begin{array}{l}
+\hspace{-2ex}P(X=X_i\mid Y=Y_j)=P(X=X_i\mid Y=Y_{j'})=P(X=X_i)\text{ per a tots $i,j,j'$}\\ 
+\hspace{-2ex}P(Y=Y_j\mid X=X_i)=P(Y=Y_j\mid X=X_{i'})=P(Y=Y_j)\text{ per a tots $i,i',j$}
+\end{array}
+$$
+o equivalentment
+$$
+P(X=X_i,Y=Y_j)=P(X=X_i)\cdot P(Y=Y_j)\text{ per a tots $i,j$}
+$$
+
+
+El contrast serà
+$$
+\left\{\begin{array}{l}
+H_0: \mbox{$X$ i $Y$ són independents}\\
+H_1: \mbox{$X$ i $Y$ són dependents}
+\end{array}
+\right.
+$$
+
+Sovint en lloc de dir que "$X$ i $Y$ són dependents", direm que "hi ha **associació** entre $X$ i $Y$".
+
+```{block2,type="rmdnote"}
+Recordau que, en general, la hipòtesi nul·la representa, en el context del contrast, que "no passa res". En els contrastos d'independència això correspon a "no hi ha cap relació entre $X$ i $Y$", és a dir, que són independents.
+```
+
+Fixem-nos ara que la caracterització de la independència com a 
+$$
+P(X=X_i,Y=Y_j)=P(X=X_i)\cdot P(Y=Y_j)\text{ per a tots $i,j$}
+$$
+ens permet entendre el contrast d'independència com un contrast de bondat d'ajust, amb hipòtesi nul·la
+$$
+H_0: P(X=X_i,Y=Y_j)=P(X=X_i)\cdot P(Y=Y_j)\text{ per a tots $i,j$}
+$$
+Hi farem servir un test $\chi^2$.
+
+```{block2,type="rmdnote"}
+El contrast d'igualtat de dues proporcions és un cas particular de contrast d'independència: que l'esdeveniment "Èxit" sigui independent de la variable.
+```
+
+```{example,tosfumar}
+En un estudi es volgué determinar si hi ha associació entre l'hàbit de fumar i patir tos nocturna entre els nins.
+
+
+```
+
+S'entrevistà una mostra de 2847 nens de 12 anys i es recollí informació sobre el seu estatus de fumador i si patien de tos nocturna o no. S'obtingueren els resultats següents:
+$$
+\begin{array}{l}
+\hphantom{No fumador ocasional un }\text{Fumador}\\
+\begin{array}{l|ccc|c}
+& \text{No fumador} & \text{Ocasional} & \text{Regular} & \text{Total} \\\hline
+\text{Tos} & 266 & 395 & 80 & 741\\
+\text{No tos}& 1037 & 977 & 92 & 2106\\\hline
+\text{Total} &1303 & 1372 & 172 & 2847
+\end{array}
+\end{array}
+$$
+
+En aquesta situació:
+
+*Variables aleatòries  d'interès*: 
+
+* $X$: "Prenem un nin i anotam si té tos nocturna o no"
+* $Y$: "Prenem un nin i anotam el seu estatus de fumador"
+
+*Contrast*:
+$$
+\left\{\begin{array}{l}
+H_0: \mbox{$X$ i $Y$ són independents}\\
+H_1: \mbox{Hi ha associació entre $X$ i $Y$}
+\end{array}
+\right.
+$$
+
+Anem a traduir ara un contrast d'independència com l'anterior en un contrast d'igualtat de distribucions de probabilitat. Diguem
+$$
+\begin{array}{c}
+p_{ij}=P(X=X_i, Y=Y_j)\\
+p_i=P(X=X_i)\quad
+q_{j}=P(Y=Y_j)
+\end{array}
+$$
+El test d'independència equival a contrastar
+$$
+\left\{
+\begin{array}{ll}
+H_0: p_{ij}=p_i \cdot q_j \text{ per a tots } 1\leqslant i \leqslant s,\ 1\leqslant j\leqslant t \\
+H_1: \mbox{No totes aquestes igualtats són vertaderes}
+\end{array}
+\right.
+$$
+
+És a dir, la hipòtesi nul·la és
+
+> La distribució de probabilitats que ha donat la mostra de parells de valors $(X,Y)$ és el producte de la distribució de probabilitats de $X$ per la distribució de probabilitats de $Y$
+
+i per tant podem entendre aquest contrast com un contrast de bondat d'ajust (sobre la distribució conjunta de $(X,Y)$) i hi podem fer servir un test $\chi^2$. Els passos concrets seran els següents:
+
+
+1. Mesuram les variables aleatòries sobre una mostra aleatòria simple de $n$ subjectes, i obtenim una taula de contingència de freqüències absolutes com la següent (on cada $n_{i,j}$ indica el nombre de subjectes amb $X=X_i$ i $Y=Y_j$; $n_{i\bullet}$  indica el nombre de subjectes amb $X=X_i$, és a dir, el nombre total de subjectes de la filera $i$; i $n_{\bullet j}$  indica el nombre de subjectes amb $Y=Y_j$, és a dir, el nombre total de subjectes de la columna $j$):
+
+$$
+\begin{array}{c|cccccc|c}
+X\backslash Y & Y_1 & Y_2 & \ldots & Y_j & \ldots
+& Y_t & \text{Total} \\
+\hline X_1 & n_{11} & n_{12} & \ldots & n_{1j} & \ldots & n_{1t} &
+n_{1
+\bullet} \\ X_2 & n_{21} & n_{22} & \ldots & n_{2j} & \ldots &
+n_{2t} &
+n_{2 \bullet} \\ \vdots & \vdots & \vdots & \vdots & \vdots &
+\vdots &
+\vdots & \vdots \\ X_i & n_{i1} & n_{i2} & \ldots & n_{ij} &
+\ldots &
+n_{it} & n_{i \bullet} \\ \vdots & \vdots & \vdots & \vdots &
+\vdots &
+\vdots & \vdots & \vdots \\ X_s & n_{s1} & n_{s2} & \ldots &
+n_{sj} &
+\ldots & n_{st} & n_{s \bullet} \\ \hline \text{Total} & n_{\bullet
+1} &
+n_{\bullet 2} & \ldots & n_{\bullet j} & \ldots & n_{\bullet t} &
+n 
+\end{array}
+$$
+
+2. Estimam cada $p_i$ amb ${n_{i\bullet}}/{n}$ i cada $q_j$ amb ${n_{\bullet j}}/{n}$
+
+3. Si les variables aleatòries fossin independents,  les probabilitats teòriques serien
+$$
+p_{ij}=\frac{n_{i\bullet}}{n}\cdot \frac{n_{\bullet j}}{n}
+$$
+    i per tant la freqüència esperada de cada parell $(X_i,Y_j)$ si les variables aleatòries són independents seria
+$$
+esp_{ij}=p_{ij}\cdot n=\dfrac{n_{i\bullet}}{n}\cdot \dfrac{n_{\bullet j}}{n}\cdot n=\dfrac{n_{i\bullet}\cdot n_{\bullet j}}{n}
+$$ 
+
+4. L'estadístic del test $\chi^2$ és doncs
+$$
+\chi^2=\sum\limits_{i=1}^s\sum\limits_{j=1}^t \frac{ ( n_{ij}- esp_{ij})^2 } {esp_{ij}}
+$$
+
+    Arribats en aquest punt, el Teorema \@ref(thm:khi2BA) ens diu que:
+    
+```{theorem,khi2indep}
+Si les variables $X$ i $Y$ són independents,  $n$ és gran (diguem $n\geqslant 30$) i se satisfà la **Regla de Cochran**, és a dir, cada freqüència esperada 
+$$
+esp_{ij}=\frac{n_{i\bullet}\cdot n_{\bullet j}}{n}
+$$
+és $\geqslant 5$,  l'estadístic
+$$
+\chi^2=\sum\limits_{i=1}^s\sum\limits_{j=1}^t \frac{ ( n_{ij}- esp_{ij})^2 } {esp_{ij}}
+$$
+segueix (aproximadament) una llei $\chi^2$ amb $(s-1) \cdot (t -1)$ graus de llibertat.
+
+
+```
+    
+    
+    
+```{block2,type="rmdnote"}    
+D'on surt aquest nombre de graus de llibertat? Vegem, hem estimat les $p_i$ i les $q_j$, i per tant hem estimat $s+t-2$ paràmetres (fixau-vos que en realitat només hem estimat $p_1,\ldots,p_{s-1}$ i $q_1,\ldots,q_{t-1}$, ja que $p_s$ i $q_t$ queden fixats per la regla "suma de probabilitats igual a 1"). Per tant
+el nombre de graus de llibertat és el nombre de classes, $st$ (una per cada combinació $(X_i,Y_j)$ de possible valor de $X$ i possible valor de $Y$) menys 1 i menys el nombre de paràmetres estimats:
+$$
+\mbox{graus de llibertat}=st-1-(s+t-2)=(s-1)(t-1)
+$$
+```
+
+```{block2,type="rmdimportant"}    
+Fixau-vos que el Teorema \@ref(thm:khi2indep) és un cas particular del Teorema \@ref(thm:khi2BA), i per tant les hipòtesis per poder emprar el test $\chi^2$ en aquest context són les mateixes que en el cas general: mostra de mida com a mínim 30 i totes les freqüències esperades més grans o iguals que 5.
+``` 
+    
+
+
+
+5.  Si $\chi_0^2$ és el valor que pren l'estadístic de contrast a la nostra mostra, el p-valor del contrast és
+$$
+\text{p-valor}=P(\chi_{(s-1) \cdot (t -1)}^2\geqslant \chi_0^2)
+$$
+
+```{example,tosfumar2}
+Continuem amb l'Exemple \@ref(exm:tosfumar). Ja teníem les variables i el contrast. Les freqüències observades són
+
+
+```
+
+$$
+\begin{array}{l}
+\hphantom{No fumador ocasional un }\text{Fumador}\\
+\begin{array}{l|ccc|c}
+& \text{No fumador} & \text{Ocasional} & \text{Regular} & \text{Total} \\\hline
+\text{Tos} & 266 & 395 & 80 & 741\\
+\text{No tos}& 1037 & 977 & 92 & 2106\\\hline
+\text{Total} &1303 & 1372 & 172 & 2847
+\end{array}
+\end{array}
+$$
+
+La mida de la mostra és gran. Calculem les freqüències esperades, per veure si són totes més grans o iguals que 5.
+
+
+$$
+\begin{array}{l|ccc}
+& \text{No fumador} & \text{Ocasional} & \text{Regular}  \\\hline
+\text{Tos} & 741\cdot 1303/2847 & 741\cdot 1372/2847 & 741\cdot 172/2847  \\
+\text{No tos}& 2106\cdot 1303/2847 & 2106\cdot 1372/2847 & 2106\cdot 172/2847 
+\end{array}
+$$
+Operant:
+$$
+\begin{array}{l|ccc}
+& \text{No fumador} & \text{Ocasional} & \text{Regular}  \\\hline
+\text{Tos} & 339.14 &  357.1 & 44.77  \\
+\text{No tos}& 963.86 & 1014.9 & 127.23 
+\end{array}
+$$
+
+Són totes prou grans. Per tant l'estadístic de contrast
+$$
+\chi^2=\sum_{i=1}^s\sum_{j=1}^t \frac{(n_{ij}-esp_{ij})^2}{esp_{ij}}
+$$
+
+(on $s=2$ i $t=3$) seguirà una distribució $\chi^2_{(s-1)(t-1)}=\chi^2_2$.
+
+*Valor de l'estadístic de contrast*:
+
+
+$$
+\chi_0^2=\frac{(266-339.14)^2}{339.14}+\frac{(395-357.1)^2}{357.1}+\cdots=64.25
+$$
+
+Calculem-lo amb R:
+
+* Entram la taula:
+```{r}
+Taula=matrix(c(266,395,80,1037,977,92),nrow=2,byrow=TRUE)
+Taula
+n=sum(Taula)
+n
+```
+
+* Les $n_{i\bullet}$ són les sumes de les fileres:
+```{r}
+n.i.bolla=rowSums(Taula)
+n.i.bolla
+```
+
+* Les $n_{\bullet j}$ són les sumes de les columnes:
+```{r}
+n.bolla.j=colSums(Taula)
+n.bolla.j
+```
+
+* La matriu de les $(n_{i\bullet}n_{\bullet j}/n)_{i,j}$ s'obté fent el producte matricial
+$$
+\begin{array}{l}
+\displaystyle \frac{1}{n}\left(\begin{array}{c}
+n_{1\bullet}\\
+n_{2\bullet}\\
+\vdots\\
+n_{s\bullet}
+\end{array}\right)\cdot
+\big(n_{\bullet 1},n_{\bullet 2},\ldots,n_{\bullet t}\big)\\
+\qquad
+\displaystyle =
+\left(
+\begin{array}{cccc}
+\frac{n_{1\bullet}n_{\bullet 1}}{n} & \frac{n_{1\bullet}n_{\bullet 2}}{n} & \ldots & \frac{n_{1\bullet}n_{\bullet t}}{n}\\
+\frac{n_{2\bullet}n_{\bullet 1}}{n} & \frac{n_{2\bullet}n_{\bullet 2}}{n} & \ldots & \frac{n_{2\bullet}n_{\bullet t}}{n}\\
+\vdots & \vdots & \ddots & \vdots \\
+\frac{n_{s\bullet}n_{\bullet 1}}{n} & \frac{n_{s\bullet}n_{\bullet 2}}{n} & \ldots & \frac{n_{s\bullet}n_{\bullet t}}{n}
+\end{array}
+\right)
+\end{array}
+$$
+
+```{r}
+Freqs.Esp=(1/n)*n.i.bolla%*%t(n.bolla.j)
+Freqs.Esp
+```
+
+* L'estadístic de contrast:
+```{r}
+X2=sum((Taula-Freqs.Esp)^2/Freqs.Esp)
+X2
+```
+
+
+*p-valor*: $P(\chi^2_2\geqslant 64.25)=\texttt{1-pchisq(64.25,2)}=1.1\cdot 10^{-14}$
+
+
+
+*Conclusió*: Hem trobat evidència estadísticament significativa que hi ha associació entre l'estatus de fumador d'un nin i que pateixi tos nocturna (test $\chi^2$, p-valor 10^-14^).
+
+Podem efectuar un test $\chi^2$ d'independència aplicant la funció `chisq.test` a la taula de freqüències absolutes:
+
+```{r}
+chisq.test(Taula)
+```
+
+```{example,CCV}
+Volem contrastar si hi ha associació entre el grau de compliment del calendari de vacunacions (CCV) dels fills i el nivell sociocultural dels  pares.
+
+
+```
+
+La taula següent mostra la classificació d'una mostra de  444 nins i nines segons el seu CCV  i el nivell sociocultural dels pares:
+$$
+\begin{array}{l}
+\hphantom{Compli CCV BaixBB}\text{Nivell sociocultural}\\
+\begin{array}{r|ccc|l}
+\text{Compliment CCV} &\text{Baix}& \text{Mitjà} &\text{Alt} &\text{Total}\\ \hline
+\text{Baix} &38 &76 &79 & 193\\
+\text{Mitjà-baix}& 2& 41& 92 & 135\\
+\text{Mitjà-alt}& 2& 21& 50 & 73\\
+\text{Alt}& 0 &12& 31 & 43\\ \hline
+\text{Total} & 42 & 150 & 252 & 444
+\end{array}
+\end{array}
+$$
+
+*Variable aleatòries  d'interès*: 
+
+* $X$: "Prenem un nin i anotam el seu grau de compliment del CCV"
+* $Y$: "Prenem un nin i anotam el nivell sociocultural dels pares"
+
+*Contrast*:
+$$
+\left\{\begin{array}{l}
+H_0: \mbox{$X$ i $Y$ són independents}\\
+H_1: \mbox{Hi ha associació entre $X$ i $Y$}
+\end{array}
+\right.
+$$
+
+Fem un test $\chi^2$ amb R:
+
+```{r,warning=TRUE}
+TaulaCCV=matrix(c(38,76,79,2,41,92,2,21,50,0,12,31), 
+                nrow=4, byrow=TRUE)
+chisq.test(TaulaCCV)
+```
+
+R ens avisa que no es compleixen les condicions per usar el test $\chi^2$; segurament hi ha freqüències esperades petites. Vegem-ho, i aprofitarem per comprovar-ho amb R:
+
+* Les $n_{i\bullet}$ són les sumes de les fileres:
+```{r}
+Freq.CCV=rowSums(TaulaCCV)
+Freq.CCV
+```
+
+* Les $n_{\bullet j}$ són les sumes de les columnes:
+```{r}
+Freq.NSC=colSums(TaulaCCV)
+Freq.NSC
+```
+
+* La matriu de les $n_{i\bullet}n_{\bullet j}/n$:
+
+```{r}
+Freqs.Esp=(1/sum(TaulaCCV))*Freq.CCV%*%t(Freq.NSC)
+Freqs.Esp
+```
+
+Efectivament, l'entrada (4,1) és menor que 5.
+
+
+Farem servir el mètode de Montecarlo:
+
+```{r}
+set.seed(42)
+chisq.test(TaulaCCV,simulate.p.value=TRUE,B=5000)
+```
+
+*Conclusió*: Hem trobat evidència estadísticament significativa que hi ha associació entre el grau de compliment del
+calendari de vacunacions d'un nin i el nivell sociocultural dels seus pares (test $\chi^2$ de Montecarlo, p-valor 0.0002).
+
+
+## Test $\chi^2$ d'homogeneïtat
+
+En un **contrast d'homogeneïtat de proporcions**, tenim una variable aleatòria $X$ que pot prendre els valors $X_1,\ldots,X_k$ i una variable aleatòria de Bernoulli $Y$ que pot prendre els valors "Èxit" i "Fracàs". Per a cada $i=1,\ldots,k$, diguem $p_i=P(Y=\text{Èxit}|X=X_i)$. És a dir, $p_i$ és la probabilitat que $Y$ doni Èxit sobre un individu per al qual $X$ val $X_i$.
+
+Volem contrastar si aquestes probabilitats $p_1,\ldots,p_k$ són totes iguals o no. El contrast és, doncs, 
+$$
+\left\{
+\begin{array}{ll}
+H_0: \text{ $p_1=\cdots=p_k$}\\
+H_1: \text{ Hi ha $i,j$ tals que $p_i \neq p_j$}
+\end{array} 
+\right.
+$$
+
+Per efectuar el contrast, per a cada $i=1,\ldots,k$ prenem una mostra aleatòria simple d'individus per als quals $X$ val $X_i$, independents cada una de les altres.
+
+Com que dir que 
+$$
+P(Y=\text{Èxit}|X=X_1)=\cdots=P(Y=\text{Èxit}|X=X_k)
+$$
+és exactament el mateix que dir que $X$ i $Y$ són independents, el contrast d'homogeneïtat que hem plantejat és equivalent a
+$$
+\left\{
+\begin{array}{ll}
+H_0: \text{ $X$ i $Y$ són independents}\\
+H_1: \text{ $X$ i $Y$ no són independents}
+\end{array} 
+\right.
+$$
+
+
+Però el disseny de l'experiment és diferent:
+
+```{block2,type="rmdimportant"}
+* En un **contrast d'independència** prenem una mostra  **transversal** de la població, sense controlar el nombre de subjectes que hi surten de cada nivell $X_i$.
+
+* En un **contrast d'homogeneïtat** prenem una mostra **estratificada**, és a dir, una mostra independent de cada nivell $X_i$ de $X$, triant *a priori* el nombre de subjectes de cada un d'aquests nivells; per exemple, imposant que totes aquestes mostres tenguin la mateixa mida, o que la mida de cada mostra sigui proporcional al nombre d'individus de la població sobre els que $X$ val $X_i$.
+
+```
+
+```{example,colesterolhom}
+Volem comparar 3 tractaments per baixar el nivell de colesterol, A, B i C, per veure si tenen taxes d'èxit diferents. En una primera aproximació, entendrem com a "Èxit" que el nivell de colesterol baixi dels 240 mg/dl a les 5 setmanes de tractament. En un assaig clínic, assignam cada tractament a 100 pacients amb colesterol alt escollits de manera independent uns dels altres, i anotam si el tractament ha tengut èxit.
+
+
+
+```
+
+Els resultats són
+
+$$
+\begin{array}{l}
+\hphantom{FracasAAa}\text{Tractament}\\
+\begin{array}{l|ccc|c}
+& A & B & C & \text{Total} \\\hline
+\text{Èxit} & 43 & 61 & 53 & 157\\
+\text{Fracàs} & 57 & 39 & 47 & 143\\\hline
+\text{Total} & 100 & 100 & 100 & 300 
+\end{array}
+\end{array}
+$$
+
+Volem contrastar si la probabilitat d'èxit de cada tractament és la mateixa o no. Fixem-nos que és un contrast d'homogeneïtat, perquè hem pres una mostra de mida prefixada de cada tractament.
+
+```{block2,type="rmdnote"}
+Per que fos un contrast d'independència, hauríem d'haver pres 300 malalts d'hipercolesterolèmia que estiguessin prenent algun d'aquests tractaments, i hauríem anotat de cada un quin tractament pren i si ha tengut èxit. Amb una mostra transversal obtinguda d'aquesta darrera manera, hi havia el risc que algun tractament fos seguit per molt pocs, o fins i tot cap, malalt.
+```
+
+
+*Variables aleatòries*: En realitat, aquí tendríem dues interpretacions correctes. Per una banda, la usual, en termes de dues variables mesurades sobre els mateixos individus:
+
+* $X$: "Prenem un pacient i anotam quin tractament segueix"
+
+* $Y$: "Prenem un pacient i anotam si al cap de 5 setmanes el seu nivell de colesterol està per davall dels 240 mg/dl"
+
+Però d'altra banda, tal i com hem pres la mostra, seria perfectament vàlid entendre que les variables aleatòries en joc són:
+
+* $Y_A$: "Prenem un pacient sota el tractament A i anotam si al cap de 5 setmanes el seu nivell de colesterol està per davall dels 240 mg/dl"
+
+* $Y_B$: "Prenem un pacient sota el tractament B i anotam si al cap de 5 setmanes el seu nivell de colesterol està per davall dels 240 mg/dl"
+
+* $Y_C$: "Prenem un pacient sota el tractament C i anotam si al cap de 5 setmanes el seu nivell de colesterol està per davall dels 240 mg/dl"
+
+En aquest cas, les variables estan definides sobre poblacions diferents.
+
+```{block2,type="rmdnote"}
+Dos comentaris:
+
+* Als contrastos d'independència com el de l'Exemple \@ref(exm:tosfumar), la segona interpretació és incorrecta, ja que allà sí que preníem una mostra transversal de nins i sobre cada un d'ells miràvem dues coses. En canvi, aquí podem entendre que prenem malalts de tres poblacions diferents i mesuram sobre ells una cosa, la qual cosa defineix tres variables diferents.
+
+* Si volguéssim comparar taxes d'èxit de coses diferents sobre poblacions diferents per mitjà d'un contrast d'homogeneïtat, la interpretació en termes de dues variables $X,Y$ mesurades sobre una mateixa població quedaria una mica artificial. 
+
+    Imaginau per exemple que us deman que contrasteu si són iguals o diferents les proporcions de 
+
+    * Estudiants de Matemàtiques I que enguany aprovaren l'assignatura
+    * Malalts d'hipercolesterolèmia sobre els quals el tractament A és efectiu
+    * Nins fumadors ocasionals amb tos nocturna
+
+    A veure com vos ho faríeu per plantejar-ho en termes de dues variables, una $X$ que digui què miram i una $Y$ que doni "Èxit" o "Fracàs", i que no us quedàs un nyap de redacció.    
+
+```
+
+
+
+
+*Contrast*: Si diem $p_A$, $p_B$ i $p_C$ a les probabilitats que un pacient amb el tractament A, B o C, respectivament, davalli dels 240 mg/dl de colesterol al cap de 5 setmanes de tractament,
+
+$$
+\left\{\begin{array}{l}
+H_0: p_A=p_B=p_C\\
+H_1: \mbox{No és veritat que $p_A=p_B=p_C$}
+\end{array}\right.
+$$
+
+* Emprarem un test $\chi^2$:
+
+
+```{r}
+TaulaC=matrix(c(43,61,53,57,39,47), nrow=2 ,byrow=TRUE)
+TaulaC
+chisq.test(TaulaC)
+```
+
+*Conclusió*: Hem trobat evidència significativa que els tres tractaments no tenen la mateixa taxa d'èxit (test $\chi^2$ d'homogeneïtat,  p-valor 0.04).  
+
+Ara seria necessari efectuar 3 contrastos de parelles de proporcions per trobar quines parelles de tractaments tenen taxes d'èxit diferents. Us ho deixam com a exercici.
+
+De la mateixa manera que les dues variables involucrades en un contrast d'independència podien tenir més de dos nivells, podem efectuar contrastos d'homogeneïtat en situacions més generals que la comparació de proporcions.
+
+Suposem doncs que tenim una variable aleatòria qualitativa $X$ de nivells $X_1,\ldots,X_k$, i una variable aleatòria qualitativa $Y$ de nivells $Y_1,\ldots,Y_l$, i volem contrastar si la probabilitat que $Y$ prengui els seus diferents valors sobre un individu depèn o no del valor de $X$ sobre aquest individu. És a dir, volem contrastar si $P(Y=Y_h|X=X_i)=P(Y=Y_h|X=X_j)$ per a tots  $i,j,h$.
+
+
+```{example,colesterolhom2}
+Tornem a la situació de l'Exemple \@ref(exm:colesterolhom). Volem comparar 3 tractaments, A, B i C, per baixar el nivell de colesterol, per veure si tenen taxes d'èxit diferents. Però ara, en lloc de considerar l'èxit com una variable binària (baixes dels 240 mg/dl o no) distingirem si al cap de 5 setmanes de tractament s'ha baixat dels 200 mg/dl (el nivell *desitjable* de colesterol), s'ha assolit un nivell entre 200 i 240 mg/dl (el nivell *límit*), o si no s'ha baixat de 240 (nivell *alt*).
+
+
+```
+
+Les dades de l'estudi esmentat a l'Exemple \@ref(exm:colesterolhom) amb aquesta nova classificació dels resultats són:
+
+$$
+\begin{array}{l}
+\hphantom{200-240AAaa}\text{Tractament}\\
+\begin{array}{r|ccc|c}
+\text{Nivell} & A & B & C & \text{Total} \\\hline
+\text{Desitjable} & 12 & 21 & 13 & 46\\
+\text{Límit} & 31 & 40 & 40 & 111\\
+\text{Alt} & 57 & 39 & 47 & 143
+\\\hline
+\text{Total} & 100 & 100 & 100 & 300\\\hline
+\end{array}
+\end{array}
+$$
+
+
+
+
+
+
+*Variables aleatòries*: Com abans, tenim dues interpretacions correctes:
+
+* $X$: "Prenem un pacient i anotam quin tractament segueix"
+
+* $Y$: "Prenem un pacient i anotam  al cap de 5 setmanes en quina classe està el seu nivell de colesterol"
+
+o
+
+* $Y_A$: "Prenem un pacient sota el tractament A i anotam al cap de 5 setmanes en quina classe està el seu nivell de colesterol"
+
+* $Y_B$: "Prenem un pacient sota el tractament B i anotam al cap de 5 setmanes en quina classe està el seu nivell de colesterol"
+
+* $Y_C$: "Prenem un pacient sota el tractament C i anotam al cap de 5 setmanes en quina classe està el seu nivell de colesterol"
+
+
+
+\emph{Contrast}:
+$$
+\left\{\begin{array}{l}
+H_0:  P(Y=L|X=T)=P(Y=L|X=T')\\
+\hphantom{H_0:  }\quad\text{ per a cada nivell $L$ de colesterol}\\
+\hphantom{H_0:  }\quad \text{ i cada parell de tractaments $T,T'$}\\
+H_1: \mbox{Alguna d'aquestes igualtats és falsa}
+\end{array}\right.
+$$
+
+És un test d'homogeneïtat, farem servir un test $\chi^2$:
+
+```{r}
+TaulaC2=matrix(c(12,21,13,31,40,40,57,39,47), nrow=3, byrow=TRUE)
+TaulaC2
+chisq.test(TaulaC2)
+```
+
+*Conclusió*: No hem trobat evidència estadísticament significativa que sigui fals que A, B i C tenen el mateix efecte quan distingim tres classes de nivell de colesterol (test $\chi^2$ d'homogeneïtat, p-valor 0.09). La conclusió concreta ja dependria de si prenguéssim nivell de significació 0.05 o 0.1.
+
+
+## Test $\chi^2$ de tendència (Opcional)
+
+Un **contrast de tendència** és una generalització del contrast d'homogeneïtat de proporcions. En el contrast de tendència, tenim 
+una variable aleatòria *ordinal* $X$ de nivells ordenats $X_1<\cdots< X_k$, i una variable aleatòria Bernoulli $Y$ de nivells "Èxit" i "Fracàs". Diguem $p_i=P(Y=\text{Èxit}|X=X_i)$, per a tot $i$. El contrast que volem realitzar és
+$$
+\left\{
+\begin{array}{ll}
+H_0: \text{ $p_1=\cdots=p_k$}\\
+H_1: \text{ $p_1\leq\cdots \leqslant p_k$ i almenys una }\\
+\hphantom{H_1: } \text{ d'aquestes desigualtats és estricta}
+\end{array} 
+\right.
+$$
+
+
+Es duu a terme amb un **test $\chi^2$ de Cochran-Armitage**, una variant del test $\chi^2$ explicat fins ara.
+Per utilitzar-lo, basta que la mostra total sigui gran ($\geqslant 30$), no cal la condició de Cochran. (Si teniu curiositat sobre com es fa, podeu consultar [la seva entrada de la Wikipedia](https://en.wikipedia.org/wiki/Cochran–Armitage_test_for_trend))
+
+Amb R s'efectua amb la funció `prop.trend.test`, aplicada al vector de freqüències d'èxits i el vector de freqüències de cada nivell de $X$.
+
+
+```{example,tosfumar3}
+Continuem amb l'Exemple \@ref(exm:tosfumar). Recordem que hi volíem determinar  si hi ha associació entre l'hàbit de fumar i patir tos nocturna entre els nins. Les dades recollides varen ser:
+    
+
+```
+
+$$
+\begin{array}{l}
+\hphantom{No fumador ocasional un }\text{Fumador}\\
+\begin{array}{l|ccc|c}
+& \text{No fumador} & \text{Ocasional} & \text{Regular} & \text{Total} \\\hline
+\text{Tos} & 266 & 395 & 80 & 741\\
+\text{No tos}& 1037 & 977 & 92 & 2106\\\hline
+\text{Total} &1303 & 1372 & 172 & 2847\\
+\end{array}
+\end{array}
+$$
+
+Com que l'estatus de fumador és una variable ordinal i, naturalment, en darrera instància cercam proves que el fumar "causa" la tos nocturna, ens pot interessar contrastar si la probabilitat de tos nocturna creix amb la freqüència de fumar.
+
+*Variables d'interès*:
+
+* $X$: "Prenem un nin i  anotam el seu estatus de fumador"; la considerarem una variable ordinal amb nivells "No fumador" < "Ocasional" < "Regular"
+
+* $Y$: "Prenem un nin i anotam si té tos nocturna o no"
+
+*Contrast*: Si diem $p_N$, $p_O$ i $p_R$ a la probabilitat que tengui tos nocturna un nin no fumador, un nin fumador ocasional i un nin fumador regular, respectivament,
+$$
+\left\{
+\begin{array}{ll}
+H_0: \text{ $p_N=p_O=p_R$}\\
+H_1: \text{ $p_N\leqslant p_O  \leqslant p_R$ i $p_N<p_R$}
+\end{array} 
+\right.
+$$
+
+```{block2,type="rmdnote"}
+Fixau-vos que, a la hipòtesi alternativa, dir 
+
+> "$p_N\leqslant p_O  \leqslant p_R$ i almenys una  d'aquestes desigualtats és estricta" 
+
+és equivalent a dir  
+
+> "$p_N\leqslant p_O  \leqslant p_R$ i $p_N<p_R$"
+
+només que aquesta darrera reformulació és més curta.
+
+```
+
+
+
+Emprarem un test $\chi^2$ de tendència:
+
+
+```{r}
+Tos=c(266,395,80)
+Fum=c(1303,1372,172)
+prop.trend.test(Tos,Fum)
+```
+
+*Conclusió*: Hem trobat evidència estadísticament significativa que la probabilitat de patir tos nocturna creix amb la freqüència de fumar (test $\chi^2$ de Cochran-Armitage, p-valor 10^-14^)
+
+## Test de la lliçó 8
+
+**(1)** En un contrast d'independència, quina és la hipòtesi alternativa?
+
+1. Que les dues variables són independents
+1. Que hi ha associació entre les dues variables
+1. Que les dues variables tenen distribucions diferents
+1. Que les dues variables podrien ser dependents
+1. Que les dues variables depenen d'una tercera
+
+
+**(2)** Perquè el test khi quadrat per contrastar la independència de dues variables sigui vàlid, és **necessari** que (marcau totes les continuacions correctes):
+
+1. Totes les freqüències esperades siguin més grans o iguals que 5
+1. Totes les freqüències observades siguin més grans o iguals que 5
+1. Les dues variables siguin independents
+1. La mida total de la mostra sigui com a mínim 30
+1. La mida total de la mostra sigui com a mínim 100.
+1. Les dues variables tenguin distribució aproximadament normal.
+1. Totes les altres respostes són incorrectes
+
+
+**(3)** Si fem un test khi quadrat per contrastar la independència d'una variable amb 5 possibles valors i una variable amb 3 possibles valors, a partir de la taula de contingència $3\times 5$, quants graus de llibertat tendrà l'estadístic de contrast que hi hem d'emprar?
+
+1. 15
+1. 14
+1. 13
+1. 12
+1. Cap dels nombres anteriors
+
+
+
+**(4)** Quina o quines de les afirmacions següents sobre un test khi quadrat d'independència són vertaderes?
+
+1. S'hi comparen les freqüències observades dels valors de cada variable amb les  seves freqüències esperades si les variables fossin independents
+1. S'hi comparen les freqüències observades de cada parella de valors de les variables, un de cada variable,  amb les  seves freqüències esperades  si les variables fossin independents
+1. S'hi comparen les freqüències observades dels valors de cada variable amb les  seves freqüències esperades si les variables fossin dependents
+1. S'hi comparen les freqüències observades de cada parella de valors, un de cada variable, de cada variable amb les  seves freqüències esperades  si les variables fossin dependents
+1. És un cas particular de test khi quadrat de bondat d'ajust
+1. És un cas particular de test khi quadrat de comparació de dues proporcions
+
+
+**(5)** Volem contrastar la independència de dues variables de Bernoulli a partir de la taula següent:
+$$
+\begin{array}{l}
+\hphantom{\textbf{Variable 2}}\qquad \textbf{Variable 1}\\
+\begin{array}{l|cc|c}
+\textbf{Variable 2} & \text{Èxit} & \text{Fracàs} & \text{Total}\\\hline
+\text{Èxit} & 100 & 300 & 400\\
+\text{Fracàs} & 400 & 4200 & 4600\\ \hline
+\text{Total} & 500 & 4500 & 5000
+\end{array}
+\end{array}
+$$
+
+Quina de les afirmacions següents és correcta?
+
+1. Si les dues variables fossin independents, esperaríem que les quatre entrades de la taula central fossin iguals
+1. Si hi hagués associació entre les dues variables, esperaríem que les quatre entrades de la taula central fossin iguals
+1. Si les dues variables fossin independents, esperaríem que no hi hagués casos discordants
+1. Si hi hagués associació entre les dues variables, esperaríem que no hi hagués casos discordants
+1. Si les dues variables fossin independents, esperaríem que l'entrada corresponent a (Èxit,Èxit) fos 40
+1. Si hi hagués associació entre les dues variables, esperaríem que l'entrada corresponent a (Èxit,Èxits) fos 40
+1. Totes les altres respostes són incorrectes
+
+
+
+
+
+**(6)** A partir de la taula de la pregunta anterior (marcau totes les continuacions correctes)
+
+1. Que existeixi o no associació entre la variable 1 i la variable 2 es pot contrastar amb un test khi quadrat
+1. Que existeixi o no associació entre la variable 1 i la variable 2 es pot contrastar amb un test de McNemar
+1. Que existeixi o no associació entre la variable 1 i la variable 2 es pot contrastar amb un test de Fisher
+1. Que la probabilitat d'èxit de les dues variables sigui la mateixa o no es pot contrastar amb un test khi quadrat
+1. Que la probabilitat d'èxit de les dues variables sigui la mateixa o no es pot contrastar amb un test de McNemar
+1. Que la probabilitat d'èxit de les dues variables sigui la mateixa o no es pot contrastar amb un test de Fisher
+1. Totes les altres continuacions són incorrectes
+
+
+
+
+
+**(7)**  Quina de les afirmacions següents és vertadera?
+
+1. La diferència entre un contrast d'independència i un d'homogeneïtat està en la hipòtesi nul.la: que les variables siguin independents al contrast d'independència i que siguin homogènies al contrast d'homogeneïtat
+1. La diferència entre un contrast d'independència i un d'homogeneïtat està en la hipòtesi alternativa: que hi hagi associació entre les variables al contrast d'independència i que hi hagi heterogeneïtat entre les variables al contrast d'homogeneïtat
+1. La diferència entre un contrast d'independència i un d'homogeneïtat està en com prenem les mostres: transversal al contrast d'independència i estratificada  al contrast d'homogeneïtat
+1. La diferència entre un contrast d'independència i un d'homogeneïtat està en com prenem les mostres: transversal al contrast d'homogeneïtat i estratificada  al contrast d'independència
+1. La diferència entre un contrast d'independència i un d'homogeneïtat està en el nombre de graus de llibertat de l'estadístic: si les variables tenen $s$ nivells i $t$ nivells, respectivament, al d'independència hi empram $(s-1)(t-1)$ graus de llibertat i al d'homogeneïtat n'hi empram $st-1$
+1. Cap de les altres respostes és correcta
+
+
+**(8)** Per contrastar si el percentatge de sanitaris infectats amb COVID-19 és el mateix a les diferents illes balears, prenem una mostra formada per 100 sanitaris de Mallorca,  50 sanitaris de Menorca i 50 sanitaris de les Pitiüses, i els fem un test d'anticossos per veure si han estat infectats o no. Marcau l'afirmació correcta:
+
+1. Aquest contrast és d'independència, perquè la mostra és transversal
+1. Aquest contrast no és d'homogeneïtat, perquè les mostres de les tres illes  no tenen la mateixa mida
+1. Aquest contrast no és d'homogeneïtat, perquè les mostres de les tres illes  no s'adapten a les proporcions que representen les diferents illes en el total de les Balears
+1. Aquest contrast no és d'independència, perquè les mostres de les tres illes  no tenen la mateixa mida
+1. Aquest contrast és d'homogeneïtat perquè hem pres una mostra específica de cada illa
+1. Aquest contrast és d'homogeneïtat perquè la mostra és transversal
+1. Aquest contrast no és ni d'independència ni homogeneïtat
+1. Cap de les altres respostes és correcta
+
+
+
+
+**(9)** Per contrastar si el percentatge de sanitaris infectats amb COVID-19 és el mateix a les diferents illes balears, prenem una mostra formada per 50 sanitaris de Mallorca,  50 sanitaris de Menorca i 50 sanitaris de les Pitiüses, i els fem un test d'anticossos per veure si han estat infectats o no. Marcau l'afirmació correcta:
+
+1. Aquest contrast és d'independència, perquè la mostra és transversal
+1. Aquest contrast és d'independència, perquè les mostres de les tres illes tenen la mateixa mida
+1. Aquest contrast no és d'homogeneïtat, perquè les mostres de les tres illes  no s'adapten a les proporcions que representen les diferents illes en el total de les Balears
+1. Aquest contrast és d'homogeneïtat perquè hem pres una mostra específica de cada illa
+1. Aquest contrast és d'homogeneïtat perquè la mostra és transversal
+1. Aquest contrast és d'homogeneïtat, perquè les mostres de les tres illes  tenen la mateixa mida
+1. Aquest contrast no és ni d'independència ni homogeneïtat
+1. Cap de les altres respostes és correcta
+
+
+**(10)** Per contrastar si el percentatge de sanitaris infectats amb COVID-19 és el mateix a les diferents illes balears, prenem una mostra formada per 150 sanitaris extreta del llistat de tots el personal sanitari dels hospitals de les Balears, a continuació miram a quina illa treballen i  els fem un test d'anticossos per veure si han estat infectats o no. Per casualitat, ens hi surten 50 de Mallorca, 50 de Menorca i 50 d'Eivissa/Formentera. Marcau l'afirmació correcta:
+
+1. Aquest contrast és d'independència, perquè la mostra és transversal
+1. Aquest contrast és d'independència, perquè les mostres de les tres illes  tenen la mateixa mida
+1. Aquest contrast no és d'homogeneïtat, perquè les mostres de les tres illes  no s'adapten a les proporcions que representen les diferents illes en el total de les Balears
+1. Aquest contrast és d'homogeneïtat perquè la mostra és transversal
+1. Aquest contrast és d'homogeneïtat, perquè les mostres de les tres illes  tenen la mateixa mida
+1. Aquest contrast no és ni d'independència ni homogeneïtat
+1. Cap de les altres respostes és correcta
+
+
+
+
+
+
