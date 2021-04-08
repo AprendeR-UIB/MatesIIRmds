@@ -454,7 +454,7 @@ $$
 518\pm 13.65\Rightarrow
 [504.35,531.65]
 $$ 
-Tenim, doncs, un 95% de confiança que el nombre mitjà de radiografies per cartutx està entre 504.35 i 531.65, i en particular que és més gran que 500.
+Tenim, doncs, un 90% de confiança que el nombre mitjà de radiografies per cartutx està entre 504.35 i 531.65, i en particular que és més gran que 500.
 
 ```{example, RXprint2}
 A l'exemple anterior hem suposat que la variable aleatòria era normal. Què passaria si fos molt diferent d'una normal?
@@ -1134,7 +1134,7 @@ Així:
 
 * Si $X$ és una variable definida sobre una població  de mida $N$  i prenem una mostra aleatòria sense reposició de $X$, amb mitjana $\overline{X}$ i desviació típica mostral $\widetilde{S}_X$, i si $X$ és normal o si $n$ és  gran, es recomana prendre com a interval de confiança de nivell de confiança $q$ per a $\mu_X$
 $$
-\overline{X}\pm t_{n,(q+1)/2}\frac{\widetilde{S}_X}{\sqrt{n}}\sqrt{\frac{\vphantom{(}N-n}{N-1}}
+\overline{X}\pm t_{n-1,(q+1)/2}\frac{\widetilde{S}_X}{\sqrt{n}}\sqrt{\frac{\vphantom{(}N-n}{N-1}}
 $$
 
 
@@ -1162,7 +1162,7 @@ $$
 $$
 on $\widehat{p}_{X}=557/727=`r round(557/727,3)`$, $z_{(q+1)/2}=1.96$, $n=727$ i $N=12000$: dóna
 $$
-0.766\pm \sqrt{\frac{0.766(1-0.766)}{727}}\sqrt{\frac{\vphantom{(}12000-727}{12000-1}}\Rightarrow [0.751,0.781]
+0.766\pm 1.96\sqrt{\frac{0.766(1-0.766)}{727}}\sqrt{\frac{\vphantom{(}12000-727}{12000-1}}\Rightarrow [0.736,0.796]
 $$
 Estimam amb un nivell de confiança del 95% que entre un 75.1 i un 78.1 dels estudiants de la UIB han comès plagi en algun treball.
 

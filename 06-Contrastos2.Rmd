@@ -1383,10 +1383,6 @@ $$
 \text{p-valor}=P(|S_n-p_0\cdot n|\geqslant |S_0-p_0\cdot n|)
 $$
 
-Aquesta probabilitat també es pot calcular com la probabilitat que $S_n$ prengui un valor de probabilitat més petita o igual que la de $S_0$:
-$$
-\text{p-valor}=\sum_{k\ \mathrm{tal\ que}\atop P(S_n=k)\leqslant P(S_n=S_0)} P(S_n=k)
-$$
 
 
 ```{block2,type="rmdcaution"}
@@ -1399,7 +1395,44 @@ Aquest test binomial exacte està implementat en R en la funció `binom.test`. L
 binom.test(x, n, p=..., alternative=..., conf.level=...)
 ```
 
-on `x` indica al nombre d'èxits a la mostra, `n` la mida de la mostra, `p` la probabilitat que es contrasta, i els altres dos paràmetres signifiquen el mateix que a les altres funcions explicades fins ara i els seus valors per defecte són els de sempre (`"two.sided"` i `0.95`, respectivament). L'interval de confiança que dóna en els contrastos bilaterals és el de Clopper-Pearson. 
+on `x` indica al nombre d'èxits a la mostra, `n` la mida de la mostra, `p` la probabilitat que es contrasta, i els altres dos paràmetres signifiquen el mateix que a les altres funcions explicades fins ara i els seus valors per defecte són els de sempre (`"two.sided"` i `0.95`, respectivament). L'interval de confiança que dóna en els contrastos bilaterals és el de Clopper-Pearson. El p-valor s'obté amb el sufix `$p.value` i l'interval de confiança amb el sufix `$conf.int`.
+
+La funció `binom.test` calcula el p-valor del contrast bilateral no com l'hem definit nosaltres sinó com la probabilitat que $S_n$ prengui un valor de probabilitat més petita o igual que la de $S_0$:
+$$
+\text{p-valor}=\sum_{k\ \mathrm{tal\ que}\atop P(S_n=k)\leqslant P(S_n=S_0)} P(S_n=k)
+$$
+És una altra manera d'interpretar "la probabilitat que, si la hipòtesi nul·la és vertadera, obtinguem un valor tan o més extrem en el sentit de $H_1$ que el nostre." Gairebé sempre dóna el mateix que el nostre, però no sempre. Per exemple, preneu $n=50$ i $p_0=0.8$ i $S_0=36$. Aleshores
+$$
+P(|S_n-p_0\cdot n|\geqslant |S_0-p_0\cdot n|)=P(|S_n-40|\geqslant 4)=P(S_n\leq 36)+P(S_n\geq 44) 
+$$
+Això val
+```{r}
+pbinom(36,50,0.8)+1-pbinom(43,50,0.8)
+```
+que no és el p-valor que dóna `binom.test`:
+```{r}
+binom.test(36,50,0.8)$p.value
+```
+
+
+D'altra banda,
+$$
+\sum_{k\ \mathrm{tal\ que}\atop P(S_n=k)\leqslant P(S_n=S_0)} P(S_n=k)=
+\sum_{k\ \mathrm{tal\ que}\atop f_{S_{50}}(k))\leqslant f_{S_{50}}(36)} P(S_{50}=k)
+$$
+i això val
+```{r}
+probs=dbinom(0:50,50,0.8) # Vector de valors de la densitat de S_50
+sum(probs[probs<=dbinom(36,50,0.8)])
+```
+que sí que és el que donava `binom.test`.
+
+
+
+```{block2,type="rmdcaution"}
+La moralitat d'aquesta història és que si us demanam que calculeu a mà el p-valor en un test binomial bilateral, no empreu `binom.test`, que igual no dóna el p-valor que donarem com a correcte.
+```
+
 
 
 ```{example, esqUIB1}
@@ -1439,11 +1472,11 @@ $$
 *Conclusió*: No hem obtingut evidència estadísticament significativa que el percentatge d'esquerrans a la UIB sigui diferent del 10%  (test binomial, p-valor 0.36).
 
 ```{block2,type="rmdnote"}
-Hem dit que el p-valor també es pot calcular com a
+Hem dit que R calcula aquest p-valor com a
 $$
 \text{p-valor}=\sum_{P(S=k)\leqslant P(S=S_0)} P(S=k)
 $$
-Vegem-ho. Direm `PB` al vector que dóna els valors de la densitat de $S_{30}$ sobre $k=0,\ldots,30$, que són tots els possibles valors de $k$. Aleshores, els $k$ tals que $P(S=k)\leqslant P(S=S_0)$ són els que satisfan `PB<=dbinom(1,30,0.1)`. Per tant, la suma de les seves probabilitats és:
+En aquest cas dóna el mateix. Vegem-ho. Direm `PB` al vector que dóna els valors de la densitat de $S_{30}$ sobre $k=0,\ldots,30$, que són tots els possibles valors de $k$. Aleshores, els $k$ tals que $P(S=k)\leqslant P(S=S_0)$ són els que satisfan `PB<=dbinom(1,30,0.1)`. Per tant, la suma de les seves probabilitats és:
 ```
 
 ```{r}
@@ -1458,7 +1491,7 @@ Amb R, entraríem:
 binom.test(1, 30, p=0.1, alternative="two.sided")
 ```
 
-i a banda del p-valor obtenim l'IC 95% de Clopper-Pearson per a $p$
+i a banda del p-valor obtenim l'IC 95% de Clopper-Pearson per a $p$, mirau
 
 ```{r}
 epitools::binom.exact(1,30)

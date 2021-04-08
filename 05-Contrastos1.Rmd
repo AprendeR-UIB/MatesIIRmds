@@ -80,8 +80,8 @@ Per exemple, si en una seqüència de 4 llançaments d'una moneda obtenim 2 care
 ```{block2,type="rmdimportant"}
 La millor manera de no entendre malament el resultat d'un contrast d'hipòtesis és sempre redactar la conclusió en la forma
 
-* Hem trobat evidència de la hipotesi alternativa
-* No hem trobat evidència  de la hipotesi alternativa
+* Hem trobat evidència de la hipòtesi alternativa
+* No hem trobat evidència  de la hipòtesi alternativa
 
 segons quin sigui el cas.
 
@@ -1971,7 +1971,7 @@ amb $\alpha=0.05$  amb un test t sobre una mostra de mida 50 i el resultat ha es
 
 
 
-**(38)** Hem efectuat un test t de dues mitjanes, amb hipòtesi alternativa $\mu<2$. És possible que hàgim obtengut  (amb la mateixa mostra) un interval de confiança del contrast del 95% [1.8,3.2] i un p-valor 0.13?
+**(38)** Hem efectuat un test t d'una mitjana, amb hipòtesi alternativa $\mu<2$. És possible que hàgim obtengut  (amb la mateixa mostra) un interval de confiança del contrast del 95% [1.8,3.2] i un p-valor 0.13?
 
 
 1. Sí
@@ -1983,7 +1983,7 @@ amb $\alpha=0.05$  amb un test t sobre una mostra de mida 50 i el resultat ha es
 1. Sí
 1. No 
 
-**(40)** Hem efectuat dues vegades, amb dues mostres diferents, un mateix test t de dues mitjanes, amb hipòtesi alternativa $\mu\neq 2$. És possible que amb una mostra hàgim obtengut un interval de confiança del contrast del 95% [2.1,3.2] i amb l'altra mostra un p-valor 0.13?
+**(40)** Hem efectuat dues vegades, amb dues mostres diferents, un mateix test t d'una mitjana, amb hipòtesi alternativa $\mu\neq 2$. És possible que amb una mostra hàgim obtengut un interval de confiança del contrast del 95% [2.1,3.2] i amb l'altra mostra un p-valor 0.13?
 
 
 1. Sí
