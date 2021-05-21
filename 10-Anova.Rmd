@@ -37,15 +37,15 @@ El contrast que es volia realitzar era:
 
 * $H_0$: El percentatge mitjà d'increment del volum cel·lular d'un cultiu de *P. fragi* al cap d'una hora és el mateix per a totes les pressions de CO~2~ considerades.
 
-* $H_1$: El percentatge mitjà d'increment del volum cel·lular d'un cultiu de *P. fragi* al cap d'una hora depèn de la pressió de CO~2~
+* $H_1$: El percentatge mitjà d'increment del volum cel·lular d'un cultiu de *P. fragi* al cap d'una hora depèn de la pressió de CO~2~.
 
    que en el nostre experiment traduïm en:
    
-   $H_1$: No és veritat que el percentatge mitjà d'increment del volum cel·lular d'un cultiu de *P. fragi* al cap d'una hora sigui el mateix per a totes les pressions de CO~2~ considerades
+   $H_1$: No és veritat que el percentatge mitjà d'increment del volum cel·lular d'un cultiu de *P. fragi* al cap d'una hora sigui el mateix per a totes les pressions de CO~2~ considerades.
    
    És a dir:
 
-   $H_1$:  Hi ha almenys dues d'aquestes pressions de CO~2~ sota les quals els percentatges mitjans d'increment del volum cel·lular d'un cultiu de *P. fragi* al cap d'una hora són diferents
+   $H_1$:  Hi ha almenys dues d'aquestes pressions de CO~2~ sota les quals els percentatges mitjans d'increment del volum cel·lular d'un cultiu de *P. fragi* al cap d'una hora són diferents.
 
 ```{block2,type="rmdimportant"}
 Recordau que el contrari de "totes les mitjanes són iguals" és **hi ha almenys dues mitjanes que són diferents**.
@@ -70,7 +70,7 @@ per referir-nos a la mitjana de la població definida pel tractament "0.29 atmos
 
 > *la mitjana mostral del tractament "0.29 atmosferes"* 
 
-per referir-nos a la mitjana de la nostra mostra de la població definida pel tractament "0.29 atmosferes", és a dir, a la mitjana dels  percentatges d'increment del volum cel·lular dels cultius de *P. fragi* a 0.29 atmosferes  obtinguts en aquest  experiment.
+per referir-nos a la mitjana de la nostra mostra de la població definida pel tractament "0.29 atmosferes", és a dir, a la mitjana mostral dels  percentatges d'increment del volum cel·lular dels cultius de *P. fragi* a 0.29 atmosferes  obtinguts en aquest  experiment.
   
 
 
@@ -92,7 +92,7 @@ Continuem amb el nostre Exemple \@ref(exm:CO2). Per a cada $\ell=0,0.08,0.29,0.5
 
 ```
 
-* $X_\ell$: "Prenc un cultiu de *P. fragi* a $\ell$ atmosferes de CO~2~ i mesur el percentatge de creixement del seu volum cel·lular en una hora"
+* $X_\ell$: "Prenc un cultiu de *P. fragi* a $\ell$ atmosferes de CO~2~ i mesur el percentatge de creixement del seu volum cel·lular en una hora".
 
 Volem realitzar el contrast
 $$
@@ -106,9 +106,9 @@ $$
 
 
 
-En temes anteriors, per comparar les mitjanes d'una variable sobre dues poblacions,  calculàvem les mitjanes de dues mostres i les comparàvem. Per comparar les mitjanes de $k\geq 3$ poblacions, podríem fer-ho per parelles, però hauríem de fer $\binom{k}{2}$ contrastos i això  augmenta la probabilitat d'error. A més, les hem de comparar totes amb totes, perquè podria passar que no poguéssim rebutjar que $\mu_1= \mu_2$ ni que $\mu_2= \mu_3$ però en canvi sí que poguéssim rebutjar que $\mu_1= \mu_3$.
+En temes anteriors, per comparar les mitjanes d'una variable sobre dues poblacions,  calculàvem les mitjanes de dues mostres i les comparàvem. Per comparar les mitjanes de $k\geqslant 3$ poblacions, podríem fer-ho per parelles, però hauríem de fer $\binom{k}{2}$ contrastos i això  augmenta la probabilitat d'error. A més, les hem de comparar totes amb totes, perquè podria passar que no poguéssim rebutjar que $\mu_1= \mu_2$ ni que $\mu_2= \mu_3$ però en canvi sí que poguéssim rebutjar que $\mu_1= \mu_3$.
 
-El que volem és un test que ens digui en un sol pas si totes les mitjanes són iguals o no; si concloem que no, després ja cercarem quines mitjanes són diferents si volem.
+El que volem és un test que ens digui en un sol pas si totes les mitjanes són iguals o no; si concloem que no, després ja cercarem quines mitjanes són diferents si volem saber-ho.
 
 La tècnica més usual per efectuar aquest tipus de contrast és l'**Anàlisi de la Variància** o **ANOVA** (de l'anglès *ANalysis Of VAriance*; en llibres en castellà o català de vegades hi trobareu el terme *ANDEVA*, d'*ANàlisi DE la VAriància*, però no el farem servir, perquè trobam que sona més a marca de producte d'higiene íntima femenina que a tècnica estadística seriosa). L'ANOVA és tot un món, i té moltes variants segons el disseny de l'experiment que ha produït les dades:
 
@@ -120,16 +120,16 @@ La tècnica més usual per efectuar aquest tipus de contrast és l'**Anàlisi de
 
 En aquest curs veurem els tres dissenys més bàsics:
 
-* L'**ANOVA d'1 via**, que generalitza el test t de dues mitjanes a partir de dues mostres independents a $k$ mitjanes de poblacions definides pels nivells d'**un únic factor**, a partir de $k$ mostres **independents**
+* L'**ANOVA d'1 via**, que generalitza el test t de dues mitjanes a partir de dues mostres independents a $k$ mitjanes de poblacions definides pels nivells d'**un únic factor**, a partir de $k$ mostres **independents**.
 
-* L'**ANOVA de blocs**, que generalitza el test t de dues mitjanes a partir de dues mostres aparellades a $k$ mitjanes de poblacions definides pels nivells d'un **únic factor**, a partir de $k$ mostres **aparellades**
+* L'**ANOVA de blocs**, que generalitza el test t de dues mitjanes a partir de dues mostres aparellades a $k$ mitjanes de poblacions definides pels nivells d'un **únic factor**, a partir de $k$ mostres **aparellades**.
 
-* L'**ANOVA de 2 vies**, que generalitza el test t de dues mitjanes a partir de dues mostres independents a més de dues mitjanes de poblacions definides per les combinacions de nivells de **dos factors**, a partir de mostres **independents**
+* L'**ANOVA de 2 vies**, que generalitza el test t de dues mitjanes a partir de dues mostres independents a més de dues mitjanes de poblacions definides per les combinacions de nivells de **dos factors**, a partir de mostres **independents**.
 
 
 
 ```{block2,type="rmdnote"}
-Recordau que en català "Anàlisi" és femení, mentre que en castellà "Análisis" és masculí. Per tant en català diem "una ANOVA" i en castellà  "un ANOVA". Expressau-vos bé, per favor.
+Recordau que en català "Anàlisi" és femení, mentre que en castellà "Análisis" és masculí. Per tant en català diem "una ANOVA" i en castellà  "un ANOVA".
 ```
 
 ```{block2,type="rmdromans"}
@@ -194,24 +194,24 @@ La pregunta és ara com quantificam aquestes variabilitats i com definim què si
 
 ### Contrast bàsic
 
-La situació és la següent. Tenim una variable aleatòria $X$ i un (únic) factor amb  $k\geq 3$ nivells (o **tractaments**). Aquests nivells classifiquen la població en $k$ subpoblacions. Diguem $\mu_i$ a la mitjana de $X$ en els individus del nivell $i$-èssim. Volem comparar aquestes mitjanes $\mu_1$,...,$\mu_k$ i en concret decidir si són totes iguals o no.
+La situació és la següent. Tenim una variable aleatòria $X$ i un (únic) factor amb  $k\geqslant 3$ nivells (o **tractaments**). Aquests nivells classifiquen la població en $k$ subpoblacions. Diguem $\mu_i$ a la mitjana de $X$ en els individus del nivell $i$-èsim. Volem comparar aquestes mitjanes $\mu_1$,...,$\mu_k$ i més en concret decidir si són totes iguals o no.
 
 En un **experiment de disseny d'ANOVA d'1 via** (en anglès, *1 way*; el motiu d'aquest nom és que empram una única "manera" de classificar la població, en anglès *one way* que també es tradueix per "una via", i així ha quedat el nom en les nostres llengües):
 
-* S'empra un factor amb $k>2$ nivells per classificar una població en subpoblacions
+* S'empra un factor amb $k>2$ nivells per classificar una població en subpoblacions.
 
-* Es pren una m.a.s. de cada subpoblació,  de manera independent les unes de les altres, i es mesura sobre tots els subjectes de les mostres la variable d'interès $X$
+* Es pren una m.a.s. de cada subpoblació,  de manera independent les unes de les altres, i es mesura  la variable d'interès $X$ sobre tots els subjectes de les mostres.
 
 
 Per exemple, l'experiment del nostre Exemple \@ref(exm:CO2) té disseny d'ANOVA d'1 via:
 
-* La variable $X$ assigna a cada cultiu de *P. fragi* el seu percentatge d'increment cel·lular en una hora 
+* La variable $X$ assigna a cada cultiu de *P. fragi* el seu percentatge d'increment cel·lular en una hora.
 
-* El factor emprat per classificar la població és la pressió de CO~2~: es consideren 5 nivells diferents, sota els quals es realitzen els cultius
+* El factor emprat per classificar la població és la pressió de CO~2~: es consideren 5 nivells diferents, sota els quals es realitzen els cultius.
 
-* Cada $X_\ell$ de l'Exemple \@ref(exm:C02seq) és la restricció de $X$ a la subpoblació definida pel nivell $\ell$: els cultius realitzats a $\ell$ atmosferes de CO~2~
+* Cada $X_\ell$ de l'Exemple \@ref(exm:C02seq) és la restricció de $X$ a la subpoblació definida pel nivell $\ell$: els cultius realitzats a $\ell$ atmosferes de CO~2~.
 
-* S'hi ha pres una m.a.s. per a cada nivell de pressió $\ell$, i de manera independent les unes de les altres
+* S'hi ha pres una m.a.s. per a cada nivell de pressió $\ell$, i de manera independent les unes de les altres.
 
 Ja que hi som, anam a organitzar les dades d'aquest experiment de manera adient. Les emmagatzemarem en un *dataframe* que anomenarem `CO2` amb dues variables:
 
@@ -219,7 +219,7 @@ Ja que hi som, anam a organitzar les dades d'aquest experiment de manera adient.
 * **Pre**: Nivell de pressió, com a **factor**
 
 ```{block2,type="rmdimportant"}
-De cara a fer-ho amb R, és important que tengueu present que la variable que defineix les subpoblacions, en aquest cas la que dóna el nivell de pressió de CO~2~, ha de ser un factor o, almenys, una vector de paraules. No pot ser un vector numéric.
+De cara a fer-ho amb R, és important que tengueu present que la variable que defineix les subpoblacions, en aquest cas la que dóna el nivell de pressió de CO~2~, ha de ser un factor o, almenys, una vector de paraules. **No pot ser un vector numéric.**
 ```
 
 Les dades eren:
@@ -266,7 +266,7 @@ stripchart(Inc~Pre,data=CO2,xlab="Pressions",ylab="Increment",method="stack",
 ```
 
 
-I ara un que mostri la variabilitat de les dades i les mitjanes com els del final de la secció anterior. Aquest gràfic normalment no el dibuixarem, simplement és per comparar-lo amb aquells gràfics. De totes formes, mostram el codi per si qualque dia voleu produir un gràfic d'aquest estil.
+I ara un que mostri la variabilitat de les dades i les mitjanes com els del final de la secció anterior. Aquest gràfic normalment no el dibuixarem, simplement és per comparar-lo amb aquells gràfics. De totes formes, donam el codi per si qualque dia voleu produir un gràfic d'aquest estil.
 
 ```{r}
 # Els paràmetres generals
@@ -313,23 +313,24 @@ $$
 
 on 
 
-* Cada $n_i$ és la mida de la mostra del tractament $i$; com hem intentat representar a la taula, aquestes $n_i$ **no tenen perquè ser totes iguals**  (però  és convenient que ho siguin, perquè la potència d'un contrast ANOVA depèn del mínim d'aquestes $n_i$)
+* Cada $n_i$ és la mida de la mostra del tractament $i$; com hem intentat representar a la taula, aquestes $n_i$ **no tenen perquè ser totes iguals**  (però  és convenient que ho siguin, perquè la potència d'un contrast ANOVA depèn del mínim d'aquestes $n_i$).
 
-* $X_{ij}$ és el valor de la variable sota estudi al subjecte $j$ del tractament $i$
+* $X_{ij}$ és el valor de la variable sota estudi al subjecte $j$ del tractament $i$.
 
-* $N=n_1+\cdots+n_k$ és la mida total de la mostra
+* $N=n_1+\cdots+n_k$ és la mida total de la mostra.
 
 ```{block2,type="rmdcaution"}
 **ALERTA!** Aquestes notacions no són les usuals a les matrius o a les taules de dades. Aquí, a $X_{ij}$, $i$ hi indica la columna i $j$ la  filera.
 
 Observau també que a la taula de dades anterior no és veritat que cada filera representi un individu: en realitat cada columna pot tenir una alçada diferent. En aquesta taula cada $X_{ij}$ representa un individu diferent. 
+
 ```
 
 Perquè es pugui realitzar un contrast ANOVA d'1 via, **s'han de satisfer les condicions següents**:
 
 * Les $k$ mostres han de ser m.a.s. independents extretes de $k$ poblacions específiques, amb mitjanes $\mu_1,\ldots,\mu_k$
 
-* $N\geq k+1$ (alguna mostra ha de tenir més d'un subjecte)
+* $N\geqslant k+1$ (alguna mostra ha de tenir més d'un subjecte)
 
 * Cadascuna de les $k$ poblacions ha de seguir una llei normal
 
@@ -407,63 +408,64 @@ X_i=\mu+(\mu_i-\mu)+(X_i-\mu_i)
 $$
 on:
 
-* $X_i$ representa el valor de la variable $X$ sobre un individu del nivell $i$-èssim 
+* $X_i$ representa el valor de la variable $X$ sobre un individu del nivell $i$-èsim.
 
-* $\mu_i-\mu$ representa la desviació de la mitjana de $X$ en el nivell $i$-èssim respecte de la mitjana global $\mu$; en direm l'**efecte del tractament $i$-èssim** i representa la contribució al valor de $X$ sobre un individu del nivell $i$-èssim del fet de pertànyer a aquest nivell 
+* $\mu_i-\mu$ representa la desviació de la mitjana de $X$ en el nivell $i$-èsim respecte de la mitjana global $\mu$; en direm l'**efecte del tractament $i$-èsim** i representa la contribució al valor de $X$ sobre un individu del nivell $i$-èsim del fet de pertànyer a aquest nivell.
 
-* $X_i-\mu_i$, la desviació  de la variable $X$ sobre un individu del nivell $i$-èssim respecte de la mitjana d'aquest nivell, $\mu_i$, representa el component aleatori en una medició concreta de $X$ sobre un individu del nivell $i$-èssim, és a dir, "la part de la diferència entre  $X_{i}$ i  $\mu$ que no explica el tractament"; en diem  l'**error aleatori**, o el **residu**.
+* $X_i-\mu_i$, la desviació  de la variable $X$ sobre un individu del nivell $i$-èsim respecte de la mitjana d'aquest nivell, $\mu_i$, representa el component aleatori en una medició concreta de $X$ sobre un individu del nivell $i$-èsim, és a dir, "la part de la diferència entre  $X_{i}$ i  $\mu$ que no explica el tractament"; en diem  l'**error aleatori**, o el **residu**.
 
-Fixau-vos que la fórmula que descriu aquest model és sempre veritat (podeu simplificar les $\mu_i$ i les $\mu$ de la dreta), i bàsicament diu que  el valor de $X$ sobre un individu és la suma de tres components:
+Fixau-vos que, formalment, la fórmula que descriu aquest model és sempre vertadera: podeu simplificar les $\mu_i$ i les $\mu$ de la dreta. Però el que diu aquest model és que el valor de $X$ sobre un individu és la suma de tres components:
 
 * La mitjana global 
 * L'efecte del tractament
 * L'error aleatori
 
-i en particular que res més no influeix en el valor de $X$ sobre un individu. Per tant, si això no és veritat, és a dir, si aquest valor pot dependre d'altres efectes que no tinguem en compte, el model no és vàlid, i les conclusions de l'ANOVA tampoc.
+i en particular que res més no influeix en el valor de $X$ sobre un individu. Per tant, si això no és cert, és a dir, si aquest valor pot dependre d'altres efectes que no tinguem en compte, el model no és vàlid, i les conclusions de l'ANOVA tampoc.
 
-Passem ara a la mostra amb la que volem realitzar el contrast. Siguin:
+Passem ara a la mostra amb què volem realitzar el contrast. Siguin:
 
-* $\overline{X}_{i}$: Mitjana mostral de la mostra del tractament $i$-èssim: 
+* $\overline{X}_{i}$: La mitjana mostral de la mostra del tractament $i$-èsim: 
 $$
 \overline{X}_{i} =
 \frac{\sum_{j=1}^{n_i} X_{ij}}{n_i}
 $$
-Estima la mitjana $\mu_i$ de la subpoblació definida pel tractament $i$-èssim
+Estima la mitjana $\mu_i$ de la subpoblació definida pel tractament $i$-èsim.
 
-* $\overline{X}$: Mitjana mostral de tota la mostra: 
+* $\overline{X}$: La mitjana mostral de tota la mostra: 
 $$
 \overline{X}=\frac{\sum_{i=1}^k \sum_{j=1}^{n_i} X_{ij}}{N}
 $$
-Estima la mitjana $\mu$ de la població global
+Estima la mitjana $\mu$ de la població global.
 
 
 Es té la identitat següent:
+
 ```{theorem,SS1via, name="Identitat de les sumes de quadrats"}
 $$
 SS_{Total}=SS_{Tr}+SS_E
 $$
 on
 
-* $SS_{Total}=\displaystyle\sum_{i=1}^k\sum_{j=1}^{n_i} (X_{ij}-\overline{X})^2$; és la   **Suma Total de Quadrats**
+* $SS_{Total}=\displaystyle\sum_{i=1}^k\sum_{j=1}^{n_i} (X_{ij}-\overline{X})^2$; és la   **Suma Total de Quadrats**.
   
-* $SS_{Tr}=\displaystyle\sum_{i=1}^k n_i(\overline{X}_{i}-\overline{X})^2$; és la   **Suma de Quadrats dels Tractaments**
+* $SS_{Tr}=\displaystyle\sum_{i=1}^k n_i(\overline{X}_{i}-\overline{X})^2$; és la   **Suma de Quadrats dels Tractaments**.
 
-* $SS_E=\displaystyle\sum_{i=1}^k\sum_{j=1}^{n_i} (X_{ij}-\overline{X}_{i})^2$; és la   **Suma de Quadrats dels Residus** o **dels Errors**
+* $SS_E=\displaystyle\sum_{i=1}^k\sum_{j=1}^{n_i} (X_{ij}-\overline{X}_{i})^2$; és la   **Suma de Quadrats dels Residus** o **dels Errors**.
 
 ```
 
 Fixau-vos que
 
-* $SS_{Total}$ representa la variabilitat total de les dades: de fet, és el numerador de la variància de la mostra total
+* $SS_{Total}$ representa la variabilitat total de les dades: de fet, és el numerador de la variància de la mostra total.
 
-* $SS_{Tr}$ representa la variabilitat de les mitjanes mostrals: és el numerador de la variància d'un vector format per $n_1$ còpies de $\overline{X}_1$, $n_2$ còpies de $\overline{X}_2$, ... i $n_k$ còpies de $\overline{X}_k$
+* $SS_{Tr}$ representa la variabilitat de les mitjanes mostrals: és el numerador de la variància d'un vector format per $n_1$ còpies de $\overline{X}_1$, $n_2$ còpies de $\overline{X}_2$, ... i $n_k$ còpies de $\overline{X}_k$.
 
-* $SS_E$ representa la suma de les variabilitats de les dades de la mostra de cada tractament: és la suma dels numeradors de les variàncies de les $k$ mostres dels diferents tractaments
+* $SS_E$ representa la suma de les variabilitats de les dades de la mostra de cada tractament: és la suma dels numeradors de les variàncies de les $k$ mostres dels diferents tractaments.
 
-* $SS_{Total}=SS_{Tr}+SS_E$ diu que la variabilitat total de la mostra descompon en la suma de la variabilitat de les mitjanes i la suma de les variabilitats de les mostres de cada tractament  
+* $SS_{Total}=SS_{Tr}+SS_E$ diu que la variabilitat total de la mostra descompon en la suma de la variabilitat de les mitjanes i la suma de les variabilitats de les mostres de cada tractament.
 
 ```{block2,type="rmdnote"}
-Fixau-vos que, amb la terminologia introduïda quan explicàvem el model de l'ANOVA d'1 via, cada $X_{ij}-\overline{X}_i$ estima el **residu**, o **error**, sobre l'individu $j$-èsim del nivell $i$-èsim $X_{ij}-\mu_i$. Per això a $\displaystyle\sum_{i=1}^k\sum_{j=1}^{n_i} (X_{ij}-\overline{X}_{i})^2$ li diem la   *Suma de Quadrats dels Residus* o *dels Errors*.
+Amb la terminologia introduïda quan explicàvem el model de l'ANOVA d'1 via, cada $X_{ij}-\overline{X}_i$ estima el **residu**, o **error**, sobre l'individu $j$-èsim del nivell $i$-èsim $X_{ij}-\mu_i$. Per això a $\displaystyle\sum_{i=1}^k\sum_{j=1}^{n_i} (X_{ij}-\overline{X}_{i})^2$ li diem la   *Suma de Quadrats dels Residus* o *dels Errors*.
 ```
 
 
@@ -500,8 +502,16 @@ SSTotal
 $$
 SS_{Tr}=\displaystyle\sum_{i=1}^k n_i(\overline{X}_{i}-\overline{X})^2
 $$
-hem d'observar que les mitjanes $\overline{X}_{i}$ formen la variable **Inc** del *dataframe* `mitjanes.tracts` i els $n_i$ són les freqüències absolutes de cada nivell dins la variable `CO2$Pre`.
+hem d'observar que les mitjanes $\overline{X}_{i}$ formen la variable **Inc** del *dataframe* `mitjanes.tracts`
 
+```{r}
+mitjanes.tracts$Inc
+```
+i els $n_i$ són les freqüències absolutes de cada nivell dins la variable `CO2$Pre`
+```{r}
+table(CO2$Pre)
+```
+Per tant la fórmula que defineix $SS_{Tr}$ se tradueix en
 ```{r}
 SSTr=sum(table(CO2$Pre)*(mitjanes.tracts$Inc-mitjana.total)^2)
 SSTr
@@ -520,6 +530,14 @@ SSE=sum((CO2$Inc-mitjanes.tracts$Inc)^2)
 SSE
 ```
 
+Si no estau còmodes amb això de restar vectors de longituds una un múltiple de l'altra, el que heu de fer és restar a `CO2$Inc` un vector format per 10 còpies consecutives de `mitjanes.tracts$Inc`:
+```{r}
+SSEalt=sum((CO2$Inc-rep(mitjanes.tracts$Inc,times=10))^2)
+SSEalt
+```
+
+
+
 Comprovem  la identitat de les sumes de quadrats:
 
 ```{r}
@@ -529,15 +547,15 @@ SSTr+SSE
 
 La idea del contrast ANOVA és que 
 
-> Rebutjam la hipòtesi nul·la si $SS_{Tr}$ és molt gran 
+> Rebutjam la hipòtesi nul·la si $SS_{Tr}$ és molt gran.
 
 Per la identitat de les sumes de quadrats $SS_{Total}=SS_{Tr}+SS_E$, això ho podem traduir en
 
-> Rebutjam la hipòtesi nul·la si $SS_{Total}$ és molt més gran que $SS_E$
+> Rebutjam la hipòtesi nul·la si $SS_{Total}$ és molt més gran que $SS_E$.
 
 I això en realitat ho traduïm en
 
-> Rebutjam la hipòtesi nul·la si $SS_{Tr}$ és molt més gran que $SS_E$
+> Rebutjam la hipòtesi nul·la si $SS_{Tr}$ és molt més gran que $SS_E$.
 
 Per mesurar-ho emprarem els estadístics següents:
 
@@ -550,22 +568,23 @@ $$
 MS_E=\frac{SS_E}{N-k}
 $$
 
-Aquests estadístics són variables aleatòries, i sota les condicions necessàries per poder fer una ANOVA (mostres aleatòries simples independents, variable poblacional normal per a cada tractament, homocedasticitat), satisfan que
+Aquests estadístics són variables aleatòries, i sota les condicions necessàries per poder fer una ANOVA (mostres aleatòries simples independents, variable poblacional normal per a cada tractament i totes amb la mateixa variància, que indicarem amb $\sigma^2$), satisfan que:
 
 * $E(MS_{Tr})=\displaystyle\sigma^2 + \sum_{i=1}^k \frac{n_i (\mu_i-\mu)^2}{k-1}$
 
 
 * $E(MS_E)=\sigma^2$
 
+
 ```{block2,type="rmdrecordau"}
-En particular, **es pot usar $MS_E$ per estimar la variància poblacional comuna $\sigma^2$ de tots els tractaments**.
+En particular, **$MS_E$ és un estimador no esbiaixat de  la variància poblacional comuna  de tots els tractaments, $\sigma^2$**.
 ```
 
 Ara, si $H_0:\mu_1=\cdots=\mu_k (=\mu)$ és certa,
 $$
 \sum_{i=1}^k \frac{n_i (\mu_i -\mu)^2}{k-1}=0,
 $$
-i si $H_0$ no és certa, aquesta quantitat és $>0$
+i si $H_0$ no és certa, aquesta quantitat és $>0$.
 
 
 Per tant
@@ -591,16 +610,16 @@ el qual satisfà la propietat següent.
 ```{theorem}
 Sota les condicions necessàries per poder realitzar una ANOVA i si $H_0:\mu_1=\cdots=\mu_k$ és certa,
 
-* La distribució de $F$ és una F de Fisher amb $k-1$ i $N-k$ graus de llibertat, $F_{k-1,N-k}$
+* La  variable F té distribució F de Fisher amb $k-1$ i $N-k$ graus de llibertat, $F_{k-1,N-k}$.
   
-* El seu valor és proper a 1
+* El seu valor és proper a 1.
 
 ``` 
 
-Per tant, en una ANOVA **rebutjarem la hipòtesi nul·la si el valor $F_0$ de $F$ obtingut sobre la nostra mostra és molt gran**. Això ho traduirem en que rebutjarem la hipòtesi nul·la si la probabilitat que $F$ sigui més gran que $F_0$ és petita, i aquesta probabilitat serà el p-valor del contrast.
+Per tant, en una ANOVA **rebutjarem la hipòtesi nul·la si el valor $F_0$ de F obtingut sobre la nostra mostra és molt gran**. Això ho traduirem en que rebutjarem la hipòtesi nul·la si la probabilitat que F sigui més gran que $F_0$ és petita, i aquesta probabilitat serà el p-valor del contrast.
 
 ```{block2,type="rmdnote"}
-Si $k=2$, aquesta $F$ és igual al quadrat de l'estadístic del test t de 2 mostres independents i variàncies iguals. Per tant, efectuar una ANOVA d'1 via amb només 2 tractaments és equivalent a efectuar un test t amb mostres independents i mateixa variància poblacional.
+Si $k=2$, aquesta F és igual al quadrat de l'estadístic del test t de 2 mostres independents i variàncies iguals. Per tant, efectuar una ANOVA d'1 via amb només 2 tractaments és equivalent a efectuar un test t amb mostres independents i mateixa variància poblacional.
 ```
 
 ```{block2,type="rmdcorbes"}
@@ -609,12 +628,12 @@ $$
 T^2=\frac{(\overline{X}_1-\overline{X}_2)^2}{(\frac{1}{n_1}+\frac{1}{n_2})\cdot 
 \frac{(n_1-1)\widetilde{S}_{X_1}^2+(n_2-1)\widetilde{S}_{X_2}^2}{n_1+n_2-2}}
 $$
-i que el nostre $F$ és $MS_{Tr}/MS_E$. Ara, en el cas $k=2$,
+i que el nostre F és $MS_{Tr}/MS_E$. Ara, en el cas $k=2$,
 $$
 MS_E=\frac{\sum_{j=1}^{n_1}(X_{1j}-\overline{X}_1)^2+\sum_{j=1}^{n_2}(X_{2j}-\overline{X}_2)}{N-2}=
   \frac{(n_1-1)\widetilde{S}_{X_1}+(n_2-1)\widetilde{S}_{X_2}}{n_1+n_2-2}
 $$
-que surt al denominador de $T^2$. Per tant ens queda veure que $MS_{Tr}$ és igual a
+que surt tal qual al denominador de $T^2$. Per tant ens queda veure que $MS_{Tr}$ és igual a
 $$
   \frac{(\overline{X}_1-\overline{X}_2)^2}{\frac{1}{n_1}+\frac{1}{n_2}}
 $$
@@ -670,7 +689,7 @@ $$
 
 * Calculam el p-valor
 $$
-P(F_{k-1,N-k}\geq F_0)
+P(F_{k-1,N-k}\geqslant F_0)
 $$
 
 * Si el p-valor és més petit que el nivell de significació $\alpha$,  rebutjam $H_0$ i concloem que no totes les mitjanes són iguals. En cas contrari, acceptam que totes les mitjanes són iguals.
@@ -705,14 +724,13 @@ F0=MSTr/MSE
 F0
 ```
 
-* El p-valor  $P(F_{k-1,N-k}\geq F_0)$ val
+* El p-valor  $P(F_{k-1,N-k}\geqslant F_0)$ val
 ```{r}
 1-pf(F0,k-1,N-k)
 ```
 
 
-*Conclusió*: Hem trobat evidència estadística que el nivell de pressió de CO~2~ influeix en
-el creixement mitjà del microorganisme *Pseudomonas fragi* (ANOVA, p-valor `r 1-pf(F0,k-1,N-k)`).
+*Conclusió*: Hem trobat evidència estadística que el nivell de pressió de CO~2~ influeix en el creixement mitjà del microorganisme *Pseudomonas fragi* (ANOVA, p-valor `r 1-pf(F0,k-1,N-k)`).
 
 ```{block2,type="rmdcaution"}
 Per ara només concloem que no totes les mitjanes (dels percentatges d'increment de volum cel·lular)  són iguals: no concloem que totes aquestes mitjanes siguin diferents. **No és el mateix!** 
@@ -770,11 +788,11 @@ $$
 
 Aquest experiment té disseny d'ANOVA d'1 via:
 
-* La variable $X$ és "Prenc un individu amb aquest gen defectuós i mesur l'expressió del gen" (aquí es quantificà per mitjà de la quantitat de mRNA en una mostra biològica mesurada amb un *Northern blot*, no entrarem en més detall)
+* La variable $X$ és "Prenc un individu amb aquest gen defectuós i mesur l'expressió del gen" (aquí es quantificà per mitjà de la quantitat de mRNA en una mostra biològica mesurada amb un *Northern blot*, no entrarem en més detall).
 
-* El factor emprat per classificar les expressions té per nivells els 4 tractaments objecte d'estudi
+* El factor emprat per classificar les expressions té com a nivells els 4 tractaments objecte d'estudi.
 
-* S'hi ha pres una m.a.s. per a cada tractament, i de manera independent les unes de les altres
+* S'hi ha pres una m.a.s. per a cada tractament, i de manera independent les unes de les altres.
 
 
 
@@ -862,7 +880,7 @@ knitr::include_graphics("Bioestadistica-II_files/figure-html/ups.png")
 No hem entrat els tractaments com un factor. Fixau-vos que el nombre de graus de llibertat a la filera dels tractaments en aquesta taula és 1 i no 3, que és el que tocaria.
 ```
 
-Va, fem-ho bé:
+Va, tornem a començar i ara fem-ho bé:
 
 ```{r}
 Expr=c(96,93,70,78,99,90,90,87,100,75,84,57,104,80,76,66,84,90,78,76)
@@ -912,7 +930,7 @@ Però en una ANOVA tenim més dades (les mostres de tots els tractaments, no nom
 ```
 
 
-El p-valor de cada contrast serà $2P(t_{N-k}\geq |t_{i,j}|)$, on $t_{i,j}$ és el valor que hi pren aquest estadístic $T$.
+El p-valor de cada contrast serà $2P(t_{N-k}\geqslant |t_{i,j}|)$, on $t_{i,j}$ és el valor que hi pren aquest estadístic $T$.
 
 Ara bé, observau que d'aquesta manera realitzam $\binom{k}{2}$ contrastos. Com més contrastos fem, més probabilitat tenim d'equivocar-nos.
 
@@ -921,7 +939,7 @@ Si es realitzen $c$ contrastos amb nivell de significació $\alpha$, la probabil
 ```
 
 
-Per exemple, a l'Exemple \@ref(exm:CO2), si realitzam els $c=\binom{5}{2}=10$ contrastos (totes les pressions contra totes les pressions) amb nivell de significació $\alpha =0.05$, la probabilitat de cometre almenys un Error de Tipus I a qualcun (si totes les mitjanes fossin iguales en la realitat) és  $1-(1-0.05)^{10} \approx 0.4$.
+Per exemple, a l'Exemple \@ref(exm:CO2), si realitzam els $c=\binom{5}{2}=10$ contrastos (totes les pressions contra totes les pressions) amb nivell de significació $\alpha =0.05$, la probabilitat de cometre almenys un Error de Tipus I a qualcun (si totes les mitjanes fossin iguals en la realitat) és  $1-(1-0.05)^{10} \approx 0.4$.
 
 Per tant, haurem de reduir el nivell de significació de cada contrast perquè la probabilitat global de cometre **qualque** Error de Tipus I sigui $\alpha$. O, equivalentment, augmentar (se'n diu **ajustar**) el p-valor de cada contrast abans de comparar-lo amb l'$\alpha$ global fixat.
 
@@ -929,13 +947,13 @@ Tot seguit explicam dos mètodes d'ajust de p-valors.
 
 #### Mètode de Bonferroni
 
-El mètode d'ajust de p-valors més popular és el **de Bonferroni**. Emprant que $1-(1-x)^c \leq c\cdot x$, si volem efectuar $c$ contrastos amb nivell de significació (global) $\alpha$, 
+El mètode d'ajust de p-valors més popular és el **de Bonferroni**. Emprant que $1-(1-x)^c \leqslant c\cdot x$, si volem efectuar $c$ contrastos amb nivell de significació (global) $\alpha$, 
 
 > realitzam cada contrast amb nivell de significació $\alpha/c$
 
 i així el nivell de significació  global segur que serà menor o igual que $c\cdot \alpha/c=\alpha$. O, equivalentment
 
-> multiplicam el p-valor de cada contrast per $c$ abans de comparar-lo amb el nivell de significació $\alpha$
+> multiplicam el p-valor de cada contrast per $c$ abans de comparar-lo amb el nivell de significació $\alpha$.
 
 Les dues accions són equivalents, perquè
 $$
@@ -943,7 +961,7 @@ p<\alpha/c \Longleftrightarrow c\cdot p<\alpha
 $$
 
 ```{block2,type="rmdcaution"}
-Bé, gairebé equivalents. Si quan multiplicau un dels p-valors per  $c$ us dóna un valor més gran que 1, heu de donar com a p-valor ajustat 1. Pensau que, ajustats o no, els p-valors representen probabilitats, i per tant no poden ser més grans que 1.
+Bé, gairebé equivalents. Si quan multiplicau un dels p-valors per  $c$ us dóna un valor més gran que 1, heu de donar com a p-valor ajustat 1. Pensau que, ajustats o no, els p-valors representen probabilitats, i per tant és incorrecte donar-ne de més grans que 1.
 ```
 
 
@@ -954,7 +972,7 @@ A l'Exemple \@ref(exm:CO2), si realitzam els  10 contrastos per parelles, per ob
 
 o equivalentment 
 
-* Hem de multiplicar cada p-valor per **10** i comparar-los amb 0.05
+* Hem de multiplicar cada p-valor per **10** i comparar-los amb 0.05.
 
 A l'Exemple 2, si realitzam els  6 contrastos de totes les parelles possibles, per obtenir un nivell de significació global  $\alpha =0.05$,
 
@@ -962,7 +980,7 @@ A l'Exemple 2, si realitzam els  6 contrastos de totes les parelles possibles, p
 
 o equivalentment 
 
-* Hem de multiplicar cada p-valor per **6**
+* Hem de multiplicar cada p-valor per **6**.
 
   
 ```
@@ -974,7 +992,7 @@ Amb R,  per calcular tots els p-valors de cop (sense ajustar) podem emprar la fu
 pairwise.t.test(variable numèrica, factor, p.adjust.method="none")
 ```
 
-El resultat d'un  `pairwise.t.test` dóna el triangle inferior de la matriu dels p-valors: l'entrada $(i,j)$ correspon al contrast de mitjanes del nivell $i$-èssim i el nivell $j$-èssim. 
+El resultat d'un  `pairwise.t.test` dóna el triangle inferior de la matriu dels p-valors: l'entrada $(i,j)$ correspon al contrast de mitjanes del nivell $i$-èsim i el nivell $j$-èsim. 
 
 
 Per calcular tots els p-valors ajustats amb qualque mètode, s'ha d'especificar al paràmetre `p.adjust.method`. Per exemple, per ajustar-los amb el mètode de Bonferroni, s'hauria d'entrar `p.adjust.method="bonferroni"` (fixau-vos que  `bonferroni` hi va entre cometes i començant amb minúscula).
@@ -984,7 +1002,7 @@ Tornem a l'Exemple \@ref(exm:ANOVAterapgen).
 
 ```
 
-* Per obtenir tots els p-valors, que després nosaltres haurem de comparar amb $\alpha/6$, executam
+* Per obtenir tots els p-valors sense ajustar, els quals després nosaltres haurem de comparar amb $\alpha/6$, executam
 
 ```{r}
 pairwise.t.test(EG$Expr,EG$Tract, p.adjust.method="none")
@@ -1002,7 +1020,7 @@ Podeu comprovar que els p-valors d'aquest segon resultat són els del primer res
 
 
 Suposem que fixam el nivell de significació global usual $\alpha=0.05$. En la primera execució de `pairwise.t.test`, els únics p-valors per davall de $0.05/6=0.0083$ han estat els dels parells (1,3) i (1,4). 
-En la segona, els únics p-valors per davall de 0.05 han estat també els dels parells (1,3) i (1,4). Casualitat? No, havien de coincidir les conclusions, perquè les dues tècniques són equivalents.
+En la segona, els únics p-valors per davall de 0.05 han estat també els dels parells (1,3) i (1,4). Casualitat? És clar que no! Les conclusions havien de coincidir, perquè les dues tècniques són equivalents.
 
 *Conclusió*: Hem trobat evidència estadística que la teràpia 1 té una eficàcia mitjana diferent de la de les teràpies 3 i 4 (ANOVA d'1 via, test posterior de Bonferroni, p-valors 0.0453 i 0.0035, respectivament), i no n'hem trobat de cap altra diferència.
 
@@ -1013,13 +1031,13 @@ En la segona, els únics p-valors per davall de 0.05 han estat també els dels p
 
 Un altre mètode popular d'ajust de p-valors, més potent que el de Bonferroni, i que de fet és el mètode que empra R per defecte és el **mètode de Holm**, que funciona bàsicament de la forma següent:
 
-1. Siguin $C_{1},\ldots ,C_{c}$ els contrastos per parelles que es volen realitzar i $p_{1},\ldots ,p_{c}$ els p-valors corresponents
+1. Siguin $C_{1},\ldots ,C_{c}$ els contrastos per parelles que es volen realitzar i $p_{1},\ldots ,p_{c}$ els p-valors corresponents.
 
-2. Ordenam aquests p-valors en ordre creixent $p_{(1)}< \cdots< p_{(c)}$ i re-enumeram consistentment els contrastos $C_{(1)},\ldots, C_{(c)}$
+2. Ordenam aquests p-valors en ordre creixent $p_{(1)}< \cdots< p_{(c)}$ i re-enumeram consistentment els contrastos $C_{(1)},\ldots, C_{(c)}$.
 
-3. Per a cada $j=1,\ldots,c$, calculam el **p-valor ajustat** $\widetilde{p}_{(j)}=(c+1-j)\cdot p_{(j)}$
+3. Per a cada $j=1,\ldots,c$, calculam el **p-valor ajustat** $\widetilde{p}_{(j)}=(c+1-j)\cdot p_{(j)}$.
 
-4. Aleshores rebutjam la hipòtesi nul·la als contrastos $C_{(j)}$ on $\widetilde{p}_{(j)}<\alpha$
+4. Aleshores rebutjam la hipòtesi nul·la als contrastos $C_{(j)}$ on $\widetilde{p}_{(j)}<\alpha$.
 
 ```{example}
 Anem a fer a mà l'ajust dels p-valors segons Holm a l'Exemple  \@ref(exm:ANOVAterapgen).
@@ -1027,7 +1045,7 @@ Anem a fer a mà l'ajust dels p-valors segons Holm a l'Exemple  \@ref(exm:ANOVAt
 ```
 
 
-1. Taula amb els p-valors dels contrastos
+1. La taula amb els p-valors dels contrastos és:
 $$
 \begin{array}{c|c}
 \text{Contrast} & \text{p-valor} \\ \hline
@@ -1040,7 +1058,7 @@ $$
 \end{array}
 $$
 
-2. Ordenam en ordre creixent del p-valor
+2. Ordenam en ordre creixent del p-valor:
 
 $$
 \begin{array}{c|c}
@@ -1054,7 +1072,7 @@ $$
 \end{array}
 $$
 
-3. Ajustam: per a cada $j$, multiplicam el $j$-èssim p-valor (en ordre decreixent) per $6+1-j$
+3. Ajustam, multiplicant, per a cada $j$, el $j$-èsim p-valor (en ordre decreixent) per $6+1-j$:
 
 $$
 \begin{array}{c|cc}
@@ -1068,7 +1086,7 @@ $$
 \end{array}
 $$
 
-4. Comparam els p-valors ajustats amb $\alpha$. En aquest cas, amb $\alpha=0.05$ arribam a la mateixa conclusió que amb el mètode de Bonferroni: concloem que $\mu_1\neq \mu_4$ i $\mu_1\neq \mu_3$ i que no podem rebutjar que les altres parelles de mitjanes siguin iguals
+4. Comparam els p-valors ajustats amb $\alpha$. En aquest cas, amb $\alpha=0.05$ arribam a la mateixa conclusió que amb el mètode de Bonferroni: concloem que $\mu_1\neq \mu_4$ i $\mu_1\neq \mu_3$ i que no podem rebutjar que les altres parelles de mitjanes siguin iguals.
 
 Amb R, s'ha d'especificar a la funció `pairwise.t.test`  el paràmetre `p.adjust.method="holm"`, o no especificar aquest paràmetre perquè "holm" és el valor per defecte de `p.adjust.method`.
 
@@ -1105,7 +1123,7 @@ Ara sí que hem trobat evidència que **totes** les mitjanes són diferents. Amb
 
 ### Comprovació de les condicions
 
-Recordau que per a que la conclusió d'una ANOVA d'1 via tengui sentit:
+Recordau que perquè la conclusió d'una ANOVA d'1 via tengui sentit:
 
 1. Les mostres de cada tractament han de ser aleatòries simples i independents i almenys una ha de tenir més d'un element.
 
@@ -1178,18 +1196,18 @@ bartlett.test(CO2$Inc~CO2$Pre)
 
 Podem acceptar que les variàncies de les subpoblacions definides pels percentatges d'increment del volum cel·lular sota les diferents pressions de CO~2~  considerades són totes iguals.
 
-Ja que hi som, comprovem l'homocedasticitat de l'Exemple  \@ref(exm:ANOVAterapgen), ara amb el test de Fligner-Killeen i emprant l'altra sintaxi possible perquè la vegeu
+Ja que hi som, comprovem l'homocedasticitat de l'Exemple  \@ref(exm:ANOVAterapgen), ara amb el test de Fligner-Killeen i emprant l'altra sintaxi possible perquè la vegeu:
 
 ```{r}
 fligner.test(Expr~Tract, data=EG)
 ```
 
-
+Acceptaríem (si el test de Fligner fos l'adient) que se satisfà l'homocedasticitat.
 
 ### Test no paramètric
 
 
-Si en un experiment de disseny d'ANOVA d'1 via no podem emprar una ANOVA perquè no se satisfaci la normalitat de les poblacions o, sobretot, l'homocedasticitat, cal emprar un test no paramètric. El més popular es el **test de Kruskal-Wallis**, que generalitza el test de Mann-Whitney a més de 2 poblacions igual que l'ANOVA generalitza el test t. Es fa amb la funció `kruskal.test`.
+Si en un experiment de disseny d'ANOVA d'1 via no podem emprar una ANOVA perquè no se satisfaci la normalitat de les poblacions o, sobretot, l'homocedasticitat, cal emprar un test no paramètric. El més popular es el **test de Kruskal-Wallis**, que generalitza el test de Mann-Whitney a més de 2 poblacions igual que l'ANOVA d'1 via generalitza el test t amb mostres independents. Es fa amb la funció `kruskal.test`.
 
 Per exemple, per aplicar-lo a les dades de l'Exemple \@ref(exm:CO2):
 
@@ -1200,7 +1218,7 @@ kruskal.test(CO2$Inc~CO2$Pre)
 
 Seguim concloent que no totes les mitjanes  (en realitat, les **medianes**) són iguals.
 
-Si el test de Kruskal-Wallis permet rebutjar la igualtat de   mitjanes, i voleu determinar quines parelles són diferents,  disposau de la funció `pairwise.wilcox.test` que efectua contrastos per parelles de Mann-Whitney (amb  el paràmetre `paired=FALSE`). Té la mateixa sintaxi que `pairwise.t.test` i com en aquella funció, el mètode d'ajust dels p-valors s'hi entra amb el paràmetre `p.adjust.method`, el valor per defecte del qual  és el mètode de Holm.
+Si el test de Kruskal-Wallis permet rebutjar la igualtat de   mitjanes, i voleu determinar quines parelles són diferents,  disposau de la funció `pairwise.wilcox.test` que efectua contrastos per parelles de Mann-Whitney (amb  el paràmetre `paired=FALSE`). Té la mateixa sintaxi que `pairwise.t.test` i com en aquella funció, el mètode d'ajust dels p-valors s'hi entra amb el paràmetre `p.adjust.method`. El mètode per defecte emprat per aquesta funció també és el mètode de Holm.
 
 Per exemple, per realitzar tots els contrastos de Mann-Whitney en l'exemple del CO~2~ emprant el mètode d'ajust de Bonferroni, entram:
 
@@ -1209,7 +1227,7 @@ pairwise.wilcox.test(CO2$Inc, CO2$Pre, paired=FALSE,
       p.adjust.method="bonferroni")
 ```
 
-Tornam a concloure que els percentatges mitjans d'increment són tots diferents.
+Tornam a concloure que els percentatges mitjans poblacionals d'increment són tots diferents.
 
 ## ANOVA de blocs
 
@@ -1229,9 +1247,8 @@ Volem determinar si l'energia que es requereix per dur a terme tres activitats f
 knitr::include_graphics("Bioestadistica-II_files/figure-html/esports.png")
 ```
 
-Les diferències metabòliques entre els individus poden afectar l'energia requerida per dur a terme una determinada activitat. Per tant, no és aconsellable triar tres grups d'individus i a cada grup fer-li fer una de les tres activitats físiques: les diferències metabòliques entre els individus triats podrien  afectar els resultats i amagar l'efecte real.
-
-Ens decidim per un **disseny experimental en paral·lel**: Seleccionam alguns individus i demanam a cadascun que corri, camini i recorri amb bicicleta una distància fixada en tres moments diferents, seleccionant l'ordre de les activitats de cada individu a l'atzar, i mesuram per a cada individu i cada activitat el consum de Kca/Km.
+Les diferències metabòliques entre els individus poden afectar l'energia requerida per dur a terme una determinada activitat. Si triam tres grups d'individus i a cada grup li fem fer una de les tres activitats físiques, aquestes diferències metabòliques entre els individus triats podrien  afectar els resultats i amagar l'efecte real. Per aquest motiu, ens decidim per un **disseny experimental en paral·lel**. Seleccionam alguns individus i fem que cadascun corri, camini i recorri amb bicicleta una distància fixada i mesuram per a cada individu en tres moments diferents i cada activitat el consum de Kca/Km. A més, 
+seleccionam l’ordre de les activitats de cada individu a l’atzar.
 
 ```{block2,type="rmdcaution"}
 Si a tots els individus els féssim fer les tres activitats en el mateix ordre, podria ser que qualque factor extern que no controlàssim influís en el resultat. Per exemple, si tots caminen al mateix temps, després corren al mateix temps i després pedalen al mateix temps, i hi ha grans diferències de temperatura ambient entre els tres moments, això podria influir en el resultat final. Si, en canvi, aleatoritzam l'ordre de les activitats, en principi podem esperar que aquestes diferències es compensin.
@@ -1257,12 +1274,9 @@ $$
 \end{array}
 $$
 
-En aquest estudi, fixau-vos que empram els nivells d'un factor (tipus de desplaçament) per classificar la població (els consums energètics) en tres subpoblacions, però ara les mostres que hem pres no són independents sinó **aparellades**: hem mesurat els consums energètics dels tres esports sobre els mateixos individus. Per tant no podem realitzar una ANOVA d'1 via per analitzar els resultats.
+En aquest estudi, fixau-vos que empram els nivells d'un factor (tipus de desplaçament) per classificar la població (els consums energètics) en tres subpoblacions, però ara les mostres que hem pres no són independents sinó **aparellades**: hem mesurat els consums energètics dels tres esports sobre els mateixos individus. Per tant no podem realitzar una ANOVA d'1 via per analitzar els resultats. L'**ANOVA de blocs** (**complets aleatoris**, però ometrem aquests adjectius perquè és l'únic que veurem)  generalitza el contrast de 2 mitjanes amb mostres aparellades a $k$ mitjanes  amb mostres aparellades. 
 
-
-L'**ANOVA de blocs** (**complets aleatoris**, però ometrem aquests adjectius perquè és l'únic que veurem)  generalitza el contrast de 2 mitjanes amb mostres aparellades a $k$ mitjanes  amb mostres aparellades. 
-
-La situació general és la següent. Tenim una variable aleatòria $X$ i un factor de $k$ nivells, o **tractaments**, que classifica la població en $k$ subpoblacions (les quals, recordau, identificam amb els tractaments). Diguem $\mu_i$ a la mitjana de $X$ en els individus del nivell $i$-èssim. Volem comparar aquestes mitjanes $\mu_1$,...,$\mu_k$ i en concret decidir si són totes iguals o no. És a dir, el contrast és
+La situació general és la següent. Tenim una variable aleatòria $X$ i un factor de $k$ nivells, o **tractaments**, que classifica la població en $k$ subpoblacions (les quals, recordau, identificam amb els tractaments). Diguem $\mu_i$ a la mitjana de $X$ en els individus del nivell $i$-èsim. Volem decidir si aquestes mitjanes $\mu_1$,...,$\mu_k$ són totes iguals o no. És a dir, el contrast és
 $$
 \left\{
 \begin{array}{l}
@@ -1276,19 +1290,19 @@ $$
 En un **experiment de disseny d'ANOVA de blocs**:
 
 
-1. Escollim una mostra aleatòria de $b$ **blocs**: conjunts de $k$ subjectes aparellats  (per exemple, escollim $b$ subjectes i entenem cada bloc com a format per $k$ còpies del mateix subjecte), on fixau-vos que $k$ és el nombre de tractaments.
+1. Escollim una mostra aleatòria de $b$ **blocs**: conjunts de $k$ subjectes aparellats  (per exemple, escollim $b$ subjectes i entenem cada bloc com a format per $k$ còpies del mateix subjecte), on $k$ és el nombre de tractaments.
 
 2. Dins cada bloc, assignam aleatòriament a cada subjecte un tractament, de manera que cada tractament s'empri exactament un cop dins  cada bloc.
 
 Així, el disseny de l'Exemple \@ref(exm:esports) és d'una ANOVA de blocs:
 
-* La variable aleatòria d'interès és l'energia consumida (en Kcal) per una persona en recórrer 1 km
+* La variable aleatòria d'interès és l'energia consumida (en Kcal) per una persona en recórrer 1 km.
 
-* Els tractaments són els tres tipus de desplaçament
+* Els tractaments són els tres tipus de desplaçament.
 
-* Prenem 8 persones de manera raonablement aleatòria i interpretam cada una com un bloc
+* Prenem 8 persones de manera raonablement aleatòria i interpretam cada una com un bloc.
 
-* Assignam a cada persona el tres tractaments en un ordre escollit a l'atzar per a cada una d'elles
+* Assignam a cada persona el tres tractaments en un ordre escollit a l'atzar per a cada una d'elles.
 
 La filosofia del contrast serà similar a la de l'ANOVA d'1 via, comparant variabilitats: si la variabilitat de les mitjanes de les mostres és molt més gran que la variabilitat dels "errors", rebutjarem la igualtat de totes les mitjanes poblacionals.
 
@@ -1308,7 +1322,7 @@ $$
 \end{array}
 $$
 
-on cada $X_{ij}$ és el valor del tractament $i$-èssim en l'individu corresponent del bloc $j$-èssim. Com en les taules emprades en l'ANOVA d'1 via, observau que no és la notació usual de les taules de dades, sinó la transposada: a $X_{{i}{j}}$, $i$ hi indica la **columna**,  el tractament, i $j$ hi indica la **filera**, és a dir, el bloc. D'aquesta manera, cada filera $(X_{1j},\ldots,X_{kj})$ representa un bloc.
+on cada $X_{ij}$ és el valor del tractament $i$-èsim en l'individu corresponent del bloc $j$-èsim. Com en les taules emprades en l'ANOVA d'1 via, observau que no és la notació usual de les taules de dades, sinó la transposada: a $X_{{i}{j}}$, $i$ hi indica la **columna**,  el tractament, i $j$ hi indica la **filera**, és a dir, el bloc. D'aquesta manera, cada filera $(X_{1j},\ldots,X_{kj})$ representa un bloc.
 
 
 
@@ -1347,11 +1361,23 @@ $$
     
     Per exemple, que no hi hagi interacció entre els blocs i els tractaments a l'Exemple \@ref(exm:esports) significa que:
 
-    * La diferència entre el consum energètic mitjà en córrer i en caminar és la mateixa a cada individu  de la mostra
-    * La diferència entre el consum energètic mitjà en córrer i en pedalar és la mateixa a cada individu  de la mostra
-    * La diferència entre el consum energètic mitjà en caminar i en pedalar és la mateixa a cada individu  de la mostra
+    * La diferència entre el consum energètic mitjà en córrer 1 km i en caminar 1 km és la mateixa a cada individu  de la mostra
+    * La diferència entre el consum energètic mitjà en córrer 1 km i en pedalar 1 km és la mateixa a cada individu  de la mostra
+    * La diferència entre el consum energètic mitjà en caminar 1 km i en pedalar 1 km és la mateixa a cada individu  de la mostra
   
-En canvi, hi hauria interacció si, per exemple, la diferència entre el consum energètic mitjà en córrer i en caminar depengués de l'individu: si en uns la diferència fos més gran que en d'altres. 
+    En canvi, hi hauria interacció si, per exemple, la diferència entre el consum energètic mitjà en córrer i en caminar depengués de l'individu: si en uns la diferència fos més gran que en d'altres. 
+
+```{block2,type="rmdnote"}
+Observau que $\mu_{i_1j_1}-\mu_{i_2j_1}=\mu_{i_1j_2}-\mu_{i_2j_2}$ és equivalent a $\mu_{i_1j_1}-\mu_{i_1j_2}=\mu_{i_2j_1}-\mu_{i_2j_2}$. Per tant, la interacció  també es pot descriure intercanviant els blocs i els tractaments. En el nostre exemple, no hi hauria interacció si, per a cada parella d'individus de la mostra, fossin iguals:
+
+* la diferència entre els seus consums energètics mitjans en córrer 1 km,
+* la diferència entre els seus consums energètics mitjans en caminar 1 km,
+* la diferència entre els seus consums energètics mitjans en pedalar 1 km.
+
+```
+
+
+
 
 Amb un sol valor per cada parell (tractament,bloc), cap d'aquestes condicions necessàries per poder realitzar una ANOVA de blocs no es pot contrastar i per tant l'experimentador ha de decidir si se satisfan o no segons la seva experiència. 
 
@@ -1383,9 +1409,9 @@ Fixau-vos que l'existència d'interacció no és equivalent al fet que un analg�
   
 Recordarem algunes notacions, i n'introduïm algunes altres. Pel que fa a la població:
 
-* Direm $\mu_i$ a la mitjana de la variable d'interès sobre la població definida pel tractament $i$-èssim
-* Direm $\mu$ a la mitjana de la variable d'interès sobre el total de la població, sense distingir tractaments
-* Direm $\mu_{\bullet j}$ a la mitjana de la variable d'interès sobre el bloc $j$-èssim
+* Direm $\mu_i$ a la mitjana de la variable d'interès sobre la població definida pel tractament $i$-èsim.
+* Direm $\mu$ a la mitjana de la variable d'interès sobre el total de la població, sense distingir tractaments.
+* Direm $\mu_{\bullet j}$ a la mitjana de la variable d'interès sobre el bloc $j$-èsim.
 
 
 L'ANOVA de blocs se basa en el **model** següent: per a tots $i=1,\ldots,k$ i $j=1,\ldots,b$
@@ -1394,11 +1420,11 @@ X_{ij}=\mu+ (\mu_{i}-\mu) +(\mu_{\bullet j}-\mu) + E_{ij}
 $$
 on:
 
-* $X_{ij}$ indica el valor de la variable $X$ per al tractament $i$-èssim en el bloc $j$-èssim 
+* $X_{ij}$ indica el valor de la variable $X$ per al tractament $i$-èsim en el bloc $j$-èsim.
 
-* $\mu_i-\mu$ representa la desviació de la mitjana de  $X$ en el nivell $i$-èssim  respecte de la mitjana global $\mu$ (l'**efecte del tractament $i$-èssim**)
+* $\mu_i-\mu$ representa la desviació de la mitjana de  $X$ en el nivell $i$-èsim  respecte de la mitjana global $\mu$ (l'**efecte del tractament $i$-èsim**).
 
-* $\mu_{\bullet j}-\mu$ representa la desviació de la mitjana de  $X$ en el bloc $j$-èssim respecte de la mitjana global $\mu$ (l'**efecte del bloc $j$-èssim**)
+* $\mu_{\bullet j}-\mu$ representa la desviació de la mitjana de  $X$ en el bloc $j$-èsim respecte de la mitjana global $\mu$ (l'**efecte del bloc $j$-èsim**).
 
 * $E_{ij}$  representa la part de la diferència entre  $X_{ij}$ i  $\mu$ que no expliquen ni el tractament ni el bloc; en diem  l'**error aleatori**, o el **residu**. 
 
@@ -1409,31 +1435,31 @@ Aquest model  diu bàsicament  que el valor de $X$ sobre un individu és la suma
 * L'efecte del bloc
 * L'error aleatori
 
-i per tant hi pressuposam que res més no influeix en el valor de $X$, i en particular que l'efecte del bloc i el del tractament se sumen, sense que hi hagi interacció entre ells. Si això no és veritat, és a dir, si aquest valor pot dependre d'altres efectes que no tinguem en compte o si hi ha interacció entre els blocs i els tractaments, el model no és vàlid, i les conclusions de l'ANOVA tampoc.
+i per tant hi pressuposam que res més no influeix en el valor de $X$, i en particular que l'efecte del bloc i el del tractament se sumen, sense que hi hagi interacció entre ells. Si això no és cert, és a dir, si aquest valor pot dependre d'altres efectes que no tinguem en compte o si hi ha interacció entre els blocs i els tractaments, el model no és vàlid, i les conclusions de l'ANOVA tampoc.
 
 
 
 Pel que fa a la nostra mostra:
 
-* $\overline{X}_{i}$ és la mitjana mostral de la mostra del tractament $i$-èssim
+* $\overline{X}_{i}$ és la mitjana mostral de la mostra del tractament $i$-èsim
 $$
 \overline{X}_{i}=\dfrac{\sum_{j=1}^b X_{ij}}{b}
 $$
-Estima la mitjana poblacional del tractament $i$-èssim, $\mu_i$
+Estima la mitjana poblacional del tractament $i$-èsim, $\mu_i$.
 
 
-* $\overline{X}_{\bullet j}$ és la mitjana mostral de les mesures preses sobre el bloc $j$-èssim
+* $\overline{X}_{\bullet j}$ és la mitjana mostral de les mesures preses sobre el bloc $j$-èsim
 $$
 \overline{X}_{\bullet j}=\dfrac{\sum_{i=1}^k X_{ij}}{k}
 $$
-Estima la mitjana poblacional del bloc $j$-èssim, $\mu_{\bullet j}$
+Estima la mitjana poblacional del bloc $j$-èsim, $\mu_{\bullet j}$.
 
 
 * $\overline{X}$ és la mitjana mostral de tota la mostra
 $$
 \overline{X}=\dfrac{\sum_{i=1}^k\sum_{j=1}^b X_{ij}}{k\cdot b}
 $$
-Estima la mitjana poblacional global, $\mu$
+Estima la mitjana poblacional global, $\mu$.
 
 
 ```{example}
@@ -1489,10 +1515,10 @@ Anem a calcular-les. Emmagatzemarem les dades en un *dataframe*  `Dades`  de tre
 * **blocs**: l'individu
 * **tracts**: l'activitat
 
-Per poder després fer l'ANOVA, aquests dos darrers han de ser factors. Com que entrarem les dades de la taula per fileres:
+Per poder després fer l'ANOVA amb R, aquests dos darrers han de ser factors. Com que entrarem les dades de la taula per fileres:
 
-* el factor **tracts** ha d'estar format per 8 còpies del vector (1,2,3), on 1 representa córrer, 2, caminar i 3, pedalar
-* el factor **blocs** ha de tenir la forma (1,1,1,2,2,2,3,3,3,...) 
+* El factor **blocs** ha de tenir la forma (1,1,1,2,2,2,3,3,3,...).
+* El factor **tracts** ha d'estar format per 8 còpies del vector (1,2,3), on 1 representa córrer, 2, caminar i 3, pedalar.
 
 ```{r}
 kilocal=c(1.4,1.1,0.7,1.5,1.2,0.8,1.8,1.3,0.7,1.7,1.3,0.8,
@@ -1509,23 +1535,23 @@ head(Dades)
 * Calculem les mitjanes mostrals dels tractaments, $\overline{X}_i$:
 
 ```{r}
-mean.tracts=aggregate(kilocal~tracts,data=Dades,mean)
-mean.tracts
+mitjanes.tracts=aggregate(kilocal~tracts,data=Dades,mean)
+mitjanes.tracts
 ```
 
 
 * Calculem les mitjanes mostrals dels blocs, $\overline{X}_{\bullet j}$:
 
 ```{r}
-mean.blocs=aggregate(kilocal~blocs,data=Dades,mean)
-mean.blocs
+mitjanes.blocs=aggregate(kilocal~blocs,data=Dades,mean)
+mitjanes.blocs
 ```
 
 * Calculem la mitjana mostral global $\overline{X}$:
 
 ```{r}
-mean.tot=mean(Dades$kilocal)
-mean.tot
+mitjana.total=mean(Dades$kilocal)
+mitjana.total
 ```
 
 
@@ -1537,13 +1563,13 @@ SS_{Total}=SS_{Tr}+SS_{Blocs}+SS_E
 $$
 on
 
-* $SS_{Total}=\displaystyle\sum\limits_{i=1}^k\sum\limits_{j=1}^b (X_{ij}- \overline{X})^2$; és la   **Suma Total de Quadrats**
+* $SS_{Total}=\displaystyle\sum\limits_{i=1}^k\sum\limits_{j=1}^b (X_{ij}- \overline{X})^2$; és la   **Suma Total de Quadrats**.
   
-* $SS_{Tr}=\displaystyle b\sum\limits_{i=1}^k (\overline{X}_{i}-\overline{X})^2$; és la   **Suma de Quadrats dels Tractaments**
+* $SS_{Tr}=\displaystyle b\sum\limits_{i=1}^k (\overline{X}_{i}-\overline{X})^2$; és la   **Suma de Quadrats dels Tractaments**.
   
-* $SS_{Blocs}=\displaystyle k\sum\limits_{j=1}^b (\overline{X}_{\bullet j}-\overline{X})^2$; és la   **Suma de Quadrats dels Blocs**
+* $SS_{Blocs}=\displaystyle k\sum\limits_{j=1}^b (\overline{X}_{\bullet j}-\overline{X})^2$; és la   **Suma de Quadrats dels Blocs**.
 
-* $SS_E=\displaystyle\sum\limits_{i=1}^k\sum\limits_{j=1}^b (X_{ij} - \overline{X}_{i}- \overline{X}_{\bullet j}+\overline{X})^2$; és la   **Suma de Quadrats dels Residus** o **dels Errors**
+* $SS_E=\displaystyle\sum\limits_{i=1}^k\sum\limits_{j=1}^b (X_{ij} - \overline{X}_{i}- \overline{X}_{\bullet j}+\overline{X})^2$; és la   **Suma de Quadrats dels Residus** o **dels Errors**.
 
   
   
@@ -1552,13 +1578,13 @@ on
 
 En aquesta identitat
 
-* $SS_{Total}$ representa la variabilitat total de les dades: és el numerador de la variància de la mostra total
+* $SS_{Total}$ representa la variabilitat total de les dades: és el numerador de la variància de la mostra total.
 
 * $SS_{Tr}$ representa la variabilitat de les mitjanes dels tractaments: és igual al numerador de la variància d'una mostra formada per $b$ còpies de cada una de les mitjanes mostrals dels tractaments, $\overline{X}_1,\overline{X}_2,\ldots,\overline{X}_k$.
 
-* $SS_{Tr}$ representa la variabilitat de les mitjanes dels blocs: és igual al numerador de la variància d'una mostra formada per $k$ còpies de cada una de les mitjanes mostrals dels blocs, $\overline{X}_{\bullet 1},\overline{X}_{\bullet 2},\ldots,\overline{X}_{\bullet b}$
+* $SS_{Tr}$ representa la variabilitat de les mitjanes dels blocs: és igual al numerador de la variància d'una mostra formada per $k$ còpies de cada una de les mitjanes mostrals dels blocs, $\overline{X}_{\bullet 1},\overline{X}_{\bullet 2},\ldots,\overline{X}_{\bullet b}$.
 
-* $SS_E$ representa la "resta de la variabilitat"
+* $SS_E$ representa la "resta de la variabilitat".
 
 ```{block2,type="rmdnote"}
 Si se satisfà el model de l'ANOVA de blocs
@@ -1583,19 +1609,18 @@ bàsicament diu que en una ANOVA de blocs
 > la variabilitat total descompon en la suma de la variabilitat de les mitjanes dels tractaments més la variabilitat de les mitjanes dels blocs més la variabilitat "residual".
 
 ```{example}
-Tornem a l'Exemple \@ref(exm:esports)
+Tornem a l'Exemple \@ref(exm:esports). Recordem les dades que ja tenim:
 
 ```
 
-Recordem les dades que ja tenim
 
 ```{r}
 str(Dades)
 k=3  #Nombre de tractaments
 b=8  #Nombre de blocs
-mean.tracts  #Mitjanes de tractaments
-mean.blocs  #Mitjanes de blocs
-mean.tot  # Mitjana global
+mitjanes.tracts  #Mitjanes de tractaments
+mitjanes.blocs  #Mitjanes de blocs
+mitjana.total  # Mitjana global
 ```
 
 
@@ -1605,7 +1630,7 @@ SS_{Total}=\sum\limits_{i=1}^k\sum\limits_{j=1}^b (X_{ij}- \overline{X})^2
 $$
 
 ```{r}
-SS.Tot=sum((kilocal-mean.tot)^2)
+SS.Tot=sum((kilocal-mitjana.total)^2)
 SS.Tot
 ```
 
@@ -1613,10 +1638,10 @@ SS.Tot
 $$
 SS_{Tr}=b\sum\limits_{i=1}^k (\overline{X}_{i}-\overline{X})^2
 $$
-Fixau-vos que el vector $(\overline{X}_{1},\overline{X}_{2},\overline{X}_{3})$ és la variable **kilocal** de `mean.tracts`.
+Recordau que el vector $(\overline{X}_{1},\overline{X}_{2},\overline{X}_{3})$ és la variable **kilocal** de `mitjanes.tracts`.
 
 ```{r}
-SS.Tr=b*sum((mean.tracts$kilocal-mean.tot)^2)
+SS.Tr=b*sum((mitjanes.tracts$kilocal-mitjana.total)^2)
 SS.Tr
 ```
 
@@ -1625,11 +1650,11 @@ SS.Tr
 $$
 SS_{Blocs}=k\sum\limits_{j=1}^b (\overline{X}_{\bullet j}-\overline{X})^2
 $$
-Fixau-vos que el vector $(\overline{X}_{\bullet 1},\ldots,\overline{X}_{\bullet b})$ és la variable **kilocal** de `mean.blocs`.
+Recordau que el vector $(\overline{X}_{\bullet 1},\ldots,\overline{X}_{\bullet b})$ és la variable **kilocal** de `mitjanes.blocs`.
 
 
 ```{r}
-SS.Bl=k*sum((mean.blocs$kilocal-mean.tot)^2)
+SS.Bl=k*sum((mitjanes.blocs$kilocal-mitjana.total)^2)
 SS.Bl
 ```
 
@@ -1637,14 +1662,15 @@ SS.Bl
 $$
 SS_E=\sum\limits_{i=1}^k\sum\limits_{j=1}^b (X_{ij} - \overline{X}_{i}- \overline{X}_{\bullet j}+\overline{X})^2
 $$
-Per calcular aquesta suma, actuarem com al càlcul de la $SS_E$ de l'ANOVA d'1 via, tenint en compte que
+Per calcular aquesta suma, procedirem com al càlcul de la $SS_E$ de l'ANOVA d'1 via, tenint en compte que
 
-    *  Les entrades de `Dades$kilocal` que difereixen en un múltiple de 3 són del mateix tractament: per exemple, la 1a, la 4a, la 7a etc. corresponen al tractament 1 (córrer). Si a `Dades$kilocal` li restam el vector de les mitjanes del tractaments, `mean.tracts$kilocal`, en realitat estam dient a R que li resti 8 còpies consecutives d'aquest vector, i per tant a cada entrada de `Dades$kilocal` li restam la mitjana del seu tractament.
+    *  Les entrades de `Dades$kilocal` que difereixen en un múltiple de 3 són del mateix tractament: per exemple, la 1a, la 4a, la 7a etc. corresponen al tractament 1 (córrer). Si a `Dades$kilocal` li restam el vector de les mitjanes del tractaments, `mitjanes.tracts$kilocal`, en realitat estam dient a R que li resti 8 còpies consecutives d'aquest vector, i per tant a cada entrada de `Dades$kilocal` li restam la mitjana del seu tractament.
     
-    * Cada grup de 3 entrades consecutives de `Dades$kilocal` corresponen a un bloc: les tres primeres al bloc 1, les tres següents al bloc 2 etc. Per tant, per restar a cada entrada de `Dades$kilocal` la mitjana del bloc corresponent, li hem de restar `rep(mean.blocs$kilocal,each=3)`.
+    * Cada grup de 3 entrades consecutives de `Dades$kilocal` corresponen a un bloc: les tres primeres al bloc 1, les tres següents al bloc 2 etc. Per tant, per restar a cada entrada de `Dades$kilocal` la mitjana del bloc corresponent, li hem de restar `rep(mitjanes.blocs$kilocal,each=3)`.
 
 ```{r}
-SSE=sum((Dades$kilocal-mean.tracts$kilocal-rep(mean.blocs$kilocal,each=3)+mean.tot)^2)
+SSE=sum((Dades$kilocal-mitjanes.tracts$kilocal
+         -rep(mitjanes.blocs$kilocal,each=3)+mitjana.total)^2)
 SSE
 ```
 
@@ -1678,9 +1704,9 @@ $$
 $$
 MS_E = \dfrac{SS_E}{(b-1) (k-1)}
 $$
-    Fixau-vos que el denominador és diferent que al $MS_E$ de l'ANOVA d'1 via
+    Fixau-vos que el denominador és diferent que al $MS_E$ de l'ANOVA d'1 via.
 
-* A més, R calcula el **Quadrat mitjà dels blocs**, que nosaltres no farem servir però que esmentam per si de cas:
+* A més, R calcula el **Quadrat mitjà dels blocs**, que nosaltres no farem servir però que definim perquè sapigueu què és:
 $$
 MS_{Blocs}=\dfrac{SS_{Blocs}}{b-1}
 $$
@@ -1692,10 +1718,7 @@ E(MS_{Tr})=\sigma^2 + \dfrac{b}{k-1}\sum\limits_{i=1}^k (\mu_{i}-\mu)^2 \\
 E(MS_E)=\sigma^2
 \end{array}
 $$
-
-```{block2,type="rmdnote"}
-I $MS_E$ torna a estimar la variància comuna de totes les poblacions definides per les parelles (tractament,bloc).
-```
+on $\sigma^2$ indica la variància comuna de totes les poblacions definides per les parelles (tractament,bloc). Per tant, $MS_E$ torna a ser un estimador no esbiaixat d'aquesta $\sigma^2$.
 
 Aleshores, com a l'ANOVA d'1 via, si $H_0:\mu_{1}=\cdots =\mu_{k}(=\mu)$ és certa,
 $$
@@ -1714,15 +1737,15 @@ F=\frac{MS_{Tr}}{MS_E}
 $$
 Si $H_0$ és certa:
 
-* La seva distribució és F de Fisher amb $k-1$ i $(k-1)(b-1)$ graus de llibertat, $F_{k-1,(k-1)(b-1)}$
+* La seva distribució és F de Fisher amb $k-1$ i $(k-1)(b-1)$ graus de llibertat, $F_{k-1,(k-1)(b-1)}$.
 
 ```{block2,type="rmdimportant"}
 En general, els graus de llibertat de l'estadístic F d'una ANOVA, sigui del tipus que sigui, són els denominadors emprats en les definicions dels quadrats mitjans del numerador i el denominador.
 ```
 
-* El seu valor és proper a 1
+* El seu valor és proper a 1.
 
-I per tant rebutjarem la hipòtesi nul·la si el valor $F_0$ de $F$ sobre la nostra mostra és prou més gran que 1, la qual cosa decidirem comparant el p-valor $P(F_{k-1,(k-1)(b-1)}\geq F_0)$ amb el nivell de significació $\alpha$.
+I per tant rebutjarem la hipòtesi nul·la si el valor $F_0$ de F sobre la nostra mostra és prou més gran que 1, la qual cosa decidirem comparant el p-valor $P(F_{k-1,(k-1)(b-1)}\geqslant F_0)$ amb el nivell de significació $\alpha$.
 
 En resum, per realitzar una ANOVA de blocs a partir d'una mostra:
 
@@ -1737,7 +1760,7 @@ $$
 
 * Calculam el p-valor
 $$
-P(F_{k-1,(k-1)(b-1)}\geq F_0)
+P(F_{k-1,(k-1)(b-1)}\geqslant F_0)
 $$
 
 * Si aquest p-valor és més petit que el nivell de significació $\alpha$,  rebutjam $H_0$ i concloem que no totes les mitjanes són iguals. En cas contrari, acceptam que totes les mitjanes són iguals.
@@ -1781,10 +1804,10 @@ Aleshores:
 * $F=\dfrac{MS_{Tr}}{MS_E}=79.949$
 
 
-* p-valor: $P(F_{2,14}\geq 79.949)=2\cdot 10^{-8}$
+* p-valor: $P(F_{2,14}\geqslant 79.949)=2\cdot 10^{-8}$
 
 
-* *Conclusió*: Hem obtingut evidència estadística que no és veritat que les tres activitats tenguin el mateix consum energètic mitjà per km (ANOVA de blocs, p-valor 2·10^-8^)
+* *Conclusió*: Hem obtingut evidència estadística que no és cert que les tres activitats tenguin el mateix consum energètic mitjà per km (ANOVA de blocs, p-valor 2·10^-8^)
 
 La taula ANOVA d'aquest exemple és
 
@@ -1813,16 +1836,16 @@ o, equivalentment, amb
 summary(aov(kilocal~tracts+blocs, data=Dades))
 ```
 
-Obtenim la taula d'abans (llevat d'una petita diferència en la $F$ deguda a que als càlculs a mà anàvem arrodonint pel camí)  amb dues entrades més: l'estadístic de contrast i el p-valor de la filera `blocs`, que corresponen al contrast sobre hi ha diferència o no entre les mitjanes dels blocs (en aquest exemple, els consums mitjans energètics per km dels individus de la mostra en desplaçar-se de qualsevol de les tres maneres).
+Obtenim la taula d'abans (llevat d'una petita diferència en la F deguda a que als càlculs a mà hem arrodonit pel camí)  amb dues entrades més: l'estadístic de contrast i el p-valor de la filera `blocs`, que corresponen al contrast sobre hi ha diferència o no entre les mitjanes dels blocs (en aquest exemple, els consums mitjans energètics per km dels individus de la mostra en desplaçar-se de qualsevol de les tres maneres).
 
 
 ### Comparacions posteriors per parelles
 
 Com en el cas d'1 via, si rebutjam la hipòtesi nul·la, podem demanar-nos quins són els tractaments que tenen mitjanes diferents.
-Ho podem respondre fent un test t per a cada parella de tractaments **emprant mostres aparellades** i aplicant un ajust del p-valor (Bonferroni, Holm...). No donarem els detalls de les fórmules, simplement heu de saber que amb R es fa com a l'ANOVA d'1 via: amb la funció `pairwise.t.test`, però ara indicant-hi que `paired=TRUE`.
+Ho podem respondre fent un test t per a cada parella de tractaments **emprant mostres aparellades** i ajustant el p-valor (per Bonferroni, Holm...). No donarem els detalls de les fórmules, simplement heu de saber que amb R es fa com a l'ANOVA d'1 via: amb la funció `pairwise.t.test`, però ara indicant-hi que `paired=TRUE`.
 
 ```{example}
-A l'experiment de l'Exemple \@ref(exm:esports) hem arribat a la conclusió que no totes les mitjanes són iguals. Emprem un contrast posterior per parelles amb l'ajust de Bonferroni per mirar quines són diferents.
+A l'experiment de l'Exemple \@ref(exm:esports) hem arribat a la conclusió que no totes les mitjanes són iguals. Emprem un contrast posterior per parelles amb l'ajust de Bonferroni per esbrinar quines són diferents.
 
 ```
 
@@ -1830,12 +1853,12 @@ A l'experiment de l'Exemple \@ref(exm:esports) hem arribat a la conclusió que n
 pairwise.t.test(Dades$kilocal, Dades$tracts, paired=TRUE, p.adjust.method="bonferroni")
 ```
 
-*Conclusió*: Hem obtingut evidència estadística que les tres activitats tenen diferent consum energètic mitjà per km (ANOVA de blocs, test posterior de Bonferroni, p-valors ajustats inferiors a 0.0011)
+*Conclusió*: Hem obtingut evidència estadística que les tres activitats tenen  consum energètic mitjà per km diferent (ANOVA de blocs, test posterior de Bonferroni, p-valors ajustats inferiors a 0.0011)
 
 ### Contrast no paramètric
 
 
-Si en un experiment  amb disseny d'ANOVA de blocs no podem  aplicar l'ANOVA perquè sospitem que no se satisfan les condicions necessàries, **cal emprar un test no paramètric**. El més popular és el **test de Friedman**, que generalitza el test de Wilcoxon a més de 2 mostres. En R està implementat en la funció `friedman.test` que s'aplica a la mateixa fórmula que `summary(aov( ))` excepte que cal substituir-hi la suma "+" per una barra vertical "|". Per exemple:
+Si en un experiment  amb disseny d'ANOVA de blocs no podem  aplicar l'ANOVA perquè sospitem que no se satisfan les condicions necessàries, **cal emprar un test no paramètric**. El més popular és el **test de Friedman**, que generalitza el test de Wilcoxon a més de 2 mostres aparellades. En R està implementat en la funció `friedman.test` que s'aplica a la mateixa fórmula que `summary(aov( ))` excepte que cal substituir-hi la suma "+" per una barra vertical "|". Per exemple:
 
 ```{r}
 friedman.test(kilocal~tracts|blocs,data=Dades)
@@ -1854,15 +1877,15 @@ Obtenim evidència estadística que les tres activitats tenen consums energètic
 
 ## ANOVA de 2 vies
 
-Amb l'ANOVA d'1 via comparàvem les mitjanes de més de 2 subpoblacions definides pels nivells d'un únic factor. Ara ens interessa el cas quan aquestes subpoblacions estan definides combinant els nivells de més d'un factor. Es diu en aquest cas que el disseny de  l'experiment és d'**ANOVA factorial**. Nosaltres aquí explicarem només el cas més senzill, quan s'empren només 2 factors (2 vies). A més, per simplificar, només considerarem el cas que totes les mostres de cada combinació de nivells d'un factor i de l'altre tenen la mateixa mida.
+Amb l'ANOVA d'1 via comparàvem les mitjanes de més de 2 subpoblacions definides pels nivells d'un únic factor. Ara ens interessa el cas quan aquestes subpoblacions estan definides combinant els nivells de més d'un factor. Es diu en aquest cas que el disseny de  l'experiment és d'**ANOVA factorial**. Nosaltres aquí explicarem només el cas més senzill, quan s'empren només 2 factors (**2 vies**). A més, per simplificar, només considerarem el cas que totes les mostres de cada combinació de nivells d'un factor i de l'altre tenen la mateixa mida.
 
 Per tant, en un experiment amb **disseny d'ANOVA de 2 vies**:
 
-* Tenim una variable aleatòria $X$
+* Tenim una variable aleatòria $X$.
 
-* Classificam la població segons les combinacions dels nivells de dos factors
+* Classificam la població segons les combinacions dels nivells de dos factors.
 
-* Prenem una m.a.s. de cada combinació de nivells, independents i totes de la mateixa mida, i hi mesuram la variable $X$
+* Prenem una m.a.s. de cada combinació de nivells, independents i totes de la mateixa mida, i hi mesuram la variable $X$.
 
 
 ### Contrast bàsic
@@ -1903,25 +1926,24 @@ $$
 
 El disseny experimental d'aquest estudi és d'ANOVA de 2 vies:
 
-* La variable aleatòria d'interès $X$ és el GSI d'un peix (femella) de 3 mesos
+* La variable aleatòria d'interès $X$ és el GSI d'un peix (femella) de 3 mesos.
 
-* Classificam la població (els peixos) segons les combinacions dels nivells de dos factors (A: el foto-període; B: la temperatura)
+* Classificam la població (els peixos) segons les combinacions dels nivells de dos factors (A: el foto-període; B: la temperatura).
 
-* Prenem una m.a.s. de cada combinació de nivells, independents i totes de la mateixa mida, i mesuram el GSI dels individus seleccionats
+* Prenem una m.a.s. de cada combinació de nivells, independents i totes de la mateixa mida, i mesuram el GSI dels individus seleccionats.
 
 La situació general en una ANOVA de 2 vies serà la següent:
 
-* Tenim en compte dos factors, A i B.  El factor A té $a$ nivells (o **tractaments**, recordau) i el factor B, $b$
-nivells.
+* Tenim en compte dos factors, A i B.  El factor A té $a$ nivells (o **tractaments**, recordau) i el factor B, $b$ nivells.
 
-    En el nostre exemple, $a=b=2$
+    En el nostre exemple, $a=b=2$.
 
 * Fem $n$ observacions de cada combinació de tractaments, un de cada factor. El nombre total d'observacions serà per tant $N=n\cdot
 a\cdot b$.
 
-    En el nostre exemple, $n=5$ i $N=20$
+    En el nostre exemple, $n=5$ i $N=20$.
 
-* Indicarem amb $X_{ijk}$, $i=1,\ldots,a$, $j=1,\ldots,b$, $k=1,\ldots,n$, el valor de la variable $X$ en el $k$-èssim subjecte de la mostra corresponent  al nivell $i$-èssim del factor A i el nivell $j$-èssim del factor B
+* Indicarem amb $X_{ijk}$, $i=1,\ldots,a$, $j=1,\ldots,b$, $k=1,\ldots,n$, el valor de la variable $X$ en el $k$-èsim subjecte de la mostra corresponent  al nivell $i$-èsim del factor A i el nivell $j$-èsim del factor B.
 
 * Donarem les dades en una taula d'aquest estil:
 
@@ -1951,21 +1973,21 @@ $$
 
 Perquè tengui sentit realitzar una ANOVA de 2 vies sobre aquestes  dades, s'han de satisfer les condicions següents:
 
-* Les observacions per a cada combinació de nivells constitueixen mostres aleatòries simples independents, totes de la mateixa mida $n$
+* Les observacions per a cada combinació de nivells constitueixen mostres aleatòries simples independents, totes de la mateixa mida $n\geqslant 2$.
  
-* Cadascuna de les $a\cdot b$ subpoblacions definides per les combinacions de tractaments, un de cada factor, és normal
+* Cadascuna de les $a\cdot b$ subpoblacions definides per les combinacions de tractaments, un de cada factor, és normal.
  
-* **Homocedasticitat**: Totes aquestes subpoblacions tenen la mateixa variància, que indicarem amb $\sigma^2$
+* **Homocedasticitat**: Totes aquestes subpoblacions tenen la mateixa variància, que indicarem amb $\sigma^2$.
 
 Els paràmetres que intervindran en el contrast són:
 
-* $\mu$:  la mitjana poblacional global
+* $\mu$:  la mitjana poblacional global.
 
-* $\mu_{i\bullet}$: la mitjana poblacional del nivell $i$-èssim del factor A
+* $\mu_{i\bullet}$: la mitjana poblacional del nivell $i$-èsim del factor A.
 
-* $\mu_{\bullet j}$: mitjana poblacional del nivell  $j$-èssim  del factor B
+* $\mu_{\bullet j}$: mitjana poblacional del nivell  $j$-èsim  del factor B.
 
-* $\mu_{ij}$: mitjana poblacional de la combinació $(i,j)$ de nivells d'A i B
+* $\mu_{ij}$: mitjana poblacional de la combinació $(i,j)$ de nivells d'A i B.
 
 
 L'ANOVA de 2 vies se basa en el **model** següent: per a tots $i=1,\ldots,a$ i $j=1,\ldots,b$
@@ -1974,13 +1996,13 @@ X_{ij}=\mu+ \alpha_i +\beta_j + (\alpha\beta)_{ij}+E_{ij}
 $$
 on:
 
-* $X_{ij}$ indica el valor de la variable $X$ sobre un individu que pertany al nivell $i$-èssim del factor A i al nivell $j$-èssim del factor B
+* $X_{ij}$ indica el valor de la variable $X$ sobre un individu que pertany al nivell $i$-èsim del factor A i al nivell $j$-èsim del factor B.
 
-* $\alpha_i=\mu_{i\bullet}-\mu$ representa la desviació de la mitjana de  $X$ en el nivell $i$-èssim del factor A respecte de la mitjana global $\mu$ (l'**efecte del tractament $i$-èssim del factor A**)
+* $\alpha_i=\mu_{i\bullet}-\mu$ representa la desviació de la mitjana de  $X$ en el nivell $i$-èsim del factor A respecte de la mitjana global $\mu$ (l'**efecte del tractament $i$-èsim del factor A**).
 
-* $\beta_j=\mu_{\bullet j}-\mu$ representa la desviació de la mitjana de  $X$ en el nivell $j$-èssim del factor B respecte de la mitjana global $\mu$ (l'**efecte del tractament $j$-èssim del factor B**)
+* $\beta_j=\mu_{\bullet j}-\mu$ representa la desviació de la mitjana de  $X$ en el nivell $j$-èsim del factor B respecte de la mitjana global $\mu$ (l'**efecte del tractament $j$-èsim del factor B**).
 
-* $(\alpha\beta)_{ij}=\mu_{ij}-\mu_{i\bullet}-\mu_{\bullet j}+\mu$ representa l'**efecte de la interacció** entre el  nivell $i$-èssim del factor $A$ i el  nivell  $j$-èssim del factor $B$; si no hi hagués interacció, tendríem que
+* $(\alpha\beta)_{ij}=\mu_{ij}-\mu_{i\bullet}-\mu_{\bullet j}+\mu$ representa l'**efecte de la interacció** entre el  nivell $i$-èsim del factor $A$ i el  nivell  $j$-èsim del factor $B$; si no hi hagués interacció, tendríem que
 $$
 \mu_{ij}-\mu=(\mu_{i\bullet}-\mu)+(\mu_{\bullet j}-\mu)
 $$
@@ -1998,19 +2020,19 @@ Aquest model  diu bàsicament  que el valor de $X$ sobre un individu és la suma
 
 
 
-Passem ara a la mostra amb la que volem realitzar el contrast. Siguin:
+Passem ara a la mostra amb què volem realitzar el contrast. Siguin:
 
-*  $\overline{X}_{ij}=\dfrac{\sum_{k=1}^n X_{ijk}}{n}$: la mitjana mostral de la combinació $(i,j)$ de nivells d'A i B; estima $\mu_{ij}$
+*  $\overline{X}_{ij}=\dfrac{\sum_{k=1}^n X_{ijk}}{n}$: la mitjana mostral de la combinació $(i,j)$ de nivells d'A i B; estima $\mu_{ij}$.
  
 
-* $\overline{X}_{i\bullet}=\dfrac{\sum_{j=1}^b\sum_{k=1}^n X_{ijk}}{bn}$: la mitjana mostral  del nivell $i$-èssim del factor A; estima $\mu_{i\bullet}$
+* $\overline{X}_{i\bullet}=\dfrac{\sum_{j=1}^b\sum_{k=1}^n X_{ijk}}{bn}$: la mitjana mostral  del nivell $i$-èsim del factor A; estima $\mu_{i\bullet}$.
 
 
-* $\overline{X}_{\bullet j}=\dfrac{\sum_{i=1}^a\sum_{k=1}^n X_{ijk}}{an}$: la mitjana mostral  del nivell  $j$-èssim  del factor B estima $\mu_{\bullet j}$
+* $\overline{X}_{\bullet j}=\dfrac{\sum_{i=1}^a\sum_{k=1}^n X_{ijk}}{an}$: la mitjana mostral  del nivell  $j$-èsim  del factor B estima $\mu_{\bullet j}$.
 
 
 
-*  $\overline{X}=\dfrac{\sum_{i=1}^{a}\sum_{j=1}^b\sum_{k=1}^n X_{ijk}}{a b n}$: la mitjana mostral de tota la mostra; estima $\mu$
+*  $\overline{X}=\dfrac{\sum_{i=1}^{a}\sum_{j=1}^b\sum_{k=1}^n X_{ijk}}{a b n}$: la mitjana mostral de tota la mostra; estima $\mu$.
 
 
 ```{example}
@@ -2049,7 +2071,9 @@ Anem a calcular-les. Organitzarem les dades en un dataframe  `peixos` amb 3 vari
 
 * **temp**, un factor que   contendrà el valor del nivell del  factor B (temperatura) per a cada peix
 
+```{block2,type="rmdrecordau"}
 Com a totes les ANOVA, els factors que s'empren per classificar la població convé que siguin això, factors (o, almenys, vectors de paraules, no vectors numèrics), al *dataframe* si volem després emprar la funció `aov` per fer l'ANOVA.
+```
 
 Entrarem les dades de la taula per fileres. Per tant el factor **llum** ha d'estar format per 10 còpies consecutives del vector (9,14) i el factor **temp** ha d'estar format per 10 còpies de "16" seguides de 10 còpies de "27".
 
@@ -2071,8 +2095,8 @@ Calculem les mitjanes:
 * Les $\overline{X}_{ij}$:
 
 ```{r}
-Xb.i.j.bullet=aggregate(GSI~llum+temp, data=peixos,mean)
-Xb.i.j.bullet
+Xb.i.j.bolleta=aggregate(GSI~llum+temp, data=peixos,mean)
+Xb.i.j.bolleta
 ```
 Hem obtingut aquesta taula:
 $$
@@ -2123,38 +2147,38 @@ $$
 on
 
 * $SS_{Total}=\displaystyle\sum\limits_{i=1}^a\sum\limits_{j=1}^b\sum\limits_{k=1}^n
-(X_{ijk}-\overline{X})^2$; és la   **Suma Total de Quadrats**
+(X_{ijk}-\overline{X})^2$; és la   **Suma Total de Quadrats**.
   
-* $SS_{Tr}=\displaystyle n\sum\limits_{i=1}^a\sum\limits_{j=1}^b (\overline{X}_{ij}-\overline{X})^2$; és la   **Suma de Quadrats dels Tractaments**
+* $SS_{Tr}=\displaystyle n\sum\limits_{i=1}^a\sum\limits_{j=1}^b (\overline{X}_{ij}-\overline{X})^2$; és la   **Suma de Quadrats dels Tractaments**.
 
   
-* $SS_{A}=\displaystyle b n\sum\limits_{i=1}^a (\overline{X}_{i\bullet}-\overline{X})^2$; és la   **Suma de Quadrats del Factor A**
+* $SS_{A}=\displaystyle b n\sum\limits_{i=1}^a (\overline{X}_{i\bullet}-\overline{X})^2$; és la   **Suma de Quadrats del Factor A**.
 
-* $SS_{B}=\displaystyle a n\sum\limits_{i=1}^b (\overline{X}_{\bullet j}-\overline{X})^2$; és la   **Suma de Quadrats del Factor B**
+* $SS_{B}=\displaystyle a n\sum\limits_{i=1}^b (\overline{X}_{\bullet j}-\overline{X})^2$; és la   **Suma de Quadrats del Factor B**.
 
 * ${SS_{AB}}=n \sum\limits_{i=1}^a\sum\limits_{j=1}^b (\overline{X}_{ij}-\overline{X}_{i\bullet}-\overline{X}_{\bullet
-j}+\overline{X})^2$; és la   **Suma de Quadrats de la Interacció**
+j}+\overline{X})^2$; és la   **Suma de Quadrats de la Interacció**.
 
   
 * $SS_E=\displaystyle\sum\limits_{i=1}^a\sum\limits_{j=1}^b\sum\limits_{k=1}^n
-(X_{ijk}-\overline{X}_{ij})^2$; és la   **Suma de Quadrats dels Residus** o **dels Errors**
+(X_{ijk}-\overline{X}_{ij})^2$; és la   **Suma de Quadrats dels Residus** o **dels Errors**.
   
 
 ```
 
 Com als ANOVA anteriors, aquestes sumes de quadrats representen les diferents fonts de variabilitat de les dades:
 
-* $SS_{Total}$ representa la variabilitat total de les dades 
+* $SS_{Total}$ representa la variabilitat total de les dades.
 
-* $SS_{Tr}$ representa la variabilitat de les mitjanes de les combinacions de nivells
+* $SS_{Tr}$ representa la variabilitat de les mitjanes de les combinacions de nivells.
 
-* $SS_{A}$ representa la variabilitat de les mitjanes dels nivells del factor A
+* $SS_{A}$ representa la variabilitat de les mitjanes dels nivells del factor A.
 
-* $SS_{B}$ representa la variabilitat de les mitjanes dels nivells del factor B
+* $SS_{B}$ representa la variabilitat de les mitjanes dels nivells del factor B.
 
-* $SS_E$ representa la suma de les variabilitats dins cada combinació de nivells
+* $SS_E$ representa la suma de les variabilitats dins cada combinació de nivells.
 
-* $SS_{AB}$ representa la variabilitat deguda a la interacció
+* $SS_{AB}$ representa la variabilitat deguda a la interacció.
 
 ```{block2,type="rmdcorbes"}
 Recordau que, si no hi hagués interacció, per a cada parella de nivells $j,j'$ de B, les diferències
@@ -2204,7 +2228,7 @@ $$
 SS_{Total} = SS_A+SS_B+SS_{AB}+SS_E
 $$
 
-> La variabilitat total descompon en la suma de la variabilitat de les mitjanes del factor A més la variabilitat de les mitjanes del factor B més la variabilitat deguda a la interacció més la variabilitat de les dades dins cada combinació de tractaments, un de cada factor.
+> La variabilitat total descompon en la suma de la variabilitat de les mitjanes del factor A més la variabilitat de les mitjanes del factor B més la variabilitat deguda a la interacció i més, finalment, la variabilitat "residual".
 
 ```{example}
 Comprovem aquestes identitats amb les dades de l'Exemple \@ref(exm:gupis).
@@ -2243,19 +2267,19 @@ SS.B
 
 * La $SS_{AB}$:
 ```{r}
-SS.AB=n*sum((Xb.i.j.bullet$GSI-Xb.A$GSI-rep(Xb.B$GSI,each=a)+X.barra)^2)
+SS.AB=n*sum((Xb.i.j.bolleta$GSI-Xb.A$GSI-rep(Xb.B$GSI,each=a)+X.barra)^2)
 SS.AB
 ```
 
 * La $SS_{Tr}$:
 ```{r}
-SS.Tr=n*sum((Xb.i.j.bullet$GSI-X.barra)^2)
+SS.Tr=n*sum((Xb.i.j.bolleta$GSI-X.barra)^2)
 SS.Tr
 ```
 
 * La $SS_{E}$:
 ```{r}
-SS.E=sum((peixos$GSI-c(rep(Xb.i.j.bullet[1:2,3],n),rep(Xb.i.j.bullet[3:4,3],n)))^2)
+SS.E=sum((peixos$GSI-c(rep(Xb.i.j.bolleta[1:2,3],n),rep(Xb.i.j.bolleta[3:4,3],n)))^2)
 SS.E    
 ```
 
@@ -2302,7 +2326,7 @@ $$
 Fixau-vos que els denominadors són diferents dels dels quadrats mitjans homònims en les altres ANOVA.
  
 ```{example}
-Al nostre Exemple \@ref(exm:gupis), on $n=5$ i $a=b=2$, hem obtingut les sumes de quadrats següents:
+Al nostre Exemple \@ref(exm:gupis), hem obtingut les sumes de quadrats següents:
 
 
 ```
@@ -2314,7 +2338,7 @@ SS_{Total} & SS_A & SS_B &   SS_{AB} &SS_{Tr} &  SS_E\\ \hline
 \end{array}
 $$
 
-Per tant:
+En aquest exemple, $n=5$ i $a=b=2$. Per tant
 
 
 $$
@@ -2343,7 +2367,7 @@ $$
 $$
 F_A=\frac{MS_A}{MS_E},
 $$
-    el qual, si $H_0$ és certa, té distribució $F$ de Fisher amb $a-1$ i $ab(n-1)$ graus de llibertat i valor proper a 1
+    el qual, si $H_0$ és certa, té distribució F de Fisher amb $a-1$ i $ab(n-1)$ graus de llibertat i valor proper a 1.
 
 
 
@@ -2362,7 +2386,7 @@ $$
 $$
 F_B=\frac{MS_B}{MS_E},
 $$
-    el qual, si $H_0$ és certa, té distribució $F$ de Fisher amb $b-1$ i $ab(n-1)$ graus de llibertat i valor proper a 1
+    el qual, si $H_0$ és certa, té distribució F de Fisher amb $b-1$ i $ab(n-1)$ graus de llibertat i valor proper a 1.
 
 
 * **Contrast dels tractaments**: Contrastam si  hi ha diferències entre les mitjanes de les parelles (nivell de  A, nivell de  B):
@@ -2378,7 +2402,7 @@ $$
 $$
 F_{Tr}=\frac{MS_{Tr}}{MS_E},
 $$
-    el qual, si $H_0$ és certa, té distribució $F$ de Fisher amb $ab-1$ i $ab(n-1)$ graus de llibertat i valor proper a 1
+    el qual, si $H_0$ és certa, té distribució F de Fisher amb $ab-1$ i $ab(n-1)$ graus de llibertat i valor proper a 1.
 
 
 
@@ -2395,18 +2419,19 @@ $$
 $$
 F_{AB} = \frac{MS_{AB}}{MS_E},
 $$
-    el qual, si $H_0$ és certa, té distribució $F$ de Fisher amb $(a-1)(b-1)$ i $ab(n-1)$ graus de llibertat  i valor proper a 1
+    el qual, si $H_0$ és certa, té distribució F de Fisher amb $(a-1)(b-1)$ i $ab(n-1)$ graus de llibertat  i valor proper a 1.
+
+```{block2,type="rmdrecordau"}
+Com a les ANOVA anteriors, els graus de llibertat de cada estadístic de contrast F són els denominadors emprats en les definicions dels quadrats mitjans del numerador i el denominador.
+````
 
 
 En els quatre contrastos, el p-valor és
 $$
-P(F_{x,y}\geq \text{valor de l'estadístic sobre la mostra})
+P(F_{x,y}\geqslant \text{valor de l'estadístic sobre la mostra})
 $$
-on $F_{x,y}$ representa la distribució $F$ de Fisher amb els graus de llibertat que pertoquin al contrast.
+on $F_{x,y}$ representa la distribució F de Fisher amb els graus de llibertat que pertoquin al contrast.
 
-```{block2,type="rmdcaution"}
-Com fins ara, els graus de llibertat de cada estadístic de contrast F són els denominadors emprats en les definicions dels quadrats mitjans del numerador i el denominador.
-````
 
 
 
@@ -2444,30 +2469,30 @@ Realitzem els quatre contrastos:
 $$
 \begin{array}{l}
 F_A=\dfrac{MS_{A}}{MS_E}=21.7\\
-\text{p-valor}_A=P(F_{1,16}\geq 21.7)=\texttt{1-pf(21.7,1,16)}=0.0003
+\text{p-valor}_A=P(F_{1,16}\geqslant 21.7)=\texttt{1-pf(21.7,1,16)}=0.0003
 \end{array}
 $$
-    *Conclusió*: Hem trobat evidència estadística que el GSI mitjà és diferent segons el foto-període (ANOVA de blocs, p-valor 0.0003)
+    *Conclusió*: Hem trobat evidència estadística que el GSI mitjà és diferent segons el foto-període (ANOVA de 2 vies, p-valor 0.0003)
 
 
 * Hi ha diferència en la mitjana del GSI segons la temperatura?
 $$
 \begin{array}{l}
 F_B=\dfrac{MS_{B}}{MS_E}=36.3\\
-\text{p-valor}_B=P(F_{1,16}\geq 36.3)=\texttt{1-pf(36.3,1,16)}=2\cdot 10^{-5}
+\text{p-valor}_B=P(F_{1,16}\geqslant 36.3)=\texttt{1-pf(36.3,1,16)}=2\cdot 10^{-5}
 \end{array}
 $$
-    *Conclusió*: Hem trobat evidència estadística que el  GSI mitjà és diferent segons la temperatura (ANOVA de blocs, p-valor 2·10^-5^)
+    *Conclusió*: Hem trobat evidència estadística que el  GSI mitjà és diferent segons la temperatura (ANOVA de 2 vies, p-valor 2·10^-5^)
 
 
 * Hi ha diferència en la mitjana del GSI segons les combinacions de foto-període i temperatura?
 $$
 \begin{array}{l}
 F_{Tr}=\dfrac{MS_{Tr}}{MS_E}=20.8\\
-\text{p-valor}_{Tr}=P(F_{3,16}\geq 20.8)=\texttt{1-pf(20.8,3,16)}=9\cdot 10^{-6}
+\text{p-valor}_{Tr}=P(F_{3,16}\geqslant 20.8)=\texttt{1-pf(20.8,3,16)}=9\cdot 10^{-6}
 \end{array}
 $$
-    *Conclusió*: Hem trobat evidència estadística que no tots els GSI mitjans per a les combinacions de foto-període i temperatura són iguals (ANOVA de blocs, p-valor 9·10^-6^)
+    *Conclusió*: Hem trobat evidència estadística que no tots els GSI mitjans per a les combinacions de foto-període i temperatura són iguals (ANOVA de 2 vies, p-valor 9·10^-6^)
 
 
 
@@ -2476,10 +2501,10 @@ $$
 $$
 \begin{array}{l}
 F_{AB}=\dfrac{MS_{AB}}{MS_E}=4.437\\
-\text{p-valor}_{AB}=P(F_{1,16}\geq 4.437)=\texttt{1-pf(4.437,1,16)}=0.051
+\text{p-valor}_{AB}=P(F_{1,16}\geqslant 4.437)=\texttt{1-pf(4.437,1,16)}=0.051
 \end{array}
 $$
-    *Conclusió*: No hem trobat evidència estadística  que hi hagi interacció entre el foto-període i la temperatura (ANOVA de blocs, p-valor 0.051)
+    *Conclusió*: No hem trobat evidència estadística  que hi hagi interacció entre el foto-període i la temperatura (ANOVA de 2 vies, p-valor 0.051)
 
 La taula ANOVA és
 
@@ -2514,7 +2539,7 @@ A l'ANOVA de 2 vies:
 * El contrast dels tractaments, és a dir, de les mitjanes de les subpoblacions definides per les combinacions de nivells, un de cada factor, s'efectua aplicant `summary(aov( ))` a la fórmula que separa la variable numèrica per la **combinació dels dos factors**, indicada  amb dos punts ":". 
 
 
-Així, l'ANOVA de blocs de l'Exemple \@ref(exm:esports) es fa amb
+Així, l'ANOVA de 2 vies de l'Exemple \@ref(exm:esports) es fa amb
 
 ```{r}
 summary(aov(GSI~llum*temp,data=peixos))
@@ -2541,7 +2566,7 @@ La primera funció calcula les fileres "Factor A", "Factor B", "Interacció AB" 
 
 
 
-**()** Quina és la hipòtesi alternativa en el contrast que efectuam amb una ANOVA?
+**(2)** Quina és la hipòtesi alternativa en el contrast que efectuam amb una ANOVA?
 
 1. Que totes les mitjanes mostrals  són diferents.
 1. Que totes les mitjanes poblacionals  són diferents.
@@ -2549,13 +2574,13 @@ La primera funció calcula les fileres "Factor A", "Factor B", "Interacció AB" 
 1. Que hi ha alguna parella de mitjanes poblacionals  que són diferents
 1. Que hi ha exactament una parella de mitjanes mostrals  que són diferents
 1. Que hi ha exactament una parella de mitjanes poblacionals  que són diferents
+1. Cap de les anteriors
 
 
 
 
 
-
-**()** Un contrast d'homogeneïtat on comparam la probabilitat d'èxit d'una variable Bernoulli sobre diferents poblacions (per veure si sempre és la mateixa o no) es pot entendre com un contrast d'igualtat de mitjanes. Si les mostres són prou grans, podem emprar una ANOVA per efectuar-lo?
+**(3)** Un contrast d'homogeneïtat on comparam la probabilitat d'èxit d'una variable Bernoulli sobre diferents poblacions (per veure si sempre és la mateixa o no) es pot entendre com un contrast d'igualtat de mitjanes. Si les mostres són prou grans, podem emprar una ANOVA per efectuar-lo?
 
 1. Sí
 1. No
@@ -2564,17 +2589,17 @@ La primera funció calcula les fileres "Factor A", "Factor B", "Interacció AB" 
 
 
 
-**()** Què seria un error de tipus II en una ANOVA?
+**(4)** Què seria un error de tipus II en una ANOVA?
 
 1. Concloure que totes les mitjanes mostrals són iguals quan en realitat són totes diferents
-1. Concloure que hi ha una parella de mitjanes mostrals que són iguals quan en realitat 1. són totes diferents
+1. Concloure que hi ha una parella de mitjanes mostrals que són iguals quan en realitat són totes diferents
 1. Concloure que totes les mitjanes mostrals són iguals quan en realitat n'hi ha alguna parella que són diferents
 1. Concloure que totes les mitjanes poblacionals són iguals quan en realitat són totes diferents
 1. Concloure que hi ha una parella de mitjanes poblacionals que són iguals quan en realitat són totes diferents
 1. Concloure que totes les mitjanes poblacionals són iguals quan en realitat n'hi ha alguna parella que són diferents
 
 
-**()** Per poder efectuar una ANOVA d'1 via, cal que totes les mostres tenguin la mateixa mida?
+**(5)** Per poder efectuar una ANOVA d'1 via, cal que totes les mostres tenguin la mateixa mida?
 
 1. Sí
 1. No
@@ -2584,7 +2609,7 @@ La primera funció calcula les fileres "Factor A", "Factor B", "Interacció AB" 
 
 
 
-**()** Quines de les condicions següents són necessàries per poder efectuar una ANOVA d'1 via?
+**(6)** Quines de les condicions següents són necessàries per poder efectuar una ANOVA d'1 via?
 
 1. Les variables poblacionals han de ser normals
 1. Les variables poblacionals han de ser normals o les mostres han de ser grans
@@ -2594,24 +2619,14 @@ La primera funció calcula les fileres "Factor A", "Factor B", "Interacció AB" 
 1. Les distribucions de les poblacions definides pels nivells han de ser totes la mateixa (han de ser de la mateixa família i tenir els mateixos paràmetres)
 1. Les mostres han de ser independents
 1. Les mostres han de ser aparellades
-1. Les mostres no han de ser aparellades
 
-
-
-
-
-
-**()** Per contrastar si tres somnífers tenen el mateix efecte, prenc 10 persones i durant 3 dies consecutius a cada una li don cada dia un somnífer diferent, en un ordre escollit a l'atzar, a l'hora d'anar a dormir i mesur el temps que tarda en dormir-se. Aquest experiment, te el disseny experimental d'una ANOVA d'1 via?
+**(7)** Per contrastar si tres somnífers tenen el mateix efecte, prenc 10 persones i durant 3 dies consecutius a cada una li don cada dia un somnífer diferent, en un ordre escollit a l'atzar, a l'hora d'anar a dormir i mesur el temps que tarda en dormir-se. Aquest experiment, te el disseny experimental d'una ANOVA d'1 via?
 
 1. Sí
 1. No
 
 
-
-
-
-
-**()** Si en efectuar una ANOVA d’1 via va i resulta que la identitat de la suma de quadrats no se satisfà, què ha passat? 
+**(8)** Si en efectuar una ANOVA d’1 via va i resulta que la identitat de la suma de quadrats no se satisfà, què ha passat? 
 
 1. Un error de tipus I
 1. Un error de tipus II
@@ -2620,19 +2635,18 @@ La primera funció calcula les fileres "Factor A", "Factor B", "Interacció AB" 
 
 
 
-**()** Quines de les afirmacions següents sobre l'ANOVA d'1 via són correctes? Marcau totes les respostes correctes.
+**(9)** Quines de les afirmacions següents sobre l'ANOVA d'1 via són correctes? Marcau totes les respostes correctes.
  
 1. La variància total és igual a la suma de les variàncies dels tractaments més la suma de la variància dels residus.
 1. La suma total de quadrats és igual a la suma dels quadrats dels tractaments més la suma dels quadrats dels residus. 
 1. La variància de les dades és igual a la suma del quadrat mitjà dels  tractaments més el quadrat mitjà dels residus.
-1. La suma dels dos graus de llibertat de la distribució $F$ de l'estadístic de contrast és igual al nombre total de dades.
-1. Les mostres dels diferents tractaments poden ser independents o aparellades.
+1. La suma dels dos graus de llibertat de la distribució F de l'estadístic de contrast és igual al nombre total de dades.
 1. Les mostres dels diferents tractaments poden tenir mides diferents. 
 1. Cap de les respostes anteriors és correcta.
  
 
 
-**()**  Hem realitzat un ANOVA de 1 via. Les dues primeres columnes de la taula resultant són:
+**(10)**  Hem realitzat una ANOVA d'1 via. Les dues primeres columnes de la taula resultant són:
 $$
 \begin{array}{|@{}l@{}|l@{}|l@{}|l@{}|l|l|}
 \hline
@@ -2649,12 +2663,13 @@ Quines de les afirmacions següents són vertaderes? Marcau totes les respostes 
 1. El nombre de nivells del factor d'interès és 3
 1. El nombre total de dades ha estat 24
 1. El nombre total de dades ha estat 25 
-1. El p-valor és més petit que 0.05 
+1. La distribució de l'estadístic de contrast és F de Fisher amb 3 i 21 graus de llibertat 
+1. La distribució de l'estadístic de contrast és F de Fisher amb 21 i 3 graus de llibertat 
 1. Cap de les altres respostes és correcta
 
 
 
-**()** Si volem realitzar un contrast posterior per parelles després d'una ANOVA d'1 via on hem comparat 5 tractaments, i empram el mètode d'ajust de Bonferroni, per quin valor hem de multiplicar els p-valors dels contrastos individuals?
+**(11)** Si volem realitzar un contrast posterior per parelles després d'una ANOVA d'1 via on hem comparat 5 tractaments, i empram el mètode d'ajust de Bonferroni, per quin valor hem de multiplicar els p-valors dels contrastos individuals?
  
 1. Per 5.
 1. Per 10. 
@@ -2666,7 +2681,7 @@ Quines de les afirmacions següents són vertaderes? Marcau totes les respostes 
  
 
 
-**()** S'ha realitzat un assaig clínic dirigit a comparar l'efectivitat de tres tractaments alternatius en pacients cirròtics, provant-los sobre tres grups independents de malalts. La variable de resposta ha estat el nivell de transaminasses, que és contínua i de distribució asimètrica a la dreta. Quina de les proves estadístiques  següents és la més adequada per contrastar si els tres tractaments tenen la mateixa efectivitat o no?:
+**(12)** S'ha realitzat un assaig clínic dirigit a comparar l'efectivitat de tres tractaments alternatius en pacients cirròtics, provant-los sobre tres grups independents de 50 malalts cadascun. La variable de resposta ha estat el nivell de transaminasses, que és contínua i de distribució asimètrica a la dreta. Quina de les proves estadístiques  següents és la més adequada per contrastar si els tres tractaments tenen la mateixa efectivitat o no?:
  
 1. 3 proves t per a mostres independents, una per a cada parell de tractaments
 1. Una anàlisi de la variància 
@@ -2676,7 +2691,7 @@ Quines de les afirmacions següents són vertaderes? Marcau totes les respostes 
 
 
 
-**()** En una ANOVA de blocs, per calcular el p-valor hem emprat una distribució $F$ amb 3 i 21 graus de llibertat. De quina mida era la mostra completa que hi hem emprat?
+**(13)** En una ANOVA de blocs, per calcular el p-valor hem emprat una distribució F amb 3 i 21 graus de llibertat. De quina mida era la mostra completa que hi hem emprat?
 
  
 1. De 21 individus
@@ -2687,33 +2702,43 @@ Quines de les afirmacions següents són vertaderes? Marcau totes les respostes 
 1. Cap de les altres respostes és correcta
 
 
-**()**  Hem realitzat una ANOVA de blocs. Hi comparàvem 3 tractaments i hem emprat 10 blocs; les dades no han estat totes iguals. Si haguéssim analitzat les mateixes dades, de manera incorrecta, amb una ANOVA d'una via, quines de les afirmacions següents segur que serien vertaderes? Marcau totes les respostes correctes.
+**(14)**  Hem realitzat una ANOVA de blocs. Hi comparàvem 3 tractaments i hem emprat 10 blocs; les dades no han estat totes iguals. Si haguéssim analitzat les mateixes dades, de manera incorrecta, amb una ANOVA d'1 via, quines de les afirmacions següents segur que serien vertaderes? Marcau totes les respostes correctes.
  
 1. La suma de quadrats total hagués estat més gran
-1. La suma de quadrats dels errors hagués estat més petit 
+1. La suma de quadrats dels errors hagués estat més petita 
 1. La suma de quadrats dels errors hagués estat més gran
 1. El quadrat mitjà dels errors hagués estat més petit 
 1. El quadrat mitjà dels errors hagués estat més gran 
-1. El segon nombre de graus de llibertat de l'estadístic $F$ emprat per calcular el p-valor seria més petit 
-1. El segon nombre de graus de llibertat de l'estadístic $F$ emprat per calcular el p-valor seria més gran
+1. El segon nombre de graus de llibertat de l'estadístic F emprat per calcular el p-valor seria més petit 
+1. El segon nombre de graus de llibertat de l'estadístic F emprat per calcular el p-valor seria més gran
 1. Cap de les altres respostes és correcta
 
+**(15)** És possible que una ANOVA de blocs, per calcular el p-valor hàgim d'emprar una distribució F amb 3 i 22 graus de llibertat?
+
+1. Sí
+1. No
 
 
-**()** Respecte al test de Friedman, quines de les afirmacions següents són correctes? Marcau totes les respostes correctes.
+**(16)** És possible que una ANOVA d'1 via, per calcular el p-valor hàgim d'emprar una distribució F amb 3 i 22 graus de llibertat?
+
+1. Sí
+1. No
+
+
+**(17)** Respecte al test de Friedman, quines de les afirmacions següents són correctes? Marcau totes les respostes correctes.
  
 1. És un test no paramètric.
-1. S'utilitza per comparar les medianes de tres o més poblacions a partir de mostres independents. 
-1. S'utilitza per comparar les medianes de tres o més poblacions a partir de mostres aparellades. 
-1. Si el realitzam sobre 2 poblacions, és equivalent al test de Wilcoxon 
-1. Si el realitzam sobre 2 poblacions, és equivalent al test de Mann-Whitney 
+1. S'utilitza per comparar les mitjanes (en realitat, les medianes) de tres o més poblacions a partir de mostres independents. 
+1. S'utilitza per comparar les mitjanes (en realitat, les medianes) de tres o més poblacions a partir de mostres aparellades. 
+1. Si l'aplicam a 2 mostres, és equivalent al test de Wilcoxon 
+1. Si l'aplicam a 2 mostres, és equivalent al test de Mann-Whitney 
 1. Requereix que les mostres provenguin de distribucions normals.
 1. Requereix que les mostres provenguin de distribucions NO normals.
 
 
 
 
-**()** En una ANOVA de 2 vies, en quantes fonts de variabilitat independents descompon la variabilitat total?
+**(18)** En una ANOVA de 2 vies, en quantes fonts de variabilitat independents descompon la variabilitat total?
 
  
 1. 2
@@ -2723,42 +2748,18 @@ Quines de les afirmacions següents són vertaderes? Marcau totes les respostes 
 1. Cap de les altres respostes és correcta
 
 
-
-**()** Què seria un error de tipus I en un contrast de no interacció en una ANOVA de dues vies? Marcau l'única resposta correcta. 
-
-1. Concloure que hi ha interacció entre tots els nivells d'un factor i tots els nivells de l'altre factor quan no és veritat
-1. Concloure que hi ha interacció entre algun nivell d'un factor i algun nivell de l'altre factor quan no és veritat 
-1. Concloure que no hi ha interacció entre cap nivell d'un factor i cap nivell de l'altre factor quan sí que n'hi ha
-1. Concloure que el diagrama d'interacció mostra que hi ha interacció quan en realitat no ho mostra
-1. Concloure que el diagrama d'interacció mostra que no hi ha interacció quan en realitat sí que ho mostra
-1. Cap de les altres respostes és correcta.
- 
-
-
-**()** Respecte al test de Kruskal-Wallis, quines de les afirmacions següents són correctes? Marcau totes les respostes correctes.
+**(19)** Respecte al test de Kruskal-Wallis, quines de les afirmacions següents són correctes? Marcau totes les respostes correctes.
  
 1. És un test no paramètric.
 1. S'utilitza per comparar les mitjanes (en realitat, les medianes) de tres o més poblacions a partir de mostres independents. 
 1. S'utilitza per comparar les mitjanes (en realitat, les medianes) de tres o més poblacions a partir de mostres aparellades. 
-1. Si el realitzam sobre 2 poblacions, és equivalent al test de Wilcoxon
-1. Si el realitzam sobre 2 poblacions, és equivalent al test de Mann-Whitney  
+1. Si l'aplicam a 2 mostres, és equivalent al test de Wilcoxon 
+1. Si l'aplicam a 2 mostres, és equivalent al test de Mann-Whitney 
 1. Requereix que les mostres provenguin de distribucions normals.
 1. Requereix que les mostres provenguin de distribucions NO normals.
 
 
-
-**()** Si volem realitzar un contrast posterior per parelles després d'una ANOVA d'1 via on hem comparat 4 tractaments, i empram el mètode d'ajust de Bonferroni, per quin valor hem de multiplicar els p-valors dels contrastos individuals?
- 
-1. Per 4.
-1. Per 6. 
-1. Per 12.
-1. Per 1/4.
-1. Per 1/6.
-1. Per 1/12.
-1. Cap de les respostes anteriors és correcta.
- 
-
-**()**  Hem realitzat una ANOVA de blocs. Les dues primeres columnes de la taula resultant són:
+**(20)**  Hem realitzat una ANOVA de blocs. Les dues primeres columnes de la taula resultant són:
 $$
 \begin{array}{|@{}l@{}|l@{}|l@{}|l@{}|l|l|}
 \hline
@@ -2770,23 +2771,22 @@ $$
 \end{array}
 $$
 
-Quines de les afirmacions següents són vertaderes? Marcau totes les respostes correctes.
+Quina o quines de les afirmacions següents són vertaderes? Marcau totes les respostes correctes.
  
 1. $SS_{Total}=6.75+8.32=15.07$
 1. El quadrat mitjà dels tractaments és aproximadament 2.25 
 1. El nombre total de dades ha estat 30
 1. El nombre total de dades ha estat 40 
-1. Amb $\alpha=0.05$, podem rebutjar la hipòtesi nul·la que les mitjanes dels tractaments són totes iguals 
 1. Cap de les altres respostes és correcta
 
 
 
-**()** En una ANOVA de blocs hem obtingut un p-valor molt més petit que el nivell de significació. Quina és la conclusió correcta? Marcau només una resposta. 
+**(21)** En una ANOVA de blocs hem obtingut un p-valor molt més petit que el nivell de significació. Quina és la conclusió correcta? Marcau només una resposta. 
 
-1. Que hi ha algun parell de mitjanes mostrals dels tractaments que han estat diferents.
-1. Que hi ha algun parell de mitjanes  poblacionals dels tractaments que són diferents. 
-1. Que hi ha algun parell de mitjanes  poblacionals dels blocs que són diferents. 
-1. Que hi ha algun parell de mitjanes  poblacionals dels blocs que han estat diferents. 
+1. Que hi ha qualque parella de mitjanes mostrals dels tractaments que han estat diferents.
+1. Que hi ha qualque parella de mitjanes  poblacionals dels tractaments que són diferents. 
+1. Que hi ha qualque parella de mitjanes  poblacionals dels blocs que són diferents. 
+1. Que hi ha qualque parella de mitjanes  poblacionals dels blocs que han estat diferents. 
 1. Que les mitjanes mostrals dels tractaments han estat totes diferents.
 1. Que les mitjanes poblacionals dels tractaments són totes diferents. 
 1. Que les mitjanes mostrals dels blocs han estat totes diferents.
@@ -2795,7 +2795,7 @@ Quines de les afirmacions següents són vertaderes? Marcau totes les respostes 
  
 
 
-**()** Quines de les afirmacions següents sobre l'ANOVA de blocs són correctes? Marcau  totes les correctes:
+**(22)** Quines de les afirmacions següents sobre l'ANOVA de blocs són correctes? Marcau  totes les correctes:
 
 1. Rebutjarem la hipòtesi nul·la si la suma de quadrats dels residus és prou gran.
 1. Rebutjarem la hipòtesi nul·la si la suma de quadrats dels blocs és prou gran.
@@ -2806,7 +2806,7 @@ Quines de les afirmacions següents són vertaderes? Marcau totes les respostes 
 
 
 
-**()** Què significa que hi hagi interacció entre els dos factors en una ANOVA de 2 factors?
+**(23)** Què significa que hi hagi interacció entre els dos factors en una ANOVA de 2 factors?
  
 1. Que almenys en un dels factors hem trobat diferències estadísticament significatives 
 1. Que hem trobat  en els dos factors diferències estadísticament significatives entre les mitjanes
@@ -2816,7 +2816,7 @@ Quines de les afirmacions següents són vertaderes? Marcau totes les respostes 
 
 
 
-**()** En un assaig clínic es comparen 3 tractaments (placebo, tractament establert i un tractament nou) sobre 3 grups de pacients escollits de manera independent. Acceptam que la variable resposta té distribució normal i amb la mateixa variància sota cada un dels tractaments. Quina de les proves estadístiques següents és la més adequada per comparar aquesta resposta?
+**(24)** En un assaig clínic es comparen 3 tractaments (placebo, tractament establert i un tractament nou) sobre 3 grups de pacients escollits de manera independent. Acceptam que la variable resposta té distribució normal i amb la mateixa variància sota cada un dels tractaments. Quina de les proves estadístiques següents és la més adequada per comparar aquesta resposta?
  
 1. Tres tests t de mitjanes
 1. Un test de Wilcoxon
@@ -2828,7 +2828,7 @@ Quines de les afirmacions següents són vertaderes? Marcau totes les respostes 
 
 
 
-**()** En un assaig clínic es comparen 3 tractaments (placebo, tractament establert i un tractament nou) sobre 3 grups de pacients escollits de manera independent. La variable resposta és contínua i la seva variància no depèn del tractament, però sota el tractament nou presenta una distribució molt asimètrica. Quina de les proves estadístiques següents és la més adequada per comparar aquesta resposta?
+**(25)** En un assaig clínic es comparen 3 tractaments (placebo, tractament establert i un tractament nou) sobre 3 grups de pacients escollits de manera independent. Acceptam que la variable resposta té distribució normal i quan aplicam a les mostres el test de Bartlett dóna un p-valor molt petit. Quina de les proves estadístiques següents és la més adequada per comparar aquesta resposta?
  
 1. Tres tests t de mitjanes
 1. Un test de Wilcoxon
@@ -2837,25 +2837,6 @@ Quines de les afirmacions següents són vertaderes? Marcau totes les respostes 
 1. Un test khi-quadrat
 
 
-
-
-**()** Un assaig clínic avalua 5 pautes terapèutiques en grups de pacients hipertensos dels dos sexes, 10 grups en total (un per cada combinació de tractament i sexe). Es creu que el sexe influeix en la resposta als tractaments. Per comparar les xifres de pressió arterial observades en els 10 grups als 6 mesos de tractament, quina de les proves estadístiques següents és la més adequada?:
- 
-1. Una ANOVA d'una via 
-1. 45 tests t per a mostres independents
-1. Un contrast de correlació de Pearson
-1. Un test khi-quadrat
-1. Una ANOVA  de dues vies 
-
-
-
-**()** Un assaig clínic avalua 5 pautes terapèutiques en pacients hipertensos, aplicant cada tractament a un grup diferent escollit de manera independent dels altres. Per contrastar si els cinc tractaments tenen la mateixa efectivitat en termes de percentatge de curació de la hipertensió als 6 mesos, quina de les  proves estadístiques següents és la més adequada?:
- 
-1. 10 tests t per a mostres independents
-1. Un test de Wilcoxon
-1. Una anàlisi de la variància
-1. Un test de McNemar
-1. Un test khi-quadrat 
 
 
 
