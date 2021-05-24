@@ -34,7 +34,7 @@ plot(edat,alçada,pch=20)
 abline(lm(alçada~edat),col="red",xlab="Edat",ylab="Alçada")
 ```
 
-Ara podíem emprar aquesta recta per estimar l'alçada d'un nin d'una edat concreta. Per exemple, esimam que l'alçada d'un nin de 10 anys és
+Ara podíeu emprar aquesta recta per estimar l'alçada d'un nin d'una edat concreta. Per exemple, ens permet estimar que l'alçada d'un nin de 10 anys és
 $$
 72.321+6.464\cdot 10=136.964,
 $$
@@ -57,7 +57,7 @@ i volem estudiar com depèn el valor de la variable $Y$ del de $X$. En aquest co
 
 
 ```{block2,type="rmdnote"}
-La variable de control no té per què ser aleatòria: nosaltres podem fixar el seu valor sobre els subjectes. Per exemple, la variable $X$ podria ser la dosi d'una medicació i que nosaltres  decidíssm a cada individu quina dosi li administram. En canvi, la variable de resposta ha de ser aleatòria. Si no, no té sentit estimar res sobre ella.
+La variable de control no té per què ser aleatòria: nosaltres podem fixar el seu valor sobre els subjectes. Per exemple, la variable $X$ podria ser la dosi d'una medicació i que nosaltres  decidíssim a cada individu, de manera planificada i gens aleatòria, quina dosi li administram. En canvi, la variable de resposta ha de ser aleatòria. Si no, no té sentit estimar res sobre ella.
 ```
 
 
@@ -65,7 +65,7 @@ En general, volem trobar la millor relació funcional (el millor **model estadí
 
 
 ```{block2,type="rmdnote"}
-El nom "regressió" per parlar de les tècniques d'ajustar una recta a un conjunt de punts prové del títol d'un article de Galton de 1886, *Regression Towards Mediocrity in Hereditary Stature*. En aquest article hi va analitzar les  alçades d'una mostra de 928 adults i les alçades mitjanes dels seus pares. Hi observà que els pares alts tendien a tenir fills més baixos que ells i que els pares baixos tendien a tenir fills més alts que ells. D'aquest efecte en digué "regressió a la mediocritat" al títol de l'article. D'aquí s'adoptà el terme "regressió" per descriure la tècnica que emprà per obtenir la recta vermella del gràfic següent, amb la qual suportava la seva conclusió comparant-la amb la diagonal (la línia discontínua), i amb el temps el nom de l'efecte que observà es canvià al menys ofensiu "regressió a la mitjana". Més endavant tornarem sobre aquest exemple.
+El nom "regressió" per parlar del tipus de tècniques que permeten ajustar una recta a un conjunt de punts prové del títol d'un article de Galton de 1886, *Regression Towards Mediocrity in Hereditary Stature*. En aquest article hi va analitzar les  alçades d'una mostra de 928 adults i les alçades mitjanes dels seus pares. Hi observà que els pares alts tendien a tenir fills més baixos que ells i que els pares baixos tendien a tenir fills més alts que ells. D'aquest efecte en digué "regressió a la mediocritat" al títol de l'article. D'aquí s'adoptà el terme "regressió" per descriure la tècnica que emprà per obtenir la recta vermella del gràfic següent, amb la qual suportava la seva conclusió comparant-la amb la diagonal (la línia discontínua), i amb el temps el nom de l'efecte que observà es canvià al menys ofensiu "regressió a la mitjana". Més endavant tornarem sobre aquest exemple.
 ```
 
 ```{r, echo=FALSE}
@@ -203,7 +203,7 @@ $$
 \displaystyle s_{xy}  =\frac{1}{n}\Big(\sum_{i=1}^n x_i y_i\Big)-\overline{x}\cdot\overline{y}
 \end{array}
 $$
-s'obté que finalment que 
+s'obté finalment que 
 $$
 b_1 =\frac{{s}_{xy}}{{s}_x^2},\quad b_0 = \overline{y}-b_1 \overline{x}
 $$
@@ -235,7 +235,7 @@ df_edat=data.frame(edat,alçada)
 knitr::kable(df_edat)
 ```
 
-Comencem calculant els estadístics que ens calen per calcular els coeficents $b_0$ i $b_1$ (i la variància de les alçades, que per calcular-los no ens fa falta però més tard sí que la necessitarem):
+Comencem obtenint els estadístics que ens calen per calcular els coeficents $b_0$ i $b_1$ (i la variància de les alçades, que per calcular-los no ens fa falta però més tard sí que la necessitarem):
 
 ```{r}
 edat=c(1,3,5, 7, 9, 11, 13)
@@ -262,7 +262,7 @@ $$
 \displaystyle b_0 = \overline{y}-b_1 \overline{x} =`r round(y.b,3)`-`r round(s.xy/s2.x,3)`\cdot `r round(x.b,3)`=`r round(y.b-(s.xy/s2.x)*x.b,3)`
 \end{array}
 $$
-Obtenim la recta de regressió
+Trobam la recta de regressió
 $$
 \widehat{Y}=`r round(y.b-(s.xy/s2.x)*x.b,3)`+`r round(s.xy/s2.x,3)` X
 $$
@@ -292,7 +292,7 @@ Si es passen les alçades a polzades, s'arrodoneixen, es calcula la recta de reg
 $$
 \widehat{Y}=61.675X-39.746
 $$
-La moralitat d'aquesta història és que heu de procurar no arrodonir fins al resultat final.
+La moralitat d'aquesta història és que, si feu els càlculs a mà, procureu no arrodonir fins al resultat final.
 ```
 
 
@@ -344,7 +344,9 @@ Obtenim la recta
 $$
 \widehat{Y}= `r round(b0.sal,3)`+`r round(b1.sal,3)` X
 $$
-Segons aquest model, l'augment de 1 g de sal consumida implica un augment mitjà de `r round(b1.sal,1)` mm Hg de pressió arterial. Amb aquest model, estimam que la tensió d'una persona que consumeix 3 g diaris de sal és
+Segons aquest model, a un augment d'1 g de sal consumida li correspon un augment mitjà de `r round(b1.sal,1)` mm Hg de pressió arterial. 
+
+Així mateix, amb aquest model estimam, per exemple, que la pressió arterial d'una persona que consumeix 3 g diaris de sal és
 $$
 `r round(b0.sal,3)`+`r round(b1.sal,3)` \cdot 3=`r round(b0.sal+3*b1.sal,3)`\text{ mm Hg}
 $$
@@ -356,7 +358,7 @@ lm(tensió~sal)$coefficients
 ```
 
 ```{example,Galton}
-Anem a estimar la recta de regressió de les alçades dels fills en funció de les dels pares emprant les dades recollides per Galton, que formen el dataframe `Galton` del paquet **HistData**.
+Estimem la recta de regressió de les alçades dels fills en funció de les dels pares emprant les dades recollides per Galton. Aquestes dades formen el dataframe `Galton` del paquet **HistData**.
 ```
 
 ```{r}
@@ -394,7 +396,7 @@ Obtenim la recta
 $$
 \widehat{Y}= `r round(b0.Galton,3)`+`r round(b1.Galton,3)` X
 $$
-Segons aquest model, l'augment de 1 polzada (2.54 cm) en l'alçada mitjana dels pares implica un augment esperat de `r round(b1.Galton,3)` polzades (`r round(b1.Galton*2.54,1)` cm) de l'alçada del fill.
+Segons aquest model, a un augment d'1 polzada (2.54 cm) en l'alçada mitjana dels pares li correspon, de mitjana, un augment  de `r round(b1.Galton,3)` polzades (`r round(b1.Galton*2.54,1)` cm) de l'alçada del fill.
 
 Amb la funció `lm` obtenim la mateixa recta. Observau la sintaxi per especificar-hi el dataframe
 
@@ -453,7 +455,7 @@ El teorema següent recull les propietats de la regressió lineal per mínims qu
 
 
 ```{theorem}
-Si les variables aleatòries error $E_{x_i}$ tenen totes mitjana 0 i la mateixa variància $\sigma^2_E$ i són, dues a dues, incorrelades, aleshores
+Si les variables aleatòries error $E_{x_i}$ tenen totes mitjana 0 i la mateixa variància $\sigma^2_E$ i són, dues a dues, incorrelades, aleshores:
 
 * $b_0$ i $b_1$ són els estimadors lineals no esbiaixats més eficients (**òptims**) de $\beta_0$ i $\beta_1$
 
@@ -462,7 +464,7 @@ $$
 S^2=\frac{SS_E}{n-2}
 $$
 
-Si **a més** les variables aleatòries error $E_{x_i}$ són totes **normals**, aleshores
+Si **a més** les variables aleatòries error $E_{x_i}$ són totes **normals**, aleshores:
 
 * $b_0$ i $b_1$ són estimadors màxim versemblants de $\beta_0$ i $\beta_1$ (a més de no esbiaixats òptims).
 ```
@@ -504,7 +506,7 @@ Amb la funció `lm`,  R calcula molt més que els coeficients de la recta:
 summary(lm(alçada~edat))
 ```
 
-Anem a veure què és tot això que ens dóna R i per a què serveix.
+Veurem què és tot això que ens dóna R i per què serveix.
 
 D'entrada, pot ser útil saber  que el vector `Residuals` (que s'obté amb el sufix `$residuals`) conté el vector dels errors $(e_i)_i$. Comprovem-ho amb les dades de l'Exemple \@ref(exm:edats1).
 
@@ -576,31 +578,31 @@ SS.R+SS.E
 
 
 
+Així, doncs, a la regressió per mínims quadrats **la variabilitat dels valors observats de $Y$ és igual a la suma de la variabilitat dels valors estimats de $Y$ més la variabilitat dels errors**. Llavors, el coeficient de determinació $R^2$ és la fracció de la variabilitat de les $y_i$ que queda explicada per la variabilitat de de les estimacions $\widehat{y}_i$. 
+
+
 Aleshores, si la regressió lineal és per mínims quadrats,
 $$
 R^2=\frac{SS_{Total}-SS_E}{SS_{Total}}=1-\frac{SS_E}{SS_{Total}}=1-\frac{s_e^2}{s_y^2}
 $$
-
-Així, doncs, a la regressió per mínims quadrats **la variabilitat dels valors observats de $Y$ és igual a la suma de la variabilitat dels valors estimats de $Y$ més la variabilitat dels errors**. Llavors, el coeficient de determinació $R^2$ és la fracció de la variabilitat de les $y_i$ que queda explicada per la variabilitat de de les estimacions $\widehat{y}_i$. 
-
 En particular:
 
 ```{block2,type="rmdimportant"}
-En una regressió per mínims quadrats $R^2\leq 1$, i és 1 exactament quan tots els $e_i$ són 0, és a dir, quan $\widehat{y}_i=y_i$ per a tot $i=1,\ldots,n$. Com més gran sigui $R^2$, més bona entendrem que és la regressió lineal.
+En una regressió per mínims quadrats, $R^2\leq 1$, i $R^2= 1$ exactament quan tots els $e_i$ són 0, és a dir, quan $\widehat{y}_i=y_i$ per a tot $i=1,\ldots,n$. Com més gran (més proper a 1) sigui $R^2$, més bona entendrem que és la regressió lineal.
 ```
 
 ```{block2,type="rmdnote"}
-Per si de cas no hi heu caigut, observau que $R^2\geq 0$, perquè és un quocient de quadrats. Només val 0 quan $s^2_{\widehat{y}}$, és a dir, quan tots els valors estimats $\widehat{y}_i$ són iguals.
+Per si de cas no hi heu caigut, observau que $R^2\geq 0$, perquè és un quocient de quadrats. Només val 0 quan $s^2_{\widehat{y}}=0$, és a dir, quan tots els valors estimats $\widehat{y}_i$ són iguals.
 ```
 
 
-R calcula el $R^2$ en el `summary(lm( )`: és el valor `Multiple R-squared` a la penúltima línia de la seva sortida:
+R dóna el $R^2$ en el `summary(lm( ))`: és el valor `Multiple R-squared` a la penúltima línia de la seva sortida:
 
 ```{r}
 summary(lm(alçada~edat))
 ```
 
-S'obté directament del `summary(lm( )` amb el sufix `$r.squared`
+S'obté directament del `summary(lm( ))` amb el sufix `$r.squared`
 
 ```{r}
 summary(lm(alçada~edat))$r.squared
@@ -686,44 +688,46 @@ Això us pot ser útil als exercicis.
 El valor de $R^2$ no és suficient per valorar la bondat d'un model de regressió lineal. És sempre convenient també dibuixar els punts i la recta de regressió i donar una ullada.
 ```
 
-Un exemple clàssic de les mancances del $R^2$ són els quatre conjunts de  dades $(x_{1,i},y_{1,i})_{i=1,\ldots,11}$, $(x_{2,i},y_{2,i})_{i=1,\ldots,11}$,  $(x_{3,i},y_{3,i})_{i=1,\ldots,11}$,  $(x_{4,i},y_{4,i})_{i=1,\ldots,11}$ que formen el *dataframe* `anscombe` de R:
+Un exemple clàssic de les mancances del $R^2$ són els quatre conjunts de  dades $(x_{1,i},y_{1,i})_{i=1,\ldots,11}$, $(x_{2,i},y_{2,i})_{i=1,\ldots,11}$,  $(x_{3,i},y_{3,i})_{i=1,\ldots,11}$,  $(x_{4,i},y_{4,i})_{i=1,\ldots,11}$ que formen el *dataframe* `anscombe` de R i que ja empràrem al Tema \@ref(chap:ED):
 
 ```{r}
 str(anscombe)
 ```
 
-Les rectes de regressió per mínims quadrats dels quatre conjunts de dades donen valors de $R^2$ molt semblants: 
+Les rectes de regressió per mínims quadrats dels quatre conjunts de dades són gairebé iguals i donen valors de $R^2$ molt semblants: 
 
 ```{r}
+lm(y1~x1,data=anscombe)$coefficients
 summary(lm(y1~x1,data=anscombe))$r.squared
+lm(y2~x2,data=anscombe)$coefficients
 summary(lm(y2~x2,data=anscombe))$r.squared
+lm(y3~x3,data=anscombe)$coefficients
 summary(lm(y3~x3,data=anscombe))$r.squared
+lm(y4~x4,data=anscombe)$coefficients
 summary(lm(y4~x4,data=anscombe))$r.squared
 ```
 
 Però si els dibuixam veureu que els seus ajusts a la recta de regressió  són molt diferents:
 ```{r,fig.width=10,out.width="90%"}
 par(mfrow=c(2,2))
-plot(anscombe$x1,anscombe$y1,main="Conjunt de dades 1")
+plot(anscombe$x1,anscombe$y1,main="Conjunt de dades 1",pch=20)
 abline(lm(y1~x1,data=anscombe),col="red",lwd=1.5)
-plot(anscombe$x2,anscombe$y2,data=anscombe,main="Conjunt de dades 2")
+plot(anscombe$x2,anscombe$y2,data=anscombe,main="Conjunt de dades 2",pch=20)
 abline(lm(y2~x2,data=anscombe),col="red",lwd=1.5)
-plot(anscombe$x3,anscombe$y3,main="Conjunt de dades 3")
+plot(anscombe$x3,anscombe$y3,main="Conjunt de dades 3",pch=20)
 abline(lm(y3~x3,data=anscombe),col="red",lwd=1.5)
-plot(anscombe$x4,anscombe$y4,main="Conjunt de dades 4")
+plot(anscombe$x4,anscombe$y4,main="Conjunt de dades 4",pch=20)
 abline(lm(y4~x4,data=anscombe),col="red",lwd=1.5)
 ```
 
 
 ````{block2,type="rmdnote"}
-Al Tema \@ref(chap:ED) ja us parlàrem del paquet **datasaurus**, les funcions del qual us permeten crear conjunts de punts de "formes" diferents i mateixa correlació, i per tant amb el mateix valor de la $R^2$. Emprant aquest paquet hem creat la taula de dades https://raw.githubusercontent.com/AprendeR-UIB/MatesIIAD/master/dades/datasaure.txt. Aquesta taula de dades té tres variables: una variable `dataset` que indica el conjunt de dades, i les variables `x` i `y` que donen les coordenades dels punts que formen cada conjunt de dades. A mode d'exemple, anem a considerar dos d'aquests conjunts: el dinosaure i l'estrella. Els dibuixarem, i després veurem que tenen la recta de regressió molt semblant i el mateix valor de $R^2$ (almenys fins a la setena xifra decimal).
-
+Al Tema \@ref(chap:ED) ja us parlàrem del paquet **datasaurus**, les funcions del qual us permeten crear conjunts de punts de "formes" diferents i els mateixos estadístics. Vegem com el dinosaure i l'estrella tenen rectes de regressió i valors de $R^2$ molt semblants. 
 ```
 
 
 ```{r,fig.width=10,out.width="90%",fig.asp=0.5}
-datasaure=read.table("https://raw.githubusercontent.com/AprendeR-UIB/MatesIIAD/master/dades/datasaure.txt",header=TRUE,sep="\t")
-str(datasaure)
+datasaure=read.table("https://raw.githubusercontent.com/AprendeR-UIB/MatesII/master/Dades/Datasaurus.txt",header=TRUE,sep="\t")
 dino=datasaure[datasaure$dataset=="dino",2:3]
 star=datasaure[datasaure$dataset=="star",2:3]
 par(mfrow=c(1,2))
@@ -797,9 +801,21 @@ $$
 $$
     * La fracció
 $$
-\frac{b_1-\beta_1}{\frac{S}{s_x\sqrt{n}}}
+T_1=\frac{b_1-\beta_1}{\frac{S}{s_x\sqrt{n}}}
 $$
          segueix una llei $t$ de Student amb $n-2$ graus de llibertat.
+
+```{block2,type="rmdnote"}
+Observau que l'error típic de $b_1$:
+
+* Decreix amb $n$: com més gran és la mostra, menys incertesa esperam en l'estimació de $\beta_1$. Això ens ha passat en totes les estimacions del curs, no és cap sorpresa. En general, com més dades tenim, millor.
+    
+* Decreix amb $s_x$: com més dispersa és la mostra, menys incertesa esperam en l'estimació de $\beta_1$. Això és una novetat, en altres casos (per exemple, en estimar una mitjana) la incertesa creixia amb la desviació típica de la mostra. Però aquí és raonable. Pensau en termes físics: si voleu unir dos punts amb una recta, com és més fàcil que aquesta recta sigui estable, si els dos punts estan molt junts o si estan separats? Separats, no?
+    
+* Creix amb $\sigma_E$: com més variabilitat tenguin els errors residuals, més incertesa tendrem. Fixau-vos que si $\sigma_E=0$, aleshores no hi ha gens d'incertesa: significa que els punts $(x_i,y_i)$  estan sobre una recta i aquesta recta és la de regressió.
+
+```
+
 
 
 * Pel que fa a $b_0$, 
@@ -814,7 +830,7 @@ $$
 $$
     * La fracció
 $$
-\frac{b_0-\beta_0}{\frac{S\sqrt{s_x^2+\overline{x}^2}}{s_x\sqrt{n}}}
+T_0=\frac{b_0-\beta_0}{\frac{S\sqrt{s_x^2+\overline{x}^2}}{s_x\sqrt{n}}}
 $$
          també segueix una llei $t$ de Student amb $n-2$ graus de llibertat.
 
@@ -822,12 +838,12 @@ $$
 És raonable que l'error típic de $b_0$ sigui més gran que el de $b_1$, perquè per calcular $b_0$ hem de calcular primer $b_1$ i a més emprar-hi la mitjana $\overline{x}$, la qual cosa fa que en estimar $\beta_0$ per mitjà de $b_0$ hi hagi més incertesa que en estimar $\beta_1$ per mitjà de $b_1$.
 ```
 
-Ara recordau la fórmula general per als intervals de confiança amb nivell de confiança $q$:
+Com que els estadístics $T_1$ i $T_0$ tenen distribucions t de Student, operant amb ells com en el cas de l'interval de confiança per a la mitjana poblacional $\mu$ obtenim fórmules per als intervals de confiança amb nivell de confiança $q$ per a $\beta_1$ i $\beta_1$  de la forma que ens agrada:
 $$
 \text{Estimador}\pm \frac{1+q}{2}\text{-quantil}\times \text{Estimació de l'error típic}
 $$
 
-Per tant, sota les hipòtesis imposades al principi d'aquesta secció
+En concret, sota les hipòtesis imposades al principi d'aquesta secció
 
 * Un interval de confiança amb nivell de confiança $q$ per a $\beta_1$ és
 $$
@@ -891,7 +907,7 @@ confint(lm(alçada~edat),level=0.95)
 ```
 
 ```{block2,type="rmdexercici"}
-Calculau "a mà", amb les fórmules que hem donat, els intervals de confiança per als coeficients de la recta de regressió a l'Exemple \@ref(exm:sal). Us han de donar:
+Calculau "a mà", amb les fórmules que hem donat, els intervals de confiança per als coeficients de la recta de regressió de l'Exemple \@ref(exm:sal). Us han de donar:
 ```
 
 ```{r}
@@ -919,40 +935,46 @@ Bé passem a les fórmules. Sota les condicions sobre els errors que hem suposat
 
 * L'error típic de $\widehat{y}_0$ com a estimador de $\mu_{Y|x_0}$ és
 $$
-\sigma_E\sqrt{\frac{1}{n}+\frac{(x_0-\overline{x})^2}{ns^2_x}}
+\sigma_E\cdot \sqrt{\frac{1}{n}+\frac{(x_0-\overline{x})^2}{ns^2_x}}
 $$
     i la fracció
 $$
-\frac{\widehat{y}_0-\mu_{Y/x_0}}{S\sqrt{\frac{1}{n}+\frac{(x_0-\overline{x})^2}{n
+\frac{\widehat{y}_0-\mu_{Y/x_0}}{S\cdot \sqrt{\frac{1}{n}+\frac{(x_0-\overline{x})^2}{n
 s^2_x}}}
 $$
     segueix una llei $t$ de Student amb $n-2$ graus de llibertat.
 
 * L'error típic de $\widehat{y}_0$ com a estimador de $y_0$ és
 $$
-\sigma_E\sqrt{1+\frac{1}{n}+\frac{(x_0-\overline{x})^2}{ns^2_x}}
+\sigma_E\cdot \sqrt{1+\frac{1}{n}+\frac{(x_0-\overline{x})^2}{ns^2_x}}
 $$
     i la fracció
 $$
-\frac{\widehat{y}_0-y_0}{S\sqrt{1+\frac{1}{n}+\frac{(x_0-\overline{x})^2}{n
+\frac{\widehat{y}_0-y_0}{S\cdot \sqrt{1+\frac{1}{n}+\frac{(x_0-\overline{x})^2}{n
 s^2_x}}}
 $$
     segueix una llei $t$ de Student amb $n-2$ graus de llibertat.
 
+```{block2,type="rmdnote"}
+Aquests errors típics creixen amb la distància entre $x_0$ i la mitjana de la mostra $\overline{x}$. És raonable: com més enfora està $x_0$ de  $\overline{x}$, petites variacions en el valor de la pendent de la recta donen lloc a diferències molt més grans en el valor de $b_0+b_1x_0$. I quan $x_0=\overline{x}$ no hi ha cap variabilitat en la dispersió de les estimacions: estimam que $y_0=\overline{y}$ i punt!
+```
+
+```{block2,type="rmdimportant"}
 Fixau-vos que l'error típic de l'estimació de $\mu_{Y|x_0}$ és més petit que el de l'estimació de $y_0$.
+```
 
 
 Per tant, sota aquestes hipòtesis,
 
 * Un interval de confiança de nivell de confiança $q$ per a $\mu_{Y|x_0}$ és
 $$
-\widehat{y}_0\pm t_{n-2,(1+q)/2}\cdot S\sqrt{\frac{1}{n}+\frac{(x_0-\overline{x})^2}{n
+\widehat{y}_0\pm t_{n-2,(1+q)/2}\cdot S\cdot \sqrt{\frac{1}{n}+\frac{(x_0-\overline{x})^2}{n
 s^2_x}}
 $$
 
 * Un interval de confiança  de nivell de confiança $q$ per a $y_0$ és
 $$
-\widehat{y}_0\pm t_{n-2,(1+q)/2}\cdot S\sqrt{1+\frac{1}{n}+\frac{(x_0-\overline{x})^2}{n
+\widehat{y}_0\pm t_{n-2,(1+q)/2}\cdot S\cdot \sqrt{1+\frac{1}{n}+\frac{(x_0-\overline{x})^2}{n
 s^2_x}}
 $$
 
@@ -999,7 +1021,16 @@ $$
 136.961\pm 2.5706 \cdot  1.362=136.961\pm  3.501
 \end{array}
 $$
-Obtenim l'interval $[133.5, 140.5]$. Per tant, estam molt segurs que l'alçada mitjana dels nins  de 10 anys, la seva alçada està entre els 133.5 cm i els 140.5 cm.
+Obtenim l'interval $[133.5, 140.5]$. Per tant, estam molt segurs que l'alçada mitjana dels nins  de 10 anys està entre els 133.5 cm i els 140.5 cm.
+
+Si en canvi volguéssim emprar aquesta recta per estimar l'alçada d'un nin de 15 anys, els intervals que obtenim són (comprovau-ho):
+
+* Per a $y_0$, $[`r round(predict.lm(lm(alçada~edat),data.frame(edat=15),interval="prediction")[2:3],1)`]$
+
+* Per a $\mu_{Y|x_0}$, $[`r round(predict.lm(lm(alçada~edat),data.frame(edat=15),interval="confidence")[2:3],1)`]$
+
+Com veieu, són molt més amples que els intervals de confiança per als 10 anys.
+
 
 Amb R, aquests intervals es calculen amb la funció `predict.lm` aplicada a
 
@@ -1012,18 +1043,18 @@ Amb R, aquests intervals es calculen amb la funció `predict.lm` aplicada a
 
 A més, s'hi pot entrar el nivell de significació amb el paràmetre `level`; si és 0.95, no cal.
 
-En el nostre exemple, primer hem de definir un data frame format per una sola observació de la variable `edat`, que valgui 10:
+En el nostre exemple, primer hem de definir un data frame amb l'edat o les edats. Calcularem els intervals de confiança per als 10 i 15 anys. Per tant, definim un *data frame* format per dues observacions de la variable `edat`, que valguin 10 i 15:
 
 ```{r}
-nin=data.frame(edat=10)
+nin=data.frame(edat=c(10,15))
 ```
 
-Aleshores, l'interval de confiança del 95% per a l'alçada d'un nin de 10 anys és
+Aleshores, els intervals de confiança del 95% per a les alçades d'un nin de 10 anys i d'un nin de 15 anys són, respectivament,
 ```{r}
 predict.lm(lm(alçada~edat),nin,interval="prediction")
 ```
 
-i l'interval de confiança del 95% per a l'alçada mitjana dels nins de 10 anys és
+i els intervals de confiança del 95% per a les alçades mitjanes dels nins de 10 i de 15 anys ón, respectivament,
 
 ```{r}
 predict.lm(lm(alçada~edat),nin,interval="confidence")
@@ -1056,7 +1087,18 @@ Si mirau la sortida del `summary(lm( ))`
 summary(lm(alçada~edat))
 ```
 
-els `t value` són els valors de l'estadístic de contrast dels contrastos bilaterals amb hipòtesi nul·la $H_0:$ "coeficient $=0$", i els p-valors `Pr(>|t|)` són els d'aquests  contrastos. Com veiem, en aquest cas podem rebutjar amb $\alpha=0.05$ que $\beta_1=0$ (i també que $\beta_0=0$).
+a la matriu `Coefficients`:
+
+* Els `Estimate` són les estimacions $b_0$ i $b_1$
+* Els `Std. Error` són (les estimacions de) els seus errors típics
+* Els `t value` són els valors dels estadístics $T_0$ i $T_1$, que són justament els estadístics de contrast dels contrastos bilaterals amb hipòtesi nul·la $H_0:$ "coeficient $=0$"
+* Els `Pr(>|t|)` són els  p-valors d'aquests  contrastos (que no us engani la notació, aquests p-valors es defineixen com toca: 
+$$
+2P(t_{n-2}\geq |T_0|),\quad 2P(t_{n-2}\geq |T_1|)
+$$
+respectivament).
+
+    Com veiem, en aquest cas podem rebutjar amb $\alpha=0.05$ que $\beta_1=0$ (i també que $\beta_0=0$).
 
 
 ## Regressió lineal múltiple
@@ -1064,9 +1106,9 @@ els `t value` són els valors de l'estadístic de contrast dels contrastos bilat
 Comencem amb un exemple.
 
 ```{example, mult}
-Es postula que l'alçada esperada d'un nadó en cm ($Y$) té una relació  lineal amb la seva edat en dies ($X_1$), la seva alçada en néixer en cm ($X_2$), el seu pes en kg en néixer ($X_3$) i l'augment en tant per cent del seu pes actual respecte del seu pes en néixer ($X_4$). És a dir, se creu que existeixen coeficients $\beta_0,\ldots,\beta_4\in \mathbb{R}$ tals que el model
+Es postula que l'alçada esperada d'un nadó en cm ($Y$) té una relació  lineal amb la seva edat en dies ($X_1$), la seva alçada en néixer en cm ($X_2$), el seu pes en kg en néixer ($X_3$) i l'augment en tant per cent del seu pes actual respecte del seu pes en néixer ($X_4$). És a dir, es creu que existeixen coeficients $\beta_0,\ldots,\beta_4\in \mathbb{R}$ tals que el model
 $$
-\mu_{Y|x_1,x_2,x_3,x_4}=\beta_0+\beta_1X_1+\beta_2X_2+\beta_3X_3+\beta_4X_4
+\mu_{Y|x_1,x_2,x_3,x_4}=\beta_0+\beta_1x_1+\beta_2x_2+\beta_3x_3+\beta_4x_4
 $$
 és correcte, on $\mu_{Y|x_1,x_2,x_3,x_4}$ és l'alçada esperada, en cm, d'un nadó de $x_1$ dies que en néixer va fer $x_2$ cm i $x_3$ kg  i des de llavors el seu pes ha augmentat un $x_4$%. En una mostra de $n=9$ nins, els resultats varen ser els de la taula següent:
 
@@ -1103,7 +1145,7 @@ $$
 
 * $\mu_{Y|x_1,\ldots,x_k}$ és el valor esperat de $Y|x_1,\ldots,x_k$ 
 
-* Les $E_{x_1,\ldots,x_k}$ són les variables aleatòries **error**, o **residuals**, i representen l'error aleatori de la variable $Y$ sobre un individu sobre el qual $(X_1,\ldots,X_k)=(x_1,\ldots,x_k)$
+* Les $E_{x_1,\ldots,x_k}$ són les variables aleatòries **error**, o **residu**, i representen l'error aleatori de la variable $Y$ sobre un individu en el qual $(X_1,\ldots,X_k)=(x_1,\ldots,x_k)$
 
 * $\beta_0,\beta_1,\ldots,\beta_{k}\in \mathbb{R}$:
 
@@ -1117,13 +1159,13 @@ $$
 (x_{1i},x_{2i},\ldots,x_{ki},y_i)_{i=1,\ldots,n}
 $$
 d'observacions del vector aleatori $(X_1,\ldots,X_k,Y)$ sobre $n$ individus. Requerirem que
-$n>k$ (el nombre d'observacions ha de ser més gran que el nombre de variables) a fi que el sistema d'equacions lineals (amb incògnites els coeficients $\beta_0,\beta_1,\ldots,\beta_{k}$)
+$n>k$ (el nombre d'observacions ha de ser més gran que el nombre de variables) a fi que el sistema d'equacions lineals amb incògnites els coeficients $\beta_0,\beta_1,\ldots,\beta_{k}$
 $$
 \left\{
 \begin{array}{l}
-y_1=\beta_0+\beta_1x_{11}+\cdots \beta_kx_{k1}\\
+y_1=\beta_0+\beta_1x_{11}+\cdots +\beta_kx_{k1}\\
 \quad\vdots\\
-y_n=\beta_0+\beta_1x_{1n}+\cdots \beta_kx_{kn}
+y_n=\beta_0+\beta_1x_{1n}+\cdots +\beta_kx_{kn}
 \end{array}
 \right.
 $$
@@ -1178,11 +1220,17 @@ y_1\\ y_2\\ \vdots\\ y_n
 \right)
 $$
 
-Els estimadors per mínims quadrats $\mathbf{b}=(b_0,b_1,\ldots,b_k)^t$ de $\beta_0,\beta_1,\ldots,\beta_k$ a partir de la mostra  $(\underline{x}_{i},y_i)_{i=1,2,\ldots,n}$ són donats per l'equació següent:
+Aleshores, els estimadors per mínims quadrats $\mathbf{b}=(b_0,b_1,\ldots,b_k)^t$ de $\beta_0,\beta_1,\ldots,\beta_k$ a partir de la mostra  $(\underline{x}_{i},y_i)_{i=1,2,\ldots,n}$ són donats per l'equació següent:
 $$
 \mathbf{b}=\left(\mathbf{X}^t\cdot \mathbf{X}\right)^{-1}\cdot \left(\mathbf{X}^t \cdot \mathbf{y}\right).
 $$
+
 ```
+
+```{block2,type="rmdcorbes"}
+Amb una mica de paciència podeu comprovar que si $k=1$, aquesta fórmula dóna la de $(b_0,b_1)$ a la regressió lineal simple.
+```
+    
 
 Com al cas simple, la funció resultant l'escriurem
 $$
@@ -1366,11 +1414,11 @@ s^2_y=s^2_{\widehat{y}}+s^2_e
 $$
     on:
 
-     * $SS_{Total}=\sum_{i=1}^n (y_i-\overline{y})^2$ és la **Suma de Quadrats Total**, mesura la variabilitat dels valors observats $y_i$ de la $Y$  i satisfà que $SS_{Total}=n\cdot s_y^2$, on $s_y^2$ és la variància de les  $y_i$
+     * $SS_{Total}=\sum_{i=1}^n (y_i-\overline{y})^2$ és la **Suma de Quadrats Total**, mesura la variabilitat dels valors observats $y_i$ de la $Y$  i satisfà que $SS_{Total}=n\cdot s_y^2$, on $s_y^2$ és la variància de les  $y_i$.
 
-    * $SS_R=\sum_{i=1}^n(\widehat{y}_i-\overline{y})^2$ és la **Suma de Quadrats de la Regressió**, mesura la variabilitat de les estimacions $\widehat{y}_i$ de la $Y$ sobre la nostra mostra i satisfà que  $SS_R=n\cdot s_{\widehat{y}}^2$, on $s_{\widehat{y}}^2$ és la variància de les  $\widehat{y}_i$ 
+    * $SS_R=\sum_{i=1}^n(\widehat{y}_i-\overline{y})^2$ és la **Suma de Quadrats de la Regressió**, mesura la variabilitat de les estimacions $\widehat{y}_i$ de la $Y$ sobre la nostra mostra i satisfà que  $SS_R=n\cdot s_{\widehat{y}}^2$, on $s_{\widehat{y}}^2$ és la variància de les  $\widehat{y}_i$.
 
-   * $SS_E=\sum_{i=1}^n (y_i-\widehat{y}_i)^2$ és la de **Suma de Quadrats dels Errors** que ja hem definit i satisfà que  $SS_E=n\cdot s_{e}^2$, on $s_{e}^2$ és la variància dels errors  $e_i$ 
+   * $SS_E=\sum_{i=1}^n (y_i-\widehat{y}_i)^2$ és la de **Suma de Quadrats dels Errors** que ja hem definit i satisfà que  $SS_E=n\cdot s_{e}^2$, on $s_{e}^2$ és la variància dels errors  $e_i$.
 
 Com al cas simple, quan R calcula una funció de regressió lineal per mínims quadrats també calcula un munt de coses més:
 
@@ -1378,7 +1426,7 @@ Com al cas simple, quan R calcula una funció de regressió lineal per mínims q
 summary(lm(y~x1+x2+x3+x4))
 ```
 
-Anem a estudiar què són i per a què serveix tota aquesta informació.
+Anem a estudiar què és i per què serveix tota aquesta informació.
 
 
 ### Coeficient de determinació múltiple
@@ -1409,7 +1457,7 @@ Suposam que encara recordau que, en el cas simple, el coeficient de determinaci�
 $$
 R= \sqrt{R^2}
 $$
-i així també se te que **el coeficient de determinació múltiple és el quadrat del coeficient de correlació múltiple**.
+i així també se té que **el coeficient de determinació múltiple és el quadrat del coeficient de correlació múltiple**.
 ```
 
 
@@ -1457,7 +1505,7 @@ R^2=\frac{SS_R}{SS_{Total}}=\frac{SS_{Total}-SS_E}{SS_{Total}}
 $$
 s'empra el **coeficient de determinació ajustat**
 $$
-R^2_{adj}=\frac{MS_{Total}-MS_E}{MS_T}
+R^2_{adj}=\frac{MS_{Total}-MS_E}{MS_{Total}}
 $$
 on 
 $$
@@ -1527,7 +1575,7 @@ S2=sum(e.i^2)/(n-k-1)
 S2
 ```
 
-Com al cas simple, la sortida de `summary(lm( ))` dóna el valor de la $S$ (és a dir, l'arrel quadrada de $S^2$, que  per tant estima la desviació típica comuna de les variables error) com al `Residual standard error` 
+Com al cas simple, la sortida de `summary(lm( ))` dóna el valor de la $S$ (és a dir, l'arrel quadrada de $S^2$, que  per tant estima la desviació típica comuna de les variables error) com a `Residual standard error` 
 i s'obté amb el sufix `$sigma`:
 
 ```{r}
@@ -1555,7 +1603,7 @@ summary(lm(y~x1+x2+x3+x4))$coefficients[,2]
 
 * Cada fracció 
 $$
-\frac{\beta_i-b_i}{\sqrt{(S^2\cdot (X^t X)^{-1})_{ii}}}
+T_i=\frac{\beta_i-b_i}{\sqrt{(S^2\cdot (X^t X)^{-1})_{ii}}}
 $$
 segueix un llei t de Student amb $n-k-1$ graus de llibertat
 
@@ -1591,7 +1639,11 @@ Si les variables error $E_i$ satisfan les condicions imposades al principi de la
 
 * L'interval per al **valor** $y_0$ de $Y$ sobre un individu concret en el que $(X_1,\ldots,X_k)$ valgui $(x_{10},\ldots,x_{k0})$.
 
-La discussió sobre les diferències entre una i altra estimació i per què el segon interval és més ample que el primer són les mateixes que al cas simple, no la repetirem aquí. I, contràriament, al cas simple, us estalviarem les fórmules. Simplement heu de saber que  aquests intervals també es calculen amb R amb la funció `predict.lm` aplicada a un data frame amb els valors de les variables independents sobre l'individu, o els individus, per al que volem estimar la $Y$, al resultat de la `lm` i al paràmetre `interval` igualat al tipus d'interval que volem: `"prediction"` si és per al valor en un individu, `"confidence"` si és per al valor esperat.
+La discussió sobre les diferències entre una i altra estimació i per què el segon interval és més ample que el primer són les mateixes que al cas simple, no la repetirem aquí. I, contràriament, al cas simple, us estalviarem les fórmules. Simplement heu de saber que  aquests intervals també es calculen amb R amb la funció `predict.lm` aplicada a:
+
+* un data frame amb els valors de les variables independents sobre l'individu, o els individus, per al que volem estimar la $Y$;
+* el resultat de la `lm`; i
+* el paràmetre `interval` igualat al tipus d'interval que volem: `"prediction"` si és per al valor en un individu, `"confidence"` si és per al valor esperat.
 
 
 
@@ -1645,7 +1697,7 @@ perquè si $\beta_1=\beta_2=\cdots=\beta_k=0$, el model esdevé
 $$
 Y|{x_1,\ldots,x_k}=\beta_0+E_{x_1,\ldots,x_k}
 $$
-i la $Y$ no depèn de les $X_i$, de manera que el model lineal no és adequat
+i la $Y$ no depèn de les $X_i$, de manera que el model lineal no és adequat.
 
 Això es pot fer amb $k$ contrastos
 $$
@@ -1653,9 +1705,7 @@ $$
 H_1: \beta_i\neq 0 \end{array}
 \right.
 $$
-emprant un estadístic adequat que segueix una llei t de Student amb $n-k-1$ graus de
-llibertat (i que ja té en compte que són $k+1$ contrastos, comptant el de $\beta_0$).
-Els p-valors d'aquests contrastos són els de la columna `Pr(>|t|)` a la matriu de `Coefficients` de la sortida de `summary(lm( ))`.
+emprant els estadístics $T_i$ que hem definit fa una estona,  que segueixen  lleis t de Student amb $n-k-1$ graus de llibertat. Els p-valors d'aquests contrastos són els de la columna `Pr(>|t|)` a la matriu de `Coefficients` de la sortida de `summary(lm( ))`. No cal ajustar-los, el nombre $n-k-1$ de graus de llibertat ja té en compte que fem $k+1$ contrastos.
 
 ```{r}
 summary(lm(y~x1+x2+x3+x4))
@@ -1700,7 +1750,7 @@ i, com a les altres ANOVA, l'estadístic de contrast $F$ és
 $$
 F=\frac{MS_R}{MS_E}
 $$
-i satisfà que, si la hipòtesi nul·la és vertadera (i els errors satisfan les condicions establertes al començament de la secció anterior),  segueix una llei F de Fisher-Snedecor amb $k$ i $n-k-1$ graus de llibertat i té valor proper a 1, de manera que se pren com a p-valor
+i satisfà que, si la hipòtesi nul·la és vertadera (i els errors satisfan les condicions establertes al començament de la secció anterior),  segueix una llei F de Fisher amb $k$ i $n-k-1$ graus de llibertat i té valor proper a 1, de manera que se pren com a p-valor
 $$
 \text{p-valor}=P(F_{k,n-k-1}\geq F).
 $$
@@ -1762,8 +1812,316 @@ Una altra opció  és emprar la funció `glance` del paquet **broom**, que aplic
 
 ```{r}
 library(broom)
-glance(summary(lm(y~x1+x2+x3+x4)))
-as.numeric(glance(summary(lm(y~x1+x2+x3+x4)))[1,5]) # El p-valor
+glance(lm(y~x1+x2+x3+x4))
 ```
+
+
+## Test de la lliçó 11
+
+**(1)**   En una regressió lineal d'una variable Y respecte d'una variable independent X, hem emprat les observacions (x,y) de 100 individus i hem obtingut la recta de regressió per mínims quadrats y=3.02-0.96x.  El valor mitjà de la variable X a la mostra que hem emprat ha estat 0.8. Quines de les afirmacions següents són vertaderes?
+
+1. Amb les dades que ens donen, no podem saber el valor mitjà de la variable Y a la mostra que hem emprat.
+1. El valor mitjà de la variable Y a la mostra que hem emprat ha estat 2.252.
+1. El valor mitjà de la variable Y a la mostra que hem emprat ha estat 3.02.
+Segons aquest model, en els individus de la població objecte d'estudi, quan la  variable X augmenta una unitat, el valor esperat de la  variable Y augmenta 0.96
+1. Segons aquest model, en els individus de la població objecte d'estudi, quan la variable X augmenta una unitat, el valor esperat de la variable Y disminueix 0.96
+1. Cap de les altres afirmacions és correcta.
+
+
+**(2)** En una regressió lineal per mínims quadrats d'una variable Y respecte d'una variable independent X, hem emprat les observacions (x,y) de 100 individus. A la nostra mostra, la mitjana de X ha estat 0.05, la mitjana de Y ha estat -1.3, la variància de X ha estat 2.56, la variància de Y ha estat 8.36 i la covariància de X i Y ha estat 4.54. Què val el coeficient de determinació de la regressió per mínims quadrats de Y respecte de X (arrodonit a 3 xifres decimals)?
+
+1. 0.212
+1. 0.963
+1. 0.981
+1. 1.773
+1. No el podem calcular amb les dades que ens donen
+1. Cap de les altres respostes és correcta
+
+
+
+
+**(3)** Quines de les afirmacions següents sobre la regressió per mínims quadrats és vertadera?
+
+1. Quan es fa a mà, primer s'estima la pendent de la recta i després el terme independent
+1. Quan es fa a mà, primer s'estima el terme independent de la recta i després  la pendent
+1. La suma de quadrats total és la suma de quadrats dels tractaments més la suma de quadrats dels errors
+1. La suma de quadrats total és la suma de quadrats de la regressió més la suma de quadrats dels errors
+1. Els coeficients de la recta són els que fan mínima la suma de quadrats de la regressió
+1. Els coeficients de la recta són els que fan màxima la suma de quadrats de la regressió
+1. Cap de les altres respostes és correcta
+
+**(4)** Sota hipòtesis adients per als errors, els estimadors $b_0$ i $b_1$ de $\beta_0$ i $\beta_1$ són màxim versemblants. Però, ... què significa que un estimador sigui màxim versemblant? 
+
+1. Que aplicat a una m.a.s. sempre dóna el p-valor més gran en els contrastos bilaterals del paràmetre que volem estimar
+1. Que aplicat a una m.a.s. sempre dóna el p-valor més petit en els contrastos bilaterals del paràmetre que volem estimar
+1. Que aplicat a una m.a.s. sempre dóna el valor  més probable del paràmetre.
+1. Que aplicat a una m.a.s. sempre dóna el valor  del paràmetre que fa més probable la m.a.s.
+1. Que aplicat a una m.a.s. sempre dóna el valor més probable de l'estimador.
+1. Que té valor esperat el valor real del paràmetre
+
+**(5)** Quines de les afirmacions següents sobre el coeficient de determinació en una regressió per mínims quadrats són vertaderes?
+
+1. El seu quadrat és la covariància dels vectors x, y de la mostra
+1. El seu quadrat és la correlació dels vectors x, y de la mostra
+1. La seva arrel quadrada positiva és la covariància dels vectors x, y de la mostra
+1. La seva arrel quadrada positiva és la correlació dels vectors x, y de la mostra
+1. Cap de les altres respostes és correcta
+
+
+**(6)** Quines de les afirmacions següents sobre el coeficient de determinació de la regressió lineal per mínims quadrats són vertaderes? Marcau totes les vertaderes.
+
+1. En el cas de la regressió lineal simple, el seu quadrat és la correlació entre els valors de la variable independent i els de la variable dependent a la nostra mostra
+1. En el cas de la regressió lineal simple, és el quadrat de la correlació entre els valors de la variable independent i els de la variable dependent a la nostra mostra
+1. En el cas de la regressió lineal múltiple, si afegim al nostre model variables independents, el valor del coeficient de determinació no  decreix.
+1. En el cas de la regressió lineal múltiple, si empram un nombre més gran de variables independents (però no necessàriament mantenint les variables anteriors) el valor del coeficient de determinació no decreix.
+1. Cap de les altres respostes és correcta.
+
+
+
+
+
+
+**(7)** En fer la regressió lineal d'una variable Y respecte d'una variable X, hem obtingut la recta y=0.8+1.2x. Quina de les conclusions següents és la més correcta segons aquest model?
+
+1. Un augment de 1 unitat de la variable X causa un augment de 1.2 unitats de la variable Y
+1. Un augment de 1 unitat de la variable X està associada a un augment de 1.2 unitats de la variable Y
+1. Un augment de 1 unitat de la variable X causa un augment de 0.8 unitats de la variable Y
+1. Un augment de 1 unitat de la variable X està associada a un augment de 0.8 unitats de la variable Y
+
+
+
+
+**(8)** Quines de les afirmacions següents són sempre veritat per una recta de regressió lineal simple?
+
+1. Passa sempre per l'origen de coordenades
+1. És sempre creixent
+1. El seu pendent no canvia si canviam les unitats amb les que mesuram la variable dependent però no canviam les unitats amb les que mesuram la variable independent
+1. El seu pendent segur que canvia si canviam les unitats amb les que mesuram la variable dependent però no canviam les unitats amb les que mesuram la variable independent
+1. Passa sempre pel punt mig de les observacions
+1. Els seus coeficients determinen el valor de la $R^2$
+1. Cap de les altres respostes és correcta.
+
+
+
+
+**(9)** Quines de les afirmacions següents sobre l'estimació de la variable dependent Y a partir de la variable independent X per mitjà d'una recta de regressió per mínims quadrats són vertaderes (quan se satisfan les condicions adients sobre els errors)?
+
+1. L'estimació puntual del valor de Y sobre un individu concret on X valgui x~0~ i l'estimació de valor mitjà de Y sobre tots els individus on X valgui x~0~ sempre coincideixen
+1. L'estimació puntual del valor de Y sobre un individu concret on X valgui x~0~ sempre és estrictament més gran que l'estimació del valor mitjà de Y sobre tots els individus on X valgui x~0~
+1. L'interval de confiança del 95% per al valor de Y sobre un individu concret on X valgui x~0~ i l'interval de confiança del 95% per al valor mitjà de Y sobre tots els individus on X valgui x~0~ sempre coincideixen
+1. L'interval de confiança del 95% per al valor de Y sobre un individu concret on X valgui x~0~ sempre és estrictament més ample que l'interval de confiança del 95% per al valor mitjà de Y sobre tots els individus on X valgui x~0~
+1. L'interval de confiança del 95% per al valor de Y sobre un individu concret on X valgui x~0~ sempre és estrictament més estret que l'interval de confiança del 95% per al valor mitjà de Y sobre tots els individus on X valgui x~0~
+1. Cap de les altres respostes és correcta.
+
+
+
+**(10)** Emprant un model de regresió lineal per mínims quadrats d'una variable Y respecte d'una variable X, hem estimat el valor de Y quan X=5 amb la funció predict.lm de R, i hem obtingut els intervals de confiança del 95% [2,5] i [3,9], però no sabem quin és l'interval de confiança per al valor predit de Y sobre un individu per al qual X=5 i quin és l'interval de confiança per al valor esperat de Y sobre els individus per al quals X=5.
+
+1. [2,5] és l'interval de confiança per al valor predit de Y sobre un individu per al qual X=5 i [3,9] és l'interval de confiança per al valor esperat de Y sobre els individus per al quals X=5.
+1. [2,5] és l'interval de confiança per al valor esperat de Y sobre els individus per al quals X=5 i [3,9] és l'interval de confiança per al valor predit de Y sobre un individu per al qual X=5. 
+1. No podem saber quin interval és quin
+1. En realitat, hi ha un error: és impossible que  [2,5] i [3,9] (en l'ordre que sigui) siguin intervals de confiança per al valor predit de Y sobre un individu per al qual X=5 i  per al valor esperat de Y sobre els individus per al quals X=5
+
+
+
+
+**(11)** En fer la regressió lineal d'una variable Y respecte d'una variable X, hem obtingut la recta Y=0.8+1.2X. Quina de les conclusions següents és la més correcta segons aquest model?
+
+1. Un augment de 1 unitat de la variable X causa un augment de 1.2 unitats de la variable Y
+1. Un augment de 1 unitat de la variable X està associada a un augment de 1.2 unitats de la variable Y
+1. Un augment de 1 unitat de la variable X causa un augment de 0.8 unitats de la variable Y
+1. Un augment de 1 unitat de la variable X està associada a un augment de 0.8 unitats de la variable Y
+
+
+
+
+**(12)** Quines de les afirmacions següents sobre la recta de regressió per mínims quadrats és vertadera?
+
+1. Sempre passa per l'origen de coordenades
+1. Sempre és creixent
+1. El coeficient $b_1$ no canvia si canviam les unitats amb les que mesuram la variable independent multiplicant-les per una constant (com ara si canviam cm per m), però no canviam les unitats amb les que mesuram la variable dependent
+1. El coeficient $b_0$ no canvia si canviam les unitats amb les que mesuram la variable independent multiplicant-les per una constant  (com ara si canviam cm per m), però no canviam les unitats amb les que mesuram la variable dependent
+1. Sempre passa pel punt mig de les observacions que formen la mostra
+1. Els valors de $b_0$ i $b_1$ determinen el valor de $R^2$
+1. Cap de les altres respostes és correcta
+
+
+
+
+
+**(13)** Quines de les afirmacions següents sobre el coeficient de determinació en una regressió per mínims quadrats són vertaderes?
+
+1. El seu signe és sempre el del coeficient b1 de la recta de regressió
+1. El seu signe és sempre el de la covariància dels vectors x i y de la mostra
+1. És el quadrat de la correlació poblacional de les variables X i Y
+1. Si sabeu el seu valor i la recta de regressió, podeu saber el valor de la correlació dels vectors x i y de la mostra
+1. Cap de les altres respostes és correcta
+
+
+
+
+
+
+
+**(14)** Hem mesurat dues variables X i Y sobre 100 subjectes. La variància de la mostra x de X obtinguda ha estat 3 i la variància de la mostra x de X ha estat 12. Quin, o quins, dels valors següents no poden ser el de la covariància de x i y?
+
+1. 0
+1. 1.5
+1. 6
+1. 9
+1. $-\sqrt{2}$
+1. -6
+1. -9
+1. La covariància d'aquests vectors x i y pot ser qualsevol número real
+
+
+
+**(15)** En una regressió lineal simple per mínims quadrats, en el contrast sobre si $\beta_0=0$ o no obtenim un p-valor 0.018 i en el contrast sobre si $\beta_1=0$ o no obtenim un p-valor 0.005. Si se satisfan les condicions sobre les variables error perquè aquests p-valors siguin fiables, quines de les afirmacions següents són correctes?
+
+1. Hem obtingut evidència estadística que  $\beta_0=0$ i $\beta_1=0$
+1. No hem obtingut evidència estadística que  $\beta_0=0$ i $\beta_1=0$
+1. Hem obtingut evidència estadística que  $\beta_0\neq 0$ i $\beta_1\neq 0$
+1. No hem obtingut evidència estadística que  $\beta_0\neq 0$ i $\beta_1\neq 0$
+1. En la realitat, la probabilitat que $\beta_0=0$ és més petita que la de $\beta_1=0$
+1. En la realitat, la probabilitat que $\beta_0=0$ és més gran que la de $\beta_1=0$
+1. Estam segurs que $b_0$ i $b_1$ han donat diferent de 0
+1. Cap de les altres respostes és correcta
+
+
+
+
+**(16)** En una regressió lineal simple per mínims quadrats d'una variable Y respecte d'una variable X, hem obtingut $b_1=0.18$ i un interval de confiança del 95% per a $\beta_1$ entre 0.1 i 0.26. Si se satisfan les condicions sobre les variables error perquè aquest interval de confiança sigui fiable, quines de les afirmacions següents són correctes?
+
+1. Com que 0.18 pertany a  [0.1,0.26], estam molt segurs que $\beta_1=0.18$
+1. Amb nivell de significació 0.05 segur que rebutjarem que  $\beta_1\neq 0$
+1. Si calculàssim l'IC del 90% per a $\beta_1$ amb la mateixa mostra, seria més ample que el del 95%
+1. Si calculàssim l'IC del 90% per a $\beta_1$ amb la mateixa mostra, seria més estret que el del 95%
+1. Per a un 95% de les mostres de la mateixa mida que la nostra, el coeficient $b_1$ estaria entre 0.1 i 0.26
+1. Amb nivell de significació 0.05, podem concloure que el model lineal té sentit, en el sentit que la variable Y|x no és la variable error Ex més una constant 
+1. Cap de les altres respostes és correcta
+
+
+
+
+**(17)** Quines de les afirmacions següents sobre la regressió lineal múltiple per mínims quadrats són vertaderes? Marcau totes les vertaderes.
+
+1. La funció que s'obté sempre passa per l'origen de coordenades
+1. La funció que s'obté sempre  passa pel punt mig de les observacions que formen la mostra
+1. La mitjana dels valors estimats de la variable dependent sobre els subjectes de la mostra coincideix amb la mitjana dels valors observats d'aquesta variable sobre aquests subjectes
+1. La mitjana dels valors estimats de la variable dependent sobre els subjectes de la mostra coincideix amb la variància dels valors observats d'aquesta variable sobre aquests subjectes
+1. La suma de quadrats total és la suma de quadrats dels tractaments més la suma de quadrats dels errors
+1. La suma de quadrats total és la suma de quadrats de la regressió més la suma de quadrats dels errors
+1. Els coeficients de la funció lineal són els que fan mínima la suma de quadrats dels errros
+1. La mitjana dels valors estimats de la variable dependent sobre els subjectes de la mostra coincideix amb la mitjana dels errors en l'estima ció d'aquesta variable sobre aquests subjectes
+1. La mitjana  dels errors en l'estimació de la variable dependent sobre els subjectes de la mostra és 0
+1. La variància  dels errors en l'estimació de la variable dependent sobre els subjectes de la mostra és 0
+
+
+
+
+
+**(18)** En una regressió lineal, hem obtingut la funció de regressió lineal $Y=2+3X_1-5X_2+4X_3$. Quines de les afirmacions són vertaderes?
+
+1. Segons aquest model, si en un subjecte A el valor de $X_1$ és més gran que en un subjecte B, el valor esperat de $Y$ en el subjecte A és més gran que el valor esperat de $Y$ en el subjecte B
+1. Segons aquest model, si en un subjecte A el valor de $X_1$ és més gran que en un subjecte B, pot passar que el valor esperat de $Y$ en el subjecte A sigui més petit que el valor esperat de $Y$ en el subjecte B
+1. Segons aquest model, si $X_1$ i $X_3$ romanen constants i $X_2$ augmenta en 1 unitat, el valor esperat de $Y$ disminueix 3 unitats
+1. Segons aquest model, si $X_1$ i $X_3$ romanen constants i $X_2$ augmenta en 1 unitat, el valor esperat de $Y$ disminueix 5 unitats
+1. Segons aquest model, si $X_1$ i $X_3$ romanen constants i $X_2$ augmenta en 1 unitat, el valor esperat de $Y$ augmenta 5 unitats
+1. Cap de les altres respostes és vertadera
+
+
+
+
+
+**(19)** Quines de les afirmacions següents sobre el coeficient de determinació de la regressió lineal per mínims quadrats són vertaderes? Marcau totes les vertaderes.
+
+1. En el cas de la regressió lineal simple, el seu quadrat és la correlació entre els valors de la variable independent i els de la variable dependent a la nostra mostra
+1. En el cas de la regressió lineal simple, és el quadrat de la correlació entre els valors de la variable independent i els de la variable dependent a la nostra mostra
+1. En el cas de la regressió lineal múltiple, si afegim al nostre model variables independents, el valor del coeficient de determinació no  decreix.
+1. En el cas de la regressió lineal múltiple, si empram un nombre més gran de variables independents (però no necessàriament mantenint les variables anteriors) el valor del coeficient de determinació no decreix.
+1. No pot valer 0
+1. No pot ser estrictament negatiu
+1. Cap de les altres respostes és correcta.
+
+
+**(20)** En la regressió lineal múltiple de Y en funció de les variables independents $X_1,X_2,X_3,X_4,X_5$ a partir d'una certa mostra hem obtingut que $R^2=0.92$ i $R^2_{adj}=0.82$, mentre que si fem la regressió lineal múltiple de Y en funció només de les variables independents $X_1,X_2,X_3$ a partir de la mateixa mostra hem obtingut que $R^2=0.91$ i $R^2_{adj}=0.865$. Quina de les afirmacions següents és vertadera?
+
+1. Això no pot ser, perquè $R^2_{adj}$ sempre és més gran o igual que R2.
+1. Això no pot ser, perquè quan $R^2$ decreix, $R^2_{adj}$ també decreix.
+1. Això no pot ser, perquè quan eliminam variables independents, la $R^2$ sempre creix.
+1. Això sí que pot ser, i llavors consideram que el model amb 5 variables independents és millor, perquè té el valor de $R^2$ més gran
+1. Això sí que pot ser, i llavors consideram que el model amb 3 variables independents és millor, perquè té el valor de $R^2_{adj}$ més gran
+1. Això sí que pot ser, i llavors consideram que el model amb 3 variables independents és millor, perquè té el valor de $R^2$ més petit
+1. Cap de les altres respostes és correcta.
+
+
+
+
+
+
+**(21)** Quines de les afirmacions següents sobre $R^2_{adj}$ són vertaderes?
+
+1. Sempre és més petit que  $R^2$
+
+1. Pot ser més petit o més gran que  $R^2$
+1. Pot ser estrictament negatiu
+1. Pot valer 0
+1. Si afegim variables independents a la regressió lineal, el seu valor no  decreix
+1. Si afegim variables independents a la regressió lineal, el seu valor no  creix
+1. Cap de les altres respostes és vertadera
+
+
+
+
+**(22)** En una regressió lineal múltiple per mínims quadrats d'una variable Y respecte d'una variable X, hem obtingut $b_2=0.18$ i un interval de confiança del 95% per a $\beta_2$ entre -0.1 i 0.46. Si se satisfan les condicions sobre les variables error perquè aquest interval de confiança sigui fiable, quines de les afirmacions següents són correctes?
+
+1. Com que 0.18 pertany a  [-0.1,0.46], estam molt segurs que $\beta_2=0.18$
+1. Amb nivell de significació 0.05 hem de rebutjar que   $\beta_2=0$
+1. Amb nivell de significació 0.05  no podem rebutjar que  $\beta_2=0$
+1. Si calculàssim l'IC del 99% per a $\beta_2$ amb la mateixa mostra, seria més ample que el del 95%
+1. Si calculàssim l'IC del 99% per a $\beta_2$ amb la mateixa mostra, seria més estret que el del 95%
+1. Si calculàssim l'IC del 99% per a $\beta_2$ amb una altra mostra de la mateixa mida, seria més ample que el del 95% que hem obtingut nosaltres
+1. Per a un 95% de les mostres de la mateixa mida que la nostra, el coeficient $b_2$ estaria entre -0.1 i 0.46
+1. Cap de les altres respostes és correcta
+
+
+
+
+
+**(23)** En el contrast d’hipòtesis sobre si un coeficient $\beta_i$ és 0 o no, la conclusió amb nivell de significació 0.1 ha estat que hem d’acceptar la hipòtesi nul·la. Quines de les afirmacions següents són vertadera en aquesta situació? 
+
+1. Hem acceptat la hipòtesi nul·la perquè hem obtingut evidència estadística que la hipòtesi nul·la és vertadera.
+1. Hem acceptat la hipòtesi nul·la perquè no hem obtingut evidència estadística que la hipòtesi nul·la sigui falsa.
+1. Hem acceptat que $\beta_i=0$
+1. Hem acceptat la hipòtesi nul·la perquè hem obtingut evidència estadística que la probabilitat que la hipòtesi alternativa sigui vertadera és 0.1 o menys.
+1. Assumím una probabilitat d’equivocar-nos acceptant la hipòtesi nul·la quan és falsa de 0.1.
+1. Assumim una probabilitat d’equivocar-nos rebutjant la hipòtesi nul·la quan és vertadera de 0.1.
+1. Cap de les altres respostes és correcta
+
+
+
+**(24)** Quina o quines de les afirmacions següents sobre la regressió lineal per mínims quadrats d’una variable Y respecte d’un conjunt de variables independents són vertaderes? 
+
+
+1. Si el nombre de variables independents és el mateix, consideram més bona una funció de regressió lineal de Y com més gran és el quocient de la mitjana dels valors de Y dels punts de la mostra entre la mitjana dels valors estimats de Y sobre els punts de la mostra.
+1. Si el nombre de variables independents és el mateix, consideram més bona una funció de regressió lineal de Y com més gran és el quocient de la variància dels valors de Y dels punts de la mostra entre la variància dels valors estimats de Y sobre els punts de la mostra.
+1. Si el nombre de variables independents és el mateix, consideram més bona una funció de regressió lineal de Y  com més gran és el quocient de la variància dels valors estimats de Y sobre els punts de la mostra entre la variància dels valors de Y dels punts de la mostra
+1. Independentment del nombre de variables independents, consideram més bona una funció de regressió lineal de Y com més gran és el quocient de la mitjana dels valors de Y dels punts de la mostra entre la mitjana dels valors estimats de Y sobre els punts de la mostra.
+1. Independentment del nombre de variables independents, consideram més bona una funció de regressió lineal de Y com més gran és el quocient de la variància dels valors de Y dels punts de la mostra entre la variància dels valors estimats de Y sobre els punts de la mostra.
+1. Independentment del nombre de variables independents, consideram més bona una funció de regressió lineal de Y  com més gran és el quocient de la variància dels valors estimats de Y sobre els punts de la mostra entre la variància dels valors de Y dels punts de la mostra
+
+
+
+
+**(25)**  Roda el món i torna al Born. Quan diem que el 0.975-quantil d'una variable aleatòria normal estàndard Z és 1.96, això significa que:
+
+1. P(Z=0.975)=1.96
+1. P(Z<0.975)=1.96
+1. P(Z>0.975)=1.96
+1. P(Z=1.96)=0.975
+1. P(Z<1.96)=0.975
+1. P(Z>1.96)=0.975
+1. En realitat no significa res de tot això.
+
 
 
