@@ -23,7 +23,7 @@
 
 
 
-<meta name="date" content="2021-05-24" />
+<meta name="date" content="2021-05-26" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -458,7 +458,7 @@ i la representàveu amb:</p>
 <div class="sourceCode" id="cb674"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb674-1"><a href="regressió-lineal.html#cb674-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(edat,alçada,<span class="at">pch=</span><span class="dv">20</span>)</span>
 <span id="cb674-2"><a href="regressió-lineal.html#cb674-2" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="fu">lm</span>(alçada<span class="sc">~</span>edat),<span class="at">col=</span><span class="st">&quot;red&quot;</span>,<span class="at">xlab=</span><span class="st">&quot;Edat&quot;</span>,<span class="at">ylab=</span><span class="st">&quot;Alçada&quot;</span>)</span></code></pre></div>
 <p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-748-1.png" width="50%" style="display: block; margin: auto;" /></p>
-<p>Ara podíeu emprar aquesta recta per estimar l’alçada d’un nin d’una edat concreta. Per exemple, ens permet estimar que l’alçada d’un nin de 10 anys és
+<p>Ara podíeu emprar aquesta recta per estimar l’alçada d’un nin d’una edat concreta. Per exemple, ens permet estimar que l’alçada d’un nin d’10 anys és
 <span class="math display">\[
 72.321+6.464\cdot 10=136.964,
 \]</span>
@@ -466,14 +466,14 @@ uns 137 cm.</p>
 <p>En aquest tema estudiarem com es calcula aquella recta, què vol dir que sigui “la millor recta” que explica l’alçada dels nins en funció de l’edat, com trobar intervals de confiança per a les estimacions associades a aquesta recta i com tractar el problema més general de trobar “la millor funció lineal” que explica una variable <span class="math inline">\(Y\)</span> en funció de diverses variables <span class="math inline">\(X_1,\ldots,X_k\)</span>.</p>
 <div id="regressió-lineal-simple" class="section level2" number="11.1">
 <h2><span class="header-section-number">11.1</span> Regressió lineal simple</h2>
-<p>El problema plantejat a l’Exemple <a href="regressió-lineal.html#exm:edats1">11.1</a> és una instància de la situació general en la qual tenim parelles d’observacions de dues variables <span class="math inline">\(X\)</span> i <span class="math inline">\(Y\)</span> sobre una mostra de subjectes,
+<p>El problema plantejat a l’Exemple <a href="regressió-lineal.html#exm:edats1">11.1</a> és una instància de la situació general en la qual tenim parelles d’observacions de dues variables <span class="math inline">\(X\)</span> i <span class="math inline">\(Y\)</span> sobre una mostra de <span class="math inline">\(n\geqslant 2\)</span> subjectes,
 <span class="math display">\[
 (x_i,y_i)_{i=1,2,\ldots,n},
 \]</span>
 i volem estudiar com depèn el valor de la variable <span class="math inline">\(Y\)</span> del de <span class="math inline">\(X\)</span>. En aquest context:</p>
 <ul>
-<li><p>La variable <span class="math inline">\(X\)</span> l’anomenam la variable <strong>de control</strong> o <strong>independent</strong></p></li>
-<li><p>La variable <span class="math inline">\(Y\)</span> l’anomenam la variable <strong>de resposta</strong> o <strong>dependent</strong></p></li>
+<li><p>Direm que <span class="math inline">\(X\)</span> és la variable <strong>de control</strong> o <strong>independent</strong></p></li>
+<li><p>Direm que <span class="math inline">\(Y\)</span> l’anomenam la variable <strong>de resposta</strong> o <strong>dependent</strong></p></li>
 </ul>
 
 <div class="rmdnote">
@@ -482,7 +482,7 @@ La variable de control no té per què ser aleatòria: nosaltres podem fixar el 
 <p>En general, volem trobar la millor relació funcional (el millor <strong>model estadístic</strong>, amb la terminologia introduïda en el tema anterior) que expliqui la variable <span class="math inline">\(Y\)</span> en funció de la variable <span class="math inline">\(X\)</span>. En aquest tema, cercarem un <strong>model lineal</strong>. Les tècniques que es fan servir per resoldre aquest problema s’anomenen genèricament de <strong>regressió lineal</strong>. Nosaltres n’estudiarem una de concreta: la <strong>regressió lineal per mínims quadrats</strong>.</p>
 
 <div class="rmdnote">
-El nom “regressió” per parlar del tipus de tècniques que permeten ajustar una recta a un conjunt de punts prové del títol d’un article de Galton de 1886, <em>Regression Towards Mediocrity in Hereditary Stature</em>. En aquest article hi va analitzar les alçades d’una mostra de 928 adults i les alçades mitjanes dels seus pares. Hi observà que els pares alts tendien a tenir fills més baixos que ells i que els pares baixos tendien a tenir fills més alts que ells. D’aquest efecte en digué “regressió a la mediocritat” al títol de l’article. D’aquí s’adoptà el terme “regressió” per descriure la tècnica que emprà per obtenir la recta vermella del gràfic següent, amb la qual suportava la seva conclusió comparant-la amb la diagonal (la línia discontínua), i amb el temps el nom de l’efecte que observà es canvià al menys ofensiu “regressió a la mitjana”. Més endavant tornarem sobre aquest exemple.
+El nom “regressió” per parlar del tipus de tècniques que permeten ajustar una recta a un conjunt de punts prové del títol d’un article de Galton d’1886, <em>Regression Towards Mediocrity in Hereditary Stature</em>. En aquest article hi va analitzar les alçades d’una mostra de 928 adults i les alçades mitjanes dels seus pares. Hi observà que els pares alts tendien a tenir fills més baixos que ells i que els pares baixos tendien a tenir fills més alts que ells. D’aquest efecte en digué “regressió a la mediocritat” al títol de l’article. D’aquí s’adoptà el terme “regressió” per descriure la tècnica que emprà per obtenir la recta vermella del gràfic següent, amb la qual suportava la seva conclusió comparant-la amb la diagonal (la línia discontínua), i amb el temps el nom de l’efecte que observà es canvià al menys ofensiu “regressió a la mitjana”. Més endavant tornarem sobre aquest exemple.
 </div>
 <p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-751-1.png" width="50%" style="display: block; margin: auto;" /></p>
 <div id="el-model" class="section level3" number="11.1.1">
@@ -506,7 +506,7 @@ on <span class="math inline">\(\mu_{Y|x}\)</span> és el valor esperat de <span 
 </ul>
 </div>
 <p>Amb una mostra <span class="math inline">\((x_i,y_i)_{i=1,2,\ldots,n}\)</span>, calcularem estimacions <span class="math inline">\(b_0\)</span> i <span class="math inline">\(b_1\)</span> de
-<span class="math inline">\(\beta_0\)</span> i de <span class="math inline">\(\beta_1\)</span>. Això ens donarà la <strong>recta de regressió</strong> per a la nostra mostra:
+<span class="math inline">\(\beta_0\)</span> i <span class="math inline">\(\beta_1\)</span>. Això ens donarà la <strong>recta de regressió</strong> per a la nostra mostra:
 <span class="math display">\[
 \widehat{Y}=b_0+b_1 X.
 \]</span>
@@ -526,14 +526,14 @@ Y|x=\mu_{Y|x}+ E_x=\beta_0+\beta_1 x+ E_x
 on</p>
 <ul>
 <li><p><span class="math inline">\(Y|x\)</span> és la variable aleatòria <strong>“valor de <span class="math inline">\(Y\)</span> quan <span class="math inline">\(X\)</span> val <span class="math inline">\(x\)</span>”</strong>: Prenem un subjecte en el qual <span class="math inline">\(X\)</span> val <span class="math inline">\(x\)</span> i hi mesuram <span class="math inline">\(Y\)</span></p></li>
-<li><p><span class="math inline">\(\mu_{Y|x}\)</span> és el valor esperat de <span class="math inline">\(Y|x\)</span></p></li>
+<li><p><span class="math inline">\(\mu_{Y|x}\)</span> és el valor esperat de <span class="math inline">\(Y|x\)</span>, és a dir, la mitjana dels valors de <span class="math inline">\(Y\)</span> sobre tots els individus en els quals <span class="math inline">\(X\)</span> valgui <span class="math inline">\(x\)</span></p></li>
 <li><p><span class="math inline">\(E_x=Y|x -\mu_{Y|x}\)</span> és la variable aleatòria <strong>error</strong> o <strong>residu</strong>, que dóna la diferència entre el valor de <span class="math inline">\(Y\)</span> en un individu amb <span class="math inline">\(X=x\)</span> i el seu valor esperat</p></li>
 </ul>
 <p>Prenent valors esperats als dos costats de la igualtat <span class="math inline">\(Y|x=\mu_{Y|x}+ E_x\)</span> obtenim que <span class="math inline">\(\mu_{Y|x}=\mu_{Y|x}+ \mu_{E_x}\)</span> i per tant que <span class="math inline">\(\mu_{E_x}=0\)</span>. Així doncs, aquest model implica que <strong>els valors esperats de les variables error <span class="math inline">\(E_x\)</span> són tots 0</strong>.</p>
 </div>
 <div id="mínims-quadrats" class="section level3" number="11.1.2">
 <h3><span class="header-section-number">11.1.2</span> Mínims quadrats</h3>
-<p>Si estimam que <span class="math inline">\(\beta_0\)</span> i <span class="math inline">\(\beta_1\)</span> valen <span class="math inline">\(b_0\)</span> i <span class="math inline">\(b_1\)</span>, l’<strong>error</strong> que cometem amb l’estimació <span class="math inline">\(\widehat{y}_i=b_0+b_1x_i\)</span> a cada observació <span class="math inline">\((x_i,y_i)\)</span> de la mostra és
+<p>L’<strong>error</strong> que cometem amb l’estimació <span class="math inline">\(\widehat{y}_i=b_0+b_1x_i\)</span> a cada observació <span class="math inline">\((x_i,y_i)\)</span> de la mostra és
 <span class="math display">\[
 e_i=y_i-\widehat{y}_i=y_i-(b_0+b_1 x_i)
 \]</span></p>
@@ -685,7 +685,7 @@ alçada
 </tr>
 </tbody>
 </table>
-<p>Comencem obtenint els estadístics que ens calen per calcular els coeficents <span class="math inline">\(b_0\)</span> i <span class="math inline">\(b_1\)</span> (i la variància de les alçades, que per calcular-los no ens fa falta però més tard sí que la necessitarem):</p>
+<p>Començarem trobant els estadístics que ens calen per calcular els coeficients <span class="math inline">\(b_0\)</span> i <span class="math inline">\(b_1\)</span>. Ja que hi som, també trobarem la variància de les alçades, que per calcular <span class="math inline">\(b_0\)</span> i <span class="math inline">\(b_1\)</span> no ens fa falta però que més tard sí que necessitarem saber-la:</p>
 <div class="sourceCode" id="cb675"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb675-1"><a href="regressió-lineal.html#cb675-1" aria-hidden="true" tabindex="-1"></a>edat<span class="ot">=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">9</span>, <span class="dv">11</span>, <span class="dv">13</span>)</span>
 <span id="cb675-2"><a href="regressió-lineal.html#cb675-2" aria-hidden="true" tabindex="-1"></a>alçada<span class="ot">=</span><span class="fu">c</span>(<span class="dv">75</span>, <span class="dv">92</span>, <span class="dv">108</span>, <span class="dv">121</span>, <span class="dv">130</span> , <span class="dv">142</span>, <span class="dv">155</span>)</span>
 <span id="cb675-3"><a href="regressió-lineal.html#cb675-3" aria-hidden="true" tabindex="-1"></a>x.b<span class="ot">=</span><span class="fu">mean</span>(edat)</span>
@@ -722,7 +722,7 @@ que coincideix amb la recta que calcula <code>lm</code>:</p>
 ## Coefficients:
 ## (Intercept)         edat  
 ##      72.321        6.464</code></pre>
-<p>Recordau que els coeficients <span class="math inline">\(b_0,b_1\)</span> d’aquesta recta s’obtenen, respectivament, afegint els sufixos <code>$coefficients[1]</code> i <code>$coefficients[2]</code> al resultat de la funció <code>lm</code>.</p>
+<p>Els coeficients <span class="math inline">\(b_0,b_1\)</span> s’obtenen, respectivament, afegint els sufixos <code>$coefficients[1]</code> i <code>$coefficients[2]</code> al resultat de la funció <code>lm</code>.</p>
 <div class="sourceCode" id="cb679"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb679-1"><a href="regressió-lineal.html#cb679-1" aria-hidden="true" tabindex="-1"></a>b0.edat<span class="ot">=</span><span class="fu">lm</span>(alçada<span class="sc">~</span>edat)<span class="sc">$</span>coefficients[<span class="dv">1</span>]</span>
 <span id="cb679-2"><a href="regressió-lineal.html#cb679-2" aria-hidden="true" tabindex="-1"></a>b0.edat</span></code></pre></div>
 <pre><code>## (Intercept) 
@@ -742,7 +742,7 @@ Si es passen les alçades a polzades, s’arrodoneixen, es calcula la recta de r
 <span class="math display">\[
 \widehat{Y}=61.675X-39.746
 \]</span>
-La moralitat d’aquesta història és que, si feu els càlculs a mà, procureu no arrodonir fins al resultat final.
+La moralitat d’aquesta història és que, si feu els càlculs a mà, procurau no arrodonir fins al resultat final.
 </div>
 
 <div class="example">
@@ -854,7 +854,7 @@ Segons aquest model, a un augment d’1 g de sal consumida li correspon un augme
 <pre><code>## &#39;data.frame&#39;:	928 obs. of  2 variables:
 ##  $ parent: num  70.5 68.5 65.5 64.5 64 67.5 67.5 67.5 66.5 66.5 ...
 ##  $ child : num  61.7 61.7 61.7 61.7 61.7 62.2 62.2 62.2 62.2 62.2 ...</code></pre>
-<p>Cada filera del dataframe correspon a un adult: la variable <code>child</code> dóna la seva alçada i la variable <code>parent</code> la mitjana de les alçades dels seus pares, totes dues en polzades (recordau que 1 polzada són 2.54 cm). Calculem a mà i amb R la recta de regressió de la variable de reposta <code>child</code> en funció de la variable de control <code>parent</code>:</p>
+<p>Cada filera del dataframe correspon a un adult: la variable <code>child</code> dóna la seva alçada i la variable <code>parent</code> la mitjana de les alçades dels seus pares, totes dues en polzades (recordau que 1 polzada són 2.54 cm). Calculem a mà i amb R la recta de regressió de la variable de resposta <code>child</code> en funció de la variable de control <code>parent</code>:</p>
 <div class="sourceCode" id="cb691"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb691-1"><a href="regressió-lineal.html#cb691-1" aria-hidden="true" tabindex="-1"></a>x.b<span class="ot">=</span><span class="fu">mean</span>(Galton<span class="sc">$</span>parent)</span>
 <span id="cb691-2"><a href="regressió-lineal.html#cb691-2" aria-hidden="true" tabindex="-1"></a>y.b<span class="ot">=</span><span class="fu">mean</span>(Galton<span class="sc">$</span>child)</span>
 <span id="cb691-3"><a href="regressió-lineal.html#cb691-3" aria-hidden="true" tabindex="-1"></a>s2.x<span class="ot">=</span><span class="fu">var</span>(Galton<span class="sc">$</span>parent)</span>
@@ -877,18 +877,18 @@ Segons aquest model, a un augment d’1 g de sal consumida li correspon un augme
 <span class="math display">\[
 \widehat{Y}= 23.942+0.646 X
 \]</span>
-Segons aquest model, a un augment d’1 polzada (2.54 cm) en l’alçada mitjana dels pares li correspon, de mitjana, un augment de 0.646 polzades (1.6 cm) de l’alçada del fill.</p>
+Segons aquest model, a un augment d’1 polzada (2.54 cm) en l’alçada mitjana dels pares li correspon, de mitjana, un augment de l’alçada del fill de només 0.646 polzades (1.6 cm).</p>
 <p>Amb la funció <code>lm</code> obtenim la mateixa recta. Observau la sintaxi per especificar-hi el dataframe</p>
 <div class="sourceCode" id="cb695"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb695-1"><a href="regressió-lineal.html#cb695-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(child<span class="sc">~</span>parent, <span class="at">data=</span>Galton)<span class="sc">$</span>coefficients</span></code></pre></div>
 <pre><code>## (Intercept)      parent 
 ##  23.9415302   0.6462906</code></pre>
 <p>El fet que la pendent d’aquesta recta sigui més petita que 1 és el que dóna l’efecte de “regressió a la mediocritat” que observà Galton. En efecte, calculem per a quines alçades mitjanes dels pares esperam que els fills siguin més baixos que ells. Si resolem la desigualtat “alçada dels pares més gran que l’alçada esperada dels fills”
 <span class="math display">\[
-X\geq \widehat{Y}=  23.942+0.646 X
+X\geqslant \widehat{Y}=  23.942+0.646 X
 \]</span>
 obtenim
 <span class="math display">\[
-X\geq \frac{23.942}{1-0.646}=67.69
+X\geqslant \frac{23.942}{1-0.646}=67.69
 \]</span>
 i això ens diu que si l’alçada mitjana dels pares és més gran que 67.69 polzades, uns 1.72 m, esperam que els fills siguin més baixos que els pares, mentre que, pel contrari, si l’alçada mitjana dels pares està per davall dels 1.72 m, esperam que els fills siguin més alts que els pares.</p>
 <p>Algunes de les propietats importants de la regressió per mínims quadrats són:</p>
@@ -937,12 +937,12 @@ S^2=\frac{SS_E}{n-2}
 </ul>
 <p>Si <strong>a més</strong> les variables aleatòries error <span class="math inline">\(E_{x_i}\)</span> són totes <strong>normals</strong>, aleshores:</p>
 <ul>
-<li><span class="math inline">\(b_0\)</span> i <span class="math inline">\(b_1\)</span> són estimadors màxim versemblants de <span class="math inline">\(\beta_0\)</span> i <span class="math inline">\(\beta_1\)</span> (a més de no esbiaixats òptims).
+<li><span class="math inline">\(b_0\)</span> i <span class="math inline">\(b_1\)</span> són els estimadors màxim versemblants de <span class="math inline">\(\beta_0\)</span> i <span class="math inline">\(\beta_1\)</span> (a més de no esbiaixats òptims).
 </div></li>
 </ul>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-769" class="example"><strong>Exemple 11.5  </strong></span>Si suposam a l’Exemple <a href="regressió-lineal.html#exm:edats1">11.1</a> que els errors tenen la mateixa variància i són incorrelats, podem estimar aquesta variància de la manera següent:</p>
+<p><span id="exm:edats5" class="example"><strong>Exemple 11.5  </strong></span>Si suposam a l’Exemple <a href="regressió-lineal.html#exm:edats1">11.1</a> que els errors tenen la mateixa variància i són incorrelats, podem estimar aquesta variància de la manera següent:</p>
 </div>
 <div class="sourceCode" id="cb697"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb697-1"><a href="regressió-lineal.html#cb697-1" aria-hidden="true" tabindex="-1"></a>n<span class="ot">=</span><span class="fu">length</span>(edat)</span>
 <span id="cb697-2"><a href="regressió-lineal.html#cb697-2" aria-hidden="true" tabindex="-1"></a>alçada.cap<span class="ot">=</span>b0.edat<span class="sc">+</span>b1.edat<span class="sc">*</span>edat   <span class="co">#Els valors estimats</span></span>
@@ -952,6 +952,10 @@ S^2=\frac{SS_E}{n-2}
 <span id="cb697-6"><a href="regressió-lineal.html#cb697-6" aria-hidden="true" tabindex="-1"></a>S2.edat</span></code></pre></div>
 <pre><code>## [1] 8.314286</code></pre>
 <p>Tenim que <span class="math inline">\(S^2=8.314\)</span>, i estimam que <span class="math inline">\(\sigma_E^2\)</span> val això.</p>
+
+<div class="rmdnote">
+No sabem si us hi heu fixat, però perquè la regressió lineal per mínims quadrats tengui bones propietats, <strong>no cal que la variable <span class="math inline">\(Y\)</span></strong> (i molt menys la <span class="math inline">\(X\)</span>, que no cal ni que sigui aleatòria) <strong>sigui normal</strong>. Qui han de ser normals (i amb mitjana 0, la mateixa variància i dues a dues incorrelades) han de ser les variables error.
+</div>
 <p>Bé, fins ara hem explicat com s’estimen per mínims quadrats els coeficients <span class="math inline">\(\beta_0\)</span> i <span class="math inline">\(\beta_1\)</span> al model
 <span class="math display">\[
 \mu_{Y|x}=\beta_0+\beta_1 x
@@ -984,7 +988,7 @@ però ens pot interessar més:</p>
 ## Multiple R-squared:  0.9912,	Adjusted R-squared:  0.9894 
 ## F-statistic: 562.9 on 1 and 5 DF,  p-value: 0.000002477</code></pre>
 <p>Veurem què és tot això que ens dóna R i per què serveix.</p>
-<p>D’entrada, pot ser útil saber que el vector <code>Residuals</code> (que s’obté amb el sufix <code>$residuals</code>) conté el vector dels errors <span class="math inline">\((e_i)_i\)</span>. Comprovem-ho amb les dades de l’Exemple <a href="regressió-lineal.html#exm:edats1">11.1</a>.</p>
+<p>D’entrada, pot ser útil saber que el vector <code>Residuals</code> (que s’obté amb el sufix <code>$residuals</code>) conté el vector dels errors <span class="math inline">\((e_i)_i\)</span>. Comprovem-ho amb les dades de l’Exemple <a href="regressió-lineal.html#exm:edats1">11.1</a>, els residus de les quals hem calculat a l’Exemple <a href="regressió-lineal.html#exm:edats5">11.5</a>:</p>
 <div class="sourceCode" id="cb701"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb701-1"><a href="regressió-lineal.html#cb701-1" aria-hidden="true" tabindex="-1"></a>errors.edat</span></code></pre></div>
 <pre><code>## [1] -3.7857143  0.2857143  3.3571429  3.4285714 -0.5000000 -1.4285714 -1.3571429</code></pre>
 <div class="sourceCode" id="cb703"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb703-1"><a href="regressió-lineal.html#cb703-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">lm</span>(alçada<span class="sc">~</span>edat))<span class="sc">$</span>residuals</span></code></pre></div>
@@ -1000,9 +1004,9 @@ però ens pot interessar més:</p>
 <p>Això es quantifica amb el <strong>coeficient de determinació</strong> <span class="math inline">\(R^2\)</span> que tot seguit definim.</p>
 <p>Siguin:</p>
 <ul>
-<li><p><span class="math inline">\(SS_{Total} =\sum\limits_{i=1}^n(y_i-\overline{y})^2\)</span>: és la <strong>Suma Total de Quadrats</strong> i representa la <strong>variabilitat dels valors observats <span class="math inline">\(y_i\)</span></strong>. Fixau-vos que
+<li><p><span class="math inline">\(SS_{Tot} =\sum\limits_{i=1}^n(y_i-\overline{y})^2\)</span>: és la <strong>Suma Total de Quadrats</strong> i representa la <strong>variabilitat dels valors observats <span class="math inline">\(y_i\)</span></strong>. Fixau-vos que
 <span class="math display">\[
-SS_{Total}=n\cdot s_y^2
+SS_{Tot}=n\cdot s_y^2
 \]</span></p></li>
 <li><p><span class="math inline">\(SS_R=\sum\limits_{i=1}^n(\widehat{y}_i-\overline{y})^2\)</span>: és la <strong>Suma de Quadrats de la Regressió</strong> i representa la <strong>variabilitat dels valors estimats <span class="math inline">\(\widehat{y}_i\)</span></strong>. Fixau-vos que
 <span class="math display">\[
@@ -1011,7 +1015,7 @@ SS_R=n\cdot s_{\widehat{y}}^2
 </ul>
 <p>Considerarem que la recta <span class="math inline">\(\widehat{y}=b_0+b_1x\)</span> és una bona aproximació de <span class="math inline">\(Y\)</span> com a funció lineal de <span class="math inline">\(X\)</span> sobre la nostra mostra quan <span class="math inline">\(s^2_{\widehat{y}}\)</span> sigui molt proper a <span class="math inline">\(s^2_y\)</span>. Per mesurar-ho, emprarem el <strong>coeficient de determinació</strong> <span class="math inline">\(R^2\)</span>, que és simplement el seu quocient:
 <span class="math display">\[
-R^2=\frac{SS_R}{SS_{Total}}=\frac{s_{\widehat{y}}^2}{s_y^2}
+R^2=\frac{SS_R}{SS_{Tot}}=\frac{s_{\widehat{y}}^2}{s_y^2}
 \]</span></p>
 <p>Recordau ara que hem definit la <strong>Suma de Quadrats dels Errors</strong> <span class="math inline">\(SS_E=\sum\limits_{i=1}^n(y_i-\widehat{y}_i)^2\)</span> i que
 <span class="math display">\[
@@ -1022,9 +1026,9 @@ on <span class="math inline">\(s_e^2\)</span> és la variància dels errors. A l
 <div class="theorem">
 <span id="thm:unnamed-chunk-773" class="theorem"><strong>Teorema 11.3  </strong></span>En una regressió lineal pel mètode de mínims quadrats,
 <span class="math display">\[
-SS_{Total}=SS_R+SS_E
+SS_{Tot}=SS_R+SS_E
 \]</span>
-o equivalentment,
+o equivalentment (dividint per la mida <span class="math inline">\(n\)</span> de la mostra),
 <span class="math display">\[
 s^2_y=s^2_{\widehat{y}}+s^2_e.
 \]</span>
@@ -1040,19 +1044,22 @@ s^2_y=s^2_{\widehat{y}}+s^2_e.
 <pre><code>## [1] 4721.71429 4680.14286   41.57143</code></pre>
 <div class="sourceCode" id="cb707"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb707-1"><a href="regressió-lineal.html#cb707-1" aria-hidden="true" tabindex="-1"></a>SS.R<span class="sc">+</span>SS.E</span></code></pre></div>
 <pre><code>## [1] 4721.714</code></pre>
-<p>Així, doncs, a la regressió per mínims quadrats <strong>la variabilitat dels valors observats de <span class="math inline">\(Y\)</span> és igual a la suma de la variabilitat dels valors estimats de <span class="math inline">\(Y\)</span> més la variabilitat dels errors</strong>. Llavors, el coeficient de determinació <span class="math inline">\(R^2\)</span> és la fracció de la variabilitat de les <span class="math inline">\(y_i\)</span> que queda explicada per la variabilitat de de les estimacions <span class="math inline">\(\widehat{y}_i\)</span>.</p>
+<p>Així, doncs, a la regressió per mínims quadrats</p>
+<blockquote>
+<p>la variabilitat dels valors observats <span class="math inline">\(y_i\)</span> de <span class="math inline">\(Y\)</span> és igual a la suma de la variabilitat dels valors estimats <span class="math inline">\(\widehat{y}_i\)</span> de <span class="math inline">\(Y\)</span> més la variabilitat dels errors.</p>
+</blockquote>
 <p>Aleshores, si la regressió lineal és per mínims quadrats,
 <span class="math display">\[
-R^2=\frac{SS_{Total}-SS_E}{SS_{Total}}=1-\frac{SS_E}{SS_{Total}}=1-\frac{s_e^2}{s_y^2}
+R^2=\frac{SS_R}{SS_{Tot}}=\frac{SS_{Tot}-SS_E}{SS_{Tot}}=1-\frac{SS_E}{SS_{Tot}}=1-\frac{s_e^2}{s_y^2}
 \]</span>
 En particular:</p>
 
 <div class="rmdimportant">
-En una regressió per mínims quadrats, <span class="math inline">\(R^2\leq 1\)</span>, i <span class="math inline">\(R^2= 1\)</span> exactament quan tots els <span class="math inline">\(e_i\)</span> són 0, és a dir, quan <span class="math inline">\(\widehat{y}_i=y_i\)</span> per a tot <span class="math inline">\(i=1,\ldots,n\)</span>. Com més gran (més proper a 1) sigui <span class="math inline">\(R^2\)</span>, més bona entendrem que és la regressió lineal.
+En una regressió per mínims quadrats, <span class="math inline">\(R^2\leqslant 1\)</span>, i <span class="math inline">\(R^2= 1\)</span> exactament quan tots els <span class="math inline">\(e_i\)</span> són 0, és a dir, quan <span class="math inline">\(\widehat{y}_i=y_i\)</span> per a tot <span class="math inline">\(i=1,\ldots,n\)</span>. Com més gran (més proper a 1) sigui <span class="math inline">\(R^2\)</span>, més bona entendrem que és la regressió lineal.
 </div>
 
 <div class="rmdnote">
-Per si de cas no hi heu caigut, observau que <span class="math inline">\(R^2\geq 0\)</span>, perquè és un quocient de quadrats. Només val 0 quan <span class="math inline">\(s^2_{\widehat{y}}=0\)</span>, és a dir, quan tots els valors estimats <span class="math inline">\(\widehat{y}_i\)</span> són iguals.
+Per si de cas no hi heu caigut, observau que <span class="math inline">\(R^2\geqslant 0\)</span>, perquè és un quocient de quadrats. Només val 0 quan <span class="math inline">\(s^2_{\widehat{y}}=0\)</span>, és a dir, quan tots els valors estimats <span class="math inline">\(\widehat{y}_i\)</span> són iguals (i això només passa quan <span class="math inline">\(b_1=0\)</span>, és a dir, quan <span class="math inline">\(s_{x,y}=0\)</span>).
 </div>
 <p>R dóna el <span class="math inline">\(R^2\)</span> en el <code>summary(lm( ))</code>: és el valor <code>Multiple R-squared</code> a la penúltima línia de la seva sortida:</p>
 <div class="sourceCode" id="cb709"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb709-1"><a href="regressió-lineal.html#cb709-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">lm</span>(alçada<span class="sc">~</span>edat))</span></code></pre></div>
@@ -1080,7 +1087,7 @@ Per si de cas no hi heu caigut, observau que <span class="math inline">\(R^2\geq
 <p>El resultat següent ja l’anunciàrem al Tema <a href="chap-ED.html#chap:ED">9</a>.</p>
 
 <div class="theorem">
-<span id="thm:unnamed-chunk-780" class="theorem"><strong>Teorema 11.4  </strong></span>En una regressió per mínims quadrats, el coeficient de determinació és el quadrat de la correlació de Pearson de les mostres de les dues variables:
+<span id="thm:unnamed-chunk-780" class="theorem"><strong>Teorema 11.4  </strong></span>En una regressió lineal per mínims quadrats, el coeficient de determinació és el quadrat de la correlació de Pearson de les mostres de les dues variables:
 <span class="math display">\[
 R^2=r_{x,y}^2
 \]</span>
@@ -1090,8 +1097,8 @@ R^2=r_{x,y}^2
 <p>En efecte:
 <span class="math display">\[
 \begin{array}{rl}
-R^2 &amp; \displaystyle =\frac{SS_R}{SS_{Total}}=\frac{\sum\limits_{i=1}^n(b_1x_i+b_0-\overline{y})^2}{ns_y^2}\\[2ex] 
-&amp; \displaystyle =\frac{\sum\limits_{i=1}^n(\dfrac{s_{xy}}{s_x^2}x_i-\dfrac{s_{xy}}{s_x^2}\overline{x})^2}{ns_y^2} =\frac{\dfrac{s_{xy}^2}{s_x^4}\sum\limits_{i=1}^n(x_i-\overline{x})^2}{ns_y^2}\\[2ex] &amp; \displaystyle =\dfrac{s_{xy}^2}{s_x^4}\cdot \frac{s_x^2}{s_y^2}=\frac{s_{xy}^2}{s_x^2\cdot s_y^2}=r_{xy}^2
+R^2 &amp; \displaystyle =\frac{SS_R}{SS_{Tot}}=\frac{\sum\limits_{i=1}^n(b_1x_i+b_0-\overline{y})^2}{ns_y^2}\\[2ex] 
+&amp; \displaystyle =\frac{\sum\limits_{i=1}^n\Big(\dfrac{s_{xy}}{s_x^2}x_i-\dfrac{s_{xy}}{s_x^2}\overline{x}\Big)^2}{ns_y^2} =\frac{\dfrac{s_{xy}^2}{s_x^4}\sum\limits_{i=1}^n(x_i-\overline{x})^2}{ns_y^2}\\[2ex] &amp; \displaystyle =\dfrac{s_{xy}^2}{s_x^4}\cdot \frac{s_x^2}{s_y^2}=\frac{s_{xy}^2}{s_x^2\cdot s_y^2}=r_{xy}^2
 \end{array}
 \]</span></p>
 </div>
@@ -1117,10 +1124,10 @@ R^2 &amp; \displaystyle =\frac{SS_R}{SS_{Total}}=\frac{\sum\limits_{i=1}^n(b_1x_
 <div class="sourceCode" id="cb721"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb721-1"><a href="regressió-lineal.html#cb721-1" aria-hidden="true" tabindex="-1"></a>SS.E<span class="ot">=</span><span class="fu">sum</span>((tensió<span class="sc">-</span>tensió.cap)<span class="sc">^</span><span class="dv">2</span>) <span class="co">#La suma de Quadrats dels Errors</span></span>
 <span id="cb721-2"><a href="regressió-lineal.html#cb721-2" aria-hidden="true" tabindex="-1"></a>SS.E</span></code></pre></div>
 <pre><code>## [1] 21.74589</code></pre>
-<p>Vegem que <span class="math inline">\(SS_R+SS_E\)</span> és igual a <span class="math inline">\(SS_{Total}\)</span>:</p>
+<p>Vegem que <span class="math inline">\(SS_R+SS_E\)</span> és igual a <span class="math inline">\(SS_{Tot}\)</span>:</p>
 <div class="sourceCode" id="cb723"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb723-1"><a href="regressió-lineal.html#cb723-1" aria-hidden="true" tabindex="-1"></a>SS.R<span class="sc">+</span>SS.E</span></code></pre></div>
 <pre><code>## [1] 331.3333</code></pre>
-<p>Calculem ara <span class="math inline">\(R^2=SS_R/SS_{Total}\)</span> i comprovem que coincideix amb el valor que dóna R i amb el quadrat de la correlació de Pearson de les mostres de quantitats de sal i tensions:</p>
+<p>Calculem ara <span class="math inline">\(R^2=SS_R/SS_{Tot}\)</span> i comprovem que coincideix amb el valor que dóna R i amb el quadrat de la correlació de Pearson de les mostres de quantitats de sal i tensions:</p>
 <div class="sourceCode" id="cb725"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb725-1"><a href="regressió-lineal.html#cb725-1" aria-hidden="true" tabindex="-1"></a>R2<span class="ot">=</span>SS.R<span class="sc">/</span>SS.Tot</span>
 <span id="cb725-2"><a href="regressió-lineal.html#cb725-2" aria-hidden="true" tabindex="-1"></a>R2</span></code></pre></div>
 <pre><code>## [1] 0.9343685</code></pre>
@@ -1189,28 +1196,22 @@ El valor de <span class="math inline">\(R^2\)</span> no és suficient per valora
 <p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-792-1.png" width="90%" style="display: block; margin: auto;" /></p>
 
 <div class="rmdnote">
-Al Tema <a href="chap-ED.html#chap:ED">9</a> ja us parlàrem del paquet <strong>datasaurus</strong>, les funcions del qual us permeten crear conjunts de punts de “formes” diferents i els mateixos estadístics. Vegem com el dinosaure i l’estrella tenen rectes de regressió i valors de <span class="math inline">\(R^2\)</span> molt semblants.
+Al Tema <a href="chap-ED.html#chap:ED">9</a> ja us parlàrem del paquet <strong>datasaurus</strong>, les funcions del qual us permeten crear conjunts de punts de “formes” diferents i els mateixos estadístics. Vegem com el nostres dinosaure i estrella tenen rectes de regressió i valors de <span class="math inline">\(R^2\)</span> molt semblants.
 </div>
 <div class="sourceCode" id="cb750"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb750-1"><a href="regressió-lineal.html#cb750-1" aria-hidden="true" tabindex="-1"></a>datasaure<span class="ot">=</span><span class="fu">read.table</span>(<span class="st">&quot;https://raw.githubusercontent.com/AprendeR-UIB/MatesII/master/Dades/Datasaurus.txt&quot;</span>,<span class="at">header=</span><span class="cn">TRUE</span>,<span class="at">sep=</span><span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>)</span>
 <span id="cb750-2"><a href="regressió-lineal.html#cb750-2" aria-hidden="true" tabindex="-1"></a>dino<span class="ot">=</span>datasaure[datasaure<span class="sc">$</span>dataset<span class="sc">==</span><span class="st">&quot;dino&quot;</span>,<span class="dv">2</span><span class="sc">:</span><span class="dv">3</span>]</span>
 <span id="cb750-3"><a href="regressió-lineal.html#cb750-3" aria-hidden="true" tabindex="-1"></a>star<span class="ot">=</span>datasaure[datasaure<span class="sc">$</span>dataset<span class="sc">==</span><span class="st">&quot;star&quot;</span>,<span class="dv">2</span><span class="sc">:</span><span class="dv">3</span>]</span>
-<span id="cb750-4"><a href="regressió-lineal.html#cb750-4" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
-<span id="cb750-5"><a href="regressió-lineal.html#cb750-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(dino,<span class="at">pch=</span><span class="dv">20</span>)</span>
-<span id="cb750-6"><a href="regressió-lineal.html#cb750-6" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="fu">lm</span>(dino<span class="sc">$</span>y<span class="sc">~</span>dino<span class="sc">$</span>x),<span class="at">col=</span><span class="st">&quot;red&quot;</span>,<span class="at">lwd=</span><span class="fl">1.5</span>)</span>
-<span id="cb750-7"><a href="regressió-lineal.html#cb750-7" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(star,<span class="at">pch=</span><span class="dv">20</span>)</span>
-<span id="cb750-8"><a href="regressió-lineal.html#cb750-8" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="fu">lm</span>(star<span class="sc">$</span>y<span class="sc">~</span>star<span class="sc">$</span>x),<span class="at">col=</span><span class="st">&quot;red&quot;</span>,<span class="at">lwd=</span><span class="fl">1.5</span>)</span>
-<span id="cb750-9"><a href="regressió-lineal.html#cb750-9" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))</span></code></pre></div>
-<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-794-1.png" width="90%" style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb751"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb751-1"><a href="regressió-lineal.html#cb751-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(dino<span class="sc">$</span>y<span class="sc">~</span>dino<span class="sc">$</span>x)<span class="sc">$</span>coefficients</span></code></pre></div>
+<span id="cb750-4"><a href="regressió-lineal.html#cb750-4" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(dino<span class="sc">$</span>y<span class="sc">~</span>dino<span class="sc">$</span>x)<span class="sc">$</span>coefficients</span></code></pre></div>
 <pre><code>## (Intercept)      dino$x 
 ##  53.3353196  -0.1011268</code></pre>
-<div class="sourceCode" id="cb753"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb753-1"><a href="regressió-lineal.html#cb753-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">lm</span>(dino<span class="sc">$</span>y<span class="sc">~</span>dino<span class="sc">$</span>x))<span class="sc">$</span>r.squared</span></code></pre></div>
+<div class="sourceCode" id="cb752"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb752-1"><a href="regressió-lineal.html#cb752-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">lm</span>(dino<span class="sc">$</span>y<span class="sc">~</span>dino<span class="sc">$</span>x))<span class="sc">$</span>r.squared</span></code></pre></div>
 <pre><code>## [1] 0.0039641</code></pre>
-<div class="sourceCode" id="cb755"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb755-1"><a href="regressió-lineal.html#cb755-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(star<span class="sc">$</span>y<span class="sc">~</span>star<span class="sc">$</span>x)<span class="sc">$</span>coefficients</span></code></pre></div>
+<div class="sourceCode" id="cb754"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb754-1"><a href="regressió-lineal.html#cb754-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(star<span class="sc">$</span>y<span class="sc">~</span>star<span class="sc">$</span>x)<span class="sc">$</span>coefficients</span></code></pre></div>
 <pre><code>## (Intercept)      star$x 
 ##   53.326679   -0.101113</code></pre>
-<div class="sourceCode" id="cb757"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb757-1"><a href="regressió-lineal.html#cb757-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">lm</span>(star<span class="sc">$</span>y<span class="sc">~</span>star<span class="sc">$</span>x))<span class="sc">$</span>r.squared</span></code></pre></div>
+<div class="sourceCode" id="cb756"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb756-1"><a href="regressió-lineal.html#cb756-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">lm</span>(star<span class="sc">$</span>y<span class="sc">~</span>star<span class="sc">$</span>x))<span class="sc">$</span>r.squared</span></code></pre></div>
 <pre><code>## [1] 0.0039641</code></pre>
+<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-795-1.png" width="90%" style="display: block; margin: auto;" /></p>
 </div>
 <div id="intervals-de-confiança-dels-coeficients" class="section level3" number="11.1.4">
 <h3><span class="header-section-number">11.1.4</span> Intervals de confiança dels coeficients</h3>
@@ -1220,24 +1221,24 @@ Al Tema <a href="chap-ED.html#chap:ED">9</a> ja us parlàrem del paquet <strong>
 <div class="example">
 <p><span id="exm:unnamed-chunk-796" class="example"><strong>Exemple 11.9  </strong></span>A l’Exemple <a href="regressió-lineal.html#exm:edats">11.2</a>:</p>
 </div>
-<div class="sourceCode" id="cb759"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb759-1"><a href="regressió-lineal.html#cb759-1" aria-hidden="true" tabindex="-1"></a>SS.E.edat<span class="ot">=</span><span class="fu">sum</span>(errors.edat<span class="sc">^</span><span class="dv">2</span>)</span>
-<span id="cb759-2"><a href="regressió-lineal.html#cb759-2" aria-hidden="true" tabindex="-1"></a>S2.edat<span class="ot">=</span>SS.E.edat<span class="sc">/</span>(<span class="fu">length</span>(edat)<span class="sc">-</span><span class="dv">1</span>)  <span class="co">#L&#39;estimació de la variància comuna dels errors</span></span>
-<span id="cb759-3"><a href="regressió-lineal.html#cb759-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ks.test</span>(errors.edat,<span class="st">&quot;pnorm&quot;</span>,<span class="dv">0</span>,<span class="fu">sqrt</span>(S2.edat))</span></code></pre></div>
+<div class="sourceCode" id="cb758"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb758-1"><a href="regressió-lineal.html#cb758-1" aria-hidden="true" tabindex="-1"></a>SS.E.edat<span class="ot">=</span><span class="fu">sum</span>(errors.edat<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb758-2"><a href="regressió-lineal.html#cb758-2" aria-hidden="true" tabindex="-1"></a>S2.edat<span class="ot">=</span>SS.E.edat<span class="sc">/</span>(<span class="fu">length</span>(edat)<span class="sc">-</span><span class="dv">2</span>)  <span class="co">#L&#39;estimació de la variància comuna dels errors</span></span>
+<span id="cb758-3"><a href="regressió-lineal.html#cb758-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ks.test</span>(errors.edat,<span class="st">&quot;pnorm&quot;</span>,<span class="dv">0</span>,<span class="fu">sqrt</span>(S2.edat))</span></code></pre></div>
 <pre><code>## 
 ## 	One-sample Kolmogorov-Smirnov test
 ## 
 ## data:  errors.edat
-## D = 0.18463, p-value = 0.9373
+## D = 0.17482, p-value = 0.958
 ## alternative hypothesis: two-sided</code></pre>
 <p>Podem acceptar que els errors s’ajusten a una variable normal de mitjana 0.</p>
 
 <div class="example">
 <p><span id="exm:unnamed-chunk-798" class="example"><strong>Exemple 11.10  </strong></span>A l’Exemple <a href="regressió-lineal.html#exm:sal">11.3</a>:</p>
 </div>
-<div class="sourceCode" id="cb761"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb761-1"><a href="regressió-lineal.html#cb761-1" aria-hidden="true" tabindex="-1"></a>errors.sal<span class="ot">=</span><span class="fu">summary</span>(<span class="fu">lm</span>(tensió<span class="sc">~</span>sal))<span class="sc">$</span>residuals</span>
-<span id="cb761-2"><a href="regressió-lineal.html#cb761-2" aria-hidden="true" tabindex="-1"></a>SS.E.sal<span class="ot">=</span><span class="fu">sum</span>(errors.sal<span class="sc">^</span><span class="dv">2</span>)</span>
-<span id="cb761-3"><a href="regressió-lineal.html#cb761-3" aria-hidden="true" tabindex="-1"></a>S2.sal<span class="ot">=</span>SS.E.sal<span class="sc">/</span>(<span class="fu">length</span>(sal)<span class="sc">-</span><span class="dv">2</span>)</span>
-<span id="cb761-4"><a href="regressió-lineal.html#cb761-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ks.test</span>(errors.sal,<span class="st">&quot;pnorm&quot;</span>,<span class="dv">0</span>,<span class="fu">sqrt</span>(S2.sal))</span></code></pre></div>
+<div class="sourceCode" id="cb760"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb760-1"><a href="regressió-lineal.html#cb760-1" aria-hidden="true" tabindex="-1"></a>errors.sal<span class="ot">=</span><span class="fu">summary</span>(<span class="fu">lm</span>(tensió<span class="sc">~</span>sal))<span class="sc">$</span>residuals</span>
+<span id="cb760-2"><a href="regressió-lineal.html#cb760-2" aria-hidden="true" tabindex="-1"></a>SS.E.sal<span class="ot">=</span><span class="fu">sum</span>(errors.sal<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb760-3"><a href="regressió-lineal.html#cb760-3" aria-hidden="true" tabindex="-1"></a>S2.sal<span class="ot">=</span>SS.E.sal<span class="sc">/</span>(<span class="fu">length</span>(sal)<span class="sc">-</span><span class="dv">2</span>)</span>
+<span id="cb760-4"><a href="regressió-lineal.html#cb760-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ks.test</span>(errors.sal,<span class="st">&quot;pnorm&quot;</span>,<span class="dv">0</span>,<span class="fu">sqrt</span>(S2.sal))</span></code></pre></div>
 <pre><code>## 
 ## 	One-sample Kolmogorov-Smirnov test
 ## 
@@ -1246,7 +1247,7 @@ Al Tema <a href="chap-ED.html#chap:ED">9</a> ja us parlàrem del paquet <strong>
 ## alternative hypothesis: two-sided</code></pre>
 <p>També podem acceptar que els errors s’ajusten a una variable normal de mitjana 0.</p>
 <p>Per cert, R calcula la <span class="math inline">\(S\)</span>, l’arrel quadrada d’aquesta <span class="math inline">\(S^2\)</span>, en fer la <code>lm</code>. És el <code>Residual standard error</code> de la tercera línia començant per avall a la sortida del <code>summary(lm( ))</code> i s’obté amb el sufix <code>$sigma</code>:</p>
-<div class="sourceCode" id="cb763"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb763-1"><a href="regressió-lineal.html#cb763-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">lm</span>(tensió<span class="sc">~</span>sal))</span></code></pre></div>
+<div class="sourceCode" id="cb762"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb762-1"><a href="regressió-lineal.html#cb762-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">lm</span>(tensió<span class="sc">~</span>sal))</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = tensió ~ sal)
@@ -1265,15 +1266,15 @@ Al Tema <a href="chap-ED.html#chap:ED">9</a> ja us parlàrem del paquet <strong>
 ## Residual standard error: 2.332 on 4 degrees of freedom
 ## Multiple R-squared:  0.9344,	Adjusted R-squared:  0.918 
 ## F-statistic: 56.95 on 1 and 4 DF,  p-value: 0.001652</code></pre>
-<div class="sourceCode" id="cb765"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb765-1"><a href="regressió-lineal.html#cb765-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">lm</span>(tensió<span class="sc">~</span>sal))<span class="sc">$</span>sigma</span></code></pre></div>
+<div class="sourceCode" id="cb764"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb764-1"><a href="regressió-lineal.html#cb764-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">lm</span>(tensió<span class="sc">~</span>sal))<span class="sc">$</span>sigma</span></code></pre></div>
 <pre><code>## [1] 2.331625</code></pre>
-<div class="sourceCode" id="cb767"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb767-1"><a href="regressió-lineal.html#cb767-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(S2.sal)</span></code></pre></div>
+<div class="sourceCode" id="cb766"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb766-1"><a href="regressió-lineal.html#cb766-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(S2.sal)</span></code></pre></div>
 <pre><code>## [1] 2.331625</code></pre>
 <p>Resulta que si se satisfan les condicions demanades sobre les variables <span class="math inline">\(E_{x_i}\)</span>, aleshores coneixem els errors típics dels estimadors <span class="math inline">\(b_1\)</span> i <span class="math inline">\(b_0\)</span> i uns estadístics associats a aquests estimadors segueixen lleis t de Student que permeten calcular intervals de confiança per a <span class="math inline">\(\beta_0\)</span> i <span class="math inline">\(\beta_1\)</span>. En concret:</p>
 <ul>
 <li><p>Pel que fa a <span class="math inline">\(b_1\)</span>,</p>
 <ul>
-<li>El seu error típic de <span class="math inline">\(b_1\)</span> és
+<li>El seu error típic és
 <span class="math display">\[
 \frac{\sigma_E}{s_x\sqrt{n}}.
 \]</span></li>
@@ -1317,11 +1318,11 @@ també segueix una llei <span class="math inline">\(t\)</span> de Student amb <s
 </ul>
 
 <div class="rmdnote">
-És raonable que l’error típic de <span class="math inline">\(b_0\)</span> sigui més gran que el de <span class="math inline">\(b_1\)</span>, perquè per calcular <span class="math inline">\(b_0\)</span> hem de calcular primer <span class="math inline">\(b_1\)</span> i a més emprar-hi la mitjana <span class="math inline">\(\overline{x}\)</span>, la qual cosa fa que en estimar <span class="math inline">\(\beta_0\)</span> per mitjà de <span class="math inline">\(b_0\)</span> hi hagi més incertesa que en estimar <span class="math inline">\(\beta_1\)</span> per mitjà de <span class="math inline">\(b_1\)</span>.
+És raonable esperar que l’error típic de <span class="math inline">\(b_0\)</span> sigui més gran que el de <span class="math inline">\(b_1\)</span>, perquè per calcular <span class="math inline">\(b_0\)</span> hem de calcular primer <span class="math inline">\(b_1\)</span> i a més emprar-hi les mitjanes <span class="math inline">\(\overline{x}\)</span> i <span class="math inline">\(\overline{y}\)</span>, la qual cosa fa que en estimar <span class="math inline">\(\beta_0\)</span> per mitjà de <span class="math inline">\(b_0\)</span> hi hagi més incertesa que en estimar <span class="math inline">\(\beta_1\)</span> per mitjà de <span class="math inline">\(b_1\)</span>.
 </div>
-<p>Com que els estadístics <span class="math inline">\(T_1\)</span> i <span class="math inline">\(T_0\)</span> tenen distribucions t de Student, operant amb ells com en el cas de l’interval de confiança per a la mitjana poblacional <span class="math inline">\(\mu\)</span> obtenim fórmules per als intervals de confiança amb nivell de confiança <span class="math inline">\(q\)</span> per a <span class="math inline">\(\beta_1\)</span> i <span class="math inline">\(\beta_1\)</span> de la forma que ens agrada:
+<p>Com que els estadístics <span class="math inline">\(T_1\)</span> i <span class="math inline">\(T_0\)</span> tenen distribucions t de Student, operant amb ells com en el cas de l’interval de confiança per a la mitjana poblacional <span class="math inline">\(\mu\)</span> obtenim fórmules per als intervals de confiança per a <span class="math inline">\(\beta_1\)</span> i <span class="math inline">\(\beta_1\)</span> de la forma que ens agrada:
 <span class="math display">\[
-\text{Estimador}\pm \frac{1+q}{2}\text{-quantil}\times \text{Estimació de l&#39;error típic}
+\text{estimador}\pm \text{quantil}\times \text{error típic}
 \]</span></p>
 <p>En concret, sota les hipòtesis imposades al principi d’aquesta secció</p>
 <ul>
@@ -1365,7 +1366,7 @@ Obtenim l’interval <span class="math inline">\([5.764,7.164]\)</span>.</p></li
 Obtenim l’interval <span class="math inline">\([66.674,77.968]\)</span>.</p></li>
 </ul>
 <p>Amb R aquests intervals de confiança s’obtenen amb la funció <code>confint</code> aplicada al resultat de la <code>lm</code>. El nivell de confiança s’hi indica amb el paràmetre <code>level</code> i el seu valor per defecte és, com sempre, 0.95.</p>
-<div class="sourceCode" id="cb769"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb769-1"><a href="regressió-lineal.html#cb769-1" aria-hidden="true" tabindex="-1"></a><span class="fu">confint</span>(<span class="fu">lm</span>(alçada<span class="sc">~</span>edat),<span class="at">level=</span><span class="fl">0.95</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb768"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb768-1"><a href="regressió-lineal.html#cb768-1" aria-hidden="true" tabindex="-1"></a><span class="fu">confint</span>(<span class="fu">lm</span>(alçada<span class="sc">~</span>edat),<span class="at">level=</span><span class="fl">0.95</span>)</span></code></pre></div>
 <pre><code>##                 2.5 %    97.5 %
 ## (Intercept) 66.674769 77.968088
 ## edat         5.763904  7.164668</code></pre>
@@ -1373,7 +1374,7 @@ Obtenim l’interval <span class="math inline">\([66.674,77.968]\)</span>.</p></
 <div class="rmdexercici">
 Calculau “a mà”, amb les fórmules que hem donat, els intervals de confiança per als coeficients de la recta de regressió de l’Exemple <a href="regressió-lineal.html#exm:sal">11.3</a>. Us han de donar:
 </div>
-<div class="sourceCode" id="cb771"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb771-1"><a href="regressió-lineal.html#cb771-1" aria-hidden="true" tabindex="-1"></a><span class="fu">confint</span>(<span class="fu">lm</span>(tensió<span class="sc">~</span>sal))</span></code></pre></div>
+<div class="sourceCode" id="cb770"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb770-1"><a href="regressió-lineal.html#cb770-1" aria-hidden="true" tabindex="-1"></a><span class="fu">confint</span>(<span class="fu">lm</span>(tensió<span class="sc">~</span>sal))</span></code></pre></div>
 <pre><code>##                 2.5 %    97.5 %
 ## (Intercept) 77.869064 94.872509
 ## sal          4.004434  8.666266</code></pre>
@@ -1383,13 +1384,13 @@ Calculau “a mà”, amb les fórmules que hem donat, els intervals de confian�
 <p>També podem calcular intervals de confiança per al valor estimat de la <span class="math inline">\(Y\)</span> sobre els individus amb un valor de <span class="math inline">\(X\)</span> donat. En aquest cas, tenim dos intervals:</p>
 <ul>
 <li><p>L’interval per al <strong>valor esperat</strong> <span class="math inline">\(\mu_{Y|x_0}\)</span> de <span class="math inline">\(Y\)</span> sobre els individus en els que <span class="math inline">\(X\)</span> val <span class="math inline">\(x_0\)</span>, és a dir, per al valor mitjà de la <span class="math inline">\(Y\)</span> sobre tots els individus de la població en els que <span class="math inline">\(X\)</span> valgui <span class="math inline">\(x_0\)</span>.</p></li>
-<li><p>L’interval per al <strong>valor</strong> <span class="math inline">\(y_0\)</span> de <span class="math inline">\(Y\)</span> sobre un individu concret en el que <span class="math inline">\(X\)</span> valgui <span class="math inline">\(x_0\)</span>.</p></li>
+<li><p>L’interval per al <strong>valor predit</strong> <span class="math inline">\(y_0\)</span> de <span class="math inline">\(Y\)</span> sobre un individu concret en el que <span class="math inline">\(X\)</span> valgui <span class="math inline">\(x_0\)</span>.</p></li>
 </ul>
 <p>Tot i que tant el valor esperat <span class="math inline">\(\mu_{Y|x_0}\)</span> com el valor <span class="math inline">\(y_0\)</span> de <span class="math inline">\(Y\)</span> sobre un individu concret en el que <span class="math inline">\(X\)</span> valgui <span class="math inline">\(x_0\)</span> tenen el mateix valor estimat,
 <span class="math display">\[
 \widehat{y}_0=b_0+b_1x_0,
 \]</span>
-l’interval de confiança del valor esperat serà més estret que el del valor sobre un individu concret. Això reflecteix el fet que, naturalment, hi ha molta més incertesa en saber que val la <span class="math inline">\(Y\)</span> sobre un individu concret que en saber quin és el valor mitjà de <span class="math inline">\(Y\)</span> sobre tots els individus que tenguin el mateix valor de <span class="math inline">\(X\)</span> que aquest individu concret.</p>
+l’interval de confiança del valor esperat serà més estret que el del valor sobre un individu concret. Això reflecteix el fet que, naturalment, hi ha molta més incertesa en saber què val la <span class="math inline">\(Y\)</span> sobre un individu concret que en saber quin és el valor mitjà de <span class="math inline">\(Y\)</span> sobre tots els individus que tenguin el mateix valor de <span class="math inline">\(X\)</span> que aquest individu concret.</p>
 <p>Bé passem a les fórmules. Sota les condicions sobre els errors que hem suposat al començament de la secció anterior (variables error normals de mitjana 0 i mateixa desviació típica, i incorrelades dues a dues):</p>
 <ul>
 <li><p>L’error típic de <span class="math inline">\(\widehat{y}_0\)</span> com a estimador de <span class="math inline">\(\mu_{Y|x_0}\)</span> és
@@ -1414,12 +1415,12 @@ s^2_x}}}
 segueix una llei <span class="math inline">\(t\)</span> de Student amb <span class="math inline">\(n-2\)</span> graus de llibertat.</p></li>
 </ul>
 
-<div class="rmdnote">
-Aquests errors típics creixen amb la distància entre <span class="math inline">\(x_0\)</span> i la mitjana de la mostra <span class="math inline">\(\overline{x}\)</span>. És raonable: com més enfora està <span class="math inline">\(x_0\)</span> de <span class="math inline">\(\overline{x}\)</span>, petites variacions en el valor de la pendent de la recta donen lloc a diferències molt més grans en el valor de <span class="math inline">\(b_0+b_1x_0\)</span>. I quan <span class="math inline">\(x_0=\overline{x}\)</span> no hi ha cap variabilitat en la dispersió de les estimacions: estimam que <span class="math inline">\(y_0=\overline{y}\)</span> i punt!
-</div>
-
 <div class="rmdimportant">
 Fixau-vos que l’error típic de l’estimació de <span class="math inline">\(\mu_{Y|x_0}\)</span> és més petit que el de l’estimació de <span class="math inline">\(y_0\)</span>.
+</div>
+
+<div class="rmdnote">
+Aquests errors típics creixen amb la distància entre <span class="math inline">\(x_0\)</span> i la mitjana de la mostra <span class="math inline">\(\overline{x}\)</span>. És raonable: la recta passa per <span class="math inline">\((\overline{x},\overline{y})\)</span> i a partir d’aquest punt, com més enfora estigui <span class="math inline">\(x_0\)</span>, petites variacions en el valor de la pendent de la recta donaran lloc a diferències molt més grans en el valor de <span class="math inline">\(b_0+b_1x_0\)</span>.
 </div>
 <p>Per tant, sota aquestes hipòtesis,</p>
 <ul>
@@ -1448,7 +1449,7 @@ i a més <span class="math inline">\(n=7\)</span> i havíem calculat que <span c
 \]</span></p>
 <p>Ara volem saber els intervals de confiança del 95% per a aquesta estimació:</p>
 <ul>
-<li><p>Un interval de confiança al 95% per a <span class="math inline">\(y_0\)</span> és
+<li><p>Un interval de confiança del 95% per a <span class="math inline">\(y_0\)</span> és
 <span class="math display">\[
 \begin{array}{l}
 \displaystyle
@@ -1459,8 +1460,8 @@ i a més <span class="math inline">\(n=7\)</span> i havíem calculat que <span c
 136.961\pm 2.5706 \cdot  3.189=136.961\pm  8.198
 \end{array}
 \]</span>
-Obtenim l’interval <span class="math inline">\([128.8,145.2]\)</span>. Per tant, estam molt segurs que si prenem un nin de 10 anys, la seva alçada estarà entre els 128.8 cm i els 145.2 cm.</p></li>
-<li><p>Un interval de confiança al 95% per al <strong>valor esperat</strong> <span class="math inline">\(\mu_{Y|x_0}\)</span> de <span class="math inline">\(y_0\)</span> és
+Obtenim l’interval <span class="math inline">\([128.8,145.2]\)</span>. Per tant, estam molt segurs que si prenem un nin d’10 anys, la seva alçada estarà entre els 128.8 cm i els 145.2 cm.</p></li>
+<li><p>Un interval de confiança del 95% per al <strong>valor esperat</strong> <span class="math inline">\(\mu_{Y|x_0}\)</span> de <span class="math inline">\(y_0\)</span> és
 <span class="math display">\[
 \begin{array}{l}
 \displaystyle
@@ -1471,9 +1472,9 @@ Obtenim l’interval <span class="math inline">\([128.8,145.2]\)</span>. Per tan
 136.961\pm 2.5706 \cdot  1.362=136.961\pm  3.501
 \end{array}
 \]</span>
-Obtenim l’interval <span class="math inline">\([133.5, 140.5]\)</span>. Per tant, estam molt segurs que l’alçada mitjana dels nins de 10 anys està entre els 133.5 cm i els 140.5 cm.</p></li>
+Obtenim l’interval <span class="math inline">\([133.5, 140.5]\)</span>. Per tant, estam molt segurs que l’alçada mitjana dels nins d’10 anys està entre els 133.5 cm i els 140.5 cm.</p></li>
 </ul>
-<p>Si en canvi volguéssim emprar aquesta recta per estimar l’alçada d’un nin de 15 anys, els intervals que obtenim són (comprovau-ho):</p>
+<p>Si en canvi volguéssim emprar aquesta recta per estimar l’alçada d’un nin d’15 anys, els intervals que obtenim són (comprovau-ho):</p>
 <ul>
 <li><p>Per a <span class="math inline">\(y_0\)</span>, <span class="math inline">\([159.6, 179]\)</span></p></li>
 <li><p>Per a <span class="math inline">\(\mu_{Y|x_0}\)</span>, <span class="math inline">\([163, 175.6]\)</span></p></li>
@@ -1489,16 +1490,16 @@ Obtenim l’interval <span class="math inline">\([133.5, 140.5]\)</span>. Per ta
 <li><code>"confidence"</code> si és per al valor esperat</li>
 </ul></li>
 </ul>
-<p>A més, s’hi pot entrar el nivell de significació amb el paràmetre <code>level</code>; si és 0.95, no cal.</p>
+<p>A més, s’hi pot entrar el nivell de significació amb el paràmetre <code>level</code>; si és 0.95, no cal. El resultat és un dataframe amb tres columnes: <code>fit</code>, el valor predit, i <code>lwr</code> i <code>upr</code>, els extrems inferior i superior de l’interval.</p>
 <p>En el nostre exemple, primer hem de definir un data frame amb l’edat o les edats. Calcularem els intervals de confiança per als 10 i 15 anys. Per tant, definim un <em>data frame</em> format per dues observacions de la variable <code>edat</code>, que valguin 10 i 15:</p>
-<div class="sourceCode" id="cb773"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb773-1"><a href="regressió-lineal.html#cb773-1" aria-hidden="true" tabindex="-1"></a>nin<span class="ot">=</span><span class="fu">data.frame</span>(<span class="at">edat=</span><span class="fu">c</span>(<span class="dv">10</span>,<span class="dv">15</span>))</span></code></pre></div>
-<p>Aleshores, els intervals de confiança del 95% per a les alçades d’un nin de 10 anys i d’un nin de 15 anys són, respectivament,</p>
-<div class="sourceCode" id="cb774"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb774-1"><a href="regressió-lineal.html#cb774-1" aria-hidden="true" tabindex="-1"></a><span class="fu">predict.lm</span>(<span class="fu">lm</span>(alçada<span class="sc">~</span>edat),nin,<span class="at">interval=</span><span class="st">&quot;prediction&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb772"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb772-1"><a href="regressió-lineal.html#cb772-1" aria-hidden="true" tabindex="-1"></a>nin<span class="ot">=</span><span class="fu">data.frame</span>(<span class="at">edat=</span><span class="fu">c</span>(<span class="dv">10</span>,<span class="dv">15</span>))</span></code></pre></div>
+<p>Aleshores, els intervals de confiança del 95% per a les alçades d’un nin d’10 anys i d’un nin d’15 anys són, respectivament,</p>
+<div class="sourceCode" id="cb773"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb773-1"><a href="regressió-lineal.html#cb773-1" aria-hidden="true" tabindex="-1"></a><span class="fu">predict.lm</span>(<span class="fu">lm</span>(alçada<span class="sc">~</span>edat),nin,<span class="at">interval=</span><span class="st">&quot;prediction&quot;</span>)</span></code></pre></div>
 <pre><code>##        fit      lwr      upr
 ## 1 136.9643 128.7665 145.1620
 ## 2 169.2857 159.5809 178.9905</code></pre>
-<p>i els intervals de confiança del 95% per a les alçades mitjanes dels nins de 10 i de 15 anys ón, respectivament,</p>
-<div class="sourceCode" id="cb776"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb776-1"><a href="regressió-lineal.html#cb776-1" aria-hidden="true" tabindex="-1"></a><span class="fu">predict.lm</span>(<span class="fu">lm</span>(alçada<span class="sc">~</span>edat),nin,<span class="at">interval=</span><span class="st">&quot;confidence&quot;</span>)</span></code></pre></div>
+<p>i els intervals de confiança del 95% per a les alçades mitjanes dels nins d’10 i d’15 anys són, respectivament,</p>
+<div class="sourceCode" id="cb775"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb775-1"><a href="regressió-lineal.html#cb775-1" aria-hidden="true" tabindex="-1"></a><span class="fu">predict.lm</span>(<span class="fu">lm</span>(alçada<span class="sc">~</span>edat),nin,<span class="at">interval=</span><span class="st">&quot;confidence&quot;</span>)</span></code></pre></div>
 <pre><code>##        fit      lwr      upr
 ## 1 136.9643 133.4624 140.4662
 ## 2 169.2857 163.0213 175.5501</code></pre>
@@ -1509,7 +1510,7 @@ Obtenim l’interval <span class="math inline">\([133.5, 140.5]\)</span>. Per ta
 <span class="math display">\[
 Y|x=\beta_0+E_x
 \]</span>
-i les variacions en els valors de <span class="math inline">\(Y\)</span> són totes degudes a l’error.</p>
+i les variacions en els valors de <span class="math inline">\(Y\)</span> es deuen tan sols als errors aleatoris.</p>
 <p>El contrast
 <span class="math display">\[
 \left\{\begin{array}{l}
@@ -1522,7 +1523,7 @@ el podem realitzar amb l’interval de confiança per a <span class="math inline
 rebutjam la hipòtesi nul·la amb el nivell de significació corresponent al nivell de confiança de l’interval.</p>
 <p>Per exemple, a l’Exemple <a href="regressió-lineal.html#exm:edatsIC">11.11</a> hem obtingut l’IC 95% per a <span class="math inline">\(\beta_1\)</span> <span class="math inline">\([5.764,7.164]\)</span>. Com que no conté el 0, concloem (amb un nivell de significació de 0.05) que <span class="math inline">\(\beta_1\neq 0\)</span>.</p>
 <p>Si mirau la sortida del <code>summary(lm( ))</code></p>
-<div class="sourceCode" id="cb778"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb778-1"><a href="regressió-lineal.html#cb778-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">lm</span>(alçada<span class="sc">~</span>edat))</span></code></pre></div>
+<div class="sourceCode" id="cb777"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb777-1"><a href="regressió-lineal.html#cb777-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">lm</span>(alçada<span class="sc">~</span>edat))</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = alçada ~ edat)
@@ -1545,10 +1546,10 @@ rebutjam la hipòtesi nul·la amb el nivell de significació corresponent al niv
 <ul>
 <li><p>Els <code>Estimate</code> són les estimacions <span class="math inline">\(b_0\)</span> i <span class="math inline">\(b_1\)</span></p></li>
 <li><p>Els <code>Std. Error</code> són (les estimacions de) els seus errors típics</p></li>
-<li><p>Els <code>t value</code> són els valors dels estadístics <span class="math inline">\(T_0\)</span> i <span class="math inline">\(T_1\)</span>, que són justament els estadístics de contrast dels contrastos bilaterals amb hipòtesi nul·la <span class="math inline">\(H_0:\)</span> “coeficient <span class="math inline">\(=0\)</span>”</p></li>
+<li><p>Els <code>t value</code> són els valors dels estadístics de contrast dels contrastos bilaterals amb hipòtesi nul·la <span class="math inline">\(H_0:\)</span> “coeficient <span class="math inline">\(=0\)</span>”; aquests estadístics de contrast són justament els estadístics <span class="math inline">\(T_0\)</span> i <span class="math inline">\(T_1\)</span> que hem definit fa una estona (substituint-hi <span class="math inline">\(\beta_0\)</span> i <span class="math inline">\(\beta_1\)</span> pels valors que contrastam, 0)</p></li>
 <li><p>Els <code>Pr(&gt;|t|)</code> són els p-valors d’aquests contrastos (que no us engani la notació, aquests p-valors es defineixen com toca:
 <span class="math display">\[
-2P(t_{n-2}\geq |T_0|),\quad 2P(t_{n-2}\geq |T_1|)
+2P(t_{n-2}\geqslant |T_0|),\quad 2P(t_{n-2}\geqslant |T_1|)
 \]</span>
 respectivament).</p>
 <p>Com veiem, en aquest cas podem rebutjar amb <span class="math inline">\(\alpha=0.05\)</span> que <span class="math inline">\(\beta_1=0\)</span> (i també que <span class="math inline">\(\beta_0=0\)</span>).</p></li>
@@ -1754,8 +1755,8 @@ Y|x_1,\ldots,x_k=\beta_0+\beta_1 x_{1}+\cdots+\beta_{k} x_k+E_{x_1,\ldots,x_k}
 \]</span>
 és correcte, on:</p>
 <ul>
-<li><p><span class="math inline">\(Y|x_1,\ldots,x_k\)</span> és la variable aleatòria que dóna el valor de <span class="math inline">\(Y\)</span> sobre subjectes en els quals <span class="math inline">\(X_i=x_i\)</span> per a cada <span class="math inline">\(i=1,\ldots,k\)</span></p></li>
-<li><p><span class="math inline">\(\mu_{Y|x_1,\ldots,x_k}\)</span> és el valor esperat de <span class="math inline">\(Y|x_1,\ldots,x_k\)</span></p></li>
+<li><p><span class="math inline">\(Y|x_1,\ldots,x_k\)</span> és la variable aleatòria que dóna el valor de <span class="math inline">\(Y\)</span> sobre individus en els quals <span class="math inline">\(X_i=x_i\)</span> per a cada <span class="math inline">\(i=1,\ldots,k\)</span></p></li>
+<li><p><span class="math inline">\(\mu_{Y|x_1,\ldots,x_k}\)</span> és el valor esperat de <span class="math inline">\(Y|x_1,\ldots,x_k\)</span>, és a dir, la mitjana dels valors de <span class="math inline">\(Y\)</span> sobre tots els individus de la població en els quals <span class="math inline">\(X_i=x_i\)</span> per a cada <span class="math inline">\(i=1,\ldots,k\)</span></p></li>
 <li><p>Les <span class="math inline">\(E_{x_1,\ldots,x_k}\)</span> són les variables aleatòries <strong>error</strong>, o <strong>residu</strong>, i representen l’error aleatori de la variable <span class="math inline">\(Y\)</span> sobre un individu en el qual <span class="math inline">\((X_1,\ldots,X_k)=(x_1,\ldots,x_k)\)</span></p></li>
 <li><p><span class="math inline">\(\beta_0,\beta_1,\ldots,\beta_{k}\in \mathbb{R}\)</span>:</p>
 <ul>
@@ -1828,11 +1829,11 @@ y_1\\ y_2\\ \vdots\\ y_n
 </div>
 
 <div class="rmdcorbes">
-Amb una mica de paciència podeu comprovar que si <span class="math inline">\(k=1\)</span>, aquesta fórmula dóna la de <span class="math inline">\((b_0,b_1)\)</span> a la regressió lineal simple.
+Amb una mica de paciència podeu comprovar que si <span class="math inline">\(k=1\)</span>, aquesta fórmula dóna la de <span class="math inline">\((b_0,b_1)^t\)</span> a la regressió lineal simple.
 </div>
 <p>Com al cas simple, la funció resultant l’escriurem
 <span class="math display">\[
-\widehat{Y}=b_0+b_1X_1+\cdots b_kX_k
+\widehat{Y}=b_0+b_1X_1+\cdots +b_kX_k
 \]</span>
 i en direm la <strong>funció de regressió lineal per mínims quadrats</strong> de <span class="math inline">\(Y\)</span> en funció de <span class="math inline">\(X_1,\ldots,X_k\)</span>.</p>
 
@@ -2015,7 +2016,7 @@ Pes en néixer (en kg)
 </tr>
 </tbody>
 </table>
-<p>Anem a calcular la funció lineal de regressió per mínims quadrats de l’alçada en funció de les altres variable. Pel teorema anterior, si diem
+<p>Calculem la funció lineal de regressió per mínims quadrats de l’alçada en funció de les altres variables. Pel teorema anterior, si diem
 <span class="math display">\[
 \mathbf{X}=\left(
 \begin{array}{ccccc}
@@ -2041,13 +2042,13 @@ Pes en néixer (en kg)
 \left(\begin{array}{c} b_0 \\ \vdots \\ b_4\end{array}\right)=\left(\mathbf{X}^t\cdot \mathbf{X} \right)^{-1}\cdot \left(\mathbf{X}^t \cdot \mathbf{y}\right)
 \]</span></p>
 <p>Per calcular aquest vector, primer entram les dades i definim aquestes matrius</p>
-<div class="sourceCode" id="cb780"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb780-1"><a href="regressió-lineal.html#cb780-1" aria-hidden="true" tabindex="-1"></a>y<span class="ot">=</span><span class="fu">c</span>(<span class="fl">57.5</span>,<span class="fl">52.8</span>,<span class="fl">61.3</span>,<span class="dv">67</span>,<span class="fl">53.5</span>,<span class="fl">62.7</span>,<span class="fl">56.2</span>,<span class="fl">68.5</span>,<span class="fl">79.2</span>)</span>
-<span id="cb780-2"><a href="regressió-lineal.html#cb780-2" aria-hidden="true" tabindex="-1"></a>x1<span class="ot">=</span><span class="fu">c</span>(<span class="dv">78</span>,<span class="dv">69</span>,<span class="dv">77</span>,<span class="dv">88</span>,<span class="dv">67</span>,<span class="dv">80</span>,<span class="dv">74</span>,<span class="fl">94.0</span>,<span class="dv">102</span>)</span>
-<span id="cb780-3"><a href="regressió-lineal.html#cb780-3" aria-hidden="true" tabindex="-1"></a>x2<span class="ot">=</span><span class="fu">c</span>(<span class="fl">8.2</span>,<span class="fl">45.5</span>,<span class="fl">46.3</span>,<span class="dv">49</span>,<span class="dv">43</span>,<span class="dv">48</span>,<span class="dv">48</span>,<span class="dv">53</span>,<span class="dv">58</span>)</span>
-<span id="cb780-4"><a href="regressió-lineal.html#cb780-4" aria-hidden="true" tabindex="-1"></a>x3<span class="ot">=</span><span class="fu">c</span>(<span class="fl">2.75</span>,<span class="fl">2.15</span>,<span class="fl">4.41</span>,<span class="fl">5.52</span>,<span class="fl">3.21</span>,<span class="fl">4.32</span>,<span class="fl">2.31</span>,<span class="fl">4.3</span>,<span class="fl">3.71</span>)</span>
-<span id="cb780-5"><a href="regressió-lineal.html#cb780-5" aria-hidden="true" tabindex="-1"></a>x4<span class="ot">=</span><span class="fu">c</span>(<span class="fl">29.5</span>,<span class="fl">26.3</span>,<span class="fl">32.2</span>,<span class="fl">36.5</span>,<span class="fl">27.2</span>,<span class="fl">27.7</span>,<span class="fl">28.3</span>,<span class="fl">30.3</span>,<span class="fl">28.7</span>)</span>
-<span id="cb780-6"><a href="regressió-lineal.html#cb780-6" aria-hidden="true" tabindex="-1"></a>X<span class="ot">=</span><span class="fu">cbind</span>(<span class="dv">1</span>,x1,x2,x3,x4)</span>
-<span id="cb780-7"><a href="regressió-lineal.html#cb780-7" aria-hidden="true" tabindex="-1"></a>X</span></code></pre></div>
+<div class="sourceCode" id="cb779"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb779-1"><a href="regressió-lineal.html#cb779-1" aria-hidden="true" tabindex="-1"></a>y<span class="ot">=</span><span class="fu">c</span>(<span class="fl">57.5</span>,<span class="fl">52.8</span>,<span class="fl">61.3</span>,<span class="dv">67</span>,<span class="fl">53.5</span>,<span class="fl">62.7</span>,<span class="fl">56.2</span>,<span class="fl">68.5</span>,<span class="fl">79.2</span>)</span>
+<span id="cb779-2"><a href="regressió-lineal.html#cb779-2" aria-hidden="true" tabindex="-1"></a>x1<span class="ot">=</span><span class="fu">c</span>(<span class="dv">78</span>,<span class="dv">69</span>,<span class="dv">77</span>,<span class="dv">88</span>,<span class="dv">67</span>,<span class="dv">80</span>,<span class="dv">74</span>,<span class="fl">94.0</span>,<span class="dv">102</span>)</span>
+<span id="cb779-3"><a href="regressió-lineal.html#cb779-3" aria-hidden="true" tabindex="-1"></a>x2<span class="ot">=</span><span class="fu">c</span>(<span class="fl">8.2</span>,<span class="fl">45.5</span>,<span class="fl">46.3</span>,<span class="dv">49</span>,<span class="dv">43</span>,<span class="dv">48</span>,<span class="dv">48</span>,<span class="dv">53</span>,<span class="dv">58</span>)</span>
+<span id="cb779-4"><a href="regressió-lineal.html#cb779-4" aria-hidden="true" tabindex="-1"></a>x3<span class="ot">=</span><span class="fu">c</span>(<span class="fl">2.75</span>,<span class="fl">2.15</span>,<span class="fl">4.41</span>,<span class="fl">5.52</span>,<span class="fl">3.21</span>,<span class="fl">4.32</span>,<span class="fl">2.31</span>,<span class="fl">4.3</span>,<span class="fl">3.71</span>)</span>
+<span id="cb779-5"><a href="regressió-lineal.html#cb779-5" aria-hidden="true" tabindex="-1"></a>x4<span class="ot">=</span><span class="fu">c</span>(<span class="fl">29.5</span>,<span class="fl">26.3</span>,<span class="fl">32.2</span>,<span class="fl">36.5</span>,<span class="fl">27.2</span>,<span class="fl">27.7</span>,<span class="fl">28.3</span>,<span class="fl">30.3</span>,<span class="fl">28.7</span>)</span>
+<span id="cb779-6"><a href="regressió-lineal.html#cb779-6" aria-hidden="true" tabindex="-1"></a>X<span class="ot">=</span><span class="fu">cbind</span>(<span class="dv">1</span>,x1,x2,x3,x4)</span>
+<span id="cb779-7"><a href="regressió-lineal.html#cb779-7" aria-hidden="true" tabindex="-1"></a>X</span></code></pre></div>
 <pre><code>##          x1   x2   x3   x4
 ##  [1,] 1  78  8.2 2.75 29.5
 ##  [2,] 1  69 45.5 2.15 26.3
@@ -2059,8 +2060,8 @@ Pes en néixer (en kg)
 ##  [8,] 1  94 53.0 4.30 30.3
 ##  [9,] 1 102 58.0 3.71 28.7</code></pre>
 <p>Ara ja podem estimar els coeficients de la funció de regressió lineal:</p>
-<div class="sourceCode" id="cb782"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb782-1"><a href="regressió-lineal.html#cb782-1" aria-hidden="true" tabindex="-1"></a>B<span class="ot">=</span><span class="fu">solve</span>(<span class="fu">t</span>(X)<span class="sc">%*%</span>X)<span class="sc">%*%</span>(<span class="fu">t</span>(X)<span class="sc">%*%</span>y)</span>
-<span id="cb782-2"><a href="regressió-lineal.html#cb782-2" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(B,<span class="dv">4</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb781"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb781-1"><a href="regressió-lineal.html#cb781-1" aria-hidden="true" tabindex="-1"></a>B<span class="ot">=</span><span class="fu">solve</span>(<span class="fu">t</span>(X)<span class="sc">%*%</span>X)<span class="sc">%*%</span>(<span class="fu">t</span>(X)<span class="sc">%*%</span>y)</span>
+<span id="cb781-2"><a href="regressió-lineal.html#cb781-2" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(B,<span class="dv">4</span>)</span></code></pre></div>
 <pre><code>##       [,1]
 ##     9.9464
 ## x1  0.6626
@@ -2103,19 +2104,19 @@ b_0 \\ b_1\\ b_2\\ \vdots\\ b_k
 \right)
 \]</span></p>
 <p>En el nostre exemple, els valors estimats de <span class="math inline">\(Y\)</span> sobre els nins de la nostra mostra serien</p>
-<div class="sourceCode" id="cb784"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb784-1"><a href="regressió-lineal.html#cb784-1" aria-hidden="true" tabindex="-1"></a>Y.cap<span class="ot">=</span>X<span class="sc">%*%</span>B</span>
-<span id="cb784-2"><a href="regressió-lineal.html#cb784-2" aria-hidden="true" tabindex="-1"></a><span class="fu">t</span>(<span class="fu">round</span>(Y.cap,<span class="dv">1</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb783"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb783-1"><a href="regressió-lineal.html#cb783-1" aria-hidden="true" tabindex="-1"></a>Y.cap<span class="ot">=</span>X<span class="sc">%*%</span>B</span>
+<span id="cb783-2"><a href="regressió-lineal.html#cb783-2" aria-hidden="true" tabindex="-1"></a><span class="fu">t</span>(<span class="fu">round</span>(Y.cap,<span class="dv">1</span>))</span></code></pre></div>
 <pre><code>##      [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9]
 ## [1,] 57.4 53.5 59.7 67.2 52.9 62.8 56.6 71.7   77</code></pre>
 <p>i per tant els errors <span class="math inline">\(e_i=y_i-\widehat{y}_i\)</span> són</p>
-<div class="sourceCode" id="cb786"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb786-1"><a href="regressió-lineal.html#cb786-1" aria-hidden="true" tabindex="-1"></a>e.i<span class="ot">=</span>y<span class="sc">-</span>Y.cap</span>
-<span id="cb786-2"><a href="regressió-lineal.html#cb786-2" aria-hidden="true" tabindex="-1"></a><span class="fu">t</span>(e.i)</span></code></pre></div>
+<div class="sourceCode" id="cb785"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb785-1"><a href="regressió-lineal.html#cb785-1" aria-hidden="true" tabindex="-1"></a>e.i<span class="ot">=</span>y<span class="sc">-</span>Y.cap</span>
+<span id="cb785-2"><a href="regressió-lineal.html#cb785-2" aria-hidden="true" tabindex="-1"></a><span class="fu">t</span>(e.i)</span></code></pre></div>
 <pre><code>##            [,1]       [,2]     [,3]       [,4]   [,5]       [,6]       [,7]
 ## [1,] 0.05698925 -0.6579705 1.603446 -0.2006111 0.5914 -0.1154555 -0.3529814
 ##           [,8]    [,9]
 ## [1,] -3.150977 2.22616</code></pre>
 <p>Amb R, la regressió lineal múltiple per mínims quadrats també es fa amb la funció <code>lm</code>, aplicada a la fórmula que agrupa la variable resposta en funció de <strong>la suma</strong> de les variables de control. Al nostre exemple <a href="regressió-lineal.html#exm:mult">11.13</a> seria</p>
-<div class="sourceCode" id="cb788"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb788-1"><a href="regressió-lineal.html#cb788-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(y<span class="sc">~</span>x1<span class="sc">+</span>x2<span class="sc">+</span>x3<span class="sc">+</span>x4)</span></code></pre></div>
+<div class="sourceCode" id="cb787"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb787-1"><a href="regressió-lineal.html#cb787-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(y<span class="sc">~</span>x1<span class="sc">+</span>x2<span class="sc">+</span>x3<span class="sc">+</span>x4)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = y ~ x1 + x2 + x3 + x4)
@@ -2128,7 +2129,7 @@ b_0 \\ b_1\\ b_2\\ \vdots\\ b_k
 \widehat{Y}=9.9464+0.6626X_1+0.0483X_2+1.0618X_3-0.2543X_4
 \]</span></p>
 <p>A més, com al cas simple, aquesta funció també calcula els errors <span class="math inline">\(e_i\)</span>:</p>
-<div class="sourceCode" id="cb790"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb790-1"><a href="regressió-lineal.html#cb790-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">lm</span>(y<span class="sc">~</span>x1<span class="sc">+</span>x2<span class="sc">+</span>x3<span class="sc">+</span>x4))<span class="sc">$</span>residuals</span></code></pre></div>
+<div class="sourceCode" id="cb789"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb789-1"><a href="regressió-lineal.html#cb789-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">lm</span>(y<span class="sc">~</span>x1<span class="sc">+</span>x2<span class="sc">+</span>x3<span class="sc">+</span>x4))<span class="sc">$</span>residuals</span></code></pre></div>
 <pre><code>##           1           2           3           4           5           6 
 ##  0.05698925 -0.65797046  1.60344630 -0.20061111  0.59140004 -0.11545548 
 ##           7           8           9 
@@ -2137,7 +2138,7 @@ b_0 \\ b_1\\ b_2\\ \vdots\\ b_k
 <ul>
 <li><p>La recta de regressió passa pel vector mitjà <span class="math inline">\((\overline{x}_1,\overline{x}_2,\ldots,\overline{x}_k,\overline{y})\)</span>:
 <span class="math display">\[
-\overline{y}=b_0+b_1 \overline{x}_1+\cdots+b_1 \overline{x}_k
+\overline{y}=b_0+b_1 \overline{x}_1+\cdots+b_k \overline{x}_k
 \]</span></p></li>
 <li><p>La mitjana dels valors estimats és igual a la mitjana dels observats:
 <span class="math display">\[
@@ -2156,7 +2157,7 @@ S^2=\frac{SS_E}{n-k-1}
 els <span class="math inline">\(b_i\)</span> són els estimadors màxim versemblants dels <span class="math inline">\(\beta_i\)</span></p></li>
 <li><p>Se satisfà la mateixa <strong>identitat de les sumes de quadrats</strong>
 <span class="math display">\[
-SS_{Total}=SS_R+SS_E
+SS_{Tot}=SS_R+SS_E
 \]</span>
 o, equivalentment,
 <span class="math display">\[
@@ -2164,13 +2165,13 @@ s^2_y=s^2_{\widehat{y}}+s^2_e
 \]</span>
 on:</p>
 <ul>
-<li><p><span class="math inline">\(SS_{Total}=\sum_{i=1}^n (y_i-\overline{y})^2\)</span> és la <strong>Suma de Quadrats Total</strong>, mesura la variabilitat dels valors observats <span class="math inline">\(y_i\)</span> de la <span class="math inline">\(Y\)</span> i satisfà que <span class="math inline">\(SS_{Total}=n\cdot s_y^2\)</span>, on <span class="math inline">\(s_y^2\)</span> és la variància de les <span class="math inline">\(y_i\)</span>.</p></li>
-<li><p><span class="math inline">\(SS_R=\sum_{i=1}^n(\widehat{y}_i-\overline{y})^2\)</span> és la <strong>Suma de Quadrats de la Regressió</strong>, mesura la variabilitat de les estimacions <span class="math inline">\(\widehat{y}_i\)</span> de la <span class="math inline">\(Y\)</span> sobre la nostra mostra i satisfà que <span class="math inline">\(SS_R=n\cdot s_{\widehat{y}}^2\)</span>, on <span class="math inline">\(s_{\widehat{y}}^2\)</span> és la variància de les <span class="math inline">\(\widehat{y}_i\)</span>.</p></li>
+<li><p><span class="math inline">\(SS_{Tot}=\sum_{i=1}^n (y_i-\overline{y})^2\)</span> és la <strong>Suma de Quadrats Total</strong>, que mesura la variabilitat dels valors observats <span class="math inline">\(y_i\)</span> de la <span class="math inline">\(Y\)</span> i satisfà que <span class="math inline">\(SS_{Tot}=n\cdot s_y^2\)</span>, on <span class="math inline">\(s_y^2\)</span> és la variància de les <span class="math inline">\(y_i\)</span>.</p></li>
+<li><p><span class="math inline">\(SS_R=\sum_{i=1}^n(\widehat{y}_i-\overline{y})^2\)</span> és la <strong>Suma de Quadrats de la Regressió</strong>, que mesura la variabilitat de les estimacions <span class="math inline">\(\widehat{y}_i\)</span> de la <span class="math inline">\(Y\)</span> sobre la nostra mostra i satisfà que <span class="math inline">\(SS_R=n\cdot s_{\widehat{y}}^2\)</span>, on <span class="math inline">\(s_{\widehat{y}}^2\)</span> és la variància de les <span class="math inline">\(\widehat{y}_i\)</span>.</p></li>
 <li><p><span class="math inline">\(SS_E=\sum_{i=1}^n (y_i-\widehat{y}_i)^2\)</span> és la de <strong>Suma de Quadrats dels Errors</strong> que ja hem definit i satisfà que <span class="math inline">\(SS_E=n\cdot s_{e}^2\)</span>, on <span class="math inline">\(s_{e}^2\)</span> és la variància dels errors <span class="math inline">\(e_i\)</span>.</p></li>
 </ul></li>
 </ul>
 <p>Com al cas simple, quan R calcula una funció de regressió lineal per mínims quadrats també calcula un munt de coses més:</p>
-<div class="sourceCode" id="cb792"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb792-1"><a href="regressió-lineal.html#cb792-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">lm</span>(y<span class="sc">~</span>x1<span class="sc">+</span>x2<span class="sc">+</span>x3<span class="sc">+</span>x4))</span></code></pre></div>
+<div class="sourceCode" id="cb791"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb791-1"><a href="regressió-lineal.html#cb791-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">lm</span>(y<span class="sc">~</span>x1<span class="sc">+</span>x2<span class="sc">+</span>x3<span class="sc">+</span>x4))</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = y ~ x1 + x2 + x3 + x4)
@@ -2194,7 +2195,7 @@ on:</p>
 ## Residual standard error: 2.146 on 4 degrees of freedom
 ## Multiple R-squared:  0.968,	Adjusted R-squared:  0.9359 
 ## F-statistic: 30.21 on 4 and 4 DF,  p-value: 0.003015</code></pre>
-<p>Anem a estudiar què és i per què serveix tota aquesta informació.</p>
+<p>D’aquesta caterva d’informació, ja sabem algunes coses que són: els coeficients de la funció (la columna <code>Estimate</code> de la matriu <code>Coefficients</code>), els residus (<code>Residuals</code>), l’arrel quadrada de la <span class="math inline">\(S^2\)</span> (<code>Residual standard error</code>). I algunes tenen el mateix significat que a la regressió lineal simple: la resta d’entrades de la matriu <code>Coefficients</code> o el <code>Multiple R-squared</code>. Els tres darrers valors que dóna R (<code>Adjusted R-squared</code>, <code>F-statistic</code> i <code>p-value</code>) tendran només interès a la regressió múltiple, com veurem.</p>
 </div>
 <div id="coeficient-de-determinació-múltiple" class="section level3" number="11.2.2">
 <h3><span class="header-section-number">11.2.2</span> Coeficient de determinació múltiple</h3>
@@ -2202,16 +2203,15 @@ on:</p>
 <span class="math display">\[
 \widehat{Y}=b_0+b_1X_1+\cdots+b_kX_k
 \]</span>
-ens dóna una bona aproximació de <span class="math inline">\(Y\)</span> com a funció lineal de <span class="math inline">\(X_1,\ldots,X_k\)</span> sobre la nostra mostra quan la variabilitat dels valors estimats <span class="math inline">\(\widehat{y}_i\)</span> representa una fracció molt gran de la variabilitat dels valors observats <span class="math inline">\(y_i\)</span>.</p>
-<p>Això es quantifica amb el <strong>coeficient de determinació</strong> (<strong>múltiple</strong>) <span class="math inline">\(R^2\)</span>, que es defineix exactament igual que al cas simple i es calcula igual:
+és una bona aproximació de <span class="math inline">\(Y\)</span> com a funció lineal de <span class="math inline">\(X_1,\ldots,X_k\)</span> sobre la nostra mostra quan la variabilitat dels valors estimats <span class="math inline">\(\widehat{y}_i\)</span> representa una fracció molt gran de la variabilitat dels valors observats <span class="math inline">\(y_i\)</span>. Això es quantifica amb el <strong>coeficient de determinació</strong> (<strong>múltiple</strong>) <span class="math inline">\(R^2\)</span>, que es defineix exactament igual que al cas simple i es calcula igual:
 <span class="math display">\[
-R^2=\frac{SS_R}{SS_{Total}}=\frac{s^2_{\widehat{y}}}{s^2_y}
+R^2=\frac{SS_R}{SS_{Tot}}=\frac{s^2_{\widehat{y}}}{s^2_y}
 \]</span></p>
 
 <div class="example">
 <p><span id="exm:unnamed-chunk-827" class="example"><strong>Exemple 11.15  </strong></span>Al nostre Exemple <a href="regressió-lineal.html#exm:mult">11.13</a>, el coeficient de determinació és</p>
 </div>
-<div class="sourceCode" id="cb794"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb794-1"><a href="regressió-lineal.html#cb794-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">lm</span>(y<span class="sc">~</span>x1<span class="sc">+</span>x2<span class="sc">+</span>x3<span class="sc">+</span>x4))<span class="sc">$</span>r.squared</span></code></pre></div>
+<div class="sourceCode" id="cb793"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb793-1"><a href="regressió-lineal.html#cb793-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">lm</span>(y<span class="sc">~</span>x1<span class="sc">+</span>x2<span class="sc">+</span>x3<span class="sc">+</span>x4))<span class="sc">$</span>r.squared</span></code></pre></div>
 <pre><code>## [1] 0.9679545</code></pre>
 
 <div class="rmdnote">
@@ -2230,9 +2230,8 @@ i així també se té que <strong>el coeficient de determinació múltiple és e
 <div class="example">
 <p><span id="exm:multfake" class="example"><strong>Exemple 11.16  </strong></span>Imaginau que a la taula de dades de l’Exemple <a href="regressió-lineal.html#exm:mult">11.13</a> li afegim una nova variable <span class="math inline">\(X_5\)</span> que mesura la distància (en km) a vol d’ocell de la llibreria on la mare sol comprar els llibres a la consulta del pediatra que ha mesurat l’alçada <span class="math inline">\(Y\)</span>. Ens inventarem els valors d’aquesta nova variable, generant-los amb distribució normal <span class="math inline">\(N(2000,1000)\)</span></p>
 </div>
-<div class="sourceCode" id="cb796"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb796-1"><a href="regressió-lineal.html#cb796-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">200</span>)</span>
-<span id="cb796-2"><a href="regressió-lineal.html#cb796-2" aria-hidden="true" tabindex="-1"></a>x5<span class="ot">=</span><span class="fu">round</span>(<span class="fu">rnorm</span>(<span class="dv">9</span>,<span class="dv">2000</span>,<span class="dv">1000</span>))</span>
-<span id="cb796-3"><a href="regressió-lineal.html#cb796-3" aria-hidden="true" tabindex="-1"></a>x5</span></code></pre></div>
+<div class="sourceCode" id="cb795"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb795-1"><a href="regressió-lineal.html#cb795-1" aria-hidden="true" tabindex="-1"></a>x5<span class="ot">=</span><span class="fu">round</span>(<span class="fu">rnorm</span>(<span class="dv">9</span>,<span class="dv">2000</span>,<span class="dv">1000</span>))</span>
+<span id="cb795-2"><a href="regressió-lineal.html#cb795-2" aria-hidden="true" tabindex="-1"></a>x5</span></code></pre></div>
 <pre><code>## [1] 2085 2226 2433 2558 2060 1885  979 1703 2168</code></pre>
 <p>Per tant, les dades ara són</p>
 <pre><code>## [1] 2085 2226 2433 2558 2060 1885  979 1703 2168</code></pre>
@@ -2443,14 +2442,14 @@ Distància llibreria-pediatra (en m)
 </tbody>
 </table>
 <p>Ara calculem el <span class="math inline">\(R^2\)</span> de la regressió de <span class="math inline">\(Y\)</span> en funció de <span class="math inline">\(X_1,\ldots,X_5\)</span> i comparem-lo amb l’obtingut amb <span class="math inline">\(X_1,\ldots,X_4\)</span>:</p>
-<div class="sourceCode" id="cb799"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb799-1"><a href="regressió-lineal.html#cb799-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">lm</span>(y<span class="sc">~</span>x1<span class="sc">+</span>x2<span class="sc">+</span>x3<span class="sc">+</span>x4<span class="sc">+</span>x5))<span class="sc">$</span>r.squared</span></code></pre></div>
+<div class="sourceCode" id="cb798"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb798-1"><a href="regressió-lineal.html#cb798-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">lm</span>(y<span class="sc">~</span>x1<span class="sc">+</span>x2<span class="sc">+</span>x3<span class="sc">+</span>x4<span class="sc">+</span>x5))<span class="sc">$</span>r.squared</span></code></pre></div>
 <pre><code>## [1] 0.974853</code></pre>
-<div class="sourceCode" id="cb801"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb801-1"><a href="regressió-lineal.html#cb801-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">lm</span>(y<span class="sc">~</span>x1<span class="sc">+</span>x2<span class="sc">+</span>x3<span class="sc">+</span>x4))<span class="sc">$</span>r.squared</span></code></pre></div>
+<div class="sourceCode" id="cb800"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb800-1"><a href="regressió-lineal.html#cb800-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">lm</span>(y<span class="sc">~</span>x1<span class="sc">+</span>x2<span class="sc">+</span>x3<span class="sc">+</span>x4))<span class="sc">$</span>r.squared</span></code></pre></div>
 <pre><code>## [1] 0.9679545</code></pre>
 <p>Com veieu, la regressió tenint en compte la distància de ca’l llibreter a ca’l pediatra té coeficient de determinació més gran que sense tenir-lo en compte. Però imaginam que teniu clar que aquesta variable és irrellevant a l’hora d’explicar l’alçada d’un nin.</p>
 <p>Per tenir en compte aquest fet i compensar el nombre de variables emprat en la regressió, en lloc d’emprar el coeficient de determinació
 <span class="math display">\[
-R^2=\frac{SS_R}{SS_{Total}}=\frac{SS_{Total}-SS_E}{SS_{Total}}
+R^2=\frac{SS_R}{SS_{Tot}}=\frac{SS_{Tot}-SS_E}{SS_{Tot}}
 \]</span>
 s’empra el <strong>coeficient de determinació ajustat</strong>
 <span class="math display">\[
@@ -2458,18 +2457,18 @@ R^2_{adj}=\frac{MS_{Total}-MS_E}{MS_{Total}}
 \]</span>
 on
 <span class="math display">\[
-MS_{Total}=\frac{SS_{Total}}{n-1}\text{ i } MS_E=\frac{SS_E}{n-k-1}.
+MS_{Total}=\frac{SS_{Tot}}{n-1}\text{ i } MS_E=\frac{SS_E}{n-k-1}.
 \]</span></p>
 
 <div class="rmdcaution">
-Fa una estona a <span class="math inline">\(MS_E\)</span> li hem dit <span class="math inline">\(S^2\)</span>, i hem dit que estimava la variància comuna de les variables error <span class="math inline">\(E_{\underline{x}_i}\)</span> quan totes aquestes variables tenen la mateixa variància.
+Fixau-vos que <span class="math inline">\(MS_{Total}\)</span> no és res més que <span class="math inline">\(\widetilde{s}_y^2\)</span> i que fa una estona a <span class="math inline">\(MS_E\)</span> li hem dit <span class="math inline">\(S^2\)</span>: l’estimador no esbiaixat de la variància comuna de les variables error <span class="math inline">\(E_{\underline{x}_i}\)</span> quan totes aquestes variables tenen la mateixa variància.
 </div>
 <p>Operant, queda
 <span class="math display">\[
 R^2_{adj}=\frac{(n-1)R^2-k}{n-k-1}
 \]</span></p>
 <p>A la sortida del <code>summary(lm( ))</code> és el <code>Adjusted R-squared</code> de la penúltima línia:</p>
-<div class="sourceCode" id="cb803"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb803-1"><a href="regressió-lineal.html#cb803-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">lm</span>(y<span class="sc">~</span>x1<span class="sc">+</span>x2<span class="sc">+</span>x3<span class="sc">+</span>x4))</span></code></pre></div>
+<div class="sourceCode" id="cb802"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb802-1"><a href="regressió-lineal.html#cb802-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">lm</span>(y<span class="sc">~</span>x1<span class="sc">+</span>x2<span class="sc">+</span>x3<span class="sc">+</span>x4))</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = y ~ x1 + x2 + x3 + x4)
@@ -2493,25 +2492,25 @@ R^2_{adj}=\frac{(n-1)R^2-k}{n-k-1}
 ## Residual standard error: 2.146 on 4 degrees of freedom
 ## Multiple R-squared:  0.968,	Adjusted R-squared:  0.9359 
 ## F-statistic: 30.21 on 4 and 4 DF,  p-value: 0.003015</code></pre>
-<p>Es considera que una regressió lineal múltiple per mínims quadrats és “millor” que una altra quan té el coeficient de determinació ajustat més gran. Això només té interés per a regressions amb diferents nombres de variables independents i la mateixa mostra d’individus, perquè fixats <span class="math inline">\(n\)</span> i <span class="math inline">\(k\)</span>, la funció
+<p>Es considera que una regressió lineal múltiple per mínims quadrats és “millor” que una altra quan té el coeficient de determinació ajustat més gran. Això només té interès per a regressions amb diferents nombres de variables independents i la mateixa mostra d’individus, perquè fixats <span class="math inline">\(n\)</span> i <span class="math inline">\(k\)</span>, la funció
 <span class="math display">\[
 R^2\mapsto R^2_{adj}=\frac{(n-1)R^2-k}{n-k-1}
 \]</span>
 és creixent, i per tant si fixam els valors de <span class="math inline">\(n\)</span> i de <span class="math inline">\(k\)</span>, comparar <span class="math inline">\(R^2\)</span> és equivalent a comparar <span class="math inline">\(R^2_{adj}\)</span>.</p>
 <p>Amb R es calcula amb el sufix <code>$adj.r.squared</code>. Calculem els del nostre exemple, amb i sense la variable “falsa”, a veure què passa:</p>
-<div class="sourceCode" id="cb805"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb805-1"><a href="regressió-lineal.html#cb805-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">lm</span>(y<span class="sc">~</span>x1<span class="sc">+</span>x2<span class="sc">+</span>x3<span class="sc">+</span>x4))<span class="sc">$</span>adj.r.squared</span></code></pre></div>
+<div class="sourceCode" id="cb804"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb804-1"><a href="regressió-lineal.html#cb804-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">lm</span>(y<span class="sc">~</span>x1<span class="sc">+</span>x2<span class="sc">+</span>x3<span class="sc">+</span>x4))<span class="sc">$</span>adj.r.squared</span></code></pre></div>
 <pre><code>## [1] 0.9359091</code></pre>
-<div class="sourceCode" id="cb807"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb807-1"><a href="regressió-lineal.html#cb807-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">lm</span>(y<span class="sc">~</span>x1<span class="sc">+</span>x2<span class="sc">+</span>x3<span class="sc">+</span>x4<span class="sc">+</span>x5))<span class="sc">$</span>adj.r.squared</span></code></pre></div>
+<div class="sourceCode" id="cb806"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb806-1"><a href="regressió-lineal.html#cb806-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">lm</span>(y<span class="sc">~</span>x1<span class="sc">+</span>x2<span class="sc">+</span>x3<span class="sc">+</span>x4<span class="sc">+</span>x5))<span class="sc">$</span>adj.r.squared</span></code></pre></div>
 <pre><code>## [1] 0.9329412</code></pre>
 <p>Com veieu, sense tenir en compte la distància de la llibreria de capçalera de la mare a la consulta del pediatra obtenim un valor més gran de <span class="math inline">\(R^2_{adj}\)</span> i per tant consideram que és una regressió millor que tenint-la en compte. Ja que hi som, comprovem l’equació
 <span class="math display">\[
 R^2_{adj}=\frac{(n-1)R^2-k}{n-k-1}
 \]</span>
 per al model amb 4 variables independents:</p>
-<div class="sourceCode" id="cb809"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb809-1"><a href="regressió-lineal.html#cb809-1" aria-hidden="true" tabindex="-1"></a>n<span class="ot">=</span><span class="dv">9</span></span>
-<span id="cb809-2"><a href="regressió-lineal.html#cb809-2" aria-hidden="true" tabindex="-1"></a>k<span class="ot">=</span><span class="dv">4</span></span>
-<span id="cb809-3"><a href="regressió-lineal.html#cb809-3" aria-hidden="true" tabindex="-1"></a>R2<span class="ot">=</span><span class="fu">summary</span>(<span class="fu">lm</span>(y<span class="sc">~</span>x1<span class="sc">+</span>x2<span class="sc">+</span>x3<span class="sc">+</span>x4))<span class="sc">$</span>r.squared</span>
-<span id="cb809-4"><a href="regressió-lineal.html#cb809-4" aria-hidden="true" tabindex="-1"></a>((n<span class="dv">-1</span>)<span class="sc">*</span>R2<span class="sc">-</span>k)<span class="sc">/</span>(n<span class="sc">-</span>k<span class="dv">-1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb808"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb808-1"><a href="regressió-lineal.html#cb808-1" aria-hidden="true" tabindex="-1"></a>n<span class="ot">=</span><span class="dv">9</span></span>
+<span id="cb808-2"><a href="regressió-lineal.html#cb808-2" aria-hidden="true" tabindex="-1"></a>k<span class="ot">=</span><span class="dv">4</span></span>
+<span id="cb808-3"><a href="regressió-lineal.html#cb808-3" aria-hidden="true" tabindex="-1"></a>R2<span class="ot">=</span><span class="fu">summary</span>(<span class="fu">lm</span>(y<span class="sc">~</span>x1<span class="sc">+</span>x2<span class="sc">+</span>x3<span class="sc">+</span>x4))<span class="sc">$</span>r.squared</span>
+<span id="cb808-4"><a href="regressió-lineal.html#cb808-4" aria-hidden="true" tabindex="-1"></a>((n<span class="dv">-1</span>)<span class="sc">*</span>R2<span class="sc">-</span>k)<span class="sc">/</span>(n<span class="sc">-</span>k<span class="dv">-1</span>)</span></code></pre></div>
 <pre><code>## [1] 0.9359091</code></pre>
 </div>
 <div id="intervals-de-confiança-per-als-coeficients" class="section level3" number="11.2.4">
@@ -2525,12 +2524,12 @@ S^2(=MS_E)=\frac{SS_E}{n-k-1}
 \]</span></p></li>
 </ul>
 <p>A l’Exemple <a href="regressió-lineal.html#exm:mult">11.13</a>, aquesta estimació de la variància comuna dels errors <span class="math inline">\(\sigma_E^2\)</span> és</p>
-<div class="sourceCode" id="cb811"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb811-1"><a href="regressió-lineal.html#cb811-1" aria-hidden="true" tabindex="-1"></a>S2<span class="ot">=</span><span class="fu">sum</span>(e.i<span class="sc">^</span><span class="dv">2</span>)<span class="sc">/</span>(n<span class="sc">-</span>k<span class="dv">-1</span>)</span>
-<span id="cb811-2"><a href="regressió-lineal.html#cb811-2" aria-hidden="true" tabindex="-1"></a>S2</span></code></pre></div>
+<div class="sourceCode" id="cb810"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb810-1"><a href="regressió-lineal.html#cb810-1" aria-hidden="true" tabindex="-1"></a>S2<span class="ot">=</span><span class="fu">sum</span>(e.i<span class="sc">^</span><span class="dv">2</span>)<span class="sc">/</span>(n<span class="sc">-</span>k<span class="dv">-1</span>)</span>
+<span id="cb810-2"><a href="regressió-lineal.html#cb810-2" aria-hidden="true" tabindex="-1"></a>S2</span></code></pre></div>
 <pre><code>## [1] 4.604896</code></pre>
 <p>Com al cas simple, la sortida de <code>summary(lm( ))</code> dóna el valor de la <span class="math inline">\(S\)</span> (és a dir, l’arrel quadrada de <span class="math inline">\(S^2\)</span>, que per tant estima la desviació típica comuna de les variables error) com a <code>Residual standard error</code>
 i s’obté amb el sufix <code>$sigma</code>:</p>
-<div class="sourceCode" id="cb813"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb813-1"><a href="regressió-lineal.html#cb813-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">lm</span>(y<span class="sc">~</span>x1<span class="sc">+</span>x2<span class="sc">+</span>x3<span class="sc">+</span>x4))</span></code></pre></div>
+<div class="sourceCode" id="cb812"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb812-1"><a href="regressió-lineal.html#cb812-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">lm</span>(y<span class="sc">~</span>x1<span class="sc">+</span>x2<span class="sc">+</span>x3<span class="sc">+</span>x4))</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = y ~ x1 + x2 + x3 + x4)
@@ -2554,14 +2553,14 @@ i s’obté amb el sufix <code>$sigma</code>:</p>
 ## Residual standard error: 2.146 on 4 degrees of freedom
 ## Multiple R-squared:  0.968,	Adjusted R-squared:  0.9359 
 ## F-statistic: 30.21 on 4 and 4 DF,  p-value: 0.003015</code></pre>
-<div class="sourceCode" id="cb815"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb815-1"><a href="regressió-lineal.html#cb815-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">lm</span>(y<span class="sc">~</span>x1<span class="sc">+</span>x2<span class="sc">+</span>x3<span class="sc">+</span>x4))<span class="sc">$</span>sigma</span></code></pre></div>
+<div class="sourceCode" id="cb814"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb814-1"><a href="regressió-lineal.html#cb814-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">lm</span>(y<span class="sc">~</span>x1<span class="sc">+</span>x2<span class="sc">+</span>x3<span class="sc">+</span>x4))<span class="sc">$</span>sigma</span></code></pre></div>
 <pre><code>## [1] 2.145902</code></pre>
-<div class="sourceCode" id="cb817"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb817-1"><a href="regressió-lineal.html#cb817-1" aria-hidden="true" tabindex="-1"></a>(<span class="fu">summary</span>(<span class="fu">lm</span>(y<span class="sc">~</span>x1<span class="sc">+</span>x2<span class="sc">+</span>x3<span class="sc">+</span>x4))<span class="sc">$</span>sigma)<span class="sc">^</span><span class="dv">2</span></span></code></pre></div>
+<div class="sourceCode" id="cb816"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb816-1"><a href="regressió-lineal.html#cb816-1" aria-hidden="true" tabindex="-1"></a>(<span class="fu">summary</span>(<span class="fu">lm</span>(y<span class="sc">~</span>x1<span class="sc">+</span>x2<span class="sc">+</span>x3<span class="sc">+</span>x4))<span class="sc">$</span>sigma)<span class="sc">^</span><span class="dv">2</span></span></code></pre></div>
 <pre><code>## [1] 4.604896</code></pre>
 <p>Resulta que sota les condicions imposades al principi d’aquesta secció sobre les variables <span class="math inline">\(E_i\)</span>, podem calcular intervals de confiança per als coeficients <span class="math inline">\(\beta_i\)</span> de la funció de regressió lineal.</p>
 
 <div class="rmdmercifulgod">
-Donam les fórmules per pura completesa, no us demanarem que les calculeu amb aquestes fórmules.
+Donam les fórmules per pura completesa, no esperam que calculeu aquests intervals a mà mai.
 </div>
 <ul>
 <li>L’error típic de cada estimador <span class="math inline">\(b_i\)</span> és l’arrel quadrada de la <span class="math inline">\(i\)</span>-èsima entrada de la diagonal de la matriu <span class="math inline">\(\sigma_E^2\cdot (\mathbf{X}^t \mathbf{X})^{-1}\)</span>, començant a comptar amb <span class="math inline">\(i=0\)</span>:
@@ -2570,7 +2569,7 @@ Donam les fórmules per pura completesa, no us demanarem que les calculeu amb aq
 \]</span>
 L’estimam sobre una mostra substituint-hi <span class="math inline">\(\sigma_E^2\)</span> per <span class="math inline">\(S^2\)</span>. R ens dóna aquestes estimacions a la columna <code>Std. Error</code> de la matriu <code>Coefficients</code> a la sortida de <code>summary(lm( ))</code>:</li>
 </ul>
-<div class="sourceCode" id="cb819"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb819-1"><a href="regressió-lineal.html#cb819-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">lm</span>(y<span class="sc">~</span>x1<span class="sc">+</span>x2<span class="sc">+</span>x3<span class="sc">+</span>x4))</span></code></pre></div>
+<div class="sourceCode" id="cb818"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb818-1"><a href="regressió-lineal.html#cb818-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">lm</span>(y<span class="sc">~</span>x1<span class="sc">+</span>x2<span class="sc">+</span>x3<span class="sc">+</span>x4))</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = y ~ x1 + x2 + x3 + x4)
@@ -2594,13 +2593,13 @@ L’estimam sobre una mostra substituint-hi <span class="math inline">\(\sigma_E
 ## Residual standard error: 2.146 on 4 degrees of freedom
 ## Multiple R-squared:  0.968,	Adjusted R-squared:  0.9359 
 ## F-statistic: 30.21 on 4 and 4 DF,  p-value: 0.003015</code></pre>
-<div class="sourceCode" id="cb821"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb821-1"><a href="regressió-lineal.html#cb821-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">lm</span>(y<span class="sc">~</span>x1<span class="sc">+</span>x2<span class="sc">+</span>x3<span class="sc">+</span>x4))<span class="sc">$</span>coefficients[,<span class="dv">2</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb820"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb820-1"><a href="regressió-lineal.html#cb820-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">lm</span>(y<span class="sc">~</span>x1<span class="sc">+</span>x2<span class="sc">+</span>x3<span class="sc">+</span>x4))<span class="sc">$</span>coefficients[,<span class="dv">2</span>]</span></code></pre></div>
 <pre><code>## (Intercept)          x1          x2          x3          x4 
 ## 11.06339306  0.07996131  0.06346116  1.30586646  0.42423970</code></pre>
 <ul>
 <li><p>Cada fracció
 <span class="math display">\[
-T_i=\frac{\beta_i-b_i}{\sqrt{(S^2\cdot (X^t X)^{-1})_{ii}}}
+T_i=\frac{b_i-\beta_i}{\sqrt{(S^2\cdot (X^t X)^{-1})_{ii}}}
 \]</span>
 segueix un llei t de Student amb <span class="math inline">\(n-k-1\)</span> graus de llibertat</p></li>
 <li><p>Un interval de confiança de nivell de confiança <span class="math inline">\(q\)</span> per a <span class="math inline">\(\beta_i\)</span> és
@@ -2608,21 +2607,21 @@ segueix un llei t de Student amb <span class="math inline">\(n-k-1\)</span> grau
 b_i\pm t_{n-k-1,(1+q)/2}\cdot \sqrt{(S^2\cdot (X^t X)^{-1})_{ii}}
 \]</span></p></li>
 </ul>
-<p>Amb R, aquests intervals de confiança s’obtenen com al cas simple, aplicant la mateixa funció <code>confint</code> al resultat de la <code>lm</code>:</p>
-<div class="sourceCode" id="cb823"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb823-1"><a href="regressió-lineal.html#cb823-1" aria-hidden="true" tabindex="-1"></a><span class="fu">confint</span>(<span class="fu">lm</span>(y<span class="sc">~</span>x1<span class="sc">+</span>x2<span class="sc">+</span>x3<span class="sc">+</span>x4))</span></code></pre></div>
+<p>Amb R, aquests intervals de confiança s’obtenen com al cas simple, aplicant la funció <code>confint</code> al resultat de la <code>lm</code>:</p>
+<div class="sourceCode" id="cb822"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb822-1"><a href="regressió-lineal.html#cb822-1" aria-hidden="true" tabindex="-1"></a><span class="fu">confint</span>(<span class="fu">lm</span>(y<span class="sc">~</span>x1<span class="sc">+</span>x2<span class="sc">+</span>x3<span class="sc">+</span>x4))</span></code></pre></div>
 <pre><code>##                   2.5 %     97.5 %
 ## (Intercept) -20.7704551 40.6633520
 ## x1            0.4406012  0.8846176
 ## x2           -0.1278951  0.2244978
 ## x3           -2.5638682  4.6874649
 ## x4           -1.4322167  0.9235397</code></pre>
-<p>Els podem calcular “a mà” a partir de les estimacions dels errors típics que dóna <code>summary(lm( ))</code> amb la fórmula genèrica “estimació més-menys quantil per error típic”. Per exemple, l’IC 95% per a <span class="math inline">\(\beta_1\)</span> seria</p>
-<div class="sourceCode" id="cb825"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb825-1"><a href="regressió-lineal.html#cb825-1" aria-hidden="true" tabindex="-1"></a>n<span class="ot">=</span><span class="dv">9</span></span>
-<span id="cb825-2"><a href="regressió-lineal.html#cb825-2" aria-hidden="true" tabindex="-1"></a>k<span class="ot">=</span><span class="dv">4</span></span>
-<span id="cb825-3"><a href="regressió-lineal.html#cb825-3" aria-hidden="true" tabindex="-1"></a>b1<span class="ot">=</span><span class="fu">lm</span>(y<span class="sc">~</span>x1<span class="sc">+</span>x2<span class="sc">+</span>x3<span class="sc">+</span>x4)<span class="sc">$</span>coefficients[<span class="dv">2</span>]</span>
-<span id="cb825-4"><a href="regressió-lineal.html#cb825-4" aria-hidden="true" tabindex="-1"></a>Error.Tip.b1<span class="ot">=</span><span class="fu">summary</span>(<span class="fu">lm</span>(y<span class="sc">~</span>x1<span class="sc">+</span>x2<span class="sc">+</span>x3<span class="sc">+</span>x4))<span class="sc">$</span>coefficients[<span class="dv">2</span>,<span class="dv">2</span>]</span>
-<span id="cb825-5"><a href="regressió-lineal.html#cb825-5" aria-hidden="true" tabindex="-1"></a>IC<span class="ot">=</span>b1<span class="sc">+</span><span class="fu">qt</span>(<span class="fl">0.975</span>,n<span class="sc">-</span>k<span class="dv">-1</span>)<span class="sc">*</span>Error.Tip.b1<span class="sc">*</span><span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>,<span class="dv">1</span>)</span>
-<span id="cb825-6"><a href="regressió-lineal.html#cb825-6" aria-hidden="true" tabindex="-1"></a>IC</span></code></pre></div>
+<p>Els podem calcular “a mà” a partir de les estimacions dels errors típics que dóna <code>summary(lm( ))</code> amb la fórmula genèrica “estimació <span class="math inline">\(\pm\)</span> quantil per error típic”. Per exemple, l’IC 95% per a <span class="math inline">\(\beta_1\)</span> seria</p>
+<div class="sourceCode" id="cb824"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb824-1"><a href="regressió-lineal.html#cb824-1" aria-hidden="true" tabindex="-1"></a>n<span class="ot">=</span><span class="dv">9</span></span>
+<span id="cb824-2"><a href="regressió-lineal.html#cb824-2" aria-hidden="true" tabindex="-1"></a>k<span class="ot">=</span><span class="dv">4</span></span>
+<span id="cb824-3"><a href="regressió-lineal.html#cb824-3" aria-hidden="true" tabindex="-1"></a>b1<span class="ot">=</span><span class="fu">lm</span>(y<span class="sc">~</span>x1<span class="sc">+</span>x2<span class="sc">+</span>x3<span class="sc">+</span>x4)<span class="sc">$</span>coefficients[<span class="dv">2</span>]</span>
+<span id="cb824-4"><a href="regressió-lineal.html#cb824-4" aria-hidden="true" tabindex="-1"></a>Error.Tip.b1<span class="ot">=</span><span class="fu">summary</span>(<span class="fu">lm</span>(y<span class="sc">~</span>x1<span class="sc">+</span>x2<span class="sc">+</span>x3<span class="sc">+</span>x4))<span class="sc">$</span>coefficients[<span class="dv">2</span>,<span class="dv">2</span>]</span>
+<span id="cb824-5"><a href="regressió-lineal.html#cb824-5" aria-hidden="true" tabindex="-1"></a>IC<span class="ot">=</span>b1<span class="sc">+</span><span class="fu">qt</span>(<span class="fl">0.975</span>,n<span class="sc">-</span>k<span class="dv">-1</span>)<span class="sc">*</span>Error.Tip.b1<span class="sc">*</span><span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>,<span class="dv">1</span>)</span>
+<span id="cb824-6"><a href="regressió-lineal.html#cb824-6" aria-hidden="true" tabindex="-1"></a>IC</span></code></pre></div>
 <pre><code>## [1] 0.4406012 0.8846176</code></pre>
 </div>
 <div id="intervals-de-confiança-per-a-les-estimacions-de-la-variable-resposta" class="section level3" number="11.2.5">
@@ -2630,38 +2629,38 @@ b_i\pm t_{n-k-1,(1+q)/2}\cdot \sqrt{(S^2\cdot (X^t X)^{-1})_{ii}}
 <p>Si les variables error <span class="math inline">\(E_i\)</span> satisfan les condicions imposades al principi de la secció anterior, també podem calcular intervals de confiança per al valor estimat de la <span class="math inline">\(Y\)</span> sobre els individus amb valors de <span class="math inline">\((X_1,\ldots,X_k)\)</span> donats. Com al cas simple, tenim dos intervals:</p>
 <ul>
 <li><p>L’interval per al <strong>valor esperat</strong> <span class="math inline">\(\mu_{Y|x_{10},\ldots,x_{k0}}\)</span> de <span class="math inline">\(Y\)</span> sobre els individus en els que <span class="math inline">\((X_1,\ldots,X_k)\)</span> val <span class="math inline">\((x_{10},\ldots,x_{k0})\)</span>, és a dir, per al valor mitjà de la <span class="math inline">\(Y\)</span> sobre tots els individus de la població en els que <span class="math inline">\((X_1,\ldots,X_k)\)</span> valgui <span class="math inline">\((x_{10},\ldots,x_{k0})\)</span></p></li>
-<li><p>L’interval per al <strong>valor</strong> <span class="math inline">\(y_0\)</span> de <span class="math inline">\(Y\)</span> sobre un individu concret en el que <span class="math inline">\((X_1,\ldots,X_k)\)</span> valgui <span class="math inline">\((x_{10},\ldots,x_{k0})\)</span>.</p></li>
+<li><p>L’interval per al <strong>valor predit</strong> <span class="math inline">\(y_0\)</span> de <span class="math inline">\(Y\)</span> sobre un individu concret en el que <span class="math inline">\((X_1,\ldots,X_k)\)</span> valgui <span class="math inline">\((x_{10},\ldots,x_{k0})\)</span>.</p></li>
 </ul>
 <p>La discussió sobre les diferències entre una i altra estimació i per què el segon interval és més ample que el primer són les mateixes que al cas simple, no la repetirem aquí. I, contràriament, al cas simple, us estalviarem les fórmules. Simplement heu de saber que aquests intervals també es calculen amb R amb la funció <code>predict.lm</code> aplicada a:</p>
 <ul>
-<li>un data frame amb els valors de les variables independents sobre l’individu, o els individus, per al que volem estimar la <span class="math inline">\(Y\)</span>;</li>
-<li>el resultat de la <code>lm</code>; i</li>
-<li>el paràmetre <code>interval</code> igualat al tipus d’interval que volem: <code>"prediction"</code> si és per al valor en un individu, <code>"confidence"</code> si és per al valor esperat.</li>
+<li>un data frame amb els valors de les variables independents sobre l’individu, o els individus, per al que volem estimar la <span class="math inline">\(Y\)</span></li>
+<li>el resultat de la <code>lm</code></li>
+<li>el paràmetre <code>interval</code> igualat al tipus d’interval que volem: <code>"prediction"</code> si és per al valor en un individu, <code>"confidence"</code> si és per al valor esperat</li>
 </ul>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-843" class="example"><strong>Exemple 11.17  </strong></span>Suposem que volem estimar amb un 95% de confiança l’alçada d’un infant de <span class="math inline">\(X_1=69\)</span> dies que en néixer va fer <span class="math inline">\(X_2=45.5\)</span> cm i va pesar <span class="math inline">\(X_3=2.55\)</span> kg i des de llavors el seu pes ha augmentat un <span class="math inline">\(X_4=26.3\)</span>%.</p>
+<p><span id="exm:unnamed-chunk-844" class="example"><strong>Exemple 11.17  </strong></span>Suposem que volem estimar amb un 95% de confiança l’alçada d’un infant de <span class="math inline">\(X_1=69\)</span> dies que en néixer va fer <span class="math inline">\(X_2=45.5\)</span> cm i va pesar <span class="math inline">\(X_3=2.55\)</span> kg i des de llavors el seu pes ha augmentat un <span class="math inline">\(X_4=26.3\)</span>%.</p>
 </div>
 <p>Primer definim un data frame que reculli les dades d’aquest infant:</p>
-<div class="sourceCode" id="cb827"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb827-1"><a href="regressió-lineal.html#cb827-1" aria-hidden="true" tabindex="-1"></a>infant<span class="ot">=</span><span class="fu">data.frame</span>(<span class="at">x1=</span><span class="dv">69</span>,<span class="at">x2=</span><span class="fl">45.5</span>,<span class="at">x3=</span><span class="fl">2.55</span>,<span class="at">x4=</span><span class="fl">26.3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb826"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb826-1"><a href="regressió-lineal.html#cb826-1" aria-hidden="true" tabindex="-1"></a>infant<span class="ot">=</span><span class="fu">data.frame</span>(<span class="at">x1=</span><span class="dv">69</span>,<span class="at">x2=</span><span class="fl">45.5</span>,<span class="at">x3=</span><span class="fl">2.55</span>,<span class="at">x4=</span><span class="fl">26.3</span>)</span></code></pre></div>
 <p>Aleshores:</p>
 <ul>
 <li>Un interval de confiança del 95% per al valor estimat de l’alçada d’aquest infant és</li>
 </ul>
-<div class="sourceCode" id="cb828"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb828-1"><a href="regressió-lineal.html#cb828-1" aria-hidden="true" tabindex="-1"></a><span class="fu">predict.lm</span>(<span class="fu">lm</span>(y<span class="sc">~</span>x1<span class="sc">+</span>x2<span class="sc">+</span>x3<span class="sc">+</span>x4), infant, <span class="at">interval=</span><span class="st">&quot;prediction&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb827"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb827-1"><a href="regressió-lineal.html#cb827-1" aria-hidden="true" tabindex="-1"></a><span class="fu">predict.lm</span>(<span class="fu">lm</span>(y<span class="sc">~</span>x1<span class="sc">+</span>x2<span class="sc">+</span>x3<span class="sc">+</span>x4), infant, <span class="at">interval=</span><span class="st">&quot;prediction&quot;</span>)</span></code></pre></div>
 <pre><code>##        fit      lwr      upr
 ## 1 53.88269 46.99166 60.77372</code></pre>
 <ul>
-<li>Un interval de confiança del 95% per al valor estimat de l’alçada mitjana de tots els infants amb les mateixes característiques <span class="math inline">\(X_1,\ldots,X_4\)</span> que aquest és</li>
+<li>Un interval de confiança del 95% per al valor estimat de l’alçada mitjana de tots els infants amb els mateixos valors de <span class="math inline">\(X_1,\ldots,X_4\)</span> que aquest infant és</li>
 </ul>
-<div class="sourceCode" id="cb830"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb830-1"><a href="regressió-lineal.html#cb830-1" aria-hidden="true" tabindex="-1"></a><span class="fu">predict.lm</span>(<span class="fu">lm</span>(y<span class="sc">~</span>x1<span class="sc">+</span>x2<span class="sc">+</span>x3<span class="sc">+</span>x4), infant, <span class="at">interval=</span><span class="st">&quot;confidence&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb829"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb829-1"><a href="regressió-lineal.html#cb829-1" aria-hidden="true" tabindex="-1"></a><span class="fu">predict.lm</span>(<span class="fu">lm</span>(y<span class="sc">~</span>x1<span class="sc">+</span>x2<span class="sc">+</span>x3<span class="sc">+</span>x4), infant, <span class="at">interval=</span><span class="st">&quot;confidence&quot;</span>)</span></code></pre></div>
 <pre><code>##        fit     lwr      upr
 ## 1 53.88269 50.4202 57.34518</code></pre>
 <p>Obtenim que:</p>
 <ul>
-<li><p>Estimam que l’alçada d’aquest infant és 53.9 cm</p></li>
-<li><p>Estimam amb un 95% de confiança que l’alçada d’aquest infant està entre els 47 i els 60.8 cm</p></li>
-<li><p>Estimam amb un 95% de confiança que l’alçada mitjana dels infants amb les mateixes característiques que aquest està entre els 50.4 i els 57.3 cm</p></li>
+<li><p>Estimam que l’alçada d’aquest infant és 53.9 cm.</p></li>
+<li><p>Estimam amb un 95% de confiança que l’alçada d’aquest infant està entre els 47 i els 60.8 cm.</p></li>
+<li><p>Estimam amb un 95% de confiança que l’alçada mitjana dels infants amb les mateixes característiques que aquest està entre els 50.4 i els 57.3 cm. És a dir que, de mitjana, els infants com aquest fan entre 50.4 i els 57.3 cm.</p></li>
 </ul>
 </div>
 <div id="lanova-de-la-regressió-lineal-múltiple" class="section level3" number="11.2.6">
@@ -2684,7 +2683,7 @@ H_1: \beta_i\neq 0 \end{array}
 \right.
 \]</span>
 emprant els estadístics <span class="math inline">\(T_i\)</span> que hem definit fa una estona, que segueixen lleis t de Student amb <span class="math inline">\(n-k-1\)</span> graus de llibertat. Els p-valors d’aquests contrastos són els de la columna <code>Pr(&gt;|t|)</code> a la matriu de <code>Coefficients</code> de la sortida de <code>summary(lm( ))</code>. No cal ajustar-los, el nombre <span class="math inline">\(n-k-1\)</span> de graus de llibertat ja té en compte que fem <span class="math inline">\(k+1\)</span> contrastos.</p>
-<div class="sourceCode" id="cb832"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb832-1"><a href="regressió-lineal.html#cb832-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">lm</span>(y<span class="sc">~</span>x1<span class="sc">+</span>x2<span class="sc">+</span>x3<span class="sc">+</span>x4))</span></code></pre></div>
+<div class="sourceCode" id="cb831"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb831-1"><a href="regressió-lineal.html#cb831-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">lm</span>(y<span class="sc">~</span>x1<span class="sc">+</span>x2<span class="sc">+</span>x3<span class="sc">+</span>x4))</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = y ~ x1 + x2 + x3 + x4)
@@ -2725,7 +2724,7 @@ H_1:\text{no és veritat que }\mu_{Y|x_{11},\ldots,x_{1k}}=\cdots=\mu_{Y|x_{n1},
 \end{array}
 \right.
 \]</span>
-rebutjam la hipòtesi nul·la, això implicarà que podem rebutjar que <span class="math inline">\(\beta_1=\beta_2=\cdots=\beta_k=0\)</span> i el model lineal tendrà sentit.</p>
+rebutjam la hipòtesi nul·la, això implicarà que podem rebutjar que <span class="math inline">\(\beta_1=\beta_2=\cdots=\beta_k=0\)</span> i podrem concloure que el model lineal té sentit.</p>
 <p>La <strong>taula</strong> d’aquesta ANOVA és
 <span class="math display">\[
 \begin{array}{llllll}\hline
@@ -2740,32 +2739,32 @@ on
 <span class="math display">\[
 MS_R=\frac{SS_R}{k},\quad MS_E=\frac{SS_E}{n-k-1}
 \]</span>
-i, com a les altres ANOVA, l’estadístic de contrast <span class="math inline">\(F\)</span> és
+Com a les altres ANOVA, l’estadístic de contrast <span class="math inline">\(F\)</span> és
 <span class="math display">\[
 F=\frac{MS_R}{MS_E}
 \]</span>
-i satisfà que, si la hipòtesi nul·la és vertadera (i els errors satisfan les condicions establertes al començament de la secció anterior), segueix una llei F de Fisher amb <span class="math inline">\(k\)</span> i <span class="math inline">\(n-k-1\)</span> graus de llibertat i té valor proper a 1, de manera que se pren com a p-valor
+Si la hipòtesi nul·la és vertadera (i els errors satisfan les condicions establertes al començament de la secció anterior), aquest estadístic de contrast segueix una llei F de Fisher amb <span class="math inline">\(k\)</span> i <span class="math inline">\(n-k-1\)</span> graus de llibertat i té valor proper a 1, de manera que se pren com a p-valor
 <span class="math display">\[
-\text{p-valor}=P(F_{k,n-k-1}\geq F).
+\text{p-valor}=P(F_{k,n-k-1}\geqslant F).
 \]</span></p>
 <p>Calculem la taula ANOVA de l’Exemple <a href="regressió-lineal.html#exm:mult">11.13</a></p>
-<div class="sourceCode" id="cb834"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb834-1"><a href="regressió-lineal.html#cb834-1" aria-hidden="true" tabindex="-1"></a>SS.R<span class="ot">=</span><span class="fu">sum</span>((Y.cap<span class="sc">-</span><span class="fu">mean</span>(y))<span class="sc">^</span><span class="dv">2</span>)</span>
-<span id="cb834-2"><a href="regressió-lineal.html#cb834-2" aria-hidden="true" tabindex="-1"></a>SS.R</span></code></pre></div>
+<div class="sourceCode" id="cb833"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb833-1"><a href="regressió-lineal.html#cb833-1" aria-hidden="true" tabindex="-1"></a>SS.R<span class="ot">=</span><span class="fu">sum</span>((Y.cap<span class="sc">-</span><span class="fu">mean</span>(y))<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb833-2"><a href="regressió-lineal.html#cb833-2" aria-hidden="true" tabindex="-1"></a>SS.R</span></code></pre></div>
 <pre><code>## [1] 556.376</code></pre>
-<div class="sourceCode" id="cb836"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb836-1"><a href="regressió-lineal.html#cb836-1" aria-hidden="true" tabindex="-1"></a>SS.E<span class="ot">=</span><span class="fu">sum</span>(<span class="fu">lm</span>(y<span class="sc">~</span>x1<span class="sc">+</span>x2<span class="sc">+</span>x3<span class="sc">+</span>x4)<span class="sc">$</span>residuals<span class="sc">^</span><span class="dv">2</span>)</span>
-<span id="cb836-2"><a href="regressió-lineal.html#cb836-2" aria-hidden="true" tabindex="-1"></a>SS.E</span></code></pre></div>
+<div class="sourceCode" id="cb835"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb835-1"><a href="regressió-lineal.html#cb835-1" aria-hidden="true" tabindex="-1"></a>SS.E<span class="ot">=</span><span class="fu">sum</span>(<span class="fu">lm</span>(y<span class="sc">~</span>x1<span class="sc">+</span>x2<span class="sc">+</span>x3<span class="sc">+</span>x4)<span class="sc">$</span>residuals<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb835-2"><a href="regressió-lineal.html#cb835-2" aria-hidden="true" tabindex="-1"></a>SS.E</span></code></pre></div>
 <pre><code>## [1] 18.41959</code></pre>
-<div class="sourceCode" id="cb838"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb838-1"><a href="regressió-lineal.html#cb838-1" aria-hidden="true" tabindex="-1"></a>MS.R<span class="ot">=</span>SS.R<span class="sc">/</span>k</span>
-<span id="cb838-2"><a href="regressió-lineal.html#cb838-2" aria-hidden="true" tabindex="-1"></a>MS.R</span></code></pre></div>
+<div class="sourceCode" id="cb837"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb837-1"><a href="regressió-lineal.html#cb837-1" aria-hidden="true" tabindex="-1"></a>MS.R<span class="ot">=</span>SS.R<span class="sc">/</span>k</span>
+<span id="cb837-2"><a href="regressió-lineal.html#cb837-2" aria-hidden="true" tabindex="-1"></a>MS.R</span></code></pre></div>
 <pre><code>## [1] 139.094</code></pre>
-<div class="sourceCode" id="cb840"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb840-1"><a href="regressió-lineal.html#cb840-1" aria-hidden="true" tabindex="-1"></a>MS.E<span class="ot">=</span>SS.E<span class="sc">/</span>(n<span class="sc">-</span>k<span class="dv">-1</span>)</span>
-<span id="cb840-2"><a href="regressió-lineal.html#cb840-2" aria-hidden="true" tabindex="-1"></a>MS.E</span></code></pre></div>
+<div class="sourceCode" id="cb839"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb839-1"><a href="regressió-lineal.html#cb839-1" aria-hidden="true" tabindex="-1"></a>MS.E<span class="ot">=</span>SS.E<span class="sc">/</span>(n<span class="sc">-</span>k<span class="dv">-1</span>)</span>
+<span id="cb839-2"><a href="regressió-lineal.html#cb839-2" aria-hidden="true" tabindex="-1"></a>MS.E</span></code></pre></div>
 <pre><code>## [1] 4.604896</code></pre>
-<div class="sourceCode" id="cb842"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb842-1"><a href="regressió-lineal.html#cb842-1" aria-hidden="true" tabindex="-1"></a>F<span class="ot">=</span>MS.R<span class="sc">/</span>MS.E</span>
-<span id="cb842-2"><a href="regressió-lineal.html#cb842-2" aria-hidden="true" tabindex="-1"></a>F</span></code></pre></div>
+<div class="sourceCode" id="cb841"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb841-1"><a href="regressió-lineal.html#cb841-1" aria-hidden="true" tabindex="-1"></a>F<span class="ot">=</span>MS.R<span class="sc">/</span>MS.E</span>
+<span id="cb841-2"><a href="regressió-lineal.html#cb841-2" aria-hidden="true" tabindex="-1"></a>F</span></code></pre></div>
 <pre><code>## [1] 30.20567</code></pre>
-<div class="sourceCode" id="cb844"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb844-1"><a href="regressió-lineal.html#cb844-1" aria-hidden="true" tabindex="-1"></a>p.val<span class="ot">=</span><span class="dv">1</span><span class="sc">-</span><span class="fu">pf</span>(F,k,n<span class="sc">-</span>k<span class="dv">-1</span>)</span>
-<span id="cb844-2"><a href="regressió-lineal.html#cb844-2" aria-hidden="true" tabindex="-1"></a>p.val</span></code></pre></div>
+<div class="sourceCode" id="cb843"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb843-1"><a href="regressió-lineal.html#cb843-1" aria-hidden="true" tabindex="-1"></a>p.val<span class="ot">=</span><span class="dv">1</span><span class="sc">-</span><span class="fu">pf</span>(F,k,n<span class="sc">-</span>k<span class="dv">-1</span>)</span>
+<span id="cb843-2"><a href="regressió-lineal.html#cb843-2" aria-hidden="true" tabindex="-1"></a>p.val</span></code></pre></div>
 <pre><code>## [1] 0.003014918</code></pre>
 <p><span class="math display">\[
 \begin{array}{llllll}\hline
@@ -2782,7 +2781,7 @@ i satisfà que, si la hipòtesi nul·la és vertadera (i els errors satisfan les
 Podeu creure que no hi ha cap funció de cap paquet de R que calculi aquesta taula per a la regressió lineal múltiple?
 </div>
 <p>L’estadístic de contrast i el p-valor d’aquesta ANOVA els podeu trobar a la darrera línia de la sortida <code>summary(lm( ))</code>; són el <code>F-statistic</code> (i a més us diu els graus de llibertat, <code>DF</code>, de la seva distribució) i el <code>p-value</code>:</p>
-<div class="sourceCode" id="cb846"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb846-1"><a href="regressió-lineal.html#cb846-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">lm</span>(y<span class="sc">~</span>x1<span class="sc">+</span>x2<span class="sc">+</span>x3<span class="sc">+</span>x4))</span></code></pre></div>
+<div class="sourceCode" id="cb845"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb845-1"><a href="regressió-lineal.html#cb845-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">lm</span>(y<span class="sc">~</span>x1<span class="sc">+</span>x2<span class="sc">+</span>x3<span class="sc">+</span>x4))</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = y ~ x1 + x2 + x3 + x4)
@@ -2810,35 +2809,38 @@ Podeu creure que no hi ha cap funció de cap paquet de R que calculi aquesta tau
 <div class="rmdromans">
 Podeu creure que no podem extreure el p-valor del <code>summary(lm(y~x1+x2+x3+x4))</code> amb un sufix, sinó que l’hem de calcular? Per sort és fàcil, emprant el contingut de <code>summary(lm( ))$fstatistic</code>, que és un vector de 3 entrades: el valor de l’estadístic <span class="math inline">\(F\)</span> i els seus dos graus de llibertat. Per tant, per calcular el p-valor, podem fer el següent:
 </div>
-<div class="sourceCode" id="cb848"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb848-1"><a href="regressió-lineal.html#cb848-1" aria-hidden="true" tabindex="-1"></a>FF<span class="ot">=</span><span class="fu">summary</span>(<span class="fu">lm</span>(y<span class="sc">~</span>x1<span class="sc">+</span>x2<span class="sc">+</span>x3<span class="sc">+</span>x4))<span class="sc">$</span>fstatistic</span>
-<span id="cb848-2"><a href="regressió-lineal.html#cb848-2" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">-</span><span class="fu">pf</span>(FF[<span class="dv">1</span>],FF[<span class="dv">2</span>],FF[<span class="dv">3</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb847"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb847-1"><a href="regressió-lineal.html#cb847-1" aria-hidden="true" tabindex="-1"></a>FF<span class="ot">=</span><span class="fu">summary</span>(<span class="fu">lm</span>(y<span class="sc">~</span>x1<span class="sc">+</span>x2<span class="sc">+</span>x3<span class="sc">+</span>x4))<span class="sc">$</span>fstatistic</span>
+<span id="cb847-2"><a href="regressió-lineal.html#cb847-2" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">-</span><span class="fu">pf</span>(FF[<span class="dv">1</span>],FF[<span class="dv">2</span>],FF[<span class="dv">3</span>])</span></code></pre></div>
 <pre><code>##       value 
 ## 0.003014918</code></pre>
 
 <div class="rmdnote">
 Una altra opció és emprar la funció <code>glance</code> del paquet <strong>broom</strong>, que aplicada a un objecte dóna un <em>dataframe</em> (de fet, una adaptació del concepte de <em>dataframe</em> a l’anàlisi de dades massives, un <strong>tibble</strong>) amb els seus continguts més importants; vaja, que us permet “donar una ullada” a l’objecte.
 </div>
-<div class="sourceCode" id="cb850"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb850-1"><a href="regressió-lineal.html#cb850-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)</span>
-<span id="cb850-2"><a href="regressió-lineal.html#cb850-2" aria-hidden="true" tabindex="-1"></a><span class="fu">glance</span>(<span class="fu">lm</span>(y<span class="sc">~</span>x1<span class="sc">+</span>x2<span class="sc">+</span>x3<span class="sc">+</span>x4))</span></code></pre></div>
+<div class="sourceCode" id="cb849"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb849-1"><a href="regressió-lineal.html#cb849-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)</span>
+<span id="cb849-2"><a href="regressió-lineal.html#cb849-2" aria-hidden="true" tabindex="-1"></a><span class="fu">glance</span>(<span class="fu">lm</span>(y<span class="sc">~</span>x1<span class="sc">+</span>x2<span class="sc">+</span>x3<span class="sc">+</span>x4))</span></code></pre></div>
 <pre><code>## # A tibble: 1 x 12
 ##   r.squared adj.r.squared sigma statistic p.value    df logLik   AIC   BIC
 ##       &lt;dbl&gt;         &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
 ## 1     0.968         0.936  2.15      30.2 0.00301     4  -16.0  44.0  45.2
 ## # … with 3 more variables: deviance &lt;dbl&gt;, df.residual &lt;int&gt;, nobs &lt;int&gt;</code></pre>
+<div class="sourceCode" id="cb851"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb851-1"><a href="regressió-lineal.html#cb851-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glance</span>(<span class="fu">lm</span>(y<span class="sc">~</span>x1<span class="sc">+</span>x2<span class="sc">+</span>x3<span class="sc">+</span>x4))<span class="sc">$</span>p.value</span></code></pre></div>
+<pre><code>##       value 
+## 0.003014918</code></pre>
 </div>
 </div>
 <div id="test-de-la-lliçó-11" class="section level2" number="11.3">
 <h2><span class="header-section-number">11.3</span> Test de la lliçó 11</h2>
-<p><strong>(1)</strong> En una regressió lineal d’una variable Y respecte d’una variable independent X, hem emprat les observacions (x,y) de 100 individus i hem obtingut la recta de regressió per mínims quadrats y=3.02-0.96x. El valor mitjà de la variable X a la mostra que hem emprat ha estat 0.8. Quines de les afirmacions següents són vertaderes?</p>
+<p><strong>(1)</strong> En una regressió lineal d’una variable Y respecte d’una variable independent X, hem emprat les observacions (x,y) d’100 individus i hem obtingut la recta de regressió per mínims quadrats y=3.02-0.96x. El valor mitjà de la variable X a la mostra que hem emprat ha estat 0.8. Quines de les afirmacions següents són vertaderes?</p>
 <ol style="list-style-type: decimal">
 <li>Amb les dades que ens donen, no podem saber el valor mitjà de la variable Y a la mostra que hem emprat.</li>
 <li>El valor mitjà de la variable Y a la mostra que hem emprat ha estat 2.252.</li>
 <li>El valor mitjà de la variable Y a la mostra que hem emprat ha estat 3.02.
-Segons aquest model, en els individus de la població objecte d’estudi, quan la variable X augmenta una unitat, el valor esperat de la variable Y augmenta 0.96</li>
+!. Segons aquest model, en els individus de la població objecte d’estudi, quan la variable X augmenta una unitat, el valor esperat de la variable Y augmenta 0.96</li>
 <li>Segons aquest model, en els individus de la població objecte d’estudi, quan la variable X augmenta una unitat, el valor esperat de la variable Y disminueix 0.96</li>
 <li>Cap de les altres afirmacions és correcta.</li>
 </ol>
-<p><strong>(2)</strong> En una regressió lineal per mínims quadrats d’una variable Y respecte d’una variable independent X, hem emprat les observacions (x,y) de 100 individus. A la nostra mostra, la mitjana de X ha estat 0.05, la mitjana de Y ha estat -1.3, la variància de X ha estat 2.56, la variància de Y ha estat 8.36 i la covariància de X i Y ha estat 4.54. Què val el coeficient de determinació de la regressió per mínims quadrats de Y respecte de X (arrodonit a 3 xifres decimals)?</p>
+<p><strong>(2)</strong> En una regressió lineal per mínims quadrats d’una variable Y respecte d’una variable independent X, hem emprat les observacions (x,y) d’100 individus. A la nostra mostra, la mitjana de X ha estat 0.05, la mitjana de Y ha estat -1.3, la variància de X ha estat 2.56, la variància de Y ha estat 8.36 i la covariància de X i Y ha estat 4.54. Què val el coeficient de determinació de la regressió per mínims quadrats de Y respecte de X (arrodonit a 3 xifres decimals)?</p>
 <ol style="list-style-type: decimal">
 <li>0.212</li>
 <li>0.963</li>
@@ -2857,7 +2859,7 @@ Segons aquest model, en els individus de la població objecte d’estudi, quan l
 <li>Els coeficients de la recta són els que fan màxima la suma de quadrats de la regressió</li>
 <li>Cap de les altres respostes és correcta</li>
 </ol>
-<p><strong>(4)</strong> Sota hipòtesis adients per als errors, els estimadors <span class="math inline">\(b_0\)</span> i <span class="math inline">\(b_1\)</span> de <span class="math inline">\(\beta_0\)</span> i <span class="math inline">\(\beta_1\)</span> són màxim versemblants. Però, … què significa que un estimador sigui màxim versemblant?</p>
+<p><strong>(4)</strong> Sota les hipòtesis adients per als errors, els estimadors <span class="math inline">\(b_0\)</span> i <span class="math inline">\(b_1\)</span> de <span class="math inline">\(\beta_0\)</span> i <span class="math inline">\(\beta_1\)</span> són màxim versemblants. Però, … què significa que un estimador sigui màxim versemblant?</p>
 <ol style="list-style-type: decimal">
 <li>Que aplicat a una m.a.s. sempre dóna el p-valor més gran en els contrastos bilaterals del paràmetre que volem estimar</li>
 <li>Que aplicat a una m.a.s. sempre dóna el p-valor més petit en els contrastos bilaterals del paràmetre que volem estimar</li>
@@ -2884,45 +2886,35 @@ Segons aquest model, en els individus de la població objecte d’estudi, quan l
 </ol>
 <p><strong>(7)</strong> En fer la regressió lineal d’una variable Y respecte d’una variable X, hem obtingut la recta y=0.8+1.2x. Quina de les conclusions següents és la més correcta segons aquest model?</p>
 <ol style="list-style-type: decimal">
-<li>Un augment de 1 unitat de la variable X causa un augment de 1.2 unitats de la variable Y</li>
-<li>Un augment de 1 unitat de la variable X està associada a un augment de 1.2 unitats de la variable Y</li>
-<li>Un augment de 1 unitat de la variable X causa un augment de 0.8 unitats de la variable Y</li>
-<li>Un augment de 1 unitat de la variable X està associada a un augment de 0.8 unitats de la variable Y</li>
+<li>Un augment d’1 unitat de la variable X causa un augment d’1.2 unitats de la variable Y</li>
+<li>Un augment d’1 unitat de la variable X està associada a un augment d’1.2 unitats de la variable Y</li>
+<li>Un augment d’1 unitat de la variable X causa un augment de 0.8 unitats de la variable Y</li>
+<li>Un augment d’1 unitat de la variable X està associada a un augment de 0.8 unitats de la variable Y</li>
 </ol>
-<p><strong>(8)</strong> Quines de les afirmacions següents són sempre veritat per una recta de regressió lineal simple?</p>
-<ol style="list-style-type: decimal">
-<li>Passa sempre per l’origen de coordenades</li>
-<li>És sempre creixent</li>
-<li>El seu pendent no canvia si canviam les unitats amb les que mesuram la variable dependent però no canviam les unitats amb les que mesuram la variable independent</li>
-<li>El seu pendent segur que canvia si canviam les unitats amb les que mesuram la variable dependent però no canviam les unitats amb les que mesuram la variable independent</li>
-<li>Passa sempre pel punt mig de les observacions</li>
-<li>Els seus coeficients determinen el valor de la <span class="math inline">\(R^2\)</span></li>
-<li>Cap de les altres respostes és correcta.</li>
-</ol>
-<p><strong>(9)</strong> Quines de les afirmacions següents sobre l’estimació de la variable dependent Y a partir de la variable independent X per mitjà d’una recta de regressió per mínims quadrats són vertaderes (quan se satisfan les condicions adients sobre els errors)?</p>
+<p><strong>(8)</strong> Quines de les afirmacions següents sobre l’estimació de la variable dependent Y a partir de la variable independent X per mitjà d’una recta de regressió per mínims quadrats són vertaderes (quan els errors satisfan les condicions adients)?</p>
 <ol style="list-style-type: decimal">
 <li>L’estimació puntual del valor de Y sobre un individu concret on X valgui x<sub>0</sub> i l’estimació de valor mitjà de Y sobre tots els individus on X valgui x<sub>0</sub> sempre coincideixen</li>
 <li>L’estimació puntual del valor de Y sobre un individu concret on X valgui x<sub>0</sub> sempre és estrictament més gran que l’estimació del valor mitjà de Y sobre tots els individus on X valgui x<sub>0</sub></li>
 <li>L’interval de confiança del 95% per al valor de Y sobre un individu concret on X valgui x<sub>0</sub> i l’interval de confiança del 95% per al valor mitjà de Y sobre tots els individus on X valgui x<sub>0</sub> sempre coincideixen</li>
-<li>L’interval de confiança del 95% per al valor de Y sobre un individu concret on X valgui x<sub>0</sub> sempre és estrictament més ample que l’interval de confiança del 95% per al valor mitjà de Y sobre tots els individus on X valgui x<sub>0</sub></li>
-<li>L’interval de confiança del 95% per al valor de Y sobre un individu concret on X valgui x<sub>0</sub> sempre és estrictament més estret que l’interval de confiança del 95% per al valor mitjà de Y sobre tots els individus on X valgui x<sub>0</sub></li>
+<li>L’interval de confiança del 95% per al valor de Y sobre un individu concret on X valgui x<sub>0</sub> sempre és més ample que l’interval de confiança del 95% per al valor mitjà de Y sobre tots els individus on X valgui x<sub>0</sub></li>
+<li>L’interval de confiança del 95% per al valor de Y sobre un individu concret on X valgui x<sub>0</sub> sempre és més estret que l’interval de confiança del 95% per al valor mitjà de Y sobre tots els individus on X valgui x<sub>0</sub></li>
 <li>Cap de les altres respostes és correcta.</li>
 </ol>
-<p><strong>(10)</strong> Emprant un model de regresió lineal per mínims quadrats d’una variable Y respecte d’una variable X, hem estimat el valor de Y quan X=5 amb la funció predict.lm de R, i hem obtingut els intervals de confiança del 95% [2,5] i [3,9], però no sabem quin és l’interval de confiança per al valor predit de Y sobre un individu per al qual X=5 i quin és l’interval de confiança per al valor esperat de Y sobre els individus per al quals X=5.</p>
+<p><strong>(9)</strong> Emprant un model de regressió lineal per mínims quadrats d’una variable Y respecte d’una variable X, hem estimat el valor de Y quan X=5 amb la funció <code>predict.lm</code> i els dos valors possibles del paràmetre <code>interval</code> i hem obtingut els intervals de confiança del 95% [2,5] i [3,9], però no sabem quin és l’interval de confiança per al valor predit de Y sobre un individu per al qual X=5 i quin és l’interval de confiança per al valor mitjà de Y sobre els individus per al quals X=5.</p>
 <ol style="list-style-type: decimal">
-<li>[2,5] és l’interval de confiança per al valor predit de Y sobre un individu per al qual X=5 i [3,9] és l’interval de confiança per al valor esperat de Y sobre els individus per al quals X=5.</li>
-<li>[2,5] és l’interval de confiança per al valor esperat de Y sobre els individus per al quals X=5 i [3,9] és l’interval de confiança per al valor predit de Y sobre un individu per al qual X=5.</li>
+<li>[2,5] és l’interval de confiança per al valor predit de Y sobre un individu per al qual X=5 i [3,9] és l’interval de confiança per al valor mitjà de Y sobre els individus per al quals X=5.</li>
+<li>[2,5] és l’interval de confiança per al valor mitjà de Y sobre els individus per al quals X=5 i [3,9] és l’interval de confiança per al valor predit de Y sobre un individu per al qual X=5.</li>
 <li>No podem saber quin interval és quin</li>
-<li>En realitat, hi ha un error: és impossible que [2,5] i [3,9] (en l’ordre que sigui) siguin intervals de confiança per al valor predit de Y sobre un individu per al qual X=5 i per al valor esperat de Y sobre els individus per al quals X=5</li>
+<li>En realitat, hi ha un error: és impossible que [2,5] i [3,9] (en l’ordre que sigui) siguin intervals de confiança per al valor predit de Y sobre un individu per al qual X=5 i per al valor mitjà de Y sobre els individus per al quals X=5</li>
 </ol>
-<p><strong>(11)</strong> En fer la regressió lineal d’una variable Y respecte d’una variable X, hem obtingut la recta Y=0.8+1.2X. Quina de les conclusions següents és la més correcta segons aquest model?</p>
+<p><strong>(10)</strong> Emprant un model de regressió lineal per mínims quadrats d’una variable Y respecte d’una variable X, hem estimat el valor de Y quan X=5 amb la funció <code>predict.lm</code> i els dos valors possibles del paràmetre <code>interval</code> i hem obtingut els intervals de confiança del 95% [2,5] i [1,6], però no sabem quin és l’interval de confiança per al valor predit de Y sobre un individu per al qual X=5 i quin és l’interval de confiança per al valor mitjà de Y sobre els individus per al quals X=5.</p>
 <ol style="list-style-type: decimal">
-<li>Un augment de 1 unitat de la variable X causa un augment de 1.2 unitats de la variable Y</li>
-<li>Un augment de 1 unitat de la variable X està associada a un augment de 1.2 unitats de la variable Y</li>
-<li>Un augment de 1 unitat de la variable X causa un augment de 0.8 unitats de la variable Y</li>
-<li>Un augment de 1 unitat de la variable X està associada a un augment de 0.8 unitats de la variable Y</li>
+<li>[2,5] és l’interval de confiança per al valor predit de Y sobre un individu per al qual X=5 i [1,6] és l’interval de confiança per al valor mitjà de Y sobre els individus per al quals X=5.</li>
+<li>[2,5] és l’interval de confiança per al valor mitjà de Y sobre els individus per al quals X=5 i [1,6] és l’interval de confiança per al valor predit de Y sobre un individu per al qual X=5.</li>
+<li>No podem saber quin interval és quin</li>
+<li>En realitat, hi ha un error: és impossible que [2,5] i [1,6] (en l’ordre que sigui) siguin intervals de confiança per al valor predit de Y sobre un individu per al qual X=5 i per al valor mitjà de Y sobre els individus per al quals X=5</li>
 </ol>
-<p><strong>(12)</strong> Quines de les afirmacions següents sobre la recta de regressió per mínims quadrats és vertadera?</p>
+<p><strong>(11)</strong> Quines de les afirmacions següents sobre la recta de regressió per mínims quadrats és vertadera?</p>
 <ol style="list-style-type: decimal">
 <li>Sempre passa per l’origen de coordenades</li>
 <li>Sempre és creixent</li>
@@ -2932,15 +2924,15 @@ Segons aquest model, en els individus de la població objecte d’estudi, quan l
 <li>Els valors de <span class="math inline">\(b_0\)</span> i <span class="math inline">\(b_1\)</span> determinen el valor de <span class="math inline">\(R^2\)</span></li>
 <li>Cap de les altres respostes és correcta</li>
 </ol>
-<p><strong>(13)</strong> Quines de les afirmacions següents sobre el coeficient de determinació en una regressió per mínims quadrats són vertaderes?</p>
+<p><strong>(12)</strong> Quines de les afirmacions següents sobre el coeficient de determinació en una regressió per mínims quadrats són vertaderes?</p>
 <ol style="list-style-type: decimal">
-<li>El seu signe és sempre el del coeficient b1 de la recta de regressió</li>
+<li>El seu signe és sempre el del coeficient <span class="math inline">\(b_1\)</span> de la recta de regressió</li>
 <li>El seu signe és sempre el de la covariància dels vectors x i y de la mostra</li>
 <li>És el quadrat de la correlació poblacional de les variables X i Y</li>
 <li>Si sabeu el seu valor i la recta de regressió, podeu saber el valor de la correlació dels vectors x i y de la mostra</li>
 <li>Cap de les altres respostes és correcta</li>
 </ol>
-<p><strong>(14)</strong> Hem mesurat dues variables X i Y sobre 100 subjectes. La variància de la mostra x de X obtinguda ha estat 3 i la variància de la mostra x de X ha estat 12. Quin, o quins, dels valors següents no poden ser el de la covariància de x i y?</p>
+<p><strong>(13)</strong> Hem mesurat dues variables X i Y sobre 100 subjectes. La variància de la mostra x de X obtinguda ha estat 3 i la variància de la mostra x de X ha estat 12. Quin, o quins, dels valors següents no poden ser el de la covariància de x i y?</p>
 <ol style="list-style-type: decimal">
 <li>0</li>
 <li>1.5</li>
@@ -2951,7 +2943,7 @@ Segons aquest model, en els individus de la població objecte d’estudi, quan l
 <li>-9</li>
 <li>La covariància d’aquests vectors x i y pot ser qualsevol número real</li>
 </ol>
-<p><strong>(15)</strong> En una regressió lineal simple per mínims quadrats, en el contrast sobre si <span class="math inline">\(\beta_0=0\)</span> o no obtenim un p-valor 0.018 i en el contrast sobre si <span class="math inline">\(\beta_1=0\)</span> o no obtenim un p-valor 0.005. Si se satisfan les condicions sobre les variables error perquè aquests p-valors siguin fiables, quines de les afirmacions següents són correctes?</p>
+<p><strong>(14)</strong> En una regressió lineal simple per mínims quadrats, en el contrast sobre si <span class="math inline">\(\beta_0=0\)</span> o no obtenim un p-valor 0.018 i en el contrast sobre si <span class="math inline">\(\beta_1=0\)</span> o no obtenim un p-valor 0.005. Si se satisfan les condicions sobre les variables error perquè aquests p-valors siguin fiables, quines de les afirmacions següents són correctes?</p>
 <ol style="list-style-type: decimal">
 <li>Hem obtingut evidència estadística que <span class="math inline">\(\beta_0=0\)</span> i <span class="math inline">\(\beta_1=0\)</span></li>
 <li>No hem obtingut evidència estadística que <span class="math inline">\(\beta_0=0\)</span> i <span class="math inline">\(\beta_1=0\)</span></li>
@@ -2962,7 +2954,7 @@ Segons aquest model, en els individus de la població objecte d’estudi, quan l
 <li>Estam segurs que <span class="math inline">\(b_0\)</span> i <span class="math inline">\(b_1\)</span> han donat diferent de 0</li>
 <li>Cap de les altres respostes és correcta</li>
 </ol>
-<p><strong>(16)</strong> En una regressió lineal simple per mínims quadrats d’una variable Y respecte d’una variable X, hem obtingut <span class="math inline">\(b_1=0.18\)</span> i un interval de confiança del 95% per a <span class="math inline">\(\beta_1\)</span> entre 0.1 i 0.26. Si se satisfan les condicions sobre les variables error perquè aquest interval de confiança sigui fiable, quines de les afirmacions següents són correctes?</p>
+<p><strong>(15)</strong> En una regressió lineal simple per mínims quadrats d’una variable Y respecte d’una variable X, hem obtingut <span class="math inline">\(b_1=0.18\)</span> i un interval de confiança del 95% per a <span class="math inline">\(\beta_1\)</span> entre 0.1 i 0.26. Si se satisfan les condicions sobre les variables error perquè aquest interval de confiança sigui fiable, quines de les afirmacions següents són correctes?</p>
 <ol style="list-style-type: decimal">
 <li>Com que 0.18 pertany a [0.1,0.26], estam molt segurs que <span class="math inline">\(\beta_1=0.18\)</span></li>
 <li>Amb nivell de significació 0.05 segur que rebutjarem que <span class="math inline">\(\beta_1\neq 0\)</span></li>
@@ -2972,7 +2964,7 @@ Segons aquest model, en els individus de la població objecte d’estudi, quan l
 <li>Amb nivell de significació 0.05, podem concloure que el model lineal té sentit, en el sentit que la variable Y|x no és la variable error Ex més una constant</li>
 <li>Cap de les altres respostes és correcta</li>
 </ol>
-<p><strong>(17)</strong> Quines de les afirmacions següents sobre la regressió lineal múltiple per mínims quadrats són vertaderes? Marcau totes les vertaderes.</p>
+<p><strong>(16)</strong> Quines de les afirmacions següents sobre la regressió lineal múltiple per mínims quadrats són vertaderes? Marcau totes les vertaderes.</p>
 <ol style="list-style-type: decimal">
 <li>La funció que s’obté sempre passa per l’origen de coordenades</li>
 <li>La funció que s’obté sempre passa pel punt mig de les observacions que formen la mostra</li>
@@ -2980,12 +2972,12 @@ Segons aquest model, en els individus de la població objecte d’estudi, quan l
 <li>La mitjana dels valors estimats de la variable dependent sobre els subjectes de la mostra coincideix amb la variància dels valors observats d’aquesta variable sobre aquests subjectes</li>
 <li>La suma de quadrats total és la suma de quadrats dels tractaments més la suma de quadrats dels errors</li>
 <li>La suma de quadrats total és la suma de quadrats de la regressió més la suma de quadrats dels errors</li>
-<li>Els coeficients de la funció lineal són els que fan mínima la suma de quadrats dels errros</li>
-<li>La mitjana dels valors estimats de la variable dependent sobre els subjectes de la mostra coincideix amb la mitjana dels errors en l’estima ció d’aquesta variable sobre aquests subjectes</li>
+<li>Els coeficients de la funció lineal són els que fan mínima la suma de quadrats dels errors</li>
+<li>La mitjana dels valors estimats de la variable dependent sobre els subjectes de la mostra coincideix amb la mitjana dels errors en l’estimació d’aquesta variable sobre aquests subjectes</li>
 <li>La mitjana dels errors en l’estimació de la variable dependent sobre els subjectes de la mostra és 0</li>
 <li>La variància dels errors en l’estimació de la variable dependent sobre els subjectes de la mostra és 0</li>
 </ol>
-<p><strong>(18)</strong> En una regressió lineal, hem obtingut la funció de regressió lineal <span class="math inline">\(Y=2+3X_1-5X_2+4X_3\)</span>. Quines de les afirmacions són vertaderes?</p>
+<p><strong>(17)</strong> En una regressió lineal, hem obtingut la funció de regressió lineal <span class="math inline">\(Y=2+3X_1-5X_2+4X_3\)</span>. Quines de les afirmacions són vertaderes?</p>
 <ol style="list-style-type: decimal">
 <li>Segons aquest model, si en un subjecte A el valor de <span class="math inline">\(X_1\)</span> és més gran que en un subjecte B, el valor esperat de <span class="math inline">\(Y\)</span> en el subjecte A és més gran que el valor esperat de <span class="math inline">\(Y\)</span> en el subjecte B</li>
 <li>Segons aquest model, si en un subjecte A el valor de <span class="math inline">\(X_1\)</span> és més gran que en un subjecte B, pot passar que el valor esperat de <span class="math inline">\(Y\)</span> en el subjecte A sigui més petit que el valor esperat de <span class="math inline">\(Y\)</span> en el subjecte B</li>
@@ -2994,7 +2986,7 @@ Segons aquest model, en els individus de la població objecte d’estudi, quan l
 <li>Segons aquest model, si <span class="math inline">\(X_1\)</span> i <span class="math inline">\(X_3\)</span> romanen constants i <span class="math inline">\(X_2\)</span> augmenta en 1 unitat, el valor esperat de <span class="math inline">\(Y\)</span> augmenta 5 unitats</li>
 <li>Cap de les altres respostes és vertadera</li>
 </ol>
-<p><strong>(19)</strong> Quines de les afirmacions següents sobre el coeficient de determinació de la regressió lineal per mínims quadrats són vertaderes? Marcau totes les vertaderes.</p>
+<p><strong>(18)</strong> Quines de les afirmacions següents sobre el coeficient de determinació de la regressió lineal per mínims quadrats són vertaderes? Marcau totes les vertaderes.</p>
 <ol style="list-style-type: decimal">
 <li>En el cas de la regressió lineal simple, el seu quadrat és la correlació entre els valors de la variable independent i els de la variable dependent a la nostra mostra</li>
 <li>En el cas de la regressió lineal simple, és el quadrat de la correlació entre els valors de la variable independent i els de la variable dependent a la nostra mostra</li>
@@ -3004,7 +2996,7 @@ Segons aquest model, en els individus de la població objecte d’estudi, quan l
 <li>No pot ser estrictament negatiu</li>
 <li>Cap de les altres respostes és correcta.</li>
 </ol>
-<p><strong>(20)</strong> En la regressió lineal múltiple de Y en funció de les variables independents <span class="math inline">\(X_1,X_2,X_3,X_4,X_5\)</span> a partir d’una certa mostra hem obtingut que <span class="math inline">\(R^2=0.92\)</span> i <span class="math inline">\(R^2_{adj}=0.82\)</span>, mentre que si fem la regressió lineal múltiple de Y en funció només de les variables independents <span class="math inline">\(X_1,X_2,X_3\)</span> a partir de la mateixa mostra hem obtingut que <span class="math inline">\(R^2=0.91\)</span> i <span class="math inline">\(R^2_{adj}=0.865\)</span>. Quina de les afirmacions següents és vertadera?</p>
+<p><strong>(19)</strong> En la regressió lineal múltiple de Y en funció de les variables independents <span class="math inline">\(X_1,X_2,X_3,X_4,X_5\)</span> a partir d’una certa mostra hem obtingut que <span class="math inline">\(R^2=0.92\)</span> i <span class="math inline">\(R^2_{adj}=0.82\)</span>, mentre que si fem la regressió lineal múltiple de Y en funció només de les variables independents <span class="math inline">\(X_1,X_2,X_3\)</span> a partir de la mateixa mostra hem obtingut que <span class="math inline">\(R^2=0.91\)</span> i <span class="math inline">\(R^2_{adj}=0.865\)</span>. Quina de les afirmacions següents és vertadera?</p>
 <ol style="list-style-type: decimal">
 <li>Això no pot ser, perquè <span class="math inline">\(R^2_{adj}\)</span> sempre és més gran o igual que R2.</li>
 <li>Això no pot ser, perquè quan <span class="math inline">\(R^2\)</span> decreix, <span class="math inline">\(R^2_{adj}\)</span> també decreix.</li>
@@ -3014,38 +3006,27 @@ Segons aquest model, en els individus de la població objecte d’estudi, quan l
 <li>Això sí que pot ser, i llavors consideram que el model amb 3 variables independents és millor, perquè té el valor de <span class="math inline">\(R^2\)</span> més petit</li>
 <li>Cap de les altres respostes és correcta.</li>
 </ol>
-<p><strong>(21)</strong> Quines de les afirmacions següents sobre <span class="math inline">\(R^2_{adj}\)</span> són vertaderes?</p>
+<p><strong>(20)</strong> Quines de les afirmacions següents sobre <span class="math inline">\(R^2_{adj}\)</span> són vertaderes?</p>
 <ol style="list-style-type: decimal">
-<li><p>Sempre és més petit que <span class="math inline">\(R^2\)</span></p></li>
-<li><p>Pot ser més petit o més gran que <span class="math inline">\(R^2\)</span></p></li>
-<li><p>Pot ser estrictament negatiu</p></li>
-<li><p>Pot valer 0</p></li>
-<li><p>Si afegim variables independents a la regressió lineal, el seu valor no decreix</p></li>
-<li><p>Si afegim variables independents a la regressió lineal, el seu valor no creix</p></li>
-<li><p>Cap de les altres respostes és vertadera</p></li>
+<li>Sempre és més petit que <span class="math inline">\(R^2\)</span></li>
+<li>Pot ser més petit o més gran que <span class="math inline">\(R^2\)</span></li>
+<li>Pot ser estrictament negatiu</li>
+<li>Pot valer 0</li>
+<li>Si afegim variables independents a la regressió lineal, el seu valor no decreix</li>
+<li>Si afegim variables independents a la regressió lineal, el seu valor no creix</li>
+<li>Cap de les altres respostes és vertadera</li>
 </ol>
-<p><strong>(22)</strong> En una regressió lineal múltiple per mínims quadrats d’una variable Y respecte d’una variable X, hem obtingut <span class="math inline">\(b_2=0.18\)</span> i un interval de confiança del 95% per a <span class="math inline">\(\beta_2\)</span> entre -0.1 i 0.46. Si se satisfan les condicions sobre les variables error perquè aquest interval de confiança sigui fiable, quines de les afirmacions següents són correctes?</p>
-<ol style="list-style-type: decimal">
-<li>Com que 0.18 pertany a [-0.1,0.46], estam molt segurs que <span class="math inline">\(\beta_2=0.18\)</span></li>
-<li>Amb nivell de significació 0.05 hem de rebutjar que <span class="math inline">\(\beta_2=0\)</span></li>
-<li>Amb nivell de significació 0.05 no podem rebutjar que <span class="math inline">\(\beta_2=0\)</span></li>
-<li>Si calculàssim l’IC del 99% per a <span class="math inline">\(\beta_2\)</span> amb la mateixa mostra, seria més ample que el del 95%</li>
-<li>Si calculàssim l’IC del 99% per a <span class="math inline">\(\beta_2\)</span> amb la mateixa mostra, seria més estret que el del 95%</li>
-<li>Si calculàssim l’IC del 99% per a <span class="math inline">\(\beta_2\)</span> amb una altra mostra de la mateixa mida, seria més ample que el del 95% que hem obtingut nosaltres</li>
-<li>Per a un 95% de les mostres de la mateixa mida que la nostra, el coeficient <span class="math inline">\(b_2\)</span> estaria entre -0.1 i 0.46</li>
-<li>Cap de les altres respostes és correcta</li>
-</ol>
-<p><strong>(23)</strong> En el contrast d’hipòtesis sobre si un coeficient <span class="math inline">\(\beta_i\)</span> és 0 o no, la conclusió amb nivell de significació 0.1 ha estat que hem d’acceptar la hipòtesi nul·la. Quines de les afirmacions següents són vertadera en aquesta situació?</p>
+<p><strong>(21)</strong> En el contrast d’hipòtesis sobre si un coeficient <span class="math inline">\(\beta_i\)</span> és 0 o no, la conclusió amb nivell de significació 0.1 ha estat que hem d’acceptar la hipòtesi nul·la. Quines de les afirmacions següents són vertadera en aquesta situació?</p>
 <ol style="list-style-type: decimal">
 <li>Hem acceptat la hipòtesi nul·la perquè hem obtingut evidència estadística que la hipòtesi nul·la és vertadera.</li>
 <li>Hem acceptat la hipòtesi nul·la perquè no hem obtingut evidència estadística que la hipòtesi nul·la sigui falsa.</li>
 <li>Hem acceptat que <span class="math inline">\(\beta_i=0\)</span></li>
 <li>Hem acceptat la hipòtesi nul·la perquè hem obtingut evidència estadística que la probabilitat que la hipòtesi alternativa sigui vertadera és 0.1 o menys.</li>
-<li>Assumím una probabilitat d’equivocar-nos acceptant la hipòtesi nul·la quan és falsa de 0.1.</li>
+<li>Assumim una probabilitat d’equivocar-nos acceptant la hipòtesi nul·la quan és falsa de 0.1.</li>
 <li>Assumim una probabilitat d’equivocar-nos rebutjant la hipòtesi nul·la quan és vertadera de 0.1.</li>
 <li>Cap de les altres respostes és correcta</li>
 </ol>
-<p><strong>(24)</strong> Quina o quines de les afirmacions següents sobre la regressió lineal per mínims quadrats d’una variable Y respecte d’un conjunt de variables independents són vertaderes?</p>
+<p><strong>(22)</strong> Quina o quines de les afirmacions següents sobre la regressió lineal per mínims quadrats d’una variable Y respecte d’un conjunt de variables independents són vertaderes?</p>
 <ol style="list-style-type: decimal">
 <li>Si el nombre de variables independents és el mateix, consideram més bona una funció de regressió lineal de Y com més gran és el quocient de la mitjana dels valors de Y dels punts de la mostra entre la mitjana dels valors estimats de Y sobre els punts de la mostra.</li>
 <li>Si el nombre de variables independents és el mateix, consideram més bona una funció de regressió lineal de Y com més gran és el quocient de la variància dels valors de Y dels punts de la mostra entre la variància dels valors estimats de Y sobre els punts de la mostra.</li>
@@ -3054,7 +3035,7 @@ Segons aquest model, en els individus de la població objecte d’estudi, quan l
 <li>Independentment del nombre de variables independents, consideram més bona una funció de regressió lineal de Y com més gran és el quocient de la variància dels valors de Y dels punts de la mostra entre la variància dels valors estimats de Y sobre els punts de la mostra.</li>
 <li>Independentment del nombre de variables independents, consideram més bona una funció de regressió lineal de Y com més gran és el quocient de la variància dels valors estimats de Y sobre els punts de la mostra entre la variància dels valors de Y dels punts de la mostra</li>
 </ol>
-<p><strong>(25)</strong> Roda el món i torna al Born. Quan diem que el 0.975-quantil d’una variable aleatòria normal estàndard Z és 1.96, això significa que:</p>
+<p><strong>(23)</strong> Roda el món i torna al Born. Quan diem que el 0.975-quantil d’una variable aleatòria normal estàndard Z és 1.96, això significa que:</p>
 <ol style="list-style-type: decimal">
 <li>P(Z=0.975)=1.96</li>
 <li>P(Z&lt;0.975)=1.96</li>
