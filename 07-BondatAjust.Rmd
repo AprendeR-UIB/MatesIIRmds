@@ -1,4 +1,4 @@
-# Contrastos de bondat d'ajust {#chap:bondat}
+# Contrastos de bondat d'ajust 
 
 ```{r,  include=FALSE}
 par(mfrow=c(1,1))
@@ -37,7 +37,7 @@ En els temes anteriors, les variables aleatòries eren sempre **quantitatives**:
 Considerau l'exemple següent:
 
 ```{example,grossa}
-Les freqüències de les darreres xifres dels primers premis de la Grossa de la loteria de Nadal als 212  sortejos de la seva història (fins el de 2020, inclòs) han estat les següents:
+Les freqüències de les darreres xifres dels primers premis de la Grossa de la loteria de Nadal als 213  sortejos de la seva història (fins el de 2021, inclòs) han estat les següents:
    
 
 ````
@@ -46,7 +46,7 @@ $$
 \begin{array}{r|cccccccccc}
 \hline
 \text{xifra}        & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 \\ \hline
-\text{freqüència} &  22 & 8 & 13 & 21 & 27 & 31 & 27 & 23 & 23 & 17\\
+\text{freqüència} &  22 & 8 & 13 & 21 & 27 & 31 & 27 & 23 & 24 & 17\\
 \hline
 \end{array}
 $$
@@ -64,7 +64,7 @@ Aquesta és la típica pregunta d'un contrast de bondat d'ajust.
     Si les darreres xifres tenguessin totes la mateixa probabilitat d'aparèixer, esperaríem una certa uniformitat en les seves freqüències a la nostra mostra. Si les freqüències reals se separen molt d'aquesta uniformitat, tendrem motius per dubtar que tots els dígits tenien la mateixa probabilitat d'aparèixer.
 
 ```{r}
-Grossa=c(22,8,13,21,27,31,27,23,23,17)
+Grossa=c(22,8,13,21,27,31,27,23,24,17)
 barplot(Grossa,col="light blue",names=0:9, 
         main="Darreres xifres  de la Grossa de Nadal")
 ```
@@ -74,8 +74,10 @@ Més en general, un **contrast de bondat d'ajust** té la forma següent:
 $$
 \left\{
 \begin{array}{l}
-H_0: \text{la mostra prové de la distribució esperada}\\
-H_1: \text{la mostra NO prové de la distribució esperada}
+H_0: \text{La v.a. que ha produït la mostra}\\
+\hphantom{H_0: }\quad \text{té tal distribució}\\
+H_1: \text{La v.a. que ha produït la mostra}\\
+\hphantom{H_0: }\quad \text{NO té tal distribució}
 \end{array}
 \right.
 $$
@@ -93,12 +95,12 @@ Els tests de bondat d'ajust es basen bàsicament en:
 
 2. Determinar si les freqüències observades són prou diferents de les  esperades com per fer inversemblant la hipòtesi nul·la
 
-Per exemple, continuant amb el nostre exemple de la Grossa, si totes les darreres xifres tinguessin la mateixa probabilitat d'aparèixer, la seva probabilitat seria 1/10, i per tant el nombre esperat d'aparicions de cadascuna d'elles seria 212/10=21.2.
+Per exemple, continuant amb el nostre exemple de la Grossa, si totes les darreres xifres tinguessin la mateixa probabilitat d'aparèixer, la seva probabilitat seria 1/10, i per tant el nombre esperat d'aparicions de cadascuna d'elles seria 213/10=21.3.
 
 ```{r}
 barplot(Grossa, col="light blue", names=0:9, 
         main="Darreres xifres de  la Grossa de Nadal")
-abline(h=21.2, col="red", lwd=2, lty="dashed")
+abline(h=21.3, col="red", lwd=2, lty="dashed")
 ```
 
 Les desviacions observades respecte d'aquest valor esperat, representat per la línia vermella al gràfic anterior, són prou grans com per fer-nos dubtar que les darreres xifres de les Grosses de Nadal tenguin totes la mateixa probabilitat d'aparèixer? O, pel contrari, entren dins el que és raonable esperar per mor de l'atzar?
@@ -114,7 +116,7 @@ El test més popular per a variables aleatòries qualitatives, ordinals i quanti
 
 Suposem que tenim una mostra aleatòria simple de mida $n$ de la variable poblacional $X$. Agrupam tots els resultats possibles en $k\geqslant 2$ **classes**,  $C_1,\ldots,C_k$ (poden ser tots els resultats individuals possibles, si només n'hi ha un conjunt finit). Així, al nostre exemple de les terminacions de la loteria, hi emprarem 10 classes, definides pels 10 valors possibles de la darrera xifra: $C_1=\{0\}$, $C_2=\{1\}$,..., $C_{10}=\{9\}$.
 
-Volem contrastar si les observacions segueixen una *distribució totalment coneguda*, per a la qual poguem calcular la probabilitat  que una observació caigui dins cada una de les classes.
+Volem contrastar si les observacions segueixen una determinada *distribució totalment coneguda*, per a la qual poguem calcular la probabilitat  que una observació caigui dins cada una de les classes.
 
 
 El contrast és, recordem, 
@@ -133,7 +135,7 @@ Per a cada classe $C_i$, diguem
 
 * $p_i$: la probabilitat **teòrica** que una observació pertanyi a aquesta classe si $H_0$ és vertadera. En el nostre exemple de la loteria, totes les probabilitats $p_i$ valen el mateix, 1/10.
 
-* $esp_i$: la freqüència absoluta **esperada** d'aquesta classe  si $H_0$ és vertadera: $esp_i=p_i\cdot n$. En el nostre exemple de la loteria, totes aquestes freqüències esperades $esp_i$ valen el mateix, 212/10=21.2.
+* $esp_i$: la freqüència absoluta **esperada** d'aquesta classe  si $H_0$ és vertadera: $esp_i=p_i\cdot n$. En el nostre exemple de la loteria, totes aquestes freqüències esperades $esp_i$ valen el mateix, 213/10=21.3.
 
 Rebutjarem $H_0$ si les $obs_i$ són prou diferents de les $esp_i$. Per mesurar-ho, empram el teorema següent:
 
@@ -193,21 +195,21 @@ $$
 \begin{array}{r|cccccccccc}
 \hline
 \text{xifra}        & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 \\ \hline
-\text{freqüència} &  22 & 8 & 13 & 21 & 27 & 31 & 27 & 23 & 23 & 17\\
+\text{freqüència} &  22 & 8 & 13 & 21 & 27 & 31 & 27 & 23 & 24 & 17\\
 \hline
 \end{array}
 $$
-Com que totes les freqüències esperades valen 21.2, el valor de l'estadístic de contrast sobre aquesta mostra és
+Com que totes les freqüències esperades valen 21.3, el valor de l'estadístic de contrast sobre aquesta mostra és
 $$
 \begin{array}{rl}
- \chi_0^2& \displaystyle=\frac{(22-21.2)^2}{21.2}+\frac{(8-21.2)^2}{21.2}+\cdots\\[2ex]
- & \qquad\quad\displaystyle +\frac{(23-21.2)^2}{21.2} +\frac{(17-21.2)^2}{21.2}=20.264
+ \chi_0^2& \displaystyle=\frac{(22-21.3)^2}{21.3}+\frac{(8-21.3)^2}{21.3}+\cdots\\[2ex]
+ & \qquad\quad\displaystyle +\frac{(24-21.3)^2}{21.3} +\frac{(17-21.3)^2}{21.3}=20.38
 \end{array}
 $$
 
 Calculat amb R:
 ```{r}
-X2=sum((Grossa-21.2)^2/21.2)
+X2=sum((Grossa-21.3)^2/21.3)
 X2
 ```
 
@@ -232,19 +234,19 @@ $$
 
 Estam en les condicions del Teorema \@ref(thm:khi2BA):
 
-* $n=212$, gran
+* $n=213$, gran
 
 * Les classes, que corresponen als dígits 0,...,9, cobreixen tots els resultats possibles; $k=10$
 
-* Cada $esp_i=21.2\geqslant 5$
+* Cada $esp_i=21.3\geqslant 5$
 
 Per tant, com que no estimam cap paràmetre de la distribució, aquest estadístic de contrast segueix una llei $\chi^2_9$.
 
-*Valor de l'estadístic de contrast*: Ja l'hem calculat, 20.264.
+*Valor de l'estadístic de contrast*: Ja l'hem calculat, 20.38.
 
-*p-valor*: $P(\chi_9^2\geqslant 20.264)=\texttt{1-pchisq(20.264,9)}= 0.0164$ 
+*p-valor*: $P(\chi_9^2\geqslant 20.38)=\texttt{1-pchisq(20.38,9)}= `r round(1-pchisq(round(X2,3),9),4)`$ 
 
-*Conclusió*: Hem obtingut evidència estadísticament significativa que les darreres xifres de la Grossa no apareixen de manera equiprobable (test $\chi^2$ de Pearson, p-valor 0.0164).
+*Conclusió*: Hem obtingut evidència estadísticament significativa que les darreres xifres de la Grossa no apareixen de manera equiprobable (test $\chi^2$ de Pearson, p-valor `r round(1-pchisq(round(X2,3),9),4)`).
 
 
 ```{r, echo=FALSE, out.width="50%"}
@@ -253,18 +255,18 @@ knitr::include_graphics("Bioestadistica-II_files/figure-html/oops.png")
 
 
 ```{example,grossasim}
-Anem a confirmar amb una simulació aquest p-valor. El que farem serà el següent: Repetirem 10000 vegades, amb un `replicate`, el procés de generar a l'atzar i de manera equiprobable 212 dígits, calcular la taula de freqüències de cada una d'aquestes mostres i calcular l'estadístic de contrast $\chi^2$ sobre cada una d'aquestes taules. Finalment, calcularem la fracció de vegades que $\chi^2$ ha valgut més que a la nostra mostra.
+Anem a confirmar amb una simulació aquest p-valor. El que farem serà el següent: Repetirem 10000 vegades, amb un `replicate`, el procés de generar a l'atzar i de manera equiprobable 213 dígits, calcular la taula de freqüències de cada una d'aquestes mostres i calcular l'estadístic de contrast $\chi^2$ sobre cada una d'aquestes taules. Finalment, calcularem la fracció de vegades que $\chi^2$ ha valgut més que a la nostra mostra.
 
 
 ```
 
 ```{r}
 set.seed(42)
-X2sim=replicate(10000,sum((table(sample(0:9,212,rep=TRUE))-21.2)^2/21.2))
+X2sim=replicate(10000,sum((table(sample(0:9,213,rep=TRUE))-21.3)^2/21.3))
 length(which(X2sim>=X2))/10000
 ```
 
-Només un 1.45% de les 10000 simulacions han donat un valor de $\chi^2$ més gran o igual que el de la mostra de Grosses de Nadal. Per tant, el valor de la $\chi^2$ de la mostra de Grosses de Nadal és anormalment gran si les darreres xifres tenen totes la mateixa probabilitat d'aparèixer. Naturalment, anormal no vol dir impossible. Sense anar més enfora, algunes de les mostres de la nostra simulació han donat un valor més gran, i alguna fins i tot ha arribat a:
+Només un 1.51% de les 10000 simulacions han donat un valor de $\chi^2$ tan gran o més que el de la mostra de Grosses de Nadal. Per tant, el valor de la $\chi^2$ de la mostra de Grosses de Nadal és anormalment gran si les darreres xifres tenen totes la mateixa probabilitat d'aparèixer. Naturalment, anormal no vol dir impossible. Sense anar més enfora, algunes de les mostres de la nostra simulació han donat un valor més gran, i alguna fins i tot ha arribat a:
 
 ```{r}
 max(X2sim)
@@ -509,24 +511,23 @@ Arribam, doncs, a la mateixa conclusió que amb el test $\chi^2$ aplicat a les d
 
 ### Test $\chi^2$ amb paràmetres poblacionals desconeguts
 
-De vegades ens interessarà contrastar si les observacions segueixen algun tipus determinat de distribució (Poisson, normal...) amb algun paràmetre indeterminat. En aquest cas, primer estimam els paràmetres desconeguts a partir de les observacions i a continuació contrastam l'ajustament de la mostra a la distribució amb aquests paràmetres.  El test és exactament el mateix que el de les seccions anteriors, excepte que ara cal restar al nombre $k-1$ de graus de llibertat de la $\chi^2$ el nombre $m$ de paràmetres que hem estimat.
+De vegades ens interessarà contrastar si les observacions segueixen algun tipus determinat de distribució (Poisson, normal...) amb algun paràmetre indeterminat. En aquest cas, primer estimam els paràmetres desconeguts a partir de les observacions i a continuació contrastam l'ajust de la mostra a la distribució amb aquests paràmetres.  El test és exactament el mateix que el de les seccions anteriors, excepte que ara cal restar al nombre $k-1$ de graus de llibertat de la $\chi^2$ el nombre $m$ de paràmetres que hem estimat.
 
 
 ```{block2,type="rmdimportant"}
-L'estimació dels paràmetres s'ha de realitzar amb els estimadors màxim versemblants, que són els que maximitzen la probabilitat de la nostra mostra. D'aquesta manera, si amb els paràmetres que fan màxima la probabilitat de la nostra mostra, aquesta encara ens surt molt rara, més evidència tenim que el tipus de distribució no és el correcte.
+L'estimació dels paràmetres s'ha de realitzar amb els **estimadors màxim versemblants**, que són els que maximitzen la probabilitat de la nostra mostra. D'aquesta manera, si amb els paràmetres que fan màxima la probabilitat de la nostra mostra, aquesta encara ens surt molt rara, més evidència tenim que el tipus de distribució no és el correcte.
 ```
 
 
 
 ```{example,gataca}
-Volem determinar si el nombre de vegades que apareix la seqüència GATACA en una
-cadena d'ADN humà de longitud 1000 segueix una llei de Poisson.
+Volem determinar si els nombres de vegades que apareix la seqüència GATACA en  cadenes d'ADN humà de longitud 1000 segueixen una llei de Poisson.
 
 
 ```
 
 
-Per fer-ho, prenem 576  mostres de cadenes d'ADN humà de longitud 1000 i hi comptam els nombres de GATACA. Els resultats són els de la taula següent:
+Per fer-ho, prenem 576 cadenes d'ADN humà de longitud 1000 i hi comptam els nombres de GATACA. Els resultats són els de la taula següent:
 $$
 \begin{array}{r|rrrrrr}
 \hline
@@ -737,7 +738,7 @@ valors
 
 
 2. Consideram la **funció de distribució mostral** $F_{n}$
-d'aquesta mostra: la funció de distribució d'una variable $n$ amb domini tot $\mathbb{R}$ per a la qual cada $x_{(i)}$ tingués probabilitat $1/n$ i la resta de reals tingués probabilitat 0:
+d'aquesta mostra: la funció de distribució d'una variable amb domini $\{x_{(1)}, x_{(2)},\ldots, x_{(n)}\}$, per a la qual cada $x_{(i)}$ tengui probabilitat $1/n$ i la resta de reals tenguin probabilitat 0:
 $$
 F_n(x)=\left\{\begin{array}{ll}
 0 &\text{ si } x< x_{(1)} \\
@@ -999,7 +1000,7 @@ Podem acceptar que les temperatures dels homes tenen distribució normal, però 
 
 
 
-**(11)** Va, vegem si llegiu els apunts. Si $X$ és variable$\chi_n^2$, quin dels valors següents és el més petit d'aquesta llista que **us diem** en una nota que la probabilitat que $X$ sigui més gran que ell és molt petita?
+**(11)** Va, vegem si llegiu els apunts. Si $X$ és variable$\chi_n^2$, quin dels valors següents és el més petit d'aquesta llista que **us hem dit** que la probabilitat que $X$ sigui més gran que ell és molt petita?
 
 1. $n$
 1. $2n$

@@ -1,6 +1,6 @@
-# Introducció  a l'estadística multidimensional {#chap:ED}
+# Introducció  a l'estadística multidimensional 
 
-En general, les dades que es recullen en experiments són multidimensionals: mesuram diverses variables aleatòries sobre una mateixa mostra d'individus i organitzam aquesta informació en taules de dades on les fileres representen els individus observats i cada columna correspon a una variable diferent. És a dir, el que fem és avaluar un vector de variables aleatòries (en direm un **vector aleatori**) sobre els individus d'una població. En aquesta lliçó introduïm alguns conceptes nous sobre vectors de variables aleatòries i taules multidimensionals de dades quantitatives.
+En general, les dades que es recullen en experiments són multidimensionals: mesuram diverses variables aleatòries sobre una mateixa mostra d'individus i organitzam aquesta informació en taules de dades on les fileres representen els individus observats i cada columna correspon a una variable diferent. És a dir, el que fem és avaluar un vector de variables aleatòries (en direm un **vector aleatori**) sobre els individus d'una població. En aquesta lliçó introduïm alguns conceptes  sobre vectors de variables aleatòries i taules multidimensionals de dades quantitatives.
 
 ## Poblacions: vectors aleatoris
 
@@ -70,12 +70,7 @@ $$
 
 La covariància de  $X$ i $Y$ pot prendre qualsevol valor real (no com la variància, que sempre és positiva), i  mesura el grau de variació conjunta de les variables en el sentit següent:
 
-* $\sigma_{X,Y}>0$ significa que
-
-    * Quan $X$ és més gran en un individu 1 que en un individu 2, $Y$  tendeix a també ser més gran en l'individu 1 que en l'individu 2
-
-    * Quan $X$ és més petit en un individu 1 que en un individu 2, $Y$ tendeix a també ser més petit en l'individu 1 que en l'individu 2 
-
+* $\sigma_{X,Y}>0$ significa que quan $X$ és més gran en un individu 1 que en un individu 2, $Y$  tendeix a també ser més gran en l'individu 1 que en l'individu 2.
 
 
 ```{r, echo=FALSE}
@@ -89,18 +84,15 @@ plot(x,y,pch=20,xlab="",ylab="",main="Covariància >0",cex=1.5)
 ```
 
 
-* $\sigma_{X,Y}<0$ significa que
+* $\sigma_{X,Y}<0$ significa que quan $X$ és més gran en un individu 1 que en un individu 2, $Y$ tendeix a ser més petit en l'individu 1 que en l'individu 2.
 
-    * Quan $X$ és més gran en un individu 1 que en un individu 2, $Y$ tendeix a ser més petit en l'individu 1 que en l'individu 2
-
-    * Quan $X$ és més petit en un individu 1 que en un individu 2, $Y$ tendeix a ser més gran en l'individu 1 que en l'individu 2 
 
 
 ```{r, echo=FALSE}
 plot(x,z,pch=20,xlab="",ylab="",main="Covariància <0",cex=1.5)
 ```
 
-* $\sigma_{X,Y}=0$ significa que no hi ha cap tendència en aquest sentit
+* $\sigma_{X,Y}=0$ significa que no hi ha cap tendència en aquest sentit.
 
 
 ```{r, echo=FALSE}
@@ -112,8 +104,9 @@ par(mfrow=c(1,1))
 ```{block2,type="rmdimportant"}
 El signe de la covariància  reflecteix la "tendència del creixement conjunt" de les variables:
 
-* Covariància positiva: Si $X$ creix, $Y$ tendeix a créixer, i si $X$ decreix, $Y$ tendeix a decréixer
-* Covariància negativa: Si $X$ creix, $Y$ tendeix a decréixer, i si $X$ decreix, $Y$ tendeix a créixer
+* Covariància positiva significa la mateixa tendència: Si $X$ augmenta, $Y$ tendeix a augmentar. Això també se sol expressar dient que hi ha **associació positiva** entre $X$ i $Y$.
+
+* Covariància negativa significa la tendència inversa: Si $X$ augmenta, $Y$ tendeix a minvar.  Això també se sol expressar dient que hi ha **associació negativa** entre $X$ i $Y$.
 
 ```
  
@@ -121,7 +114,7 @@ El signe de la covariància  reflecteix la "tendència del creixement conjunt" d
 $$
 \sigma_{X,Y}=E(X\cdot Y) -\mu_X\cdot \mu_Y=\mu_X\cdot \mu_Y-\mu_X\cdot \mu_Y=0.
 $$
-
+Intuïtivament, si $X$ i $Y$ són independents, que el valor de $X$ augmenti d'un individu a un altre no té cap efecte sobre el valor de $Y$.
 
 ```{block2,type="rmdcorbes"}
 Ups, aquesta és nova! Per què, si $X$ i $Y$ són independents, $E(X\cdot Y) =\mu_X\mu_Y$? Us ho demostrarem en el cas discret; l'argument en el cas continu és el mateix canviant sumatoris per integrals.
@@ -134,8 +127,11 @@ E(X\cdot Y)\!\!\! &\displaystyle =\sum_{x\in D_X,y\in D_Y} xyP(X=x,Y=y)\\
 \end{array}
 $$
 
+```
+
+```{block2,type="rmdcorbes"}
 És important remarcar que la igualtat $E(X\cdot Y) =\mu_X\mu_Y$ és equivalent a la igualtat 
-$\sigma(X+Y)^2 =\sigma(X)^2+\sigma(Y)^2$ que dèiem al Tema \@ref(chap:varal) que satisfan les variables independents. En efecte
+$\sigma(X+Y)^2 =\sigma(X)^2+\sigma(Y)^2$ que dèiem que satisfan les variables independents. En efecte
 $$
 \begin{array}{l}
 \sigma(X+Y)^2 -(\sigma(X)^2+\sigma(Y)^2)\\
@@ -156,6 +152,8 @@ $$
 ```
 
 
+
+
 ```{block2,type="rmdimportant"}
 **Si $X$ i $Y$ són variables independents, la seva covariància es 0**, però la implicació a l'inrevés és falsa: **Dues variables aleatòries poden tenir covariància 0 i no ser independents**.
 ```
@@ -165,7 +163,7 @@ $$
 Vegem un exemple d'aquest darrer fet:
 
 ```{example,nocorr} 
-Suposem que tenim un dau tetraèdric no trucat amb les cares marcades amb els valors -2, -1, 1 i 2. Siguin $X$ la variable aleatòria que consisteix a llançar el dau i anotar el resultat, i $Y$ la variable aleatòria que consisteix a llançar el dau i anotar el *quadrat* del resultat obtingut. Com que les quatre cares del dau són equiprobables, 
+Suposem que tenim un dau tetraèdric no trucat amb les cares marcades amb els valors -2, -1, 1 i 2. Siguin $X$ la variable aleatòria que consisteix a llançar el dau i anotar el resultat (la cara que queda en terra), i $Y$ la variable aleatòria que consisteix a llançar el dau i anotar el *quadrat* del resultat obtingut. Com que les quatre cares del dau són equiprobables, 
 $$
 \begin{array}{l}
 \displaystyle P(X=-2)=P(X=-1)=P(X=1)=P(X=2)=\frac{1}{4}\\
@@ -243,7 +241,7 @@ La correlació té les propietats importants següents:
 
 3. La correlació d'una variable amb ella mateixa és 1: $\rho_{X,X}=1$
 
-4. $\rho_{X,Y}=\pm 1$ si, i només si, les variables $X,Y$ tenen una **relació lineal perfecta**. És a dir, $\rho_{X,Y}=\pm 1$ si, i només si, existeixen $a,b\in \mathbb{R}$ tals que $Y=a X+b$. La pendent $a$ d'aquesta recta té el mateix signe que $\rho_{X,Y}$.
+4. $\rho_{X,Y}=\pm 1$ si, i només si, les variables $X,Y$ tenen una **relació lineal perfecta**. És a dir, $\rho_{X,Y}=\pm 1$ si, i només si, existeixen $a,b\in \mathbb{R}$ amb $a\neq 0$ i tals que $Y=a X+b$. La pendent $a$ d'aquesta recta té el mateix signe que $\rho_{X,Y}$.
 
 5. Com més s'acosta $|\rho_{X,Y}|$ a 1, més s'acosta $Y$ a ser funció lineal de $X$.
 
@@ -251,6 +249,10 @@ La correlació té les propietats importants següents:
     * Si $\rho_{X,Y}<0$, la funció és decreixent
 
 6. Si $\rho_{X,Y}=0$, diem que les variables $X$ i $Y$ són **incorrelades**. Notem que la correlació és 0 si, i només si, la covariància és 0. Per tant, **si $X$ i $Y$ són independents, també són incorrelades. El recíproc en general és fals**, com mostra l'Exemple \@ref(exm:nocorr).
+
+```{block2,type="rmdnote"}
+Si una de les dues variables té desviació típica 0, en la fórmula de la correlació apareix un 0 en el denominador i no la podem calcular. En aquest cas, es pren $\rho_{X,Y}=0$. El motiu intuïtiu és que una variable constant és sempre independent de qualsevol altra variable (faci el que faci l'altra, sempre pren el mateix valor) i hem quedat que les variables independents són incorrelades.
+```
 
 
 La **matriu de correlacions** d'un vector aleatori $\underline{X}=(X_1,\ldots,X_p)$ és la matriu formada per les correlacions de parells de les seves variables:
@@ -374,7 +376,7 @@ La correlació predita pel teorema anterior és
 
 ### Covariàncies
 
-Siguin $x=(x_1,\ldots,x_n)$ i $y=(y_1,\ldots,y_n)$ dos vectors obtinguts mesurant dues variables aleatòries quantitatives $X$ i $Y$ sobre una mateixa mostra ordenada d'individus de mida $n$ d'una població. Siguin $\overline{X}$ i $\overline{Y}$ les seves mitjanes mostrals. Aleshores la seva **covariància mostral** és
+Siguin $X=(x_1,\ldots,x_n)$ i $Y=(y_1,\ldots,y_n)$ dos vectors obtinguts mesurant dues variables aleatòries quantitatives sobre una mateixa mostra ordenada d'individus de mida $n$ d'una població. Siguin $\overline{X}$ i $\overline{Y}$ les seves mitjanes mostrals. Aleshores la seva **covariància mostral** és
 $$
 \widetilde{S}_{X,Y} =\frac{1}{n-1} \sum_{i =1}^n\big((x_{i}-\overline{{X}})(y_i-\overline{Y})\big)
 $$
@@ -393,7 +395,7 @@ Com en el cas poblacional, la **covariància** entre dos vectors mesura la tend�
 
 * Quan $\widetilde{S}_{X,Y}>0$, si $x_i>x_j$, $y_i$ tendeix a ser més gran que $y_j$
 
-* Quan $\widetilde{S}_{X,Y}>0$, si $x_i>x_j$, $y_i$ tendeix a ser més petit que $y_j$
+* Quan $\widetilde{S}_{X,Y}<0$, si $x_i>x_j$, $y_i$ tendeix a ser més petit que $y_j$
 
 * Quan $\widetilde{S}=0$, no hi ha cap tendència en aquest sentit
 
@@ -521,14 +523,14 @@ apply(DF,MARGIN=2,FUN=var)
 
 ### Correlació de Pearson
 
-Siguin $x=(x_1,\ldots,x_n)$ i $y=(y_1,\ldots,y_n)$ dos vectors  obtinguts mesurant dues variables aleatòries contínues $X$ i $Y$ sobre una mateixa mostra d'individus de mida $n$ d'una població.
+Siguin $X=(x_1,\ldots,x_n)$ i $Y=(y_1,\ldots,y_n)$ dos vectors  obtinguts mesurant dues variables aleatòries contínues  sobre una mateixa mostra d'individus de mida $n$ d'una població.
 
-La **correlació de Pearson** de  $x$ i $y$ és la seva covariància mostral dividida pel producte de les seves desviacions típiques mostrals:
+La **correlació de Pearson** de  $X$ i $Y$ és la seva covariància mostral dividida pel producte de les seves desviacions típiques mostrals:
 $$
 R_{X,Y}=\frac{\widetilde{S}_{X,Y}}{\widetilde{S}_X\cdot \widetilde{S}_Y}.
 $$
 
-La **correlació de Pearson** de  $x$ i $y$ també és igual a la seva covariància a seques dividida pel producte de les seves desviacions típiques a seques, perquè els canvis de denominador se cancel·len:
+La **correlació de Pearson** de  $X$ i $Y$ també és igual a la seva covariància a seques dividida pel producte de les seves desviacions típiques a seques, perquè els canvis de denominador se cancel·len:
 $$
 R_{X,Y}=\frac{\widetilde{S}_{X,Y}}{\widetilde{S}_X\cdot \widetilde{S}_Y}=
 \frac{\frac{n}{n-1}\cdot {S}_{X,Y}}{\sqrt{\frac{n}{n-1}}\cdot {S}_X \cdot\sqrt{\frac{n}{n-1}}\cdot{S}_Y}=
@@ -553,23 +555,43 @@ $$
 
 Algunes propietats importants de la correlació de Pearson:
 
-* La correlació de Pearson és simètrica: $R_{X,Y}=R_{Y,X}$
+* La correlació de Pearson és simètrica: 
+$$
+R_{X,Y}=R_{Y,X}
+$$
 
-* La correlació de Pearson pren valors només entre -1 i 1: $-1\leqslant R_{X,Y}\leqslant 1$
+* La correlació de Pearson pren valors només entre -1 i 1: 
+$$
+-1\leqslant R_{X,Y}\leqslant 1
+$$
 
-* La correlació de Pearson d'un vector amb ell mateix és 1: $R_{X,X}=1$
+* La correlació de Pearson d'un vector amb ell mateix és 1: 
+$$
+R_{X,X}=1
+$$
 
-* $R_{X,Y}$ té el mateix signe que $S_{X,Y}$
+* $R_{X,Y}$ té el mateix signe que $S_{X,Y}$, i per tant aquest signe té el mateix significat que a la covariància:
 
-* $R_{X,Y}=\pm 1$ si, i només si, existeixen  $a, b\in \mathbb{R}$ tals que $y=ax+b$, és a dir, tals que $y_i=ax_i+b$ per a cada $i=1,\ldots,n$. La pendent $a$ d'aquesta relació lineal té el mateix signe que $R_{X,Y}$.
+    * Si $R_{X,Y}>0$ i si $x_i>x_j$, $y_i$ tendeix a ser més gran que $y_j$
 
-* El coeficient de determinació $R^2$ de la regressió lineal per mínims quadrats de $y$ respecte de $x$  és igual al quadrat de la seva correlació de Pearson:
+    * Si $R_{X,Y}<0$ i si $x_i>x_j$, $y_i$ tendeix a ser més petit que $y_j$
+
+    * Si $R=0$, no hi ha cap tendència en aquest sentit
+
+
+* $R_{X,Y}=\pm 1$ si, i només si, tots els punts $(x_i,y_i)$ estan sobre una recta $y=ax+b$ amb $a\neq 0$. La pendent $a$ d'aquesta relació lineal té el mateix signe que $R_{X,Y}$. Per tant, la recta és creixent si $R_{X,Y}=1$ i decreixent si $R_{X,Y}=- 1$.
+
+* El coeficient de determinació $R^2$ de la regressió lineal per mínims quadrats de $Y$ respecte de $X$  és igual al quadrat de la seva correlació de Pearson:
 $$
 R^2=R_{X,Y}^2
 $$
 
 ```{block2,type="rmdimportant"}
-Per tant, com més s'acosta la correlació de Pearson de $x$ i $y$ a 1 o a -1, més s'acosten els punts $(x_i,y_i)$ a estar sobre una recta. El signe de $R_{X,Y}$ indica si aquesta recta és creixent ($R_{X,Y}>0$) o decreixent ($R_{X,Y}<0$).
+Per tant, com més s'acosta la correlació de Pearson de $X$ i $Y$ a 1 o a -1, més s'acosten els punts $(x_i,y_i)$ a estar sobre una recta. El signe de $R_{X,Y}$ indica si aquesta recta és creixent ($R_{X,Y}>0$) o decreixent ($R_{X,Y}<0$).
+```
+
+```{block2,type="rmdnote"}
+Com al cas poblacional, quan un dels vectors és constant, la correlació es pren igual a 0.
 ```
 
 
@@ -613,7 +635,18 @@ cor(anscombe$x4,anscombe$y4)
 ```
 
 Però si els dibuixam veureu que els quatre conjunts de punts  són molt diferents:
-```{r,fig.width=10,out.width="90%"}
+
+```{r,eval=FALSE}
+plot(anscombe$x1,anscombe$y1,pch=20,main="Conjunt de dades 1",cex=1.25)
+abline(lm(y1~x1,data=anscombe),col="red",lwd=1.5)
+plot(anscombe$x2,anscombe$y2,pch=20,main="Conjunt de dades 2",cex=1.25)
+abline(lm(y2~x2,data=anscombe),col="red",lwd=1.5)
+plot(anscombe$x3,anscombe$y3,pch=20,main="Conjunt de dades 3",cex=1.25)
+abline(lm(y3~x3,data=anscombe),col="red",lwd=1.5)
+plot(anscombe$x4,anscombe$y4,pch=20,main="Conjunt de dades 4",cex=1.25)
+abline(lm(y4~x4,data=anscombe),col="red",lwd=1.5)
+```
+```{r,echo=FALSE,fig.width=10,out.width="90%"}
 par(mfrow=c(2,2))
 plot(anscombe$x1,anscombe$y1,pch=20,main="Conjunt de dades 1",cex=1.25)
 abline(lm(y1~x1,data=anscombe),col="red",lwd=1.5)
@@ -639,7 +672,12 @@ cor(dino$x,dino$y)
 cor(star$x,star$y)
 ```
 
-```{r,fig.width=10,out.width="90%",fig.asp=0.5}
+```{r,eval=FALSE}
+plot(dino,pch=20,cex=1.25)
+plot(star,pch=20,cex=1.25)
+```
+
+```{r,echo=FALSE,fig.width=10,out.width="90%",fig.asp=0.5}
 par(mfrow=c(1,2))
 plot(dino,pch=20,cex=1.25)
 plot(star,pch=20,cex=1.25)
@@ -709,7 +747,7 @@ Com més s'acosta la correlació de Spearman a valer 1 (o -1), per a més parell
 
 
 
-Formalment, la correlació de Spearman  de dos vectors $x$ i $y$ se defineix com la correlació de Pearson dels vectors de **rangs** de $x$ i $y$. El  vector de rangs d'un vector $x$ s'obté substituint cada valor de $x$ per la seva posició en el vector ordenat de menor a major, i en cas d'empats assignant a grups de valors empatats la mitjana de les posicions que ocuparien (aquests rangs ja han sortit, al [test de Wilcoxon](https://aprender-uib.github.io/MatesII/contrastos-dhipòtesis-dun-i-dos-paràmetres.html#tests-no-paramètrics) i al [test de bondat d'ajust de Kolmogorov-Smirnov](https://aprender-uib.github.io/MatesII/contrastos-de-bondat-dajust.html#test-de-kolmogorov-smirnov)). Per exemple, el vector de rangs de 
+Formalment, la correlació de Spearman  de dos vectors $X$ i $Y$ se defineix com la correlació de Pearson dels vectors de **rangs** de $X$ i $Y$. El  vector de rangs d'un vector $X$ s'obté substituint cada valor de $X$ per la seva posició en el vector ordenat de menor a major, i en cas d'empats assignant a grups de valors empatats la mitjana de les posicions que ocuparien (aquests rangs ja han sortit, al [test de Wilcoxon](https://aprender-uib.github.io/MatesII/contrastos-dhipòtesis-dun-i-dos-paràmetres.html#tests-no-paramètrics) i al [test de bondat d'ajust de Kolmogorov-Smirnov](https://aprender-uib.github.io/MatesII/contrastos-de-bondat-dajust.html#test-de-kolmogorov-smirnov)). Per exemple, el vector de rangs de 
 $$
 x=(4,5,1,5,1,3,4,4)
 $$
@@ -794,7 +832,7 @@ cor(c(1,4.5,6,4.5,3,2),c(1,2,5,6,3.5,3.5))
 
 ### Contrastos de correlació
 
-En un **contrast de correlació** de dues variables poblacionals contínues $X$ i $Y$, la hipòtesi nul·la és que no hi ha correlació entre les dues variables, la qual cosa  s'entén que tradueix que no hi ha cap  relació entre elles.
+En un **contrast de correlació** de dues variables poblacionals contínues $X$ i $Y$, la hipòtesi nul·la és que no hi ha correlació entre les dues variables, la qual cosa tradueix que no hi ha cap  relació entre elles.
 $$
 \left\{
 \begin{array}{ll}
@@ -989,15 +1027,6 @@ Marcau totes les respostes correctes:
 1. L'augment de les xifres de colesterol lligat a proteïnes de baixa densitat provoca l'augment del diàmetre de les artèries coronàries
 1. L'augment del diàmetre de les artèries coronàries causa l'augment de les xifres de colesterol lligat a proteïnes de baixa densitat
 
-**(13)** En els 10 naixements que van tenir lloc en un hospital en un dia determinat, es va anotar el pes del nadó ($X$) i l'edat de la mare ($Y$). Curiosament, tots els nadons van pesar el mateix: 2.6 kg. Quina va ser la covariància entre els pesos i les edats?
-
-1. 1
-1. 0
-1. -1
-1. 2.6
-1. 0.26
-1. És impossible saber-ho sense conèixer les edats de les mares
-
 
 
 ```{r, echo=FALSE, out.width="100%",fig.cap="Gràfics de dispersió de les preguntes (14) a (18)"}
@@ -1005,7 +1034,7 @@ knitr::include_graphics("Bioestadistica-II_files/figure-html/test9.png")
 ```
 
 
-**(14)** Dels gràfics de dispersió de la figura, quin correspon a $R=-0.5$?
+**(13)** Dels gràfics de dispersió de la figura, quin correspon a $R=-0.5$?
 
 1. El (a)
 1. El (b)
@@ -1014,7 +1043,7 @@ knitr::include_graphics("Bioestadistica-II_files/figure-html/test9.png")
 1. El (e)
 
 
-**(15)** Dels gràfics de dispersió de la figura, quin correspon a $R=-0.1$?
+**(14)** Dels gràfics de dispersió de la figura, quin correspon a $R=-0.1$?
 
 1. El (a)
 1. El (b)
@@ -1022,7 +1051,7 @@ knitr::include_graphics("Bioestadistica-II_files/figure-html/test9.png")
 1. El (d)
 1. El (e)
 
-**(16)** Dels gràfics de dispersió de la figura, quin correspon a $R=0.1$?
+**(15)** Dels gràfics de dispersió de la figura, quin correspon a $R=0.1$?
 
 1. El (a)
 1. El (b)
@@ -1030,7 +1059,7 @@ knitr::include_graphics("Bioestadistica-II_files/figure-html/test9.png")
 1. El (d)
 1. El (e)
 
-**(17)** Dels gràfics de dispersió de la figura, quin correspon a $R=0.5$?
+**(16)** Dels gràfics de dispersió de la figura, quin correspon a $R=0.5$?
 
 1. El (a)
 1. El (b)
@@ -1038,7 +1067,7 @@ knitr::include_graphics("Bioestadistica-II_files/figure-html/test9.png")
 1. El (d)
 1. El (e)
 
-**(18)** Dels gràfics de dispersió de la figura, quin correspon a $R=0.9$?
+**(17)** Dels gràfics de dispersió de la figura, quin correspon a $R=0.9$?
 
 1. El (a)
 1. El (b)
@@ -1047,7 +1076,7 @@ knitr::include_graphics("Bioestadistica-II_files/figure-html/test9.png")
 1. El (e)
 
 
-**(19)** Quin és el rang dels valors  2 al vector $(-1, -1,  1, -2, -1,  1,  3,  1,  1, 2,  1, 2,  1,  3)$?
+**(18)** Quin és el rang dels valors  2 al vector $(-1, -1,  1, -2, -1,  1,  3,  1,  1, 2,  1, 2,  1,  3)$?
 
 1. 4
 1. 11

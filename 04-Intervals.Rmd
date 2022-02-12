@@ -1,4 +1,4 @@
-# Intervals de confiança {#chap:IC}
+# Intervals de confiança 
 
 Amb l'estimació puntual intentam endevinar el valor d'un paràmetre d'una variable poblacional. Però, és clar, és molt difícil que amb una mostra poguem encertar exactament el valor del paràmetre. Les tècniques de l'estadística inferencial ens permeten aleshores quantificar la precisió d'aquesta estimació. Això es fa complementant l'estimació puntual amb un interval al voltant d'aquesta estimació "on estam molt segurs que cau el valor real del paràmetre".
 
@@ -8,18 +8,18 @@ knitr::include_graphics("Bioestadistica-II_files/figure-html/ecoaula.png")
 ```
 
 
-Naturalment, no fa falta saber estadística per donar un interval on estiguem molt segurs que cau el valor real del paràmetre. Basta donar un interval prou ample com per contenir tots els  valors raonables del paràmetre.
+Naturalment, no fa falta saber estadística per donar un interval que estiguem molt segurs que conté el valor real del paràmetre. Basta donar un interval prou ample com per contenir tots els  valors raonables del paràmetre.
 
 
 ```{r, echo=FALSE, out.width="80%"}
 knitr::include_graphics("Bioestadistica-II_files/figure-html/Garfield.png")
 ```
 
-Del que es tracta és de donar un interval **el més estret possible** on estiguem molt segurs que cau el valor real del paràmetre. Aleshores, l'amplada d'aquest interval dependrà:
+Del que es tracta és de donar un interval **el més estret possible** que estiguem molt segurs que conté el valor real del paràmetre. Aleshores, l'amplada d'aquest interval dependrà:
 
-* De la variabilitat de l'estimador: com ja hem comentat a la lliçó anterior, com manco variabilitat tingui, més precisa serà l'estimació. Normalment, la variabilitat de l'estimador creix amb la desviació típica de la variable poblacional i decreix amb la mida de les mostres.
+* De la variabilitat de l'estimador: com ja hem comentat a la lliçó anterior, com menys variabilitat tingui, més precisa serà l'estimació. Normalment, la variabilitat de l'estimador creix amb la desviació típica de la variable poblacional i decreix amb la mida de les mostres.
 
-* Del **nivell de confiança**, o *seguretat*, de l'estimació: com de segurs volem estar que el valor real  del paràmetre cau dins l'interval que donem. Quant més segurs volguem estar, segurament més ample haurà de ser l'interval.
+* Del **nivell de confiança**, o *seguretat*, de l'estimació: com de segurs volem estar que el valor real  del paràmetre cau dins l'interval que donem. Com més segurs volguem estar, segurament més ample haurà de ser l'interval.
 
 
 ## Definició d'interval de confiança
@@ -32,10 +32,14 @@ El Q% dels intervals obtinguts aplicant aquesta fórmula a mostres aleatòries s
 
 És a dir:
 
-> Un Q% dels IC Q% contenen el valor real del paràmetre poblacional.
+> Un Q% dels IC Q% contenen el valor real del paràmetre poblacional
+
+en el sentit que:
+
+> Un Q% de les mostres aleatòries simples donen lloc a un IC Q% que conté el valor real del paràmetre poblacional.
 
 
-*Tenir una confiança del Q%* significa doncs que hem calculat l'interval amb una fórmula **que encerta el Q% de les vegades**, en el sentit que en Q de cada 100 vegades que aplicàssim aquesta fórmula a mostres aleatòries simples, els intervals que obtendríem contendrien el valor real del paràmetre que volem estimar.  Però aquesta fórmula **s'equivoca el (100-Q)% de les vegades**, és a dir, 100-Q de cada 100 intervals obtinguts aplicant  aquesta fórmula a mostres aleatòries simples  **no** contenen el valor real del paràmetre que volem estimar. *I no sabem quin és el nostre cas*. Nosaltres només podem **confiar** que hagi encertat amb la nostra mostra.
+*Tenir una confiança del Q%* significa doncs que hem calculat l'interval amb una fórmula **que encerta el Q% de les vegades**, en el sentit que en Q de cada 100 vegades que aplicàssim aquesta fórmula a mostres aleatòries simples, els intervals que obtendríem contendrien el valor real del paràmetre que volem estimar.  Però aleshores aquesta fórmula **s'equivoca el (100-Q)% de les vegades**, és a dir, 100-Q de cada 100 intervals obtinguts aplicant  aquesta fórmula a mostres aleatòries simples  **no** contenen el valor real del paràmetre que volem estimar. *I no sabem quin és el nostre cas*. Nosaltres només podem **confiar** que hagi encertat amb la nostra mostra.
 
 
 ```{example}
@@ -72,27 +76,27 @@ No confongueu:
 
 Per exemple:
 
-* Si diem que un **interval de referència del 95%** per a la concentració d'una proteïna en sèrum en individus sans mesurada en g/dl és [11,16], això significa que 
+* Si diem que un **interval de referència del 95%** per a la concentració d'una proteïna en sèrum en individus sans mesurada en mg/dl és [0.5,1.1], això significa que 
 
-    * un 95% dels individus sans tenen una concentració d'aquesta proteïna en sèrum d'entre 11 i 16 g/dl, 
+    * un 95% dels individus sans tenen una concentració d'aquesta proteïna en sèrum d'entre 0.5 i 1.1 mg/dl, 
     
     és a dir, que
     
-    * un individu sa escollit a l'atzar té un 95% de probabilitat que la seva concentració d'aquesta proteïna en sèrum estigui entre 11 i 16 g/dl.
+    * un individu sa escollit a l'atzar té un 95% de probabilitat que la seva concentració d'aquesta proteïna en sèrum estigui entre 0.5 i 1.1 mg/dl.
 
-* Si diem que un **interval de confiança del 95%** per a la concentració mitjana d'una proteïna en sèrum en individus sans mesurada en g/dl és [11,16], això significa que hem pres una mostra aleatòria simple de concentracions d'aquesta proteïna en sèrum en individus sans i a partir d'aquesta mostra:
+* Si diem que un **interval de confiança del 95%** per a la concentració mitjana d'una proteïna en sèrum en individus sans mesurada en g/dl és [0.5,1.1], això significa que hem pres una mostra aleatòria simple de concentracions d'aquesta proteïna en sèrum en individus sans i a partir d'aquesta mostra:
 
-    * Hem estimat que la concentració mitjana d'aquesta proteïna en sèrum en individus sans està entre 11 i 16 g/dl 
+    * Hem estimat que la concentració mitjana d'aquesta proteïna en sèrum en individus sans està entre 0.5 i 1.1 mg/dl. 
     * I tenim un "95% de confiança" en aquest interval perquè el 95% dels intervals que s'obtenen en aplicar aquesta fórmula a mostres aleatòries simples de la mateixa mida que la nostra contenen la mitjana poblacional.
 
-* Si diem que el 95% de les mostres de 100 concentracions d'una determinada proteïna en sèrum en individus sans tenen la mitjana mostral entre 11 i 16, això és un **interval de referència del 95% per a la mitjana mostral** de mostres de mida 100, no un interval de confiança per a la concentració mitjana poblacional ni un interval de referència per al valor de la concentració en un individu.
+* Si diem que el 95% de les mostres de 100 concentracions d'una determinada proteïna en sèrum en individus sans tenen la mitjana mostral entre 0.5 i 1.1 mg/dl, això és un **interval de referència del 95% per a la mitjana mostral** de mostres de mida 100, no un interval de confiança per a la concentració mitjana poblacional ni un interval de referència per al valor de la concentració en un individu.
 
 ```{block2,type="rmdcaution"}
-Sovint calculareu un interval de confiança del Q% per a un cert paràmetre $\theta$ d'una població, us donarà $[a,b]$, i amb el poc rigor amb què us soleu expressar, us serà igual dir 
+Sovint calculareu un interval de confiança del Q% per a un cert paràmetre $\theta$ d'una població, us donarà $[a,b]$, i amb el poc rigor amb què us soleu expressar, us serà igual dir que
 
 > "el valor real de $\theta$ té una probabilitat del Q% de pertànyer a $[a,b]$"
 
-que
+com que
 
 > "$[a,b]$ té una probabilitat del Q% de contenir el valor real de $\theta$"
 
@@ -100,7 +104,7 @@ Però aquestes dues frases no diuen exactament el mateix. I de fet, la primera �
 
 La primera frase diu que $\theta$ varia i un Q% dels seus valors pertanyen a $[a,b]$. Això és fals. "El valor real de $\theta$" és un número que no varia. Per a la nostra població val una cosa concreta, desconeguda però concreta, que pertany o no a l'interval $[a,b]$.
 
-La segona frase en canvi es pot interpretar de la manera següent. L'interval $[a,b]$ forma part de tota la població d'intervals de confiança del Q% per a $\theta$ calculats a partir de mostres aleatòries simples d'una mida concreta de la nostra població. Un Q% d'aquests intervals conté el valor real de $\theta$. Per tant, podem dir que el nostre interval $[a,b]$ té una probabilitat del Q% de contenir el valor real de $\theta$. Aquesta interpretació és correcta.
+La segona frase en canvi es pot interpretar de la manera següent. L'interval $[a,b]$ forma part de tota la "població d'intervals de confiança del Q% per a $\theta$" calculats a partir de mostres aleatòries simples d'una mida concreta de la nostra població. Un Q% d'aquests intervals conté el valor real de $\theta$. Per tant, podem dir que el nostre interval $[a,b]$ té una probabilitat del Q% de contenir el valor real de $\theta$. Aquesta interpretació és correcta.
 
 ```
 
@@ -108,12 +112,6 @@ La segona frase en canvi es pot interpretar de la manera següent. L'interval $[
 knitr::include_graphics("Bioestadistica-II_files/figure-html/tirdanella.png")
 ```
 
-
-
-
-```{block2,type="rmdrecordau"}
-Encara que el millor que podeu fer és no mesclar probabilitat amb confiança, i dir simplement que teniu un 95% de confiança, o un 95% de seguretat, que $[a,b]$ conté el valor real de $\theta$. Així no us enganxau els dits.
-```
 
 
 Que un IC Q% per a un paràmetre $\theta$ sigui $[a,b]$ serveix:
@@ -167,7 +165,7 @@ knitr::include_graphics("Bioestadistica-II_files/figure-html/bootstrap.png")
 Una de les fórmules més conegudes per a intervals de confiança és la següent:
 
 ```{block2, type="rmdimportant"}
-Si $X$ és normal i en tenim una mostra aleatòria simple de mida $n$, mitjana mostral $\overline{X}$ i desviació típica mostral $\widetilde{S}_X$, un IC 95% per a la seva mitjana $\mu$ és
+Si $X$ és una variable aleatòria normal i en tenim una mostra aleatòria simple de mida $n$, mitjana mostral $\overline{X}$ i desviació típica mostral $\widetilde{S}_X$, un IC 95% per a la seva mitjana $\mu$ és
 $$
 \Bigg[\overline{X}-t_{n-1,0.975}\cdot \frac{\widetilde{S}_X}{\sqrt{n}},\ \overline{X}+t_{n-1,0.975}\cdot\frac{\widetilde{S}_X}{\sqrt{n}}\Bigg]
 $$
@@ -180,41 +178,13 @@ A alguns de vosaltres us hauran explicat a Batxillerat, o trobareu a llibres que
 
 Vegem d'on surt aquesta fórmula, ja que és un paradigma de com s'obtenen la majoria de les fórmules paramètriques per a intervals de confiança.
 
-Suposem  doncs que $X$ és normal de mitjana $\mu$ i que en tenim una mostra aleatòria simple de mida $n$, mitjana mostral $\overline{X}$ i desviació típica mostral $\widetilde{S}_X$. En aquesta situació, sabem que 
+Suposem  doncs que $X$ és una variable aleatòria normal de mitjana $\mu$ i que en tenim una mostra aleatòria simple de mida $n$, mitjana mostral $\overline{X}$ i desviació típica mostral $\widetilde{S}_X$. En aquesta situació, sabem que 
 $$
 T=\frac{\overline{X}-\mu}{\widetilde{S}_{X}/\sqrt{n}}
 $$
-té distribució  t de Student amb $n-1$ graus de llibertat, $t_{n-1}$.
+té distribució  t de Student amb $n-1$ graus de llibertat, $t_{n-1}$. 
 
-
-
-
-Si podem trobar $A,B\in \mathbb{R}$ tals que
-$$
-P(A\leqslant T\leqslant B)=0.95,
-$$
-llavors:
-$$
-\begin{array}{rl}
-0.95 &\!\!\!\! =P\Bigg(A\leqslant   \dfrac{\overline{X}-\mu}{\widetilde{S}_{X}/\sqrt{n}}\leqslant  B\Bigg)\\[2ex]
-&\!\!\!\! =P\Bigg(A\cdot \dfrac{\widetilde{S}_X}{\sqrt{n}}\leqslant  \overline{X}-\mu \leqslant  B\cdot \dfrac{\widetilde{S}_X}{\sqrt{n}}\Bigg)\\[2ex]
-&\!\!\!\! =P\Bigg(-\overline{X}+A\cdot \dfrac{\widetilde{S}_X}{\sqrt{n}}\leqslant  -\mu \leqslant  -\overline{X}+B\cdot \dfrac{\widetilde{S}_X}{\sqrt{n}}\Bigg)\\[2ex]
-&\!\!\!\! =P\Bigg(\overline{X}-B\cdot \dfrac{\widetilde{S}_X}{\sqrt{n}}\leqslant  \mu \leqslant  \overline{X}-A\cdot \dfrac{\widetilde{S}_X}{\sqrt{n}}\Bigg)
-\end{array}
-$$
-
-
-Com que $P(A\leqslant  T\leqslant  B)=0.95$ significa que, per al 95% de les mostres aleatòries simples de mida $n$, el valor de $T$ està  entre $A$ i $B$, 
-$$
-P\Bigg(\overline{X}-B\cdot \frac{\widetilde{S}_X}{\sqrt{n}}\leqslant  \mu \leqslant  \overline{X}-A\cdot \frac{\widetilde{S}_X}{\sqrt{n}}\Bigg)=0.95
-$$
-significa que, **per al 95% de les mostres aleatòries simples de mida $n$, la $\mu$ cau dins l'interval**
-$$
-\Bigg[\overline{X}-B\cdot \frac{\widetilde{S}_X}{\sqrt{n}},\ \overline{X}-A\cdot \frac{\widetilde{S}_X}{\sqrt{n}}\Bigg]
-$$
-Per tant, això serà un IC 95% per a $\mu$.
-
-Ens falta trobar els $A,B$ tals que $P(A\leqslant  T\leqslant  B)=0.95$. Per trobar-los, emprarem *quantils de la distribució de $T$*. Recordem que si indicam amb  $t_{n-1,0.975}$ el 0.975-quantil d'una $t_{n-1}$, per definició tenim que 
+Ara recordem que si indicam amb  $t_{n-1,0.975}$ el 0.975-quantil d'una $t_{n-1}$, per definició tenim que 
 $$
 P(T\leqslant  t_{n-1,0.975})=0.975
 $$
@@ -230,7 +200,6 @@ P(-t_{n-1,0.975}\leqslant  T\leqslant  t_{n-1,0.975})\\
 \quad =0.975-0.025=0.95
 \end{array}
 $$
-
 
 
 ```{r,echo=FALSE}
@@ -266,23 +235,33 @@ text(-3,0.12,expression(0.025))
 text(0,0.12,expression(0.95))
 ```
 
-
-
-
-Així doncs, podem prendre 
+Això diu que **un 95% de les mostres aleatòries simples de mida $n$ tenen el seu valor de** 
 $$
-A=-t_{n-1,0.975},\quad B=t_{n-1,0.975}
+T=\frac{\overline{X}-\mu}{\widetilde{S}_{X}/\sqrt{n}}
 $$
-i obtenim l'IC 95% per a $\mu$ anunciat:
+**dins l'interval $[-t_{n-1,0.975}, t_{n-1,0.975}]$**. Desenvolupem això:
 $$
-\Bigg[\overline{X}-t_{n-1,0.975}\cdot \frac{\widetilde{S}_X}{\sqrt{n}},\ \overline{X}+t_{n-1,0.975}\cdot\frac{\widetilde{S}_X}{\sqrt{n}}\Bigg]
+\begin{array}{rl}
+0.95 &\!\!\!\! =P\Bigg(-t_{n-1,0.975}\leqslant   \dfrac{\overline{X}-\mu}{\widetilde{S}_{X}/\sqrt{n}}\leqslant  t_{n-1,0.975}\Bigg)\\[2ex]
+&\!\!\!\! =P\Bigg(-t_{n-1,0.975}\cdot \dfrac{\widetilde{S}_X}{\sqrt{n}}\leqslant  \overline{X}-\mu \leqslant  t_{n-1,0.975}\cdot \dfrac{\widetilde{S}_X}{\sqrt{n}}\Bigg)\\[2ex]
+&\!\!\!\! =P\Bigg(-\overline{X}-t_{n-1,0.975}\cdot \dfrac{\widetilde{S}_X}{\sqrt{n}}\leqslant  -\mu \leqslant  -\overline{X}+t_{n-1,0.975}\cdot \dfrac{\widetilde{S}_X}{\sqrt{n}}\Bigg)\\[2ex]
+&\!\!\!\! =P\Bigg(\overline{X}-t_{n-1,0.975}\cdot \dfrac{\widetilde{S}_X}{\sqrt{n}}\leqslant  \mu \leqslant  \overline{X}+t_{n-1,0.975}\cdot \dfrac{\widetilde{S}_X}{\sqrt{n}}\Bigg)
+\end{array}
 $$
 
 
-L'escriurem
+I per tant  **per al 95% de les mostres aleatòries simples de mida $n$, la $\mu$ cau dins l'interval**
+$$
+\Bigg[\overline{X}-t_{n-1,0.975}\cdot \frac{\widetilde{S}_X}{\sqrt{n}},\ \overline{X}+t_{n-1,0.975}\cdot \frac{\widetilde{S}_X}{\sqrt{n}}\Bigg]
+$$
+Per tant, **això és un IC 95% per a $\mu$**.
+
+Sovint l'escriurem
 $$
 \overline{X}\pm t_{n-1,0.975}\cdot \frac{\widetilde{S}_X}{\sqrt{n}}
 $$
+per emfatitzar que estimam que $\mu$ val $\overline{X}$ més o menys el marge d'error $t_{n-1,0.975}\cdot \widetilde{S}_X/\sqrt{n}$.
+
 
 ```{example}
 Fem un experiment per veure que, efectivament, aquesta fórmula "encerta", en el sentit que conté la $\mu$, al voltant del 95% de les vegades. Al bloc de codi següent, hi generam una *Població* de 10^7^ "individus" que segueixen una llei normal estàndard i en calculam la mitjana `mu`. A continuació, definim una funció `IC` que calcula l'IC 95% per a la mitjana $\mu$ amb la fórmula anterior. Llavors, prenem 200 mostres aleatòries simples de mida 50 de la nostra població i les aplicam aquesta funció, obtenint una matriu `M` de  200 columnes formades pels dos extrems dels intervals (l'inferior a la primera filera i el superior a la segona filera). Finalment, comptam quantes vegades hem encertat, és a dir, a quantes columnes de `M` la mitjana poblacional `mu` està entre l'entrada de la primera filera i la de la segona. 
@@ -322,7 +301,7 @@ abline(v=mu,lwd=2)
 Com veieu, de mitjana, un (100-Q)% dels IC Q% NO contenen el valor real del paràmetre.
 ```
 
-Per exemple, de mitjana, un 5% de les vegades que calculam un IC 95%, el paràmetre poblacional no pertany a l'interval obtingut. Per tant, si calculam $n$ IC 95% sobre mostres aleatòries simples independents, el nombre de vegades que l'interval resultant no contendrà el paràmetre poblacional seguirà una distribució binomial $B(n,0.05)$. El gràfic següent dóna el valor de $P(X\geqslant 1)$ per a una variable aleatòria $X$ de tipus $B(n,0.05)$, per a  $n=0,...,100$, i per tant la probabilitat que si calculam $n$ IC 95% sobre mostres aleatòries simples independents, almanco un d'ells no contengui el paràmetre poblacional desitjat.
+Per exemple, de mitjana, un 5% de les vegades que calculam un IC 95%, el paràmetre poblacional no pertany a l'interval obtingut. Per tant, si calculam $n$ IC 95% sobre mostres aleatòries simples independents, el nombre de vegades que l'interval resultant no contendrà el paràmetre poblacional seguirà una distribució binomial $B(n,0.05)$. El gràfic següent dóna el valor de $P(X\geqslant 1)$ per a una variable aleatòria $X$ de tipus $B(n,0.05)$, per a  $n=0,...,100$, i per tant la probabilitat que si calculam $n$ IC 95% sobre mostres aleatòries simples independents, almenys un d'ells no contengui el paràmetre poblacional desitjat.
 
 ```{r,echo=FALSE, fig.cap="Probabilitat d'algun èxit amb una B(n,0.05)"}
 plot(1-dbinom(0,0:100,0.05),pch=20,xlab="n",ylab="Probabilitat")
@@ -359,11 +338,11 @@ $$
   
   
 ```
-Per calcular un IC 95% per al percentatge mitjà d'augment, suposarem que la variable aleatòria d'interès (de la que volem estimar la mitjana), que és
+Per calcular un IC 95% per al percentatge mitjà d'augment, suposarem que la variable aleatòria d'interès (de la que volem estimar la mitjana) és  normal. Aquesta variable aleatòria és:
 
 * $X$: "Prenem una persona i li mesuram  el percentatge d'augment d'alcohol en sang després de prendre 4 canyes de cervesa"  
 
-és  *normal* i que la mostra que hem pres d'aquesta variable és *aleatòria simple*.
+També suposarem que la mostra que hem pres d'aquesta variable és aleatòria simple.
 
 
 Llavors, com que $t_{n-1,0.975}$=`qt(0.975,39)`=`r round(qt(0.975,39),4)`, un IC 95% és
@@ -371,7 +350,8 @@ $$
 41.2\pm 2.0227\cdot \frac{2.1}{\sqrt{40}}\Rightarrow 41.2\pm 0.67\Rightarrow [40.53, 41.87]
 $$
 
-Per tant, estimam amb un 95% de confiança que el percentatge mitjà d'augment d'alcohol en sang després de prendre 4 canyes de cervesa està entre el 40.53% i el 41.87%.
+Per tant, estimam amb un 95% de confiança que el percentatge mitjà d'augment d'alcohol en sang després de prendre 4 canyes de cervesa està entre el 40.53% i el 41.87%. Una altra manera de dir-ho és que, amb un 95% de confiança, estimam que el percentatge mitjà d'augment d'alcohol en sang després de prendre 4 canyes de cervesa és un 41.2%, amb un error de més o menys 0.67 punts percentuals.
+
 
 Per calcular l'interval anterior hem suposat que la variable poblacional "Percentatge d'augment d'alcohol en sang després de prendre 4 canyes de cervesa" segueix una distribució normal. I si no és normal? 
 
@@ -410,7 +390,7 @@ Fixau-vos que als IC 95%, $q=0.95$ i per tant $(1+q)/2=1.95/2=0.975$.
 Usant el Teorema Central del Límit i algunes aproximacions, tenim el següent resultat:
 
 ```{theorem, ICmu}
-Sigui $X$ una variable aleatòria  qualsevol de mitjana poblacional $\mu$. Suposem que prenem una mostra aleatòria simple de $X$ de mida $n$ gran (diguem, de 40 o més elements). Llavors, un interval de confiança de nivell de confiança $q$ per a $\mu$ és aproximadament
+Sigui $X$ una variable aleatòria  qualsevol de mitjana poblacional $\mu$. Suposem que prenem una mostra aleatòria simple de $X$ de mida $n$ gran (diguem, de 40 o més elements). Llavors, un interval de confiança de nivell de confiança $q$ per a $\mu$ és (aproximadament)
 $$
 \overline{X}\pm t_{n-1,(1+q)/2}\cdot \frac{\widetilde{S}_X}{\sqrt{n}}
 $$
@@ -438,7 +418,7 @@ cartutxos imprimeixen una mitjana de 500 radiografies amb l'especificació:
 > Dades tècniques: Mostra de mida $n=25$, població suposada normal, nivell de confiança del 90%
  
 
-Uns radiòlegs desitgen comprovar aquestes afirmacions i prenen una mostra de 25 cartutxos, obtenint una mitjana de 518 radiografies amb una desviació típica mostral de 39.9.
+Uns radiòlegs volgueren comprovar aquestes afirmacions. Prengueren una mostra de 25 cartutxos i obtingueren una mitjana de 518 radiografies amb una desviació típica mostral de 39.9.
 
 Amb aquesta mostra, la mitjana poblacional anunciada pel fabricant cau dins l'interval de confiança del 90%?
 
@@ -450,7 +430,7 @@ on $n=25$, $\overline{X}=518$, $\widetilde{S}_X=39.9$, $q=0.9$, $(q+1)/2=0.95$ i
 
 Operant: 
 $$
-518\pm 1.71\times \frac{39.9}{\sqrt{25}}\Rightarrow 
+518\pm 1.71\cdot  \frac{39.9}{\sqrt{25}}\Rightarrow 
 518\pm 13.65\Rightarrow
 [504.35,531.65]
 $$ 
@@ -475,7 +455,7 @@ set.seed(100)
 Simulacions=replicate(5000,mean(sample(Radios,25,rep=TRUE)))
 ```
 
-Ara prenem com a IC 90% l'interval que tanca el 90% de valors centrals d'aquest vector de mitjanes mostrals, és a dir, l'interval que va del quantil 0.05 al quantil 0.95 d'aquest vector de mitjanes:
+Ara prenem com a IC 90% l'interval que tanca el 90% de valors centrals d'aquest vector de mitjanes mostrals, és a dir, l'interval que va del quantil 0.05 al quantil 0.95 d'aquestes mitjanes:
 
 ```{r}
 quantile(Simulacions,c(0.05,0.95))
@@ -488,11 +468,10 @@ Obtenim l'interval [`r round(quantile(Simulacions,0.05),2)`,`r round(quantile(Si
 
 
 Observau que l'estructura de l'interval de confiança de nivell de confiança $q$ per a $\mu$ donat al Teorema \@ref(thm:ICmu) és
-\begin{align}
-& \text{estimador}\nonumber\\
-& \qquad \pm \frac{1+q}{2}\text{-quantil de la distr. mostral}\times \text{error típic de l'estimació}
+\begin{equation}
+\text{estimador} \pm \frac{1+q}{2}\text{-quantil de la distr. mostral}\times \text{error típic de l'estimació}
 (\#eq:ICMgral)
-\end{align}
+\end{equation}
 
 Aquesta estructura és bastant típica (tot i que no universal: no tots els intervals de confiança paramètrics tenen aquesta forma) i satisfà que:
 
@@ -503,25 +482,28 @@ Aquesta estructura és bastant típica (tot i que no universal: no tots els inte
 
 A més, tenim que:
 
-* Per a una mateixa mostra i una mateixa fórmula (paramètrica) per calcular l'interval de confiança, **si el nivell de confiança creix, l'interval s'eixampla**.
+```{block2,type="rmdimportant"}
+Per a una mateixa mostra i una mateixa fórmula (paramètrica) per calcular l'interval de confiança, **si el nivell de confiança creix, l'interval s'eixampla**.
+```
 
-    **Això és general, per a tots els intervals de confiança paramètrics**. La idea intuïtiva és que, per augmentar la probabilitat que un interval contengui el valor del paràmetre, hem de prendre un interval més ample. A un interval de confiança amb l'estructura \@ref(eq:ICMgral), el motiu matemàtic és que si $q$ creix, el quantil d'ordre (1+$q$)/2 de la distribució mostral es fa més gran.
+**Això és general, per a tots els intervals de confiança paramètrics**. La idea intuïtiva és que, per augmentar la probabilitat que un interval contengui el valor del paràmetre, hem de prendre un interval més ample. A un interval de confiança amb l'estructura \@ref(eq:ICMgral), el motiu matemàtic és que si $q$ creix, el quantil d'ordre (1+$q$)/2 de la distribució mostral es fa més gran.
     
-   Per exemple, a l'Exemple \@ref(exm:alcohol1), teníem $n=40$, $\overline{X}=41.2$ i $\widetilde{S}_X=2.1$:
+Per exemple, a l'Exemple \@ref(exm:alcohol1), teníem $n=40$, $\overline{X}=41.2$ i $\widetilde{S}_X=2.1$:
 
-   * L'IC 95% té $q=0.95$, per tant $t_{n-1,(1+q)/2}=t_{39,0.975}=2.02$, i donava 
+* L'IC 95% té $q=0.95$, per tant $t_{n-1,(1+q)/2}=t_{39,0.975}=2.02$, i donava 
 $$
 41.2\pm 2.02\cdot \frac{2.1}{\sqrt{40}}\Rightarrow 41.2\pm 0.67
 $$
 
-   * L'IC 99% té $q=0.99$, per tant $t_{n-1,(1+q)/2}=t_{39,0.995}=2.71$, i dóna
+* L'IC 99% té $q=0.99$, per tant $t_{n-1,(1+q)/2}=t_{39,0.995}=2.71$, i dóna
 $$
 41.2\pm 2.71\cdot \frac{2.1}{\sqrt{40}}\Rightarrow 41.2\pm 0.9
 $$
-    més ample
+més ample.
 
-* Però si canviam  de mostra (o de fórmula, si n'hi ha més d'una) per calcular l'interval de confiança, pot passar qualsevol cosa.
-
+```{block2,type="rmdcaution"}
+Però si canviam  de mostra (o de fórmula, si n'hi ha més d'una) per calcular l'interval de confiança, pot passar qualsevol cosa.
+```
 
 
 
@@ -547,12 +529,12 @@ $$
 $$
 és simètric i centrat en $\overline{X}$. La seva **amplada** és la diferència entre els seus extrems
 $$
-2t_{n-1,(1+q)/2}\times \frac{\widetilde{S}_X}{\sqrt{n}}
+2t_{n-1,(1+q)/2}\cdot  \frac{\widetilde{S}_X}{\sqrt{n}}
 $$
 
 El **marge d'error** (**error**, **precisió**) $M$ en l'estimació de $\mu$ per mitjà d'aquest interval de confiança és el que sumam i restam a $\overline{X}$ per obtenir l'interval, és a dir, la meitat de la seva amplada:
 $$
-M=t_{n-1,(1+q)/2}\times \frac{\widetilde{S}_X}{\sqrt{n}}
+M=t_{n-1,(1+q)/2}\cdot  \frac{\widetilde{S}_X}{\sqrt{n}}
 $$
 
 ```{block2,type="rmdcaution"}
@@ -563,7 +545,7 @@ Anau alerta amb el llenguatge. Un interval és **més precís** quan és més es
 
 Una pregunta típica a l'hora de planejar un experiment és quina ha de ser la mida de la mostra que hem de prendre perquè el marge d'error en estimar $\mu$ amb un nivell de confiança donat sigui com a màxim un cert valor desitjat $M_{max}$. És a dir, volem trobar la $n$ més petita tal que
 $$
-t_{n-1,(1+q)/2}\times \frac{\widetilde{S}_X}{\sqrt{n}}\leqslant M_{max}.
+t_{n-1,(1+q)/2}\cdot  \frac{\widetilde{S}_X}{\sqrt{n}}\leqslant M_{max}.
 $$
 Però fixau-vos que en aquesta desigualtat la $n$ hi apareix al quantil i a l'error típic, i a més la $\widetilde{S}_X$ depèn de la mostra. El que farem per respondre la pregunta serà fer algunes trampes:
 
@@ -576,13 +558,13 @@ $$
 
 * D'aquesta manera, aproximam l'error $M$ per mitjà de
 $$
-M\approx z_{(1+q)/2}\times \frac{\widetilde{S}_0}{\sqrt{n}}
+M\approx z_{(1+q)/2}\cdot  \frac{\widetilde{S}_0}{\sqrt{n}}
 $$
 
 * I ara si imposam que $M\leqslant M_{max}$, ja podem aïllar la $n$:
 
 $$
-z_{(1+q)/2}\times \frac{\widetilde{S}_0}{\sqrt{n}}\leqslant M_{max}\Longrightarrow
+z_{(1+q)/2}\cdot  \frac{\widetilde{S}_0}{\sqrt{n}}\leqslant M_{max}\Longrightarrow
 n\geqslant \left(\frac{ z_{(1+q)/2}\cdot \widetilde{S}_0}{M_{max}}
 \right)^2
 $$
@@ -597,7 +579,7 @@ $$
 on $\widetilde{S}_0$ és la desviació típica mostral d'una mostra anterior (d'una *prova pilot*).
 
 
-Naturalment, quan després prenguem una mostra de mida $n$ que satisfaci aquesta condició, pot passar qualsevol cosa, ja que hem emprat els resultats d'una mostra per estimar la desviació típica d'una altra mostra i a més hem aproximat els quantils de la t de Student per els d'una normal estàndard, que són més petits. Però almanco haurem fet tot el que haurem pogut per fitar l'error dins el marge desitjat.
+Naturalment, quan després prenguem una mostra de mida $n$ que satisfaci aquesta condició, pot passar qualsevol cosa, ja que hem emprat els resultats d'una mostra per estimar la desviació típica d'una altra mostra i a més hem aproximat els quantils de la t de Student per els d'una normal estàndard, que són més petits. Però almenys haurem fet tot el que haurem pogut per fitar l'error dins el marge desitjat.
 
 
 
@@ -606,7 +588,7 @@ A l'Exemple \@ref(exm:alcohol1),  hem emprat una mostra de $n=40$ persones, amb 
 $$
 t_{0.975,39}\cdot \frac{2.1}{\sqrt{40}}=0.67
 $$
-Quin és el nombre mínim de persones que hauríem hagut d'emprar per estimar la mitjana amb un nivell de confiança del 95% i un error de (com a màxim) 0.5? És a dir, quin el nombre mínim de persones que hauríem hagut d'emprar per obtenir un IC 95% d'amplada (com a màxim) 1?
+Quin és el nombre mínim de persones que hauríem hagut d'emprar per estimar la mitjana amb un nivell de confiança del 95% i un error de (com a màxim) 0.5 punts percentuals? És a dir, quin el nombre mínim de persones que hauríem hagut d'emprar per obtenir un IC 95% d'amplada (com a màxim) 1?
 
 
 ```
@@ -628,19 +610,19 @@ Per fer-ho, prenem una **mostra aleatòria simple** de $X$ de mida $n$, amb nomb
 Explicarem tres mètodes per calcular aquest interval de confiança:
 
 ```{block2, type="rmdimportant"}
-* El **mètode exacte de Clopper-Pearson**, que es pot aplicar sempre però sol donar intervals de confiança més amples del necessari.
+* El **mètode exacte de Clopper-Pearson**, que es pot aplicar sempre.
 
 * El **mètode aproximat de Wilson**, que es pot emprar quan la mostra és gran, posem de mida 40 o més, i es basa en el fet que, pel Teorema Central del Límit, la proporció mostral de mostres aleatòries simples grans segueix una distribució aproximadament normal. 
 
 * El **mètode aproximat de Laplace**, que és una simplificació del mètode de Wilson, però només es pot emprar quan la mostra és bastant més gran, posem de mida 100 o més, i la proporció mostral $\widehat{p}_{X}$ no és molt propera a 0 o a 1. És el mètode més clàssic i conegut.
 
-Tots tres mètodes només valen per a mostres aleatòries simples, o almanco que puguin passar per aleatòries simples.
+Tots tres mètodes només valen per a mostres aleatòries simples, o almenys que puguin passar per aleatòries simples.
 
 ```
 
 ### Mètode "exacte" de Clopper-Pearson {-}
 
-Aquest mètode es basa en el fet que el nombre d'èxits $S_n$ en mostres aleatòries simples de mida $n$ de $X$ segueix una distribució binomial $B(n,p_X)$. Raonant de manera similar a com obteníem l'interval per a $\mu$ basat en la t de Student (us estalviarem els detalls) arribam a la fórmula següent, que no fa falta ni que llegiu si no ho voleu:
+Aquest mètode es basa en el fet que el nombre d'èxits $S_n$ en mostres aleatòries simples de mida $n$ de $X$ segueix una distribució binomial $B(n,p_X)$. Raonant de manera similar a com obteníem l'interval per a $\mu$ basat en la t de Student (us estalviarem els detalls) arribam a la fórmula següent (no fa falta ni que la llegiu si no ho voleu):
 
 ```{theorem}
 Amb les notacions anteriors, un interval de confiança de nivell de confiança $q$ per a $p_X$ és $[p_0,p_1]$, on 
@@ -680,7 +662,7 @@ library(epitools)
 round(binom.exact(2,10),3)
 ```
 
-La columna `lower` dóna l'extrem inferior de l'interval de confiança i la columna `upper`  l'extrem superior. Obtenim, per tant, l'interval [`r library(epitools);round(binom.exact(2,10)$lower,3)`,`r round(binom.exact(2,10)$upper,3)`]. Estimam per tant amb una confiança del 95% que aquest medicament cura entre el `r library(epitools);round(binom.exact(2,10)$lower,3)*100`% i el `r round(binom.exact(2,10)$upper,3)*100`% dels pacients.
+La columna `lower` dóna l'extrem inferior de l'interval de confiança i la columna `upper`  l'extrem superior. Obtenim, per tant, l'interval [`r library(epitools);round(binom.exact(2,10)$lower,3)`,`r round(binom.exact(2,10)$upper,3)`]: estimam, amb una confiança del 95%, que aquest medicament cura entre el `r library(epitools);round(binom.exact(2,10)$lower,3)*100`% i el `r round(binom.exact(2,10)$upper,3)*100`% dels pacients.
 
 ```{block2,type="rmdnote"}
 Sí, aquest interval és molt ample. La culpa no és del mètode de Clopper-Pearson, és de la mida petita de la mostra.
@@ -697,8 +679,8 @@ $$
 $$
 és aproximadament $N(0,1)$. Per tant
 $$
-P\Big(-z_{(1+q)/2}\leqslant \dfrac{\widehat{p}_{X}-p_X}
-{\sqrt{\frac{p_X(1-p_X)}{n}}}\leqslant z_{(1+q)/2}\Big)\approx q
+P\Bigg(-z_{(1+q)/2}\leqslant \dfrac{\widehat{p}_{X}-p_X}
+{\sqrt{\frac{p_X(1-p_X)}{n}}}\leqslant z_{(1+q)/2}\Bigg)\approx q
 $$
 
 Aïllant $p_X$ amb una mica de paciència obtenim:
@@ -800,7 +782,7 @@ Però en tot cas, si no filam molt prim i podem triar, hem de tenir en compte qu
     * Només és un interval "exacte" si la mostra és aleatòria simple, la qual cosa sol ser falsa (com a molt, serà "aproximadament" aleatòria simple)
     * Com que no es pot calcular "a mà", no és molt popular
 
-* **L'interval de Wilson** és aproximat, fa servir l'aproximació a la normal donada pel Teorema Central del Límit. Això no és un gran emperò, perquè tanmateix segurament la mostra serà com a molt "aproximadament" aleatòria simple. Ara bé, tampoc no està centrat en la proporció mostral, i ens agrada poder donar els intervals en la forma "estimació més manco qualque cosa" perquè d'aquesta manera donam l'estimació puntual i el marge d'error.
+* **L'interval de Wilson** és aproximat, fa servir l'aproximació a la normal donada pel Teorema Central del Límit. Això no és un gran emperò, perquè tanmateix segurament la mostra serà com a molt "aproximadament" aleatòria simple. Ara bé, tampoc no està centrat en la proporció mostral, i ens agrada poder donar els intervals en la forma "estimació més o menys qualque cosa" perquè d'aquesta manera donam l'estimació puntual i el marge d'error.
 
 * **L'interval de Laplace** és *molt* aproximat, però:
     * Forma part de la cultura general del científic, tothom el coneix
@@ -808,7 +790,7 @@ Però en tot cas, si no filam molt prim i podem triar, hem de tenir en compte qu
 
 
 ```{example}
-En un assaig d'un nou tractament de quimioteràpia, en una mostra de $n$ malalts tractats, cap desenvolupà càncer testicular com a efecte secundari. Quin seria un interval de confiança al 95% per a la proporció de malalts tractats amb aquesta quimio que desenvolupen càncer testicular?
+En un assaig d'un nou tractament de quimioteràpia, en una mostra de $n$ malalts tractats, cap desenvolupà càncer testicular com a efecte secundari. Quin seria un interval de confiança del 95% per a la proporció de malalts tractats amb aquesta quimio que desenvolupen càncer testicular?
 
 
 ```
@@ -873,6 +855,10 @@ legend("topright",lty=c(NA,NA,1),pch=c(20,20,NA),
 
 Els extrems superiors dels intervals de Clopper-Pearson i Wilson se superposen en aquest darrer gràfic.
 
+```{block2,type="rmdexercici"}
+Com empraríeu la regla del 3 per donar un IC 95% per a una proporció a partir d'una mostra sense cap fracàs?
+```
+
  
 ```{example} 
 En un assaig d'un tractament de quimioteràpia, en una mostra de 100 pacients tractats, 25 desenvoluparen càncer testicular secundari. Volem calcular un  IC 95% per a la proporció  de pacients tractats amb aquesta quimioteràpia que desenvolupen càncer testicular.
@@ -888,14 +874,14 @@ round(binom.approx(25,100),4)
 
 Concloem, amb un nivell de confiança del 95%, que entre aproximadament un 17% i un 34% dels pacients tractats amb aquesta quimioteràpia  desenvolupen càncer testicular.
 
-### Càlcul de la mida de la mostra per a fixar l'error {-}
+### Càlcul de la mida de la mostra per a fitar l'error {-}
 
 L'**error** (**marge d'error**, **precisió**...) de l'interval de confiança de Laplace és
 $$
 M= z_{(q+1)/2} \sqrt{\frac{\widehat{p}_{X} (1-\widehat{p}_{X})}{n}}
 $$
 
-Com al cas de la mitjana, quan estimam una proporció ens pot sorgir el problema de determinar la mida mínima de la mostra que hem d'emprar a fi que aquest error no sigui més gran que un cert valor.
+Com al cas de la mitjana, quan estimam una proporció ens pot interessar determinar la mida mínima de la mostra que hem d'emprar a fi que aquest error no sigui més gran que un cert valor.
 
 En el cas de l'interval de Laplace per a una proporció, podem donar un $n$ que garanteixi, valgui el que valgui $\widehat{p}_{X}\in [0,1]$, un marge d'error màxim donat.
 
@@ -972,7 +958,7 @@ Observau tres coses:
 
 ## Intervals de confiança per a la variància i la desviació típica d'una variable normal
 
-Suposem que tenim una variable normal $X$. Volem trobar un IC 95% per a la seva variància $\sigma^2$ (o la seva desviació típica $\sigma$). Per calcular-lo, prenem una mostra aleatòria simple de mida $n$, de variància mostral $\widetilde{S}^2_X$. 
+Suposem que tenim una **variable normal** $X$. Volem trobar un IC 95% per a la seva variància $\sigma^2$ (o la seva desviació típica $\sigma$). Per calcular-lo, prenem una mostra aleatòria simple de mida $n$, de variància mostral $\widetilde{S}^2_X$. 
 
 
 Recordau que, en  aquestes condicions,
@@ -1010,7 +996,7 @@ q=P\left(\chi_{n-1,(1-q)/2}^2\leqslant \chi_{n-1}^2\leq
 \chi_{n-1,(1+q)/2}^2
 \right)\\[2ex]
 \quad\displaystyle = P\left(\frac{(n-1)
-\widetilde{S}_{X}^2}{\chi_{n-1,(1+q)/2}^2}\leq\sigma^2\leq\frac{
+\widetilde{S}_{X}^2}{\chi_{n-1,(1+q)/2}^2}\leqslant\sigma^2\leqslant\frac{
 (n-1)\widetilde{S}_{X}^2}{\chi_{n-1,(1-q)/2}^2}
 \right)
 \end{array}
@@ -1027,7 +1013,7 @@ Un índex de qualitat d'un reactiu químic és la variabilitat en el temps que t
 
 ```
 
-Hem realitzat 30 proves en les quals hem mesurat el temps d'actuació d'un determinat reactiu, i a partir dels resultats volem calcular un IC 95% per a la desviació típica del seu temps d'actuació. Tenim els resultats guardats en el vector següent:
+Hem realitzat 30 proves en les quals hem mesurat el temps d'actuació d'un determinat reactiu (en segons), i a partir dels resultats volem calcular un IC 95% per a la desviació típica del seu temps d'actuació. Tenim els resultats guardats en el vector següent:
 
 ```{r}
 Temps=c(12,13,13,14,14,14,15,15,16,17,17,18,18,19,19,
@@ -1064,12 +1050,12 @@ $$
 [\sqrt{191.26}, \sqrt{544.96}]=[13.83,23.34]
 $$
 
-Estimam doncs (amb un 95% de confiança) que la variabilitat dels temps d'actuació d'aquest reactiu és molt gran. Comparau aquest interval amb l'IC 95% per al seu temps mitjà d'actuació:
+Estimam doncs (amb un 95% de confiança) que la desviació típica d'aquests temps d'actuació està entre 13.83 i 23.34 segons. És molt o poc? Comparem amb l'estimació del seu temps mitjà d'actuació. Calculem un IC 95% per a aquest temps mitjà:
 ```{r}
 round(t.test(Temps)$conf.int,2)
 ```
 
-L'extrem superior de l'IC 95% per a la desviació típica és més gran que l'extrem inferior d'aquest IC 95% per a la mitjana.
+L'extrem superior de l'IC 95% per a la desviació típica és més gran que l'extrem inferior d'aquest IC 95% per a la mitjana. Quan la desviació típica és de mida semblant a la mitjana, és molt gran.
 
 Amb R, aquest interval de confiança amb nivell de confiança $q$ per a la variància es pot calcular amb la funció
 
@@ -1164,7 +1150,12 @@ on $\widehat{p}_{X}=557/727=`r round(557/727,3)`$, $z_{(q+1)/2}=1.96$, $n=727$ i
 $$
 0.766\pm 1.96\sqrt{\frac{0.766(1-0.766)}{727}}\sqrt{\frac{\vphantom{(}12000-727}{12000-1}}\Rightarrow [0.736,0.796]
 $$
-Estimam amb un nivell de confiança del 95% que entre un 75.1 i un 78.1 dels estudiants de la UIB han comès plagi en algun treball.
+Estimam amb un nivell de confiança del 95% que entre un 73.6% i un 79.6% dels estudiants de la UIB han comès plagi en algun treball.
+
+
+```{r, echo=FALSE, out.width="80%", fig.cap="https://diari.uib.cat/digitalAssets/125/125740_1_reportatge.pdf"}
+knitr::include_graphics("Bioestadistica-II_files/figure-html/plagiuib.png")
+```
 
 
 
@@ -1191,7 +1182,7 @@ Per tant, ens calen `r ceiling(12000*1.96^2/(4*0.05^2*(12000-1)+1.96^2))` estudi
 
 1. Si prenem una altra mostra de 500 subjectes de la mateixa comunitat, tenim un 95% de confiança que l'interval 16.5%-23.5% contendrà el percentatge de subjectes de la mostra que tenen aquesta malaltia.
 1. Un 95% dels individus de la comunitat tenen entre el 16.5% i el 23.5% de probabilitat de tenir aquesta malaltia.
-1. La fórmula amb la qual hem obtingut l'interval 16.5%-23.5% produeix intervals que contenen la proporció poblacional de malalts en un 95% de les ocasions. 
+1. La fórmula amb la qual hem obtingut l'interval 16.5%-23.5% produeix intervals que contenen la proporció poblacional de malalts sobre un 95% de les ocasions. 
 1. La fórmula amb la qual hem obtingut l'interval 16.5%-23.5% produeix intervals que contenen la proporció de malalts en la mostra en un 95% de les ocasions.
 1. Totes les altres respostes són falses.
 
@@ -1221,7 +1212,7 @@ Per tant, ens calen `r ceiling(12000*1.96^2/(4*0.05^2*(12000-1)+1.96^2))` estudi
 
 
 1. Un 1% de les concentracions mitjanes de totes les mostres de qualsevol mida d'individus d'aquesta espècie.
-1. Un 1% de les concentracions mitjanes de les mostres grans ($\geqslant 40$) d'individus d'aquesta espècie.
+1. Un 1% de les concentracions mitjanes de les mostres grans (de mida $\geqslant 40$) d'individus d'aquesta espècie.
 1. Un 99%  de les concentracions mitjanes de les mostres  de qualsevol mida d'individus d'aquesta espècie.
 1. Un 1% de les concentracions dels individus d'aquesta espècie.
 1. Un 99%  de les concentracions dels individus d'aquesta espècie.
@@ -1247,7 +1238,7 @@ Per tant, ens calen `r ceiling(12000*1.96^2/(4*0.05^2*(12000-1)+1.96^2))` estudi
 1. No ho podem saber a partir de les dades donades
 
 
-**(7)** Per calcular un interval de confiança al 95% per al valor mitjà $\mu$ d'una certa variable, hem pres una mostra aleatòria simple de mida 100. Si ara prenguéssim una altra mostra aleatòria simple de  mida 100 i amb aquesta calculàssim un interval de confiança del 99% per a $\mu$, com seria aquest interval?
+**(7)** Per calcular un interval de confiança del 95% per al valor mitjà $\mu$ d'una certa variable, hem pres una mostra aleatòria simple de mida 100. Si ara prenguéssim una altra mostra aleatòria simple de  mida 100 i amb aquesta calculàssim un interval de confiança del 99% per a $\mu$, com seria aquest interval?
 
 
 1. Més ample que l'anterior
@@ -1307,7 +1298,7 @@ Per tant, ens calen `r ceiling(12000*1.96^2/(4*0.05^2*(12000-1)+1.96^2))` estudi
 1. Si dues mostres tenen la mateixa variància mostral, donen lloc al mateix interval de confiança del 95% per a la variància poblacional encara que siguin de mides diferents
 
 
-**(13)** Volem estimar el nivell mitjà de potassi en sang en un poble de Mallorca, mesurant-lo sobre una mostra aleatòria d'habitants del poble i emprant la fórmula basada en la t de Student. L'exactitud de l'estimació pot dependre de (marcau totes les respostes correctes):
+**(13)** Volem estimar el nivell mitjà de potassi en sang en un poble de Mallorca, mesurant-lo sobre una mostra aleatòria d'habitants del poble i emprant la fórmula basada en la t de Student. La precisió de l'estimació pot dependre de (marcau totes les respostes correctes):
  
 
 1. El valor real del nivell mitjà de potassi en sang en el poble objecte d'estudi.
@@ -1319,7 +1310,7 @@ Per tant, ens calen `r ceiling(12000*1.96^2/(4*0.05^2*(12000-1)+1.96^2))` estudi
 
 
 
-**(14)** En una mostra aleatòria d'individus d'una comunitat s'ha obtingut una valor mitjà de la tensió arterial diastòlica (TAD) de 85 mmHg, amb un error estàndard de 2.5 mmHg. Quina o quines de les  afirmacions següents són vertaderes?
+**(14)** En una mostra aleatòria d'individus d'una comunitat s'ha obtingut un valor mitjà de la tensió arterial diastòlica (TAD) de 85 mmHg, amb un error estàndard de 2.5 mmHg. Quina o quines de les  afirmacions següents són vertaderes?
 
 1. El 95% dels subjectes de la mostra tenien valors de TAD entre 80 i 90 mmHg. 
 1. El 90% dels subjectes de la mostra tenien valors de TAD entre 82.5 i 87.5 mmHg. 
@@ -1329,7 +1320,7 @@ Per tant, ens calen `r ceiling(12000*1.96^2/(4*0.05^2*(12000-1)+1.96^2))` estudi
 
 
 
-**(15)** Per calcular un interval de confiança al 95% per al valor mitjà $\mu$ d'una certa variable, hem pres una mostra aleatòria simple de mida 100. Si, amb la mateixa mostra, calculàssim un interval de confiança del 99% per a $\mu$, com seria aquest interval?
+**(15)** Per calcular un interval de confiança del 95% per al valor mitjà $\mu$ d'una certa variable, hem pres una mostra aleatòria simple de mida 100 i emprat la fórmula basada en la t de Student. Si, amb la mateixa mostra, calculàssim un interval de confiança del 99% per a $\mu$, com seria aquest interval?
 
 1. Més ample que l'anterior 
 1. Més estret que l'anterior
@@ -1338,7 +1329,7 @@ Per tant, ens calen `r ceiling(12000*1.96^2/(4*0.05^2*(12000-1)+1.96^2))` estudi
 1. Cap de les altres respostes és correcta
 
 
-**(16)** Per calcular un interval de confiança al 95% per el valor mitjà d'una certa variable, havíem decidit prendre una mostra aleatòria simple de mida 200, però resulta massa costós, i hem decidit reduir la mida a 100. Té aquesta decisió qualque efecte sobre l'amplada de l'interval de confiança?
+**(16)** Per calcular un interval de confiança del 95% per el valor mitjà d'una certa variable, havíem decidit prendre una mostra aleatòria simple de mida 200, però resulta massa costós, i hem decidit reduir la mida a 100. Té aquesta decisió qualque efecte sobre l'amplada de l'interval de confiança?
 
 
 1. Amb 100 l'interval de confiança serà més ample que amb 200
@@ -1347,7 +1338,7 @@ Per tant, ens calen `r ceiling(12000*1.96^2/(4*0.05^2*(12000-1)+1.96^2))` estudi
 1. Pot passar qualsevol cosa 
 
 
-**(17)**  Calculam un interval de confiança al 95% per a la mitjana poblacional d'una variable aleatòria, a partir d'una mostra aleatòria simple de 100 individus.
+**(17)**  Calculam un interval de confiança del 95% per a la mitjana poblacional d'una variable aleatòria, a partir d'una mostra aleatòria simple de 100 individus.
 Si calculam el mateix interval de confiança amb una altra mostra aleatòria simple de 100 individus que té una variància més gran, quina de les tres coses següents   passarà? 
 
 
@@ -1367,9 +1358,9 @@ Si calculam el mateix interval de confiança amb una altra mostra aleatòria sim
 
 
 
-**(19)** Un article d'una revista científica informa que l'interval de confiança al 95% del nivell mitjà de colesterol en sang en els adults d'una certa població és 192-208. Es va acceptar que la variable tenia una distribució normal, per la qual cosa s'emprà la fórmula basada en la t de Student, i la mostra que s'usà per calcular aquest interval de confiança va ser de 100 individus. Quina o quines de les següents afirmacions són vertaderes?
+**(19)** Un article d'una revista científica informa que l'interval de confiança del 95% del nivell mitjà de colesterol en sang en els adults d'una certa població és 192-208. Es va acceptar que la variable tenia una distribució normal, per la qual cosa s'emprà la fórmula basada en la t de Student, i la mostra que s'usà per calcular aquest interval de confiança va ser de 100 individus. Quina o quines de les següents afirmacions són vertaderes?
 
-1. És molt probable que el nivell mitjà poblacional estigui comprès entre 192 i 208. 
+1. Estam molt segurs que el nivell mitjà poblacional estigui comprès entre 192 i 208. 
 1. Si se repetís l'estudi molts pics, en un 95% de les vegades s'obtindria una mitjana mostral compresa entre 192 i 208. 
 1. El 95% dels adults de la població té un nivell de colesterol comprès entre 192 i 208. 
 1. La mitjana mostral trobada en l'estudi és de 200. 
@@ -1386,12 +1377,12 @@ Si calculam el mateix interval de confiança amb una altra mostra aleatòria sim
 1. La reducció mitjana del nivell de colesterol en plasma als 15 dies obtinguda en una petita prova pilot prèvia, que va ser de 8 mg/dl. 
 1. La desviació típica en la reducció del nivell de colesterol en plasma als 15 dies obtinguda en una petita prova pilot prèvia, que va ser d'1.2 mg/dl.
 1. El nivell de confiança, que fixarem en un 5%.
-1. La proporció esperada de pacients que no completaran l'estudi, que en altres estudis similars de la literatura ha estat d'un 10%.
+1. La proporció esperada de pacients que no completaran l'estudi, que en altres estudis similars publicats ha estat d'un 10%.
 1. L'error màxim que ens volem permetre en l'estimació de la reducció mitjana del nivell de colesterol en plasma, que fixarem en 1 mg/dl.
 
 
 
-**(21)** Un investigador vol determinar la proporció d'estudiants de secundària d'una determinada comunitat que consumeixen begudes energètiques passant una enquesta a una mostra d'estudiants. Per calcular la mida mostral que necessita per al seu estudi ja disposa de les dades següents: mida de la població objectiu; percentatge esperat d'estudiants que no contestaran l'enquesta; la precisió amb la qual desitja donar l'estimació de la proporció (5 punts percentuals); el nivell de confiança (95%). Vol calcular aquesta mida mostral en el cas més desfavorable (proporció mostral 0.5).
+**(21)** Un investigador vol determinar la proporció d'estudiants de secundària d'una determinada comunitat que consumeixen begudes energètiques passant una enquesta a una mostra d'estudiants. Per calcular la mida mostral que necessita per al seu estudi ja disposa de les dades següents: mida de la població objectiu; percentatge esperat d'estudiants que no contestaran l'enquesta; la precisió amb la qual desitja donar l'estimació de la proporció (5 punts percentuals); el nivell de confiança (95%). Vol calcular aquesta mida mostral en el cas més desfavorable.
 Quina o quines altres dades li falten? (marcau totes les respostes correctes):
 
 1. Saber l'error estàndard de la proporció mostral  d'estudiants consumidors de begudes energètiques.
@@ -1401,7 +1392,7 @@ Quina o quines altres dades li falten? (marcau totes les respostes correctes):
 1. Com que vol calcular l'interval de confiança en el cas més desfavorable,  ja no li fa falta cap altra dada. 
 
 
-**(22)** A Espanya hi ha aproximadament 80000 estudiants universitaris de ciències. Suposem que es va passar una enquesta a una mostra aleatòria simple de 200 estudiants d'aquests i que 198 van respondre que la matèria que manco els havia agradat havia estat l'Estadística. Si volgués calcular un interval de confiança per a la proporció d'estudiants de ciències per als quals la matèria manco preferida és l'Estadística emprant aquestes dades, quin, o quins, mètodes podria emprar? 
+**(22)** A Espanya hi ha aproximadament 80000 estudiants universitaris de ciències. Suposem que es va passar una enquesta a una mostra aleatòria simple de 200 estudiants d'aquests i que 198 van respondre que la matèria que menys els havia agradat havia estat l'Estadística. Si volgués calcular un interval de confiança per a la proporció d'estudiants de ciències per als quals la matèria menys preferida és l'Estadística emprant aquestes dades, quin, o quins, mètodes podria emprar? 
 
 1. Només el de Clopper-Pearson
 1. Només el de Clopper-Pearson i el de Wilson 

@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Tema 8 Contrastos d’independència i homogeneïtat | Matemàtiques II v.2021</title>
   <meta name="description" content="Apunts Matemàtiques II bookdown::gitbook." />
-  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Tema 8 Contrastos d’independència i homogeneïtat | Matemàtiques II v.2021" />
   <meta property="og:type" content="book" />
@@ -23,17 +23,18 @@
 
 
 
-<meta name="date" content="2021-05-26" />
+<meta name="date" content="2022-02-12" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="chap-bondat.html"/>
-<link rel="next" href="chap-ED.html"/>
-<script src="libs/header-attrs-2.6/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link rel="prev" href="contrastos-de-bondat-dajust.html"/>
+<link rel="next" href="introducció-a-lestadística-multidimensional.html"/>
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -49,7 +50,8 @@
 
 
 
-
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
@@ -58,6 +60,7 @@
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
@@ -118,6 +121,7 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
@@ -135,103 +139,101 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Presentació</a></li>
-<li class="chapter" data-level="1" data-path="chap-conceptes.html"><a href="chap-conceptes.html"><i class="fa fa-check"></i><b>1</b> Alguns conceptes bàsics</a>
+<li class="chapter" data-level="1" data-path="alguns-conceptes-bàsics.html"><a href="alguns-conceptes-bàsics.html"><i class="fa fa-check"></i><b>1</b> Alguns conceptes bàsics</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="chap-conceptes.html"><a href="chap-conceptes.html#tipus-de-dades"><i class="fa fa-check"></i><b>1.1</b> Tipus de dades</a></li>
-<li class="chapter" data-level="1.2" data-path="chap-conceptes.html"><a href="chap-conceptes.html#població"><i class="fa fa-check"></i><b>1.2</b> Població</a></li>
-<li class="chapter" data-level="1.3" data-path="chap-conceptes.html"><a href="chap-conceptes.html#variable-aleatòria"><i class="fa fa-check"></i><b>1.3</b> Variable aleatòria</a></li>
-<li class="chapter" data-level="1.4" data-path="chap-conceptes.html"><a href="chap-conceptes.html#mostra"><i class="fa fa-check"></i><b>1.4</b> Mostra</a></li>
-<li class="chapter" data-level="1.5" data-path="chap-conceptes.html"><a href="chap-conceptes.html#sec:mostreig"><i class="fa fa-check"></i><b>1.5</b> Mostreig aleatori</a></li>
-<li class="chapter" data-level="1.6" data-path="chap-conceptes.html"><a href="chap-conceptes.html#mostres-de-conveniència"><i class="fa fa-check"></i><b>1.6</b> Mostres de conveniència</a></li>
-<li class="chapter" data-level="1.7" data-path="chap-conceptes.html"><a href="chap-conceptes.html#test-de-la-lliçó-1"><i class="fa fa-check"></i><b>1.7</b> Test de la lliçó 1</a></li>
+<li class="chapter" data-level="1.1" data-path="alguns-conceptes-bàsics.html"><a href="alguns-conceptes-bàsics.html#tipus-de-dades"><i class="fa fa-check"></i><b>1.1</b> Tipus de dades</a></li>
+<li class="chapter" data-level="1.2" data-path="alguns-conceptes-bàsics.html"><a href="alguns-conceptes-bàsics.html#població"><i class="fa fa-check"></i><b>1.2</b> Població</a></li>
+<li class="chapter" data-level="1.3" data-path="alguns-conceptes-bàsics.html"><a href="alguns-conceptes-bàsics.html#variable-aleatòria"><i class="fa fa-check"></i><b>1.3</b> Variable aleatòria</a></li>
+<li class="chapter" data-level="1.4" data-path="alguns-conceptes-bàsics.html"><a href="alguns-conceptes-bàsics.html#mostra"><i class="fa fa-check"></i><b>1.4</b> Mostra</a></li>
+<li class="chapter" data-level="1.5" data-path="alguns-conceptes-bàsics.html"><a href="alguns-conceptes-bàsics.html#sec:mostreig"><i class="fa fa-check"></i><b>1.5</b> Mostreig aleatori</a></li>
+<li class="chapter" data-level="1.6" data-path="alguns-conceptes-bàsics.html"><a href="alguns-conceptes-bàsics.html#mostres-de-conveniència"><i class="fa fa-check"></i><b>1.6</b> Mostres de conveniència</a></li>
+<li class="chapter" data-level="1.7" data-path="alguns-conceptes-bàsics.html"><a href="alguns-conceptes-bàsics.html#test-de-la-lliçó-1"><i class="fa fa-check"></i><b>1.7</b> Test de la lliçó 1</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="chap-varal.html"><a href="chap-varal.html"><i class="fa fa-check"></i><b>2</b> Variables aleatòries</a>
+<li class="chapter" data-level="2" data-path="variables-aleatòries.html"><a href="variables-aleatòries.html"><i class="fa fa-check"></i><b>2</b> Variables aleatòries</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="chap-varal.html"><a href="chap-varal.html#generalitats-sobre-variables-aleatòries"><i class="fa fa-check"></i><b>2.1</b> Generalitats sobre variables aleatòries</a></li>
-<li class="chapter" data-level="2.2" data-path="chap-varal.html"><a href="chap-varal.html#variables-aleatòries-discretes"><i class="fa fa-check"></i><b>2.2</b> Variables aleatòries discretes</a>
+<li class="chapter" data-level="2.1" data-path="variables-aleatòries.html"><a href="variables-aleatòries.html#generalitats-sobre-variables-aleatòries"><i class="fa fa-check"></i><b>2.1</b> Generalitats sobre variables aleatòries</a></li>
+<li class="chapter" data-level="2.2" data-path="variables-aleatòries.html"><a href="variables-aleatòries.html#variables-aleatòries-discretes"><i class="fa fa-check"></i><b>2.2</b> Variables aleatòries discretes</a>
 <ul>
-<li class="chapter" data-level="2.2.1" data-path="chap-varal.html"><a href="chap-varal.html#densitat-i-distribució"><i class="fa fa-check"></i><b>2.2.1</b> Densitat i distribució</a></li>
-<li class="chapter" data-level="2.2.2" data-path="chap-varal.html"><a href="chap-varal.html#esperança"><i class="fa fa-check"></i><b>2.2.2</b> Esperança</a></li>
-<li class="chapter" data-level="2.2.3" data-path="chap-varal.html"><a href="chap-varal.html#variància-i-desviació-típica"><i class="fa fa-check"></i><b>2.2.3</b> Variància i desviació típica</a></li>
-<li class="chapter" data-level="2.2.4" data-path="chap-varal.html"><a href="chap-varal.html#quantils"><i class="fa fa-check"></i><b>2.2.4</b> Quantils</a></li>
+<li class="chapter" data-level="2.2.1" data-path="variables-aleatòries.html"><a href="variables-aleatòries.html#densitat-i-distribució"><i class="fa fa-check"></i><b>2.2.1</b> Densitat i distribució</a></li>
+<li class="chapter" data-level="2.2.2" data-path="variables-aleatòries.html"><a href="variables-aleatòries.html#esperança"><i class="fa fa-check"></i><b>2.2.2</b> Esperança</a></li>
+<li class="chapter" data-level="2.2.3" data-path="variables-aleatòries.html"><a href="variables-aleatòries.html#variància-i-desviació-típica"><i class="fa fa-check"></i><b>2.2.3</b> Variància i desviació típica</a></li>
+<li class="chapter" data-level="2.2.4" data-path="variables-aleatòries.html"><a href="variables-aleatòries.html#quantils"><i class="fa fa-check"></i><b>2.2.4</b> Quantils</a></li>
 </ul></li>
-<li class="chapter" data-level="2.3" data-path="chap-varal.html"><a href="chap-varal.html#famílies-importants-de-variables-aleatòries-discretes"><i class="fa fa-check"></i><b>2.3</b> Famílies importants de variables aleatòries discretes</a>
+<li class="chapter" data-level="2.3" data-path="variables-aleatòries.html"><a href="variables-aleatòries.html#famílies-importants-de-variables-aleatòries-discretes"><i class="fa fa-check"></i><b>2.3</b> Famílies importants de variables aleatòries discretes</a>
 <ul>
-<li class="chapter" data-level="2.3.1" data-path="chap-varal.html"><a href="chap-varal.html#variables-aleatòries-binomials"><i class="fa fa-check"></i><b>2.3.1</b> Variables aleatòries binomials</a></li>
-<li class="chapter" data-level="2.3.2" data-path="chap-varal.html"><a href="chap-varal.html#variables-aleatòries-hipergeomètriques"><i class="fa fa-check"></i><b>2.3.2</b> Variables aleatòries hipergeomètriques</a></li>
-<li class="chapter" data-level="2.3.3" data-path="chap-varal.html"><a href="chap-varal.html#variables-aleatòries-de-poisson"><i class="fa fa-check"></i><b>2.3.3</b> Variables aleatòries de Poisson</a></li>
+<li class="chapter" data-level="2.3.1" data-path="variables-aleatòries.html"><a href="variables-aleatòries.html#variables-aleatòries-binomials"><i class="fa fa-check"></i><b>2.3.1</b> Variables aleatòries binomials</a></li>
+<li class="chapter" data-level="2.3.2" data-path="variables-aleatòries.html"><a href="variables-aleatòries.html#variables-aleatòries-hipergeomètriques"><i class="fa fa-check"></i><b>2.3.2</b> Variables aleatòries hipergeomètriques</a></li>
+<li class="chapter" data-level="2.3.3" data-path="variables-aleatòries.html"><a href="variables-aleatòries.html#variables-aleatòries-de-poisson"><i class="fa fa-check"></i><b>2.3.3</b> Variables aleatòries de Poisson</a></li>
 </ul></li>
-<li class="chapter" data-level="2.4" data-path="chap-varal.html"><a href="chap-varal.html#variables-aleatòries-contínues"><i class="fa fa-check"></i><b>2.4</b> Variables aleatòries contínues</a>
+<li class="chapter" data-level="2.4" data-path="variables-aleatòries.html"><a href="variables-aleatòries.html#variables-aleatòries-contínues"><i class="fa fa-check"></i><b>2.4</b> Variables aleatòries contínues</a>
 <ul>
-<li class="chapter" data-level="2.4.1" data-path="chap-varal.html"><a href="chap-varal.html#densitat-i-distribució-1"><i class="fa fa-check"></i><b>2.4.1</b> Densitat i distribució</a></li>
-<li class="chapter" data-level="2.4.2" data-path="chap-varal.html"><a href="chap-varal.html#esperança-variància-quantils"><i class="fa fa-check"></i><b>2.4.2</b> Esperança, variància, quantils…</a></li>
+<li class="chapter" data-level="2.4.1" data-path="variables-aleatòries.html"><a href="variables-aleatòries.html#densitat-i-distribució-1"><i class="fa fa-check"></i><b>2.4.1</b> Densitat i distribució</a></li>
+<li class="chapter" data-level="2.4.2" data-path="variables-aleatòries.html"><a href="variables-aleatòries.html#esperança-variància-quantils"><i class="fa fa-check"></i><b>2.4.2</b> Esperança, variància, quantils…</a></li>
 </ul></li>
-<li class="chapter" data-level="2.5" data-path="chap-varal.html"><a href="chap-varal.html#sec:normal"><i class="fa fa-check"></i><b>2.5</b> Variables aleatòries normals</a>
+<li class="chapter" data-level="2.5" data-path="variables-aleatòries.html"><a href="variables-aleatòries.html#sec:normal"><i class="fa fa-check"></i><b>2.5</b> Variables aleatòries normals</a>
 <ul>
-<li class="chapter" data-level="2.5.1" data-path="chap-varal.html"><a href="chap-varal.html#amb-r"><i class="fa fa-check"></i><b>2.5.1</b> Amb R</a></li>
-<li class="chapter" data-level="2.5.2" data-path="chap-varal.html"><a href="chap-varal.html#propietats-bàsiques"><i class="fa fa-check"></i><b>2.5.2</b> Propietats bàsiques</a></li>
-<li class="chapter" data-level="2.5.3" data-path="chap-varal.html"><a href="chap-varal.html#intervals-de-referència"><i class="fa fa-check"></i><b>2.5.3</b> Intervals de referència</a></li>
-<li class="chapter" data-level="2.5.4" data-path="chap-varal.html"><a href="chap-varal.html#sec:lognormal"><i class="fa fa-check"></i><b>2.5.4</b> Variables log-normals</a></li>
+<li class="chapter" data-level="2.5.1" data-path="variables-aleatòries.html"><a href="variables-aleatòries.html#amb-r"><i class="fa fa-check"></i><b>2.5.1</b> Amb R</a></li>
+<li class="chapter" data-level="2.5.2" data-path="variables-aleatòries.html"><a href="variables-aleatòries.html#propietats-bàsiques"><i class="fa fa-check"></i><b>2.5.2</b> Propietats bàsiques</a></li>
+<li class="chapter" data-level="2.5.3" data-path="variables-aleatòries.html"><a href="variables-aleatòries.html#intervals-de-referència"><i class="fa fa-check"></i><b>2.5.3</b> Intervals de referència</a></li>
+<li class="chapter" data-level="2.5.4" data-path="variables-aleatòries.html"><a href="variables-aleatòries.html#sec:lognormal"><i class="fa fa-check"></i><b>2.5.4</b> Variables log-normals</a></li>
 </ul></li>
-<li class="chapter" data-level="2.6" data-path="chap-varal.html"><a href="chap-varal.html#test-de-la-lliçó-2"><i class="fa fa-check"></i><b>2.6</b> Test de la lliçó 2</a></li>
+<li class="chapter" data-level="2.6" data-path="variables-aleatòries.html"><a href="variables-aleatòries.html#test-de-la-lliçó-2"><i class="fa fa-check"></i><b>2.6</b> Test de la lliçó 2</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="chap-estim.html"><a href="chap-estim.html"><i class="fa fa-check"></i><b>3</b> Estimació puntual</a>
+<li class="chapter" data-level="3" data-path="estimació-puntual.html"><a href="estimació-puntual.html"><i class="fa fa-check"></i><b>3</b> Estimació puntual</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="chap-estim.html"><a href="chap-estim.html#estimadors"><i class="fa fa-check"></i><b>3.1</b> Estimadors</a></li>
-<li class="chapter" data-level="3.2" data-path="chap-estim.html"><a href="chap-estim.html#mitjana-mostral"><i class="fa fa-check"></i><b>3.2</b> Mitjana mostral</a></li>
-<li class="chapter" data-level="3.3" data-path="chap-estim.html"><a href="chap-estim.html#proporció-mostral"><i class="fa fa-check"></i><b>3.3</b> Proporció mostral</a></li>
-<li class="chapter" data-level="3.4" data-path="chap-estim.html"><a href="chap-estim.html#variància-mostral"><i class="fa fa-check"></i><b>3.4</b> Variància mostral</a></li>
-<li class="chapter" data-level="3.5" data-path="chap-estim.html"><a href="chap-estim.html#la-distribució-t-de-student"><i class="fa fa-check"></i><b>3.5</b> La distribució t de Student</a></li>
-<li class="chapter" data-level="3.6" data-path="chap-estim.html"><a href="chap-estim.html#biaix-i-precisió"><i class="fa fa-check"></i><b>3.6</b> Biaix i precisió</a>
+<li class="chapter" data-level="3.1" data-path="estimació-puntual.html"><a href="estimació-puntual.html#estimadors"><i class="fa fa-check"></i><b>3.1</b> Estimadors</a></li>
+<li class="chapter" data-level="3.2" data-path="estimació-puntual.html"><a href="estimació-puntual.html#mitjana-mostral"><i class="fa fa-check"></i><b>3.2</b> Mitjana mostral</a></li>
+<li class="chapter" data-level="3.3" data-path="estimació-puntual.html"><a href="estimació-puntual.html#proporció-mostral"><i class="fa fa-check"></i><b>3.3</b> Proporció mostral</a></li>
+<li class="chapter" data-level="3.4" data-path="estimació-puntual.html"><a href="estimació-puntual.html#variància-mostral"><i class="fa fa-check"></i><b>3.4</b> Variància mostral</a></li>
+<li class="chapter" data-level="3.5" data-path="estimació-puntual.html"><a href="estimació-puntual.html#la-distribució-t-de-student"><i class="fa fa-check"></i><b>3.5</b> La distribució t de Student</a></li>
+<li class="chapter" data-level="3.6" data-path="estimació-puntual.html"><a href="estimació-puntual.html#biaix-i-precisió"><i class="fa fa-check"></i><b>3.6</b> Biaix i precisió</a>
 <ul>
-<li class="chapter" data-level="3.6.1" data-path="chap-estim.html"><a href="chap-estim.html#estimadors-no-esbiaixats"><i class="fa fa-check"></i><b>3.6.1</b> Estimadors no esbiaixats</a></li>
-<li class="chapter" data-level="3.6.2" data-path="chap-estim.html"><a href="chap-estim.html#sec:precis"><i class="fa fa-check"></i><b>3.6.2</b> Estimadors precisos</a></li>
+<li class="chapter" data-level="3.6.1" data-path="estimació-puntual.html"><a href="estimació-puntual.html#estimadors-no-esbiaixats"><i class="fa fa-check"></i><b>3.6.1</b> Estimadors no esbiaixats</a></li>
+<li class="chapter" data-level="3.6.2" data-path="estimació-puntual.html"><a href="estimació-puntual.html#sec:precis"><i class="fa fa-check"></i><b>3.6.2</b> Estimadors precisos</a></li>
 </ul></li>
-<li class="chapter" data-level="3.7" data-path="chap-estim.html"><a href="chap-estim.html#estimadors-màxim-versemblants"><i class="fa fa-check"></i><b>3.7</b> Estimadors màxim versemblants</a></li>
-<li class="chapter" data-level="3.8" data-path="chap-estim.html"><a href="chap-estim.html#sec:pobl"><i class="fa fa-check"></i><b>3.8</b> Estimació de poblacions</a>
+<li class="chapter" data-level="3.7" data-path="estimació-puntual.html"><a href="estimació-puntual.html#estimadors-màxim-versemblants"><i class="fa fa-check"></i><b>3.7</b> Estimadors màxim versemblants</a></li>
+<li class="chapter" data-level="3.8" data-path="estimació-puntual.html"><a href="estimació-puntual.html#sec:pobl"><i class="fa fa-check"></i><b>3.8</b> Estimació de poblacions</a>
 <ul>
-<li class="chapter" data-level="3.8.1" data-path="chap-estim.html"><a href="chap-estim.html#estimació-de-poblacions-numerades"><i class="fa fa-check"></i><b>3.8.1</b> Estimació de poblacions numerades</a></li>
-<li class="chapter" data-level="3.8.2" data-path="chap-estim.html"><a href="chap-estim.html#marca-recaptura"><i class="fa fa-check"></i><b>3.8.2</b> Marca-recaptura</a></li>
+<li class="chapter" data-level="3.8.1" data-path="estimació-puntual.html"><a href="estimació-puntual.html#estimació-de-poblacions-numerades"><i class="fa fa-check"></i><b>3.8.1</b> Estimació de poblacions numerades</a></li>
+<li class="chapter" data-level="3.8.2" data-path="estimació-puntual.html"><a href="estimació-puntual.html#marca-recaptura"><i class="fa fa-check"></i><b>3.8.2</b> Marca-recaptura</a></li>
 </ul></li>
-<li class="chapter" data-level="3.9" data-path="chap-estim.html"><a href="chap-estim.html#test-de-la-lliçó-3"><i class="fa fa-check"></i><b>3.9</b> Test de la lliçó 3</a></li>
+<li class="chapter" data-level="3.9" data-path="estimació-puntual.html"><a href="estimació-puntual.html#test-de-la-lliçó-3"><i class="fa fa-check"></i><b>3.9</b> Test de la lliçó 3</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="chap-IC.html"><a href="chap-IC.html"><i class="fa fa-check"></i><b>4</b> Intervals de confiança</a>
+<li class="chapter" data-level="4" data-path="intervals-de-confiança.html"><a href="intervals-de-confiança.html"><i class="fa fa-check"></i><b>4</b> Intervals de confiança</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="chap-IC.html"><a href="chap-IC.html#definició-dinterval-de-confiança"><i class="fa fa-check"></i><b>4.1</b> Definició d’interval de confiança</a></li>
-<li class="chapter" data-level="4.2" data-path="chap-IC.html"><a href="chap-IC.html#exemple-interval-de-confiança-del-95-per-a-la-mitjana-duna-variable-aleatòria-normal"><i class="fa fa-check"></i><b>4.2</b> Exemple: Interval de confiança del 95% per a la mitjana d’una variable aleatòria normal</a></li>
-<li class="chapter" data-level="4.3" data-path="chap-IC.html"><a href="chap-IC.html#interval-de-confiança-per-a-la-mitjana-basat-en-la-t-de-student"><i class="fa fa-check"></i><b>4.3</b> Interval de confiança per a la mitjana basat en la t de Student</a>
+<li class="chapter" data-level="4.1" data-path="intervals-de-confiança.html"><a href="intervals-de-confiança.html#definició-dinterval-de-confiança"><i class="fa fa-check"></i><b>4.1</b> Definició d’interval de confiança</a></li>
+<li class="chapter" data-level="4.2" data-path="intervals-de-confiança.html"><a href="intervals-de-confiança.html#exemple-interval-de-confiança-del-95-per-a-la-mitjana-duna-variable-aleatòria-normal"><i class="fa fa-check"></i><b>4.2</b> Exemple: Interval de confiança del 95% per a la mitjana d’una variable aleatòria normal</a></li>
+<li class="chapter" data-level="4.3" data-path="intervals-de-confiança.html"><a href="intervals-de-confiança.html#interval-de-confiança-per-a-la-mitjana-basat-en-la-t-de-student"><i class="fa fa-check"></i><b>4.3</b> Interval de confiança per a la mitjana basat en la t de Student</a>
 <ul>
-<li class="chapter" data-level="" data-path="chap-IC.html"><a href="chap-IC.html#la-fórmula"><i class="fa fa-check"></i>La fórmula</a></li>
-<li class="chapter" data-level="" data-path="chap-IC.html"><a href="chap-IC.html#algunes-consideracions"><i class="fa fa-check"></i>Algunes consideracions</a></li>
-<li class="chapter" data-level="" data-path="chap-varal.html"><a href="chap-varal.html#amb-r"><i class="fa fa-check"></i>Amb R</a></li>
-<li class="chapter" data-level="" data-path="chap-IC.html"><a href="chap-IC.html#càlcul-de-la-mida-de-la-mostra-per-fixar-lerror"><i class="fa fa-check"></i>Càlcul de la mida de la mostra per fixar l’error</a></li>
+<li class="chapter" data-level="" data-path="intervals-de-confiança.html"><a href="intervals-de-confiança.html#la-fórmula"><i class="fa fa-check"></i>La fórmula</a></li>
+<li class="chapter" data-level="" data-path="intervals-de-confiança.html"><a href="intervals-de-confiança.html#algunes-consideracions"><i class="fa fa-check"></i>Algunes consideracions</a></li>
+<li class="chapter" data-level="" data-path="intervals-de-confiança.html"><a href="intervals-de-confiança.html#amb-r-1"><i class="fa fa-check"></i>Amb R</a></li>
+<li class="chapter" data-level="" data-path="intervals-de-confiança.html"><a href="intervals-de-confiança.html#càlcul-de-la-mida-de-la-mostra-per-fixar-lerror"><i class="fa fa-check"></i>Càlcul de la mida de la mostra per fixar l’error</a></li>
 </ul></li>
-<li class="chapter" data-level="4.4" data-path="chap-IC.html"><a href="chap-IC.html#intervals-de-confiança-per-a-proporcions"><i class="fa fa-check"></i><b>4.4</b> Intervals de confiança per a proporcions</a>
+<li class="chapter" data-level="4.4" data-path="intervals-de-confiança.html"><a href="intervals-de-confiança.html#intervals-de-confiança-per-a-proporcions"><i class="fa fa-check"></i><b>4.4</b> Intervals de confiança per a proporcions</a>
 <ul>
-<li class="chapter" data-level="" data-path="chap-IC.html"><a href="chap-IC.html#mètode-exacte-de-clopper-pearson"><i class="fa fa-check"></i>Mètode “exacte” de Clopper-Pearson</a></li>
-<li class="chapter" data-level="" data-path="chap-IC.html"><a href="chap-IC.html#mètode-de-wilson"><i class="fa fa-check"></i>Mètode de Wilson</a></li>
-<li class="chapter" data-level="" data-path="chap-IC.html"><a href="chap-IC.html#mètode-de-laplace"><i class="fa fa-check"></i>Mètode de Laplace</a></li>
-<li><a href="chap-IC.html#quan-podem-calcular-més-dun-interval-per-a-p_x-quin-calculam">Quan podem calcular més d’un interval per a <span class="math inline">\(p_X\)</span>, quin calculam?</a></li>
-<li class="chapter" data-level="" data-path="chap-IC.html"><a href="chap-IC.html#càlcul-de-la-mida-de-la-mostra-per-a-fixar-lerror"><i class="fa fa-check"></i>Càlcul de la mida de la mostra per a fixar l’error</a></li>
+<li class="chapter" data-level="" data-path="intervals-de-confiança.html"><a href="intervals-de-confiança.html#mètode-exacte-de-clopper-pearson"><i class="fa fa-check"></i>Mètode “exacte” de Clopper-Pearson</a></li>
+<li class="chapter" data-level="" data-path="intervals-de-confiança.html"><a href="intervals-de-confiança.html#mètode-de-wilson"><i class="fa fa-check"></i>Mètode de Wilson</a></li>
+<li class="chapter" data-level="" data-path="intervals-de-confiança.html"><a href="intervals-de-confiança.html#mètode-de-laplace"><i class="fa fa-check"></i>Mètode de Laplace</a></li>
+<li><a href="intervals-de-confiança.html#quan-podem-calcular-més-dun-interval-per-a-p_x-quin-calculam">Quan podem calcular més d’un interval per a <span class="math inline">\(p_X\)</span>, quin calculam?</a></li>
+<li class="chapter" data-level="" data-path="intervals-de-confiança.html"><a href="intervals-de-confiança.html#càlcul-de-la-mida-de-la-mostra-per-a-fitar-lerror"><i class="fa fa-check"></i>Càlcul de la mida de la mostra per a fitar l’error</a></li>
 </ul></li>
-<li class="chapter" data-level="4.5" data-path="chap-IC.html"><a href="chap-IC.html#intervals-de-confiança-per-a-la-variància-i-la-desviació-típica-duna-variable-normal"><i class="fa fa-check"></i><b>4.5</b> Intervals de confiança per a la variància i la desviació típica d’una variable normal</a></li>
-<li class="chapter" data-level="4.6" data-path="chap-IC.html"><a href="chap-IC.html#poblacions-finites"><i class="fa fa-check"></i><b>4.6</b> “Poblacions finites”</a></li>
-<li class="chapter" data-level="4.7" data-path="chap-IC.html"><a href="chap-IC.html#test-de-la-lliçó-4"><i class="fa fa-check"></i><b>4.7</b> Test de la lliçó 4</a></li>
+<li class="chapter" data-level="4.5" data-path="intervals-de-confiança.html"><a href="intervals-de-confiança.html#intervals-de-confiança-per-a-la-variància-i-la-desviació-típica-duna-variable-normal"><i class="fa fa-check"></i><b>4.5</b> Intervals de confiança per a la variància i la desviació típica d’una variable normal</a></li>
+<li class="chapter" data-level="4.6" data-path="intervals-de-confiança.html"><a href="intervals-de-confiança.html#poblacions-finites"><i class="fa fa-check"></i><b>4.6</b> “Poblacions finites”</a></li>
+<li class="chapter" data-level="4.7" data-path="intervals-de-confiança.html"><a href="intervals-de-confiança.html#test-de-la-lliçó-4"><i class="fa fa-check"></i><b>4.7</b> Test de la lliçó 4</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="chap-chgen.html"><a href="chap-chgen.html"><i class="fa fa-check"></i><b>5</b> Contrastos d’hipòtesis: Generalitats</a>
+<li class="chapter" data-level="5" data-path="contrastos-dhipòtesis-generalitats.html"><a href="contrastos-dhipòtesis-generalitats.html"><i class="fa fa-check"></i><b>5</b> Contrastos d’hipòtesis: Generalitats</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="chap-chgen.html"><a href="chap-chgen.html#les-hipòtesis-nulla-i-alternativa"><i class="fa fa-check"></i><b>5.1</b> Les hipòtesis nul·la i alternativa</a></li>
-<li class="chapter" data-level="5.2" data-path="chap-chgen.html"><a href="chap-chgen.html#sec:moneda"><i class="fa fa-check"></i><b>5.2</b> Un exemple</a></li>
-<li class="chapter" data-level="5.3" data-path="chap-chgen.html"><a href="chap-chgen.html#sec:pval"><i class="fa fa-check"></i><b>5.3</b> El p-valor</a></li>
-<li class="chapter" data-level="5.4" data-path="chap-chgen.html"><a href="chap-chgen.html#tipus-derrors"><i class="fa fa-check"></i><b>5.4</b> Tipus d’errors</a></li>
-<li class="chapter" data-level="5.5" data-path="chap-chgen.html"><a href="chap-chgen.html#sec:exttest"><i class="fa fa-check"></i><b>5.5</b> Exemple: El test t</a></li>
-<li class="chapter" data-level="5.6" data-path="chap-chgen.html"><a href="chap-chgen.html#recapitulació"><i class="fa fa-check"></i><b>5.6</b> Recapitulació</a>
-<ul>
-<li class="chapter" data-level="" data-path="chap-chgen.html"><a href="chap-chgen.html#interval-de-confiança-dun-contrast"><i class="fa fa-check"></i>Interval de confiança d’un contrast</a></li>
-<li class="chapter" data-level="" data-path="chap-chgen.html"><a href="chap-chgen.html#la-potència"><i class="fa fa-check"></i>La potència</a></li>
-<li class="chapter" data-level="" data-path="chap-chgen.html"><a href="chap-chgen.html#el-risc-de-positiu-fals-opcional"><i class="fa fa-check"></i>El risc de positiu fals (Opcional)</a></li>
-</ul></li>
-<li class="chapter" data-level="5.7" data-path="chap-chgen.html"><a href="chap-chgen.html#test-de-la-lliçó-5"><i class="fa fa-check"></i><b>5.7</b> Test de la lliçó 5</a></li>
+<li class="chapter" data-level="5.1" data-path="contrastos-dhipòtesis-generalitats.html"><a href="contrastos-dhipòtesis-generalitats.html#les-hipòtesis-nulla-i-alternativa"><i class="fa fa-check"></i><b>5.1</b> Les hipòtesis nul·la i alternativa</a></li>
+<li class="chapter" data-level="5.2" data-path="contrastos-dhipòtesis-generalitats.html"><a href="contrastos-dhipòtesis-generalitats.html#sec:moneda"><i class="fa fa-check"></i><b>5.2</b> Un exemple</a></li>
+<li class="chapter" data-level="5.3" data-path="contrastos-dhipòtesis-generalitats.html"><a href="contrastos-dhipòtesis-generalitats.html#sec:pval"><i class="fa fa-check"></i><b>5.3</b> El p-valor</a></li>
+<li class="chapter" data-level="5.4" data-path="contrastos-dhipòtesis-generalitats.html"><a href="contrastos-dhipòtesis-generalitats.html#tipus-derrors"><i class="fa fa-check"></i><b>5.4</b> Tipus d’errors</a></li>
+<li class="chapter" data-level="5.5" data-path="contrastos-dhipòtesis-generalitats.html"><a href="contrastos-dhipòtesis-generalitats.html#sec:exttest"><i class="fa fa-check"></i><b>5.5</b> Exemple: El test t</a></li>
+<li class="chapter" data-level="5.6" data-path="contrastos-dhipòtesis-generalitats.html"><a href="contrastos-dhipòtesis-generalitats.html#interval-de-confiança-dun-contrast"><i class="fa fa-check"></i><b>5.6</b> Interval de confiança d’un contrast</a></li>
+<li class="chapter" data-level="5.7" data-path="contrastos-dhipòtesis-generalitats.html"><a href="contrastos-dhipòtesis-generalitats.html#la-potència"><i class="fa fa-check"></i><b>5.7</b> La potència</a></li>
+<li class="chapter" data-level="5.8" data-path="contrastos-dhipòtesis-generalitats.html"><a href="contrastos-dhipòtesis-generalitats.html#recapitulació"><i class="fa fa-check"></i><b>5.8</b> Recapitulació</a></li>
+<li class="chapter" data-level="5.9" data-path="contrastos-dhipòtesis-generalitats.html"><a href="contrastos-dhipòtesis-generalitats.html#el-risc-de-positiu-fals-opcional"><i class="fa fa-check"></i><b>5.9</b> El risc de positiu fals (Opcional)</a></li>
+<li class="chapter" data-level="5.10" data-path="contrastos-dhipòtesis-generalitats.html"><a href="contrastos-dhipòtesis-generalitats.html#test-de-la-lliçó-5"><i class="fa fa-check"></i><b>5.10</b> Test de la lliçó 5</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="contrastos-dhipòtesis-dun-i-dos-paràmetres.html"><a href="contrastos-dhipòtesis-dun-i-dos-paràmetres.html"><i class="fa fa-check"></i><b>6</b> Contrastos d’hipòtesis d’un i dos paràmetres</a>
 <ul>
@@ -257,18 +259,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="6.4" data-path="contrastos-dhipòtesis-dun-i-dos-paràmetres.html"><a href="contrastos-dhipòtesis-dun-i-dos-paràmetres.html#test-de-la-lliçó-6"><i class="fa fa-check"></i><b>6.4</b> Test de la lliçó 6</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="chap-bondat.html"><a href="chap-bondat.html"><i class="fa fa-check"></i><b>7</b> Contrastos de bondat d’ajust</a>
+<li class="chapter" data-level="7" data-path="contrastos-de-bondat-dajust.html"><a href="contrastos-de-bondat-dajust.html"><i class="fa fa-check"></i><b>7</b> Contrastos de bondat d’ajust</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="chap-bondat.html"><a href="chap-bondat.html#bondat-dajust"><i class="fa fa-check"></i><b>7.1</b> Bondat d’ajust</a></li>
-<li class="chapter" data-level="7.2" data-path="chap-bondat.html"><a href="chap-bondat.html#test-chi2-de-pearson"><i class="fa fa-check"></i><b>7.2</b> Test <span class="math inline">\(\chi^2\)</span> de Pearson</a>
+<li class="chapter" data-level="7.1" data-path="contrastos-de-bondat-dajust.html"><a href="contrastos-de-bondat-dajust.html#bondat-dajust"><i class="fa fa-check"></i><b>7.1</b> Bondat d’ajust</a></li>
+<li class="chapter" data-level="7.2" data-path="contrastos-de-bondat-dajust.html"><a href="contrastos-de-bondat-dajust.html#test-chi2-de-pearson"><i class="fa fa-check"></i><b>7.2</b> Test <span class="math inline">\(\chi^2\)</span> de Pearson</a>
 <ul>
-<li class="chapter" data-level="7.2.1" data-path="chap-bondat.html"><a href="chap-bondat.html#el-test-bàsic"><i class="fa fa-check"></i><b>7.2.1</b> El test bàsic</a></li>
-<li class="chapter" data-level="7.2.2" data-path="chap-bondat.html"><a href="chap-bondat.html#mètode-de-montecarlo"><i class="fa fa-check"></i><b>7.2.2</b> Mètode de Montecarlo</a></li>
-<li class="chapter" data-level="7.2.3" data-path="chap-bondat.html"><a href="chap-bondat.html#test-chi2-amb-paràmetres-poblacionals-desconeguts"><i class="fa fa-check"></i><b>7.2.3</b> Test <span class="math inline">\(\chi^2\)</span> amb paràmetres poblacionals desconeguts</a></li>
+<li class="chapter" data-level="7.2.1" data-path="contrastos-de-bondat-dajust.html"><a href="contrastos-de-bondat-dajust.html#el-test-bàsic"><i class="fa fa-check"></i><b>7.2.1</b> El test bàsic</a></li>
+<li class="chapter" data-level="7.2.2" data-path="contrastos-de-bondat-dajust.html"><a href="contrastos-de-bondat-dajust.html#mètode-de-montecarlo"><i class="fa fa-check"></i><b>7.2.2</b> Mètode de Montecarlo</a></li>
+<li class="chapter" data-level="7.2.3" data-path="contrastos-de-bondat-dajust.html"><a href="contrastos-de-bondat-dajust.html#test-chi2-amb-paràmetres-poblacionals-desconeguts"><i class="fa fa-check"></i><b>7.2.3</b> Test <span class="math inline">\(\chi^2\)</span> amb paràmetres poblacionals desconeguts</a></li>
 </ul></li>
-<li class="chapter" data-level="7.3" data-path="chap-bondat.html"><a href="chap-bondat.html#test-de-kolmogorov-smirnov"><i class="fa fa-check"></i><b>7.3</b> Test de Kolmogorov-Smirnov</a></li>
-<li class="chapter" data-level="7.4" data-path="chap-bondat.html"><a href="chap-bondat.html#test-de-kolmogorov-smirnov-lilliefors"><i class="fa fa-check"></i><b>7.4</b> Test de Kolmogorov-Smirnov-Lilliefors</a></li>
-<li class="chapter" data-level="7.5" data-path="chap-bondat.html"><a href="chap-bondat.html#test-de-la-lliçó-7"><i class="fa fa-check"></i><b>7.5</b> Test de la lliçó 7</a></li>
+<li class="chapter" data-level="7.3" data-path="contrastos-de-bondat-dajust.html"><a href="contrastos-de-bondat-dajust.html#test-de-kolmogorov-smirnov"><i class="fa fa-check"></i><b>7.3</b> Test de Kolmogorov-Smirnov</a></li>
+<li class="chapter" data-level="7.4" data-path="contrastos-de-bondat-dajust.html"><a href="contrastos-de-bondat-dajust.html#test-de-kolmogorov-smirnov-lilliefors"><i class="fa fa-check"></i><b>7.4</b> Test de Kolmogorov-Smirnov-Lilliefors</a></li>
+<li class="chapter" data-level="7.5" data-path="contrastos-de-bondat-dajust.html"><a href="contrastos-de-bondat-dajust.html#test-de-la-lliçó-7"><i class="fa fa-check"></i><b>7.5</b> Test de la lliçó 7</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="contrastos-dindependència-i-homogeneïtat.html"><a href="contrastos-dindependència-i-homogeneïtat.html"><i class="fa fa-check"></i><b>8</b> Contrastos d’independència i homogeneïtat</a>
 <ul>
@@ -277,47 +279,47 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.3" data-path="contrastos-dindependència-i-homogeneïtat.html"><a href="contrastos-dindependència-i-homogeneïtat.html#test-chi2-de-tendència-opcional"><i class="fa fa-check"></i><b>8.3</b> Test <span class="math inline">\(\chi^2\)</span> de tendència (Opcional)</a></li>
 <li class="chapter" data-level="8.4" data-path="contrastos-dindependència-i-homogeneïtat.html"><a href="contrastos-dindependència-i-homogeneïtat.html#test-de-la-lliçó-8"><i class="fa fa-check"></i><b>8.4</b> Test de la lliçó 8</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="chap-ED.html"><a href="chap-ED.html"><i class="fa fa-check"></i><b>9</b> Introducció a l’estadística multidimensional</a>
+<li class="chapter" data-level="9" data-path="introducció-a-lestadística-multidimensional.html"><a href="introducció-a-lestadística-multidimensional.html"><i class="fa fa-check"></i><b>9</b> Introducció a l’estadística multidimensional</a>
 <ul>
-<li class="chapter" data-level="9.1" data-path="chap-ED.html"><a href="chap-ED.html#poblacions-vectors-aleatoris"><i class="fa fa-check"></i><b>9.1</b> Poblacions: vectors aleatoris</a>
+<li class="chapter" data-level="9.1" data-path="introducció-a-lestadística-multidimensional.html"><a href="introducció-a-lestadística-multidimensional.html#poblacions-vectors-aleatoris"><i class="fa fa-check"></i><b>9.1</b> Poblacions: vectors aleatoris</a>
 <ul>
-<li class="chapter" data-level="9.1.1" data-path="chap-ED.html"><a href="chap-ED.html#covariància"><i class="fa fa-check"></i><b>9.1.1</b> Covariància</a></li>
-<li class="chapter" data-level="9.1.2" data-path="chap-ED.html"><a href="chap-ED.html#correlació"><i class="fa fa-check"></i><b>9.1.2</b> Correlació</a></li>
+<li class="chapter" data-level="9.1.1" data-path="introducció-a-lestadística-multidimensional.html"><a href="introducció-a-lestadística-multidimensional.html#covariància"><i class="fa fa-check"></i><b>9.1.1</b> Covariància</a></li>
+<li class="chapter" data-level="9.1.2" data-path="introducció-a-lestadística-multidimensional.html"><a href="introducció-a-lestadística-multidimensional.html#correlació"><i class="fa fa-check"></i><b>9.1.2</b> Correlació</a></li>
 </ul></li>
-<li class="chapter" data-level="9.2" data-path="chap-ED.html"><a href="chap-ED.html#estadística-descriptiva-mostres"><i class="fa fa-check"></i><b>9.2</b> Estadística descriptiva: Mostres</a>
+<li class="chapter" data-level="9.2" data-path="introducció-a-lestadística-multidimensional.html"><a href="introducció-a-lestadística-multidimensional.html#estadística-descriptiva-mostres"><i class="fa fa-check"></i><b>9.2</b> Estadística descriptiva: Mostres</a>
 <ul>
-<li class="chapter" data-level="9.2.1" data-path="chap-ED.html"><a href="chap-ED.html#covariàncies"><i class="fa fa-check"></i><b>9.2.1</b> Covariàncies</a></li>
-<li class="chapter" data-level="9.2.2" data-path="chap-ED.html"><a href="chap-ED.html#correlació-de-pearson"><i class="fa fa-check"></i><b>9.2.2</b> Correlació de Pearson</a></li>
-<li class="chapter" data-level="9.2.3" data-path="chap-ED.html"><a href="chap-ED.html#estimació"><i class="fa fa-check"></i><b>9.2.3</b> Estimació</a></li>
-<li class="chapter" data-level="9.2.4" data-path="chap-ED.html"><a href="chap-ED.html#correlació-de-spearman"><i class="fa fa-check"></i><b>9.2.4</b> Correlació de Spearman</a></li>
-<li class="chapter" data-level="9.2.5" data-path="chap-ED.html"><a href="chap-ED.html#contrastos-de-correlació"><i class="fa fa-check"></i><b>9.2.5</b> Contrastos de correlació</a></li>
+<li class="chapter" data-level="9.2.1" data-path="introducció-a-lestadística-multidimensional.html"><a href="introducció-a-lestadística-multidimensional.html#covariàncies"><i class="fa fa-check"></i><b>9.2.1</b> Covariàncies</a></li>
+<li class="chapter" data-level="9.2.2" data-path="introducció-a-lestadística-multidimensional.html"><a href="introducció-a-lestadística-multidimensional.html#correlació-de-pearson"><i class="fa fa-check"></i><b>9.2.2</b> Correlació de Pearson</a></li>
+<li class="chapter" data-level="9.2.3" data-path="introducció-a-lestadística-multidimensional.html"><a href="introducció-a-lestadística-multidimensional.html#estimació"><i class="fa fa-check"></i><b>9.2.3</b> Estimació</a></li>
+<li class="chapter" data-level="9.2.4" data-path="introducció-a-lestadística-multidimensional.html"><a href="introducció-a-lestadística-multidimensional.html#correlació-de-spearman"><i class="fa fa-check"></i><b>9.2.4</b> Correlació de Spearman</a></li>
+<li class="chapter" data-level="9.2.5" data-path="introducció-a-lestadística-multidimensional.html"><a href="introducció-a-lestadística-multidimensional.html#contrastos-de-correlació"><i class="fa fa-check"></i><b>9.2.5</b> Contrastos de correlació</a></li>
 </ul></li>
-<li class="chapter" data-level="9.3" data-path="chap-ED.html"><a href="chap-ED.html#test-de-la-lliçó-9"><i class="fa fa-check"></i><b>9.3</b> Test de la lliçó 9</a></li>
+<li class="chapter" data-level="9.3" data-path="introducció-a-lestadística-multidimensional.html"><a href="introducció-a-lestadística-multidimensional.html#test-de-la-lliçó-9"><i class="fa fa-check"></i><b>9.3</b> Test de la lliçó 9</a></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="chap-ANOVA.html"><a href="chap-ANOVA.html"><i class="fa fa-check"></i><b>10</b> ANOVA</a>
+<li class="chapter" data-level="10" data-path="chap:ANOVA.html"><a href="chap:ANOVA.html"><i class="fa fa-check"></i><b>10</b> ANOVA</a>
 <ul>
-<li class="chapter" data-level="10.1" data-path="chap-ANOVA.html"><a href="chap-ANOVA.html#nocions-bàsiques"><i class="fa fa-check"></i><b>10.1</b> Nocions bàsiques</a></li>
-<li class="chapter" data-level="10.2" data-path="chap-ANOVA.html"><a href="chap-ANOVA.html#anova-d1-via"><i class="fa fa-check"></i><b>10.2</b> ANOVA d’1 via</a>
+<li class="chapter" data-level="10.1" data-path="chap:ANOVA.html"><a href="chap:ANOVA.html#nocions-bàsiques"><i class="fa fa-check"></i><b>10.1</b> Nocions bàsiques</a></li>
+<li class="chapter" data-level="10.2" data-path="chap:ANOVA.html"><a href="chap:ANOVA.html#anova-d1-via"><i class="fa fa-check"></i><b>10.2</b> ANOVA d’1 via</a>
 <ul>
-<li class="chapter" data-level="10.2.1" data-path="chap-ANOVA.html"><a href="chap-ANOVA.html#contrast-bàsic"><i class="fa fa-check"></i><b>10.2.1</b> Contrast bàsic</a></li>
-<li class="chapter" data-level="10.2.2" data-path="chap-varal.html"><a href="chap-varal.html#amb-r"><i class="fa fa-check"></i><b>10.2.2</b> Amb R</a></li>
-<li class="chapter" data-level="10.2.3" data-path="chap-ANOVA.html"><a href="chap-ANOVA.html#comparacions-posteriors-per-parelles"><i class="fa fa-check"></i><b>10.2.3</b> Comparacions posteriors per parelles</a></li>
-<li class="chapter" data-level="10.2.4" data-path="chap-ANOVA.html"><a href="chap-ANOVA.html#comprovació-de-les-condicions"><i class="fa fa-check"></i><b>10.2.4</b> Comprovació de les condicions</a></li>
-<li class="chapter" data-level="10.2.5" data-path="chap-ANOVA.html"><a href="chap-ANOVA.html#test-no-paramètric"><i class="fa fa-check"></i><b>10.2.5</b> Test no paramètric</a></li>
+<li class="chapter" data-level="10.2.1" data-path="chap:ANOVA.html"><a href="chap:ANOVA.html#contrast-bàsic"><i class="fa fa-check"></i><b>10.2.1</b> Contrast bàsic</a></li>
+<li class="chapter" data-level="10.2.2" data-path="chap:ANOVA.html"><a href="chap:ANOVA.html#amb-r-2"><i class="fa fa-check"></i><b>10.2.2</b> Amb R</a></li>
+<li class="chapter" data-level="10.2.3" data-path="chap:ANOVA.html"><a href="chap:ANOVA.html#comparacions-posteriors-per-parelles"><i class="fa fa-check"></i><b>10.2.3</b> Comparacions posteriors per parelles</a></li>
+<li class="chapter" data-level="10.2.4" data-path="chap:ANOVA.html"><a href="chap:ANOVA.html#comprovació-de-les-condicions"><i class="fa fa-check"></i><b>10.2.4</b> Comprovació de les condicions</a></li>
+<li class="chapter" data-level="10.2.5" data-path="chap:ANOVA.html"><a href="chap:ANOVA.html#test-no-paramètric"><i class="fa fa-check"></i><b>10.2.5</b> Test no paramètric</a></li>
 </ul></li>
-<li class="chapter" data-level="10.3" data-path="chap-ANOVA.html"><a href="chap-ANOVA.html#anova-de-blocs"><i class="fa fa-check"></i><b>10.3</b> ANOVA de blocs</a>
+<li class="chapter" data-level="10.3" data-path="chap:ANOVA.html"><a href="chap:ANOVA.html#anova-de-blocs"><i class="fa fa-check"></i><b>10.3</b> ANOVA de blocs</a>
 <ul>
-<li class="chapter" data-level="10.3.1" data-path="chap-ANOVA.html"><a href="chap-ANOVA.html#contrast-bàsic-1"><i class="fa fa-check"></i><b>10.3.1</b> Contrast bàsic</a></li>
-<li class="chapter" data-level="10.3.2" data-path="chap-ANOVA.html"><a href="chap-ANOVA.html#amb-r-1"><i class="fa fa-check"></i><b>10.3.2</b> Amb R</a></li>
-<li class="chapter" data-level="10.3.3" data-path="chap-ANOVA.html"><a href="chap-ANOVA.html#comparacions-posteriors-per-parelles-1"><i class="fa fa-check"></i><b>10.3.3</b> Comparacions posteriors per parelles</a></li>
-<li class="chapter" data-level="10.3.4" data-path="chap-ANOVA.html"><a href="chap-ANOVA.html#contrast-no-paramètric"><i class="fa fa-check"></i><b>10.3.4</b> Contrast no paramètric</a></li>
+<li class="chapter" data-level="10.3.1" data-path="chap:ANOVA.html"><a href="chap:ANOVA.html#contrast-bàsic-1"><i class="fa fa-check"></i><b>10.3.1</b> Contrast bàsic</a></li>
+<li class="chapter" data-level="10.3.2" data-path="chap:ANOVA.html"><a href="chap:ANOVA.html#amb-r-3"><i class="fa fa-check"></i><b>10.3.2</b> Amb R</a></li>
+<li class="chapter" data-level="10.3.3" data-path="chap:ANOVA.html"><a href="chap:ANOVA.html#comparacions-posteriors-per-parelles-1"><i class="fa fa-check"></i><b>10.3.3</b> Comparacions posteriors per parelles</a></li>
+<li class="chapter" data-level="10.3.4" data-path="chap:ANOVA.html"><a href="chap:ANOVA.html#contrast-no-paramètric"><i class="fa fa-check"></i><b>10.3.4</b> Contrast no paramètric</a></li>
 </ul></li>
-<li class="chapter" data-level="10.4" data-path="chap-ANOVA.html"><a href="chap-ANOVA.html#anova-de-2-vies"><i class="fa fa-check"></i><b>10.4</b> ANOVA de 2 vies</a>
+<li class="chapter" data-level="10.4" data-path="chap:ANOVA.html"><a href="chap:ANOVA.html#anova-de-2-vies"><i class="fa fa-check"></i><b>10.4</b> ANOVA de 2 vies</a>
 <ul>
-<li class="chapter" data-level="10.4.1" data-path="chap-ANOVA.html"><a href="chap-ANOVA.html#contrast-bàsic-2"><i class="fa fa-check"></i><b>10.4.1</b> Contrast bàsic</a></li>
-<li class="chapter" data-level="10.4.2" data-path="chap-ANOVA.html"><a href="chap-ANOVA.html#amb-r-2"><i class="fa fa-check"></i><b>10.4.2</b> Amb R</a></li>
+<li class="chapter" data-level="10.4.1" data-path="chap:ANOVA.html"><a href="chap:ANOVA.html#contrast-bàsic-2"><i class="fa fa-check"></i><b>10.4.1</b> Contrast bàsic</a></li>
+<li class="chapter" data-level="10.4.2" data-path="chap:ANOVA.html"><a href="chap:ANOVA.html#amb-r-4"><i class="fa fa-check"></i><b>10.4.2</b> Amb R</a></li>
 </ul></li>
-<li class="chapter" data-level="10.5" data-path="chap-ANOVA.html"><a href="chap-ANOVA.html#test-de-la-lliçó-10"><i class="fa fa-check"></i><b>10.5</b> Test de la lliçó 10</a></li>
+<li class="chapter" data-level="10.5" data-path="chap:ANOVA.html"><a href="chap:ANOVA.html#test-de-la-lliçó-10"><i class="fa fa-check"></i><b>10.5</b> Test de la lliçó 10</a></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="regressió-lineal.html"><a href="regressió-lineal.html"><i class="fa fa-check"></i><b>11</b> Regressió lineal</a>
 <ul>
@@ -400,10 +402,10 @@ H_1: \mbox{$X$ i $Y$ no són independents}
 \end{array}
 \right.
 \]</span></p>
-<p>Sovint en lloc de dir que “<span class="math inline">\(X\)</span> i <span class="math inline">\(Y\)</span> no són independents” o “<span class="math inline">\(X\)</span> i <span class="math inline">\(Y\)</span> són dependents”, es diu que “hi ha <strong>associació</strong> entre <span class="math inline">\(X\)</span> i <span class="math inline">\(Y\)</span>”.</p>
+<p>En aquest context, sovint en lloc de dir que “<span class="math inline">\(X\)</span> i <span class="math inline">\(Y\)</span> no són independents” o “<span class="math inline">\(X\)</span> i <span class="math inline">\(Y\)</span> són dependents”, es diu que “hi ha <strong>associació</strong> entre <span class="math inline">\(X\)</span> i <span class="math inline">\(Y\)</span>”.</p>
 
 <div class="rmdnote">
-Recordau que, en general, la hipòtesi nul·la representa, en el context del contrast, que “no passa res”. En els contrastos d’independència això correspon a “no hi ha cap relació entre <span class="math inline">\(X\)</span> i <span class="math inline">\(Y\)</span>”, és a dir, que són independents.
+Recordau que, en general, la hipòtesi nul·la representa que “no passa res”. En els contrastos d’independència això correspon a “no hi ha cap relació entre <span class="math inline">\(X\)</span> i <span class="math inline">\(Y\)</span>”, és a dir, que són independents.
 </div>
 <p>Fixem-nos ara que la caracterització de la independència com a
 <span class="math display">\[
@@ -439,10 +441,9 @@ El contrast d’igualtat de dues proporcions és un cas particular de contrast d
 </div>
 
 <div class="example">
-<p><span id="exm:tosfumar" class="example"><strong>Exemple 8.1  </strong></span>En un estudi es volgué determinar si hi ha associació entre l’hàbit de fumar i patir tos nocturna entre els nins.</p>
+<span id="exm:tosfumar" class="example"><strong>Exemple 8.1  </strong></span>En un estudi es volgué determinar si hi ha associació entre l’hàbit de fumar i patir tos nocturna entre els nins. S’entrevistà una mostra de 2847 nins i nines de 12 anys i es recollí informació sobre el seu estatus de fumador i si patien de tos nocturna o no. S’obtingueren els resultats següents:
 </div>
-<p>S’entrevistà una mostra de 2847 nins i nines de 12 anys i es recollí informació sobre el seu estatus de fumador i si patien de tos nocturna o no. S’obtingueren els resultats següents:
-<span class="math display">\[
+<p><span class="math display">\[
 \begin{array}{l}
 \hphantom{No fumador ocasional un }\text{Fumador}\\
 \begin{array}{l|ccc|c}
@@ -524,7 +525,7 @@ esp_{ij}=p_{ij}\cdot n=\dfrac{n_{i\bullet}}{n}\cdot \dfrac{n_{\bullet j}}{n}\cdo
 <span class="math display">\[
 \chi^2=\sum\limits_{i=1}^s\sum\limits_{j=1}^t \frac{ ( n_{ij}- esp_{ij})^2 } {esp_{ij}}
 \]</span></p>
-<p>Arribats en aquest punt, el Teorema <a href="chap-bondat.html#thm:khi2BA">7.1</a> ens diu que:</p></li>
+<p>Arribats en aquest punt, el Teorema <a href="contrastos-de-bondat-dajust.html#thm:khi2BA">7.1</a> ens diu que:</p></li>
 </ol>
 
 <div class="theorem">
@@ -536,7 +537,7 @@ Aleshores, si les variables <span class="math inline">\(X\)</span> i <span class
 <span class="math display">\[
 \chi^2=\sum\limits_{i=1}^s\sum\limits_{j=1}^t \frac{ ( n_{ij}- esp_{ij})^2 } {esp_{ij}}
 \]</span>
-segueix (aproximadament) una llei <span class="math inline">\(\chi^2\)</span> amb <span class="math inline">\((s-1) \cdot (t -1)\)</span> graus de llibertat.</p>
+segueix (aproximadament) una llei <span class="math inline">\(\chi^2\)</span> amb <span class="math inline">\((s-1)(t -1)\)</span> graus de llibertat.</p>
 </div>
 
 <div class="rmdnote">
@@ -548,12 +549,12 @@ el nombre de graus de llibertat és el nombre de classes, <span class="math inli
 </div>
 
 <div class="rmdimportant">
-Fixau-vos que el Teorema <a href="contrastos-dindependència-i-homogeneïtat.html#thm:khi2indep">8.1</a> és un cas particular del Teorema <a href="chap-bondat.html#thm:khi2BA">7.1</a>, i per tant les hipòtesis per poder emprar el test <span class="math inline">\(\chi^2\)</span> en aquest context són les mateixes que en el cas general: mostra de mida com a mínim 30 i totes les freqüències esperades més grans o iguals que 5.
+El Teorema <a href="contrastos-dindependència-i-homogeneïtat.html#thm:khi2indep">8.1</a> és un cas particular del Teorema <a href="contrastos-de-bondat-dajust.html#thm:khi2BA">7.1</a>, i per tant les hipòtesis per poder emprar el test <span class="math inline">\(\chi^2\)</span> en aquest context són les mateixes que en el cas general: mostra de mida com a mínim 30 i totes les freqüències esperades més grans o iguals que 5.
 </div>
 <ol start="5" style="list-style-type: decimal">
 <li>Si <span class="math inline">\(\chi_0^2\)</span> és el valor que pren l’estadístic de contrast a la nostra mostra, el p-valor del contrast és
 <span class="math display">\[
-\text{p-valor}=P(\chi_{(s-1) \cdot (t -1)}^2\geqslant \chi_0^2)
+\text{p-valor}=P(\chi_{(s-1)(t -1)}^2\geqslant \chi_0^2)
 \]</span></li>
 </ol>
 
@@ -600,25 +601,25 @@ Operant:
 <ul>
 <li>Entram la taula:</li>
 </ul>
-<div class="sourceCode" id="cb406"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb406-1"><a href="contrastos-dindependència-i-homogeneïtat.html#cb406-1" aria-hidden="true" tabindex="-1"></a>Taula<span class="ot">=</span><span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">266</span>,<span class="dv">395</span>,<span class="dv">80</span>,<span class="dv">1037</span>,<span class="dv">977</span>,<span class="dv">92</span>),<span class="at">nrow=</span><span class="dv">2</span>,<span class="at">byrow=</span><span class="cn">TRUE</span>)</span>
-<span id="cb406-2"><a href="contrastos-dindependència-i-homogeneïtat.html#cb406-2" aria-hidden="true" tabindex="-1"></a>Taula</span></code></pre></div>
+<div class="sourceCode" id="cb416"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb416-1"><a href="contrastos-dindependència-i-homogeneïtat.html#cb416-1" aria-hidden="true" tabindex="-1"></a>Taula<span class="ot">=</span><span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">266</span>,<span class="dv">395</span>,<span class="dv">80</span>,<span class="dv">1037</span>,<span class="dv">977</span>,<span class="dv">92</span>),<span class="at">nrow=</span><span class="dv">2</span>,<span class="at">byrow=</span><span class="cn">TRUE</span>)</span>
+<span id="cb416-2"><a href="contrastos-dindependència-i-homogeneïtat.html#cb416-2" aria-hidden="true" tabindex="-1"></a>Taula</span></code></pre></div>
 <pre><code>##      [,1] [,2] [,3]
 ## [1,]  266  395   80
 ## [2,] 1037  977   92</code></pre>
-<div class="sourceCode" id="cb408"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb408-1"><a href="contrastos-dindependència-i-homogeneïtat.html#cb408-1" aria-hidden="true" tabindex="-1"></a>n<span class="ot">=</span><span class="fu">sum</span>(Taula)</span>
-<span id="cb408-2"><a href="contrastos-dindependència-i-homogeneïtat.html#cb408-2" aria-hidden="true" tabindex="-1"></a>n</span></code></pre></div>
+<div class="sourceCode" id="cb418"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb418-1"><a href="contrastos-dindependència-i-homogeneïtat.html#cb418-1" aria-hidden="true" tabindex="-1"></a>n<span class="ot">=</span><span class="fu">sum</span>(Taula)</span>
+<span id="cb418-2"><a href="contrastos-dindependència-i-homogeneïtat.html#cb418-2" aria-hidden="true" tabindex="-1"></a>n</span></code></pre></div>
 <pre><code>## [1] 2847</code></pre>
 <ul>
 <li>Les <span class="math inline">\(n_{i\bullet}\)</span> són les sumes de les fileres:</li>
 </ul>
-<div class="sourceCode" id="cb410"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb410-1"><a href="contrastos-dindependència-i-homogeneïtat.html#cb410-1" aria-hidden="true" tabindex="-1"></a>n.i.bolla<span class="ot">=</span><span class="fu">rowSums</span>(Taula)</span>
-<span id="cb410-2"><a href="contrastos-dindependència-i-homogeneïtat.html#cb410-2" aria-hidden="true" tabindex="-1"></a>n.i.bolla</span></code></pre></div>
+<div class="sourceCode" id="cb420"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb420-1"><a href="contrastos-dindependència-i-homogeneïtat.html#cb420-1" aria-hidden="true" tabindex="-1"></a>n.i.bolla<span class="ot">=</span><span class="fu">rowSums</span>(Taula)</span>
+<span id="cb420-2"><a href="contrastos-dindependència-i-homogeneïtat.html#cb420-2" aria-hidden="true" tabindex="-1"></a>n.i.bolla</span></code></pre></div>
 <pre><code>## [1]  741 2106</code></pre>
 <ul>
 <li>Les <span class="math inline">\(n_{\bullet j}\)</span> són les sumes de les columnes:</li>
 </ul>
-<div class="sourceCode" id="cb412"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb412-1"><a href="contrastos-dindependència-i-homogeneïtat.html#cb412-1" aria-hidden="true" tabindex="-1"></a>n.bolla.j<span class="ot">=</span><span class="fu">colSums</span>(Taula)</span>
-<span id="cb412-2"><a href="contrastos-dindependència-i-homogeneïtat.html#cb412-2" aria-hidden="true" tabindex="-1"></a>n.bolla.j</span></code></pre></div>
+<div class="sourceCode" id="cb422"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb422-1"><a href="contrastos-dindependència-i-homogeneïtat.html#cb422-1" aria-hidden="true" tabindex="-1"></a>n.bolla.j<span class="ot">=</span><span class="fu">colSums</span>(Taula)</span>
+<span id="cb422-2"><a href="contrastos-dindependència-i-homogeneïtat.html#cb422-2" aria-hidden="true" tabindex="-1"></a>n.bolla.j</span></code></pre></div>
 <pre><code>## [1] 1303 1372  172</code></pre>
 <ul>
 <li>La matriu de les <span class="math inline">\((n_{i\bullet}n_{\bullet j}/n)_{i,j}\)</span> s’obté fent el producte matricial
@@ -644,23 +645,23 @@ n_{s\bullet}
 \end{array}
 \]</span></li>
 </ul>
-<div class="sourceCode" id="cb414"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb414-1"><a href="contrastos-dindependència-i-homogeneïtat.html#cb414-1" aria-hidden="true" tabindex="-1"></a>Freqs.Esp<span class="ot">=</span>(<span class="dv">1</span><span class="sc">/</span>n)<span class="sc">*</span>n.i.bolla<span class="sc">%*%</span><span class="fu">t</span>(n.bolla.j)</span>
-<span id="cb414-2"><a href="contrastos-dindependència-i-homogeneïtat.html#cb414-2" aria-hidden="true" tabindex="-1"></a>Freqs.Esp</span></code></pre></div>
+<div class="sourceCode" id="cb424"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb424-1"><a href="contrastos-dindependència-i-homogeneïtat.html#cb424-1" aria-hidden="true" tabindex="-1"></a>Freqs.Esp<span class="ot">=</span>(<span class="dv">1</span><span class="sc">/</span>n)<span class="sc">*</span>n.i.bolla<span class="sc">%*%</span><span class="fu">t</span>(n.bolla.j)</span>
+<span id="cb424-2"><a href="contrastos-dindependència-i-homogeneïtat.html#cb424-2" aria-hidden="true" tabindex="-1"></a>Freqs.Esp</span></code></pre></div>
 <pre><code>##         [,1]      [,2]      [,3]
 ## [1,] 339.137  357.0959  44.76712
 ## [2,] 963.863 1014.9041 127.23288</code></pre>
 <ul>
 <li>L’estadístic de contrast:</li>
 </ul>
-<div class="sourceCode" id="cb416"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb416-1"><a href="contrastos-dindependència-i-homogeneïtat.html#cb416-1" aria-hidden="true" tabindex="-1"></a>X2<span class="ot">=</span><span class="fu">sum</span>((Taula<span class="sc">-</span>Freqs.Esp)<span class="sc">^</span><span class="dv">2</span><span class="sc">/</span>Freqs.Esp)</span>
-<span id="cb416-2"><a href="contrastos-dindependència-i-homogeneïtat.html#cb416-2" aria-hidden="true" tabindex="-1"></a>X2</span></code></pre></div>
+<div class="sourceCode" id="cb426"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb426-1"><a href="contrastos-dindependència-i-homogeneïtat.html#cb426-1" aria-hidden="true" tabindex="-1"></a>X2<span class="ot">=</span><span class="fu">sum</span>((Taula<span class="sc">-</span>Freqs.Esp)<span class="sc">^</span><span class="dv">2</span><span class="sc">/</span>Freqs.Esp)</span>
+<span id="cb426-2"><a href="contrastos-dindependència-i-homogeneïtat.html#cb426-2" aria-hidden="true" tabindex="-1"></a>X2</span></code></pre></div>
 <pre><code>## [1] 64.24672</code></pre>
 <p><em>p-valor</em>: <span class="math inline">\(P(\chi^2_2\geqslant 64.25)=\texttt{1-pchisq(64.25,2)}=1.1\cdot 10^{-14}\)</span></p>
 <p><em>Conclusió</em>: Hem trobat evidència estadísticament significativa que hi ha associació entre l’estatus de fumador d’un nin i que pateixi tos nocturna (test <span class="math inline">\(\chi^2\)</span>, p-valor 10<sup>-14</sup>).</p>
 <p>Podem efectuar un test <span class="math inline">\(\chi^2\)</span> d’independència aplicant la funció <code>chisq.test</code> a la taula de freqüències absolutes:</p>
-<div class="sourceCode" id="cb418"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb418-1"><a href="contrastos-dindependència-i-homogeneïtat.html#cb418-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chisq.test</span>(Taula)</span></code></pre></div>
+<div class="sourceCode" id="cb428"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb428-1"><a href="contrastos-dindependència-i-homogeneïtat.html#cb428-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chisq.test</span>(Taula)</span></code></pre></div>
 <pre><code>## 
-## 	Pearson&#39;s Chi-squared test
+##  Pearson&#39;s Chi-squared test
 ## 
 ## data:  Taula
 ## X-squared = 64.247, df = 2, p-value = 1.119e-14</code></pre>
@@ -696,12 +697,12 @@ H_1: \mbox{Hi ha associació entre $X$ i $Y$}
 \right.
 \]</span></p>
 <p>Fem un test <span class="math inline">\(\chi^2\)</span> amb R:</p>
-<div class="sourceCode" id="cb420"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb420-1"><a href="contrastos-dindependència-i-homogeneïtat.html#cb420-1" aria-hidden="true" tabindex="-1"></a>TaulaCCV<span class="ot">=</span><span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">38</span>,<span class="dv">76</span>,<span class="dv">79</span>,<span class="dv">2</span>,<span class="dv">41</span>,<span class="dv">92</span>,<span class="dv">2</span>,<span class="dv">21</span>,<span class="dv">50</span>,<span class="dv">0</span>,<span class="dv">12</span>,<span class="dv">31</span>), </span>
-<span id="cb420-2"><a href="contrastos-dindependència-i-homogeneïtat.html#cb420-2" aria-hidden="true" tabindex="-1"></a>                <span class="at">nrow=</span><span class="dv">4</span>, <span class="at">byrow=</span><span class="cn">TRUE</span>)</span>
-<span id="cb420-3"><a href="contrastos-dindependència-i-homogeneïtat.html#cb420-3" aria-hidden="true" tabindex="-1"></a><span class="fu">chisq.test</span>(TaulaCCV)</span></code></pre></div>
+<div class="sourceCode" id="cb430"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb430-1"><a href="contrastos-dindependència-i-homogeneïtat.html#cb430-1" aria-hidden="true" tabindex="-1"></a>TaulaCCV<span class="ot">=</span><span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">38</span>,<span class="dv">76</span>,<span class="dv">79</span>,<span class="dv">2</span>,<span class="dv">41</span>,<span class="dv">92</span>,<span class="dv">2</span>,<span class="dv">21</span>,<span class="dv">50</span>,<span class="dv">0</span>,<span class="dv">12</span>,<span class="dv">31</span>), </span>
+<span id="cb430-2"><a href="contrastos-dindependència-i-homogeneïtat.html#cb430-2" aria-hidden="true" tabindex="-1"></a>                <span class="at">nrow=</span><span class="dv">4</span>, <span class="at">byrow=</span><span class="cn">TRUE</span>)</span>
+<span id="cb430-3"><a href="contrastos-dindependència-i-homogeneïtat.html#cb430-3" aria-hidden="true" tabindex="-1"></a><span class="fu">chisq.test</span>(TaulaCCV)</span></code></pre></div>
 <pre><code>## Warning in chisq.test(TaulaCCV): Chi-squared approximation may be incorrect</code></pre>
 <pre><code>## 
-## 	Pearson&#39;s Chi-squared test
+##  Pearson&#39;s Chi-squared test
 ## 
 ## data:  TaulaCCV
 ## X-squared = 56.378, df = 6, p-value = 2.441e-10</code></pre>
@@ -709,20 +710,20 @@ H_1: \mbox{Hi ha associació entre $X$ i $Y$}
 <ul>
 <li>Les <span class="math inline">\(n_{i\bullet}\)</span> són les sumes de les fileres:</li>
 </ul>
-<div class="sourceCode" id="cb423"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb423-1"><a href="contrastos-dindependència-i-homogeneïtat.html#cb423-1" aria-hidden="true" tabindex="-1"></a>Freq.CCV<span class="ot">=</span><span class="fu">rowSums</span>(TaulaCCV)</span>
-<span id="cb423-2"><a href="contrastos-dindependència-i-homogeneïtat.html#cb423-2" aria-hidden="true" tabindex="-1"></a>Freq.CCV</span></code></pre></div>
+<div class="sourceCode" id="cb433"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb433-1"><a href="contrastos-dindependència-i-homogeneïtat.html#cb433-1" aria-hidden="true" tabindex="-1"></a>Freq.CCV<span class="ot">=</span><span class="fu">rowSums</span>(TaulaCCV)</span>
+<span id="cb433-2"><a href="contrastos-dindependència-i-homogeneïtat.html#cb433-2" aria-hidden="true" tabindex="-1"></a>Freq.CCV</span></code></pre></div>
 <pre><code>## [1] 193 135  73  43</code></pre>
 <ul>
 <li>Les <span class="math inline">\(n_{\bullet j}\)</span> són les sumes de les columnes:</li>
 </ul>
-<div class="sourceCode" id="cb425"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb425-1"><a href="contrastos-dindependència-i-homogeneïtat.html#cb425-1" aria-hidden="true" tabindex="-1"></a>Freq.NSC<span class="ot">=</span><span class="fu">colSums</span>(TaulaCCV)</span>
-<span id="cb425-2"><a href="contrastos-dindependència-i-homogeneïtat.html#cb425-2" aria-hidden="true" tabindex="-1"></a>Freq.NSC</span></code></pre></div>
+<div class="sourceCode" id="cb435"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb435-1"><a href="contrastos-dindependència-i-homogeneïtat.html#cb435-1" aria-hidden="true" tabindex="-1"></a>Freq.NSC<span class="ot">=</span><span class="fu">colSums</span>(TaulaCCV)</span>
+<span id="cb435-2"><a href="contrastos-dindependència-i-homogeneïtat.html#cb435-2" aria-hidden="true" tabindex="-1"></a>Freq.NSC</span></code></pre></div>
 <pre><code>## [1]  42 150 252</code></pre>
 <ul>
 <li>La matriu de les <span class="math inline">\(n_{i\bullet}n_{\bullet j}/n\)</span>:</li>
 </ul>
-<div class="sourceCode" id="cb427"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb427-1"><a href="contrastos-dindependència-i-homogeneïtat.html#cb427-1" aria-hidden="true" tabindex="-1"></a>Freqs.Esp<span class="ot">=</span>(<span class="dv">1</span><span class="sc">/</span><span class="fu">sum</span>(TaulaCCV))<span class="sc">*</span>Freq.CCV<span class="sc">%*%</span><span class="fu">t</span>(Freq.NSC)</span>
-<span id="cb427-2"><a href="contrastos-dindependència-i-homogeneïtat.html#cb427-2" aria-hidden="true" tabindex="-1"></a>Freqs.Esp</span></code></pre></div>
+<div class="sourceCode" id="cb437"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb437-1"><a href="contrastos-dindependència-i-homogeneïtat.html#cb437-1" aria-hidden="true" tabindex="-1"></a>Freqs.Esp<span class="ot">=</span>(<span class="dv">1</span><span class="sc">/</span><span class="fu">sum</span>(TaulaCCV))<span class="sc">*</span>Freq.CCV<span class="sc">%*%</span><span class="fu">t</span>(Freq.NSC)</span>
+<span id="cb437-2"><a href="contrastos-dindependència-i-homogeneïtat.html#cb437-2" aria-hidden="true" tabindex="-1"></a>Freqs.Esp</span></code></pre></div>
 <pre><code>##           [,1]     [,2]      [,3]
 ## [1,] 18.256757 65.20270 109.54054
 ## [2,] 12.770270 45.60811  76.62162
@@ -730,11 +731,11 @@ H_1: \mbox{Hi ha associació entre $X$ i $Y$}
 ## [4,]  4.067568 14.52703  24.40541</code></pre>
 <p>Efectivament, l’entrada (4,1) és menor que 5.</p>
 <p>Farem servir el mètode de Montecarlo:</p>
-<div class="sourceCode" id="cb429"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb429-1"><a href="contrastos-dindependència-i-homogeneïtat.html#cb429-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
-<span id="cb429-2"><a href="contrastos-dindependència-i-homogeneïtat.html#cb429-2" aria-hidden="true" tabindex="-1"></a><span class="fu">chisq.test</span>(TaulaCCV,<span class="at">simulate.p.value=</span><span class="cn">TRUE</span>,<span class="at">B=</span><span class="dv">5000</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb439"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb439-1"><a href="contrastos-dindependència-i-homogeneïtat.html#cb439-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb439-2"><a href="contrastos-dindependència-i-homogeneïtat.html#cb439-2" aria-hidden="true" tabindex="-1"></a><span class="fu">chisq.test</span>(TaulaCCV,<span class="at">simulate.p.value=</span><span class="cn">TRUE</span>,<span class="at">B=</span><span class="dv">5000</span>)</span></code></pre></div>
 <pre><code>## 
-## 	Pearson&#39;s Chi-squared test with simulated p-value (based on 5000
-## 	replicates)
+##  Pearson&#39;s Chi-squared test with simulated p-value (based on 5000
+##  replicates)
 ## 
 ## data:  TaulaCCV
 ## X-squared = 56.378, df = NA, p-value = 2e-04</code></pre>
@@ -834,14 +835,14 @@ H_1: \mbox{No és veritat que $p_A=p_B=p_C$}
 <ul>
 <li>Emprarem un test <span class="math inline">\(\chi^2\)</span>:</li>
 </ul>
-<div class="sourceCode" id="cb431"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb431-1"><a href="contrastos-dindependència-i-homogeneïtat.html#cb431-1" aria-hidden="true" tabindex="-1"></a>TaulaC<span class="ot">=</span><span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">43</span>,<span class="dv">61</span>,<span class="dv">53</span>,<span class="dv">57</span>,<span class="dv">39</span>,<span class="dv">47</span>), <span class="at">nrow=</span><span class="dv">2</span> ,<span class="at">byrow=</span><span class="cn">TRUE</span>)</span>
-<span id="cb431-2"><a href="contrastos-dindependència-i-homogeneïtat.html#cb431-2" aria-hidden="true" tabindex="-1"></a>TaulaC</span></code></pre></div>
+<div class="sourceCode" id="cb441"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb441-1"><a href="contrastos-dindependència-i-homogeneïtat.html#cb441-1" aria-hidden="true" tabindex="-1"></a>TaulaC<span class="ot">=</span><span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">43</span>,<span class="dv">61</span>,<span class="dv">53</span>,<span class="dv">57</span>,<span class="dv">39</span>,<span class="dv">47</span>), <span class="at">nrow=</span><span class="dv">2</span> ,<span class="at">byrow=</span><span class="cn">TRUE</span>)</span>
+<span id="cb441-2"><a href="contrastos-dindependència-i-homogeneïtat.html#cb441-2" aria-hidden="true" tabindex="-1"></a>TaulaC</span></code></pre></div>
 <pre><code>##      [,1] [,2] [,3]
 ## [1,]   43   61   53
 ## [2,]   57   39   47</code></pre>
-<div class="sourceCode" id="cb433"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb433-1"><a href="contrastos-dindependència-i-homogeneïtat.html#cb433-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chisq.test</span>(TaulaC)</span></code></pre></div>
+<div class="sourceCode" id="cb443"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb443-1"><a href="contrastos-dindependència-i-homogeneïtat.html#cb443-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chisq.test</span>(TaulaC)</span></code></pre></div>
 <pre><code>## 
-## 	Pearson&#39;s Chi-squared test
+##  Pearson&#39;s Chi-squared test
 ## 
 ## data:  TaulaC
 ## X-squared = 6.5209, df = 2, p-value = 0.03837</code></pre>
@@ -888,15 +889,15 @@ H_1: \mbox{Almenys una d&#39;aquestes igualtats és falsa}
 \end{array}\right.
 \]</span></p>
 <p>És un test d’homogeneïtat, farem servir un test <span class="math inline">\(\chi^2\)</span>:</p>
-<div class="sourceCode" id="cb435"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb435-1"><a href="contrastos-dindependència-i-homogeneïtat.html#cb435-1" aria-hidden="true" tabindex="-1"></a>TaulaC2<span class="ot">=</span><span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">12</span>,<span class="dv">21</span>,<span class="dv">13</span>,<span class="dv">31</span>,<span class="dv">40</span>,<span class="dv">40</span>,<span class="dv">57</span>,<span class="dv">39</span>,<span class="dv">47</span>), <span class="at">nrow=</span><span class="dv">3</span>, <span class="at">byrow=</span><span class="cn">TRUE</span>)</span>
-<span id="cb435-2"><a href="contrastos-dindependència-i-homogeneïtat.html#cb435-2" aria-hidden="true" tabindex="-1"></a>TaulaC2</span></code></pre></div>
+<div class="sourceCode" id="cb445"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb445-1"><a href="contrastos-dindependència-i-homogeneïtat.html#cb445-1" aria-hidden="true" tabindex="-1"></a>TaulaC2<span class="ot">=</span><span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">12</span>,<span class="dv">21</span>,<span class="dv">13</span>,<span class="dv">31</span>,<span class="dv">40</span>,<span class="dv">40</span>,<span class="dv">57</span>,<span class="dv">39</span>,<span class="dv">47</span>), <span class="at">nrow=</span><span class="dv">3</span>, <span class="at">byrow=</span><span class="cn">TRUE</span>)</span>
+<span id="cb445-2"><a href="contrastos-dindependència-i-homogeneïtat.html#cb445-2" aria-hidden="true" tabindex="-1"></a>TaulaC2</span></code></pre></div>
 <pre><code>##      [,1] [,2] [,3]
 ## [1,]   12   21   13
 ## [2,]   31   40   40
 ## [3,]   57   39   47</code></pre>
-<div class="sourceCode" id="cb437"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb437-1"><a href="contrastos-dindependència-i-homogeneïtat.html#cb437-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chisq.test</span>(TaulaC2)</span></code></pre></div>
+<div class="sourceCode" id="cb447"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb447-1"><a href="contrastos-dindependència-i-homogeneïtat.html#cb447-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chisq.test</span>(TaulaC2)</span></code></pre></div>
 <pre><code>## 
-## 	Pearson&#39;s Chi-squared test
+##  Pearson&#39;s Chi-squared test
 ## 
 ## data:  TaulaC2
 ## X-squared = 8.046, df = 4, p-value = 0.08991</code></pre>
@@ -916,7 +917,7 @@ H_1: \text{ $p_1\leqslant\cdots \leqslant p_k$ i almenys una }\\
 \right.
 \]</span></p>
 <p>S’efectua amb un <strong>test <span class="math inline">\(\chi^2\)</span> de Cochran-Armitage</strong>, una variant del test <span class="math inline">\(\chi^2\)</span> explicat a les seccions anteriors.
-Per utilitzar-lo, basta que la mostra total sigui gran (<span class="math inline">\(\geqslant 30\)</span>), no cal la condició de Cochran. (Si teniu curiositat sobre com es fa, podeu consultar <a href="https://en.wikipedia.org/wiki/Cochran–Armitage_test_for_trend">la seva entrada de la Wikipedia</a>)</p>
+Per utilitzar-lo, basta que la mostra total sigui gran (<span class="math inline">\(\geqslant 30\)</span>), no cal la condició de Cochran. Si teniu curiositat sobre com es fa, podeu consultar <a href="https://en.wikipedia.org/wiki/Cochran–Armitage_test_for_trend">la seva entrada de la Wikipedia</a>.</p>
 <p>Amb R s’efectua amb la funció <code>prop.trend.test</code>, aplicada al vector de freqüències d’èxits i el vector de freqüències de cada nivell de <span class="math inline">\(X\)</span>.</p>
 
 <div class="example">
@@ -933,7 +934,7 @@ Per utilitzar-lo, basta que la mostra total sigui gran (<span class="math inline
 \end{array}
 \end{array}
 \]</span></p>
-<p>Com que l’estatus de fumador és una variable ordinal i, naturalment, creiem que quant més se fuma, més probabilitat hi ha de patir de tos nocturna, ens pot interessar contrastar si la probabilitat de tos nocturna creix amb la freqüència de fumar.</p>
+<p>Com que l’estatus de fumador és una variable ordinal i, naturalment, creiem que quant més se fuma, més probabilitat hi ha de patir tos nocturna, ens pot interessar contrastar si la probabilitat de tos nocturna creix amb la freqüència de fumar.</p>
 <p><em>Variables d’interès</em>:</p>
 <ul>
 <li><p><span class="math inline">\(X\)</span>: “Prenem un nin i anotam el seu estatus de fumador”; la considerarem una variable ordinal amb nivells “No fumador” &lt; “Ocasional” &lt; “Regular”</p></li>
@@ -961,11 +962,11 @@ H_1: \text{ $p_N\leqslant p_O  \leqslant p_R$ i $p_N&lt;p_R$}
 <p>només que aquesta darrera reformulació és més curta.</p>
 </div>
 <p>Emprarem un test <span class="math inline">\(\chi^2\)</span> de tendència:</p>
-<div class="sourceCode" id="cb439"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb439-1"><a href="contrastos-dindependència-i-homogeneïtat.html#cb439-1" aria-hidden="true" tabindex="-1"></a>Tos<span class="ot">=</span><span class="fu">c</span>(<span class="dv">266</span>,<span class="dv">395</span>,<span class="dv">80</span>)</span>
-<span id="cb439-2"><a href="contrastos-dindependència-i-homogeneïtat.html#cb439-2" aria-hidden="true" tabindex="-1"></a>Fum<span class="ot">=</span><span class="fu">c</span>(<span class="dv">1303</span>,<span class="dv">1372</span>,<span class="dv">172</span>)</span>
-<span id="cb439-3"><a href="contrastos-dindependència-i-homogeneïtat.html#cb439-3" aria-hidden="true" tabindex="-1"></a><span class="fu">prop.trend.test</span>(Tos,Fum)</span></code></pre></div>
+<div class="sourceCode" id="cb449"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb449-1"><a href="contrastos-dindependència-i-homogeneïtat.html#cb449-1" aria-hidden="true" tabindex="-1"></a>Tos<span class="ot">=</span><span class="fu">c</span>(<span class="dv">266</span>,<span class="dv">395</span>,<span class="dv">80</span>)</span>
+<span id="cb449-2"><a href="contrastos-dindependència-i-homogeneïtat.html#cb449-2" aria-hidden="true" tabindex="-1"></a>Fum<span class="ot">=</span><span class="fu">c</span>(<span class="dv">1303</span>,<span class="dv">1372</span>,<span class="dv">172</span>)</span>
+<span id="cb449-3"><a href="contrastos-dindependència-i-homogeneïtat.html#cb449-3" aria-hidden="true" tabindex="-1"></a><span class="fu">prop.trend.test</span>(Tos,Fum)</span></code></pre></div>
 <pre><code>## 
-## 	Chi-squared Test for Trend in Proportions
+##  Chi-squared Test for Trend in Proportions
 ## 
 ## data:  Tos out of Fum ,
 ##  using scores: 1 2 3
@@ -1050,7 +1051,7 @@ H_1: \text{ $p_N\leqslant p_O  \leqslant p_R$ i $p_N&lt;p_R$}
 <li>La diferència entre un contrast d’independència i un d’homogeneïtat està en el nombre de graus de llibertat de l’estadístic: si les variables tenen <span class="math inline">\(s\)</span> nivells i <span class="math inline">\(t\)</span> nivells, respectivament, al d’independència hi empram <span class="math inline">\((s-1)(t-1)\)</span> graus de llibertat i al d’homogeneïtat n’hi empram <span class="math inline">\(st-1\)</span></li>
 <li>Cap de les altres respostes és correcta</li>
 </ol>
-<p><strong>(8)</strong> Per contrastar si el percentatge de sanitaris infectats amb COVID-19 és el mateix a les diferents illes balears, prenem una mostra formada per 100 sanitaris de Mallorca, 50 sanitaris de Menorca i 50 sanitaris de les Pitiüses, i els fem un test d’anticossos per veure si han estat infectats o no. Marcau l’afirmació correcta:</p>
+<p><strong>(8)</strong> Per contrastar si el percentatge de sanitaris infectats amb COVID-19 en un moment concret és el mateix a les diferents illes balears, prenem una mostra formada per 100 sanitaris de Mallorca, 50 sanitaris de Menorca i 50 sanitaris de les Pitiüses, i els fem un test per veure si estan infectats o no. Marcau l’afirmació correcta:</p>
 <ol style="list-style-type: decimal">
 <li>Aquest contrast és d’independència, perquè la mostra és transversal</li>
 <li>Aquest contrast no és d’homogeneïtat, perquè les mostres de les tres illes no tenen la mateixa mida</li>
@@ -1058,10 +1059,10 @@ H_1: \text{ $p_N\leqslant p_O  \leqslant p_R$ i $p_N&lt;p_R$}
 <li>Aquest contrast no és d’independència, perquè les mostres de les tres illes no tenen la mateixa mida</li>
 <li>Aquest contrast és d’homogeneïtat perquè hem pres una mostra específica de cada illa</li>
 <li>Aquest contrast és d’homogeneïtat perquè la mostra és transversal</li>
-<li>Aquest contrast no és ni d’independència ni homogeneïtat</li>
+<li>Aquest contrast no és ni d’independència ni d’homogeneïtat</li>
 <li>Cap de les altres respostes és correcta</li>
 </ol>
-<p><strong>(9)</strong> Per contrastar si el percentatge de sanitaris infectats amb COVID-19 és el mateix a les diferents illes balears, prenem una mostra formada per 50 sanitaris de Mallorca, 50 sanitaris de Menorca i 50 sanitaris de les Pitiüses, i els fem un test d’anticossos per veure si han estat infectats o no. Marcau l’afirmació correcta:</p>
+<p><strong>(9)</strong> Per contrastar si el percentatge de sanitaris infectats amb COVID-19 en un moment concret és el mateix a les diferents illes balears, prenem una mostra formada per 50 sanitaris de Mallorca, 50 sanitaris de Menorca i 50 sanitaris de les Pitiüses, i els fem un test per veure si estan infectats o no. Marcau l’afirmació correcta:</p>
 <ol style="list-style-type: decimal">
 <li>Aquest contrast és d’independència, perquè la mostra és transversal</li>
 <li>Aquest contrast és d’independència, perquè les mostres de les tres illes tenen la mateixa mida</li>
@@ -1069,17 +1070,17 @@ H_1: \text{ $p_N\leqslant p_O  \leqslant p_R$ i $p_N&lt;p_R$}
 <li>Aquest contrast és d’homogeneïtat perquè hem pres una mostra específica de cada illa</li>
 <li>Aquest contrast és d’homogeneïtat perquè la mostra és transversal</li>
 <li>Aquest contrast és d’homogeneïtat, perquè les mostres de les tres illes tenen la mateixa mida</li>
-<li>Aquest contrast no és ni d’independència ni homogeneïtat</li>
+<li>Aquest contrast no és ni d’independència ni d’homogeneïtat</li>
 <li>Cap de les altres respostes és correcta</li>
 </ol>
-<p><strong>(10)</strong> Per contrastar si el percentatge de sanitaris infectats amb COVID-19 és el mateix a les diferents illes balears, prenem una mostra formada per 150 sanitaris extreta del llistat de tots el personal sanitari dels hospitals de les Balears, a continuació miram a quina illa treballen i els fem un test d’anticossos per veure si han estat infectats o no. Per casualitat, ens hi surten 50 de Mallorca, 50 de Menorca i 50 d’Eivissa/Formentera. Marcau l’afirmació correcta:</p>
+<p><strong>(10)</strong> Per contrastar si el percentatge de sanitaris infectats amb COVID-19 en un moment concret és el mateix a les diferents illes balears, prenem una mostra formada per 150 sanitaris extreta del llistat de tots el personal sanitari dels hospitals de les Balears, a continuació miram a quina illa treballen i els fem un test per veure si estan infectats o no. Per casualitat, ens hi surten 50 de Mallorca, 50 de Menorca i 50 d’Eivissa/Formentera. Marcau l’afirmació correcta:</p>
 <ol style="list-style-type: decimal">
 <li>Aquest contrast és d’independència, perquè la mostra és transversal</li>
 <li>Aquest contrast és d’independència, perquè les mostres de les tres illes tenen la mateixa mida</li>
 <li>Aquest contrast no és d’homogeneïtat, perquè les mostres de les tres illes no s’adapten a les proporcions que representen les diferents illes en el total de les Balears</li>
 <li>Aquest contrast és d’homogeneïtat perquè la mostra és transversal</li>
 <li>Aquest contrast és d’homogeneïtat, perquè les mostres de les tres illes tenen la mateixa mida</li>
-<li>Aquest contrast no és ni d’independència ni homogeneïtat</li>
+<li>Aquest contrast no és ni d’independència ni d’homogeneïtat</li>
 <li>Cap de les altres respostes és correcta</li>
 </ol>
 
@@ -1090,12 +1091,11 @@ H_1: \text{ $p_N\leqslant p_O  \leqslant p_R$ i $p_N&lt;p_R$}
           </div>
         </div>
       </div>
-<a href="chap-bondat.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="chap-ED.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="contrastos-de-bondat-dajust.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="introducció-a-lestadística-multidimensional.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -1114,6 +1114,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
@@ -1134,6 +1135,10 @@ gitbook.start({
 "text": null
 },
 "download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection",
 "download": ["pdf", "epub"]

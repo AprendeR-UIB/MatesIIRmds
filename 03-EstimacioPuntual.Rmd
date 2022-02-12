@@ -1,4 +1,4 @@
-# Estimació puntual {#chap:estim}
+# Estimació puntual 
 
 L'objectiu principal de la **inferència estadística** és obtenir informació sobre tota una població a partir de només una mostra, com quan volem saber si un brou és fat o salat tastant-ne només una cullerada. El primer tipus d'informació que ens sol interessar és què val qualque paràmetre d'alguna variable aleatòria poblacional (una proporció, una mitjana...), per exemple per poder escriure un titular com el següent:
 
@@ -26,7 +26,7 @@ Per exemple:
 
 * Si volem estimar l'alçada mitjana dels estudiants de la UIB, prendrem una mostra  d'estudiants de la UIB, els amidarem i calcularem la  **mitjana aritmètica** de les seves alçades.
 
-* Si volem estimar la proporció d'estudiants de la UIB que han passat la COVID-19, prendrem una mostra d'estudiants de la UIB, els farem un test d'anticossos i calcularem la **proporció mostral** de positius en la mostra.
+* Si volem estimar la proporció d'estudiants de la UIB que tenen la COVID-19, prendrem una mostra d'estudiants de la UIB, els farem un test de COVID i calcularem la **proporció mostral** de positius en la mostra.
 
 Formalment:
 
@@ -185,7 +185,7 @@ sigma
 
 * La desviació típica de la mostra de mitjanes:
 ```{r}
-sd(mitjanes)
+sd(mitjanes)*sqrt(99999/100000)
 ```
 
 * L'error típic de la mitjana mostral:
@@ -195,12 +195,18 @@ sigma/sqrt(n)
 
 Veiem que les mitjanes mostrals presenten una dispersió molt més petita que la variable poblacional original. Gràficament, als histogrames de les Figures \@ref(fig:histtests) i \@ref(fig:histmeantests) hi podeu veure com les mitjanes estan més concentrades al voltant de `r round(mu)` que les notes originals.
 
+```{block2, type="rmdnote"}
+La veritat és que ens haguéssim pogut estalviar el factor corrector $\sqrt{99999/100000}$, que val 0.999995, quan hem calculat la desviació típica de la mostra de cent mil mitjanes. Als propers exemples on emprem mostres d'aquesta mida ja no el farem servir.
+```
+  
+  
+  
 Recordau del Teorema \@ref(thm:comblinnormals2)  que una combinació lineal de variables aleatòries normals independents torna a ser normal. Com que la mitjana mostral de mostres aleatòries simples és una combinació lineal de variables aleatòries independents, obtenim el resultat següent:
 
 ```{theorem, TCLnorm}
 Si $X$ és una variable aleatòria normal $N(\mu_X,\sigma_X)$, la seva mitjana mostral $\overline{X}$ de mostres aleatòries simples de mida $n$ és normal 
 $$
-N\Big(\mu_X,\frac{\sigma_X}{\sqrt{n}}\Big).
+N\big(\mu_X,\sigma_X/\sqrt{n}\big).
 $$
 
 ```
@@ -212,7 +218,7 @@ El teorema següent diu que la conclusió del teorema anterior és aproximadamen
 ```{theorem, TCL, name="Teorema Central del Límit"}
 Siguin $X$ una variable aleatòria *qualsevol* d'esperança $\mu_X$ i desviació típica $\sigma_X$.  Quan $n\to \infty$, la funció de distribució de la seva mitjana mostral $\overline{X}$ de mostres aleatòries simples de mida $n$  tendeix a la d'una variable normal
 $$
-N\Big(\mu_X,\frac{\sigma_X}{\sqrt{n}}\Big).
+N\big(\mu_X,\sigma_X/\sqrt{n}\big).
 $$
 
 ```
@@ -234,10 +240,17 @@ Per fixar una fita, en aquest curs entendrem que $n$ és prou gran com per poder
 A partir d'ara, sovint cometrem l'abús de llenguatge d'ometre l'adverbi "aproximadament" de l'expressió anterior, i direm simplement que si $n$ és gran, $\overline{X}$ és normal. Però heu de tenir present que aquest "és normal" en realitat vol dir "la seva distribució és aproximadament la d'una variable normal".
 ```
 
+```{block2,type="rmdcaution"}
+Per qualque motiu que no entenem, alguns estudiants teniu tendència a invocar el Teorema Central del Límit dient coses de l'estil de "La variable poblacional $X$ no és normal, però com que la mostra és molt gran, $X$ és aproximadament normal". Si ho llegiu amb calma, veureu que això és un doi. $X$ no és normal, però si en preneu una mostra gran, $X$ passa a ser aproximadament normal? En sèrio? Qui serà aproximadament normal és la mitjana mostral $\overline{X}$, no $X$!
+```
+
+
+
+
 ```{example} 
 Suposem que tenim una variable aleatòria $X$ de mitjana poblacional $\mu_X=3$ i desviació típica poblacional $\sigma_X=0.2$ i que en prenem mostres aleatòries simples de mida 100. Pel Teorema Central del Límit, la distribució de la mitjana mostral $\overline{X}$ és  (aproximadament)
 $$
-N\Big(3,\frac{0.2}{\sqrt{100}}\Big)=N(3,0.02)
+NN\big(\mu_X,0.2/\sqrt{100}\big)=N(3,0.02)
 $$
   
 ```
@@ -390,7 +403,7 @@ Sigui $X$ una variable aleatòria de Bernoulli amb probabilitat d'èxit $p_X$. A
 
 1. Pel Teorema Central del Límit, si la mida $n$ de la mostra és gran, la distribució de $\widehat{p}_X$ és aproximadament la d'una variable normal
 $$
-N\left({p}_X,\sqrt{\frac{{p}_X(1-{p}_X)}{n}}\right)
+N\big({p}_X,\sqrt{{p}_X(1-{p}_X)/n}\big)
 $$
 i per tant 
 $$
@@ -523,7 +536,7 @@ Per tant, la probabilitat que $\widehat{p}_X\geqslant 2/3$ és (ara, aproximadam
 round(1-pnorm(2/3,0.591,sqrt(0.591*(1-0.591)/60)),4)
 ```
 
-L'aproximació seria més bona si haguéssim efectuat la correcció de continuïtat. Diguem $Y$ a la normal $N(0.591,0.0635)$. Com que $\widehat{p}_X=S_{60}/60$, seria millor aproximar
+L'aproximació seria més bona si haguéssim emprat la correcció de continuïtat. Diguem $Y$ a la normal $N(0.591,0.0635)$. Com que $\widehat{p}_X=S_{60}/60$, seria millor aproximar
 $$
 P(S_{60}\geqslant 40)=1-P(S_{60}\leqslant 39)
 $$ 
@@ -656,7 +669,7 @@ S_X^2=\frac{n-1}{n} \widetilde{S}_{X}^2
 $$
 i per tant
 $$
-E(S_X^2)=\frac{n-1}{n}E(\widetilde{S}_{X}^2)=\frac{n-1}{n}\sigma^2_{X}
+E(S_X^2)=\frac{n-1}{n}E(\widetilde{S}_{X}^2)=\frac{n-1}{n}\sigma^2_{X}\neq \sigma^2_{X}
 $$
 ```
 
@@ -682,7 +695,7 @@ La lletra $\chi$  en català es llegeix *khi*; en castellà, *ji*; i en anglès,
 
 
 
-```{r, echo=FALSE, out.width="40%"}
+```{r, echo=FALSE, out.width="40%", fig.cap="En Chi és un moixet, la distribució és khi."}
 knitr::include_graphics("Bioestadistica-II_files/figure-html/chihogar.png")
 ```
 
@@ -705,7 +718,7 @@ té distribució $\chi_\nu^2$.
 * Si $X_\nu$ és una variable aleatòria amb distribució  $\chi_\nu^2$, aleshores $E(X_\nu)=\nu$ i $\sigma(X_\nu)^2=2 \nu$
 
 
-* Per a $\nu$ petits, la distribució d'una $\chi_{\nu}^2$ és asimètrica amb una cua a la dreta.
+* Per a valors petits de $\nu$, la distribució d'una $\chi_{\nu}^2$ és asimètrica amb una cua a la dreta.
 
 
 ```{r, echo=FALSE, fig.cap="Algunes densitats de variables $\\chi^2$"}
@@ -760,10 +773,8 @@ $$
 n y_0 & =\displaystyle \sum_{i=1}^n x_i^2-n\overline{x}^2= \sum_{i=1}^n x_i^2-n\Big(\frac{\sum_{i=1}^n x_i}{n}\Big)^2\\
 & =\displaystyle \sum_{i=1}^n x_i^2-\frac{(\sum_{i=1}^n x_i)^2}{n}\\
 & \displaystyle =\frac{1}{n}\left(n\sum_{i=1}^n x_i^2-\Big(\sum_{i=1}^{n} x_i\Big)^2\right)\\
-& =\displaystyle \frac{1}{n}\left(n\sum_{i=1}^{n-1} x_i^2+n\mathbf{x_n}^2-\Big(\sum_{i=1}^{n-1} x_i\Big)^2\right.\\
-& \displaystyle\qquad\qquad \left. -2\Big(\sum_{i=1}^{n-1} x_i\Big)\mathbf{x_n}-\mathbf{x_n}^2\right)\\
-& =\displaystyle \frac{1}{n}\left((n-1)\mathbf{x_n}^2-2\Big(\sum_{i=1}^{n-1} x_i\Big)\mathbf{x_n}\right.\\
-& \displaystyle\qquad\qquad \left.+n\sum_{i=1}^{n-1} x_i^2-\Big(\sum_{i=1}^{n-1} x_i\Big)^2 \right)
+& =\displaystyle \frac{1}{n}\left(n\sum_{i=1}^{n-1} x_i^2+n\mathbf{x_n}^2-\Big(\sum_{i=1}^{n-1} x_i\Big)^2-2\Big(\sum_{i=1}^{n-1} x_i\Big)\mathbf{x_n}-\mathbf{x_n}^2\right)\\
+& =\displaystyle \frac{1}{n}\left((n-1)\mathbf{x_n}^2-2\Big(\sum_{i=1}^{n-1} x_i\Big)\mathbf{x_n}+n\sum_{i=1}^{n-1} x_i^2-\Big(\sum_{i=1}^{n-1} x_i\Big)^2 \right)
 \end{array}
 $$
 d'on (multiplicant els dos costats de la igualtat per $n$ i dividint-los per $n-1$) obtenim, finalment, l'equació de segon grau en $\mathbf{x_n}$
@@ -791,12 +802,12 @@ Anau alerta:
 ```
 
 ```{example,pesosnadonsSIDA}
-Suposem que el pes en néixer dels nadons segueix una distribució normal, i s'estima que la seva desviació típica (en g) és 800. Hem anotat els pesos de tots els recent nats amb SIDA d'una ciutat durant 2 anys. El teniu al vector `pesos.SIDA` següent:
+Suposem que el pes en néixer dels nadons segueix una distribució normal, i s'estima que la seva desviació típica (en g) és 800. Hem anotat els pesos de tots els recent nats VIH positius d'una ciutat durant 2 anys. El teniu al vector `pesos.VIH` següent:
   
 ```
 
 ```{r}
-pesos.SIDA=c(2466,3941,2807,3118,2098,3175,3515,3317,3742,3062,
+pesos.VIH=c(2466,3941,2807,3118,2098,3175,3515,3317,3742,3062,
              3033,2353,2013,3515,3260,2892,1616,4423,3572,2750,
              2807,2807,3005,3374,2722,2495,3459,3374,1984,2495,
              3062,3005,2608,2353,4394,3232,2013,2551,2977,3118,
@@ -808,12 +819,12 @@ Quina és la probabilitat que una mostra (aleatòria simple) de pesos de recent 
 La variable d'interès és $X$: "Prenem un recent nat i pesam el seu pes en g". Ens diuen que és normal amb $\sigma=800$. Pel que fa a la nostra mostra de pesos, la seva mida $n$ és
 
 ```{r}
-n=length(pesos.SIDA)
+n=length(pesos.VIH)
 n
 ```
 i la seva desviació típica mostral és
 ```{r}
-s.tilda=round(sd(pesos.SIDA),1)
+s.tilda=round(sd(pesos.VIH),1)
 s.tilda
 ```
 
@@ -831,7 +842,7 @@ i això val
 round(pchisq(round((n-1)*s.tilda^2/800^2,2),n-1),4)
 ```
 
-Per tant, només un 1.5\% de les mostres aleatòries simples de `r n-1` recent nats tenen una desviació típica mostral més petita o igual que la de la nostra mostra de recent nats amb SIDA. 
+Per tant, només un 1.5\% de les mostres aleatòries simples de `r n` recent nats tenen una desviació típica mostral més petita o igual que la de la nostra mostra de recent nats VIH positius. 
 
 
 
@@ -943,9 +954,9 @@ qt(0.975,200) # t_{200,0.975}
 qnorm(0.975)  # z_0.975
 ```
 
-* $t_{\nu,0.95}$ (per a $10\leqslant \nu\leqslant 200$) està entre 1.65 i 1.8; ho podeu aproximar $t_{n,0.95}\approx 1.7$
+* $t_{\nu,0.95}$ (per a $10\leqslant \nu\leqslant 200$) està entre 1.65 i 1.8; ho podeu aproximar $t_{\nu,0.95}\approx 1.7$
 
-* $t_{n,0.975}$  (per a $10\leqslant n\leqslant 200$) està entre 1.97 i 2.2; ho podeu aproximar $t_{n,0.975}\approx 2$
+* $t_{\nu,0.975}$  (per a $10\leqslant \nu\leqslant 200$) està entre 1.97 i 2.2; ho podeu aproximar $t_{\nu,0.975}\approx 2$
 
 ```{block2,type="rmdexercici"}
 Comprovau amb R les afirmacions sobr els quantils de la t de Student dels darrers dos punts.
@@ -954,11 +965,11 @@ Comprovau amb R les afirmacions sobr els quantils de la t de Student dels darrer
 ```{block2, type='rmdcaution'}
 Abans de tancar aquesta secció, recordau que, donada una variable aleatòria $X$,  no heu de confondre:
 
-* **Desviació típica** (o **estàndard**) *de la variable aleatòria*, $\sigma_X$: El paràmetre poblacional, normalment desconegut
+* **Desviació típica** (o **estàndard**) *de la variable aleatòria*, $\sigma_X$: El paràmetre poblacional, normalment desconegut.
 
-* **Desviació típica** (o **estàndard**) (sigui mostral, $\widetilde{S}_X$, o a seques, $S_X$) *d'una mostra*: L'estadístic que calculam sobre la mostra i que quantifica la dispersió de la mostra
+* **Desviació típica** (o **estàndard**) (sigui mostral, $\widetilde{S}_X$, o a seques, $S_X$) *d'una mostra*: L'estadístic que calculam sobre la mostra i que quantifica la dispersió de la mostra.
 
-* **Error típic** (o **estàndard**) *d'un estimador*: La desviació típica de la variable aleatòria que defineix l'estimador, normalment desconeguda
+* **Error típic** (o **estàndard**) *d'un estimador*: La desviació típica de la variable aleatòria que defineix l'estimador, normalment desconeguda.
 
 * **Error típic** (o **estàndard**) *d'una mostra*: Estimació de l'error típic de la mitjana mostral (o de la proporció mostral) a partir d'una mostra; servirà per calcular intervals de confiança. És $\widetilde{S}_X/\sqrt{n}$ (o $\sqrt{\widehat{p}_X(1-\widehat{p}_X)/n}$ si es tracta de proporcions).
 
@@ -1156,7 +1167,7 @@ Alguns altres estimadors màxim versemblants:
 * $\overline{X}$  és l'estimador màxim versemblant de la mitjana $\mu_X$ d'una variable aleatòria normal
 
 
-* $S_X^2$ i $S_X$ (la variància i desviació típica **a seques**, no les mostrals!) són els estimadors màxim versemblants de la variància $\sigma_X^2$ i la desviació típica $\sigma_X$ d'una variable aleatòria normal
+* $S_X^2$ i $S_X$ (sí, la variància i desviació típica **a seques**, no les mostrals!) són els estimadors màxim versemblants de la variància $\sigma_X^2$ i la desviació típica $\sigma_X$ d'una variable aleatòria normal
 
 
 ## Estimació de poblacions {#sec:pobl}
@@ -1205,7 +1216,7 @@ $$
 \end{array}
 $$
 
-El que fa l'estimador $\widehat{N}$ és sumar al màxim de la mostra, $m$, aquesta longitud mitjana dels forats entre membres de la mostra. És a dir, estimam que la mida de la població és tal que a la dreta del màxim de la nostra mostra hi ha un "forat" de mida la mitjana dels forats de la mostra.
+El que fa l'estimador $\widehat{N}$ és sumar al màxim de la mostra, $m$, aquesta longitud mitjana dels forats entre membres de la mostra. És a dir, estimam que la mida de la població és tal que a la dreta del màxim de la nostra mostra hi ha un "forat" de mida la mitjana dels forats de la mostra menys 1.
 
 ```
 

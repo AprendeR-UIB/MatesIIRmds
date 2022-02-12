@@ -47,10 +47,10 @@ H_1: \mbox{$X$ i $Y$ no són independents}
 \right.
 $$
 
-Sovint en lloc de dir que "$X$ i $Y$ no són independents" o "$X$ i $Y$ són dependents", es diu que "hi ha **associació** entre $X$ i $Y$".
+En aquest context, sovint en lloc de dir que "$X$ i $Y$ no són independents" o "$X$ i $Y$ són dependents", es diu que "hi ha **associació** entre $X$ i $Y$".
 
 ```{block2,type="rmdnote"}
-Recordau que, en general, la hipòtesi nul·la representa, en el context del contrast, que "no passa res". En els contrastos d'independència això correspon a "no hi ha cap relació entre $X$ i $Y$", és a dir, que són independents.
+Recordau que, en general, la hipòtesi nul·la representa que "no passa res". En els contrastos d'independència això correspon a "no hi ha cap relació entre $X$ i $Y$", és a dir, que són independents.
 ```
 
 Fixem-nos ara que la caracterització de la independència com a 
@@ -90,12 +90,9 @@ El contrast d'igualtat de dues proporcions és un cas particular de contrast d'i
 ```
 
 ```{example,tosfumar}
-En un estudi es volgué determinar si hi ha associació entre l'hàbit de fumar i patir tos nocturna entre els nins.
-
-
+En un estudi es volgué determinar si hi ha associació entre l'hàbit de fumar i patir tos nocturna entre els nins. S'entrevistà una mostra de 2847 nins i nines de 12 anys i es recollí informació sobre el seu estatus de fumador i si patien de tos nocturna o no. S'obtingueren els resultats següents:
 ```
 
-S'entrevistà una mostra de 2847 nins i nines de 12 anys i es recollí informació sobre el seu estatus de fumador i si patien de tos nocturna o no. S'obtingueren els resultats següents:
 $$
 \begin{array}{l}
 \hphantom{No fumador ocasional un }\text{Fumador}\\
@@ -197,7 +194,7 @@ Aleshores, si les variables $X$ i $Y$ són independents, l'estadístic
 $$
 \chi^2=\sum\limits_{i=1}^s\sum\limits_{j=1}^t \frac{ ( n_{ij}- esp_{ij})^2 } {esp_{ij}}
 $$
-segueix (aproximadament) una llei $\chi^2$ amb $(s-1) \cdot (t -1)$ graus de llibertat.
+segueix (aproximadament) una llei $\chi^2$ amb $(s-1)(t -1)$ graus de llibertat.
 
 
 ```
@@ -213,7 +210,7 @@ $$
 ```
 
 ```{block2,type="rmdimportant"}    
-Fixau-vos que el Teorema \@ref(thm:khi2indep) és un cas particular del Teorema \@ref(thm:khi2BA), i per tant les hipòtesis per poder emprar el test $\chi^2$ en aquest context són les mateixes que en el cas general: mostra de mida com a mínim 30 i totes les freqüències esperades més grans o iguals que 5.
+El Teorema \@ref(thm:khi2indep) és un cas particular del Teorema \@ref(thm:khi2BA), i per tant les hipòtesis per poder emprar el test $\chi^2$ en aquest context són les mateixes que en el cas general: mostra de mida com a mínim 30 i totes les freqüències esperades més grans o iguals que 5.
 ``` 
     
 
@@ -221,7 +218,7 @@ Fixau-vos que el Teorema \@ref(thm:khi2indep) és un cas particular del Teorema 
 
 5.  Si $\chi_0^2$ és el valor que pren l'estadístic de contrast a la nostra mostra, el p-valor del contrast és
 $$
-\text{p-valor}=P(\chi_{(s-1) \cdot (t -1)}^2\geqslant \chi_0^2)
+\text{p-valor}=P(\chi_{(s-1)(t -1)}^2\geqslant \chi_0^2)
 $$
 
 ```{example,tosfumar2}
@@ -633,7 +630,7 @@ $$
 
 
 S'efectua amb un **test $\chi^2$ de Cochran-Armitage**, una variant del test $\chi^2$ explicat a les seccions anteriors.
-Per utilitzar-lo, basta que la mostra total sigui gran ($\geqslant 30$), no cal la condició de Cochran. (Si teniu curiositat sobre com es fa, podeu consultar [la seva entrada de la Wikipedia](https://en.wikipedia.org/wiki/Cochran–Armitage_test_for_trend))
+Per utilitzar-lo, basta que la mostra total sigui gran ($\geqslant 30$), no cal la condició de Cochran. Si teniu curiositat sobre com es fa, podeu consultar [la seva entrada de la Wikipedia](https://en.wikipedia.org/wiki/Cochran–Armitage_test_for_trend).
 
 Amb R s'efectua amb la funció `prop.trend.test`, aplicada al vector de freqüències d'èxits i el vector de freqüències de cada nivell de $X$.
 
@@ -656,7 +653,7 @@ $$
 \end{array}
 $$
 
-Com que l'estatus de fumador és una variable ordinal i, naturalment, creiem que quant més se fuma, més probabilitat hi ha de patir de tos nocturna, ens pot interessar contrastar si la probabilitat de tos nocturna creix amb la freqüència de fumar.
+Com que l'estatus de fumador és una variable ordinal i, naturalment, creiem que quant més se fuma, més probabilitat hi ha de patir  tos nocturna, ens pot interessar contrastar si la probabilitat de tos nocturna creix amb la freqüència de fumar.
 
 *Variables d'interès*:
 
@@ -793,7 +790,7 @@ Quina de les afirmacions següents és correcta?
 1. Cap de les altres respostes és correcta
 
 
-**(8)** Per contrastar si el percentatge de sanitaris infectats amb COVID-19 és el mateix a les diferents illes balears, prenem una mostra formada per 100 sanitaris de Mallorca,  50 sanitaris de Menorca i 50 sanitaris de les Pitiüses, i els fem un test d'anticossos per veure si han estat infectats o no. Marcau l'afirmació correcta:
+**(8)** Per contrastar si el percentatge de sanitaris infectats amb COVID-19 en un moment concret és el mateix a les diferents illes balears, prenem una mostra formada per 100 sanitaris de Mallorca,  50 sanitaris de Menorca i 50 sanitaris de les Pitiüses, i els fem un test per veure si estan infectats o no. Marcau l'afirmació correcta:
 
 1. Aquest contrast és d'independència, perquè la mostra és transversal
 1. Aquest contrast no és d'homogeneïtat, perquè les mostres de les tres illes  no tenen la mateixa mida
@@ -801,13 +798,13 @@ Quina de les afirmacions següents és correcta?
 1. Aquest contrast no és d'independència, perquè les mostres de les tres illes  no tenen la mateixa mida
 1. Aquest contrast és d'homogeneïtat perquè hem pres una mostra específica de cada illa
 1. Aquest contrast és d'homogeneïtat perquè la mostra és transversal
-1. Aquest contrast no és ni d'independència ni homogeneïtat
+1. Aquest contrast no és ni d'independència ni d'homogeneïtat
 1. Cap de les altres respostes és correcta
 
 
 
 
-**(9)** Per contrastar si el percentatge de sanitaris infectats amb COVID-19 és el mateix a les diferents illes balears, prenem una mostra formada per 50 sanitaris de Mallorca,  50 sanitaris de Menorca i 50 sanitaris de les Pitiüses, i els fem un test d'anticossos per veure si han estat infectats o no. Marcau l'afirmació correcta:
+**(9)** Per contrastar si el percentatge de sanitaris infectats amb COVID-19 en un moment concret és el mateix a les diferents illes balears, prenem una mostra formada per 50 sanitaris de Mallorca,  50 sanitaris de Menorca i 50 sanitaris de les Pitiüses, i els fem un test per veure si estan infectats o no. Marcau l'afirmació correcta:
 
 1. Aquest contrast és d'independència, perquè la mostra és transversal
 1. Aquest contrast és d'independència, perquè les mostres de les tres illes tenen la mateixa mida
@@ -815,18 +812,18 @@ Quina de les afirmacions següents és correcta?
 1. Aquest contrast és d'homogeneïtat perquè hem pres una mostra específica de cada illa
 1. Aquest contrast és d'homogeneïtat perquè la mostra és transversal
 1. Aquest contrast és d'homogeneïtat, perquè les mostres de les tres illes  tenen la mateixa mida
-1. Aquest contrast no és ni d'independència ni homogeneïtat
+1. Aquest contrast no és ni d'independència ni d'homogeneïtat
 1. Cap de les altres respostes és correcta
 
 
-**(10)** Per contrastar si el percentatge de sanitaris infectats amb COVID-19 és el mateix a les diferents illes balears, prenem una mostra formada per 150 sanitaris extreta del llistat de tots el personal sanitari dels hospitals de les Balears, a continuació miram a quina illa treballen i  els fem un test d'anticossos per veure si han estat infectats o no. Per casualitat, ens hi surten 50 de Mallorca, 50 de Menorca i 50 d'Eivissa/Formentera. Marcau l'afirmació correcta:
+**(10)** Per contrastar si el percentatge de sanitaris infectats amb COVID-19 en un moment concret és el mateix a les diferents illes balears, prenem una mostra formada per 150 sanitaris extreta del llistat de tots el personal sanitari dels hospitals de les Balears, a continuació miram a quina illa treballen i  els fem un test per veure si estan infectats o no. Per casualitat, ens hi surten 50 de Mallorca, 50 de Menorca i 50 d'Eivissa/Formentera. Marcau l'afirmació correcta:
 
 1. Aquest contrast és d'independència, perquè la mostra és transversal
 1. Aquest contrast és d'independència, perquè les mostres de les tres illes  tenen la mateixa mida
 1. Aquest contrast no és d'homogeneïtat, perquè les mostres de les tres illes  no s'adapten a les proporcions que representen les diferents illes en el total de les Balears
 1. Aquest contrast és d'homogeneïtat perquè la mostra és transversal
 1. Aquest contrast és d'homogeneïtat, perquè les mostres de les tres illes  tenen la mateixa mida
-1. Aquest contrast no és ni d'independència ni homogeneïtat
+1. Aquest contrast no és ni d'independència ni d'homogeneïtat
 1. Cap de les altres respostes és correcta
 
 

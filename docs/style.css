@@ -47,6 +47,12 @@ pre code {
   margin-bottom: 10px;
   background: #f9f9f9  5px center/3em  no-repeat;
 }
+.rmdambR {
+  padding: 1em 1em 1em 4em;
+  margin-bottom: 10px;
+  background: #f9f9f9  5px center/3em  no-repeat;
+}
+
 .rmdcaution {
   background-image: url("Bioestadistica-II_files/figure-html/caution.png");
 }
@@ -76,4 +82,7 @@ pre code {
 }
 .rmdexercici {
   background-image: url("Bioestadistica-II_files/figure-html/exercici.png");
+}
+.rmdambR {
+  background-image: url("Bioestadistica-II_files/figure-html/R.png");
 }

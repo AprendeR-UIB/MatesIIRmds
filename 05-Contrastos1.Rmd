@@ -1,6 +1,6 @@
-# Contrastos d'hipòtesis: Generalitats {#chap:chgen}
+# Contrastos d'hipòtesis: Generalitats
 
-En moltes situacions, hem de prendre una **decisió** sobre si es pot acceptar o rebutjar una **hipòtesi** relativa  al valor d'un paràmetre d'una població o diverses poblacions. Per prendre aquesta decisió, prenem una mostra de la població i hi mesuram qualque cosa. Per exemple:
+En moltes situacions, hem de prendre una **decisió** sobre si es pot acceptar o rebutjar una **hipòtesi** relativa  al valor d'un paràmetre d'una o diverses poblacions. Per prendre aquesta decisió, prenem una mostra de la població, o de les poblacions, i hi mesuram qualque cosa. Per exemple:
 
 * Volem saber si una moneda està trucada a favor de cara. Per decidir-ho, la llançam  una sèrie de vegades, i comptam quantes cares surten.
 
@@ -8,6 +8,11 @@ En moltes situacions, hem de prendre una **decisió** sobre si es pot acceptar o
 
 El mètode estadístic que s'empra per acceptar o rebutjar  una hipòtesi rep el nom de **contrast d'hipòtesis**.
 
+
+```{r, echo=FALSE, out.width="70%", fig.cap="\"Hypothesis generation\" (https://xkcd.com/2569/ (CC-BY-NC 2.5))"}
+library(linguisticsdown)
+include_graphics2("https://imgs.xkcd.com/comics/hypothesis_generation.png")
+```
 
 ##  Les hipòtesis nul·la i alternativa
 
@@ -21,7 +26,7 @@ H_{1}:\text{hipòtesi alternativa}
 \end{array}
 \right.
 $$
-
+En els contrastos d'hipòtesis d'aquest curs:
 
 * Típicament, la **hipòtesi nul·la**  *H*~0~ és "no hi ha diferència", "no passa res", "no hi ha res d'estrany" o l'equivalent en el context del contrast:
 
@@ -57,10 +62,19 @@ $$
      
 
 ```{block2,type="rmdcaution"}
-Si rebutjam *H*~0~ en favor de *H*~1~ *no* serà perquè hàgim demostrat que *H*~0~ sigui impossible, ni tan sols que sigui improbable: tan sols haurem observat que és *mala de creure vists els resultats del nostre experiment*
+Si rebutjam *H*~0~ en favor de *H*~1~ *no* serà perquè hàgim demostrat que *H*~0~ sigui impossible, ni tan sols que sigui improbable: tan sols haurem observat que és *mala de creure vists els resultats del nostre experiment*.
 ```
 
 Per exemple, si en una seqüència de 30 llançaments d'una moneda obtenim totes les vegades cara, segurament ho considerarem evidència que la moneda està trucada, però **no demostrarà que la moneda estigui trucada**. Sí, farà mal de creure que sigui equilibrada, però no és impossible: la moneda podria ser equilibrada i per pur atzar nosaltres haver tengut aquesta ratxa de cares. Feu els comptes. La probabilitat de treure 30 cares en 30 llançaments d'una moneda equilibrada és 0.5^30^=9.3· 10^-10^. Per tant, de mitjana, aproximadament en un de cada mil milions de pics que s'efectuen 30 llançaments seguits d'una moneda equilibrada, s'obtenen 30 cares. Al món hi ha actualment més de 7700 milions de persones. És a dir que, si tots ens posàssim d'acord i llançàssim una moneda equilibrada 30 vegades, esperaríem que entre 7 i 8 treguessin 30 cares.
+
+```{block2, type="rmdnote"}
+Si repetim moltes vegades una situació en la qual es pot donar una cosa molt i molt improbable, hem d'esperar que aquesta cosa tan i tan improbable al final acabi passant. Per exemple, imaginem que una malaltia té una probabilitat de curació espontània de 10^-4^ (en una de cada 10,000 ocasions es cura de forma espontània). Si 10,000 malalts prenen una infusió diària de bollidura d'examen de Matemàtiques I (es bull un examen de Matemàtiques I durant 1 hora, es deixa refredar i es cola; mà de sant!), és d'esperar que una es curi: però no per la bollidura, sinó perquè de mitjana una de cada 10,000 es cura tota sola. No us cregueu tots els "¡A mi me ha funcionado!" dels anuncis.
+```
+
+Però no ha estat cap miracle. Simplement la definició de valor esperat.
+
+
+
 
 I tampoc podem dir que sigui improbable que la moneda sigui equilibrada, ja que nosaltres sabem calcular
 $$
@@ -75,7 +89,7 @@ $$
 Si acceptam la hipòtesi nul·la és perquè no la podem rebutjar ja que no trobam motius per dubtar d'ella, però no haurem trobat evidència que sigui vertadera ni haurem demostrat que sigui probable (i possible en principi ho és sempre).
 ```
 
-Per exemple, si en una seqüència de 4 llançaments d'una moneda obtenim 2 cares, no tendrem motiu per dubtar que la probabilitat de cara sigui 0.5: no podrem rebutjar que aquesta probabilitat sigui 0.5. Però tampoc no tendrem motiu per dubtar que la probabilitat de cara sigui, jo què sé, 0.5001: no podrem rebutjar que aquesta probabilitat sigui 0.5001. Però el que no pot ser és que diguem que hem obtingut evidència que la probabilitat de cara és 0.5 i que hem obtingut evidència que la probabilitat de cara és 0.5001. No es pot obtenir evidència simultàniament de dues coses  que s'excloguin una a l'altra.
+Per exemple, si en una seqüència de 4 llançaments d'una moneda obtenim 2 cares, no tendrem motiu per dubtar que la probabilitat de cara sigui 0.5: no podrem rebutjar que aquesta probabilitat sigui 0.5. Però tampoc no tendrem motiu per dubtar que la probabilitat de cara sigui, jo què sé, 0.5001: no podrem rebutjar que aquesta probabilitat sigui 0.5001. Però el que no pot ser és que diguem que hem obtingut evidència que la probabilitat de cara és 0.5 i que hem obtingut evidència que la probabilitat de cara és 0.5001. No es pot obtenir evidència simultàniament de dues coses  que s'excloguin una a l'altra. El que ha passat és que el resultat del nostre experiment no sembla contradir ni que la probabilitat de cara sigui 0.5 ni que sigui 0.5001. Però, repetim, no aporta evidència que cap dels dos valors sigui el vertader.
 
 ```{block2,type="rmdimportant"}
 La millor manera de no entendre malament el resultat d'un contrast d'hipòtesis és sempre redactar la conclusió en la forma
@@ -89,7 +103,7 @@ segons quin sigui el cas.
 
 
 ```{example,judici}
-En un judici (on l'acusat és innocent si no es demostra el contrari, i per tant estam disposats a acceptar per defecte que és innocent), se cerca evidència que l'acusat és culpable, per tant aquesta és la hipòtesi alternativa:
+En un judici (on l'acusat és innocent si no es demostra el contrari, i per tant estam disposats a acceptar per defecte que és innocent), se cerca evidència que l'acusat és culpable, per tant aquesta és la hipòtesi alternativa. D'altra banda, que "no passi res" significa que l'acusat és innocent: gairebé tothom serà innocent del delicte concret que es jutja. Per tant:
 
 ```
 * El contrast és
@@ -157,7 +171,7 @@ Aquesta pregunta la podem plantejar de moltes maneres:
 
 *  ...
 
-Cada una d'aquestes preguntes es traduiria en un contrast d'hipòtesis diferent. Com que aquí estam tractant contrastos sobre paràmetres poblacionals (mitjanes, proporcions, etc.), podríem plantejar algun dels quatre darrers. Anem a centrar-nos en la darrera qüestió, sobre mitjanes setmanals d'hores d'esport. 
+Cada una d'aquestes preguntes es traduiria en un contrast d'hipòtesis diferent. Com que aquí estam tractant contrastos sobre paràmetres poblacionals (mitjanes, proporcions, etc.), podríem plantejar algun dels tres darrers. Anem a centrar-nos en la darrera qüestió, sobre mitjanes setmanals d'hores d'esport. 
 
 Aquí, les variables poblacionals d'interès són:
 
@@ -197,7 +211,7 @@ Què significa "$\overline{X}_d$ molt més petita que $\overline{X}_h$"? Una opc
 
 *  Si estigués totalment a l'esquerra del 0, amb un 95% de confiança podríem concloure que $\mu_d<\mu_h$ (perquè tendríem un 95% de seguretat que el valor real de la diferència $\mu_d-\mu_h$ pertany a un interval de nombres estrictament negatius).
 
-*  En cas contrari, és a dir, si contengués el 0 o si estigués totalment a la dreta del 0, amb un 95% de confiança no podríem concloure que $\mu_d<\mu_h$ (perquè l'interval on estam molt segurs que cau el valor real de la diferència $\mu_d-\mu_h$ contendria valors $\geqslant 0$ i per tant podria ser, dins el nostre marge de seguretat, que $\mu_d-\mu_h\geqslant 0$).
+*  En cas contrari, és a dir, si contengués el 0 o si estigués totalment a la dreta del 0, amb un 95% de confiança no podríem concloure que $\mu_d<\mu_h$ (perquè l'interval on estam molt segurs que cau el valor real de la diferència $\mu_d-\mu_h$ contendria valors $\geqslant 0$ i per tant podria ser, dins el nostre marge de confiança, que $\mu_d-\mu_h\geqslant 0$).
 
 Com que aquí voldrem filar més prim que això del "nivell de confiança", el procediment serà una mica més complicat (bàsicament, emprarem diferents fórmules per calcular els intervals de confiança segons la forma que tengui la hipòtesi alternativa).
 
@@ -215,7 +229,7 @@ Per comparar les mitjanes mostrals no ens fa falta un contrast d'hipòtesis: les
 Recordau que la falta d'evidència a favor de *H*~1~ no és evidència a favor de *H*~0~.
 ```
 
-Si no podem concloure que les dones practiquin menys esport que els homes (perquè no hàgim trobat evidència a favor d'aquesta hipòtesi), això no significarà que hàgim trobat evidència que els homes i les dones practiquin la mateixa quantitat d'esport o que les dones en practiquin més. Simplement, significarà que *l'evidència a favor de *H*~1~ no ha estat prou forta com per poder afirmar que és vertadera* i per tant acceptam que tothom practica la mateixa quantitat d'esport.
+Si no podem concloure que les dones practiquin menys esport que els homes (perquè no hàgim trobat evidència a favor d'aquesta hipòtesi), això no significarà que hàgim trobat evidència que els homes i les dones practiquin la mateixa quantitat d'esport o que les dones en practiquin més. Simplement, significarà que *l'evidència a favor de H~1~ no ha estat prou forta com per poder afirmar que és vertadera* i per tant acceptam que tothom practica la mateixa quantitat d'esport.
 
 ```{block2,type="rmdcaution"}
 En general, mai no podrem trobar evidència de la hipòtesi nul·la.
@@ -245,7 +259,7 @@ H_{1}:\mu_d>\mu_h
 \end{array}
 \right.
 $$
-sí que obtenim evidència que elles practiquen més esport  que ells."
+resulta que obtenim evidència que elles practiquen més esport  que ells."
 
 D'això se'n diu "anar a pescar" o també "torturar les dades": obtenir unes dades i cercar de què donen evidència. És mala praxis científica. Qualsevol conjunt de dades, si el torturam prou, acaba donant evidència de qualque cosa.
 
@@ -269,14 +283,14 @@ H_{1}:\mu_d\neq \mu_h
 \end{array}
 \right.
 $$
-que tradueix la pregunta "Els homes i les dones,  de mitjana, practiquen esport un nombre diferent d'hores a la setmana?''
+que tradueix la pregunta "Els homes i les dones, practiquen esport, de mitjana, un nombre diferent d'hores a la setmana?"
 
 
 
 ```{block2,type="rmdimportant"}
 **Regles per triar *H*~0~ i *H*~1~ en aquest curs**:
 
-*  *H*~0~ sempre ha de significar "no hi ha diferència" i s'ha de definir formalment mitjançant una igualtat
+*  *H*~0~ sempre ha de significar "no hi ha diferència", "no passa res"... i s'ha de definir formalment mitjançant una igualtat
 
 *  *H*~1~ és la hipòtesi de la que cercam evidència, i s'ha de definir formalment mitjançant alguna cosa "estricta":
 
@@ -294,7 +308,7 @@ Els contrastos prenen el nom del tipus d'hipòtesi alternativa: **contrast unila
 
 Tenc una moneda, i crec que està trucada a favor de cara. Vull contrastar-ho.  
 
-Aquí la variable aleatòria $X$ que ens interessa és "Llanç la moneda  i anot 1 si surt cara", que és de Bernoulli amb probabilitat d'èxit (és a dir, probabilitat de treure cara amb la meva moneda)  $p_{\mathit{Cara}}$.
+Aquí la variable aleatòria $X$ que ens interessa és "Llanç la moneda  i anot 1 si surt cara", que és de Bernoulli amb probabilitat d'èxit (és a dir, probabilitat de treure cara)  $p_{\mathit{Cara}}$.
 
 
 La hipòtesi nul·la serà que la moneda no està trucada (no li passa res a la meva moneda), i l'alternativa (de la que cerc evidència) que la moneda està trucada a favor de cara.  En termes de  $p_{\mathit{Cara}}$, el contrast és
@@ -321,8 +335,14 @@ $$
 
 El resultat obtengut no és molt improbable amb una moneda equilibrada: passaria en 1 de cada 8 seqüències de 3 llançaments.  Per tant, no és evidència suficient que estigui trucada. No podem rebutjar que sigui equilibrada.
 
+```{r, echo=FALSE, out.width="30%",fig.cap="\"Null hypothesis\" (https://xkcd.com/892/ (CC-BI-NC 2.5))"}
+library(linguisticsdown)
+include_graphics2("https://imgs.xkcd.com/comics/null_hypothesis.png")
+```
+
+
 ```{block2,type="rmdrecordau"}
-D'aquest tipus de procediment, emprant la distribució binomial del nombre d'èxits en una mostra aleatòria simple per contrastar un valor de la probabilitat poblacional d'èxit, en direm un **test binomial**.
+D'aquest tipus de procediment, emprant la distribució binomial del nombre d'èxits en una mostra aleatòria simple per contrastar un valor de la probabilitat poblacional d'èxit, en diem un **test binomial**.
 ```
 
 
@@ -355,7 +375,7 @@ Què és el més assenyat concloure? Tenint en compte que les coses molt rares n
 
 ```
 
-Fixau-vos en el procediment:
+El procediment que hem portat a terme en els dos exemples anteriors ha estat el següent:
 
 1.  Hem plantejat el contrast:
 $$
@@ -374,7 +394,7 @@ $$
 
 5.  Hem calculat la probabilitat que l'estadístic prengui el valor observat si *H*~0~ és vertadera
 
-6.  Si aquesta probabilitat és molt petita, ho consideram evidència que *H*~1~ és vertadera
+6.  Si aquesta probabilitat és molt petita, ho consideram evidència que *H*~0 és falsa i *H*~1~ vertadera
 
 7.  Si no és prou petita, no podem rebutjar que *H*~0~ sigui la vertadera
 
@@ -386,14 +406,9 @@ P(S_{10}=0)=0.5^{10}=0.001
 $$
 
 
-* En molts casos, *la probabilitat d'obtenir exactament el que hem obtengut pot ser molt petita, independentment del que hàgim obtengut*. Per exemple, suposem que llançam la moneda  10000 vegades i obtenim 5000 cares. Si la moneda és equilibrada, el nombre de cares seguirà una distribució binomial B(10000,0.5) i la probabilitat d'obtenir 5000 cares serà `dbinom(5000,10000,0.5)`=`r round(dbinom(5000,10000,0.5),4)`, ben petita, però clarament si la meitat de llançaments donen cara, no podem tenir mai evidència que la moneda estigui trucada.  
+* En molts casos, *la probabilitat d'obtenir exactament el que hem obtengut pot ser molt petita, independentment del que hàgim obtengut*. Per exemple, suposem que llançam la moneda  100,000 vegades i obtenim 50,000 cares. Si la moneda és equilibrada, el nombre de cares seguirà una distribució binomial B(100000,0.5) i la probabilitat d'obtenir 50,000 cares serà `dbinom(50000,100000,0.5)`=`r round(dbinom(50000,100000,0.5),4)`, ben petita, però clarament si la meitat de llançaments donen cara, no podem tenir mai evidència que la moneda estigui trucada.  
 
     O, encara més exagerat, si l'estadístic de contrast té distribució contínua, la probabilitat que prengui un valor concret és 0. Més petit impossible, però no sempre rebutjarem la hipòtesi nu·la.
-    
-```{r, echo=FALSE,out.width="40%", fig.cap="\"Null hypothesis\" (https://xkcd.com/892/ (CC-BI-NC 2.5))"}
-library(linguisticsdown)
-include_graphics2("https://imgs.xkcd.com/comics/null_hypothesis.png")
-```
 
 
 Així que:
@@ -456,7 +471,10 @@ Un resultat tan extrem o més que l'obtengut és bastant improbable si $p_{\math
 
 El **p-valor** d'un contrast és la probabilitat que, si la hipòtesi nul·la és vertadera,  l'estadístic de contrast prengui  en una mostra aleatòria simple  de la mateixa mida que la nostra un valor tan o més extrem, en el sentit de la hipòtesi alternativa, que l'obtengut amb la nostra mostra. 
 
-Ho tornarem a repetir, posant èmfasi en els components fonamentals de la definició. El **p-valor** és:
+Ho tornarem a repetir, posant èmfasi en els components fonamentals de la definició.
+
+```{block2,type="rmdrecordau"}
+El **p-valor** és:
 
 * La probabilitat que,
 * si la hipòtesi nul·la és vertadera, 
@@ -465,6 +483,7 @@ Ho tornarem a repetir, posant èmfasi en els components fonamentals de la defini
 * que l'obtengut amb la nostra mostra.
 
 
+```
 
 ```{example}
 Suposem que al contrast de les mitjanes d'hores setmanals d'esport d'homes i dones de l'Exemple \@ref(exm:esport1) hi empram com a estadístic de contrast la diferència entre les mitjanes mostrals $\overline{X}_d-\overline{X}_h$ (**que no serà el cas: només és com a  exemple!**) i que hem pres mostres de 50 dones i de 50 homes, i que la diferència de mitjanes mostrals ha estat -1.2. Aleshores, el p-valor del contrast és
@@ -497,15 +516,17 @@ $$
 P(\overline{X}_d-\overline{X}_h\leqslant -1.2\mid \mu_d=\mu_h)
 $$
 
-Si aquesta probabilitat és molt petita, la mostra obtenguda és poc consistent amb la hipòtesi nul·la i per tant conclourem que la hipòtesi alternativa és vertadera. Si, en canvi, aquesta probabilitat no és molt petita, la mostra obtenguda és consistent amb la hipòtesi nul·la i per tant no podrem rebutjar que *H*~0~ sigui vertadera.
+Si aquesta probabilitat és molt petita, la mostra obtenguda és poc consistent amb la hipòtesi nul·la i per tant conclourem que la hipòtesi alternativa és vertadera. Si, en canvi, aquesta probabilitat no és molt petita, la mostra obtenguda és consistent amb la hipòtesi nul·la i per tant no tendrem motiu per rebutjar que *H*~0~ sigui vertadera.
 
 
 ```{block2,type="rmdimportant"}
-El p-valor no és:
+El p-valor no és
 
 * La probabilitat que *H*~0~ sigui vertadera condicionada al nostre resultat
 
 * La probabilitat que *H*~1~ sigui falsa condicionada al nostre resultat
+
+ni res per l'estil.
 
 
 ```
@@ -514,9 +535,9 @@ El p-valor no és:
 
 > Com  més petit sigui el p-valor, més rar seria el que hem obtengut si *H*~0~ fos vertadera i *H*~1~ falsa, i per tant més evidència tenim que *H*~0~ no pot ser vertadera i que la vertadera és *H*~1~.
 
-Per exemple, que el p-valor d'un contrast doni 0.03 
+Per exemple, que el p-valor d'un contrast doni 0.03:
 
-*  **Significa** que, si *H*~0~ és vertadera, la probabilitat que l'estadístic de contrast prengui sobre una mostra un valor tan extrem o més que el que hem obtengut és 0.03 
+*  **Significa** que, si *H*~0~ és vertadera, la probabilitat que l'estadístic de contrast prengui sobre una mostra com la nostra un valor tan extrem o més que el que hem obtengut és 0.03.
 
     * *La trobau petita?* Ho preneu com a evidència que *H*~0~ és falsa i *H*~1~ vertadera
     
@@ -565,13 +586,13 @@ $$
 
 Per tant, si la moneda no està trucada, un resultat com l'obtengut o més llunyà de "meitat cares, meitat creus" és improbable, però no gaire (1 de cada 9 vegades passaria). És evidència suficient que estigui trucada? Quin p-valor marca el llindar de l'inversemblança de *H*~0~? 
 
+La resposta curta és 0.05. La resposta correcta és que depèn de quant estiguem disposats a equivocar-nos.
+
+
 
 ```{r, echo=FALSE, fig.cap="No adorareu falsos déus."}
 knitr::include_graphics("Bioestadistica-II_files/figure-html/worship.png")
 ```
-
-
-La resposta és que depèn de quant estiguem disposats a equivocar-nos.
 
 
 ## Tipus d'errors
@@ -584,7 +605,7 @@ knitr::include_graphics("Bioestadistica-II_files/figure-html/errors.png")
 ```
 
 
-* *H*~0~ és la vertadera a la realitat i nosaltres decidim que *H*~1~ és vertadera*. 
+* *H*~0~ és la vertadera a la realitat i nosaltres decidim que *H*~1~ és vertadera. 
 
     * La conclusió del contrast és errònia. En diem **error de tipus I** o **positiu fals**. 
     
@@ -593,7 +614,7 @@ $$
 \alpha=P(\text{Rebutjar } H_0| H_0\text{ vertadera}).
 $$
 
-* *H*~1~ és vertadera a la realitat i nosaltres acceptam *H*~0~*. 
+* *H*~1~ és vertadera a la realitat i nosaltres acceptam *H*~0~. 
 
     * La conclusió del contrast és errònia. En diem **error de tipus II** o **negatiu fals**. 
     
@@ -603,7 +624,7 @@ $$
 $$
 
 
-* *H*~1~ és vertadera a la realitat i nosaltres decidim que *H*~1~ és vertadera*. 
+* *H*~1~ és vertadera a la realitat i nosaltres decidim que *H*~1~ és vertadera. 
 
     * La conclusió del contrast és correcta.  En diem un **positiu vertader**. 
     
@@ -613,7 +634,7 @@ $$
 1-\beta=P(\text{Rebutjar } H_0| H_1\text{ vertadera}).
 $$
 
-* *H*~0~ és la vertadera a la realitat i nosaltres l'acceptam*. 
+* *H*~0~ és la vertadera a la realitat i nosaltres l'acceptam. 
 
     * La conclusió del contrast és correcta. En diem un **negatiu vertader**. 
     
@@ -725,7 +746,7 @@ Què se sol fer?
 2. Després,  augmentar la mida $n$ de la mostra per arribar a la $\beta$ desitjada.
 
 
-Abans d'acabar amb els errors, fixau-vos que si efectuam $M$ contrastos (independents) emprant una regla de decisió que garanteixi un nivell de significació $\alpha$ fixat, i a tots aquests contrastos la *H*~0~ és vertadera, el nombre de contrastos d'aquests on ens equivocarem i rebutjarem *H*~0~ té distribució binomial B(M,$\alpha$).  En concret, prenent el nivell de significació usual $\alpha=0.05$, acceptam una probabilitat d'equivocar-nos rebutjant *H*~0~ a favor de *H*~1~ de 0.05. És a dir, assumim que, de mitjana, la nostra conclusió serà equivocada en 1 de cada 20 pics que la hipòtesi nul·la sigui vertadera.
+Abans d'acabar amb els errors, fixau-vos que si efectuam $M$ contrastos (independents) emprant una regla de decisió que garanteixi un nivell de significació $\alpha$ fixat, i a tots aquests contrastos la *H*~0~ és vertadera, el nombre de contrastos d'aquests on ens equivocarem i rebutjarem *H*~0~ té distribució binomial B(M,$\alpha$).  En concret, prenent el nivell de significació usual $\alpha=0.05$, acceptam una probabilitat d'equivocar-nos rebutjant *H*~0~ a favor de *H*~1~ de 0.05. És a dir, assumim que, de mitjana, la nostra conclusió serà equivocada en 1 de cada 20 vegades que la hipòtesi nul·la sigui vertadera.
 
 
 ```{block2,type="rmdcaution"}
@@ -741,7 +762,11 @@ include_graphics2("http://imgs.xkcd.com/comics/significant.png")
 
 ## Exemple: El test t {#sec:exttest}
 
-La concentració mitjana de calci en plasma en homes sans de 22 a 44 anys és de 2.5 mmol/l.  Ens demanam si els homes joves amb diabetis tenen una concentració de calci en plasma superior a la dels homes joves sans. Ho traduirem en un contrast d'hipòtesis sobre la concentració mitjana de calci en plasma en els homes joves diabètics, diguem-li $\mu$: 
+La concentració mitjana de calci en plasma en homes sans de 22 a 44 anys és de 2.5 mmol/l.  Ens demanam si els homes joves amb diabetis tenen una concentració de calci en plasma superior a aquests 2.5 mmol/l dels sans. Per respondre aquesta pregunta, prenem una mostra de 20 diabètics d'aquesta franja d'edat i els mesuram la concentració de calci. Obtenim una concentració mitjana de calci $\overline{X}=3.2$ mmol/l amb una desviació típica mostral $\widetilde{S}_X=1.5$. Suposarem que aquesta mostra de diabètics joves és representativa i que la podem considerar aleatòria. 
+
+Diguem $X$ a la variable aleatòria "Prenem un home diabètic de 22 a 44 anys i li mesuram la concentració de calci en plasma en mmol/l". Se sap que la concentració de calci en plasma en homes sans segueix una llei aproximadament normal, així que suposarem que la nostra $X$ també és normal.
+
+El primer que farem serà traduir la pregunta que ens plantejam en un contrast d'hipòtesis sobre la concentració mitjana de calci en plasma en els homes joves diabètics, és a dir, sobre la mitjana de $X$, a la que direm $\mu$: 
 
 * La hipòtesi nul·la serà que no hi ha diferència entre $\mu$ i la concentració mitjana de calci en plasma en els homes joves sans, és a dir, que $\mu=2.5$.
 
@@ -756,10 +781,6 @@ H_{1}:\mu >2.5
 \right.
 $$
 
-Diguem $X$ a la variable aleatòria "Prenem un home diabètic de 22 a 44 anys i li mesuram la concentració de calci en plasma en mmol/l". Se sap que la concentració de calci en plasma en homes sans segueix una llei aproximadament normal, així que suposarem que la nostra $X$ també és normal.
-
-En una mostra de 20 diabètics d'aquesta franja d'edat, es va obtenir una concentració mitjana de calci $\overline{X}=3.2$ mmol/l amb una desviació típica mostral $\widetilde{S}_X=1.5$. Suposem que aquesta mostra de diabètics joves és representativa i que la podem considerar aleatòria. 
-
 
 La nostra situació, doncs, és un cas particular del cas general següent. Tenim una variable aleatòria poblacional $X$ normal de mitjana $\mu$ i plantejam el contrast
 $$
@@ -771,17 +792,26 @@ H_{1}:\mu >\mu_0
 $$
 per a un valor concret $\mu_0$. Volem prendre una decisió a partir d'una mostra aleatòria simple.
 
-En aquesta situació, si *H*~0~ és vertadera, és a dir, si la mitjana de $X$ és $\mu_0$, sabem que
+La idea que guiarà el procediment per prendre una decisió en aquest contrast serà:
+
+> Rebutjarem *H*~0~ a favor de *H*~1~ si la mitjana mostral $\overline{X}$ és "molt més gran" que $\mu_0$.
+
+Però ara tenim un problema. Aquest "molt més gran" hauria de voler dir "tan gran que, si $\mu$ és igual a $\mu_0$, sigui molt improbable obtenir un valor de $\overline{X}$ així de gran". Però no sabem calcular probabilitats per a $\overline{X}$. Sí, com que $X$ és normal, sabem que és normal, i si la hipòtesi nul·la $H_0: \mu=\mu_0$ és vertadera, tendrà mitjana $\mu_0$. Però no sabem la seva desviació típica.
+
+Ara és quan la t de Student ens salva el dia. En efecte, sabem que si $X$ és normal i la hipòtesi nul·la $H_0: \mu=\mu_0$ és vertadera, 
 $$
 T=\frac{\overline{X}-\mu_0}{{\widetilde{S}_X}/{\sqrt{n}}}
 $$
-té distribució $t_{n-1}$.
+té distribució $t_{n-1}$, per tant sabem calcular probabilitats sobre aquest estadístic. El que farem aleshores serà traduir que "$\overline{X}$ sigui molt més gran que $\mu_0$" per que "$T$ sigui molt més gran que 0" i per tant:
 
-La idea que guiarà el procediment per prendre una decisió en aquest contrast serà:
 
-> Rebutjarem *H*~0~ a favor de *H*~1~ si aquest *estadístic de contrast* $T$ pren un valor "molt gran" sobre la mostra, és a dir, si $\overline{X}$ és "molts errors típics" més gran que $\mu_0$.
+> Rebutjarem *H*~0~ a favor de *H*~1~ si aquest *estadístic de contrast* $T$ pren un valor "molt gran" sobre la mostra.
 
-La definició precisa de "molt gran" dependrà del valor d'$\alpha$ que volguem prendre, és a dir, de la probabilitat de cometre un error de tipus I que estiguem disposats a assumir: quant més petit volguem que sigui $\alpha$, més gran haurà de ser l'evidència a favor de $\mu>\mu_0$, és a dir, més gran haurà de ser $T$. Aquí prendrem el valor usual $\alpha=0.05$: acceptam que tenim una probabilitat del 5% que, si la hipòtesi nul·la és vertadera,  la nostra conclusió sigui que és falsa.
+La definició precisa de "molt gran" dependrà del valor d'$\alpha$ que volguem prendre, és a dir, de la probabilitat de cometre un error de tipus I que estiguem disposats a assumir: quant més petit volguem que sigui $\alpha$, més gran haurà de ser l'evidència a favor de $\mu>\mu_0$, és a dir, més gran haurà de ser $T$  per rebutjar *H*~0~. 
+
+```{block2,type="rmdnote"}
+Fixau-vos en l'astúcia: com que no sabem calcular probabilitats  sobre $\overline{X}$ però sí que les sabem calcular sobre $T$, emprarem $T$ en lloc de $\overline{X}$. Això és molt típica en estadística: quan tens un martell, tot són claus. O ungles, anau alerta.
+```
 
 Sigui $T_0$ el valor que pren l'estadístic de contrast $T$ en la nostra mostra.  Rebutjarem *H*~0~ si $T_0$ és més gran que un cert llindar $L_0$, que determinam a partir de $\alpha$. Per fer-ho, igualarem a $\alpha$ la probabilitat que $T> L_0$ si la hipòtesi nul·la és vertadera, cas en el qual $T$ té distribució $t_{n-1}$, i aïllarem $L_0$.
 
@@ -820,9 +850,11 @@ text(3,0.12,expression(alpha),cex=2)
 
 Per tant, a fi que el nivell de significació del contrast sigui $\alpha$, 
 
-> Rebutjarem *H*~0~ si $T_0>t_{n-1,1-\alpha}$
+> Rebutjarem *H*~0~ si, i només si, $T_0>t_{n-1,1-\alpha}$
 
 En direm una **regla de rebuig** per aquest tipus de contrast.
+
+
 
 Tornem al nostre exemple dels diabètics 
 $$
@@ -832,7 +864,9 @@ H_{1}:\mu > 2.5
 \end{array}
 \right.
 $$
-Si $\alpha=0.05$ i $n=20$, el llindar a partir del qual rebutjam *H*~0~ és $t_{n-1,1-\alpha}=t_{19,0.95}=\texttt{qt(0.95,19)}=1.73$.
+Prendrem com a nivell de significació el valor usual $\alpha=0.05$: acceptam que tenim una probabilitat del 5% que, si la hipòtesi nul·la és vertadera,  la nostra conclusió sigui rebutjar-la.
+
+Aleshores, si $\alpha=0.05$ i $n=20$, el llindar a partir del qual rebutjam *H*~0~ és $t_{n-1,1-\alpha}=t_{19,0.95}=\texttt{qt(0.95,19)}=1.73$.
 
 A la nostra mostra hi tenim que $\overline{X}=3.2$, $\widetilde{S}_X=1.5$ i $n=20$, per tant  l'estadístic de contrast val
 $$
@@ -891,7 +925,7 @@ $$
 
 I ara observau que $P(T\geqslant T_0)$ és la probabilitat que, si *H*~0~ és vertadera, l'estadístic de contrast $T$ prengui un valor tan  extrem o més, en el sentit de $H_1: \mu>2.5$, que l'obtengut en la nostra mostra, $T_0$: és el **p-valor** del contrast. Per tant, tenim una altra regla de rebuig (equivalent a l'anterior):
 
-> Rebutjarem *H*~0~ quan el  p-valor sigui més petit que $\alpha$
+> Rebutjarem *H*~0~ si, i només si,  el  p-valor sigui més petit que $\alpha$
 
 En el nostre exemple, ja hem calculat $T_0=2.09$. Llavors,
 $$
@@ -906,7 +940,7 @@ Això se sol expressar dient que:
 > Hem obtengut evidència estadísticament significativa que el nivell mitjà de calci en plasma en els joves diabètics és més gran que en els joves sans.
 
 
-```{r, echo=FALSE,fig.width=1,out.width="35%"}
+```{r, echo=FALSE,fig.width=1,out.width="40%"}
 knitr::include_graphics("Bioestadistica-II_files/figure-html/pfm.png")
 ```
 
@@ -915,7 +949,7 @@ D'aquest tipus de procediment per comparar la $\mu$ d'una variable amb un valor 
 $$
 T=\frac{\overline{X}-\mu_0}{{\widetilde{S}_X}/{\sqrt{n}}}
 $$
-té distribució t de Student amb $n-1$ graus de llibertat, $t_{n-1}$, se'n diu un **test t**. Com explicarem al pròxim tema, podem emprar un test t per contrastar una mitjana quan la variable poblacional és normal i també quan la variable poblacional no és normal però la mostra és prou gran (posem, $n\geqslant 40$).
+té distribució t de Student amb $n-1$ graus de llibertat, $t_{n-1}$, se'n diu un **test t**. Com explicarem al pròxim tema, podem emprar un test t per contrastar una mitjana quan la variable poblacional és normal i també quan la variable poblacional no és normal però la mostra és gran (posem, $n\geqslant 40$).
 ```
 
 
@@ -944,7 +978,7 @@ L0=qt(0.95,19)
 L0
 ```
 
-La funció `estadístic` següent pren una mostra aleatòria de mida $n$ d'una variable $N(\mu, \sigma)$ i en calcula l'estadístic de contrast $T$:
+La funció `estadístic` següent genera una mostra aleatòria de mida $n$ d'una variable $N(\mu, \sigma)$ i en calcula l'estadístic de contrast $T$:
 
 ```{r}
 estadístic=function(n,mu,sigma){
@@ -1016,8 +1050,8 @@ H_{1}:\mu < \mu_0
 $$
 En aquest cas, el p-valor és $P(T\leqslant T_0)$ i, raonant exactament igual com abans, obtenim les dues regles de rebuig equivalents següents:
 
-> Rebutjarem *H*~0~ si  $T_0< t_{n-1,\alpha}$  
-> Rebutjarem *H*~0~ si el p-valor és més petit que $\alpha$
+> Rebutjarem *H*~0~ si, i només si,   $T_0< t_{n-1,\alpha}$  
+> Rebutjarem *H*~0~ si, i només si,  el p-valor és més petit que $\alpha$
 
 
 I què passa si ara cercam evidència que $\mu$ és *diferent* de $\mu_0$? És a dir, si tenim el contrast
@@ -1044,7 +1078,7 @@ $$
 
 Per tant, en un contrast bilateral amb nivell de significació $\alpha$, tenim la regla de rebuig següent:
 
->  Rebutjarem *H*~0~ si $|T_0|>t_{n-1,1-\alpha/2}$
+>  Rebutjarem *H*~0~ si, i només si,  $|T_0|>t_{n-1,1-\alpha/2}$
 
 En aquest cas, el p-valor serà la probabilitat que $T$ prengui un valor tant o més extrem que $T_0$, en el sentit de la hipòtesi alternativa, és a dir, més enfora de 0 que $T_0$: més gran que $|T_0|$ o més petit que $-|T_0|$:
 $$
@@ -1064,27 +1098,35 @@ $$
 
 Per tant, en un contrast bilateral amb nivell de significació $\alpha$ també tenim la regla de rebuig:
 
-> Rebutjarem *H*~0~ si el p-valor és més petit que $\alpha$
+> Rebutjarem *H*~0~ si, i només si,  el p-valor és més petit que $\alpha$
 
 ```{block2,type="rmdimportant"}
 En resum, en un contrast d'una mitjana $\mu$ emprant un test t i nivell de significació $\alpha$:
 
 * Si $H_1:\mu> \mu_0$:
 
-    * Rebutjam *H*~0~ si $T_0>t_{n-1,1-\alpha}$
-    * El p-valor és $P(T\geqslant T_0)$ i rebutjam *H*~0~ si aquest p-valor és més petit que $\alpha$
+    * Rebutjam *H*~0~ si, i només si,  $T_0>t_{n-1,1-\alpha}$
+    * El p-valor és $P(T\geqslant T_0)$ i rebutjam *H*~0~ si, i només si,  aquest p-valor és més petit que $\alpha$
     
 * Si $H_1:\mu< \mu_0$:
 
-    * Rebutjam *H*~0~ si $T_0< t_{n-1,\alpha}$
-    * El p-valor és $P(T\leqslant T_0)$ i rebutjam *H*~0~ si aquest p-valor és més petit que $\alpha$
+    * Rebutjam *H*~0~ si, i només si,  $T_0< t_{n-1,\alpha}$
+    * El p-valor és $P(T\leqslant T_0)$ i rebutjam *H*~0~ si, i només si,  aquest p-valor és més petit que $\alpha$
     
 * Si $H_1:\mu\neq  \mu_0$:
 
-    * Rebutjam *H*~0~ si $|T_0|>t_{n-1,1-\alpha/2}$
-    * El p-valor és $2P(T\geqslant |T_0|)$ i rebutjam *H*~0~ si aquest p-valor és més petit que $\alpha$
+    * Rebutjam *H*~0~ si, i només si,  $|T_0|>t_{n-1,1-\alpha/2}$
+    * El p-valor és $2P(T\geqslant |T_0|)$ i rebutjam *H*~0~ si, i només si,  aquest p-valor és més petit que $\alpha$
 
 ```
+
+La regla de rebuig per mitjà del p-valor és universal, però ja no la tornarem a demostrar:
+
+
+```{block2,type="rmdrecordau"}
+A qualsevol contrast d'hipòtesis, si el nivell de significació és $\alpha$, rebutjam la hipòtesi nul·la si, i només si,  el p-valor és més petit  que $\alpha$.
+```
+
 
 
 
@@ -1157,7 +1199,7 @@ $$
 *  **Decisió**: Com que el p-valor és més gran que 0.05, amb $\alpha=0.05$ no podem  rebutjar que $\mu=20$.
 
 ```{block2,type="rmdromans"}
-Vegem, com volíeu que concloguéssim que $\mu<20$ si ens ha sortit una mitjana mostral 20.7, més gran que 20? No feia falta fer cap càlcul (i exposar-nos a equivocar-nos), bastava raonar una mica.
+Vegem, com volíeu que haguéssim trobat evidència que $\mu<20$ si ens ha sortit una mitjana mostral 20.7, més gran que 20? No feia falta fer cap càlcul (i exposar-nos a equivocar-nos), bastava raonar una mica.
 ```
 
 
@@ -1186,10 +1228,14 @@ Com que el p-valor és més gran que 0.05, amb $\alpha=0.05$ no podem  rebutjar 
 Com pot ser que amb la mateixa mostra i mateix nivell de significació poguem concloure que $\mu> 20$ però no poguem concloure que $\mu\neq 20$? O és que $\mu> 20$ no implica que $\mu\neq 20$?
 ```
 
-Vegem, si haguéssim demostrat que segur que $\mu> 20$, està clar que això implicaria que $\mu\neq 20$. Però hem arribat a la conclusió $\mu> 20$ assumint un cert marge d'error, una probabilitat d'error de tipus I de 0.05, i ens demanam si $\mu\neq 20$ assumint el mateix marge d'error. En aquesta situació les regles de la lògica aristotèlica ja no funcionen.
+Vegem, si haguéssim demostrat que segur que $\mu> 20$, està clar que això implicaria que $\mu\neq 20$. Però hem arribat a la conclusió que $\mu> 20$ assumint un cert risc d'error, una probabilitat d'error de tipus I de 0.05, i ens demanam si $\mu\neq 20$ assumint el mateix risc d'error. En aquesta situació les regles de la lògica aristotèlica ja no funcionen.
 
 Fixau-vos que, en realitat, el que passa és que trobarem evidència que $\mu\neq 20$ si $T$ és molt gran o molt petit, i per tant al contrast bilateral hi tenim dues fonts d'error de tipus I: que per pur atzar $T$ ens surti molt gran o que ens surti molt petit. 
-En canvi, només trobarem evidència que $\mu> 20$ si $T$ és molt gran, i per tant hi tenim una sola font d'error de tipus I. Aleshores, per garantir una mateixa probabilitat d'error de tipus I, hem de ser molt més exigents al contrast bilateral, on ens podem equivocar de dues maneres diferents, que a l'unilateral. 
+En canvi, només trobarem evidència que $\mu> 20$ si $T$ és molt gran, i per tant en un contrast unilateral hi tenim una sola font d'error de tipus I. Aleshores, per garantir una mateixa probabilitat d'error de tipus I, hem de ser molt més exigents al contrast bilateral, on ens podem equivocar de dues maneres diferents, que a l'unilateral. 
+
+```{block2,type="rmdrecordau"}
+El fet que les conclusions puguin ser diferents en el contrast unilateral i en el bilateral  fa que sigui fonamental que el contrast es plantegi **abans** de fer els càlculs.
+```
 
 
 ```{example}
@@ -1231,112 +1277,34 @@ $$
 $$
 i com que p-valor és més petit que $\alpha$, podem rebutjar *H*~0~ i concloure, amb nivell de significació 0.05, que $\mu\neq 20$.
 
+## Interval de confiança d'un contrast 
 
-## Recapitulació 
-
-Repassem els conceptes introduïts fins ara, i posem nom a alguns altres:
-
-*  **Nivell de significació**, $\alpha$: probabilitat de rebutjar *H*~0~ si aquesta és vertadera (*probabilitat d'error de tipus I*, *de positiu fals*).
-
-*  **Nivell de confiança**, $1-\alpha$: probabilitat d'acceptar *H*~0~ si aquesta és vertadera (*probabilitat de negatiu vertader*).
-
-*  **Potència**, $1-\beta$: probabilitat de rebutjar *H*~0~ si *H*~1~ és vertadera (*probabilitat de  positiu vertader*).
+L'**interval de confiança de nivell de confiança $1-\alpha$** d'un contrast és  un interval que té probabilitat $1-\alpha$ de contenir el valor real del paràmetre poblacional que contrastam, en el sentit dels intervals de confiança del tema anterior: es calcula amb una fórmula que en una fracció $1-\alpha$ de les ocasions que l'aplicam a una mostra aleatòria simple, dóna un interval que conté el paràmetre d'interès. 
 
 
-*  **Estadístic de contrast**: el que calculam sobre una mostra aleatòria simple i del qual coneixem la distribució de probabilitat si *H*~0~ és vertadera.
 
-*  **Regió crítica o de rebuig**:  el rang de valors de l'estadístic de contrast per als quals rebutjam *H*~0~ amb un nivell de significació $\alpha$ donat.
 
-*  **Regió d'acceptació**:  el complementari de la regió de rebuig, és a dir, el rang de valors de l'estadístic de contrast per als quals acceptam *H*~0~ amb un nivell de significació $\alpha$ donat.
+Aquest interval de confiança s'obté imposant que l'estadístic de contrast pertanyi a la **regió d'acceptació**  per al nivell de significació $\alpha$ (els valors de l'estadístic per als quals acceptam la hipòtesi nul·la) i aïllant el paràmetre poblacional. Per tant:
 
-*  **p-valor**: la probabilitat que,  si *H*~0~ és vertadera, l'estadístic de contrast prengui sobre una mostra aleatòria simple de la mateixa mida que la nostra un valor tan o més extrem (en el sentit de *H*~1~) que l'obtengut sobre la nostra mostra.
-
-```{block2,type="rmdrecordau"}
-L'estadístic de contrast pertany a la regió de rebuig si, i només si, el p-valor és més petit que el nivell de significació.
+```{block2,type="rmdimportant"}
+L'interval de confiança d'un contrast està format pels valors del paràmetre que contrastam per als quals acceptaríem la hipòtesi nul·la.
 ```
 
-
-```{example}
-Si realitzam un test t per efectuar un contrast
-$$
-\left\{\begin{array}{l}
-H_{0}:\mu=\mu_0\\ 
-H_{1}:\mu > \mu_0
-\end{array}
-\right.
-$$
-rebutjam *H*~0~ amb nivell de significació $\alpha$  quan
-$$
-T=\dfrac{\overline{X}-\mu_0}{{\widetilde{S}_X}/{\sqrt{n}}}>t_{n-1,1-\alpha}
-$$
-
-```
-Per tant:
-
-*  *Estadístic de contrast*: aquest $T$
-
-*  *Regió de rebuig* per aquest $\alpha$: l'interval $(t_{n-1,1-\alpha},\infty)$
-
-*  *Regió d'acceptació* per aquest $\alpha$: l'interval $(-\infty,t_{n-1,1-\alpha}]$
-
-* *p-valor*: $P(T\geqslant T_0)$, on $T_0$ indica el valor de $T$ sobre la nostra mostra
-
-Si en canvi el contrast que volem efectuar és
-$$
-\left\{\begin{array}{l}
-H_{0}:\mu=\mu_0\\ 
-H_{1}:\mu < \mu_0
-\end{array}
-\right.
-$$
-rebutjam *H*~0~ amb nivell de significació $\alpha$   quan
-$$
-T=\dfrac{\overline{X}-\mu_0}{{\widetilde{S}_X}/{\sqrt{n}}}<t_{n-1,\alpha}
-$$
-
-Per tant:
-
-*  *Estadístic de contrast*: el mateix $T$ que abans
-
-*  *Regió de rebuig* per aquest $\alpha$: l'interval $(-\infty,t_{n-1,\alpha})$
-
-*  *Regió d'acceptació* per aquest $\alpha$: l'interval $[t_{n-1,\alpha},\infty)$
-
-* *p-valor*: $P(T\leqslant T_0)$
-
-Finalment, si el contrast que volem realitzar és
-$$
-\left\{\begin{array}{l}
-H_{0}:\mu=\mu_0\\ 
-H_{1}:\mu \neq \mu_0
-\end{array}
-\right.
-$$
-rebutjam *H*~0~ amb nivell de significació $\alpha$ quan
-$$
-|T|=\left|\dfrac{\overline{X}-\mu_0}{{\widetilde{S}_X}/{\sqrt{n}}}\right|>t_{n-1,1-\alpha/2}
-$$
-Per tant:
-
-*  *Estadístic de contrast*: el mateix $T$ que abans
-
-*  *Regió de rebuig* per aquest $\alpha$: la unió d'intervals $(-\infty,-t_{n-1,1-\alpha/2})\cup (t_{n-1,1-\alpha/2},\infty)$
-
-*  *Regió d'acceptació* per aquest $\alpha$: l'interval $[-t_{n-1,1-\alpha/2},t_{n-1,1-\alpha/2}]$
-
-* *p-valor*: $2P(T\geqslant |T_0|)$
-
-
-### Interval de confiança d'un contrast {-}
-
-L'**interval de confiança de nivell de confiança $1-\alpha$** d'un contrast és  un interval que té probabilitat $1-\alpha$ de contenir el valor real del paràmetre poblacional que contrastam, en el sentit dels intervals de confiança del tema anterior: es calcula amb una fórmula que en una fracció $1-\alpha$ de les ocasions que l'aplicam a una mostra aleatòria simple, dóna un interval que conté el paràmetre d'interès.
-
-
-Aquest interval de confiança s'obté imposant que l'estadístic de contrast pertanyi a la regió d'acceptació per al nivell de significació $\alpha$ i aïllant el paràmetre poblacional.
+L'interval de confiança d'un contrast:
 
 *  Quan *H*~1~ és bilateral, coincideix amb l'interval de confiança donat en el tema anterior.
 
 *  Quan *H*~1~ és unilateral, dóna un interval infinit al costat definit per la hipòtesi alternativa.
+
+```{block2,type="rmdcaution"}
+Més que infinit, hauríem de dir "il·limitat" al costat definit per *H*~1~. 
+
+Vegem, si calculam l'interval de confiança d'un contrast d'una proporció $p$ amb hipòtesi alternativa, diguem, $H_1:p<p_0$, i dóna $(-\infty, 0.38]$, és un doi donar aquest interval tal qual. Recordau que les proporcions van de 0 a 1, no té sentit parlar de proporcions negatives. Per tant, en tot cas, donau l'interval $[0,0.38]$, o $(0,0.38]$ si la mostra contenia èxits i per tant estam segurs que $p\neq 0$. 
+
+De la mateixa manera, si estau contrastant una mitjana d'una variable que, a la vida real, només pot prendre valors positius, no digueu que l'interval de confiança arriba fins $-\infty$. Queda lleig.
+
+
+```
 
 Per exemple, considerem el cas de un test t per efectuar un contrast
 $$
@@ -1346,7 +1314,11 @@ H_{1}:\mu > \mu_0
 \end{array}
 \right.
 $$
-Acceptam *H*~0~ amb nivell de significació $\alpha$ quan
+Hem vist que rebutjam *H*~0~ amb nivell de significació $\alpha$ quan
+$$
+\dfrac{\overline{X}-\mu_0}{{\widetilde{S}_X}/{\sqrt{n}}}> t_{n-1,1-\alpha}
+$$
+Per tant, acceptam *H*~0~ amb nivell de significació $\alpha$ quan
 $$
 \dfrac{\overline{X}-\mu_0}{{\widetilde{S}_X}/{\sqrt{n}}}\leqslant t_{n-1,1-\alpha}
 $$
@@ -1375,6 +1347,11 @@ H_{1}:\mu\neq  \mu_0
 \end{array}
 \right.
 $$
+hem vist que rebutjam *H*~0~ amb nivell de significació $\alpha$ quan
+$$
+\dfrac{\overline{X}-\mu_0}{{\widetilde{S}_X}/{\sqrt{n}}}<-t_{n-1,1-\alpha/2}\quad\text{ o }\quad \dfrac{\overline{X}-\mu_0}{{\widetilde{S}_X}/{\sqrt{n}}}>t_{n-1,1-\alpha/2}
+$$
+Per tant,
 acceptam *H*~0~ amb nivell de significació $\alpha$ quan
 $$
 -t_{n-1,1-\alpha/2}\leqslant \dfrac{\overline{X}-\mu_0}{{\widetilde{S}_X}/{\sqrt{n}}}\leqslant t_{n-1,1-\alpha/2}
@@ -1390,7 +1367,172 @@ $$
 Us sona? Fent $q=1-\alpha$, de manera que $1-\alpha/2=(1+q)/2$, és el del tema anterior.
 
 
-```{block2,type="rmdimportant"}
+
+## La potència 
+
+Recordau que la **potència** $1-\beta$ és la probabilitat de rebutjar *H*~0~ quan *H*~1~ és vertadera.
+
+Per exemple, en l'exemple del calci en diabètics de la Secció \@ref(sec:exttest), la regla de rebuig era 
+$$
+T=\frac{\overline{X}-2.5}{\widetilde{S}_X/\sqrt{n}}>1.73,
+$$
+per tant la potència era
+$$
+1-\beta=P(\text{Rebutjar } H_0| H_1\text{ vertadera})=P(T>1.73| \mu>2.5).
+$$
+Aquesta probabilitat és impossible de calcular, però hi ha paquets de R que la saben aproximar.
+
+Per a cada tipus de contrast es té una relació numèrica entre:
+
+
+*  La **potència** 
+
+*  La **mida** de la mostra $n$: la potència creix amb $n$
+
+*  El **nivell de significació** $\alpha$: la potència decreix amb $\alpha$
+
+*  La **mida de l'efecte**, un valor que quantifica la diferència  entre el valor de l'estimador del paràmetre sobre la mostra i el valor que contrastam del paràmetre poblacional. La potència creix amb el valor absolut de la mida de l'efecte (ja que, quant més gran és la diferència  entre l'estimació i el valor contrastat, més fàcil és que sigui estadísticament significativa i per tant rebutgem la hipòtesi nul·la).
+
+Aquesta relació permet aproximar qualsevol dels quatre valors a partir dels altres tres; amb R, el paquet **pwr** permet fer-ho amb els contrastos més usuals. Al pròxim tema en veurem alguns exemples.
+
+Llavors, a l'hora de planejar un experiment per realitzar un contrast, el que s'ha de fer és:
+
+*  Fixar el nivell de significació desitjat
+
+*  Fixar la potència desitjada
+
+*  Estimar la mida de l'efecte esperat (a partir de la nostra teoria, de la nostra experiència, dels resultats d'altres estudis...)
+
+i emprar la relació anterior per calcular la mida de la mostra necessària per assolir la potència desitjada.
+
+```{block2,type="rmdcaution"}
+Desconfiau dels treballs on això no es faci. Podria ser que la potència fos molt baixa i hi hagués un  **biaix de infrapotència** (*underpower*): es necessitava un efecte molt gran per poder rebutjar la hipòtesi nul·la i publicar l'article.
+```
+
+
+## Recapitulació 
+
+Repassem els conceptes introduïts fins ara:
+
+*  **Nivell de significació**, $\alpha$: probabilitat de rebutjar *H*~0~ si aquesta és vertadera (*probabilitat d'error de tipus I*, *de positiu fals*).
+
+*  **Nivell de confiança**, $1-\alpha$: probabilitat d'acceptar *H*~0~ si aquesta és vertadera (*probabilitat de negatiu vertader*).
+
+*  **Potència**, $1-\beta$: probabilitat de rebutjar *H*~0~ si *H*~1~ és vertadera (*probabilitat de  positiu vertader*).
+
+
+*  **Estadístic de contrast**: el que calculam sobre una mostra aleatòria simple i del qual coneixem la distribució de probabilitat si *H*~0~ és vertadera.
+
+*  **Regió crítica o de rebuig**:  el rang de valors de l'estadístic de contrast per als quals rebutjam *H*~0~ amb un nivell de significació $\alpha$ donat.
+
+*  **Regió d'acceptació**:  el complementari de la regió de rebuig, és a dir, el rang de valors de l'estadístic de contrast per als quals acceptam *H*~0~ amb un nivell de significació $\alpha$ donat.
+
+*  **p-valor**: la probabilitat que,  si *H*~0~ és vertadera, l'estadístic de contrast prengui sobre una mostra aleatòria simple de la mateixa mida que la nostra un valor tan o més extrem (en el sentit de *H*~1~) que l'obtengut sobre la nostra mostra.
+
+```{block2,type="rmdrecordau"}
+L'estadístic de contrast pertany a la regió de rebuig si, i només si, el p-valor és més petit que el nivell de significació.
+```
+
+* **Interval de confiança** de nivell de confiança $1-\alpha$: un interval que té probabilitat $1-\alpha$ de contenir el valor real del paràmetre poblacional que contrastam, i que està format pels valors del paràmetre per als quals acceptaríem *H*~0~ amb nivell de confiança $\alpha$.
+
+    I per tant:
+    
+
+```{block2,type="rmdrecordau"}
+El paràmetre que contrastam pertany a l'a regió de rebuig'interval de confiança si, i només si, el p-valor és més gran o igual que el nivell de significació.
+```
+
+
+
+```{example}
+Si realitzam un test t per efectuar un contrast
+$$
+\left\{\begin{array}{l}
+H_{0}:\mu=\mu_0\\ 
+H_{1}:\mu > \mu_0
+\end{array}
+\right.
+$$
+rebutjam *H*~0~ amb nivell de significació $\alpha$  quan
+$$
+T=\dfrac{\overline{X}-\mu_0}{{\widetilde{S}_X}/{\sqrt{n}}}>t_{n-1,1-\alpha}
+$$
+
+```
+Per tant:
+
+*  *Estadístic de contrast*: aquest $T$
+
+*  *Regió de rebuig* per aquest $\alpha$: l'interval $(t_{n-1,1-\alpha},\infty)$
+
+*  *Regió d'acceptació* per aquest $\alpha$: l'interval $(-\infty,t_{n-1,1-\alpha}]$
+
+* *p-valor*: $P(T\geqslant T_0)$, on $T_0$ indica el valor de $T$ sobre la nostra mostra
+
+* *Interval de confiança* de nivell de confiança $1-\alpha$:
+$$
+\Bigg[\overline{X}- t_{n-1,1-\alpha}\cdot \dfrac{\widetilde{S}_X}{\sqrt{n}},\infty\Bigg)
+$$
+
+
+Si en canvi el contrast que volem efectuar és
+$$
+\left\{\begin{array}{l}
+H_{0}:\mu=\mu_0\\ 
+H_{1}:\mu < \mu_0
+\end{array}
+\right.
+$$
+rebutjam *H*~0~ amb nivell de significació $\alpha$   quan
+$$
+T=\dfrac{\overline{X}-\mu_0}{{\widetilde{S}_X}/{\sqrt{n}}}<t_{n-1,\alpha}
+$$
+
+Per tant:
+
+*  *Estadístic de contrast*: el mateix $T$ que abans
+
+*  *Regió de rebuig* per aquest $\alpha$: l'interval $(-\infty,t_{n-1,\alpha})$
+
+*  *Regió d'acceptació* per aquest $\alpha$: l'interval $[t_{n-1,\alpha},\infty)$
+
+* *p-valor*: $P(T\leqslant T_0)$
+
+* *Interval de confiança* de nivell de confiança $1-\alpha$:
+$$
+\Bigg(-\infty,\overline{X}- t_{n-1,\alpha}\cdot \dfrac{\widetilde{S}_X}{\sqrt{n}}\Bigg]
+$$
+
+
+Finalment, si el contrast que volem realitzar és
+$$
+\left\{\begin{array}{l}
+H_{0}:\mu=\mu_0\\ 
+H_{1}:\mu \neq \mu_0
+\end{array}
+\right.
+$$
+rebutjam *H*~0~ amb nivell de significació $\alpha$ quan
+$$
+|T|=\left|\dfrac{\overline{X}-\mu_0}{{\widetilde{S}_X}/{\sqrt{n}}}\right|>t_{n-1,1-\alpha/2}
+$$
+Per tant:
+
+*  *Estadístic de contrast*: el mateix $T$ que abans
+
+*  *Regió de rebuig* per aquest $\alpha$: la unió d'intervals $(-\infty,-t_{n-1,1-\alpha/2})\cup (t_{n-1,1-\alpha/2},\infty)$
+
+*  *Regió d'acceptació* per aquest $\alpha$: l'interval $[-t_{n-1,1-\alpha/2},t_{n-1,1-\alpha/2}]$
+
+* *p-valor*: $2P(T\geqslant |T_0|)$
+
+* *Interval de confiança* de nivell de confiança $1-\alpha$:
+$$
+\Bigg[\overline{X}- t_{n-1,1-\alpha/2}\cdot \dfrac{\widetilde{S}_X}{\sqrt{n}},\overline{X}+ t_{n-1,1-\alpha/2}\cdot \dfrac{\widetilde{S}_X}{\sqrt{n}}\Bigg]
+$$
+
+
+
 Donat un contrast d'hipòtesis, podem decidir si rebutjam *H*~0~ a favor de *H*~1~ amb nivell de significació $\alpha$ emprant:
 
 *  **La regió de rebuig**: Si l'*estadístic de contrast* cau dins la regió de rebuig per al nivell de significació $\alpha$, rebutjam *H*~0~
@@ -1399,9 +1541,17 @@ Donat un contrast d'hipòtesis, podem decidir si rebutjam *H*~0~ a favor de *H*~
 
 *  **L'interval de confiança**: Si el valor que contrastam del *paràmetre poblacional* no pertany a  l'interval de confiança de nivell de confiança $1-\alpha$, rebutjam *H*~0~
 
-Els tres mètodes són equivalents. El més adequat és donar el p-valor i l'interval de confiança: el p-valor perquè el lector el pugui comparar amb el nivell de significació que consideri oportú i l'interval de confiança perquè mostra el marge amb el qual hem acceptat o rebutjat la hipòtesi nul·la amb el nostre nivell de significació.
+Els tres mètodes són equivalents. A la pràctica, la regió de rebuig no es fa servir: només serveix per demostrar la regla amb el p-valor i per obtenir l'interval de confiança
 
+```{block2,type="rmdimportant"}
+**El més adequat és donar el p-valor i l'interval de confiança**: el p-valor perquè el lector el pugui comparar amb el nivell de significació que consideri oportú i l'interval de confiança perquè mostra el marge amb el qual hem acceptat o rebutjat la hipòtesi nul·la amb el nostre nivell de significació.
 ```
+
+
+```{block2,type="rmdnote"}
+El fet de poder decidir un contrast per mitjà d'un interval de confiança adient permet emprar tècniques de *bootstrap* per efectuar contrastos. Simplement, empram *bootstrap* per estimar l'interval de confiança del contrast (recordant que si el contrast és unilateral, ha de ser infinit cap al costat de la hipòtesi alternativa) i decidim el contrast a partir d'aquest interval. En veurem alguns exemples al proper tema.
+```
+
 
 Si no establim un nivell de significació $\alpha$, el que és habitual en Biologia i Bioquímica és:
 
@@ -1446,64 +1596,24 @@ El p-valor obtengut en un contrast és la probabilitat mínima que assumim d'equ
 
 
 
-### La potència {-}
-
-Recordau que la **potència** $1-\beta$ és la probabilitat de rebutjar *H*~0~ quan *H*~1~ és vertadera.
-
-Per exemple, en l'exemple del calci en diabètics de la Secció \@ref(sec:exttest), la regla de rebuig era 
-$$
-T=\frac{\overline{X}-2.5}{\widetilde{S}_X/\sqrt{n}}>1.73,
-$$
-per tant la potència era
-$$
-1-\beta=P(\text{Rebutjar } H_0| H_1\text{ vertadera})=P(T>1.73| \mu>2.5).
-$$
-Aquesta probabilitat és impossible de calcular, però hi ha paquets de R que la saben estimar.
-
-Per a cada tipus de contrast es té una relació numèrica entre:
-
-
-*  La **potència** $1-\beta$
-
-*  La **mida** de la mostra $n$: la potència creix amb $n$
-
-*  El **nivell de significació** $\alpha$: la potència decreix amb $\alpha$
-
-*  La **mida de l'efecte**, un valor que quantifica la diferència  entre el valor de l'estimador del paràmetre sobre la mostra i el valor que contrastam del paràmetre poblacional. La potència creix amb el valor absolut de la mida de l'efecte (ja que, quant més gran és la diferència  entre l'estimació i el valor contrastat, més fàcil és que sigui estadísticament significativa i per tant rebutgem la hipòtesi nul·la).
-
-Aquesta relació permet calcular qualsevol dels quatre valors a partir dels altres tres; amb R, el paquet **pwr** permet fer-ho amb els contrastos més usuals. Al pròxim tema en veurem alguns exemples.
-
-A l'hora de planejar un experiment per realitzar un contrast, el que s'ha de fer és:
-
-*  Fixar el nivell de significació desitjat
-
-*  Fixar la potència desitjada
-
-*  Estimar la mida de l'efecte esperat (a partir de la nostra teoria, de la nostra experiència, dels resultats d'altres estudis...) o que volguem detectar (per rebutjar la hipòtesi nul·la ens bastarà una mida de l'efecte petita o la requerirem grossa?)
-
-i emprar la relació anterior per calcular la mida de la mostra necessària per assolir la potència desitjada.
-
-```{block2,type="rmdcaution"}
-Desconfiau dels treballs on això no es faci. Podria ser que la potència fos molt baixa i hi hagués un  **biaix de infrapotència** (*underpower*): es necessitava un efecte molt gran per poder rebutjar la hipòtesi nul·la i publicar l'article.
-```
 
 
 
-### El risc de  positiu fals  (Opcional) {-}
+## El risc de  positiu fals  (Opcional)  
 
-El paquet **statcheck** de R permet revisar de manera automàtica tots els càlculs d'un article escrit en un format concret en psicologia i comprovar-ne els p-valors. Els autors analitzaren 30,000 articles  i varen concloure que [(*Behavior research methods* 48 (2016), 1205-1226)](https://link.springer.com/article/10.3758/s13428-015-0664-2):
+El paquet **statcheck** de R permet revisar de manera automàtica tots els càlculs d'un article escrit en un format concret en psicologia i comprovar-ne els p-valors. Els autors analitzaren 30,000 articles  i varen concloure que [(*Behavior Research Methods* 48 (2016), 1205-1226)](https://link.springer.com/article/10.3758/s13428-015-0664-2):
 
 > "Hem trobat que la meitat dels articles contenen almenys un p-valor erroni. I un de cada vuit articles conté un p-valor erroni que a més afecta la conclusió estadística."
 
 Per tant,
 
-* Qualsevol article pot donar un p-valor petit que estigui equivocat
+* Qualsevol article pot donar un p-valor estadísticament significatiu que estigui equivocat
 
 No us en refieu. A més, teniu present que:
 
-* Qualsevol estudi mal dissenyat o mal realitzat pot donar un p-valor petit... que no signifiqui absolutament res
+* Qualsevol estudi mal dissenyat o mal realitzat pot donar un p-valor estadísticament significatiu... que no signifiqui absolutament res
 
-* Qualsevol estudi perfectament dissenyat i realitzat pot donar per pur atzar un p-valor petit... que impliqui un positiu fals 
+* Qualsevol estudi perfectament dissenyat i realitzat pot donar per pur atzar un p-valor estadísticament significatiu... que sigui un positiu fals 
 
 En resum, a qualsevol estudi us podeu trobar amb un fals positiu. Sigau escèptics.
 
@@ -1534,7 +1644,7 @@ En un estudi (publicat a [*Psychological Science* 22 (2011), pp. 1011-1018](http
 knitr::include_graphics("Bioestadistica-II_files/figure-html/fotoflag.png")
 ```
 
-Després de mirar les fotos, els participants emplenaren un qüestionari sobre idees polítiques, a partir del qual es pot calcular un cert "índex de republicanisme" (en el sentit nord americà del terme) $M$. Resulta que $M$ va ser significativament més gran en el grup Bandera que en el grup Control, i amb un nivell de significació $\alpha=0.05$ els autors de l'estudi  conclogueren que mirar fotos amb banderes estatals et "dretitza" (almenys a curt termini) les idees polítiques. Vaig a estimar el risc que aquest positiu sigui fals.
+Després de mirar les fotos, els participants emplenaren un qüestionari sobre idees polítiques, a partir del qual es pot calcular un cert "índex de republicanisme" (en el sentit nord-americà del terme) $M$. Resulta que $M$ va ser significativament més gran en el grup Bandera que en el grup Control, i amb un nivell de significació $\alpha=0.05$ els autors de l'estudi  conclogueren que mirar fotos amb banderes estatals et "dretitza" (almenys a curt termini) les idees polítiques. Vaig a estimar el risc que aquest positiu sigui fals.
 
 Com que *a priori*, trob molt improbable que la conclusió sigui certa, li assignaré $P(H_1)=0.1$ i gràcies. Emprarem el seu $\alpha=0.05$, i si es calcula la potència del contrast publicat, dóna 0.5.
 
@@ -1570,7 +1680,7 @@ Per tant, *a posteriori*, crec que hi ha un 47% de probabilitats que *H*~1~ sigu
 1. Cap dels anteriors
 
 
-**(3)** Tenc un dau cúbic de 6 cares i sospit que està trucat a favor de 1. Sigui $p$ la probabilitat de treure un 1 amb el meu dau. He llançat el dau 100 vegades, he obtengut 28 uns. Això m'ha donat un p-valor de 0.0015. Quina és la conclusió correcta d'aquest contrast?
+**(3)** Tenc un dau cúbic de 6 cares i sospit que està trucat a favor de 1. He llançat el dau 100 vegades, he obtengut 28 uns. Això m'ha donat un p-valor de 0.0015. Quina és la conclusió correcta d'aquest contrast?
 
 
 1. Es confirma la meva sospita, perquè la probabilitat que el meu dau no estigui trucat a favor d'1 és 0.0015
@@ -1606,7 +1716,7 @@ Per tant, *a posteriori*, crec que hi ha un 47% de probabilitats que *H*~1~ sigu
 1. *H*~0~:  No sé si l'individu està infectat; *H*~1~:  L'individu està infectat 
 
 
-**(6)** Quan en un contrast d'hipòtesis rebutjam la hipòtesi nul·la i decidim que l'alternativa és la vertadera (marcau la resposta correcta)
+**(6)** Quan en un contrast d'hipòtesis rebutjam la hipòtesi nul·la i decidim que l'alternativa és la vertadera (marcau la continuació correcta):
 
 1. És perquè els resultats de la nostra mostra demostren que la hipòtesi alternativa és vertadera
 1. És perquè els resultats de la nostra mostra demostren que la hipòtesi nul·la és falsa
@@ -1714,8 +1824,7 @@ Per tant, *a posteriori*, crec que hi ha un 47% de probabilitats que *H*~1~ sigu
 
 
 
-**(15)** En un examen considerat com un contrast (marcau totes les respostes
-correctes)
+**(15)** En un examen considerat com un contrast (marcau totes les respostes correctes):
 
 
 1. Que l’estudiant aprovi sense saber la matèria és un error de tipus I 
