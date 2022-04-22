@@ -337,7 +337,7 @@ estimació
 correlació-de-spearman
 contrastos-de-correlació
 test-de-la-lliçó-9
-chap:ANOVA
+anova
 nocions-bàsiques
 anova-d1-via
 contrast-bàsic
