@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Tema 12 Anàlisi de components principals | Matemàtiques II v.2021</title>
+  <meta name="description" content="Apunts Matemàtiques II bookdown::gitbook." />
+  <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Tema 12 Anàlisi de components principals | Matemàtiques II v.2021" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="Apunts Matemàtiques II bookdown::gitbook." />
+  <meta name="github-repo" content="cescrossello/MatesII" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Tema 12 Anàlisi de components principals | Matemàtiques II v.2021" />
+  
+  <meta name="twitter:description" content="Apunts Matemàtiques II bookdown::gitbook." />
+  
+
+
+
+<meta name="date" content="2023-02-24" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="regressió-lineal.html"/>
+
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Bioestadística II</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Presentació</a></li>
+<li class="chapter" data-level="1" data-path="alguns-conceptes-bàsics.html"><a href="alguns-conceptes-bàsics.html"><i class="fa fa-check"></i><b>1</b> Alguns conceptes bàsics</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="alguns-conceptes-bàsics.html"><a href="alguns-conceptes-bàsics.html#tipus-de-dades"><i class="fa fa-check"></i><b>1.1</b> Tipus de dades</a></li>
+<li class="chapter" data-level="1.2" data-path="alguns-conceptes-bàsics.html"><a href="alguns-conceptes-bàsics.html#població"><i class="fa fa-check"></i><b>1.2</b> Població</a></li>
+<li class="chapter" data-level="1.3" data-path="alguns-conceptes-bàsics.html"><a href="alguns-conceptes-bàsics.html#variable-aleatòria"><i class="fa fa-check"></i><b>1.3</b> Variable aleatòria</a></li>
+<li class="chapter" data-level="1.4" data-path="alguns-conceptes-bàsics.html"><a href="alguns-conceptes-bàsics.html#mostra"><i class="fa fa-check"></i><b>1.4</b> Mostra</a></li>
+<li class="chapter" data-level="1.5" data-path="alguns-conceptes-bàsics.html"><a href="alguns-conceptes-bàsics.html#sec:mostreig"><i class="fa fa-check"></i><b>1.5</b> Mostreig aleatori</a></li>
+<li class="chapter" data-level="1.6" data-path="alguns-conceptes-bàsics.html"><a href="alguns-conceptes-bàsics.html#mostres-de-conveniència"><i class="fa fa-check"></i><b>1.6</b> Mostres de conveniència</a></li>
+<li class="chapter" data-level="1.7" data-path="alguns-conceptes-bàsics.html"><a href="alguns-conceptes-bàsics.html#test-de-la-lliçó-1"><i class="fa fa-check"></i><b>1.7</b> Test de la lliçó 1</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="variables-aleatòries.html"><a href="variables-aleatòries.html"><i class="fa fa-check"></i><b>2</b> Variables aleatòries</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="variables-aleatòries.html"><a href="variables-aleatòries.html#generalitats-sobre-variables-aleatòries"><i class="fa fa-check"></i><b>2.1</b> Generalitats sobre variables aleatòries</a></li>
+<li class="chapter" data-level="2.2" data-path="variables-aleatòries.html"><a href="variables-aleatòries.html#variables-aleatòries-discretes"><i class="fa fa-check"></i><b>2.2</b> Variables aleatòries discretes</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="variables-aleatòries.html"><a href="variables-aleatòries.html#densitat-i-distribució"><i class="fa fa-check"></i><b>2.2.1</b> Densitat i distribució</a></li>
+<li class="chapter" data-level="2.2.2" data-path="variables-aleatòries.html"><a href="variables-aleatòries.html#esperança"><i class="fa fa-check"></i><b>2.2.2</b> Esperança</a></li>
+<li class="chapter" data-level="2.2.3" data-path="variables-aleatòries.html"><a href="variables-aleatòries.html#variància-i-desviació-típica"><i class="fa fa-check"></i><b>2.2.3</b> Variància i desviació típica</a></li>
+<li class="chapter" data-level="2.2.4" data-path="variables-aleatòries.html"><a href="variables-aleatòries.html#quantils"><i class="fa fa-check"></i><b>2.2.4</b> Quantils</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="variables-aleatòries.html"><a href="variables-aleatòries.html#famílies-importants-de-variables-aleatòries-discretes"><i class="fa fa-check"></i><b>2.3</b> Famílies importants de variables aleatòries discretes</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="variables-aleatòries.html"><a href="variables-aleatòries.html#variables-aleatòries-binomials"><i class="fa fa-check"></i><b>2.3.1</b> Variables aleatòries binomials</a></li>
+<li class="chapter" data-level="2.3.2" data-path="variables-aleatòries.html"><a href="variables-aleatòries.html#variables-aleatòries-hipergeomètriques"><i class="fa fa-check"></i><b>2.3.2</b> Variables aleatòries hipergeomètriques</a></li>
+<li class="chapter" data-level="2.3.3" data-path="variables-aleatòries.html"><a href="variables-aleatòries.html#variables-aleatòries-de-poisson"><i class="fa fa-check"></i><b>2.3.3</b> Variables aleatòries de Poisson</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="variables-aleatòries.html"><a href="variables-aleatòries.html#variables-aleatòries-contínues"><i class="fa fa-check"></i><b>2.4</b> Variables aleatòries contínues</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="variables-aleatòries.html"><a href="variables-aleatòries.html#densitat-i-distribució-1"><i class="fa fa-check"></i><b>2.4.1</b> Densitat i distribució</a></li>
+<li class="chapter" data-level="2.4.2" data-path="variables-aleatòries.html"><a href="variables-aleatòries.html#esperança-variància-quantils"><i class="fa fa-check"></i><b>2.4.2</b> Esperança, variància, quantils…</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="variables-aleatòries.html"><a href="variables-aleatòries.html#sec:normal"><i class="fa fa-check"></i><b>2.5</b> Variables aleatòries normals</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="variables-aleatòries.html"><a href="variables-aleatòries.html#amb-r"><i class="fa fa-check"></i><b>2.5.1</b> Amb R</a></li>
+<li class="chapter" data-level="2.5.2" data-path="variables-aleatòries.html"><a href="variables-aleatòries.html#propietats-bàsiques"><i class="fa fa-check"></i><b>2.5.2</b> Propietats bàsiques</a></li>
+<li class="chapter" data-level="2.5.3" data-path="variables-aleatòries.html"><a href="variables-aleatòries.html#intervals-de-referència"><i class="fa fa-check"></i><b>2.5.3</b> Intervals de referència</a></li>
+<li class="chapter" data-level="2.5.4" data-path="variables-aleatòries.html"><a href="variables-aleatòries.html#sec:lognormal"><i class="fa fa-check"></i><b>2.5.4</b> Variables log-normals</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="variables-aleatòries.html"><a href="variables-aleatòries.html#test-de-la-lliçó-2"><i class="fa fa-check"></i><b>2.6</b> Test de la lliçó 2</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="estimació-puntual.html"><a href="estimació-puntual.html"><i class="fa fa-check"></i><b>3</b> Estimació puntual</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="estimació-puntual.html"><a href="estimació-puntual.html#estimadors"><i class="fa fa-check"></i><b>3.1</b> Estimadors</a></li>
+<li class="chapter" data-level="3.2" data-path="estimació-puntual.html"><a href="estimació-puntual.html#mitjana-mostral"><i class="fa fa-check"></i><b>3.2</b> Mitjana mostral</a></li>
+<li class="chapter" data-level="3.3" data-path="estimació-puntual.html"><a href="estimació-puntual.html#proporció-mostral"><i class="fa fa-check"></i><b>3.3</b> Proporció mostral</a></li>
+<li class="chapter" data-level="3.4" data-path="estimació-puntual.html"><a href="estimació-puntual.html#variància-mostral"><i class="fa fa-check"></i><b>3.4</b> Variància mostral</a></li>
+<li class="chapter" data-level="3.5" data-path="estimació-puntual.html"><a href="estimació-puntual.html#la-distribució-t-de-student"><i class="fa fa-check"></i><b>3.5</b> La distribució t de Student</a></li>
+<li class="chapter" data-level="3.6" data-path="estimació-puntual.html"><a href="estimació-puntual.html#biaix-i-precisió"><i class="fa fa-check"></i><b>3.6</b> Biaix i precisió</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="estimació-puntual.html"><a href="estimació-puntual.html#estimadors-no-esbiaixats"><i class="fa fa-check"></i><b>3.6.1</b> Estimadors no esbiaixats</a></li>
+<li class="chapter" data-level="3.6.2" data-path="estimació-puntual.html"><a href="estimació-puntual.html#sec:precis"><i class="fa fa-check"></i><b>3.6.2</b> Estimadors precisos</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="estimació-puntual.html"><a href="estimació-puntual.html#estimadors-màxim-versemblants"><i class="fa fa-check"></i><b>3.7</b> Estimadors màxim versemblants</a></li>
+<li class="chapter" data-level="3.8" data-path="estimació-puntual.html"><a href="estimació-puntual.html#sec:pobl"><i class="fa fa-check"></i><b>3.8</b> Estimació de poblacions</a>
+<ul>
+<li class="chapter" data-level="3.8.1" data-path="estimació-puntual.html"><a href="estimació-puntual.html#estimació-de-poblacions-numerades"><i class="fa fa-check"></i><b>3.8.1</b> Estimació de poblacions numerades</a></li>
+<li class="chapter" data-level="3.8.2" data-path="estimació-puntual.html"><a href="estimació-puntual.html#marca-recaptura"><i class="fa fa-check"></i><b>3.8.2</b> Marca-recaptura</a></li>
+</ul></li>
+<li class="chapter" data-level="3.9" data-path="estimació-puntual.html"><a href="estimació-puntual.html#test-de-la-lliçó-3"><i class="fa fa-check"></i><b>3.9</b> Test de la lliçó 3</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="intervals-de-confiança.html"><a href="intervals-de-confiança.html"><i class="fa fa-check"></i><b>4</b> Intervals de confiança</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="intervals-de-confiança.html"><a href="intervals-de-confiança.html#definició-dinterval-de-confiança"><i class="fa fa-check"></i><b>4.1</b> Definició d’interval de confiança</a></li>
+<li class="chapter" data-level="4.2" data-path="intervals-de-confiança.html"><a href="intervals-de-confiança.html#exemple-interval-de-confiança-del-95-per-a-la-mitjana-duna-variable-aleatòria-normal"><i class="fa fa-check"></i><b>4.2</b> Exemple: Interval de confiança del 95% per a la mitjana d’una variable aleatòria normal</a></li>
+<li class="chapter" data-level="4.3" data-path="intervals-de-confiança.html"><a href="intervals-de-confiança.html#interval-de-confiança-per-a-la-mitjana-basat-en-la-t-de-student"><i class="fa fa-check"></i><b>4.3</b> Interval de confiança per a la mitjana basat en la t de Student</a>
+<ul>
+<li class="chapter" data-level="" data-path="intervals-de-confiança.html"><a href="intervals-de-confiança.html#la-fórmula"><i class="fa fa-check"></i>La fórmula</a></li>
+<li class="chapter" data-level="" data-path="intervals-de-confiança.html"><a href="intervals-de-confiança.html#algunes-consideracions"><i class="fa fa-check"></i>Algunes consideracions</a></li>
+<li class="chapter" data-level="" data-path="intervals-de-confiança.html"><a href="intervals-de-confiança.html#amb-r-1"><i class="fa fa-check"></i>Amb R</a></li>
+<li class="chapter" data-level="" data-path="intervals-de-confiança.html"><a href="intervals-de-confiança.html#càlcul-de-la-mida-de-la-mostra-per-fixar-lerror"><i class="fa fa-check"></i>Càlcul de la mida de la mostra per fixar l’error</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="intervals-de-confiança.html"><a href="intervals-de-confiança.html#intervals-de-confiança-per-a-proporcions"><i class="fa fa-check"></i><b>4.4</b> Intervals de confiança per a proporcions</a>
+<ul>
+<li class="chapter" data-level="" data-path="intervals-de-confiança.html"><a href="intervals-de-confiança.html#mètode-exacte-de-clopper-pearson"><i class="fa fa-check"></i>Mètode “exacte” de Clopper-Pearson</a></li>
+<li class="chapter" data-level="" data-path="intervals-de-confiança.html"><a href="intervals-de-confiança.html#mètode-de-wilson"><i class="fa fa-check"></i>Mètode de Wilson</a></li>
+<li class="chapter" data-level="" data-path="intervals-de-confiança.html"><a href="intervals-de-confiança.html#mètode-de-laplace"><i class="fa fa-check"></i>Mètode de Laplace</a></li>
+<li class="chapter" data-level="" data-path="intervals-de-confiança.html"><a href="intervals-de-confiança.html#quan-podem-calcular-més-dun-interval-per-a-p_x-quin-calculam"><i class="fa fa-check"></i>Quan podem calcular més d’un interval per a <span class="math inline">\(p_X\)</span>, quin calculam?</a></li>
+<li class="chapter" data-level="" data-path="intervals-de-confiança.html"><a href="intervals-de-confiança.html#càlcul-de-la-mida-de-la-mostra-per-a-fitar-lerror"><i class="fa fa-check"></i>Càlcul de la mida de la mostra per a fitar l’error</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="intervals-de-confiança.html"><a href="intervals-de-confiança.html#intervals-de-confiança-per-a-la-variància-i-la-desviació-típica-duna-variable-normal"><i class="fa fa-check"></i><b>4.5</b> Intervals de confiança per a la variància i la desviació típica d’una variable normal</a></li>
+<li class="chapter" data-level="4.6" data-path="intervals-de-confiança.html"><a href="intervals-de-confiança.html#poblacions-finites"><i class="fa fa-check"></i><b>4.6</b> “Poblacions finites”</a></li>
+<li class="chapter" data-level="4.7" data-path="intervals-de-confiança.html"><a href="intervals-de-confiança.html#test-de-la-lliçó-4"><i class="fa fa-check"></i><b>4.7</b> Test de la lliçó 4</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="contrastos-dhipòtesis-generalitats.html"><a href="contrastos-dhipòtesis-generalitats.html"><i class="fa fa-check"></i><b>5</b> Contrastos d’hipòtesis: Generalitats</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="contrastos-dhipòtesis-generalitats.html"><a href="contrastos-dhipòtesis-generalitats.html#les-hipòtesis-nulla-i-alternativa"><i class="fa fa-check"></i><b>5.1</b> Les hipòtesis nul·la i alternativa</a></li>
+<li class="chapter" data-level="5.2" data-path="contrastos-dhipòtesis-generalitats.html"><a href="contrastos-dhipòtesis-generalitats.html#sec:moneda"><i class="fa fa-check"></i><b>5.2</b> Un exemple</a></li>
+<li class="chapter" data-level="5.3" data-path="contrastos-dhipòtesis-generalitats.html"><a href="contrastos-dhipòtesis-generalitats.html#sec:pval"><i class="fa fa-check"></i><b>5.3</b> El p-valor</a></li>
+<li class="chapter" data-level="5.4" data-path="contrastos-dhipòtesis-generalitats.html"><a href="contrastos-dhipòtesis-generalitats.html#tipus-derrors"><i class="fa fa-check"></i><b>5.4</b> Tipus d’errors</a></li>
+<li class="chapter" data-level="5.5" data-path="contrastos-dhipòtesis-generalitats.html"><a href="contrastos-dhipòtesis-generalitats.html#sec:exttest"><i class="fa fa-check"></i><b>5.5</b> Exemple: El test t</a></li>
+<li class="chapter" data-level="5.6" data-path="contrastos-dhipòtesis-generalitats.html"><a href="contrastos-dhipòtesis-generalitats.html#interval-de-confiança-dun-contrast"><i class="fa fa-check"></i><b>5.6</b> Interval de confiança d’un contrast</a></li>
+<li class="chapter" data-level="5.7" data-path="contrastos-dhipòtesis-generalitats.html"><a href="contrastos-dhipòtesis-generalitats.html#la-potència"><i class="fa fa-check"></i><b>5.7</b> La potència</a></li>
+<li class="chapter" data-level="5.8" data-path="contrastos-dhipòtesis-generalitats.html"><a href="contrastos-dhipòtesis-generalitats.html#recapitulació"><i class="fa fa-check"></i><b>5.8</b> Recapitulació</a></li>
+<li class="chapter" data-level="5.9" data-path="contrastos-dhipòtesis-generalitats.html"><a href="contrastos-dhipòtesis-generalitats.html#el-risc-de-positiu-fals-opcional"><i class="fa fa-check"></i><b>5.9</b> El risc de positiu fals (Opcional)</a></li>
+<li class="chapter" data-level="5.10" data-path="contrastos-dhipòtesis-generalitats.html"><a href="contrastos-dhipòtesis-generalitats.html#test-de-la-lliçó-5"><i class="fa fa-check"></i><b>5.10</b> Test de la lliçó 5</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="contrastos-dhipòtesis-dun-i-dos-paràmetres.html"><a href="contrastos-dhipòtesis-dun-i-dos-paràmetres.html"><i class="fa fa-check"></i><b>6</b> Contrastos d’hipòtesis d’un i dos paràmetres</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="contrastos-dhipòtesis-dun-i-dos-paràmetres.html"><a href="contrastos-dhipòtesis-dun-i-dos-paràmetres.html#contrastos-de-mitjanes"><i class="fa fa-check"></i><b>6.1</b> Contrastos de mitjanes</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="contrastos-dhipòtesis-dun-i-dos-paràmetres.html"><a href="contrastos-dhipòtesis-dun-i-dos-paràmetres.html#test-t-per-a-una-mitjana"><i class="fa fa-check"></i><b>6.1.1</b> Test t per a una mitjana</a></li>
+<li class="chapter" data-level="6.1.2" data-path="contrastos-dhipòtesis-dun-i-dos-paràmetres.html"><a href="contrastos-dhipòtesis-dun-i-dos-paràmetres.html#test-t-per-a-dues-mitjanes"><i class="fa fa-check"></i><b>6.1.2</b> Test t per a dues mitjanes</a></li>
+<li class="chapter" data-level="6.1.3" data-path="contrastos-dhipòtesis-dun-i-dos-paràmetres.html"><a href="contrastos-dhipòtesis-dun-i-dos-paràmetres.html#tests-t-amb-r"><i class="fa fa-check"></i><b>6.1.3</b> Tests t amb R</a></li>
+<li class="chapter" data-level="6.1.4" data-path="contrastos-dhipòtesis-dun-i-dos-paràmetres.html"><a href="contrastos-dhipòtesis-dun-i-dos-paràmetres.html#exemples"><i class="fa fa-check"></i><b>6.1.4</b> Exemples</a></li>
+<li class="chapter" data-level="6.1.5" data-path="contrastos-dhipòtesis-dun-i-dos-paràmetres.html"><a href="contrastos-dhipòtesis-dun-i-dos-paràmetres.html#tests-no-paramètrics"><i class="fa fa-check"></i><b>6.1.5</b> Tests no paramètrics</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="contrastos-dhipòtesis-dun-i-dos-paràmetres.html"><a href="contrastos-dhipòtesis-dun-i-dos-paràmetres.html#sec:contrvar"><i class="fa fa-check"></i><b>6.2</b> Contrastos de variàncies</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="contrastos-dhipòtesis-dun-i-dos-paràmetres.html"><a href="contrastos-dhipòtesis-dun-i-dos-paràmetres.html#test-chi2-duna-variància"><i class="fa fa-check"></i><b>6.2.1</b> Test <span class="math inline">\(\chi^2\)</span> d’una variància</a></li>
+<li class="chapter" data-level="6.2.2" data-path="contrastos-dhipòtesis-dun-i-dos-paràmetres.html"><a href="contrastos-dhipòtesis-dun-i-dos-paràmetres.html#test-f-per-a-dues-variàncies"><i class="fa fa-check"></i><b>6.2.2</b> Test F per a dues variàncies</a></li>
+<li class="chapter" data-level="6.2.3" data-path="contrastos-dhipòtesis-dun-i-dos-paràmetres.html"><a href="contrastos-dhipòtesis-dun-i-dos-paràmetres.html#tests-no-paramètrics-1"><i class="fa fa-check"></i><b>6.2.3</b> Tests no paramètrics</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="contrastos-dhipòtesis-dun-i-dos-paràmetres.html"><a href="contrastos-dhipòtesis-dun-i-dos-paràmetres.html#contrastos-per-a-proporcions"><i class="fa fa-check"></i><b>6.3</b> Contrastos per a proporcions</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="contrastos-dhipòtesis-dun-i-dos-paràmetres.html"><a href="contrastos-dhipòtesis-dun-i-dos-paràmetres.html#contrastos-per-a-una-proporció"><i class="fa fa-check"></i><b>6.3.1</b> Contrastos per a una proporció</a></li>
+<li class="chapter" data-level="6.3.2" data-path="contrastos-dhipòtesis-dun-i-dos-paràmetres.html"><a href="contrastos-dhipòtesis-dun-i-dos-paràmetres.html#contrastos-per-a-2-proporcions-emprant-mostres-independents"><i class="fa fa-check"></i><b>6.3.2</b> Contrastos per a 2 proporcions emprant mostres independents</a></li>
+<li class="chapter" data-level="6.3.3" data-path="contrastos-dhipòtesis-dun-i-dos-paràmetres.html"><a href="contrastos-dhipòtesis-dun-i-dos-paràmetres.html#contrastos-per-a-2-proporcions-emprant-mostres-aparellades"><i class="fa fa-check"></i><b>6.3.3</b> Contrastos per a 2 proporcions emprant mostres aparellades</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="contrastos-dhipòtesis-dun-i-dos-paràmetres.html"><a href="contrastos-dhipòtesis-dun-i-dos-paràmetres.html#test-de-la-lliçó-6"><i class="fa fa-check"></i><b>6.4</b> Test de la lliçó 6</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="contrastos-de-bondat-dajust.html"><a href="contrastos-de-bondat-dajust.html"><i class="fa fa-check"></i><b>7</b> Contrastos de bondat d’ajust</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="contrastos-de-bondat-dajust.html"><a href="contrastos-de-bondat-dajust.html#bondat-dajust"><i class="fa fa-check"></i><b>7.1</b> Bondat d’ajust</a></li>
+<li class="chapter" data-level="7.2" data-path="contrastos-de-bondat-dajust.html"><a href="contrastos-de-bondat-dajust.html#test-chi2-de-pearson"><i class="fa fa-check"></i><b>7.2</b> Test <span class="math inline">\(\chi^2\)</span> de Pearson</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="contrastos-de-bondat-dajust.html"><a href="contrastos-de-bondat-dajust.html#el-test-bàsic"><i class="fa fa-check"></i><b>7.2.1</b> El test bàsic</a></li>
+<li class="chapter" data-level="7.2.2" data-path="contrastos-de-bondat-dajust.html"><a href="contrastos-de-bondat-dajust.html#mètode-de-montecarlo"><i class="fa fa-check"></i><b>7.2.2</b> Mètode de Montecarlo</a></li>
+<li class="chapter" data-level="7.2.3" data-path="contrastos-de-bondat-dajust.html"><a href="contrastos-de-bondat-dajust.html#test-chi2-amb-paràmetres-poblacionals-desconeguts"><i class="fa fa-check"></i><b>7.2.3</b> Test <span class="math inline">\(\chi^2\)</span> amb paràmetres poblacionals desconeguts</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="contrastos-de-bondat-dajust.html"><a href="contrastos-de-bondat-dajust.html#test-de-kolmogorov-smirnov"><i class="fa fa-check"></i><b>7.3</b> Test de Kolmogorov-Smirnov</a></li>
+<li class="chapter" data-level="7.4" data-path="contrastos-de-bondat-dajust.html"><a href="contrastos-de-bondat-dajust.html#test-de-kolmogorov-smirnov-lilliefors"><i class="fa fa-check"></i><b>7.4</b> Test de Kolmogorov-Smirnov-Lilliefors</a></li>
+<li class="chapter" data-level="7.5" data-path="contrastos-de-bondat-dajust.html"><a href="contrastos-de-bondat-dajust.html#test-de-la-lliçó-7"><i class="fa fa-check"></i><b>7.5</b> Test de la lliçó 7</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="contrastos-dindependència-i-homogeneïtat.html"><a href="contrastos-dindependència-i-homogeneïtat.html"><i class="fa fa-check"></i><b>8</b> Contrastos d’independència i homogeneïtat</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="contrastos-dindependència-i-homogeneïtat.html"><a href="contrastos-dindependència-i-homogeneïtat.html#test-chi2-dindependència"><i class="fa fa-check"></i><b>8.1</b> Test <span class="math inline">\(\chi^2\)</span> d’independència</a></li>
+<li class="chapter" data-level="8.2" data-path="contrastos-dindependència-i-homogeneïtat.html"><a href="contrastos-dindependència-i-homogeneïtat.html#test-chi2-dhomogeneïtat"><i class="fa fa-check"></i><b>8.2</b> Test <span class="math inline">\(\chi^2\)</span> d’homogeneïtat</a></li>
+<li class="chapter" data-level="8.3" data-path="contrastos-dindependència-i-homogeneïtat.html"><a href="contrastos-dindependència-i-homogeneïtat.html#test-chi2-de-tendència-opcional"><i class="fa fa-check"></i><b>8.3</b> Test <span class="math inline">\(\chi^2\)</span> de tendència (Opcional)</a></li>
+<li class="chapter" data-level="8.4" data-path="contrastos-dindependència-i-homogeneïtat.html"><a href="contrastos-dindependència-i-homogeneïtat.html#test-de-la-lliçó-8"><i class="fa fa-check"></i><b>8.4</b> Test de la lliçó 8</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="introducció-a-lestadística-multidimensional.html"><a href="introducció-a-lestadística-multidimensional.html"><i class="fa fa-check"></i><b>9</b> Introducció a l’estadística multidimensional</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="introducció-a-lestadística-multidimensional.html"><a href="introducció-a-lestadística-multidimensional.html#poblacions-vectors-aleatoris"><i class="fa fa-check"></i><b>9.1</b> Poblacions: vectors aleatoris</a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="introducció-a-lestadística-multidimensional.html"><a href="introducció-a-lestadística-multidimensional.html#covariància"><i class="fa fa-check"></i><b>9.1.1</b> Covariància</a></li>
+<li class="chapter" data-level="9.1.2" data-path="introducció-a-lestadística-multidimensional.html"><a href="introducció-a-lestadística-multidimensional.html#correlació"><i class="fa fa-check"></i><b>9.1.2</b> Correlació</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="introducció-a-lestadística-multidimensional.html"><a href="introducció-a-lestadística-multidimensional.html#estadística-descriptiva-mostres"><i class="fa fa-check"></i><b>9.2</b> Estadística descriptiva: Mostres</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="introducció-a-lestadística-multidimensional.html"><a href="introducció-a-lestadística-multidimensional.html#covariàncies"><i class="fa fa-check"></i><b>9.2.1</b> Covariàncies</a></li>
+<li class="chapter" data-level="9.2.2" data-path="introducció-a-lestadística-multidimensional.html"><a href="introducció-a-lestadística-multidimensional.html#correlació-de-pearson"><i class="fa fa-check"></i><b>9.2.2</b> Correlació de Pearson</a></li>
+<li class="chapter" data-level="9.2.3" data-path="introducció-a-lestadística-multidimensional.html"><a href="introducció-a-lestadística-multidimensional.html#estimació"><i class="fa fa-check"></i><b>9.2.3</b> Estimació</a></li>
+<li class="chapter" data-level="9.2.4" data-path="introducció-a-lestadística-multidimensional.html"><a href="introducció-a-lestadística-multidimensional.html#correlació-de-spearman"><i class="fa fa-check"></i><b>9.2.4</b> Correlació de Spearman</a></li>
+<li class="chapter" data-level="9.2.5" data-path="introducció-a-lestadística-multidimensional.html"><a href="introducció-a-lestadística-multidimensional.html#contrastos-de-correlació"><i class="fa fa-check"></i><b>9.2.5</b> Contrastos de correlació</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="introducció-a-lestadística-multidimensional.html"><a href="introducció-a-lestadística-multidimensional.html#test-de-la-lliçó-9"><i class="fa fa-check"></i><b>9.3</b> Test de la lliçó 9</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="anova.html"><a href="anova.html"><i class="fa fa-check"></i><b>10</b> ANOVA</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="anova.html"><a href="anova.html#nocions-bàsiques"><i class="fa fa-check"></i><b>10.1</b> Nocions bàsiques</a></li>
+<li class="chapter" data-level="10.2" data-path="anova.html"><a href="anova.html#anova-d1-via"><i class="fa fa-check"></i><b>10.2</b> ANOVA d’1 via</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="anova.html"><a href="anova.html#contrast-bàsic"><i class="fa fa-check"></i><b>10.2.1</b> Contrast bàsic</a></li>
+<li class="chapter" data-level="10.2.2" data-path="anova.html"><a href="anova.html#amb-r-2"><i class="fa fa-check"></i><b>10.2.2</b> Amb R</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="anova.html"><a href="anova.html#test-de-la-lliçó-10"><i class="fa fa-check"></i><b>10.3</b> Test de la lliçó 10</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="regressió-lineal.html"><a href="regressió-lineal.html"><i class="fa fa-check"></i><b>11</b> Regressió lineal</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="regressió-lineal.html"><a href="regressió-lineal.html#regressió-lineal-simple"><i class="fa fa-check"></i><b>11.1</b> Regressió lineal simple</a>
+<ul>
+<li class="chapter" data-level="11.1.1" data-path="regressió-lineal.html"><a href="regressió-lineal.html#el-model"><i class="fa fa-check"></i><b>11.1.1</b> El model</a></li>
+<li class="chapter" data-level="11.1.2" data-path="regressió-lineal.html"><a href="regressió-lineal.html#mínims-quadrats"><i class="fa fa-check"></i><b>11.1.2</b> Mínims quadrats</a></li>
+<li class="chapter" data-level="11.1.3" data-path="regressió-lineal.html"><a href="regressió-lineal.html#coeficient-de-determinació"><i class="fa fa-check"></i><b>11.1.3</b> Coeficient de determinació</a></li>
+<li class="chapter" data-level="11.1.4" data-path="regressió-lineal.html"><a href="regressió-lineal.html#coeficient-de-determinació-ajustat"><i class="fa fa-check"></i><b>11.1.4</b> Coeficient de determinació ajustat</a></li>
+<li class="chapter" data-level="11.1.5" data-path="regressió-lineal.html"><a href="regressió-lineal.html#intervals-de-confiança-per-als-coeficients"><i class="fa fa-check"></i><b>11.1.5</b> Intervals de confiança per als coeficients</a></li>
+<li class="chapter" data-level="11.1.6" data-path="regressió-lineal.html"><a href="regressió-lineal.html#intervals-de-confiança-per-a-les-estimacions-de-la-variable-resposta"><i class="fa fa-check"></i><b>11.1.6</b> Intervals de confiança per a les estimacions de la variable resposta</a></li>
+<li class="chapter" data-level="11.1.7" data-path="regressió-lineal.html"><a href="regressió-lineal.html#lanova-de-la-regressió-lineal-múltiple"><i class="fa fa-check"></i><b>11.1.7</b> L’ANOVA de la regressió lineal múltiple</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="regressió-lineal.html"><a href="regressió-lineal.html#test-de-la-lliçó-11"><i class="fa fa-check"></i><b>11.2</b> Test de la lliçó 11</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="anàlisi-de-components-principals.html"><a href="anàlisi-de-components-principals.html"><i class="fa fa-check"></i><b>12</b> Anàlisi de components principals</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="anàlisi-de-components-principals.html"><a href="anàlisi-de-components-principals.html#introducció"><i class="fa fa-check"></i><b>12.1</b> Introducció</a></li>
+<li class="chapter" data-level="12.2" data-path="anàlisi-de-components-principals.html"><a href="anàlisi-de-components-principals.html#components-principals"><i class="fa fa-check"></i><b>12.2</b> Components principals</a></li>
+<li class="chapter" data-level="12.3" data-path="anàlisi-de-components-principals.html"><a href="anàlisi-de-components-principals.html#interpretació-geomètrica"><i class="fa fa-check"></i><b>12.3</b> Interpretació geomètrica</a></li>
+<li class="chapter" data-level="12.4" data-path="anàlisi-de-components-principals.html"><a href="anàlisi-de-components-principals.html#components-principals-1"><i class="fa fa-check"></i><b>12.4</b> Components principals</a></li>
+<li class="chapter" data-level="12.5" data-path="anàlisi-de-components-principals.html"><a href="anàlisi-de-components-principals.html#acp-sobre-la-matriu-de-covariàncies"><i class="fa fa-check"></i><b>12.5</b> ACP sobre la matriu de covariàncies</a></li>
+<li class="chapter" data-level="12.6" data-path="anàlisi-de-components-principals.html"><a href="anàlisi-de-components-principals.html#propietats-de-lacp-sobre-la-matriu-de-covariàncies"><i class="fa fa-check"></i><b>12.6</b> Propietats de l’ACP sobre la matriu de covariàncies</a></li>
+<li class="chapter" data-level="12.7" data-path="anàlisi-de-components-principals.html"><a href="anàlisi-de-components-principals.html#acp-sobre-la-matriu-de-correlacions"><i class="fa fa-check"></i><b>12.7</b> ACP sobre la matriu de correlacions</a></li>
+<li class="chapter" data-level="12.8" data-path="anàlisi-de-components-principals.html"><a href="anàlisi-de-components-principals.html#etapes-dun-acp"><i class="fa fa-check"></i><b>12.8</b> Etapes d’un ACP</a></li>
+<li class="chapter" data-level="12.9" data-path="anàlisi-de-components-principals.html"><a href="anàlisi-de-components-principals.html#descomposició-en-valors-singulars"><i class="fa fa-check"></i><b>12.9</b> Descomposició en valors singulars</a></li>
+<li class="chapter" data-level="12.10" data-path="anàlisi-de-components-principals.html"><a href="anàlisi-de-components-principals.html#relació-acp-amb-svd"><i class="fa fa-check"></i><b>12.10</b> Relació ACP amb SVD</a></li>
+<li class="chapter" data-level="12.11" data-path="anàlisi-de-components-principals.html"><a href="anàlisi-de-components-principals.html#biplots"><i class="fa fa-check"></i><b>12.11</b> Biplots</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Matemàtiques II v.2021</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="anàlisi-de-components-principals" class="section level1 hasAnchor" number="12">
+<h1><span class="header-section-number">Tema 12</span> Anàlisi de components principals<a href="anàlisi-de-components-principals.html#anàlisi-de-components-principals" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>El problema central de l’anàlisi de dades és la reducció de la dimensionalitat.</p>
+<p>És a dir, si és possible descriure amb precisió els valors de les <span class="math inline">\(p\)</span> variables per un petit subconjunt <span class="math inline">\(r &lt;p\)</span> d’aquestes variables amb una pèrdua mínima d’informació.</p>
+<p>Aquest és l’objectiu de l’anàlisi de components principals: donades <span class="math inline">\(n\)</span> observacions de <span class="math inline">\(p\)</span> variables, (taula de dades) s’analitza si és possible representar aquesta informació amb menys variables.</p>
+<div id="introducció" class="section level2 hasAnchor" number="12.1">
+<h2><span class="header-section-number">12.1</span> Introducció<a href="anàlisi-de-components-principals.html#introducció" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Dit de forma més explícita, volem transformar les variables de la nostra taula de dades en unes noves variables anomenades components principals que siguin incorrelacionades entre sí i que siguin combinació lineal de les variables originals.</p>
+<p>Si el nombre de variables noves és més petit que les variables originals, hi haurà una pèrdua d’informació.</p>
+<p>Volem que aquesta pèrdua sigui mínima en el sentit de que les components principals heretin la màxima variabilitat de les variables originals.</p>
+</div>
+<div id="components-principals" class="section level2 hasAnchor" number="12.2">
+<h2><span class="header-section-number">12.2</span> Components principals<a href="anàlisi-de-components-principals.html#components-principals" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Anomenarem <span class="math inline">\(X_1,\ldots,X_p\)</span> a les nostres variables originals i <span class="math inline">\(CP_1,\ldots,CP_r\)</span> a les variables components principals on <span class="math inline">\(r\leq p\)</span>.</p>
+<p>Volem calcular una matriu <span class="math inline">\({\Lambda}\)</span> tal que:
+<span class="math display">\[
+\mathbf{CP}={\Lambda}\mathbf{X},
+\]</span>
+on <span class="math inline">\(\mathbf{CP}=(CP_1,\ldots,CP_r)^\top\)</span>, <span class="math inline">\(\mathbf{X}=(X_1,\ldots,X_p)^\top\)</span> i
+<span class="math display">\[
+{\Lambda}=\begin{pmatrix}
+\alpha_{11}&amp;\cdots &amp; \alpha_{1p}\\
+\alpha_{21}&amp;\cdots &amp; \alpha_{2p}\\
+\cdots &amp; \cdots &amp; \cdots \\
+\alpha_{r1}&amp;\cdots &amp; \alpha_{rp}
+\end{pmatrix}.
+\]</span></p>
+<p>Escrit en components:
+<span class="math display">\[\begin{eqnarray*}
+CP_1 &amp;=&amp; \alpha_{11} X_1+\cdots + \alpha_{1p} X_p, \\
+CP_2 &amp;=&amp; \alpha_{21} X_1+\cdots + \alpha_{2p} X_p, \\
+\vdots &amp;&amp; \vdots \\
+CP_r &amp;=&amp; \alpha_{11} X_1+\cdots + \alpha_{rp} X_p.
+\end{eqnarray*}\]</span></p>
+<p>En la pràctica, sigui <span class="math inline">\(\mathbf{X}\)</span> la nostra matriu <span class="math inline">\(n\times p\)</span> que representa la taula de dades original on tenim <span class="math inline">\(n\)</span> individus i <span class="math inline">\(p\)</span> variables que suposarem centrada. O sigui, les mitjanes de les columnes de <span class="math inline">\(\mathbf{X}\)</span> són nul·les.</p>
+<p>Volem obtenir una nova matriu <span class="math inline">\(\mathbf{Y}\)</span> <span class="math inline">\(n\times r\)</span> corresponent a les components principals tal que: <span class="math inline">\(\mathbf{Y}=\mathbf{X}\cdot \Lambda^\top.\)</span></p>
+<p>Escrit en components:
+<span class="math display">\[
+y_{ki}=x_{k1} \alpha_{i1}+\cdots +x_{kp}\alpha_{ip},\mbox{ per } k=1,\ldots,n,i=1,\ldots, r.
+\]</span>
+Ens adonem que la matriu <span class="math inline">\(\mathbf{Y}\)</span> també serà centrada.</p>
+</div>
+<div id="interpretació-geomètrica" class="section level2 hasAnchor" number="12.3">
+<h2><span class="header-section-number">12.3</span> Interpretació geomètrica<a href="anàlisi-de-components-principals.html#interpretació-geomètrica" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Suposem que <span class="math inline">\(p=2\)</span> i que el nostre ``núvol’’ de punts de la nostra taula de dades és el que mostra la figura:
+</p>
+<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p>A continuació mostram les dues components principals. O sigui, les direccions on les projeccions de les dades tenen màxima variabilitat:</p>
+<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p>Si projectam en la direcció de la primera component, obtendrem les projeccions següents (punts blaus):</p>
+<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p>Això significa que la variància dels punts blaus és màxima en el sentit de que si haguéssim escollit una altra direcció o una altra recta i haguéssim projectat sobre aquesta segona recta, la variància de les projeccions hagués estar menor.</p>
+<p>Els punts blaus representen les coordenades que tenen els punts de la nostra taula de dades si haguéssim agafat com eix d’abscisses, l’eix de la primera component <span class="math inline">\(CP_1\)</span>.</p>
+<p>Si projectam en la direcció de la segona component, obtendrem les projeccions següents (punts verds):</p>
+<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+</div>
+<div id="components-principals-1" class="section level2 hasAnchor" number="12.4">
+<h2><span class="header-section-number">12.4</span> Components principals<a href="anàlisi-de-components-principals.html#components-principals-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Condicions han de verificar les components principals:</p>
+<ul>
+<li><p>Han d’esser incorrelades.
+O sigui, <span class="math inline">\(r_{CP_i,CP_j}=0\)</span> o si <span class="math inline">\(\mathbf{y}_i\)</span> i <span class="math inline">\(\mathbf{y_j}\)</span> són les columnes <span class="math inline">\(i\)</span> i <span class="math inline">\(j\)</span> de la matriu <span class="math inline">\(\mathbf{Y}\)</span>, <span class="math inline">\(r_{\mathbf{y}_i,\mathbf{y}_j}=0\)</span>. Dit en altres paraules, la matriu de covariàncies o de correlacions de la taula de dades <span class="math inline">\(\mathbf{Y}\)</span> serà diagonal.</p></li>
+<li><p>Les variàncies de les components principals han de decréixer.
+O sigui, <span class="math display">\[
+\mbox{var}(CP_1)\geq \mbox{var}(CP_2)\cdots \geq \mbox{var}(CP_p).
+\]</span>
+D’aquesta forma, la component principal <span class="math inline">\(CP_1\)</span> serà la que tengui més variabilitat de totes i per tant, la més important, <span class="math inline">\(CP_2\)</span>, la segona més important i així successivament.</p></li>
+</ul>
+</div>
+<div id="acp-sobre-la-matriu-de-covariàncies" class="section level2 hasAnchor" number="12.5">
+<h2><span class="header-section-number">12.5</span> ACP sobre la matriu de covariàncies<a href="anàlisi-de-components-principals.html#acp-sobre-la-matriu-de-covariàncies" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Considerem <span class="math inline">\(\mathbf{X}\)</span> <span class="math inline">\(n\times p\)</span> la nostre matriu de dades que suposarem centrada on tenim <span class="math inline">\(n\)</span> individus i <span class="math inline">\(p\)</span> variables. Si no ho fos, l’haurem de centrar.</p>
+<p>Sigui <span class="math inline">\(\mathbf{S}\)</span> <span class="math inline">\(p\times p\)</span> la matriu de covariàncies de <span class="math inline">\(\mathbf{X}\)</span>.</p>
+<p>Recordem que <span class="math inline">\(\mathbf{S}\)</span> es calcula com:
+<span class="math display">\[
+\mathbf{S}=\frac{1}{n}\mathbf{X}^\top\cdot\mathbf{X}.
+\]</span></p>
+<p>Siguin <span class="math inline">\(\lambda_1 \geq \lambda_2 \geq \cdots \geq \lambda_p\)</span> els valors propis de la matriu <span class="math inline">\(\mathbf{S}\)</span> en ordre creixent.</p>
+<p>Siguin <span class="math inline">\(\mathbf{v}_1,\mathbf{v}_2,\ldots,\mathbf{v}_p\)</span> els corresponents vectors propis que suposarem ortogonals i normalitzats. Això és, suposarem que són perpendiculars dos a dos i tenen norma euclídea unitat.</p>
+<p>Sigui <span class="math inline">\(\mathbf{V}\)</span> la matriu de vectors propis que té els vectors anteriors per columnes.</p>
+<p>Aleshores la matriu <span class="math inline">\(\Lambda\)</span> és la transposada de la matriu <span class="math inline">\(\mathbf{V}\)</span>:
+<span class="math display">\[
+\Lambda=\mathbf{V}^\top.
+\]</span></p>
+<div class="example">
+<p><span id="exm:unnamed-chunk-6" class="example"><strong>Exemple 12.1  </strong></span>Considerem la següent matriu de dades:</p>
+</div>
+<p><span class="math display">\[
+\mathbf{X}=
+\left(\begin{matrix}1&amp;-1&amp;3 \\1&amp;0&amp;3 \\2&amp;3&amp;0 \\3&amp;0&amp;1 \\\end{matrix}\right).
+\]</span>
+Com que la matriu no està centrada, primer la centram:</p>
+<p><span class="math display">\[
+\tilde{\mathbf{X}} =  \mathbf{H}_4\mathbf{X} =
+\left(\begin{matrix}0.75&amp;-0.25&amp;-0.25&amp;-0.25 \\-0.25&amp;0.75&amp;-0.25&amp;-0.25 \\-0.25&amp;-0.25&amp;0.75&amp;-0.25 \\-0.25&amp;-0.25&amp;-0.25&amp;0.75 \\\end{matrix}\right)\cdot \left(\begin{matrix}1&amp;-1&amp;3 \\1&amp;0&amp;3 \\2&amp;3&amp;0 \\3&amp;0&amp;1 \\\end{matrix}\right)=
+\left(\begin{matrix}-0.75&amp;-1.5&amp;1.25 \\-0.75&amp;-0.5&amp;1.25 \\0.25&amp;2.5&amp;-1.75 \\1.25&amp;-0.5&amp;-0.75 \\\end{matrix}\right).
+\]</span>
+La matriu de covariàncies serà:</p>
+<p><span class="math display">\[
+\mathbf{S}=\frac{1}{4}\tilde{\mathbf{X}}^\top\tilde{\mathbf{X}}=
+\left(\begin{matrix}0.6875&amp;0.375&amp;-0.8125 \\0.375&amp;2.25&amp;-1.625 \\-0.8125&amp;-1.625&amp;1.6875 \\\end{matrix}\right).
+\]</span>
+Els valors propis de la matriu de covariàncies anterior són:
+<span class="math display">\[
+\left(\begin{matrix}3.8295618494008&amp;0.77436221933625&amp;0.0210759312629551 \\\end{matrix}\right).
+\]</span>
+Els corresponents vectors propis (per columnes) associats als vectors propis anteriors són:
+<span class="math display">\[
+\left(\begin{matrix}-0.252678042345583&amp;0.749595621854402&amp;0.611768101990546 \\-0.722287901642562&amp;-0.566841264049372&amp;0.396221110633566 \\0.643781014054616&amp;-0.341756324107722&amp;0.684652189710358 \\\end{matrix}\right).
+\]</span>
+Ens adonem que els vectors anteriors són ortogonals i estan normalitzats.</p>
+<p>Així la matriu que ens canviarà de variables originals a components principals serà la transposada dels vectors propis:
+<span class="math display">\[
+\Lambda=
+\left(\begin{matrix}-0.252678042345583&amp;-0.722287901642562&amp;0.643781014054616 \\0.749595621854402&amp;-0.566841264049372&amp;-0.341756324107722 \\0.611768101990546&amp;0.396221110633566&amp;0.684652189710358 \\\end{matrix}\right)
+\]</span>
+Per tant, la matriu de dades en les noves variables serà:</p>
+<p><span class="math display">\[
+\mathbf{Y}=\tilde{\mathbf{X}}\Lambda^\top = \tilde{\mathbf{X}}\mathbf{V}=
+\left(\begin{matrix}2.0776666517913&amp;-0.139130225451397&amp;-0.19734250530531 \\1.35537875014874&amp;-0.705971489500768&amp;0.198878605328256 \\-2.99550603928838&amp;-0.631630687471315&amp;-0.0546465299115764 \\-0.43753936265166&amp;1.47673240242348&amp;0.0531104298886311 \\\end{matrix}\right).
+\]</span></p>
+<p>Si calculam la matriu de covariàncies de les components principals val:
+<span class="math display">\[
+\mathbf{S}_{CP}=
+\left(\begin{matrix}3.829562&amp;0&amp;0 \\0&amp;0.774362&amp;0 \\0&amp;0&amp;0.021076 \\\end{matrix}\right).
+\]</span>
+Ens adonam que és diagonal, per tant, les covariàncies entre variables diferents són nul·les i en la diagonal hi ha les variàncies de les components principals que estan en ordre creixent. Us sonen aquests valors?</p>
+<p>Efectivament, són els valors propis de la matriu de covariàncies de les variables originals <span class="math inline">\(\mathbf{S}\)</span>.</p>
+<p>Comprovem que la variabilitat s’ha conservat.</p>
+<p>La variabilitat de les variables originals serà la suma dels valors de la diagonal de la matriu <span class="math inline">\(\mathbf{S}\)</span>:
+<span class="math display">\[
+0.688 + 2.25 + 1.688 = 4.625.
+\]</span></p>
+<p>La variabilitat de les components principals serà la suma dels valors de la diagonal de la matriu <span class="math inline">\(\mathbf{S}_{CP}\)</span>:
+<span class="math display">\[
+3.83 + 0.774 + 0.021 = 4.625.
+\]</span>
+Podem observar que les dues variabilitats coincideixen.</p>
+<p>La primera component principal (1a. columna de la matriu <span class="math inline">\(\mathbf{CP}\)</span>) hereta el <span class="math inline">\(\frac{3.83}{4.625}\cdot 100\% = 82.801\%\)</span> de la variabilitat total.</p>
+<p>Les dues primeres components principals hereten el
+<span class="math inline">\(\frac{3.83 + 0.774}{4.625}\cdot 100\% = 99.544\%\)</span> de la variabilitat total.</p>
+<div class="example">
+<p><span id="exm:edat" class="example"><strong>Exemple 12.2  </strong></span>Facem un exemple més complet.
+La taula següent ens dóna l’edat en dies (<span class="math inline">\(x_1\)</span>), l’alçada al néixer en cm. (<span class="math inline">\(x_2\)</span>), el seu pes en kg. en néixer (<span class="math inline">\(x_3\)</span>) i l’augment en tant per cent del seu pes actual respecte el seu pes en néixer (<span class="math inline">\(x_4\)</span>) de <span class="math inline">\(9\)</span> nens i nenes recent nats.</p>
+</div>
+<table>
+<thead>
+<tr class="header">
+<th align="center"><span class="math inline">\(x_1\)</span></th>
+<th align="center"><span class="math inline">\(x_2\)</span></th>
+<th align="center"><span class="math inline">\(x_3\)</span></th>
+<th align="center"><span class="math inline">\(s_4\)</span></th>
+<th align="center"><span class="math inline">\(Sexe\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">78</td>
+<td align="center">48.2</td>
+<td align="center">2.75</td>
+<td align="center">29.5</td>
+<td align="center">Nina</td>
+</tr>
+<tr class="even">
+<td align="center">69</td>
+<td align="center">45.5</td>
+<td align="center">2.15</td>
+<td align="center">26.3</td>
+<td align="center">Nina</td>
+</tr>
+<tr class="odd">
+<td align="center">77</td>
+<td align="center">46.3</td>
+<td align="center">4.41</td>
+<td align="center">32.2</td>
+<td align="center">Nina</td>
+</tr>
+<tr class="even">
+<td align="center">88</td>
+<td align="center">49</td>
+<td align="center">5.52</td>
+<td align="center">36.5</td>
+<td align="center">Nin</td>
+</tr>
+<tr class="odd">
+<td align="center">67</td>
+<td align="center">43</td>
+<td align="center">3.21</td>
+<td align="center">27.2</td>
+<td align="center">Nina</td>
+</tr>
+<tr class="even">
+<td align="center">80</td>
+<td align="center">48</td>
+<td align="center">4.32</td>
+<td align="center">27.7</td>
+<td align="center">Nina</td>
+</tr>
+<tr class="odd">
+<td align="center">74</td>
+<td align="center">48</td>
+<td align="center">2.31</td>
+<td align="center">28.3</td>
+<td align="center">Nina</td>
+</tr>
+<tr class="even">
+<td align="center">94</td>
+<td align="center">53</td>
+<td align="center">4.3</td>
+<td align="center">30.3</td>
+<td align="center">Nin</td>
+</tr>
+<tr class="odd">
+<td align="center">102</td>
+<td align="center">58</td>
+<td align="center">3.71</td>
+<td align="center">28.7</td>
+<td align="center">Nin</td>
+</tr>
+</tbody>
+</table>
+<p>Hem afegit una variable més (sexe de l’infant). Ens demanem si aquestes <span class="math inline">\(4\)</span> variables són capaces d’explicar o de predir la variable anterior.</p>
+<p>La matriu de dades centrada seria:</p>
+<p><span class="math display">\[
+\tilde{\mathbf{X}}=
+\left(\begin{matrix}-3&amp;-0.577778&amp;-0.881111&amp;-0.055556 \\-12&amp;-3.277778&amp;-1.481111&amp;-3.255556 \\-4&amp;-2.477778&amp;0.778889&amp;2.644444 \\7&amp;0.222222&amp;1.888889&amp;6.944444 \\-14&amp;-5.777778&amp;-0.421111&amp;-2.355556 \\-1&amp;-0.777778&amp;0.688889&amp;-1.855556 \\-7&amp;-0.777778&amp;-1.321111&amp;-1.255556 \\13&amp;4.222222&amp;0.668889&amp;0.744444 \\21&amp;9.222222&amp;0.078889&amp;-1.555556 \\\end{matrix}\right).
+\]</span></p>
+<p>La matriu de covariàncies serà:
+<span class="math display">\[
+\mathbf{S}=\frac{1}{9}\tilde{\mathbf{X}}^\top\tilde{\mathbf{X}}=
+\left(\begin{matrix}119.333333&amp;43.133333&amp;6.147778&amp;10.877778 \\43.133333&amp;17.19284&amp;1.147802&amp;1.169012 \\6.147778&amp;1.147802&amp;1.11061&amp;2.421716 \\10.877778&amp;1.169012&amp;2.421716&amp;8.818025 \\\end{matrix}\right).
+\]</span></p>
+<p>Els valors propis de la matriu de covariàncies anterior són:
+<span class="math display">\[
+\left(\begin{matrix}136.296149&amp;9.390122&amp;0.721969&amp;0.046567 \\\end{matrix}\right).
+\]</span>
+Els corresponents vectors propis (per columnes) associats als vectors propis anteriors són:
+<span class="math display">\[
+\left(\begin{matrix}0.935483&amp;-0.030824&amp;0.249655&amp;0.248183 \\0.340061&amp;0.341857&amp;-0.664518&amp;-0.570883 \\0.046932&amp;-0.241021&amp;0.572236&amp;-0.782465 \\0.083835&amp;-0.907795&amp;-0.410651&amp;-0.015664 \\\end{matrix}\right).
+\]</span>
+Ens adonem que els vectors anteriors són ortogonals i estan normalitzats.</p>
+<p>Així la matriu que ens canviarà de variables originals a components principals serà la transposada dels vectors propis:
+<span class="math display">\[
+\Lambda=
+\left(\begin{matrix}0.935483&amp;0.340061&amp;0.046932&amp;0.083835 \\-0.030824&amp;0.341857&amp;-0.241021&amp;-0.907795 \\0.249655&amp;-0.664518&amp;0.572236&amp;-0.410651 \\0.248183&amp;-0.570883&amp;-0.782465&amp;-0.015664 \\\end{matrix}\right).
+\]</span></p>
+<p>Les expressions de les components principals en funció de les variables originals són:
+<span class="math display">\[\begin{align*}
+CP_1 &amp;= 0.935X_1
++0.34X_2
++0.047X_3
++0.084X_4
+\\
+CP_2 &amp;= -0.031X_1
++0.342X_2
+-0.241X_3
+-0.908X_4
+\\
+CP_3 &amp;= 0.25X_1
+-0.665X_2
++0.572X_3
+-0.411X_4 \\
+CP_4 &amp;= 0.248X_1
+-0.571X_2
+-0.782X_3
+-0.016X_4
+\end{align*}\]</span></p>
+<p>Per tant, la matriu de dades en les noves variables serà:</p>
+<p><span class="math display">\[
+\mathbf{Y}=\tilde{\mathbf{X}}\Lambda^\top = \tilde{\mathbf{X}}\mathbf{V}=
+\left(\begin{matrix}-3.048937&amp;0.157754&amp;-0.84641&amp;0.275605 \\-12.682877&amp;2.561714&amp;-0.328361&amp;0.10295 \\-4.326273&amp;-3.312093&amp;0.007676&amp;-0.229086 \\7.294786&amp;-6.899197&amp;-0.170939&amp;0.023647 \\-15.278794&amp;0.696221&amp;1.07061&amp;0.190282 \\-1.323205&amp;1.283363&amp;1.423385&amp;-0.314128 \\-6.980132&amp;1.408083&amp;-1.471127&amp;-0.239868 \\13.690889&amp;0.205664&amp;0.516822&amp;0.280936 \\22.654543&amp;3.898489&amp;-0.201655&amp;-0.090337 \\\end{matrix}\right).
+\]</span></p>
+<p>Si calculam la matriu de covariàncies de les components principals val:
+<span class="math display">\[
+\mathbf{S}_{CP}=
+\left(\begin{matrix}136.296149&amp;0&amp;0&amp;0 \\0&amp;9.390122&amp;0&amp;0 \\0&amp;0&amp;0.721969&amp;0 \\0&amp;0&amp;0&amp;0.046567 \\\end{matrix}\right).
+\]</span></p>
+<p>Igual que passava en l’exemple anterior, és diagonal, com esperàvem i en la diagonal hi surten els valors propis de la matriu de covariàncies de les dades originals.</p>
+<p>Comprovem que la variabilitat s’ha conservat.</p>
+<p>La variabilitat de les variables originals serà la suma dels valors de la diagonal de la matriu <span class="math inline">\(\mathbf{S}\)</span>:
+<span class="math display">\[
+119.333 + 17.193 +
+1.111 + 8.818 = 146.455.
+\]</span>
+La variabilitat de les components principals serà la suma dels valors de la diagonal de la matriu <span class="math inline">\(\mathbf{S}_{CP}\)</span>:
+<span class="math display">\[
+136.296 + 9.39 + 0.722 +0.047= 146.455.
+\]</span>
+Podem observar que les dues variabilitats coincideixen.</p>
+<p>La primera component principal (1a. columna de la matriu <span class="math inline">\(\mathbf{CP}\)</span>) hereta el <span class="math inline">\(\frac{136.296}{146.455}\cdot 100\% = 93.064\%\)</span> de la variabilitat total.</p>
+<p>Les dues primeres components principals hereten el
+<span class="math inline">\(\frac{136.296 + 9.39}{146.455}\cdot 100\% = 99.475\%\)</span> de la variabilitat total.</p>
+<p>Això ens fa pensar que si només tenim en compte les dues primeres components, podem fer un gràfic on hi estiguin representats tots els nens dibuixant de blau els nens i de vermell les nenes.</p>
+<p>Comprovem que les dues primeres components separen bé els nens i les nens. Concloem que la nostra taula de dades ``explica’’ la variable sexe.</p>
+<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+</div>
+<div id="propietats-de-lacp-sobre-la-matriu-de-covariàncies" class="section level2 hasAnchor" number="12.6">
+<h2><span class="header-section-number">12.6</span> Propietats de l’ACP sobre la matriu de covariàncies<a href="anàlisi-de-components-principals.html#propietats-de-lacp-sobre-la-matriu-de-covariàncies" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Recordem que la matriu <span class="math inline">\(\mathbf{S}\)</span> és la matriu de covariàncies de les variables originals i <span class="math inline">\(\mathbf{S}_{CP}\)</span> és la matriu de covariàncies de les components principals.</p>
+<p>La diagonal de la matriu <span class="math inline">\(\mathbf{S}\)</span> està formada per les variàncies de les variables originals <span class="math inline">\(s_i^2\)</span>, <span class="math inline">\(i=1,\ldots,p\)</span>.</p>
+<p>Definim la variància total de la nostra taula de dades com la suma de les variàncies o la traça de la matriu <span class="math inline">\(\mathbf{S}\)</span>:
+<span class="math display">\[
+\mbox{Variància Total}=tr(\mathbf{S})=\sum_{i=1}^p s_i^2.
+\]</span></p>
+<ul>
+<li><p>La variància de la <span class="math inline">\(i\)</span>-èssima component principal és el valor propi <span class="math inline">\(i\)</span>-èssim de la matriu de covariàncies <span class="math inline">\(\mathbf{S}\)</span>: <span class="math inline">\(\mbox{Var} (CP)_i =\lambda_i.\)</span></p></li>
+<li><p>Es conserva la variància total. O sigui, la variància total de les variables originals i de les components principals és la mateixa:
+<span class="math display">\[
+\sum_{i=1}^p \mbox{var}(X_i) = \sum_{i=1}^p \mbox{var}(CP_i) =\sum_{i=1}^p\lambda_i.
+\]</span></p></li>
+<li><p>Les components principals són incorrelades. O, dit, en altres paraules, la seva matriu de covariàncies és diagonal:
+<span class="math display">\[
+\mathbf{S}_{CP}=\left(\begin{array}{cccc}
+\lambda_1&amp; 0 &amp;\ldots &amp;  0\\
+0&amp; \lambda_{2}&amp;\ldots &amp; 0\\
+\vdots &amp; \vdots &amp; &amp; \vdots\\
+0 &amp; 0&amp;\ldots &amp;  \lambda_{p}
+\end{array}
+\right)
+\]</span></p></li>
+<li><p>Donada una taula de dades, definim la variància generalitzada com el determinant de la matriu de covariàncies. Aleshores, la variància generalitzada de les variables originals i de les components principals coincideix:
+<span class="math display">\[
+\mbox{det}(\mathbf{S}) =\mbox{det}(\mathbf{S}_{CP}) =\lambda_1\cdots \lambda_p.
+\]</span></p></li>
+<li><p>La proporció de variància explicada per la component <span class="math inline">\(j\)</span>-èssima és: <span class="math inline">\(\frac{\lambda_j}{\sum_{i=1}^p\lambda_i}.\)</span> Per tant, la variància explicada per les <span class="math inline">\(k\)</span> primeres components val: <span class="math inline">\(\frac{\sum_{i=1}^k\lambda_j}{\sum_{i=1}^p\lambda_i}.\)</span></p></li>
+<li><p>Sigui <span class="math inline">\(\mathbf{X}_i\)</span> la <span class="math inline">\(i\)</span>-èssima variable original. O sigui, la <span class="math inline">\(i\)</span>-èssima columna de la matriu de dades <span class="math inline">\(\mathbf{X}\)</span>. Sigui <span class="math inline">\(\mathbf{CP}_j\)</span> la <span class="math inline">\(j\)</span>-èssima component principal. O sigui, la <span class="math inline">\(j\)</span>-èssima columna de la matriu de dades <span class="math inline">\(\mathbf{CP}\)</span>. Aleshores la covariància entre les variables (columnes) <span class="math inline">\(\mathbf{X}_i\)</span> i <span class="math inline">\(\mathbf{CP}_j\)</span> val:
+<span class="math display">\[
+\mbox{cov}(\mathbf{X}_i,\mathbf{CP}_j)=\lambda_j u_{ji},
+\]</span>
+on <span class="math inline">\(u_{ji}\)</span> és la <span class="math inline">\(i\)</span>-èssima component del vector propi unitari <span class="math inline">\(\mathbf{u}_j\)</span> corresponent al valor propi <span class="math inline">\(\lambda_j.\)</span></p></li>
+<li><p>Seguint la mateixa notació anterior, la correlació entre <span class="math inline">\(\mathbf{X}_i\)</span> i <span class="math inline">\(\mathbf{CP}_j\)</span> val:
+<span class="math display">\[
+\mbox{cor}(\mathbf{X}_i,\mathbf{CP}_j)=\frac{\sqrt{\lambda_j}u_{ji}}{s_i}.
+\]</span></p></li>
+<li><p>En general si definim la matriu <span class="math inline">\(\mathbf{S}_{X,CP}\)</span> de components <span class="math inline">\(s_{ij}=\mbox{cov}(\mathbf{X}_i,\mathbf{CP}_j)\)</span>, podem escriure:
+<span class="math display">\[
+\mathbf{S}_{X,CP}= \mathbf{V}\mbox{diag}(\lambda_1,\ldots,\lambda_p),
+\]</span>
+on <span class="math inline">\(\mathbf{V}\)</span> és la matriu de vectors propis de la matriu de covariàncies <span class="math inline">\(\mathbf{S}.\)</span></p></li>
+<li><p>En general si definim la matriu <span class="math inline">\(\mathbf{R}_{X,CP}\)</span> de components <span class="math inline">\(r_{ij}=\mbox{cor}(\mathbf{X}_i,\mathbf{CP}_j)\)</span>, podem escriure:
+<span class="math display">\[
+\mathbf{R}_{X,CP}= \mathbf{V}\mbox{diag}(\sqrt{\lambda_1},\ldots,\sqrt{\lambda_p})\mbox{diag}\left(\frac{1}{s_1},\ldots,\frac{1}{s_p}\right),
+\]</span>
+on <span class="math inline">\(s_i\)</span> és la desviació típica de la variable original <span class="math inline">\(\mathbf{X}_i\)</span>.</p></li>
+<li><p>La primera component principal seria la varietat lineal de dimensió <span class="math inline">\(1\)</span> (una recta) que conserva la major variabilitat (anomenada inèrcia) del ``núvol’’ de punts.</p></li>
+<li><p>De la mateixa manera, les dues primeres components principals serien la varietat lineal de dimensió <span class="math inline">\(2\)</span> (pla) que conserva la major variabilitat (anomenada inèrcia) del ``núvol’’ de punts.</p></li>
+<li><p>En general, les <span class="math inline">\(k\)</span> primeres components principals serien la varietat lineal de dimensió <span class="math inline">\(k\)</span> que conserva la major variabilitat (anomenada inèrcia) del ``núvol’’ de punts.</p></li>
+</ul>
+<div class="example">
+<p><span id="exm:infants2" class="example"><strong>Exemple 12.3  </strong></span>Comprovem la relació anterior entre les variables originals i les components principals en l’exemple dels infants.</p>
+</div>
+<p>Recordem que la matriu centrada de dades era:
+<span class="math display">\[
+\tilde{\mathbf{X}}=
+\left(\begin{matrix}-3&amp;-0.577778&amp;-0.881111&amp;-0.055556 \\-12&amp;-3.277778&amp;-1.481111&amp;-3.255556 \\-4&amp;-2.477778&amp;0.778889&amp;2.644444 \\7&amp;0.222222&amp;1.888889&amp;6.944444 \\-14&amp;-5.777778&amp;-0.421111&amp;-2.355556 \\-1&amp;-0.777778&amp;0.688889&amp;-1.855556 \\-7&amp;-0.777778&amp;-1.321111&amp;-1.255556 \\13&amp;4.222222&amp;0.668889&amp;0.744444 \\21&amp;9.222222&amp;0.078889&amp;-1.555556 \\\end{matrix}\right).
+\]</span></p>
+<p>La matriu de components principals era:
+<span class="math display">\[
+{\mathbf{CP}}=
+\left(\begin{matrix}-3.048937&amp;0.157754&amp;-0.84641&amp;0.275605 \\-12.682877&amp;2.561714&amp;-0.328361&amp;0.10295 \\-4.326273&amp;-3.312093&amp;0.007676&amp;-0.229086 \\7.294786&amp;-6.899197&amp;-0.170939&amp;0.023647 \\-15.278794&amp;0.696221&amp;1.07061&amp;0.190282 \\-1.323205&amp;1.283363&amp;1.423385&amp;-0.314128 \\-6.980132&amp;1.408083&amp;-1.471127&amp;-0.239868 \\13.690889&amp;0.205664&amp;0.516822&amp;0.280936 \\22.654543&amp;3.898489&amp;-0.201655&amp;-0.090337 \\\end{matrix}\right).
+\]</span>
+La covariància entre les dues matrius anteriors val:
+<span class="math display">\[
+\mbox{cov}(\tilde{X},{\mathbf{CP}})=
+\left(\begin{matrix}127.502681&amp;-0.289442&amp;0.180243&amp;0.011557 \\46.348967&amp;3.210081&amp;-0.479762&amp;-0.026584 \\6.39661&amp;-2.263218&amp;0.413137&amp;-0.036437 \\11.426424&amp;-8.524309&amp;-0.296477&amp;-0.000729 \\\end{matrix}\right).
+\]</span></p>
+<p>Si fem <span class="math inline">\(\mathbf{V}\cdot\mbox{diag}(\lambda_1,\ldots,\lambda_p)\)</span> obtenim el mateix:
+<span class="math display">\[\begin{align*}
+&amp;\left(\begin{matrix}0.935483&amp;-0.030824&amp;0.249655&amp;0.248183 \\0.340061&amp;0.341857&amp;-0.664518&amp;-0.570883 \\0.046932&amp;-0.241021&amp;0.572236&amp;-0.782465 \\0.083835&amp;-0.907795&amp;-0.410651&amp;-0.015664 \\\end{matrix}\right)
+\cdot
+\\ &amp;
+\left(\begin{matrix}136.296149&amp;0&amp;0&amp;0 \\0&amp;9.390122&amp;0&amp;0 \\0&amp;0&amp;0.721969&amp;0 \\0&amp;0&amp;0&amp;0.046567 \\\end{matrix}\right)
+= \mbox{cov}(\tilde{X},{\mathbf{CP}})
+\end{align*}\]</span></p>
+<p>La correlacions entre les dues matrius anteriors val:
+<span class="math display">\[
+\mbox{cor}(\tilde{X},{\mathbf{CP}})=
+\left(\begin{matrix}0.999762&amp;-0.008647&amp;0.019419&amp;0.004903 \\0.957468&amp;0.252643&amp;-0.136173&amp;-0.029711 \\0.519909&amp;-0.700826&amp;0.461375&amp;-0.160222 \\0.329597&amp;-0.936781&amp;-0.117502&amp;-0.001138 \\\end{matrix}\right).
+\]</span></p>
+<p>Si fem <span class="math inline">\(\mathbf{V}\cdot\mbox{diag}(\sqrt{\lambda_1},\ldots,\sqrt{\lambda_p})\cdot \mbox{diag}\left(\frac{1}{s_1},\ldots,\frac{1}{s_p}\right)\)</span> obtenim el mateix, o sigui el producte de les tres matrius següents:
+<span class="math display">\[\begin{align*}
+\mathbf{V} &amp;=
+\left(\begin{matrix}0.935483&amp;-0.030824&amp;0.249655&amp;0.248183 \\0.340061&amp;0.341857&amp;-0.664518&amp;-0.570883 \\0.046932&amp;-0.241021&amp;0.572236&amp;-0.782465 \\0.083835&amp;-0.907795&amp;-0.410651&amp;-0.015664 \\\end{matrix}\right),
+\\
+\mbox{diag}(\sqrt{\lambda}) &amp;=
+\left(\begin{matrix}11.674594&amp;0&amp;0&amp;0 \\0&amp;3.064331&amp;0&amp;0 \\0&amp;0&amp;0.849688&amp;0 \\0&amp;0&amp;0&amp;0.215794 \\\end{matrix}\right),\\
+\mbox{diag}(1/s) &amp; =
+\left(\begin{matrix}0.091542&amp;0&amp;0&amp;0 \\0&amp;0.241172&amp;0&amp;0 \\0&amp;0&amp;0.948897&amp;0 \\0&amp;0&amp;0&amp;0.336755 \\\end{matrix}\right).
+\end{align*}\]</span></p>
+<p>Vegem quin percentatge de variabilitat tenim si consideram només les primeres components principals:</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Variables</th>
+<th align="left">Variància explicada</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\mathbf{CP}_1\)</span></td>
+<td align="left"><span class="math inline">\(136.296/146.455=0.931\)</span></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\mathbf{CP}_{1,2}\)</span></td>
+<td align="left"><span class="math inline">\(145.686/146.455=0.995\)</span></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\mathbf{CP}_{1,2,3}\)</span></td>
+<td align="left"><span class="math inline">\(146.408/146.455=0.9997\)</span></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\mathbf{CP}_{1,2,3,4}\)</span></td>
+<td align="left"><span class="math inline">\(1\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>En aquest exemple, si només tenguéssim en compte les dues primeres components explicaríem el
+<span class="math inline">\(99.48\%\)</span> de la variabilitat total.</p>
+</div>
+<div id="acp-sobre-la-matriu-de-correlacions" class="section level2 hasAnchor" number="12.7">
+<h2><span class="header-section-number">12.7</span> ACP sobre la matriu de correlacions<a href="anàlisi-de-components-principals.html#acp-sobre-la-matriu-de-correlacions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Per realitzar l’ACP sobre la matriu de correlacions, es fa de la mateixa manera que l’ACP sobre la matriu de covariàncies però en lloc de fer servir aquesta matriu es fa servir la matriu de correlacions <span class="math inline">\(\mathbf{R}.\)</span></p>
+<p>O sigui, es calculen els valors propis <span class="math inline">\(\lambda_i\)</span> de la matriu <span class="math inline">\(\mathbf{R}\)</span> juntament amb la matriu de vectors propis <span class="math inline">\(\mathbf{V}\)</span>.</p>
+<p>Això és equivalent a aplicar l’ACP sobre la matriu de covariàncies però en lloc de fer servir la matriu centrada original, es fa servir la matriu de dades tipificada <span class="math inline">\(\mathbf{Z}.\)</span></p>
+<p>Per tant, totes les propietats enunciades sobre la matriu de covariàncies serien vàlides per la matriu de correlacions substituint simplement la matriu <span class="math inline">\(\mathbf{S}\)</span> per la matriu <span class="math inline">\(\mathbf{R}.\)</span></p>
+<div class="example">
+<p><span id="exm:ninscorr" class="example"><strong>Exemple 12.4  </strong></span>Anem a repetir l’exemple dels infants però fent una ACP sobre la matriu de correlacions.</p>
+</div>
+<p>La matriu de dades tipificada serà:</p>
+<p><span class="math display">\[
+{\mathbf{R}}=
+\left(\begin{matrix}-0.274625&amp;-0.139344&amp;-0.836084&amp;-0.018709 \\-1.098501&amp;-0.790507&amp;-1.405422&amp;-1.096325 \\-0.366167&amp;-0.59757&amp;0.739086&amp;0.89053 \\0.640792&amp;0.053594&amp;1.792362&amp;2.338578 \\-1.281584&amp;-1.393436&amp;-0.399591&amp;-0.793246 \\-0.091542&amp;-0.187578&amp;0.653685&amp;-0.624868 \\-0.640792&amp;-0.187578&amp;-1.253599&amp;-0.422815 \\1.190042&amp;1.01828&amp;0.634707&amp;0.250696 \\1.922376&amp;2.224138&amp;0.074857&amp;-0.523841 \\\end{matrix}\right).
+\]</span></p>
+<p>La matriu de correlacions <span class="math inline">\(\mathbf{R}\)</span> de la matriu <span class="math inline">\(\mathbf{X}\)</span> o la matriu de covariàncies de la matriu <span class="math inline">\(\mathbf{Z}\)</span> serà:
+<span class="math display">\[
+{\mathbf{R}}=
+\left(\begin{matrix}1&amp;0.952266&amp;0.534019&amp;0.335331 \\0.952266&amp;1&amp;0.262671&amp;0.094942 \\0.534019&amp;0.262671&amp;1&amp;0.77385 \\0.335331&amp;0.094942&amp;0.77385&amp;1 \\\end{matrix}\right).
+\]</span>
+Els valors propis de la matriu de correlacions anterior són:
+<span class="math display">\[
+\left(\begin{matrix}2.502995&amp;1.286281&amp;0.207519&amp;0.003205 \\\end{matrix}\right).
+\]</span></p>
+<p>Els corresponents vectors propis (per columnes) associats als vectors propis anteriors són:
+<span class="math display">\[
+\left(\begin{matrix}-0.578849&amp;0.352202&amp;-0.013932&amp;0.735319 \\-0.481761&amp;0.565711&amp;0.171214&amp;-0.646965 \\-0.50622&amp;-0.4437&amp;-0.712098&amp;-0.19947 \\-0.420217&amp;-0.599213&amp;0.680741&amp;-0.03089 \\\end{matrix}\right).
+\]</span>
+Ens adonem que els vectors anteriors són ortogonals i estan normalitzats.</p>
+<p>Així la matriu que ens canviarà de variables originals a components principals serà la transposada dels vectors propis:
+<span class="math display">\[
+\Lambda=
+\left(\begin{matrix}-0.578849&amp;-0.481761&amp;-0.50622&amp;-0.420217 \\0.352202&amp;0.565711&amp;-0.4437&amp;-0.599213 \\-0.013932&amp;0.171214&amp;-0.712098&amp;0.680741 \\0.735319&amp;-0.646965&amp;-0.19947&amp;-0.03089 \\\end{matrix}\right).
+\]</span></p>
+<p>Les expressions de les components principals en funció de les variables originals tipificades són:
+<span class="math display">\[\begin{align*}
+CP_1 &amp;=-0.579Z_1
+-0.482Z_2
+-0.506Z_3
+-0.42Z_4
+\\
+CP_2 &amp;= 0.352Z_1
++0.566Z_2
+-0.444Z_3
+-0.599Z_4
+\\
+CP_3 &amp;= -0.014Z_1
++0.171Z_2
+-0.712Z_3
++0.681Z_4 \\
+CP_4 &amp;= 0.735Z_1
+-0.647Z_2
+-0.199Z_3
+-0.031Z_4
+\end{align*}\]</span></p>
+<p>Per tant, la matriu de dades en les noves variables serà:</p>
+<p><span class="math display">\[
+\mathbf{Y}={\mathbf{Z}}\Lambda^\top = {\mathbf{Z}}\mathbf{V}=
+\left(\begin{matrix}0.657201&amp;0.206629&amp;0.562607&amp;0.055565 \\2.188848&amp;0.446426&amp;0.134444&amp;0.017887 \\-0.248515&amp;-1.328565&amp;-0.017292&amp;-0.057577 \\-2.28678&amp;-1.94057&amp;0.315876&amp;0.006752 \\1.948762&amp;-0.587036&amp;-0.476167&amp;0.063341 \\0.075028&amp;-0.053967&amp;-0.921701&amp;-0.057044 \\1.27356&amp;0.477775&amp;0.58167&amp;-0.086714 \\-1.60607&amp;0.563348&amp;-0.123551&amp;0.08192 \\-2.002035&amp;2.215961&amp;-0.055885&amp;-0.024131 \\\end{matrix}\right).
+\]</span></p>
+<p>Si calculam la matriu de correlacions de les components principals val:
+<span class="math display">\[
+\mathbf{R}_{CP}=
+\left(\begin{matrix}1&amp;0&amp;0&amp;0 \\0&amp;1&amp;0&amp;0 \\0&amp;0&amp;1&amp;0 \\0&amp;0&amp;0&amp;1 \\\end{matrix}\right).
+\]</span>
+Surt la matriu diagonal, fet que posa de manifest que les components principals són incorrelades.</p>
+<p>La primera component principal (1a. columna de la matriu <span class="math inline">\(\mathbf{CP}\)</span>) hereta el <span class="math inline">\(\frac{2.503}{4}\cdot 100\% = 62.575\%\)</span> de la variabilitat total.</p>
+<p>Les dues primeres components principals hereten el
+<span class="math inline">\(\frac{2.503 + 1.286}{4}\cdot 100\% = 94.732\%\)</span> de la variabilitat total.</p>
+<p>Això ens fa pensar que si només tenim en compte les dues primeres components, podem fer un gràfic on hi estiguin representats tots els nens dibuixant de blau els nens i de vermell les nenes.</p>
+<p>Comprovem que les dues primeres components separen bé els nens i les nens. Concloem que la nostra taula de dades ``explica’’ la variable sexe.</p>
+<p><img src="Bioestadistica-II_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
+</div>
+<div id="etapes-dun-acp" class="section level2 hasAnchor" number="12.8">
+<h2><span class="header-section-number">12.8</span> Etapes d’un ACP<a href="anàlisi-de-components-principals.html#etapes-dun-acp" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li><strong>Primera etapa: decidir si es realitza l’ACP damunt les dades brutes centrades (matriu de covariàncies) o sobre les dades tipificades (matriu de correlacions).</strong>
+<ul>
+<li>Quan les variables originals <span class="math inline">\(\mathbf{X}\)</span> estan en unitats distintes, convé aplicar l’ACP de correlacions. Si estan en les mateixes unitats, ambdues alternatives són vàlides.</li>
+<li>Si les diferències entre les variàncies són informatives i volem tenir-les en compte en l’anàlisi, no hem d’estandaritzar les variables i aplicar l’ACP de covariàncies.</li>
+</ul></li>
+<li><strong>Segona etapa: reducció de la dimensionalitat.</strong> Hem de decidir quantes components retenim. La quantitat de variància retenguda serà:</li>
+</ul>
+<table>
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">Comp</th>
+<th align="center">Valor propi</th>
+<th align="center">Quantitat retinguda</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><span class="math inline">\(Cp_1\)</span></td>
+<td align="center"><span class="math inline">\(\lambda_1\)</span></td>
+<td align="center"><span class="math inline">\(\lambda_1/\sum_{i=1}^p \lambda_i\)</span></td>
+</tr>
+<tr class="even">
+<td align="center"><span class="math inline">\(Cp_2\)</span></td>
+<td align="center"><span class="math inline">\(\lambda_2\)</span></td>
+<td align="center"><span class="math inline">\((\lambda_1+\lambda_2)/\sum_{i=1}^p \lambda_i\)</span></td>
+</tr>
+<tr class="odd">
+<td align="center"><span class="math inline">\(Cp_3\)</span></td>
+<td align="center"><span class="math inline">\(\lambda_3\)</span></td>
+<td align="center"><span class="math inline">\((\lambda_1+\lambda_2+\lambda_3)/\sum_{i=1}^p\lambda_i\)</span></td>
+</tr>
+<tr class="even">
+<td align="center"><span class="math inline">\(\vdots\)</span></td>
+<td align="center"><span class="math inline">\(\vdots\)</span></td>
+<td align="center"><span class="math inline">\(\vdots\)</span></td>
+</tr>
+<tr class="odd">
+<td align="center"><span class="math inline">\(Cp_p\)</span></td>
+<td align="center"><span class="math inline">\(\lambda_p\)</span></td>
+<td align="center"><span class="math inline">\((\lambda_1+\ldots+\lambda_p)/\sum_{i=1}^p \lambda_i=1\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Per decidir el nombre de components retingudes, hi ha dos mètodes:</p>
+<ul>
+<li>Seleccionar components fins cobrir una <strong>proporció determinada de variància</strong>, com el <span class="math inline">\(80\%\)</span> o el <span class="math inline">\(90\%\)</span>.</li>
+<li><strong>Mètode de la mitjana aritmètica.</strong> Se retenen totes aquelles components <span class="math inline">\(\mathbf{CP}_i\)</span> que compleixin que <span class="math inline">\(\lambda_i \geq \overline{\lambda}=\frac{\sum_{i=1}^p \lambda_i}{p}\)</span>. En el cas de l’ACP de correlacions, la condició anterior és <span class="math inline">\(\lambda_i\geq 1\)</span>.</li>
+</ul>
+<div class="example">
+<p><span id="exm:nens" class="example"><strong>Exemple 12.5  </strong></span>En l’exemple dels infants,</p>
+</div>
+<ul>
+<li>si aplicam el primer mètode per decidir el nombre de components retingudes, fent l’ACP de correlacions, si només elegim la primera component, ja cobrim el <span class="math inline">\(62.575\%\)</span> de la variància total. Si elegim les dues primeres, cobrim el <span class="math inline">\(94.732\%\)</span> de la variància total.</li>
+<li>si aplicam el mètode de la mitjana aritmètica, hauríem de retenir dues components ja que els valors propis de la matriu de correlacions <span class="math inline">\(\mathbf{R}\)</span> eren
+<span class="math inline">\(\left(\begin{matrix}2.502995&amp;1.286281&amp;0.207519&amp;0.003205 \\\end{matrix}\right).\)</span></li>
+</ul>
+</div>
+<div id="descomposició-en-valors-singulars" class="section level2 hasAnchor" number="12.9">
+<h2><span class="header-section-number">12.9</span> Descomposició en valors singulars<a href="anàlisi-de-components-principals.html#descomposició-en-valors-singulars" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Donada una matriu de dades <span class="math inline">\(\mathbf{X}\)</span> de dimensions <span class="math inline">\(n\times p\)</span>, on <span class="math inline">\(n\geq p\)</span> i de rang <span class="math inline">\(p\)</span>, es pot descompondre en producte de tres matrius:
+<span class="math display">\[
+\mathbf{X}=\mathbf{U}\Sigma\mathbf{V}^\top,
+\]</span>
+on</p>
+<ul>
+<li><span class="math inline">\(\mathbf{U}\)</span> és una matriu ortogonal <span class="math inline">\(n\times p\)</span> que té per columnes els <span class="math inline">\(p\)</span> vectors propis de la matriu <span class="math inline">\(\mathbf{X}\mathbf{X}^\top\)</span> associats als <span class="math inline">\(p\)</span> valors propis no nuls.</li>
+<li><span class="math inline">\({\Sigma}\)</span> és una matriu diagonal <span class="math inline">\(p\times p\)</span> que té per diagonal les arrels quadrades dels valors propis de la matriu <span class="math inline">\(\mathbf{X}^\top\mathbf{X}\)</span>.</li>
+<li><span class="math inline">\(\mathbf{V}\)</span> és una matriu ortogonal <span class="math inline">\(p\times p\)</span> que té per columnes els vectors propis de la matriu <span class="math inline">\(\mathbf{X}^\top\mathbf{X}\)</span> associats als <span class="math inline">\(p\)</span> valors propis no nuls.</li>
+</ul>
+<div class="example">
+<p><span id="exm:nens2" class="example"><strong>Exemple 12.6  </strong></span>Considerem la matriu <span class="math inline">\(\mathbf{X}\)</span> com la matriu de dades centrada de l’exemple dels infants.</p>
+</div>
+<p>La matriu <span class="math inline">\(\mathbf{X}^\top\mathbf{X}\)</span> val:
+<span class="math display">\[
+\mathbf{X}^\top\mathbf{X}=
+\left(\begin{matrix}1074&amp;388.2&amp;55.33&amp;97.9 \\388.2&amp;154.735556&amp;10.330222&amp;10.521111 \\55.33&amp;10.330222&amp;9.995489&amp;21.795444 \\97.9&amp;10.521111&amp;21.795444&amp;79.362222 \\\end{matrix}\right).
+\]</span></p>
+<p>La matriu <span class="math inline">\(\mathbf{X}\mathbf{X}^\top\)</span> val: (mostram només les 4 primeres columnes, pensau que és <span class="math inline">\(10\times 10\)</span>)
+<span class="math display">\[
+\mathbf{X}^\top\mathbf{X}=
+\left(\begin{matrix}10.11327&amp;39.379715&amp;12.598404&amp;-23.178519 \\39.379715&amp;167.536159&amp;46.358848&amp;-110.134074 \\12.598404&amp;46.358848&amp;29.739137&amp;-8.715185 \\-23.178519&amp;-110.134074&amp;-8.715185&amp;100.842593 \\45.840181&amp;195.230626&amp;63.758915&amp;-116.437407 \\2.945481&amp;19.569926&amp;1.556815&amp;-18.757407 \\22.683181&amp;92.593626&amp;25.577915&amp;-60.387407 \\-42.07023&amp;-173.253785&amp;-59.972096&amp;98.371481 \\-68.311485&amp;-277.281041&amp;-110.902752&amp;138.395926 \\\end{matrix}\right).
+\]</span></p>
+<p>Els valors propis de la matriu <span class="math inline">\(\mathbf{X}^\top\mathbf{X}\)</span> són:
+<span class="math display">\[
+\left(\begin{matrix}1226.66534&amp;84.511099&amp;6.497725&amp;0.419102 \\\end{matrix}\right).
+\]</span>
+Per tant, la matriu <span class="math inline">\(\Sigma\)</span> serà:
+<span class="math display">\[
+\Sigma =
+\left(\begin{matrix}35.023782&amp;0&amp;0&amp;0 \\0&amp;9.192992&amp;0&amp;0 \\0&amp;0&amp;2.549064&amp;0 \\0&amp;0&amp;0&amp;0.647381 \\\end{matrix}\right).
+\]</span></p>
+<p>La matriu <span class="math inline">\(\mathbf{U}\)</span> serà la següent matriu <span class="math inline">\(10\times 4\)</span>:
+<span class="math display">\[
+\mathbf{U} =
+\left(\begin{matrix}-0.087053&amp;0.01716&amp;0.332047&amp;0.425722 \\-0.362122&amp;0.278659&amp;0.128816&amp;0.159025 \\-0.123524&amp;-0.360285&amp;-0.003011&amp;-0.353865 \\0.208281&amp;-0.750484&amp;0.06706&amp;0.036527 \\-0.436241&amp;0.075734&amp;-0.420001&amp;0.293926 \\-0.03778&amp;0.139602&amp;-0.558395&amp;-0.485229 \\-0.199297&amp;0.153169&amp;0.577125&amp;-0.370521 \\0.390903&amp;0.022372&amp;-0.20275&amp;0.433958 \\0.646833&amp;0.424072&amp;0.079109&amp;-0.139542 \\\end{matrix}\right).
+\]</span></p>
+<p>La matriu <span class="math inline">\(\mathbf{V}\)</span> serà la següent matriu <span class="math inline">\(4\times 4\)</span>:
+<span class="math display">\[
+\mathbf{V} =
+\left(\begin{matrix}0.935483&amp;-0.030824&amp;-0.249655&amp;0.248183 \\0.340061&amp;0.341857&amp;0.664518&amp;-0.570883 \\0.046932&amp;-0.241021&amp;-0.572236&amp;-0.782465 \\0.083835&amp;-0.907795&amp;0.410651&amp;-0.015664 \\\end{matrix}\right).
+\]</span></p>
+<p>Es pot comprovar que <span class="math inline">\(\mathbf{X}=\mathbf{U}\Sigma\mathbf{V}^\top\)</span>.</p>
+</div>
+<div id="relació-acp-amb-svd" class="section level2 hasAnchor" number="12.10">
+<h2><span class="header-section-number">12.10</span> Relació ACP amb SVD<a href="anàlisi-de-components-principals.html#relació-acp-amb-svd" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Considerem una matriu de dades <span class="math inline">\(\mathbf{X}\)</span> <span class="math inline">\(n\times p\)</span> que pot ésser centrada (ACP de covariàncies) o tipificada (ACP de correlacions).</p>
+<p>Si considerem la seva SVD, <span class="math inline">\(\mathbf{X}=\mathbf{U}\Sigma\mathbf{V}^\top\)</span>, tenim que les components principals, <span class="math inline">\(\mathbf{Y}\)</span>, valen <span class="math inline">\(\mathbf{CP}=\mathbf{U}\Sigma\)</span>.</p>
+<p>La prova és molt senzilla. Recordem que les components principals valien: <span class="math inline">\(\mathbf{CP}=\mathbf{X}\mathbf{V}\)</span>, on <span class="math inline">\(\mathbf{V}\)</span> era la matriu de vectors propis de la matriu de covariàncies <span class="math inline">\(\mathbf{S}=\frac{1}{n}\mathbf{X}^\top\mathbf{X}\)</span>. Ara bé, aquesta matriu coincidirà amb la matriu de vectors propis de la matriu <span class="math inline">\(\mathbf{X}^\top\mathbf{X}\)</span> ja que els vectors propis de la matriu anterior i de la matriu de covariàncies <span class="math inline">\(\mathbf{S}\)</span> són els mateixos.</p>
+<p>Per tant,
+<span class="math display">\[\mathbf{Y}=\mathbf{X}\mathbf{V}=\mathbf{U}\Sigma\mathbf{V}^\top\mathbf{V}=\mathbf{U}\Sigma,\]</span>
+ja que la matriu <span class="math inline">\(\mathbf{V}\)</span> és ortogonal.</p>
+
+<div class="rmdimportant">
+El producte escalar de dues files de la matriu de dades <span class="math inline">\(\mathbf{X}\)</span> coincideix amb el producte escalar de dues files de la matriu de components principals <span class="math inline">\(\mathbf{Y}\)</span>.
+</div>
+
+<div class="rmdcaution">
+Prova.
+El producte escalar de dues files de la matriu <span class="math inline">\(\mathbf{X}\)</span> ve donada per la matriu <span class="math inline">\(\mathbf{X}\mathbf{X}^\top\)</span> però:
+<span class="math display">\[
+\mathbf{X}\mathbf{X}^\top = \mathbf{Y}\mathbf{V}^\top\mathbf{V}\mathbf{Y}^\top =\mathbf{Y}\mathbf{Y}^\top,
+\]</span>
+aquesta última matriu ens dóna el producte escalar de dues files de la matriu de components principals.
+</div>
+
+<div class="rmdimportant">
+La distància euclídea de dues files de la matriu <span class="math inline">\(\mathbf{X}\)</span> coincideix amb la distància euclídea de la matriu de components principals <span class="math inline">\(\mathbf{Y}\)</span>. O sigui, la distància entre els individus respecte les variables originals i respecte les components principals se conserva.
+</div>
+
+<div class="rmdcaution">
+Prova. Siguin <span class="math inline">\(\mathbf{f}_i\)</span> i <span class="math inline">\(\mathbf{f}_j\)</span> dues files de la matriu <span class="math inline">\(\mathbf{X}\)</span> i siguin <span class="math inline">\(\mathbf{g}_i\)</span> i <span class="math inline">\(\mathbf{g}_j\)</span> dues files de la matriu <span class="math inline">\(\mathbf{Y}\)</span>. Aleshores:
+<span class="math display">\[
+\|\mathbf{f}_i-\mathbf{f}_j\|^2 = (\mathbf{f}_i-\mathbf{f}_j)^\top (\mathbf{f}_i-\mathbf{f}_j)=\mathbf{f}_i^\top\mathbf{f}_i-2\mathbf{f}_i^\top\mathbf{f}_j+\mathbf{f}_j^\top\mathbf{f}_j.
+\]</span>
+Ara bé, fent servir el teorema anterior tenim que:
+<span class="math display">\[
+\mathbf{f}_i^\top\mathbf{f}_i=\mathbf{g}_i^\top\mathbf{g}_i,\ \mathbf{f}_i^\top\mathbf{f}_j=\mathbf{g}_i^\top\mathbf{g}_j, \ \mathbf{f}_j^\top\mathbf{f}_j=\mathbf{g}_j^\top\mathbf{g}_j.
+\]</span>
+Concloem, doncs:
+<span class="math inline">\(\|\mathbf{f}_i-\mathbf{f}_j\|^2=\|\mathbf{g}_i-\mathbf{g}_j\|^2.\)</span>
+</div>
+
+<div class="rmdimportant">
+Sigui <span class="math inline">\(\mathbf{X}\)</span> la nostra matriu de dades originals centrada o tipificada. Sigui <span class="math inline">\(\mathbf{X}=\mathbf{U}\Sigma\mathbf{V}^\top\)</span> la seva SVD. Considerem la matriu <span class="math inline">\(\mathbf{V}_2 = \Sigma\mathbf{V}^\top\)</span>. Aleshores el producte escalar de dues columnes de la matriu <span class="math inline">\(\mathbf{X}\)</span> i de dues columnes de la matriu <span class="math inline">\(\mathbf{V}_2\)</span> és el mateix.
+</div>
+
+<div class="rmdcaution">
+<p>Prova.
+El producte escalar de dues columnes de la matriu <span class="math inline">\(\mathbf{X}\)</span> ho dóna la matriu <span class="math inline">\(\mathbf{X}^\top\mathbf{X}\)</span>. Tendrem:
+<span class="math display">\[
+\mathbf{X}^\top\mathbf{X}=\mathbf{V}\Sigma\mathbf{U}^\top\mathbf{U}\Sigma\mathbf{V}^\top = \mathbf{V}\Sigma (\mathbf{V}\Sigma)^\top = \mathbf{V}_2^\top\mathbf{V}_2,
+\]</span>
+matriu que dóna el producte escalar de dues columnes de la matriu <span class="math inline">\(\mathbf{V}_2\)</span>.</p>
+</div>
+
+<div class="rmdimportant">
+Sigui <span class="math inline">\(\mathbf{X}\)</span> la nostra matriu de dades originals centrada o tipificada. Sigui <span class="math inline">\(\mathbf{X}=\mathbf{U}\Sigma\mathbf{V}^\top\)</span> la seva SVD. Considerem la matriu <span class="math inline">\(\mathbf{V}_2 = \Sigma\mathbf{V}^\top\)</span>. Aleshores la correlació entre dues columnes de la matriu <span class="math inline">\(\mathbf{X}\)</span> i la correlació entre dues columnes de la matriu <span class="math inline">\(\mathbf{V}_2 = \Sigma\mathbf{V}^\top\)</span> és la mateixa.
+O sigui, la correlació entre dues variables originals (dues columnes de la matriu <span class="math inline">\(\mathbf{X}\)</span>) i dues columnes de la matriu <span class="math inline">\(\mathbf{V}_2\)</span> és la mateixa.
+</div>
+
+<div class="rmdcaution">
+Per la prova, basta aplicar el teorema anterior.
+</div>
+</div>
+<div id="biplots" class="section level2 hasAnchor" number="12.11">
+<h2><span class="header-section-number">12.11</span> Biplots<a href="anàlisi-de-components-principals.html#biplots" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Per representar el resultat d’un ACP gràficament es fa servir el que s’anomena un biplot.</p>
+<p>Un biplot és un gràfic bidimensional on es representa en el mateix gràfic els individus i les variables originals.</p>
+<p>El biplot només té significat si la variabilitat explicada per les dues primeres components principals és alta, posem d’un <span class="math inline">\(85\%\)</span> o més.</p>
+<p>En un biplot hi ha <span class="math inline">\(4\)</span> eixos coordenats: dos fan referència als individus (eixos d’abaix i de l’esquerra) i dos fan referència a les variables originals. (eixos de dalt i de la dreta)</p>
+<p>Els eixos que fan referència als individus són els corresponents a les dues components principals.</p>
+<p>Per tant, les coordenades dels individus seran els valors de les dues primeres components estandaritzades (ja veurem què significa això amb un exemple).</p>
+<p>Hem vist que la distància euclídea entre els valors originals dels individus (files de la matriu de dades <span class="math inline">\(\mathbf{X}\)</span>) i els valors d’aquests mateixos individus respecte les components principals se conserva. Això significa que si les dues primeres components principals expliquen molta variabilitat, la distància entre individus que es veurà al biplot serà aproximadament la distància entre els individus segons les variables originals.</p>
+<p>Les coordenades corresponents a les variables originals (columnes de la matriu de dades <span class="math inline">\(\mathbf{X}\)</span>) les ens dóna les dues primeres components en columnes de la matriu <span class="math inline">\(\mathbf{V}_2 = \Sigma\mathbf{V}^\top\)</span> ja que hem vist que la correlació entre les variables originals i les columnes de la matriu anterior és la mateixa.</p>
+<p>El gràfic de les variables originals es va mitjançant vectors. La interpretació que s’ha de fer és la següent: si l’angle entre dues variables originals és petit, significa que el cosinus d’aquest angle serà gran però aquest cosinus és la correlació entre les dues variables. Per tant, hi haurà molta correlació entre les variables. En canvi, si l’angle entre les dues variables està proper a un angle recte, la correlació entre aquestes variables és quasi nul·la.</p>
+<p>Les llargades dels vectors són les variàncies de les variables originals. Per tant, com més llarg tengui un vector, la variable corresponent tendrà més dispersió.</p>
+<div class="example">
+<p><span id="exm:nens3" class="example"><strong>Exemple 12.7  </strong></span>Considerem l’exemple dels infants fent l’ACP de covariàncies.</p>
+</div>
+<p>Recordem que les dues primeres components principals explicaven el <span class="math inline">\(99.475\%\)</span> de la variabilitat total.</p>
+<p>Les components principals eren les següents:
+<span class="math display">\[
+\mathbf{Y}=
+\left(\begin{matrix}-3.048937&amp;0.157754&amp;-0.84641&amp;0.275605 \\-12.682877&amp;2.561714&amp;-0.328361&amp;0.10295 \\-4.326273&amp;-3.312093&amp;0.007676&amp;-0.229086 \\7.294786&amp;-6.899197&amp;-0.170939&amp;0.023647 \\-15.278794&amp;0.696221&amp;1.07061&amp;0.190282 \\-1.323205&amp;1.283363&amp;1.423385&amp;-0.314128 \\-6.980132&amp;1.408083&amp;-1.471127&amp;-0.239868 \\13.690889&amp;0.205664&amp;0.516822&amp;0.280936 \\22.654543&amp;3.898489&amp;-0.201655&amp;-0.090337 \\\end{matrix}\right)
+\]</span></p>
+<p>Quan representem els individus (nens i nenes) en el biplot representarem les dues primeres columnes de la matriu anterior tipificada.</p>
+<p>Això significa que dividirem cada element de la matriu per la norma euclídea de la columna. Així la norma euclídea de la primera columna de la matriu anterior val:
+<span class="math display">\[
+\sqrt{3.049^2+\cdots+22.655^2}=35.024.
+\]</span>
+Fent el mateix amb la segona columna,
+<span class="math display">\[
+\sqrt{0.158^2+\cdots+3.898^2}=9.193.
+\]</span></p>
+<p>Les coordenades dels nens i nenes en el biplot seran:
+<span class="math display">\[
+\left(\begin{matrix}-3.048937&amp;0.157754 \\-12.682877&amp;2.561714 \\-4.326273&amp;-3.312093 \\7.294786&amp;-6.899197 \\-15.278794&amp;0.696221 \\-1.323205&amp;1.283363 \\-6.980132&amp;1.408083 \\13.690889&amp;0.205664 \\22.654543&amp;3.898489 \\\end{matrix}\right)
+\left(
+\begin{array}{cc}
+\frac{1}{35.024}&amp;0\\
+0&amp;\frac{1}{9.193}
+\end{array}
+\right)=\left(\begin{matrix}-0.087053&amp;0.01716 \\-0.362122&amp;0.278659 \\-0.123524&amp;-0.360285 \\0.208281&amp;-0.750484 \\-0.436241&amp;0.075734 \\-0.03778&amp;0.139602 \\-0.199297&amp;0.153169 \\0.390903&amp;0.022372 \\0.646833&amp;0.424072 \\\end{matrix}\right).
+\]</span></p>
+<p>Passem ara a calcular les coordenades de les variables originals.</p>
+<p>Recordem que la matriu de vectors propis de la matriu de covariàncies <span class="math inline">\(\mathbf{S}\)</span> era:
+<span class="math display">\[
+\left(\begin{matrix}0.935483&amp;-0.030824&amp;0.249655&amp;0.248183 \\0.340061&amp;0.341857&amp;-0.664518&amp;-0.570883 \\0.046932&amp;-0.241021&amp;0.572236&amp;-0.782465 \\0.083835&amp;-0.907795&amp;-0.410651&amp;-0.015664 \\\end{matrix}\right).
+\]</span></p>
+<p>Si fem la SVD de la matriu de dades centrada <span class="math inline">\(\tilde{\mathbf{X}}\)</span>, la matriu <span class="math inline">\(\Sigma\)</span> serà:
+<span class="math display">\[
+\Sigma=
+\left(\begin{matrix}35.023782&amp;0&amp;0&amp;0 \\0&amp;9.192992&amp;0&amp;0 \\0&amp;0&amp;2.549064&amp;0 \\0&amp;0&amp;0&amp;0.647381 \\\end{matrix}\right).
+\]</span>
+Per tant, la matriu <span class="math inline">\(\mathbf{V}_2 =\Sigma\mathbf{V}^\top\)</span> serà:
+<span class="math display">\[
+\mathbf{V}_2 =
+\left(\begin{matrix}32.764141&amp;11.910213&amp;1.643726&amp;2.936228 \\-0.283366&amp;3.142691&amp;-2.215706&amp;-8.345355 \\0.636385&amp;-1.693899&amp;1.458666&amp;-1.046775 \\0.160669&amp;-0.369579&amp;-0.506553&amp;-0.010141 \\\end{matrix}\right).
+\]</span></p>
+<p>Per tant, les coordenades de les <span class="math inline">\(4\)</span> variables originals són:</p>
+<ul>
+<li><p><span class="math inline">\({\mathbf{x}_1}\)</span>: Edat en dies.
+<span class="math display">\[\left(\begin{matrix}32.764141&amp;-0.283366 \\\end{matrix}\right).\]</span></p></li>
+<li><p><span class="math inline">\({\mathbf{x}_2}\)</span>: Alçada en néixer.
+<span class="math display">\[\left(\begin{matrix}11.910213&amp;3.142691 \\\end{matrix}\right).\]</span></p></li>
+<li><p><span class="math inline">\({\mathbf{x}_3}\)</span>: Pes en néixer
+<span class="math display">\[\left(\begin{matrix}1.643726&amp;-2.215706 \\\end{matrix}\right).\]</span></p></li>
+<li><p><span class="math inline">\({\mathbf{x}_4}\)</span>: Augment en tant per cent del seu pes actual respecte del seu pes en néixer
+<span class="math display">\[\left(\begin{matrix}2.936228&amp;-8.345355 \\\end{matrix}\right).\]</span></p></li>
+</ul>
+<p>A continuació mostram el biplot:
+<img src="Bioestadistica-II_files/figure-html/unnamed-chunk-32-1.png" width="672" /></p>
+<p>Comprovem les coordenades dels punts i de les variables.</p>
+<p>Veiem també que entre les parelles de variables <span class="math inline">\((\mathbf{x}_1, \mathbf{x}_2)\)</span> i <span class="math inline">\((\mathbf{x}_3,\mathbf{x}_4)\)</span> hi ha bastanta correlació i entre les parelles <span class="math inline">\((\mathbf{x}_2, \mathbf{x}_3)\)</span> i <span class="math inline">\((\mathbf{x}_2, \mathbf{x}_4)\)</span> n’hi ha poca com podem comprovar si calculem la correlació entre les variables originals:
+<span class="math display">\[
+\begin{bmatrix}1&amp;0.952266&amp;0.534019&amp;0.335331 \\0.952266&amp;1&amp;0.262671&amp;0.094942 \\0.534019&amp;0.262671&amp;1&amp;0.77385 \\0.335331&amp;0.094942&amp;0.77385&amp;1 \\\end{bmatrix}
+\]</span>
+Observem que les variables amb més dispersió són l’edat de l’infant i l’alçada en néixer.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="regressió-lineal.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection",
+"download": ["pdf", "epub"]
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

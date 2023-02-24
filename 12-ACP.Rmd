@@ -1,0 +1,1107 @@
+# Anàlisi de components principals
+
+```{r,echo=FALSE}
+write_matex <- function(x) {
+  begin <- "\\left(\\begin{matrix}"
+  end <- "\\end{matrix}\\right)"
+  X <-
+    apply(x, 1, function(x) {
+      paste(
+        paste(x, collapse = "&"),
+        "\\\\"
+      )
+    })
+  paste(c(begin, X, end), collapse = "")
+}
+
+
+write_matex2 <- function(x) {
+  begin <- "\\begin{bmatrix}"
+  end <- "\\end{bmatrix}"
+  X <-
+    apply(x, 1, function(x) {
+      paste(
+        paste(x, collapse = "&"),
+        "\\\\"
+      )
+    })
+  paste(c(begin, X, end), collapse = "")
+}
+
+write_matex3 <- function(x) {
+  begin <- "\\begin{vmatrix}"
+  end <- "\\end{vmatrix}"
+  X <-
+    apply(x, 1, function(x) {
+      paste(
+        paste(x, collapse = "&"),
+        "\\\\"
+      )
+    })
+  paste(c(begin, X, end), collapse = "")
+}
+options(scipen=999)
+```
+
+El problema central de l'anàlisi de dades és la reducció de la dimensionalitat.
+
+
+És a dir, si és possible descriure amb precisió els valors de les $p$ variables per un petit subconjunt $r <p$ d'aquestes variables amb una pèrdua mínima d'informació.
+
+
+Aquest és l'objectiu de l'anàlisi de components principals: donades $n$ observacions de $p$ variables, (taula de dades) s'analitza si és possible representar aquesta informació amb menys variables.
+
+
+
+
+
+## Introducció
+Dit de forma més explícita, volem transformar les variables de la nostra taula de dades en unes noves variables anomenades components principals que siguin incorrelacionades entre sí i que siguin combinació lineal de les variables originals.
+
+
+Si el nombre de variables noves és més petit que les variables originals, hi haurà una pèrdua d'informació. 
+
+
+Volem que aquesta pèrdua sigui mínima en el sentit de que les components principals heretin la màxima variabilitat de les variables originals.
+
+
+
+
+## Components principals
+
+Anomenarem $X_1,\ldots,X_p$ a les nostres variables originals i $CP_1,\ldots,CP_r$ a les variables components principals on $r\leq p$.
+
+
+Volem calcular una matriu ${\Lambda}$ tal que:
+\[
+\mathbf{CP}={\Lambda}\mathbf{X},
+\]
+on $\mathbf{CP}=(CP_1,\ldots,CP_r)^\top$, $\mathbf{X}=(X_1,\ldots,X_p)^\top$ i 
+\[
+{\Lambda}=\begin{pmatrix}
+\alpha_{11}&\cdots & \alpha_{1p}\\
+\alpha_{21}&\cdots & \alpha_{2p}\\
+\cdots & \cdots & \cdots \\
+\alpha_{r1}&\cdots & \alpha_{rp}
+\end{pmatrix}.
+\]
+
+
+
+Escrit en components:
+\begin{eqnarray*}
+CP_1 &=& \alpha_{11} X_1+\cdots + \alpha_{1p} X_p, \\
+CP_2 &=& \alpha_{21} X_1+\cdots + \alpha_{2p} X_p, \\
+\vdots && \vdots \\
+CP_r &=& \alpha_{11} X_1+\cdots + \alpha_{rp} X_p.
+\end{eqnarray*}
+
+
+
+En la pràctica, sigui $\mathbf{X}$ la nostra matriu $n\times p$ que representa la taula de dades original on tenim $n$ individus i $p$ variables que suposarem centrada. O sigui, les mitjanes de les columnes de $\mathbf{X}$ són nul·les.
+
+
+Volem obtenir una nova matriu $\mathbf{Y}$ $n\times r$ corresponent a les components principals tal que: $\mathbf{Y}=\mathbf{X}\cdot \Lambda^\top.$
+
+
+Escrit en components:
+\[
+y_{ki}=x_{k1} \alpha_{i1}+\cdots +x_{kp}\alpha_{ip},\mbox{ per } k=1,\ldots,n,i=1,\ldots, r.
+\]
+Ens adonem que la matriu $\mathbf{Y}$ també serà centrada.
+
+
+## Interpretació geomètrica
+Suposem que $p=2$ i que el nostre ``núvol'' de punts de la nostra taula de dades és el que mostra la figura:
+\vspace*{-1cm}
+
+```{r,echo=FALSE}
+n=20
+m=10
+#xx <- c(-10,10)
+#yy <- c(-6,6)
+#par(mar=c(0,0,0,0))
+#plot(xx,yy,ann=F,type='n')
+#dades=matrix(sample(1:m,2*n,replace=TRUE),n,2)
+dades=data.frame(V1=c( 8 , 3 , 5 , 5 , 6 , 4 , 5 , 9 , 3 , 4, 2, 1, 8, 9, 1, 1, 5, 3, 8, 9
+),V2=c(3,7,3,3,9,5,1,7,10, 8, 4, 8, 7, 3, 7, 6, 7, 9, 9, 10))
+dades=as.matrix(dades)
+Hn=matrix(-1/n,n,n)
+diag(Hn)=rep(1-1/n,n)
+dades.cent=Hn%*%dades
+plot(dades.cent,asp=1,xlab="X",ylab="Y",xlim=c(-10,10),ylim=c(-5.5,5.5))
+```
+
+
+
+A continuació mostram les dues components principals. O sigui, les direccions on les projeccions de les dades tenen màxima variabilitat:
+
+```{r,echo=FALSE}
+n=20
+m=10
+#xx <- c(-10,10)
+#yy <- c(-6,6)
+#par(mar=c(0,0,0,0))
+#plot(xx,yy,ann=F,type='n')
+#dades=matrix(sample(1:m,2*n,replace=TRUE),n,2)
+Hn=matrix(-1/n,n,n)
+diag(Hn)=rep(1-1/n,n)
+dades.cent=Hn%*%dades
+plot(dades.cent,asp=1,xlab="X",ylab="Y",xlim=c(-10,10),ylim=c(-5.5,5.5))
+estudi.acp=prcomp(dades,scale.=FALSE)
+direccions=estudi.acp$rotation
+m.cov=t(dades.cent)%*%dades.cent
+vaps=eigen(m.cov)$values
+veps=eigen(m.cov)$vectors
+mag=10
+lines(c(0,mag*direccions[1,1]),c(0,mag*direccions[2,1]),col="red",lwd=3)
+lines(c(0,mag*direccions[1,2]),c(0,mag*direccions[2,2]),col="red",lwd=3)
+lines(c(0,-mag*direccions[1,1]),c(0,-mag*direccions[2,1]),col="red",lwd=3)
+lines(c(0,-mag*direccions[1,2]),c(0,-mag*direccions[2,2]),col="red",lwd=3)
+xaux=-6
+text(xaux,direccions[2,1]*xaux/direccions[1,1]-1,"CP1",cex=1)
+xaux=-1.5
+text(xaux,direccions[2,2]*xaux/direccions[1,2]-2,"CP2",cex=1)
+```
+
+
+
+Si projectam en la direcció de la primera component, obtendrem les projeccions següents (punts blaus):
+
+```{r,echo=FALSE}
+n=20
+m=10
+#xx <- c(-10,10)
+#yy <- c(-6,6)
+#par(mar=c(0,0,0,0))
+#plot(xx,yy,ann=F,type='n')
+#dades=matrix(sample(1:m,2*n,replace=TRUE),n,2)
+Hn=matrix(-1/n,n,n)
+diag(Hn)=rep(1-1/n,n)
+dades.cent=Hn%*%dades
+plot(dades.cent,asp=1,xlab="X",ylab="Y",xlim=c(-10,10),ylim=c(-5.5,5.5))
+estudi.acp=prcomp(dades,scale.=FALSE)
+direccions=estudi.acp$rotation
+m.cov=t(dades.cent)%*%dades.cent
+vaps=eigen(m.cov)$values
+veps=eigen(m.cov)$vectors
+mag=10
+lines(c(0,mag*direccions[1,1]),c(0,mag*direccions[2,1]),col="red",lwd=3)
+lines(c(0,mag*direccions[1,2]),c(0,mag*direccions[2,2]),col="red",lwd=3)
+lines(c(0,-mag*direccions[1,1]),c(0,-mag*direccions[2,1]),col="red",lwd=3)
+lines(c(0,-mag*direccions[1,2]),c(0,-mag*direccions[2,2]),col="red",lwd=3)
+xaux=-6
+text(xaux,direccions[2,1]*xaux/direccions[1,1]-1,"CP1",cex=1)
+xaux=-1.5
+text(xaux,direccions[2,2]*xaux/direccions[1,2]-2,"CP2",cex=1)
+#arrows(0,0,mag*direccions[1,1],mag*direccions[2,1],col="red",lwd=3)
+#arrows(0,0,mag*direccions[1,2],mag*direccions[2,2],col="red",lwd=3)
+#arrows(0,0,-mag*direccions[1,1],-mag*direccions[2,1],col="red",lwd=3)
+#arrows(0,0,-mag*direccions[1,2],-mag*direccions[2,2],col="red",lwd=3)
+proj.ort=function(x0,y0,v1,v2,b){m=v2/v1;x1=(m*y0+x0-m*b)/(m^2+1);
+                        y1=(m^2*y0+m*x0+b)/(m^2+1);return(c(x1,y1))}
+#projecció sobre CP1
+for (i in 1:dim(dades)[1]){
+  aux=proj.ort(dades.cent[i,1],dades.cent[i,2],veps[1,1],veps[2,1],0)
+  points(aux[1],aux[2],pch=20,col="blue")
+  lines(c(dades.cent[i,1],aux[1]),c(dades.cent[i,2],aux[2]),lty=2)
+}
+```
+
+
+
+
+Això significa que la variància dels punts blaus és màxima en el sentit de que si haguéssim escollit una altra direcció o una altra recta i haguéssim projectat sobre aquesta segona recta, la variància de les projeccions hagués estar menor.
+
+
+Els punts blaus representen les coordenades que tenen els punts de la nostra taula de dades si haguéssim agafat com eix d'abscisses, l'eix de la primera component $CP_1$.
+
+
+Si projectam en la direcció de la segona component, obtendrem les projeccions següents (punts verds):
+
+```{r,echo=FALSE}
+n=20
+m=10
+#xx <- c(-10,10)
+#yy <- c(-6,6)
+#par(mar=c(0,0,0,0))
+#plot(xx,yy,ann=F,type='n')
+#dades=matrix(sample(1:m,2*n,replace=TRUE),n,2)
+Hn=matrix(-1/n,n,n)
+diag(Hn)=rep(1-1/n,n)
+dades.cent=Hn%*%dades
+plot(dades.cent,asp=1,xlab="X",ylab="Y",xlim=c(-10,10),ylim=c(-5.5,5.5))
+estudi.acp=prcomp(dades,scale.=FALSE)
+direccions=estudi.acp$rotation
+m.cov=t(dades.cent)%*%dades.cent
+vaps=eigen(m.cov)$values
+veps=eigen(m.cov)$vectors
+mag=10
+lines(c(0,mag*direccions[1,1]),c(0,mag*direccions[2,1]),col="red",lwd=3)
+lines(c(0,mag*direccions[1,2]),c(0,mag*direccions[2,2]),col="red",lwd=3)
+lines(c(0,-mag*direccions[1,1]),c(0,-mag*direccions[2,1]),col="red",lwd=3)
+lines(c(0,-mag*direccions[1,2]),c(0,-mag*direccions[2,2]),col="red",lwd=3)
+xaux=-6
+text(xaux,direccions[2,1]*xaux/direccions[1,1]-1,"CP1",cex=1)
+xaux=-1.5
+text(xaux,direccions[2,2]*xaux/direccions[1,2]-2,"CP2",cex=1)
+#arrows(0,0,mag*direccions[1,1],mag*direccions[2,1],col="red",lwd=3)
+#arrows(0,0,mag*direccions[1,2],mag*direccions[2,2],col="red",lwd=3)
+#arrows(0,0,-mag*direccions[1,1],-mag*direccions[2,1],col="red",lwd=3)
+#arrows(0,0,-mag*direccions[1,2],-mag*direccions[2,2],col="red",lwd=3)
+proj.ort=function(x0,y0,v1,v2,b){m=v2/v1;x1=(m*y0+x0-m*b)/(m^2+1);
+                        y1=(m^2*y0+m*x0+b)/(m^2+1);return(c(x1,y1))}
+#projecció sobre CP2
+for (i in 1:dim(dades)[1]){
+  aux=proj.ort(dades.cent[i,1],dades.cent[i,2],veps[1,2],veps[2,2],0)
+  points(aux[1],aux[2],pch=20,col="green")
+  lines(c(dades.cent[i,1],aux[1]),c(dades.cent[i,2],aux[2]),lty=2)
+}
+```
+
+
+
+
+## Components principals
+Condicions han de verificar les components principals:
+
+* Han d'esser incorrelades.
+O sigui, $r_{CP_i,CP_j}=0$ o si $\mathbf{y}_i$ i $\mathbf{y_j}$ són les columnes $i$ i $j$ de la matriu $\mathbf{Y}$, $r_{\mathbf{y}_i,\mathbf{y}_j}=0$. Dit en altres paraules, la matriu de covariàncies o de correlacions de la taula de dades $\mathbf{Y}$ serà diagonal.
+
+* Les variàncies de les components principals han de decréixer.
+O sigui, \[
+\mbox{var}(CP_1)\geq \mbox{var}(CP_2)\cdots \geq \mbox{var}(CP_p).
+\]
+D'aquesta forma, la component principal $CP_1$ serà la que tengui més variabilitat de totes i per tant, la més important, $CP_2$, la segona més important i així successivament.
+
+
+
+
+
+## ACP sobre la matriu de covariàncies
+Considerem $\mathbf{X}$ $n\times p$ la nostre matriu de dades que suposarem centrada on tenim $n$ individus i $p$ variables. Si no ho fos, l'haurem de centrar.
+
+
+Sigui $\mathbf{S}$ $p\times p$ la matriu de covariàncies de $\mathbf{X}$.
+
+
+Recordem que $\mathbf{S}$ es calcula com:
+\[
+\mathbf{S}=\frac{1}{n}\mathbf{X}^\top\cdot\mathbf{X}.
+\]
+
+
+Siguin $\lambda_1 \geq \lambda_2 \geq \cdots \geq \lambda_p$ els valors propis de la matriu $\mathbf{S}$ en ordre creixent.
+
+
+Siguin $\mathbf{v}_1,\mathbf{v}_2,\ldots,\mathbf{v}_p$ els corresponents vectors propis que suposarem ortogonals i normalitzats. Això és, suposarem que són perpendiculars dos a dos i tenen norma euclídea unitat.
+
+
+Sigui $\mathbf{V}$ la matriu de vectors propis que té els vectors anteriors per columnes.
+
+
+Aleshores la matriu $\Lambda$ és la transposada de la matriu $\mathbf{V}$: 
+\[
+\Lambda=\mathbf{V}^\top.
+\]
+
+
+```{example}
+Considerem la següent matriu de dades:
+```
+
+```{r,echo=FALSE}
+library(xtable)
+X=matrix(c(1,1,2,3,-1,0,3,0,3,3,0,1),4,3)
+n=4
+H4=matrix(-1/n,n,n)
+diag(H4)=rep(1-1/n,n)
+Xtilde=H4%*%X
+```
+
+$$
+\mathbf{X}= 
+`r write_matex(X)`.
+$$
+Com que la matriu no està centrada, primer la centram:
+
+$$
+\tilde{\mathbf{X}} =  \mathbf{H}_4\mathbf{X} =
+`r write_matex(H4)`\cdot `r write_matex(X)`=
+`r write_matex(Xtilde)`.
+$$
+La matriu de covariàncies serà:
+```{r,echo=FALSE}
+m.cov=(1/n)*t(Xtilde)%*%Xtilde
+vaps=eigen(m.cov)$values
+veps=eigen(m.cov)$vectors
+```
+
+$$
+\mathbf{S}=\frac{1}{4}\tilde{\mathbf{X}}^\top\tilde{\mathbf{X}}=
+`r write_matex(m.cov)`.
+$$
+Els valors propis de la matriu de covariàncies anterior són:
+$$
+`r write_matex(t(as.matrix(vaps)))`.
+$$
+Els corresponents vectors propis (per columnes) associats als vectors propis anteriors són:
+$$
+`r write_matex(veps)`.
+$$
+Ens adonem que els vectors anteriors són ortogonals i estan normalitzats.
+
+
+Així la matriu que ens canviarà de variables originals a components principals serà la transposada dels vectors propis:
+$$
+\Lambda=
+`r write_matex(t(veps))`
+$$
+Per tant, la matriu de dades en les noves variables serà:
+```{r,echo=FALSE}
+CP=Xtilde%*%veps
+```
+$$
+\mathbf{Y}=\tilde{\mathbf{X}}\Lambda^\top = \tilde{\mathbf{X}}\mathbf{V}=
+`r write_matex(CP)`.
+$$
+```{r,echo=FALSE}
+cp.cov = cov(CP)*(n-1)/n
+```
+
+
+Si calculam la matriu de covariàncies de les components principals val:
+$$
+\mathbf{S}_{CP}=
+`r write_matex(round(cp.cov,6))`.
+$$
+Ens adonam que és diagonal, per tant, les covariàncies entre variables diferents són nul·les i en la diagonal hi ha les variàncies de les components principals que estan en ordre creixent. Us sonen aquests valors?
+
+
+Efectivament, són els valors propis de la matriu de covariàncies de les variables originals $\mathbf{S}$.
+
+
+Comprovem que la variabilitat s'ha conservat. 
+
+
+La variabilitat de les variables originals serà la suma dels valors de la diagonal de la matriu $\mathbf{S}$:
+$$
+`r round(diag(m.cov)[1],3)` + `r round(diag(m.cov)[2],3)` + `r round(diag(m.cov)[3],3)` = `r round(sum(diag(m.cov)),3)`.
+$$
+
+
+La variabilitat de les components principals serà la suma dels valors de la diagonal de la matriu $\mathbf{S}_{CP}$:
+$$
+`r round(diag(cp.cov)[1],3)` + `r round(diag(cp.cov)[2],3)` + `r round(diag(cp.cov)[3],3)` = `r round(sum(diag(cp.cov)),3)`.
+$$
+Podem observar que les dues variabilitats coincideixen.
+
+
+La primera component principal (1a. columna de la matriu $\mathbf{CP}$) hereta el $\frac{`r round(diag(cp.cov)[1],3)`}{`r round(sum(diag(cp.cov)),3)`}\cdot 100\% = 
+`r round(diag(cp.cov)[1]*100/sum(diag(cp.cov)),3)`\%$ de la variabilitat total.
+
+Les dues primeres components principals hereten el 
+$\frac{`r round(diag(cp.cov)[1],3)` + `r round(diag(cp.cov)[2],3)`}{`r round(sum(diag(cp.cov)),3)`}\cdot 100\% = 
+`r round(sum(diag(cp.cov)[1:2])*100/sum(diag(cp.cov)),3)`\%$ de la variabilitat total.
+
+```{example,edat}
+Facem un exemple més complet.
+La taula següent ens dóna l'edat en dies ($x_1$), l'alçada al néixer en cm. ($x_2$), el seu pes en kg. en néixer ($x_3$) i l'augment en tant per cent del seu pes actual respecte el seu pes en néixer ($x_4$) de $9$ nens i nenes recent nats. 
+```
+
+
+|$x_1$|$x_2$|$x_3$|$s_4$|$Sexe$|
+|:---:|:---:|:---:|:---:|:---:|
+|78|48.2|2.75|29.5|Nina|
+|69|45.5|2.15|26.3|Nina|
+|77|46.3|4.41|32.2|Nina|
+|88|49|5.52|36.5|Nin|
+|67|43|3.21|27.2|Nina|
+|80|48|4.32|27.7|Nina|
+|74|48|2.31|28.3|Nina|
+|94|53|4.3|30.3|Nin|
+|102|58|3.71|28.7|Nin|
+
+
+Hem afegit una variable més (sexe de l'infant). Ens demanem si aquestes $4$ variables són capaces d'explicar o de predir la variable anterior. 
+
+La matriu de dades centrada seria:
+```{r,echo=FALSE}
+nens=matrix(c(78,48.2,2.75,29.5, 69,45.5,2.15,26.3,
+77,46.3,4.41,32.2, 88,49,5.52,36.5,67,43,3.21,27.2,
+80,48,4.32,27.7, 74,48,2.31,28.3, 94,53,4.3,30.3,
+102,58,3.71,28),9,4,byrow=T)
+n=9
+H9=matrix(-1/n,n,n)
+diag(H9)=rep(1-1/n,n)
+nens.cent=H9%*%nens
+cov.nens=(1/n)*t(nens.cent)%*%nens.cent
+vaps.nens=eigen(cov.nens)$values
+veps.nens=eigen(cov.nens)$vectors
+```
+
+$$
+\tilde{\mathbf{X}}=
+`r write_matex(round(nens.cent,6))`.
+$$
+
+La matriu de covariàncies serà:
+$$
+\mathbf{S}=\frac{1}{9}\tilde{\mathbf{X}}^\top\tilde{\mathbf{X}}=
+`r write_matex(round(cov.nens,6))`.
+$$
+
+Els valors propis de la matriu de covariàncies anterior són:
+$$
+`r write_matex(as.matrix(round(t(vaps.nens),6)))`.
+$$
+Els corresponents vectors propis (per columnes) associats als vectors propis anteriors són:
+$$
+`r write_matex(round(veps.nens,6))`.
+$$
+Ens adonem que els vectors anteriors són ortogonals i estan normalitzats.
+
+
+Així la matriu que ens canviarà de variables originals a components principals serà la transposada dels vectors propis:
+$$
+\Lambda=
+`r write_matex(round(t(veps.nens),6))`.
+$$
+
+```{r,echo=FALSE}
+signe=function(x){ifelse(x>0,"+","-")}
+signe0=function(x){ifelse(x>0,"","-")}
+```
+
+
+Les expressions de les components principals en funció de les variables originals són:
+\begin{align*}
+CP_1 &= `r signe0(veps.nens[1,1])``r round(abs(veps.nens[1,1]),3)`X_1 
+`r signe(veps.nens[2,1])``r round(abs(veps.nens[2,1]),3)`X_2
+`r signe(veps.nens[3,1])``r round(abs(veps.nens[3,1]),3)`X_3 
+`r signe(veps.nens[4,1])``r round(abs(veps.nens[4,1]),3)`X_4
+\\
+CP_2 &= `r signe0(veps.nens[1,2])``r round(abs(veps.nens[1,2]),3)`X_1
+`r signe(veps.nens[2,2])``r round(abs(veps.nens[2,2]),3)`X_2
+`r signe(veps.nens[3,2])``r round(abs(veps.nens[3,2]),3)`X_3 
+`r signe(veps.nens[4,2])``r round(abs(veps.nens[4,2]),3)`X_4
+\\
+CP_3 &= `r signe0(veps.nens[1,3])``r round(abs(veps.nens[1,3]),3)`X_1
+`r signe(veps.nens[2,3])``r round(abs(veps.nens[2,3]),3)`X_2
+`r signe(veps.nens[3,3])``r round(abs(veps.nens[3,3]),3)`X_3 
+`r signe(veps.nens[4,3])``r round(abs(veps.nens[4,3]),3)`X_4 \\
+CP_4 &= `r signe0(veps.nens[1,4])``r round(abs(veps.nens[1,4]),3)`X_1
+`r signe(veps.nens[2,4])``r round(abs(veps.nens[2,4]),3)`X_2
+`r signe(veps.nens[3,4])``r round(abs(veps.nens[3,4]),3)`X_3 
+`r signe(veps.nens[4,4])``r round(abs(veps.nens[4,4]),3)`X_4
+\end{align*}
+
+Per tant, la matriu de dades en les noves variables serà:
+```{r,echo=FALSE}
+CP.nens=nens.cent%*%veps.nens
+```
+
+$$
+\mathbf{Y}=\tilde{\mathbf{X}}\Lambda^\top = \tilde{\mathbf{X}}\mathbf{V}=
+`r write_matex(round(CP.nens,6))`.
+$$
+
+```{r,echo=FALSE}
+cp.nens.cov = cov(CP.nens)*(n-1)/n
+```
+
+Si calculam la matriu de covariàncies de les components principals val:
+$$
+\mathbf{S}_{CP}=
+`r write_matex(round(cp.nens.cov,6))`.
+$$
+
+Igual que passava en l'exemple anterior, és diagonal, com esperàvem i en la diagonal hi surten els valors propis de la matriu de covariàncies de les dades originals.
+
+
+Comprovem que la variabilitat s'ha conservat. 
+
+
+La variabilitat de les variables originals serà la suma dels valors de la diagonal de la matriu $\mathbf{S}$:
+$$
+`r round(diag(cov.nens)[1],3)` + `r round(diag(cov.nens)[2],3)` + 
+`r round(diag(cov.nens)[3],3)` + `r round(diag(cov.nens)[4],3)` = `r round(sum(diag(cov.nens)),3)`.
+$$
+La variabilitat de les components principals serà la suma dels valors de la diagonal de la matriu $\mathbf{S}_{CP}$:
+$$
+`r round(diag(cp.nens.cov)[1],3)` + `r round(diag(cp.nens.cov)[2],3)` + `r round(diag(cp.nens.cov)[3],3)` +`r round(diag(cp.nens.cov)[4],3)`= `r round(sum(diag(cp.nens.cov)),3)`.
+$$
+Podem observar que les dues variabilitats coincideixen.
+
+
+
+La primera component principal (1a. columna de la matriu $\mathbf{CP}$) hereta el $\frac{`r round(diag(cp.nens.cov)[1],3)`}{`r round(sum(diag(cp.nens.cov)),3)`}\cdot 100\% = 
+`r round(diag(cp.nens.cov)[1]*100/sum(diag(cp.nens.cov)),3)`\%$ de la variabilitat total.
+
+Les dues primeres components principals hereten el 
+$\frac{`r round(diag(cp.nens.cov)[1],3)` + `r round(diag(cp.nens.cov)[2],3)`}{`r round(sum(diag(cp.nens.cov)),3)`}\cdot 100\% = 
+`r round(sum(diag(cp.nens.cov)[1:2])*100/sum(diag(cp.nens.cov)),3)`\%$ de la variabilitat total.
+
+Això ens fa pensar que si només tenim en compte les dues primeres components, podem fer un gràfic on hi estiguin representats tots els nens dibuixant de blau els nens i de vermell les nenes.
+
+
+Comprovem que les dues primeres components separen bé els nens i les nens. Concloem que la nostra taula de dades ``explica'' la variable sexe.
+
+```{r,echo=FALSE}
+sexe=c("nina","nina","nina","nin","nina","nina","nina","nin","nin")
+plot(CP.nens[,1],CP.nens[,2],xlab="CP1",ylab="CP2",col=ifelse(sexe=="nin","blue","red"))
+```
+
+
+
+## Propietats de l'ACP sobre la matriu de covariàncies
+
+Recordem que la matriu $\mathbf{S}$ és la matriu de covariàncies de les variables originals i $\mathbf{S}_{CP}$ és la matriu de covariàncies de les components principals.
+
+
+La diagonal de la matriu $\mathbf{S}$ està formada per les variàncies de les variables originals $s_i^2$, $i=1,\ldots,p$.
+
+
+Definim la variància total de la nostra taula de dades com la suma de les variàncies o la traça de la matriu $\mathbf{S}$:
+$$
+\mbox{Variància Total}=tr(\mathbf{S})=\sum_{i=1}^p s_i^2.
+$$
+
+
+* La variància de la $i$-èssima component principal és el valor propi $i$-èssim de la matriu de covariàncies $\mathbf{S}$: $\mbox{Var} (CP)_i =\lambda_i.$
+* Es conserva la variància total. O sigui, la variància total de les variables originals i de les components principals és la mateixa:
+$$
+\sum_{i=1}^p \mbox{var}(X_i) = \sum_{i=1}^p \mbox{var}(CP_i) =\sum_{i=1}^p\lambda_i.
+$$
+* Les components principals són incorrelades. O, dit, en altres paraules, la seva matriu de covariàncies és diagonal:
+$$
+\mathbf{S}_{CP}=\left(\begin{array}{cccc}
+\lambda_1& 0 &\ldots &  0\\
+0& \lambda_{2}&\ldots & 0\\
+\vdots & \vdots & & \vdots\\
+0 & 0&\ldots &  \lambda_{p}
+\end{array}
+\right)
+$$
+
+* Donada una taula de dades, definim la variància generalitzada com el determinant de la matriu de covariàncies. Aleshores, la variància generalitzada de les variables originals i de les components principals coincideix:
+$$
+\mbox{det}(\mathbf{S}) =\mbox{det}(\mathbf{S}_{CP}) =\lambda_1\cdots \lambda_p.
+$$
+* La proporció de variància explicada per la component $j$-èssima és: $\frac{\lambda_j}{\sum_{i=1}^p\lambda_i}.$ Per tant, la variància explicada per les $k$ primeres components val: $\frac{\sum_{i=1}^k\lambda_j}{\sum_{i=1}^p\lambda_i}.$
+* Sigui $\mathbf{X}_i$ la $i$-èssima variable original. O sigui, la $i$-èssima columna de la matriu de dades $\mathbf{X}$. Sigui $\mathbf{CP}_j$ la $j$-èssima component principal. O sigui, la $j$-èssima columna de la matriu de dades $\mathbf{CP}$. Aleshores la covariància entre les variables (columnes) $\mathbf{X}_i$ i $\mathbf{CP}_j$ val:
+$$
+\mbox{cov}(\mathbf{X}_i,\mathbf{CP}_j)=\lambda_j u_{ji},
+$$
+on $u_{ji}$ és la $i$-èssima component del vector propi unitari $\mathbf{u}_j$ corresponent al valor propi $\lambda_j.$ 
+* Seguint la mateixa notació anterior, la correlació entre $\mathbf{X}_i$ i $\mathbf{CP}_j$ val:
+$$
+\mbox{cor}(\mathbf{X}_i,\mathbf{CP}_j)=\frac{\sqrt{\lambda_j}u_{ji}}{s_i}.
+$$
+* En general si definim la matriu $\mathbf{S}_{X,CP}$ de components $s_{ij}=\mbox{cov}(\mathbf{X}_i,\mathbf{CP}_j)$, podem escriure:
+$$
+\mathbf{S}_{X,CP}= \mathbf{V}\mbox{diag}(\lambda_1,\ldots,\lambda_p),
+$$
+on $\mathbf{V}$ és la matriu de vectors propis de la matriu de covariàncies $\mathbf{S}.$
+* En general si definim la matriu $\mathbf{R}_{X,CP}$ de components $r_{ij}=\mbox{cor}(\mathbf{X}_i,\mathbf{CP}_j)$, podem escriure:
+$$
+\mathbf{R}_{X,CP}= \mathbf{V}\mbox{diag}(\sqrt{\lambda_1},\ldots,\sqrt{\lambda_p})\mbox{diag}\left(\frac{1}{s_1},\ldots,\frac{1}{s_p}\right),
+$$
+on $s_i$ és la desviació típica de la variable original $\mathbf{X}_i$.
+* La primera component principal seria la varietat lineal de dimensió $1$ (una recta) que conserva la major variabilitat (anomenada inèrcia) del ``núvol'' de punts.
+* De la mateixa manera, les dues primeres components principals serien la varietat lineal de dimensió $2$ (pla) que conserva la major variabilitat (anomenada inèrcia) del ``núvol'' de punts.
+
+* En general, les $k$ primeres components principals serien la varietat lineal de dimensió $k$ que conserva la major variabilitat (anomenada inèrcia) del ``núvol'' de punts.
+
+
+```{example,infants2}
+Comprovem la relació anterior entre les variables originals i les components principals en l'exemple dels infants.
+```
+Recordem que la matriu centrada de dades era:
+$$
+\tilde{\mathbf{X}}=
+`r write_matex(round(nens.cent,6))`.
+$$
+
+La matriu de components principals era:
+$$
+{\mathbf{CP}}=
+`r write_matex(round(CP.nens,6))`.
+$$
+La covariància entre les dues matrius anteriors val:
+$$
+\mbox{cov}(\tilde{X},{\mathbf{CP}})=
+`r write_matex(round(cov(nens.cent,CP.nens)*8/9,6))`.
+$$
+
+Si fem $\mathbf{V}\cdot\mbox{diag}(\lambda_1,\ldots,\lambda_p)$ obtenim el mateix:
+\begin{align*}
+&`r write_matex(round(veps.nens,6))`
+\cdot
+\\ & 
+`r write_matex(round(diag(vaps.nens),6))`
+ = \mbox{cov}(\tilde{X},{\mathbf{CP}})
+\end{align*}
+
+
+La correlacions entre les dues matrius anteriors val:
+$$
+\mbox{cor}(\tilde{X},{\mathbf{CP}})=
+`r write_matex(round(cor(nens.cent,CP.nens),6))`.
+$$
+
+Si fem $\mathbf{V}\cdot\mbox{diag}(\sqrt{\lambda_1},\ldots,\sqrt{\lambda_p})\cdot \mbox{diag}\left(\frac{1}{s_1},\ldots,\frac{1}{s_p}\right)$ obtenim el mateix, o sigui el producte de les tres matrius següents:
+\begin{align*}
+\mathbf{V} &=
+`r write_matex(round(veps.nens,6))`,
+\\
+\mbox{diag}(\sqrt{\lambda}) &=
+`r write_matex(round(diag(sqrt(vaps.nens)),6))`,\\
+\mbox{diag}(1/s) & =
+`r write_matex(round(sqrt(diag(1/diag(cov.nens))),6))`.
+\end{align*}
+
+
+Vegem quin percentatge de variabilitat tenim si consideram només les primeres components principals:
+
+|Variables|Variància explicada|
+|:---|:---|
+|$\mathbf{CP}_1$|$`r round(vaps.nens[1],3)`/`r round(sum(vaps.nens),3)`=`r round(vaps.nens[1]/sum(vaps.nens),3)`$|
+|$\mathbf{CP}_{1,2}$|$`r round(sum(vaps.nens[1:2]),3)`/`r round(sum(vaps.nens),3)`=`r round(sum(vaps.nens[1:2])/sum(vaps.nens),3)`$|
+|$\mathbf{CP}_{1,2,3}$|$`r round(sum(vaps.nens[1:3]),3)`/`r round(sum(vaps.nens),3)`=`r round(sum(vaps.nens[1:3])/sum(vaps.nens),4)`$|
+|$\mathbf{CP}_{1,2,3,4}$|$1$|
+
+En aquest exemple, si només tenguéssim en compte les dues primeres components explicaríem el 
+$`r round(sum(vaps.nens[1:2])*100/sum(vaps.nens),2)`\%$ de la variabilitat total.
+
+
+
+
+
+## ACP sobre la matriu de correlacions
+Per realitzar l'ACP sobre la matriu de correlacions, es fa de la mateixa manera que l'ACP sobre la matriu de covariàncies però en lloc de fer servir aquesta matriu es fa servir la matriu de correlacions $\mathbf{R}.$
+
+
+O sigui, es calculen els valors propis $\lambda_i$ de la matriu $\mathbf{R}$ juntament amb la matriu de vectors propis $\mathbf{V}$.
+
+
+Això és equivalent a aplicar l'ACP sobre la matriu de covariàncies però en lloc de fer servir la matriu centrada original, es fa servir la matriu de dades tipificada $\mathbf{Z}.$
+
+
+Per tant, totes les propietats enunciades sobre la matriu de covariàncies serien vàlides per la matriu de correlacions substituint simplement la matriu $\mathbf{S}$ per la matriu $\mathbf{R}.$
+
+
+
+```{example,ninscorr}
+Anem a repetir l'exemple dels infants però fent una ACP sobre la matriu de correlacions.
+```
+
+La matriu de dades tipificada serà:
+```{r,echo=FALSE}
+aux=apply(nens,2,sd)
+aux=aux*sqrt((n-1)/n)
+Z=nens.cent%*%diag(1/aux)
+```
+$$
+{\mathbf{R}}=
+`r write_matex(round(Z,6))`.
+$$
+
+
+```{r,echo=FALSE}
+vaps.nens=eigen(cor(nens))$values
+veps.nens=eigen(cor(nens))$vectors
+```
+La matriu de correlacions $\mathbf{R}$ de la matriu $\mathbf{X}$ o la matriu de covariàncies de la matriu $\mathbf{Z}$ serà:
+$$
+{\mathbf{R}}=
+`r write_matex(round(cor(nens),6))`.
+$$
+Els valors propis de la matriu de correlacions anterior són:
+$$
+`r write_matex(round(t(as.matrix(vaps.nens)),6))`.
+$$
+
+
+Els corresponents vectors propis (per columnes) associats als vectors propis anteriors són:
+$$
+`r write_matex(round(veps.nens,6))`.
+$$
+Ens adonem que els vectors anteriors són ortogonals i estan normalitzats.
+
+Així la matriu que ens canviarà de variables originals a components principals serà la transposada dels vectors propis:
+$$
+\Lambda=
+`r write_matex(round(t(veps.nens),6))`.
+$$
+
+
+
+Les expressions de les components principals en funció de les variables originals tipificades són:
+\begin{align*}
+CP_1 &=`r signe0(veps.nens[1,1])``r round(abs(veps.nens[1,1]),3)`Z_1 
+`r signe(veps.nens[2,1])``r round(abs(veps.nens[2,1]),3)`Z_2
+`r signe(veps.nens[3,1])``r round(abs(veps.nens[3,1]),3)`Z_3 
+`r signe(veps.nens[4,1])``r round(abs(veps.nens[4,1]),3)`Z_4
+\\
+CP_2 &= `r signe0(veps.nens[1,2])``r round(abs(veps.nens[1,2]),3)`Z_1
+`r signe(veps.nens[2,2])``r round(abs(veps.nens[2,2]),3)`Z_2
+`r signe(veps.nens[3,2])``r round(abs(veps.nens[3,2]),3)`Z_3 
+`r signe(veps.nens[4,2])``r round(abs(veps.nens[4,2]),3)`Z_4
+\\
+CP_3 &= `r signe0(veps.nens[1,3])``r round(abs(veps.nens[1,3]),3)`Z_1
+`r signe(veps.nens[2,3])``r round(abs(veps.nens[2,3]),3)`Z_2
+`r signe(veps.nens[3,3])``r round(abs(veps.nens[3,3]),3)`Z_3 
+`r signe(veps.nens[4,3])``r round(abs(veps.nens[4,3]),3)`Z_4 \\
+CP_4 &= `r signe0(veps.nens[1,4])``r round(abs(veps.nens[1,4]),3)`Z_1
+`r signe(veps.nens[2,4])``r round(abs(veps.nens[2,4]),3)`Z_2
+`r signe(veps.nens[3,4])``r round(abs(veps.nens[3,4]),3)`Z_3 
+`r signe(veps.nens[4,4])``r round(abs(veps.nens[4,4]),3)`Z_4
+\end{align*}
+
+Per tant, la matriu de dades en les noves variables serà:
+```{r,echo=FALSE}
+CP.nens=Z%*%veps.nens
+```
+$$
+\mathbf{Y}={\mathbf{Z}}\Lambda^\top = {\mathbf{Z}}\mathbf{V}=
+`r write_matex(round(CP.nens,6))`.
+$$
+
+```{r,echo=FALSE}
+cp.nens.cor = cor(CP.nens)
+```
+
+Si calculam la matriu de correlacions de les components principals val:
+$$
+\mathbf{R}_{CP}=
+`r write_matex(round(cp.nens.cor,6))`.
+$$
+Surt la matriu diagonal, fet que posa de manifest que les components principals són incorrelades.
+
+
+La primera component principal (1a. columna de la matriu $\mathbf{CP}$) hereta el $\frac{`r round(vaps.nens[1],3)`}{`r round(sum(vaps.nens),3)`}\cdot 100\% = 
+`r round(vaps.nens[1]*100/sum(vaps.nens),3)`\%$ de la variabilitat total.
+
+Les dues primeres components principals hereten el 
+$\frac{`r round(vaps.nens[1],3)` + `r round(vaps.nens[2],3)`}{`r round(sum(vaps.nens),3)`}\cdot 100\% = 
+`r round(sum(vaps.nens[1:2])*100/sum(vaps.nens),3)`\%$ de la variabilitat total.
+
+Això ens fa pensar que si només tenim en compte les dues primeres components, podem fer un gràfic on hi estiguin representats tots els nens dibuixant de blau els nens i de vermell les nenes.
+
+Comprovem que les dues primeres components separen bé els nens i les nens. Concloem que la nostra taula de dades ``explica'' la variable sexe.
+
+```{r,echo=FALSE}
+sexe=c("nina","nina","nina","nin","nina","nina","nina","nin","nin")
+plot(CP.nens[,1],CP.nens[,2],xlab="CP1",ylab="CP2",col=ifelse(sexe=="nin","blue","red"))
+```
+
+
+
+
+## Etapes d'un ACP
+* **Primera etapa: decidir si es realitza l'ACP damunt les dades brutes centrades (matriu de covariàncies) o sobre les dades tipificades (matriu de correlacions).**
+    * Quan les variables originals $\mathbf{X}$ estan en unitats distintes, convé aplicar l'ACP de correlacions. Si estan en les mateixes unitats, ambdues alternatives són vàlides.
+    * Si les diferències entre les variàncies són informatives i volem tenir-les en compte en l'anàlisi, no hem d'estandaritzar les variables i aplicar l'ACP de covariàncies.
+* **Segona etapa: reducció de la dimensionalitat.** Hem de decidir quantes components retenim. La quantitat de variància retenguda serà:
+
+|Comp|Valor propi|Quantitat retinguda|
+|:---:|:---:|:---:|
+|$Cp_1$|$\lambda_1$|$\lambda_1/\sum_{i=1}^p \lambda_i$|
+|$Cp_2$|$\lambda_2$|$(\lambda_1+\lambda_2)/\sum_{i=1}^p \lambda_i$|
+|$Cp_3$|$\lambda_3$|$(\lambda_1+\lambda_2+\lambda_3)/\sum_{i=1}^p\lambda_i$|
+|$\vdots$|$\vdots$|$\vdots$|
+|$Cp_p$|$\lambda_p$|$(\lambda_1+\ldots+\lambda_p)/\sum_{i=1}^p \lambda_i=1$|
+
+Per decidir el  nombre de components retingudes, hi ha dos mètodes:
+
+* Seleccionar components fins cobrir una **proporció determinada de variància**, com el $80\%$ o el $90\%$. 
+* **Mètode de la mitjana aritmètica.** Se retenen totes aquelles components $\mathbf{CP}_i$ que compleixin que $\lambda_i \geq \overline{\lambda}=\frac{\sum_{i=1}^p \lambda_i}{p}$. En el cas de l'ACP de correlacions, la condició anterior és $\lambda_i\geq 1$.
+
+
+```{example,nens}
+En l'exemple dels infants,
+```
+* si aplicam el primer mètode per decidir el nombre de components retingudes, fent l'ACP de correlacions, si només elegim la primera component, ja cobrim el $`r round(vaps.nens[1]*100/sum(vaps.nens),3)`\%$ de la variància total. Si elegim les dues primeres, cobrim el $`r round(sum(vaps.nens[1:2])*100/sum(vaps.nens),3)`\%$ de la variància total.
+* si aplicam el mètode de la mitjana aritmètica, hauríem de retenir dues components ja que  els valors propis de la matriu de correlacions $\mathbf{R}$ eren 
+$`r write_matex(round(as.matrix(t(vaps.nens)),6))`.$
+
+
+
+## Descomposició en valors singulars
+Donada una matriu de dades $\mathbf{X}$ de dimensions $n\times p$, on $n\geq p$ i de rang $p$, es pot descompondre en producte de tres matrius:
+$$
+\mathbf{X}=\mathbf{U}\Sigma\mathbf{V}^\top,
+$$
+on
+
+* $\mathbf{U}$ és una matriu ortogonal $n\times p$ que té per columnes els $p$ vectors propis de la matriu $\mathbf{X}\mathbf{X}^\top$ associats als $p$ valors propis no nuls.
+* ${\Sigma}$ és una matriu diagonal $p\times p$ que té per diagonal les arrels quadrades dels valors propis de la matriu $\mathbf{X}^\top\mathbf{X}$.
+* $\mathbf{V}$ és una matriu ortogonal $p\times p$ que té per columnes els vectors propis de la matriu $\mathbf{X}^\top\mathbf{X}$ associats als $p$ valors propis no nuls.
+
+```{r,echo=FALSE}
+XtX=t(nens.cent)%*%nens.cent
+XXt=nens.cent%*%t(nens.cent)
+l2=eigen(XtX)$values
+m.u=eigen(XXt)$vectors[,1:4]
+m.v=eigen(XtX)$vectors
+m.Sigma=diag(sqrt(l2))
+```
+
+```{example, nens2}
+Considerem la matriu $\mathbf{X}$ com la matriu de dades centrada de l'exemple dels infants.
+```
+
+La matriu $\mathbf{X}^\top\mathbf{X}$ val:
+$$
+\mathbf{X}^\top\mathbf{X}=
+`r write_matex(round(XtX,6))`.
+$$
+
+La matriu $\mathbf{X}\mathbf{X}^\top$ val: (mostram només les 4 primeres columnes, pensau que és $10\times 10$)
+$$
+\mathbf{X}^\top\mathbf{X}=
+`r write_matex(round(XXt[,1:4],6))`.
+$$
+
+Els valors propis de la matriu $\mathbf{X}^\top\mathbf{X}$ són:
+$$
+`r write_matex(round(as.matrix(t(l2)),6))`.
+$$
+Per tant, la matriu $\Sigma$ serà:
+$$
+\Sigma =
+`r write_matex(round(m.Sigma,6))`.
+$$
+
+
+La matriu $\mathbf{U}$ serà la següent matriu $10\times 4$:
+$$
+\mathbf{U} =
+`r write_matex(round(m.u,6))`.
+$$
+
+La matriu $\mathbf{V}$ serà la següent matriu $4\times 4$:
+$$
+\mathbf{V} =
+`r write_matex(round(m.v,6))`.
+$$
+
+Es pot comprovar que $\mathbf{X}=\mathbf{U}\Sigma\mathbf{V}^\top$.
+
+
+
+## Relació ACP amb SVD
+Considerem una matriu de dades $\mathbf{X}$ $n\times p$ que pot ésser centrada (ACP de covariàncies) o tipificada (ACP de correlacions).
+
+
+Si considerem la seva SVD, $\mathbf{X}=\mathbf{U}\Sigma\mathbf{V}^\top$, tenim que les components principals, $\mathbf{Y}$, valen $\mathbf{CP}=\mathbf{U}\Sigma$.
+
+
+La prova és molt senzilla. Recordem que les components principals valien: $\mathbf{CP}=\mathbf{X}\mathbf{V}$, on $\mathbf{V}$ era la matriu de vectors propis de la matriu de covariàncies $\mathbf{S}=\frac{1}{n}\mathbf{X}^\top\mathbf{X}$. Ara bé, aquesta matriu coincidirà amb la matriu de vectors propis de la matriu $\mathbf{X}^\top\mathbf{X}$ ja que els vectors propis de la matriu anterior i de la matriu de covariàncies $\mathbf{S}$ són els mateixos.
+
+Per tant, 
+$$\mathbf{Y}=\mathbf{X}\mathbf{V}=\mathbf{U}\Sigma\mathbf{V}^\top\mathbf{V}=\mathbf{U}\Sigma,$$
+ja que la matriu $\mathbf{V}$ és ortogonal.
+
+
+```{block2,type="rmdimportant"}
+El producte escalar de dues files de la matriu de dades $\mathbf{X}$ coincideix amb el producte escalar de dues files de la matriu de  components principals $\mathbf{Y}$.
+```
+
+
+```{block2,type="rmdcaution"}
+Prova.
+El producte escalar de dues files de la matriu $\mathbf{X}$ ve donada per la matriu $\mathbf{X}\mathbf{X}^\top$ però:
+$$
+\mathbf{X}\mathbf{X}^\top = \mathbf{Y}\mathbf{V}^\top\mathbf{V}\mathbf{Y}^\top =\mathbf{Y}\mathbf{Y}^\top,
+$$
+aquesta última matriu ens dóna el producte escalar de dues files de la matriu de components principals.
+```
+
+
+```{block2,type="rmdimportant"}
+La distància euclídea de dues files de la matriu $\mathbf{X}$ coincideix amb la distància euclídea de la matriu de components principals $\mathbf{Y}$. O sigui, la distància entre els individus respecte les variables originals i respecte les components principals se conserva.
+```
+
+
+```{block2,type="rmdcaution"}
+Prova. Siguin $\mathbf{f}_i$ i $\mathbf{f}_j$ dues files de la matriu $\mathbf{X}$ i siguin $\mathbf{g}_i$ i $\mathbf{g}_j$ dues files de la matriu $\mathbf{Y}$. Aleshores:
+\[
+\|\mathbf{f}_i-\mathbf{f}_j\|^2 = (\mathbf{f}_i-\mathbf{f}_j)^\top (\mathbf{f}_i-\mathbf{f}_j)=\mathbf{f}_i^\top\mathbf{f}_i-2\mathbf{f}_i^\top\mathbf{f}_j+\mathbf{f}_j^\top\mathbf{f}_j.
+\]
+Ara bé, fent servir el teorema anterior tenim que:
+\[
+\mathbf{f}_i^\top\mathbf{f}_i=\mathbf{g}_i^\top\mathbf{g}_i,\ \mathbf{f}_i^\top\mathbf{f}_j=\mathbf{g}_i^\top\mathbf{g}_j, \ \mathbf{f}_j^\top\mathbf{f}_j=\mathbf{g}_j^\top\mathbf{g}_j.
+\]
+Concloem, doncs:
+\(
+\|\mathbf{f}_i-\mathbf{f}_j\|^2=\|\mathbf{g}_i-\mathbf{g}_j\|^2.
+\)
+```
+
+
+```{block2,type="rmdimportant"}
+Sigui $\mathbf{X}$ la nostra matriu de dades originals centrada o tipificada. Sigui $\mathbf{X}=\mathbf{U}\Sigma\mathbf{V}^\top$ la seva SVD. Considerem la matriu $\mathbf{V}_2 = \Sigma\mathbf{V}^\top$. Aleshores el producte escalar de dues columnes de la matriu $\mathbf{X}$ i de dues columnes de la matriu $\mathbf{V}_2$ és el mateix.
+```
+
+```{block2,type="rmdcaution"}
+Prova.
+El producte escalar de dues columnes de la matriu $\mathbf{X}$ ho dóna la matriu $\mathbf{X}^\top\mathbf{X}$. Tendrem:
+\[
+\mathbf{X}^\top\mathbf{X}=\mathbf{V}\Sigma\mathbf{U}^\top\mathbf{U}\Sigma\mathbf{V}^\top = \mathbf{V}\Sigma (\mathbf{V}\Sigma)^\top = \mathbf{V}_2^\top\mathbf{V}_2,
+\]
+matriu que dóna el producte escalar de dues columnes de la matriu $\mathbf{V}_2$.
+
+```
+
+
+
+```{block2,type="rmdimportant"}
+Sigui $\mathbf{X}$ la nostra matriu de dades originals centrada o tipificada. Sigui $\mathbf{X}=\mathbf{U}\Sigma\mathbf{V}^\top$ la seva SVD. Considerem la matriu $\mathbf{V}_2 = \Sigma\mathbf{V}^\top$. Aleshores la correlació entre dues columnes de la matriu $\mathbf{X}$ i la correlació entre dues columnes de la matriu $\mathbf{V}_2 = \Sigma\mathbf{V}^\top$ és la mateixa.
+O sigui, la correlació entre dues variables originals (dues columnes de la matriu $\mathbf{X}$) i dues columnes de la matriu $\mathbf{V}_2$ és la mateixa.
+```
+
+```{block2,type="rmdcaution"}
+Per la prova, basta aplicar el teorema anterior. 
+```
+
+
+## Biplots
+Per representar el resultat d'un ACP gràficament es fa servir el que s'anomena un biplot. 
+
+
+Un biplot és un gràfic bidimensional on es representa en el mateix gràfic els individus i les variables originals.
+
+
+El biplot només té significat si la variabilitat explicada per les dues primeres components principals és alta, posem d'un $85\%$ o més. 
+
+
+En un biplot hi ha $4$ eixos coordenats: dos fan referència als individus (eixos d'abaix i de l'esquerra) i dos fan referència a les variables originals. (eixos de dalt i de la dreta)
+
+Els eixos que fan referència als individus són els corresponents a les dues components principals.
+
+
+Per tant, les coordenades dels individus seran els valors de les dues primeres components estandaritzades (ja veurem què significa això amb un exemple).
+
+
+Hem vist que la distància euclídea entre els valors originals dels individus (files de la matriu de dades $\mathbf{X}$) i els valors d'aquests mateixos individus respecte les components principals se conserva. Això significa que si les dues primeres components principals expliquen molta variabilitat, la distància entre individus que es veurà al biplot serà aproximadament la distància entre els individus segons les variables originals.
+
+
+Les coordenades corresponents a les variables originals (columnes de la matriu de dades $\mathbf{X}$) les ens dóna les dues primeres components en columnes de la matriu $\mathbf{V}_2 = \Sigma\mathbf{V}^\top$ ja que hem vist que la correlació entre les variables originals i les columnes de la matriu anterior és la mateixa.
+
+El gràfic de les variables originals es va mitjançant vectors. La interpretació que s'ha de fer és la següent: si l'angle entre dues variables originals és petit, significa que el cosinus d'aquest angle serà gran però aquest cosinus és la correlació entre les dues variables. Per tant, hi haurà molta correlació entre les variables. En canvi, si l'angle entre les dues variables està proper a un angle recte, la correlació entre aquestes variables és quasi nul·la.
+
+
+Les llargades dels vectors són les variàncies de les variables originals. Per tant, com més llarg tengui un vector, la variable corresponent tendrà més dispersió.
+
+```{r,echo=FALSE}
+n=9
+H9=matrix(-1/n,n,n)
+diag(H9)=rep(1-1/n,n)
+nens.cent=H9%*%nens
+cov.nens=(1/n)*t(nens.cent)%*%nens.cent
+vaps.nens=eigen(cov.nens)$values
+veps.nens=eigen(cov.nens)$vectors
+CP.nens=nens.cent%*%veps.nens
+sigma=diag(svd(nens.cent)$d)
+m.v2=sigma%*%t(veps.nens)
+estudi.acp=prcomp(nens.cent)
+```
+
+
+
+```{example,nens3}
+Considerem l'exemple dels infants fent l'ACP de covariàncies.
+```
+Recordem que les dues primeres components principals explicaven el $`r round(sum(vaps.nens[1:2])*100/sum(vaps.nens),3)`\%$ de la variabilitat total.
+
+Les components principals eren les següents:
+$$
+\mathbf{Y}=
+`r write_matex(round(CP.nens,6))`
+$$
+
+
+Quan representem els individus (nens i nenes) en el biplot representarem les dues primeres columnes de la matriu anterior tipificada. 
+
+Això significa que dividirem cada element de la matriu per la norma euclídea de la columna. Així la norma euclídea de la primera columna de la matriu anterior val:
+$$
+\sqrt{`r round(abs(CP.nens[1,1]),3)`^2+\cdots+`r round(abs(CP.nens[9,1]),3)`^2}=`r round(sqrt(sum(CP.nens[,1]^2)),3)`.
+$$
+Fent el mateix amb la segona columna,
+$$
+\sqrt{`r round(abs(CP.nens[1,2]),3)`^2+\cdots+`r round(abs(CP.nens[9,2]),3)`^2}=`r round(sqrt(sum(CP.nens[,2]^2)),3)`.
+$$
+```{r,echo=FALSE}
+coor.nens.biplot = CP.nens[,1:2]%*%diag(c(1/sqrt(sum(CP.nens[,1]^2)), 
+1/sqrt(sum(CP.nens[,2]^2))))
+```
+
+Les coordenades dels nens i nenes en el biplot seran:
+$$
+`r write_matex(round(CP.nens[,1:2],6))` 
+\left(
+\begin{array}{cc}
+\frac{1}{`r round(sqrt(sum(CP.nens[,1]^2)),3)`}&0\\
+0&\frac{1}{`r round(sqrt(sum(CP.nens[,2]^2)),3)`}
+\end{array}
+\right)=`r write_matex(round(coor.nens.biplot,6))`.
+$$
+
+Passem ara a calcular les coordenades de les variables originals.
+
+
+Recordem que la matriu de vectors propis de la matriu de covariàncies $\mathbf{S}$ era:
+$$
+`r write_matex(round(veps.nens,6))`.
+$$
+
+Si fem la SVD de la matriu de dades centrada $\tilde{\mathbf{X}}$, la matriu $\Sigma$ serà:
+$$
+\Sigma=
+`r write_matex(round(sigma,6))`.
+$$
+Per tant, la matriu $\mathbf{V}_2 =\Sigma\mathbf{V}^\top$ serà:
+$$
+\mathbf{V}_2 = 
+`r write_matex(round(m.v2,6))`.
+$$
+
+
+
+Per tant, les coordenades de les $4$ variables originals són:
+
+* ${\mathbf{x}_1}$: Edat en dies. 
+$$`r write_matex(round(as.matrix(t(m.v2[1:2,1])),6))`.$$
+
+* ${\mathbf{x}_2}$: Alçada en néixer. 
+$$`r write_matex(round(as.matrix(t(m.v2[1:2,2])),6))`.$$
+
+* ${\mathbf{x}_3}$: Pes en néixer 
+$$`r write_matex(round(as.matrix(t(m.v2[1:2,3])),6))`.$$
+
+* ${\mathbf{x}_4}$: Augment en tant per cent del seu pes actual respecte del seu pes en néixer 
+$$`r write_matex(round(as.matrix(t(m.v2[1:2,4])),6))`.$$
+
+
+A continuació mostram el biplot:
+```{r,echo=FALSE}
+biplot(estudi.acp)
+```
+
+Comprovem les coordenades dels punts i de les variables.
+
+
+Veiem també que entre les parelles de variables $(\mathbf{x}_1, \mathbf{x}_2)$ i   $(\mathbf{x}_3,\mathbf{x}_4)$ hi ha bastanta correlació i entre les parelles $(\mathbf{x}_2, \mathbf{x}_3)$ i $(\mathbf{x}_2, \mathbf{x}_4)$ n'hi ha poca com podem comprovar si calculem la correlació entre les variables originals:
+$$
+`r write_matex2(round(cor(nens.cent),6))`
+$$
+Observem que les variables amb més dispersió són l'edat de l'infant i l'alçada en néixer.
+
+
+
+
+
+
+
