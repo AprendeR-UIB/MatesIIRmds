@@ -255,7 +255,7 @@ Si `X` és un vector de nombres naturals consecutius de l'1 a l'N, basta entrar-
 
 
 ```{example,sampleUIB}
-La UIB té uns 12000 estudiants. Suposem que aquest nombre és exacte i que els tenim numerats de l'1 al 12000. Aleshores, podríem treure'n una mostra aleatòria simple de mida 20 amb
+La UIB té uns 12000 estudiants. Suposem que aquest nombre és exacte i que els tenim numerats de l'1 al 12000. Aleshores, podríem treure'n una mostra aleatòria simple de mida 50 amb
 
 
 ```
